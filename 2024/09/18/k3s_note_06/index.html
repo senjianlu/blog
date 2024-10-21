@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>K3s 学习（六）在 Kubernetes 集群上安装 cert-manager - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="前言起因是随着业务扩展，又在日本、新加坡以及英国等国家地区增设了不少边缘节点，一个一个维护消耗的精力太多了，因此需要将这些内容分发服务器也做统一管理了，这样后续扩容也更加方便。这其中的一个痛点是 SSL 证书，主业务 40 刀每年的泛域名证书已经让我很肉疼了。想着能不能让集群中的 pod 都用 Let’s Encrypt 的免费证书，于是便发现了 cert-manager 这个云原生证书管理开源项"><meta property="og:type" content="article"><meta property="og:title" content="K3s 学习（六）在 Kubernetes 集群上安装 cert-manager"><meta property="og:url" content="https://senjianlu.com/2024/09/18/k3s_note_06/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="前言起因是随着业务扩展，又在日本、新加坡以及英国等国家地区增设了不少边缘节点，一个一个维护消耗的精力太多了，因此需要将这些内容分发服务器也做统一管理了，这样后续扩容也更加方便。这其中的一个痛点是 SSL 证书，主业务 40 刀每年的泛域名证书已经让我很肉疼了。想着能不能让集群中的 pod 都用 Let’s Encrypt 的免费证书，于是便发现了 cert-manager 这个云原生证书管理开源项"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-04/k3s.png"><meta property="article:published_time" content="2024-09-18T13:00:00.000Z"><meta property="article:modified_time" content="2024-09-18T13:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="K3s"><meta property="article:tag" content="服务器集群"><meta property="article:tag" content="cert-manager"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-04/k3s.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/09/18/k3s_note_06/"},"headline":"K3s 学习（六）在 Kubernetes 集群上安装 cert-manager","image":["https://image.senjianlu.com/blog/2024-09-04/k3s.png"],"datePublished":"2024-09-18T13:00:00.000Z","dateModified":"2024-09-18T13:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"前言起因是随着业务扩展，又在日本、新加坡以及英国等国家地区增设了不少边缘节点，一个一个维护消耗的精力太多了，因此需要将这些内容分发服务器也做统一管理了，这样后续扩容也更加方便。这其中的一个痛点是 SSL 证书，主业务 40 刀每年的泛域名证书已经让我很肉疼了。想着能不能让集群中的 pod 都用 Let’s Encrypt 的免费证书，于是便发现了 cert-manager 这个云原生证书管理开源项"}</script><link rel="canonical" href="https://senjianlu.com/2024/09/18/k3s_note_06/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-09-18T13:00:00.000Z" title="9/18/2024, 9:00:00 PM">2024-09-18</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/">服务部署</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">K3s 学习（六）在 Kubernetes 集群上安装 cert-manager</h1><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>起因是随着业务扩展，又在日本、新加坡以及英国等国家地区增设了不少边缘节点，一个一个维护消耗的精力太多了，因此需要将这些内容分发服务器也做统一管理了，这样后续扩容也更加方便。<br>这其中的一个痛点是 SSL 证书，主业务 40 刀每年的泛域名证书已经让我很肉疼了。想着能不能让集群中的 <code>pod</code> 都用 Let’s Encrypt 的免费证书，于是便发现了 <code>cert-manager</code> 这个云原生证书管理开源项目，似乎可以做到。<br>因此便有了这次尝试：先构建一台 <code>K3s Server</code> + 一台 <code>K3s Agent</code> 的最小化 K3s 集群，之后安装 <code>cert-manager</code>，然后启动一个纯前端的项目验证安装成功。</p>
+<span id="more"></span>
+
+<hr>
+<h2 id="方案概述"><a href="#方案概述" class="headerlink" title="方案概述"></a>方案概述</h2><ol>
+<li>构建一台 <code>K3s Server</code> + 一台 <code>K3s Agent</code> 的最小化 K3s 集群</li>
+<li>检查集群满足 <code>cert-manager</code> 的安装要求</li>
+<li>安装 Helm 并添加 Helm Chart 仓库</li>
+<li>安装 <code>cert-manager</code></li>
+<li>测试 <code>cert-manager</code><ul>
+<li>建立集群证书颁发者 ClusterIssuer</li>
+<li>部署纯前端项目</li>
+<li>配置 Service 和 Ingress 暴露应用</li>
+<li>访问应用检查 SSL 证书</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><h3 id="一、构建最小化集群"><a href="#一、构建最小化集群" class="headerlink" title="一、构建最小化集群"></a>一、构建最小化集群</h3><blockquote>
+<p>参考 K3s 官方文档：<a target="_blank" rel="noopener" href="https://docs.k3s.io/zh/quick-start">快速入门指南</a>  </p>
+</blockquote>
+<p>最大 100 台的集群需要 <code>K3s Server</code> 至少拥有 4 核心和 8GB 内存。<br>这里使用了一台 2H8G（可动态扩容）的云服务器作为 <code>K3s Server</code>，另一台 4H16G 的云服务器作为 <code>Agent</code>，均已<strong>重装</strong>为 Ubuntu 22.04 系统。  </p>
+<blockquote>
+<p>可能需要更新下源并安装必要的依赖：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install curl</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>**安装并标记为 <code>K3s Server</code>**：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -sfL https://get.k3s.io | sh -s - </span><br><span class="line"><span class="comment"># 查看以下 node-token</span></span><br><span class="line"><span class="built_in">cat</span> /var/lib/rancher/k3s/server/node-token</span><br></pre></td></tr></table></figure>
+
+<p>**安装并标记为 <code>K3s Agent</code>**：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sfL https://get.k3s.io | K3S_URL=https://<span class="variable">$your_node_ip</span>:6443 K3S_TOKEN=<span class="variable">$your_node_token</span> sh -</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>Server</code> 上检查 <code>Agent</code> 来确定集群构建成功：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get nodes</span><br></pre></td></tr></table></figure>
+<p><img src="https://image.senjianlu.com/blog/2024-09-13/k3s_nodes_ok.png" alt="Server 和 Agent 都出现了"></p>
+<h3 id="二、检查集群满足-cert-manager-的安装要求"><a href="#二、检查集群满足-cert-manager-的安装要求" class="headerlink" title="二、检查集群满足 cert-manager 的安装要求"></a>二、检查集群满足 cert-manager 的安装要求</h3><p>需要满足以下这些基本要求：</p>
+<blockquote>
+<p>打 ✅ 的项目是 K3s 集群自带或者非常基础的条件，无需关注。<br>打 ⬜ 的项目需要注意。</p>
+</blockquote>
+<ul>
+<li>✅ 集群必须包含一个 <code>Ingress Controller</code><blockquote>
+<p>文档描述：“对于 RKE、RKE2 和 <u><strong>K3s</strong>，你不需要手动安装 Ingress Controller，因为它是默认安装的。</u>”。<br>**这里的默认负载方案是 <code>traefik</code> 和 <code>servicelb</code>**。</p>
+</blockquote>
+</li>
+<li>✅ 集群需要有 <code>kubectl</code>（Kubernetes 命令行工具）<blockquote>
+<p>K3s 集群同样默认安装，我们之前就是通过 <code>kubectl get nodes</code> 这个命令检查节点的。</p>
+</blockquote>
+</li>
+<li>⬜ 集群需要有 <code>Helm</code> （Kubernetes 包管理器）</li>
+<li>✅ 集群需要能够访问<strong>互联网</strong><blockquote>
+<p>如果无法联网请参考：<a target="_blank" rel="noopener" href="https://ranchermanager.docs.rancher.com/zh/getting-started/installation-and-upgrade/other-installation-methods/air-gapped-helm-cli-install/install-rancher-ha">离线环境：Kubernetes 安装</a>，我并没有做过实践。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="三、安装-Helm-并添加-Helm-Chart-仓库"><a href="#三、安装-Helm-并添加-Helm-Chart-仓库" class="headerlink" title="三、安装 Helm 并添加 Helm Chart 仓库"></a>三、安装 Helm 并添加 Helm Chart 仓库</h3><blockquote>
+<p>官方文档：<a target="_blank" rel="noopener" href="https://helm.sh/zh/docs/intro/install/#%E4%BD%BF%E7%94%A8apt-debianubuntu">安装 Helm - 使用 Apt (Debian&#x2F;Ubuntu)</a></p>
+</blockquote>
+<p>在 <code>K3s Server</code> 上安装一下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 必要的依赖</span></span><br><span class="line"><span class="built_in">sudo</span> apt install gnupg2</span><br><span class="line"><span class="comment"># 安装 Helm</span></span><br><span class="line">curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | <span class="built_in">sudo</span> <span class="built_in">tee</span> /usr/share/keyrings/helm.gpg &gt; /dev/null</span><br><span class="line"><span class="built_in">sudo</span> apt-get install apt-transport-https --<span class="built_in">yes</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb [arch=<span class="subst">$(dpkg --print-architecture)</span> signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main&quot;</span> | <span class="built_in">sudo</span> <span class="built_in">tee</span> /etc/apt/sources.list.d/helm-stable-debian.list</span><br><span class="line"><span class="built_in">sudo</span> apt-get update</span><br><span class="line"><span class="built_in">sudo</span> apt-get install helm</span><br></pre></td></tr></table></figure>
+<p>安装完成后确认下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">helm version</span><br></pre></td></tr></table></figure>
+<p><img src="https://image.senjianlu.com/blog/2024-09-13/heml_version.png" alt="Helm v3.0+ 安装成功"></p>
+<p>仓库这里选用 Stable 版本，官方推荐它适用于生产环境：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">helm repo add rancher-stable https://releases.rancher.com/server-charts/stable</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>之后在使用 Helm 安装的时候，很有可能会出现 “Kubernetes cluster unreachable” 错误，需要在安装前运行下面命令来防止：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export KUBECONFIG=/etc/rancher/k3s/k3s.yaml&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="四、安装-cert-manager"><a href="#四、安装-cert-manager" class="headerlink" title="四、安装 cert-manager"></a>四、安装 cert-manager</h3><blockquote>
+<p>这一步请参照比 Rancher 官方更新的文档：<a target="_blank" rel="noopener" href="https://artifacthub.io/packages/helm/cert-manager/cert-manager#installing-the-chart">Installing the Chart</a></p>
+</blockquote>
+<p>所有命令依然是都在 <code>K3s Server</code> 上运行。<br>去<a target="_blank" rel="noopener" href="https://github.com/cert-manager/cert-manager/releases">官方 GitHub 仓库</a>确认下版本编号，之后下载最新的 <code>cert-manager.crds.yaml</code>，我当前是 <code>v1.15.3</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /root/</span><br><span class="line">kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.15.3/cert-manager.crds.yaml</span><br></pre></td></tr></table></figure>
+<p>添加仓库并更新本地缓存：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">helm repo add jetstack https://charts.jetstack.io</span><br><span class="line">helm repo update</span><br></pre></td></tr></table></figure>
+
+<p>安装：</p>
+<blockquote>
+<p><strong>这一步出错的可能性非常高</strong>！<br>如果下一步安装失败了，会有非常多的冲突项要清理，之后才能进行重新安装。<br><u>我比较建议失败了就记录下解决方法，然后重装系统并在执行安装前完成所有必要项目。</u>  </p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 建立下命名空间</span></span><br><span class="line">kubectl create namespace cert-manager</span><br><span class="line"><span class="comment"># 安装</span></span><br><span class="line">helm install cert-manager jetstack/cert-manager \</span><br><span class="line">  --namespace cert-manager \</span><br><span class="line">  --version v1.15.3</span><br></pre></td></tr></table></figure>
+<p><img src="https://image.senjianlu.com/blog/2024-09-13/213507.png" alt="安装成功"><br>检查下各 <code>pod</code> 的情况：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get pods --namespace cert-manager</span><br></pre></td></tr></table></figure>
+<p><img src="https://image.senjianlu.com/blog/2024-09-13/213648.png" alt="pod 状态正常"></p>
+<h3 id="五、测试-cert-manager"><a href="#五、测试-cert-manager" class="headerlink" title="五、测试 cert-manager"></a>五、测试 cert-manager</h3><h4 id="1、建立集群证书颁发者-ClusterIssuer"><a href="#1、建立集群证书颁发者-ClusterIssuer" class="headerlink" title="1、建立集群证书颁发者 ClusterIssuer"></a>1、建立集群证书颁发者 ClusterIssuer</h4><p>新建配置文件 <code>letsencrypt.yml</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi letsencrypt.yml</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意将 <code>admin@ceshiku.cn</code> 修改为你的邮箱。</p>
+</blockquote>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">cert-manager.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ClusterIssuer</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">letsencrypt-prod</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">acme:</span></span><br><span class="line">    <span class="attr">email:</span> <span class="string">admin@ceshiku.cn</span></span><br><span class="line">    <span class="attr">privateKeySecretRef:</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">prod-issuer-account-key</span></span><br><span class="line">    <span class="attr">server:</span> <span class="string">https://acme-v02.api.letsencrypt.org/directory</span></span><br><span class="line">    <span class="attr">solvers:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">http01:</span></span><br><span class="line">        <span class="attr">ingress:</span></span><br><span class="line">          <span class="attr">class:</span> <span class="string">traefik</span></span><br><span class="line">      <span class="attr">selector:</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>部署并查看：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f letsencrypt.yml</span><br><span class="line">kubectl describe clusterissuer letsencrypt</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、部署纯前端项目"><a href="#2、部署纯前端项目" class="headerlink" title="2、部署纯前端项目"></a>2、部署纯前端项目</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl create namespace logos</span><br></pre></td></tr></table></figure>
+<p>新建配置文件 <code>deployment.yml</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi deployment.yml</span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Deployment</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">rancher-logo-app</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">logos</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">rancher-logo-backend</span></span><br><span class="line">  <span class="attr">template:</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">name:</span> <span class="string">rancher-logo-backend</span></span><br><span class="line">    <span class="attr">spec:</span></span><br><span class="line">      <span class="attr">containers:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">backend</span></span><br><span class="line">          <span class="attr">image:</span> <span class="string">ruanbekker/logos:rancher</span></span><br><span class="line">          <span class="attr">ports:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">80</span></span><br></pre></td></tr></table></figure>
+<p>部署并查看：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f deployment.yml</span><br><span class="line">kubectl get deployment -n logos</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、配置-Service-和-Ingress-暴露应用"><a href="#3、配置-Service-和-Ingress-暴露应用" class="headerlink" title="3、配置 Service 和 Ingress 暴露应用"></a>3、配置 Service 和 Ingress 暴露应用</h4><p>新建配置文件 <code>service.yml</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi service.yml</span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">rancher-logo-service</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">logos</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">http</span></span><br><span class="line">      <span class="attr">port:</span> <span class="number">80</span></span><br><span class="line">      <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">      <span class="attr">targetPort:</span> <span class="number">80</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">rancher-logo-backend</span></span><br></pre></td></tr></table></figure>
+<p>部署并查看：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f service.yml</span><br><span class="line">kubectl get service -n logos</span><br></pre></td></tr></table></figure>
+<p>新建配置文件 <code>ingress.yml</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ingress.yml</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意将 <code>logos.ceshiku.cn</code> 修改为你的域名。</p>
+</blockquote>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">networking.k8s.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Ingress</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">    <span class="attr">annotations:</span></span><br><span class="line">        <span class="attr">cert-manager.io/cluster-issuer:</span> <span class="string">letsencrypt-prod</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">rancher-logo-ingress</span></span><br><span class="line">    <span class="attr">namespace:</span> <span class="string">logos</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">tls:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">secretName:</span> <span class="string">rancher-logo-k3s-ruan-dev-tls</span></span><br><span class="line">      <span class="attr">hosts:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">logos.ceshiku.cn</span></span><br><span class="line">  <span class="attr">rules:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">host:</span> <span class="string">logos.ceshiku.cn</span></span><br><span class="line">    <span class="attr">http:</span></span><br><span class="line">      <span class="attr">paths:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">pathType:</span> <span class="string">Prefix</span></span><br><span class="line">          <span class="attr">path:</span> <span class="string">/</span></span><br><span class="line">          <span class="attr">backend:</span></span><br><span class="line">            <span class="attr">service:</span></span><br><span class="line">              <span class="attr">name:</span> <span class="string">rancher-logo-service</span></span><br><span class="line">              <span class="attr">port:</span></span><br><span class="line">                <span class="attr">number:</span> <span class="number">80</span></span><br></pre></td></tr></table></figure>
+<p>部署并查看：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f ingress.yml</span><br><span class="line">kubectl get ingress -n logos</span><br></pre></td></tr></table></figure>
+<p>外部流量先到 Ingress，然后通过 Service 到 Deployment：<br><img src="https://image.senjianlu.com/blog/2024-09-18/205401.png" alt="Ingress"><br><img src="https://image.senjianlu.com/blog/2024-09-18/205439.png" alt="Service"><br><img src="https://image.senjianlu.com/blog/2024-09-18/205511.png" alt="Deployment"></p>
+<h4 id="4、访问应用检查-SSL-证书"><a href="#4、访问应用检查-SSL-证书" class="headerlink" title="4、访问应用检查 SSL 证书"></a>4、访问应用检查 SSL 证书</h4><p>证书可信：<br><img src="https://image.senjianlu.com/blog/2024-09-18/ssl.png" alt="证书签发自 Let’s Encrypt">  </p>
+<hr>
+<h2 id="各种意外情况"><a href="#各种意外情况" class="headerlink" title="各种意外情况"></a>各种意外情况</h2><h3 id="一、Kubernetes-cluster-unreachable"><a href="#一、Kubernetes-cluster-unreachable" class="headerlink" title="一、Kubernetes cluster unreachable"></a>一、Kubernetes cluster unreachable</h3><p>常在 Helm 安装 <code>cert-manager</code> 时出现，错误内容：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: INSTALLATION FAILED: Kubernetes cluster unreachable: Get &quot;http://localhost:8080/version&quot;: dial tcp [::1]:8080: connect: connection refused</span><br></pre></td></tr></table></figure>
+<p>解决方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export KUBECONFIG=/etc/rancher/k3s/k3s.yaml&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+<p>之后往往需要删除 <code>cert-manager</code> 命名空间方便重新安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete namespace cert-manager</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、cert-manager-的安装有误"><a href="#二、cert-manager-的安装有误" class="headerlink" title="二、cert-manager 的安装有误"></a>二、cert-manager 的安装有误</h3><p>如果你需要重新安装 <code>cert-manager</code>，那么需要删除命名空间：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete namespace cert-manager</span><br></pre></td></tr></table></figure>
+<p>大概率它会卡住然后命名空间处于 Terminating 状态，那么请参照 <a href="https://senjianlu.com/2024/09/13/kubernetes_delete_namespace_terminating/">Kubernetes 删除 namespace 时一直处于 Terminating 状态的解决方法</a>这篇文章进行强制删除。<br>之后再通过 <code>kubectl delete</code> 删除冲突的 <code>Cluster</code> 和 <code>ClusterRole</code> 等：</p>
+<blockquote>
+<p>官方清理文档：<a target="_blank" rel="noopener" href="https://cert-manager.io/docs/installation/helm/#uninstalling">Helm</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete crd \</span><br><span class="line">  issuers.cert-manager.io \</span><br><span class="line">  clusterissuers.cert-manager.io \</span><br><span class="line">  certificates.cert-manager.io \</span><br><span class="line">  certificaterequests.cert-manager.io \</span><br><span class="line">  orders.acme.cert-manager.io \</span><br><span class="line">  challenges.acme.cert-manager.io</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete apiservice v1beta1.webhook.cert-manager.io</span><br></pre></td></tr></table></figure>
+<p>最后重新安装，<u>重新安装的时候大概率会有其他冲突项需要手动一点点删除</u>。</p>
+<hr>
+<p>参考资料：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://ranchermanager.docs.rancher.com/zh/getting-started/installation-and-upgrade/install-upgrade-on-a-kubernetes-cluster">在 Kubernetes 集群上安装&#x2F;升级 Rancher</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/rancher/rancher/issues/42699">[BUG] Failed to update cluster [local]: Internal error occurred: failed calling webhook “rancher.cattle.io.clusters.management.cattle.io”</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45360317/article/details/134093216">卸载helm安装的Rancher</a></li>
+<li><a target="_blank" rel="noopener" href="https://medium.com/@libero422/%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4-4%EC%97%90-k8s-%ED%81%B4%EB%9F%AC%EC%8A%A4%ED%84%B0-%EC%98%AC%EB%A6%AC%EA%B8%B0-cert-manager-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0-5402d4556ec6">라즈베리파이 4에 K8S 클러스터 올리기 — cert-manager 배포하기</a></li>
+<li><a target="_blank" rel="noopener" href="https://dreamhunter2333.com/posts/k8s/install-k3s.html">安装 k3s + ingress nginx + cert-manager</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.wuweixin.com/2022/05/27/k3s-ingress-traefik-replaced-with-nginx/">将 K3s 中 Ingress 组件从 Traefik 替换为 Nginx</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/vpc123/articles/14407062.html">K8s &amp; K3s 集群中应用自动签发 Https 证书</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/j610152753/article/details/127581375">k3s+traefik+cert-manager+letsencrypt实现web服务全https</a></li>
+<li>📺 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=deLW2h1RGz0">K3S + Nginx + Cert-Manager + LetsEncrypt | HTTPS for your Kubernetes (K8s) Cluster | Tutorial</a></li>
+<li><a target="_blank" rel="noopener" href="https://ewhisper.cn/posts/1584/">Cert Manager 申请 SSL 证书流程及相关概念 - 一</a></li>
+<li>⭐ <a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2347487">k3s 使用 Letsencrypt 和 Traefik 完成 https 入口部署</a></li>
+<li><a target="_blank" rel="noopener" href="https://atbug.com/automated-k8s-gateway-certificates-management-with-cert-manager/">使用 Cert Manager 自动管理 Kubernetes Gateway 证书</a></li>
+</ul>
+</div><div class="article-licensing box"><div class="licensing-title"><p>K3s 学习（六）在 Kubernetes 集群上安装 cert-manager</p><p><a href="https://senjianlu.com/2024/09/18/k3s_note_06/">https://senjianlu.com/2024/09/18/k3s_note_06/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-09-18</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-09-18</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/K3s/">K3s</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%9B%86%E7%BE%A4/">服务器集群</a><a class="link-muted mr-2" rel="tag" href="/tags/cert-manager/">cert-manager</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/09/19/translate_news_nhk_20240919_k10014585511000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - 中国 台湾から輸入の一部の農産品 関税免除措置の停止を発表</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/09/18/translate_news_nhk_20240918_k10014584511000/"><span class="level-item">日语翻译 - 新闻 - さいたま市 住宅に3人組の男が押し入り 財布など奪い逃走</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#前言"><span class="level-left"><span class="level-item">前言</span></span></a></li><li><a class="level is-mobile" href="#方案概述"><span class="level-left"><span class="level-item">方案概述</span></span></a></li><li><a class="level is-mobile" href="#操作步骤"><span class="level-left"><span class="level-item">操作步骤</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、构建最小化集群"><span class="level-left"><span class="level-item">一、构建最小化集群</span></span></a></li><li><a class="level is-mobile" href="#二、检查集群满足-cert-manager-的安装要求"><span class="level-left"><span class="level-item">二、检查集群满足 cert-manager 的安装要求</span></span></a></li><li><a class="level is-mobile" href="#三、安装-Helm-并添加-Helm-Chart-仓库"><span class="level-left"><span class="level-item">三、安装 Helm 并添加 Helm Chart 仓库</span></span></a></li><li><a class="level is-mobile" href="#四、安装-cert-manager"><span class="level-left"><span class="level-item">四、安装 cert-manager</span></span></a></li><li><a class="level is-mobile" href="#五、测试-cert-manager"><span class="level-left"><span class="level-item">五、测试 cert-manager</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#1、建立集群证书颁发者-ClusterIssuer"><span class="level-left"><span class="level-item">1、建立集群证书颁发者 ClusterIssuer</span></span></a></li><li><a class="level is-mobile" href="#2、部署纯前端项目"><span class="level-left"><span class="level-item">2、部署纯前端项目</span></span></a></li><li><a class="level is-mobile" href="#3、配置-Service-和-Ingress-暴露应用"><span class="level-left"><span class="level-item">3、配置 Service 和 Ingress 暴露应用</span></span></a></li><li><a class="level is-mobile" href="#4、访问应用检查-SSL-证书"><span class="level-left"><span class="level-item">4、访问应用检查 SSL 证书</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="#各种意外情况"><span class="level-left"><span class="level-item">各种意外情况</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、Kubernetes-cluster-unreachable"><span class="level-left"><span class="level-item">一、Kubernetes cluster unreachable</span></span></a></li><li><a class="level is-mobile" href="#二、cert-manager-的安装有误"><span class="level-left"><span class="level-item">二、cert-manager 的安装有误</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2024 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
