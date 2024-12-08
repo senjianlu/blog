@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/12/05 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam50 题 (No.336 ~ No.385) 只记录了 11 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/12/05"><meta property="og:url" content="https://senjianlu.com/2024/12/05/saa_test_daily_20241205/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam50 题 (No.336 ~ No.385) 只记录了 11 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-12-05T11:00:00.000Z"><meta property="article:modified_time" content="2024-12-05T12:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/12/05/saa_test_daily_20241205/"},"headline":"SAA 考试每日练习 - 2024/12/05","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-12-05T11:00:00.000Z","dateModified":"2024-12-05T12:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam50 题 (No.336 ~ No.385) 只记录了 11 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/12/05/saa_test_daily_20241205/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-12-05T11:00:00.000Z" title="12/5/2024, 7:00:00 PM">2024-12-05</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/12/05</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/">Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam</a><br>50 题 (No.336 ~ No.385) <strong>只记录了 11 道首次碰到的、错误的或有疑问的题目</strong>，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<p><strong>🌟 单词：</strong></p>
+<ol>
+<li>embedded<sub><u>adj. 植入的, 内含的, 深入的 | v. 埋入, 植入, 深入 | vbl. 埋入, 植入, 深入</u></sub></li>
+<li>overall<sub><u>adj. 全面的；综合的；总体的 | adv. 全部；总计；一般来说；大致上 | n. 外套；罩衣；工装服；连身工作服</u></sub></li>
+</ol>
+<hr>
+<h3 id="一、Aurora-cross-region"><a href="#一、Aurora-cross-region" class="headerlink" title="一、Aurora cross region"></a>一、Aurora cross region</h3><p>A solutions architect must create a disaster recovery (DR) plan for a high-volume software as a service (SaaS) platform. All data for the platform is stored in an Amazon Aurora MySQL DB cluster.<br>The DR plan must replicate data to a secondary AWS Region.<br>Which solution will meet these requirements MOST cost-effectively?</p>
+<ol>
+<li>Use MySQL binary log replication to an Aurora cluster in the secondary Region. Provision one DB instance for the Aurora cluster in the secondary Region.</li>
+<li>✅ Set up an Aurora global database for the DB cluster. When setup is complete, remove the DB instance from the secondary Region.</li>
+<li>Use AWS Database Migration Service (AWS DMS) to continuously replicate data to an Aurora cluster in the secondary Region. Remove the DB instance from the secondary Region.</li>
+<li>❌ Set up an Aurora global database for the DB cluster. Specify a minimum of one DB instance in the secondary Region.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：Aurora MySQL DB cluster、secondary AWS Region</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：现在已经有了一个 <code>Aurora MySQL DB</code> 集群，现在因为灾备需要将数据复制到另一个区域中。<br>只使用 <code>Aurora global database</code> 就能解决问题了：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/rds/aurora/global-database/">Amazon Aurora 全球数据库</a></p>
+<blockquote>
+<p>Amazon Aurora Global Database 针对全球分布式应用程序而设计，允许单个 Amazon Aurora 数据库跨越多个 AWS 区域。它在不影响数据库性能的情况下复制您的数据，在每个区域中实现低延迟的快速本地读取，并且在发生区域级的中断时提供灾难恢复能力。</p>
+</blockquote>
+<p>2️⃣ 和 4️⃣ 的区别在于，2️⃣ 将 DB 实例从第二个区域中移除，而 4️⃣ 则在其他区域指定了一个最小的 DB 实例。<br>首先看下 <code>Aurora global database DB cluster</code> 的概念：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html">Using Amazon Aurora Global Database</a></p>
+<blockquote>
+<p>In the following diagram, you can find an example Aurora global database that spans two AWS Regions.<br><img src="https://image.senjianlu.com/blog/2024-12-06/aurora-global-databases-conceptual-illo.png" alt="Aurora global database DB cluster">  </p>
+</blockquote>
+<p>它可以在一个区域中部署主集群，然后在其他地方自动部署只读集群。<br>而衍生出的一个概念就是 <code>headless cluster</code>：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/blogs/database/achieve-cost-effective-multi-region-resiliency-with-amazon-aurora-global-database-headless-clusters/">Achieve cost-effective multi-Region resiliency with Amazon Aurora Global Database headless clusters</a></p>
+<blockquote>
+<p>Headless Secondary Amazon Aurora 数据库集群是指没有数据库实例的集群。这种配置可以降低 Aurora 全局数据库的费用。在 Aurora 数据库集群中，计算和存储是分离的。没有数据库实例，就不收取计算费用。您可以在二级区域中为 Aurora 集群添加实例，以便向您的用户和应用程序提供。</p>
+</blockquote>
+<p>没有实例的第二区域的数据库集群，显然它是本题的考点。 </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：I originally went for D but now I think B is correct. D isactive-active cluster so whereas B isactive-passive (headless cluster) so it is cheaper than D.<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/blogs/database/achieve-cost-effective-multi-region-resiliency-with-amazon-aurora-global-database-headless-clusters/">https://aws.amazon.com/blogs/database/achieve-cost-effective-multi-region-resiliency-with-amazon-aurora-global-database-headless-clusters/</a></p>
+</blockquote>
+<hr>
+<h3 id="二、SQS-message-size-limit"><a href="#二、SQS-message-size-limit" class="headerlink" title="二、SQS message size limit"></a>二、SQS message size limit</h3><p>A company has a Java application that uses Amazon Simple Queue Service (Amazon SQS) to parse messages. The application cannot parse messages that are larger than 256 KB in size. The company wants to implement a solution to give the application the ability to parse messages as large as 50 MB.<br>Which solution will meet these requirements with the FEWEST changes to the code?</p>
+<ol>
+<li>✅ Use the Amazon SQS Extended Client Library for Java to host messages that are larger than 256 KB in Amazon S3.</li>
+<li>Use Amazon EventBridge to post large messages from the application instead of Amazon SQS.</li>
+<li>Change the limit in Amazon SQS to handle messages that are larger than 256 KB.</li>
+<li>Store messages that are larger than 256 KB in Amazon ElasticFile System (Amazon EFS). Configure Amazon SQS to reference this location in the messages.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：SQS、256 KB</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：连接到 <code>SQS</code> 的 Java 应用无法消费超过 256 KB 的消息。<br><code>SQS</code> 本身不支持超过 256 KB 大小的消息：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-queue-parameters.html">Configuring queue parameters using the Amazon SQS console</a>  </p>
+<blockquote>
+<ol start="8">
+<li>For Maximum message size, enter a value. The range is 1 KB to 256 KB. The default value is 256 KB.</li>
+</ol>
+</blockquote>
+<p>使用 <code>Amazon SQS Extended Client Library for Java</code> 后可以处理超过 2 GB 大小的消息：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-s3-messages.html">Managing large Amazon SQS messages using Java and Amazon S3</a></p>
+<blockquote>
+<p>You can use the <a target="_blank" rel="noopener" href="https://github.com/awslabs/amazon-sqs-java-extended-client-lib">Amazon SQS Extended Client Library for Java</a> and Amazon Simple Storage Service (Amazon S3) to manage large Amazon Simple Queue Service (Amazon SQS) messages. This is especially useful for consuming large message payloads, from 256 KB and up to 2 GB. The library saves the message payload to an Amazon S3 bucket and sends a message containing a reference of the stored Amazon S3 object to an Amazon SQS queue.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A. Use the Amazon SQS Extended Client Library for Java to host messages that are larger than 256 KB in Amazon S3.<br>Amazon SQS hasa limit of 256 KB for the size of messages.To handle messages larger than 256 KB, the Amazon SQS Extended Client Library for Java can be used.This libraryallows messages larger than 256 KB to be stored in Amazon S3 and providesa way to retrieve and process them. Using this solution, the application code can remain largely unchanged while still being able to process messages up to 50 MB in size.</p>
+</blockquote>
+<hr>
+<h3 id="三、Saving-plans"><a href="#三、Saving-plans" class="headerlink" title="三、Saving plans"></a>三、Saving plans</h3><p>A company has an application that is running on Amazon EC2 instances. A solutions architect has standardized the company on a particular instance family and various instance sizes based on the current needs of the company.<br>The company wants to maximize cost savings for the application over the next 3 years. The company needs to be able to change the instance family and sizes in the next 6 months based on application popularity and usage.<br>Which solution will meet these requirements MOST cost-effectively?</p>
+<ol>
+<li>✅ Compute Savings Plan</li>
+<li>❌ EC2 Instance Savings Plan</li>
+<li>Zonal Reserved Instances</li>
+<li>Standard Reserved Instances</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：maximize cost savings</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：有固定的 <code>EC2</code> 架构，且需要最大化降低费用。<br>不使用 <code>Reserved Instances</code> 是因为它不能更改实例类型：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/ec2-reserved-instances.html">Amazon EC2 的预留实例概览</a></p>
+<blockquote>
+<p>使用预留实例时，您将承诺使用特定的实例配置。</p>
+</blockquote>
+<p>而节省计划还分 <code>Compute Savings Plan</code> 和 <code>EC2 Instance Savings Plan</code> 两种：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/savingsplans/compute-pricing/">Savings Plans</a></p>
+<blockquote>
+<ul>
+<li><code>Compute Savings Plans</code>：Compute Savings Plans 的灵活性最高，最高可帮助您节省 66% 的费用。这些计划会自动应用于 EC2 实例用量，不分实例系列、大小、可用区、区域、操作系统或租期，并且还适用于 Fargate 和 Lambda 的使用。<br>  例如，注册 Compute Savings Plans 后，您可以随时从 C4 实例更改为 M5 实例，将工作负载从欧洲（爱尔兰）区域转移到欧洲（伦敦）区域，或者将工作负载从 EC2 迁移到 Fargate 或 Lambda，并继续自动支付 Savings Plans 价格。</li>
+<li><code>EC2 Instance Savings Plans</code>：EC2 Instance Savings Plans 可提供最低的价格，最高可提供 72% 的折扣，以换取在单个区域内使用单个实例系列的承诺（例如在弗吉尼亚北部区域使用 M5 实例）。这会自动降低您在该区域的选定实例系列成本，不分可用区、实例大小、操作系统或租期。借助 EC2 Instance Savings Plans，您可以灵活地在该区域的一个实例系列中更改实例的使用情况。<br>  例如，您可以从运行 Windows 的 c5.xlarge 实例迁移到运行 Linux 的 c5.2xlarge 实例，并自动享受 Savings Plan 价格。</li>
+</ul>
+</blockquote>
+<p>社区支持 <code>EC2 Instance Savings Plans</code> 虽然省的更多，不支持实例类型家族的转换，因此选 1️⃣。  </p>
+<p>顺便过一下各类型的 <code>EC2</code> 实例：<a target="_blank" rel="noopener" href="https://www.amazonaws.cn/ec2/instance-types/">Amazon EC2 实例类型</a></p>
+<blockquote>
+<ul>
+<li>M 系列（通用型实例）</li>
+<li>C 系列（计算优化型实例）</li>
+<li>R 系列（内存优化型实例）</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Read Carefully guys ,They need to be able to change FAMILY ,and although EC2 Savings hasa higher discount , its clearly documented as not allowed &gt;<br>EC2 Instance Savings Plans provide savings up to 72 percent off On-Demand, in exchange for a commitment to a specific instance family in a chosen AWS Region (forexample, M5 in Virginia).These plansautomaticallyapply to usage regardless of size (forexample, m5.xlarge, m5.2xlarge,etc.), OS (forexample, Windows, Linux,etc.),and tenancy (Host, Dedicated, Default) within the specified family in a Region.</p>
+</blockquote>
+<hr>
+<h3 id="四、Batch-job"><a href="#四、Batch-job" class="headerlink" title="四、Batch job"></a>四、Batch job</h3><p>A company is migrating an old application to AWS. The application runs a batch job every hour and is CPU intensive. The batch job takes 15 minutes on average with an on-premises server. The server has 64 virtual CPU (vCPU) and 512 GiB of memory.<br>Which solution will run the batch job within 15 minutes with the LEAST operational overhead?</p>
+<ol>
+<li>Use AWS Lambda with functional scaling.</li>
+<li>Use Amazon Elastic Container Service (Amazon ECS) with AWS Fargate.</li>
+<li>Use Amazon Lightsail with AWS Auto Scaling.</li>
+<li>✅ Use AWS Batch on Amazon EC2.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：batch job、takes 15 minutes on average</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：有平均运行 15 分钟、需要 64 核心 512 内存的批处理任务要迁移到 AWS。<br><code>Lambda</code> 不能运行超过 15 分钟：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-timeout.html">Configure Lambda function timeout</a>  </p>
+<blockquote>
+<p>Lambda runs your code for a set amount of time before timing out. Timeout is the maximum amount of time in seconds that a Lambda function can run. The default value for this setting is 3 seconds, but you can adjust this in increments of 1 second up to a maximum value of 900 seconds (15 minutes).</p>
+</blockquote>
+<p>再看下 <code>AWS Batch</code> 是什么：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/batch/latest/userguide/what-is-batch.html">什么是 AWS Batch？</a></p>
+<blockquote>
+<p>借助 AWS Batch，您可以在 AWS Cloud上运行批处理计算工作负载。批量计算是开发人员、科学家和工程师用来访问大量计算资源的常见方法。<br>AWS Batch 可根据提交的批处理作业的卷和特定资源需求动态预置最佳的计算资源（如 CPU 或内存优化计算资源）数量和类型。借助 AWS Batch，您无需安装和管理批处理计算软件或服务器集群，从而使您能够集中精力分析结果和解决问题。AWS Batch 使用 Amazon ECS、Amazon EKS 和 AWS Fargate 计划、安排和执行您的批处理计算工作负载，并可选择使用竞价型实例。</p>
+</blockquote>
+<p>毫无疑问它很适合这个场景。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：The amount of CPU and memory resources required by the batch job exceeds the capabilities of AWS Lambda and Amazon Lightsail with AWS Auto Scaling, which offer limited compute resources. AWS Fargate offers containerized application orchestration and scalable infrastructure, but may require additional operational overhead to configure and manage the environment. AWS Batch isa fully managed service that automatically provisions the required infrastructure for batch jobs, with options to use different instance typesand launch modes.<br>Therefore, the solution that will run the batch job within 15 minutes with the LEAST operational overhead is D. Use AWS Batch on Amazon EC2. AWS Batch can handle all the operational aspects of job scheduling, instance management,and scaling while using Amazon EC2 injavascript:void(0)stances with the right amount of CPU and memory resources to meet the job’s requirements.</p>
+</blockquote>
+<hr>
+<h3 id="五、FIFO-queue"><a href="#五、FIFO-queue" class="headerlink" title="五、FIFO queue"></a>五、FIFO queue</h3><p>A company uses a payment processing system that requires messages for a particular payment ID to be received in the same order that they were sent. Otherwise, the payments might be processed incorrectly.<br>Which actions should a solutions architect take to meet this requirement? (Choose two.)</p>
+<ol>
+<li>Write the messages to an Amazon DynamoDB table with the payment ID as the partition key.</li>
+<li>✅ Write the messages to an Amazon Kinesis data stream with the payment ID as the partition key.</li>
+<li>Write the messages to an Amazon ElastiCache for Memcached cluster with the payment ID as the key.</li>
+<li>Write the messages to an Amazon Simple Queue Service (Amazon SQS) queue. Set the message attribute to use the payment ID.</li>
+<li>✅ Write the messages to an Amazon Simple Queue Service (Amazon SQS) FIFO queue. Set the message group to use the payment ID.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：received in the same order that they were sent</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ 5️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：需要按照发送顺序接收带有支付 ID 的消息。<br>5️⃣ 先进先出队列是一定正确的。<br>看下官方描述的对 2️⃣ <code>Amazon Kinesis data stream</code> 的使用场景：<a href="">https://www.amazonaws.cn/en/kinesis/data-streams/faqs/</a></p>
+<blockquote>
+<p><strong>Q: When should I use Amazon Kinesis Data Streams, and when should I use Amazon SQS</strong>?<br>We recommend Amazon Kinesis Data Streams for use cases with requirements that are similar to the following:</p>
+<ul>
+<li><u>Ordering of records. For example, you want to transfer log data from the application host to the processing&#x2F;archival host while maintaining the order of log statements</u>.</li>
+</ul>
+</blockquote>
+<p>它适用于对顺序有要求的数据流，因此它是支持先进先出的。<br>社区里有人提到了 <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html">Amazon Kinesis Data Streams Terminology and concepts</a> 这篇文章，但是我并没有在其中找到明确的写明 <code>Amazon Kinesis data stream</code> 遵循先进先出的相关信息。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Option B is preferred over A because Amazon Kinesis Data Streams inherently maintain the order of records within a shard, which is crucial for the given requirement of preserving the order of messages for a particular payment ID. When you use the payment ID as the partition key,all messages for that payment ID will be sent to the same shard,ensuring that the order of messages is maintained.  </p>
+<blockquote>
+<p>选项 B 比选项 A 更可取，因为 Amazon Kinesis 数据流本质上保持了碎片内记录的顺序，这对于保存特定支付 ID 的消息顺序的给定要求是至关重要的。当您使用支付 ID 作为分区密钥时，该支付 ID 的所有消息将被发送到同一碎片，以确保保持消息的顺序。</p>
+</blockquote>
+<p>On the other hand, Amazon DynamoDB isa NoSQL database service that provides fast and predictable performance with seamless scalability. While it can store data with partition keys, it does not guarantee the order of records within a partition, which isessential for the given use case. Hence, using Kinesis Data Streams is more suitable for this requirement.<br>As DynamoDB does not keep the order, I think BE is the correct answer here.</p>
+</blockquote>
+<hr>
+<h3 id="六、SNS-FIFO"><a href="#六、SNS-FIFO" class="headerlink" title="六、SNS FIFO"></a>六、SNS FIFO</h3><p>A company is building a game system that needs to send unique events to separate leaderboard, matchmaking, and authentication services concurrently. The company needs an AWS event-driven system that guarantees the order of the events.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Amazon EventBridge event bus</li>
+<li>✅ Amazon Simple Notification Service (Amazon SNS) FIFO topics</li>
+<li>❌ Amazon Simple Notification Service (Amazon SNS) standard topics</li>
+<li>Amazon Simple Queue Service (Amazon SQS) FIFO queues</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：guarantees the order of the events</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：游戏公司需要按顺序发送一系列的事件。<br>由于消费者不同，这里更适合发布-订阅模型，因此选用 <code>SNS</code>，而 <code>SNS</code> 也是支持 FIFO（先进先出）模式的，因此选 2️⃣：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">Message ordering and deduplication strategies using Amazon SNS FIFO topics</a></p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：The answer is B la.SNS FIFO topics queue should be used combined with SQS FIFO queue in this case.The question asked for correct order to different event, so asking forSNS fan out here to send to individual SQS.<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/sns/latest/dg/fifo-example-use-case.html">https://docs.aws.amazon.com/sns/latest/dg/fifo-example-use-case.html</a></p>
+</blockquote>
+<hr>
+<h3 id="七、SNS-and-SQS-encryption"><a href="#七、SNS-and-SQS-encryption" class="headerlink" title="七、SNS and SQS encryption"></a>七、SNS and SQS encryption</h3><p>A hospital is designing a new application that gathers symptoms from patients. The hospital has decided to use Amazon Simple Queue Service (Amazon SQS) and Amazon Simple Notification Service (Amazon SNS) in the architecture.<br>A solutions architect is reviewing the infrastructure design. Data must be encrypted at rest and in transit. Only authorized personnel of the hospital should be able to access the data.<br>Which combination of steps should the solutions architect take to meet these requirements? (Choose two.)</p>
+<ol>
+<li>Turn on server-side encryption on the SQS components. Update the default key policy to restrict key usage to a set of authorized principals.</li>
+<li>✅ Turn on server-side encryption on the SNS components by using an AWS Key Management Service (AWS KMS) customer managed key. Apply a key policy to restrict key usage to a set of authorized principals.</li>
+<li>❌ Turn on encryption on the SNS components. Update the default key policy to restrict key usage to a set of authorized principals. Set a condition in the topic policy to allow only encrypted connections over TLS.</li>
+<li>✅ Turn on server-side encryption on the SQS components by using an AWS Key Management Service (AWS KMS) customer managed key. Apply a key policy to restrict key usage to a set of authorized principals. Set a condition in the queue policy to allow only encrypted connections over TLS.</li>
+<li>Turn on server-side encryption on the SQS components by using an AWS Key Management Service (AWS KMS) customer managed key. Apply an IAM policy to restrict key usage to a set of authorized principals. Set a condition in the queue policy to allow only encrypted connections over TLS.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：SQS、SNS、data must be encrypted at rest and in transit</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ 4️⃣ ❌ -&gt; 2️⃣ 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>SNS</code> 和 <code>SQS</code> 作为数据的传输过程需要加密。<br><strong><code>SQS</code> 和 <code>SNS</code> 都默认提供传输中加密，因此不需要再手动配置 HTTPS</strong>。<br>对于 <code>SQS</code> 队列的静态加密：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html">Encryption at rest in Amazon SQS</a></p>
+<blockquote>
+<p>Server-side encryption (SSE) lets you transmit sensitive data in encrypted queues. SSE protects the contents of messages in queues using SQS-managed encryption keys (SSE-SQS) or keys managed in the AWS Key Management Service (SSE-KMS). </p>
+</blockquote>
+<p>和 <code>S3</code> 一样不仅可以使用 <code>SQS</code> 管理的密钥，还能使用 <code>KMS</code> 的。当然权限也需要使用 Key Policy。<br>而针对 <code>SNS</code> 的静态加密：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">Securing Amazon SNS data with server-side encryption</a></p>
+<blockquote>
+<p>Server-side encryption (SSE) lets you store sensitive data in encrypted topics by protecting the contents of messages in Amazon SNS topics using keys managed in AWS Key Management Service (AWS KMS).<br>SSE encrypts messages as soon as Amazon SNS receives them. The messages are stored in encrypted form, and only decrypted when they are sent.</p>
+</blockquote>
+<p>同样也是支持两种，而密钥的管理也采用 Key Policy。<br>回到题目，3️⃣ 对 <code>SNS</code> 的加密使用默认加密方式，然后更新密钥的策略允许其他人使用。<br>我并没找到详细的文章说明 <code>SNS</code> 管理的密钥不能共享给别人，但是我实操了下发现并没有 SSE 的选项了：    </p>
+<blockquote>
+<p><img src="https://image.senjianlu.com/blog/2024-12-06/sns_ec.png" alt="只有 KMS 一种密钥使用选项"></p>
+</blockquote>
+<p>总之有 <code>KMS</code> 尽量就选 <code>KMS</code> 吧。<br>3️⃣ 重复设置 HTTPS 其实本身也错了。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：read this:<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html</a><br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html">https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html</a></p>
+</blockquote>
+<hr>
+<h3 id="八、AWS-account-password-policy"><a href="#八、AWS-account-password-policy" class="headerlink" title="八、AWS account password policy"></a>八、AWS account password policy</h3><p>A solutions architect wants all new users to have specific complexity requirements and mandatory rotation periods for IAM user passwords.<br>What should the solutions architect do to accomplish this?</p>
+<ol>
+<li>✅ Set an overall password policy for the entire AWS account.</li>
+<li>Set a password policy for each IAM user in the AWS account.</li>
+<li>Use third-party vendor software to set password requirements.</li>
+<li>❌ Attach an Amazon CloudWatch rule to the Create_newuser event to set the password with the appropriate requirements.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：specific complexity requirements、mandatory rotation periods</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：要让所有（新）用户的密码具有强制的复杂性和定期轮换要求。<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html#password-policy-rules">Set an account password policy for IAM users</a>  </p>
+<blockquote>
+<p><strong>Rules for setting a password policy</strong><br>IAM 密码策略不适用于 AWS 账户根用户密码或 IAM 用户访问密钥。如果密码过期，IAM 用户将无法登录 AWS 管理控制台，但可以继续使用其访问密钥。<br>创建或更改密码策略时，大部分密码策略设置会在用户下次更改密码时执行。不过，有些设置会立即执行。例如：</p>
+<ul>
+<li>当最小长度和字符类型要求发生变化时，这些设置会在用户下一次更改密码时强制执行。即使现有密码不符合更新后的密码策略，也不会强制用户更改现有密码。</li>
+<li>设置密码失效期后，失效期将立即生效。例如，假设你设置的密码过期时间为 90 天。在这种情况下，现有密码超过 90 天的所有 IAM 用户的密码都会过期。这些用户下次登录时必须更改密码。</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：You can set a custom password policy on your AWS account to specify complexity requirementsand mandatory rotation periods for your IAM users’ passwords. When you create or change a password policy, most of the password policy settingsare enforced the next time your users change their passwords. However, some of the settingsare enforced immediately.<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html#:~:text=Setting%20an%20account-,password%20policy,-for%20IAM%20users">https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html#:~:text=Setting%20an%20account-,password%20policy,-for%20IAM%20users</a></p>
+</blockquote>
+<hr>
+<h3 id="九、HA-DB-and-stroage"><a href="#九、HA-DB-and-stroage" class="headerlink" title="九、HA DB and stroage"></a>九、HA DB and stroage</h3><p>A company wants to migrate an Oracle database to AWS. The database consists of a single table that contains millions of geographic information systems (GIS) images that are high resolution and are identified by a geographic code.<br>When a natural disaster occurs, tens of thousands of images get updated every few minutes. Each geographic code has a single image or row that is associated with it. The company wants a solution that is highly available and scalable during such events.<br>Which solution meets these requirements MOST cost-effectively?</p>
+<ol>
+<li>Store the images and geographic codes in a database table. Use Oracle running on an Amazon RDS Multi-AZ DB instance.</li>
+<li>✅ Store the images in Amazon S3 buckets. Use Amazon DynamoDB with the geographic code as the key and the image S3 URL as the value.</li>
+<li>❌ Store the images and geographic codes in an Amazon DynamoDB table. Configure DynamoDB Accelerator (DAX) during times of high load.</li>
+<li>Store the images in Amazon S3 buckets. Store geographic codes and image S3 URLs in a database table. Use Oracle running on an Amazon RDS Multi-AZ DB instance.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：high resolution images</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：数分钟内会有万级的图片上传，需要插入表中。<br>这里需要注意的是 <code>DynamoDB</code> 有单条数据大小限制：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ServiceQuotas.html#limits-data-types">Data types</a></p>
+<blockquote>
+<ul>
+<li><strong>String</strong> - The length of a String is constrained by the maximum item size of 400 KB.</li>
+<li><strong>Binary</strong> - The length of a Binary is constrained by the maximum item size of 400 KB.</li>
+</ul>
+</blockquote>
+<p>这和题目中的高分辨率图像存储需求冲突，因此需要使用到 <code>S3</code>。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Amazon prefers people to move from Oracle to its own services like DynamoDB and S3.</p>
+</blockquote>
+<hr>
+<h3 id="十、Dedicated-Hosts-and-Instances"><a href="#十、Dedicated-Hosts-and-Instances" class="headerlink" title="十、Dedicated Hosts and Instances"></a>十、Dedicated Hosts and Instances</h3><p>A company is planning to migrate a commercial off-the-shelf application from its on-premises data center to AWS. The software has a software licensing model using sockets and cores with predictable capacity and uptime requirements. The company wants to use its existing licenses, which were purchased earlier this year.<br>Which Amazon EC2 pricing option is the MOST cost-effective?</p>
+<ol>
+<li>✅ Dedicated Reserved Hosts</li>
+<li>Dedicated On-Demand Hosts</li>
+<li>❌ Dedicated Reserved Instances</li>
+<li>Dedicated On-Demand Instances</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：software licensing model using sockets and cores with predictable capacity and uptime requirements</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：软件授权限制核心数和时长。<br>独立服务器 + 预留实例最具性价比。<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/ec2/dedicated-hosts/">Amazon EC2 专用主机 (Dedicated Hosts) 专门用于支持现有软件许可证和改善合规性的硬件</a></p>
+<blockquote>
+<p>借助 Amazon EC2 专用主机，您可以在 Amazon EC2 上使用 Microsoft 和 Oracle 等供应商提供的合格软件许可证，从而既能享受使用自己的许可证带来的灵活性与经济性，又能享受 AWS 带来的简便性与弹性。Amazon EC2 专用主机是完全专门供您使用的物理服务器，有助于您满足企业合规性要求。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/ec2/pricing/dedicated-instances/">Amazon EC2 专用实例 (Dedicated Instances)</a>  </p>
+<blockquote>
+<p>专用实例是在单一客户专用硬件上的 VPC 中运行的 Amazon EC2 实例。您的专用实例在主机硬件级别与属于其他 AWS 账户的实例进行物理隔离。专用实例可与来自同一 AWS 账户中属于非专用实例的其他实例共享硬件。</p>
+</blockquote>
+<p>专用主机强调对许可证合规性的配合；而专用实例更多强调物理级别与其他 AWS 账号隔离，<em>可以确保更进一步的数据安全</em>。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：”predictable capacityand uptime requirements” means “Reserved”<br>“socketsand cores” means “dedicated host”</p>
+</blockquote>
+<hr>
+<h3 id="十一、POSIX-compliant-stroage"><a href="#十一、POSIX-compliant-stroage" class="headerlink" title="十一、POSIX-compliant stroage"></a>十一、POSIX-compliant stroage</h3><p>A company runs an application on Amazon EC2 Linux instances across multiple Availability Zones. The application needs a storage layer that is highly available and Portable Operating System Interface (POSIX)-compliant. The storage layer must provide maximum data durability and must be shareable across the EC2 instances. The data in the storage layer will be accessed frequently for the first 30 days and will be accessed infrequently after that time.<br>Which solution will meet these requirements MOST cost-effectively?</p>
+<ol>
+<li>❌ Use the Amazon S3 Standard storage class. Create an S3 Lifecycle policy to move infrequently accessed data to S3 Glacier.</li>
+<li>Use the Amazon S3 Standard storage class. Create an S3 Lifecycle policy to move infrequently accessed data to S3 Standard-Infrequent Access (S3 Standard-IA).</li>
+<li>✅ Use the Amazon ElasticFile System (Amazon EFS) Standard storage class. Create a lifecycle management policy to move infrequently accessed data to EFS Standard-Infrequent Access (EFS Standard-IA).</li>
+<li>Use the Amazon ElasticFile System (Amazon EFS) One Zone storage class. Create a lifecycle management policy to move infrequently accessed data to EFS One Zone-Infrequent Access (EFS One Zone-IA).</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：POSIX、be accessed frequently for the first 30 days and will be accessed infrequently after that time</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：该应用程序需要一个高度可用性和便携式操作系统接口（POSIX）兼容的存储层。同时数据只在前 30 天访问频繁，之后偶尔访问。<br>重点在于如何兼容 POSIX 协议：<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%8F%AF%E7%A7%BB%E6%A4%8D%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%8E%A5%E5%8F%A3">可移植操作系统接口</a></p>
+<blockquote>
+<p>可移植操作系统接口（英语：Portable Operating System Interface，缩写为POSIX）是IEEE为要在各种UNIX操作系统上运行软件。</p>
+</blockquote>
+<p>看下 <code>EFS</code> 的文档：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/efs/latest/ug/creating-using.html">创建和管理EFS资源</a></p>
+<blockquote>
+<p>Amazon EFS 提供POSIX符合要求的弹性共享文件存储。您创建的文件系统支持来自多个 Amazon EC2 实例的并发读写权限。也可以从文件系统的创建地的所有可用区访问 AWS 区域 该文件系统。</p>
+</blockquote>
+<p>由于 4️⃣ 使用了单区存储与高可用需求冲突，因此选 3️⃣ 。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Multi AZ &#x3D; both EFS and S3 support<br>Storage classes &#x3D; both EFS and S3 support<br>POSIX file system access &#x3D; only Amazon EFS supports</p>
+</blockquote>
+</div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/12/05</p><p><a href="https://senjianlu.com/2024/12/05/saa_test_daily_20241205/">https://senjianlu.com/2024/12/05/saa_test_daily_20241205/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-12-05</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-12-05</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/12/05/knowledge_ops_extend/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">AWS 知识点 - 部署和管理 - 拓展（针对 SAP-C02 认证）</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/12/05/translate_news_nhk_20241205_k10014659031000/"><span class="level-item">日语翻译 - 新闻 - 米大手自動車メーカーGM 中国事業関連で50億ドル超の損失計上</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、Aurora-cross-region"><span class="level-left"><span class="level-item">一、Aurora cross region</span></span></a></li><li><a class="level is-mobile" href="#二、SQS-message-size-limit"><span class="level-left"><span class="level-item">二、SQS message size limit</span></span></a></li><li><a class="level is-mobile" href="#三、Saving-plans"><span class="level-left"><span class="level-item">三、Saving plans</span></span></a></li><li><a class="level is-mobile" href="#四、Batch-job"><span class="level-left"><span class="level-item">四、Batch job</span></span></a></li><li><a class="level is-mobile" href="#五、FIFO-queue"><span class="level-left"><span class="level-item">五、FIFO queue</span></span></a></li><li><a class="level is-mobile" href="#六、SNS-FIFO"><span class="level-left"><span class="level-item">六、SNS FIFO</span></span></a></li><li><a class="level is-mobile" href="#七、SNS-and-SQS-encryption"><span class="level-left"><span class="level-item">七、SNS and SQS encryption</span></span></a></li><li><a class="level is-mobile" href="#八、AWS-account-password-policy"><span class="level-left"><span class="level-item">八、AWS account password policy</span></span></a></li><li><a class="level is-mobile" href="#九、HA-DB-and-stroage"><span class="level-left"><span class="level-item">九、HA DB and stroage</span></span></a></li><li><a class="level is-mobile" href="#十、Dedicated-Hosts-and-Instances"><span class="level-left"><span class="level-item">十、Dedicated Hosts and Instances</span></span></a></li><li><a class="level is-mobile" href="#十一、POSIX-compliant-stroage"><span class="level-left"><span class="level-item">十一、POSIX-compliant stroage</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2024 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
