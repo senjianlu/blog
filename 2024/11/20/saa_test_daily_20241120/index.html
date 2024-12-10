@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/11/20 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam5 题 (No.31 ~ No.40)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/11/20"><meta property="og:url" content="https://senjianlu.com/2024/11/20/saa_test_daily_20241120/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam5 题 (No.31 ~ No.40)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-11-20T11:00:00.000Z"><meta property="article:modified_time" content="2024-11-20T12:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/11/20/saa_test_daily_20241120/"},"headline":"SAA 考试每日练习 - 2024/11/20","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-11-20T11:00:00.000Z","dateModified":"2024-11-20T12:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam5 题 (No.31 ~ No.40)，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/11/20/saa_test_daily_20241120/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-11-20T11:00:00.000Z" title="11/20/2024, 7:00:00 PM">2024-11-20</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/11/20</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/">Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam</a><br>5 题 (No.31 ~ No.40)，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<p><strong>🌟 单词：</strong></p>
+<ol>
+<li>near-real-time<sub><u>近实时的</u></sub></li>
+<li>financial<sub><u>adj. 财政的，财务的，金融的，有钱的</u></sub></li>
+<li>transaction<sub><u>n. 交易，生意；处理，办理</u></sub></li>
+<li>sensitive<sub><u>adj. 敏感的；灵敏的；脆弱的；易受伤害的；感光的；敏锐的；神经质的；容易生气的；善解人意的，体恤的</u></sub></li>
+<li>retrieval<sub><u>n. 取回，索回，数据检索</u></sub></li>
+<li>large-scale<sub><u>大规模</u></sub></li>
+</ol>
+<hr>
+<h3 id="一、AWS-Config"><a href="#一、AWS-Config" class="headerlink" title="一、AWS Config"></a>一、AWS Config</h3><p>A company that hosts its web application on AWS wants to ensure all Amazon EC2 instances. Amazon RDS DB instances. and Amazon Redshift clusters are configured with tags. The company wants to minimize the effort of configuring and operating this check.<br>What should a solutions architect do to accomplish this?</p>
+<ol>
+<li>✅ Use AWS Config rules to define and detect resources that are not properly tagged.</li>
+<li>Use Cost Explorer to display resources that are not properly tagged. Tag those resources manually.</li>
+<li>Write API calls to check all resources for proper tag allocation. Periodically run the code on an EC2 instance.</li>
+<li>Write API calls to check all resources for proper tag allocation. Schedule an AWS Lambda function through Amazon CloudWatch to periodically run the code.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：AWS configuring</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：一般情况下看见 AWS configuring 资源配置相关的，都是选 <code>AWS Config</code>。<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/config/latest/developerguide/WhatIsConfig.html">什么是 AWS Config？</a>  </p>
+<blockquote>
+<p>AWS Config 提供了您 AWS 账户中 AWS 资源配置的详细视图。这些信息包括资源之间的关联方式以及资源以前的配置方式，让您了解资源的配置和关系如何随着的时间的推移而更改。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Answer from ChatGPT:  </p>
+<p>Yes, you can use AWS Config to create tags for your resources. AWS Config isa service that enables you to assess,audit,and evaluate the configurations of your AWS resources. You can use AWS Config to create rules that automatically tag resources when theyare created or when their configurations change.  </p>
+<p>To create tags for your resources using AWS Config, you will need to create an AWS Config rule that specifies the tag keyand value you want to use and the resources you want to apply the tag to. You can then enable the rule and AWS Config will automaticallyapply the tag to the specified resources when theyare created or when their configurations change.</p>
+</blockquote>
+<hr>
+<h3 id="二、Static-Website"><a href="#二、Static-Website" class="headerlink" title="二、Static Website"></a>二、Static Website</h3><p>A development team needs to host a website that will be accessed by other teams. The website contents consist of HTML, CSS, client-side JavaScript, and images.<br>Which method is the MOST cost-effective for hosting the website?</p>
+<ol>
+<li>Containerize the website and host it in AWS Fargate.</li>
+<li>✅ Create an Amazon S3 bucket and host the website there.</li>
+<li>Deploy a web server on an Amazon EC2 instance to host the website.</li>
+<li>Configure an Application Load Balancer with an AWS Lambda target that uses the Express.js framework.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：静态网站托管、cost-effective</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：纯静态网站托管使用 <code>S3</code> 即可。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：client-side JavaScript. the website is static, so it must be S3.</p>
+</blockquote>
+<hr>
+<h3 id="三、Amazon-Kinesis-Data-Streams"><a href="#三、Amazon-Kinesis-Data-Streams" class="headerlink" title="三、Amazon Kinesis Data Streams"></a>三、Amazon Kinesis Data Streams</h3><p>A company runs an online marketplace web application on AWS. The application serves hundreds of thousands of users during peak hours. The company needs a scalable, near-real-time<sub><u>近实时的</u></sub> solution to share the details of millions of financial<sub><u>财务的</u></sub> transactions<sub><u>交易，生意</u></sub> with several other internal applications. Transactions also need to be processed to remove sensitive<sub><u>敏感的</u></sub> data before being stored in a document database for low-latency retrieval<sub><u>检索</u></sub>.<br>What should a solutions architect recommend to meet these requirements?</p>
+<ol>
+<li>Store the transactions data into Amazon DynamoDB. Set up a rule in DynamoDB to remove sensitive data from every transaction upon write. Use DynamoDB Streams to share the transactions data with other applications.</li>
+<li>❌ Stream the transactions data into Amazon Kinesis Data Firehose to store data in Amazon DynamoDB and Amazon S3. Use AWS Lambda integration with Kinesis Data Firehose to remove sensitive data. Other applications can consume the data stored in Amazon S3.</li>
+<li>✅ Stream the transactions data into Amazon Kinesis Data Streams. Use AWS Lambda integration to remove sensitive data from every transaction and then store the transactions data in Amazon DynamoDB. Other applications can consume the transactions data off the Kinesis data stream.</li>
+<li>Store the batched transactions data in Amazon S3 as files. Use AWS Lambda to process every file and remove sensitive data before updating the files in Amazon S3. The Lambda function then stores the data in Amazon DynamoDB. Other applications can consume transaction files stored in Amazon S3.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：remove sensitive data</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：题目场景是公司每小时服务数十万用户，需要分享财务数据给内部的多个应用。系统需要是弹性的、近实时的，同时需要对财务数据去除敏感信息，还需要将其存储文档数据库以支持低延迟检索。<br>毫无疑问需要使用 <code>Amazon Kinesis Data</code> 相关服务，重点是 <code>Amazon Kinesis Data Firehose</code> 还是 <code>Amazon Kinesis Data Streams</code>。<br>社区存在一些争议，不过偏向 3️⃣ <code>Amazon Kinesis Data Streams</code> 的更多占 87%。  </p>
+<p>来看下这两个服务的区别：  </p>
+<ul>
+<li><code>Amazon Kinesis Data Streams</code>：更偏向于（纯粹的）可以存储数据的数据管道，对管道内数据的提取、处理高度自定义。数据处理后可以存入 <code>DynamoDB</code> 等另外的服务中。</li>
+<li><code>Amazon Kinesis Data Firehose</code>：更偏向于对数据处理的工作流：数据一旦进入流，就会经由可能的 <code>Lambda</code> 函数等处理层，然后迅速的传入 <code>S3</code> 等存储层。  <blockquote>
+<p><img src="https://image.senjianlu.com/blog/2024-11-25/Kinesis-Data-Streams-vs-Kinesis-Data-Firehose.jpg" alt="仅供参考"></p>
+</blockquote>
+</li>
+</ul>
+<p>因此针对题目场景，两个服务都行，不过<u><strong>问题是 <code>Amazon Kinesis Data Firehose</code> 不支持将数据存入 <code>DynamoDB</code>，这是个明显错误</strong></u>。<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/firehose/latest/dev/what-is-this-service.html">什么是 Amazon Data Firehose？</a><br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/firehose/latest/dev/basic-deliver.html">了解 Amazon Data Firehose 中的数据传输</a><br>截至 2024 年 11 月只支持 6 种存储：</p>
+<ul>
+<li><code>Amazon S3</code></li>
+<li><code>Amazon Redshift</code>（数据仓库）</li>
+<li><code>OpenSearch Service</code></li>
+<li><code>Splunk</code>（<code>Splunk</code> 是一个运营智能工具，用于实时分析机器生成的数据）</li>
+<li>HTTP 端点</li>
+<li><code>Snowflake</code></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：I would go for C.The tricky phrase is “near-real-time solution”, pointing to Firehouse, but it can’t send data to DynamoDB, so it leaves us with C as best option.<br>Kinesis Data Firehose currently supports Amazon S3, Amazon Redshift, Amazon OpenSearch Service,Splunk, Datadog, NewRelic, Dynatrace,Sumologic, LogicMonitor, MongoDB,and HTTP End Point as destinations.  </p>
+</blockquote>
+<hr>
+<h3 id="四、AWS-Config-AWS-CloudTrail"><a href="#四、AWS-Config-AWS-CloudTrail" class="headerlink" title="四、AWS Config &amp; AWS CloudTrail"></a>四、AWS Config &amp; AWS CloudTrail</h3><p>A company hosts its multi-tier applications on AWS. For compliance, governance, auditing, and security, the company must track configuration changes on its AWS resources and record a history of API calls made to these resources.<br>What should a solutions architect do to meet these requirements?</p>
+<ol>
+<li>Use AWS CloudTrail to track configuration changes and AWS Config to record API calls.</li>
+<li>✅ Use AWS Config to track configuration changes and AWS CloudTrail to record API calls.</li>
+<li>Use AWS Config to track configuration changes and Amazon CloudWatch to record API calls.</li>
+<li>Use AWS CloudTrail to track configuration changes and Amazon CloudWatch to record API calls.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：configuration、record a history of API calls</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：涉及到记录 AWS 资源的 API 操作历史，需要使用 <code>CloudTrail</code>。  </p>
+<blockquote>
+<p>CloudTrail 通过跟踪用户活动和 API 使用，支持审计、安全监控和操作故障排除。CloudTrail 记录、持续监控和保留与您的 AWS 基础设施中操作相关的账户活动，让您能够控制存储、分析和修复操作。</p>
+</blockquote>
+<p><code>CloudWatch</code> 是监控 AWS 资源和应用程序状态的，不选。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：<code>CloudTrail</code> - Track user activityand API call history.<br><code>Config</code> - Assess,audits,and evaluates the configuration and relationships of tag resources.</p>
+</blockquote>
+<hr>
+<h3 id="五、DDoS-attacks"><a href="#五、DDoS-attacks" class="headerlink" title="五、DDoS attacks"></a>五、DDoS attacks</h3><p>A company is preparing to launch a public-facing web application in the AWS Cloud. The architecture consists of Amazon EC2 instances within a VPC behind an Elastic Load Balancer (ELB). A third-party service is used for the DNS. The company’s solutions architect must recommend a solution to detect and protect against large-scale<sub><u>大规模</u></sub> DDoS attacks.<br>Which solution meets these requirements?</p>
+<ol>
+<li>Enable Amazon GuardDuty on the account.</li>
+<li>Enable Amazon Inspector on the EC2 instances.</li>
+<li>Enable AWS Shield and assign Amazon Route 53 to it.</li>
+<li>✅ Enable AWS Shield Advanced and assign the ELB to it.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：detect and protect against large-scale DDoS attacks、<strong>third-party DNS</strong></p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅  </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>AWS Shield Standard</code> 也提供了基础的 DDoS 防御能力，应该也能使用。<br>不过之后看社区讨论指出了 <code>Amazon Route 53</code> 并非第三方 DNS 服务，是明显错误，可以排除 3️⃣，选 4️⃣。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：C is incorrect because question saysThird party DNS and route 53 is AWS proprietary</p>
+</blockquote>
+</div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/11/20</p><p><a href="https://senjianlu.com/2024/11/20/saa_test_daily_20241120/">https://senjianlu.com/2024/11/20/saa_test_daily_20241120/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-11-20</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-11-20</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/11/20/knowledge_ops/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">AWS 知识点 - 部署和管理</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/11/20/translate_news_nhk_20241120_k10014643741000/"><span class="level-item">日语翻译 - 新闻 - バルト海 海底の通信ケーブル 切断や損傷が相次ぐ 当局が捜査</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、AWS-Config"><span class="level-left"><span class="level-item">一、AWS Config</span></span></a></li><li><a class="level is-mobile" href="#二、Static-Website"><span class="level-left"><span class="level-item">二、Static Website</span></span></a></li><li><a class="level is-mobile" href="#三、Amazon-Kinesis-Data-Streams"><span class="level-left"><span class="level-item">三、Amazon Kinesis Data Streams</span></span></a></li><li><a class="level is-mobile" href="#四、AWS-Config-AWS-CloudTrail"><span class="level-left"><span class="level-item">四、AWS Config &amp; AWS CloudTrail</span></span></a></li><li><a class="level is-mobile" href="#五、DDoS-attacks"><span class="level-left"><span class="level-item">五、DDoS attacks</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2024 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
