@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/12/11 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam25 题 (No.701 ~ No.725) 只记录了 4 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/12/11"><meta property="og:url" content="https://senjianlu.com/2024/12/11/saa_test_daily_20241211/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam25 题 (No.701 ~ No.725) 只记录了 4 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-12-11T12:00:00.000Z"><meta property="article:modified_time" content="2024-12-11T15:50:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/12/11/saa_test_daily_20241211/"},"headline":"SAA 考试每日练习 - 2024/12/11","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-12-11T12:00:00.000Z","dateModified":"2024-12-11T15:50:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam25 题 (No.701 ~ No.725) 只记录了 4 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/12/11/saa_test_daily_20241211/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-12-11T12:00:00.000Z" title="12/11/2024, 8:00:00 PM">2024-12-11</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/12/11</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/">Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam</a><br>25 题 (No.701 ~ No.725) <strong>只记录了 4 道首次碰到的、错误的或有疑问的题目</strong>，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+
+<hr>
+<h3 id="一、SnowFamily-and-S3"><a href="#一、SnowFamily-and-S3" class="headerlink" title="一、SnowFamily and S3"></a>一、SnowFamily and S3</h3><p>A company copies 200 TB of data from a recent ocean survey onto AWS Snowball Edge Storage Optimized devices. The company has a high performance computing (HPC) cluster that is hosted on AWS to look for oil and gas deposits. A solutions architect must provide the cluster with consistent sub-millisecond latency and high-throughput access to the data on the Snowball Edge Storage Optimized devices. The company is sending the devices back to AWS.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Create an Amazon S3 bucket. Import the data into the S3 bucket. Configure an AWS Storage Gateway file gateway to use the S3 bucket. Access the file gateway from the HPC cluster instances.</li>
+<li>✅ Create an Amazon S3 bucket. Import the data into the S3 bucket. Configure an Amazon FSx for Lustre file system, and integrate it with the S3 bucket. Access the FSx for Lustre file system from the HPC cluster instances.</li>
+<li>Create an Amazon S3 bucket and an Amazon ElasticFile System (Amazon EFS) file system. Import the data into the S3 bucket. Copy the data from the S3 bucket to the EFS file system. Access the EFS file system from the HPC cluster instances.</li>
+<li>❌ Create an Amazon FSx for Lustre file system. Import the data directly into the FSx for Lustre file system. Access the FSx for Lustre file system from the HPC cluster instances.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 2️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/snowball/latest/developer-guide/using-adapter.html">使用 Amazon S3 适配器传输文件，以便在 Snow Family 设备之间迁移数据</a></p>
+<blockquote>
+<p>以下是 Amazon S3 适配器的概述，您可以使用该适配器通过 Amazon S3 操作以编程方式将数据传输到设备上已有的 S3 存储桶或从 AWS Snowball Edge 设备上传输数据。REST API此 Amazon S3 REST API 支持仅限于部分操作。您可以将此操作子集与其中一个操作配合使用， AWS SDKs以编程方式传输数据。您还可以对 Amazon S3 使用这一部分受支持的 AWS Command Line Interface （AWS CLI）命令来以编程方式传输数据。</p>
+</blockquote>
+<p>社区选 2️⃣ 的原因是 <code>SnowFamily</code> 只支持 <code>S3</code> 形式的存储，但是我并没有在官方的文档中找到完全一样的描述，只有说支持 <code>S3</code> 的：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/snowball/latest/developer-guide/device-differences.html">什么是 AWS Snowball Edge？</a></p>
+<blockquote>
+<blockquote>
+<p>在这些设备上的 Snow Family 设备上使用与 Amazon S3 兼容的存储空间时，可用存储空间会有所不同。请参阅在 Snow Family 设备上在 Snow Family 设备上使用兼容 Amazon S3 的存储，了解在 Sn ow Family 设备上使用兼容 Amazon S3 的存储容量。</p>
+</blockquote>
+</blockquote>
+<p><em>姑且暂时这么认为吧：<code>SnowFamily</code> 设备上只能以 <code>S3</code> 形式存储文件</em>。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：No direct integration between Snowball and Fsx for Lustre. It must be via S3.<br>Snowball Edge (Storage Optimized) –&gt; S3 –integrate–&gt; FSx for Lustre<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html">https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html</a><br><a target="_blank" rel="noopener" href="https://aws.amazon.com/tw/blogs/aws/enhanced-amazon-s3-integration-for-amazon-fsx-for-lustre/">https://aws.amazon.com/tw/blogs/aws/enhanced-amazon-s3-integration-for-amazon-fsx-for-lustre/</a></p>
+</blockquote>
+<hr>
+<h3 id="二、Route-53-Resolver"><a href="#二、Route-53-Resolver" class="headerlink" title="二、Route 53 Resolver"></a>二、Route 53 Resolver</h3><p>A company is designing a web application on AWS. The application will use a VPN connection between the company’s existing data centers and the company’s VPCs.<br>The company uses Amazon Route 53 as its DNS service. The application must use private DNS records to communicate with the on-premises services from a VPC.<br>Which solution will meet these requirements in the MOST secure manner?</p>
+<ol>
+<li>✅ Create a Route 53 Resolver outbound endpoint. Create a resolver rule. Associate the resolver rule with the VPC.</li>
+<li>Create a Route 53 Resolver inbound endpoint. Create a resolver rule. Associate the resolver rule with the VPC.</li>
+<li>❌ Create a Route 53 private hosted zone. Associate the private hosted zone with the VPC.</li>
+<li>Create a Route 53 publichosted zone. Create a record for each service to allow service communication</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/Route53/latest/DeveloperGuide/resolver.html">什么是 Amazon Route 53 Resolver？</a></p>
+<blockquote>
+<p>Amazon Route 53 Resolver 会递归响应 AWS 资源对公共记录、Amazon VPC 特定 DNS 名称和 Amazon Route 53 私有托管区域的 DNS 查询，默认情况下在所有 VPC 中都可用。</p>
+<p><strong>出站</strong>（实心箭头 1–5）：</p>
+<ol>
+<li>亚马逊EC2实例需要解析对域名internal.example.com的DNS查询。权威DNS服务器位于本地数据中心。此DNS查询被发送到连接VPC到 Route 53 Resolver 的 VPC +2。</li>
+<li>Route 53 Resolver 转发规则配置为将查询转发到本地数据中心的 internal.example.com。</li>
+<li>查询将被转发到出站端点。</li>
+<li>出站终端节点通过与数据中心之间的 AWS 私有连接将查询转发给本地DNS解析器。该连接可以是 AWS Direct Connect 或 AWS Site-to-Site VPN，可以描述为虚拟专用网关。</li>
+<li>本地DNS解析器解析对 internal.example.com 的DNS查询，并通过相同的路径反向将答案返回给亚马逊EC2实例。</li>
+</ol>
+<p><strong>入站</strong>（虚线箭头 a–d）：</p>
+<ol>
+<li>本地数据中心的客户端需要解析对域 dev.example.com AWS 资源的DNS查询。它将查询发送到本地解DNS析器。</li>
+<li>本地解DNS析器具有转发规则，可将发往 dev.example.com 的查询指向入站终端节点。</li>
+<li>查询通过私有连接（例如 AWS Direct Connect 或）到达入站终端节点 AWS Site-to-Site VPN，该连接被描述为虚拟网关。</li>
+<li>入站终端节点将查询发送到 Route 53 解析器，Route 53 解析器解析 dev.example.com 的DNS查询，并通过相同的路径反向将答案返回给客户端。</li>
+</ol>
+<p><img src="https://image.senjianlu.com/blog/2024-12-12/Resolver-routing.png" alt="例子"></p>
+</blockquote>
+<p>本题中，<code>VPC</code> 内的服务要访问本地托管的服务，因此属于出栈，需要使用 <code>Route 53 Resolver outbound endpoint</code>。</p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/Route53/latest/DeveloperGuide/AboutHZWorkingWith.html">使用公有托管区</a></p>
+<blockquote>
+<p>公有托管区域是一个容器，其中包含的信息说明您希望如何路由特定域（如 example.com）及其子域（acme.example.com 和 zenith.example.com）的 Internet 流量。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/Route53/latest/DeveloperGuide/hosted-zones-private.html">使用私有托管区</a></p>
+<blockquote>
+<p>私有托管区域是一个容器，其中包含有关您希望 Amazon Route 53 如何响应您使用 Amazon VPC 服务创建的一个或多个VPCs域名及其子域名的DNS查询的信息。</p>
+</blockquote>
+<p>公有托管区面向互联网，私有托管区面向 <code>VPC</code>。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：If you have workloads that leverage both VPCsand on-premises resources, you also need to resolve DNS records hosted on-premises.Similarly, these on-premises resources may need to resolve names hosted on AWS.Through Resolver endpoints and conditional forwarding rules, you can resolve DNS queries between your on-premises resourcesand VPCs to create a hybrid cloud setup over VPN or Direct Connect (DX).Specifically:<br>Inbound Resolver endpoints allow DNS queries to your VPC from your on-premises network or another VPC.<br>Outbound Resolver endpoints allow DNS queries from your VPC to your on-premises network or another VPC.<br>Reference: <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html">https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html</a></p>
+</blockquote>
+<hr>
+<h3 id="三、Saving-Plans-coverage"><a href="#三、Saving-Plans-coverage" class="headerlink" title="三、Saving Plans coverage"></a>三、Saving Plans coverage</h3><p>A company uses Amazon EC2, AWS Fargate, and AWS Lambda to run multiple workloads in the company’s AWS account. The company wants to fully make use of its Compute Savings Plans. The company wants to receive notification when coverage of the Compute Savings Plans drops.<br>Which solution will meet these requirements with the MOST operational efficiency?</p>
+<ol>
+<li>✅ Create a daily budget for the Savings Plans by using AWS Budgets. Configure the budget with a coverage threshold to send notifications to the appropriate email message recipients.</li>
+<li>Create a Lambda function that runs a coverage report against the Savings Plans. Use Amazon Simple Email Service (Amazon SES) to email the report to the appropriate email message recipients.</li>
+<li>Create an AWS Budgets report for the Savings Plans budget. Set the frequency to daily.</li>
+<li>❌ Create a Savings Plans alert subscription. Enable all notification options. Enter an email address to receive notifications.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/cost-management/latest/userguide/budgets-managing-costs.html">使用 AWS Budgets 管理成本</a></p>
+<blockquote>
+<p>您可以使用 AWS Budgets 来跟踪 AWS 成本和使用情况并执行操作。您可以使用 AWS Budgets 监控预留实例 (RI) 或 Savings Plans 的聚合利用率和覆盖率指标。  </p>
+<p>您可以使用 AWS Budgets 启用简单到复杂成本和使用情况跟踪。一些示例包括：</p>
+<ul>
+<li>设置每日利用率或覆盖率预算，以跟踪您的 RI 或 Savings Plans。您可以选择在指定日期的利用率降至 80% 以下时通过电子邮件和 Amazon SNS 主题接收通知。</li>
+</ul>
+<p>您可创建下列类型的预算：</p>
+<ul>
+<li><strong>Savings Plans 使用率预算</strong> - 定义使用率阈值，并在 Savings Plans 的使用率低于该阈值时接收提醒。这使您可以查看 Savings Plans 是否未使用或未充分利用。</li>
+<li><strong>Savings Plans 覆盖率预算</strong> - 定义覆盖率阈值，并在 Savings Plans 覆盖的 Savings Plans 合格使用量低于该阈值时接收提醒。这使您可以查看 Savings Plans 所覆盖的实例使用量的多少。</li>
+</ul>
+</blockquote>
+<p>这和题目中描述的 Saving Plans 覆盖率下降相符。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：My vote is for A : <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/savingsplans/latest/userguide/sp-usingBudgets.html">https://docs.aws.amazon.com/savingsplans/latest/userguide/sp-usingBudgets.html</a></p>
+</blockquote>
+<hr>
+<h3 id="四、Default-Host-Configuration-Management"><a href="#四、Default-Host-Configuration-Management" class="headerlink" title="四、Default Host Configuration Management"></a>四、Default Host Configuration Management</h3><p>A company has applications that run on Amazon EC2 instances. The EC2 instances connect to Amazon RDS databases by using an IAM role that has associated policies. The company wants to use AWS Systems Manager to patch the EC2 instances without disrupting the running applications.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>❌ Create a new IAM role. Attach the AmazonSSMManagedInstanceCore policy to the new IAM role. Attach the new IAM role to the EC2 instances and the existing IAM role.</li>
+<li>Create an IAM user. Attach the AmazonSSMManagedInstanceCore policy to the IAM user. Configure Systems Manager to use the IAM user to manage the EC2 instances.</li>
+<li>✅ Enable Default Host Configuration Management in Systems Manager to manage the EC2 instances.</li>
+<li>Remove the existing policies from the existing IAM role. Add the AmazonSSMManagedInstanceCore policy to the existing IAM role.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/systems-manager/latest/userguide/fleet-manager-default-host-management-configuration.html">使用默认主机管理配置自动管理 EC2 实例</a></p>
+<blockquote>
+<p>通过“默认主机管理配置”设置，AWS Systems Manager 可以将 Amazon EC2 实例作为托管式实例自动管理。托管实例是一个配置为与 Systems Manager 一起使用的 EC2 实例。<br>使用 Systems Manager 管理实例的好处包括以下几点：</p>
+<ul>
+<li>可以使用 Session Manager 安全地连接到您的 EC2 实例。</li>
+<li>可以使用 Patch Manager 执行自动补丁扫描。</li>
+<li>可以使用 Systems Manager 清单查看有关您的实例的详细信息。</li>
+<li>可以使用 Fleet Manager 追踪和管理实例。</li>
+<li>可以自动保持 SSM Agent 处于最新状态。</li>
+</ul>
+<p>“默认主机管理配置”使您无需手动创建 AWS Identity and Access Management（IAM）实例配置文件即可管理 EC2 实例。“默认主机管理配置”会创建并应用默认 IAM 角色，确保 Systems Manager 有权管理已激活该设置的 AWS 账户 和 AWS 区域 中的所有实例。  </p>
+<p>如果提供的权限不足以满足您的应用场景要求，您还可以向“默认主机管理配置”创建的默认 IAM 角色添加策略。或者，如果您不需要默认 IAM 角色提供的所有功能的权限，可以创建自己的自定义角色和策略。对您为“默认主机管理配置”选择的 IAM 角色所做的任何更改，都适用于相应区域和账户中的所有托管 Amazon EC2 实例。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：option C….Default Host Management Configuration createsand appliesa default IAM role to ensure thatSystems Manager has permissions to manage all instances in the Region and perform automated patch scans using Patch Manager.</p>
+</blockquote>
+</div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/12/11</p><p><a href="https://senjianlu.com/2024/12/11/saa_test_daily_20241211/">https://senjianlu.com/2024/12/11/saa_test_daily_20241211/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-12-11</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-12-11</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/12/12/translate_news_nhk_20241212_k10014665421000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - 暗号資産の交換行う「コインチェックグループ」ナスダック上場</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/12/11/translate_news_nhk_20241211_k10014664321000/"><span class="level-item">日语翻译 - 新闻 - 副業や兼業する人の割増賃金ルール見直しへ 環境整備ねらい</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、SnowFamily-and-S3"><span class="level-left"><span class="level-item">一、SnowFamily and S3</span></span></a></li><li><a class="level is-mobile" href="#二、Route-53-Resolver"><span class="level-left"><span class="level-item">二、Route 53 Resolver</span></span></a></li><li><a class="level is-mobile" href="#三、Saving-Plans-coverage"><span class="level-left"><span class="level-item">三、Saving Plans coverage</span></span></a></li><li><a class="level is-mobile" href="#四、Default-Host-Configuration-Management"><span class="level-left"><span class="level-item">四、Default Host Configuration Management</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2024 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
