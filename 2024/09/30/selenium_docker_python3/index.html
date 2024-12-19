@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>Selenium 容器 standalone-chrome 的启动和部分 Python3 使用例 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="将 Selenium 容器化之后，通过远程调用来加载一些页面的前端 JS 是不错的注意。"><meta property="og:type" content="article"><meta property="og:title" content="Selenium 容器 standalone-chrome 的启动和部分 Python3 使用例"><meta property="og:url" content="https://senjianlu.com/2024/09/30/selenium_docker_python3/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="将 Selenium 容器化之后，通过远程调用来加载一些页面的前端 JS 是不错的注意。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-30/selenium.png"><meta property="article:published_time" content="2024-09-30T08:20:00.000Z"><meta property="article:modified_time" content="2024-09-30T08:20:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="Python3"><meta property="article:tag" content="Selenium"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-30/selenium.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/09/30/selenium_docker_python3/"},"headline":"Selenium 容器 standalone-chrome 的启动和部分 Python3 使用例","image":["https://image.senjianlu.com/blog/2024-09-30/selenium.png"],"datePublished":"2024-09-30T08:20:00.000Z","dateModified":"2024-09-30T08:20:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"将 Selenium 容器化之后，通过远程调用来加载一些页面的前端 JS 是不错的注意。"}</script><link rel="canonical" href="https://senjianlu.com/2024/09/30/selenium_docker_python3/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-09-30T08:20:00.000Z" title="9/30/2024, 4:20:00 PM">2024-09-30</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/">开发笔记</a><span> / </span><a class="link-muted" href="/categories/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/%E5%90%8E%E7%AB%AF/">后端</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">Selenium 容器 standalone-chrome 的启动和部分 Python3 使用例</h1><div class="content"><p>将 Selenium 容器化之后，通过远程调用来加载一些页面的前端 JS 是不错的注意。</p>
+<span id="more"></span>
+
+<h3 id="一、确定容器启动的参数"><a href="#一、确定容器启动的参数" class="headerlink" title="一、确定容器启动的参数"></a>一、确定容器启动的参数</h3><p>官方镜像仓库：<a target="_blank" rel="noopener" href="https://hub.docker.com/r/selenium/standalone-chrome">selenium&#x2F;standalone-chrome</a><br>官方文档：<a target="_blank" rel="noopener" href="https://github.com/SeleniumHQ/docker-selenium/blob/trunk/README.md">Docker images for the Selenium Grid Server</a>  </p>
+<p>不得不说官方对容器各参数的解释真的很乱。<br>因此我总结了一些常用的参数，通过它们启动的容器在我的生产环境运行得非常稳定：</p>
+<ul>
+<li><code>--ulimit nofile=32768:32768</code>：防止出现由于限制打开文件数导致无法新建 Session 的问题。</li>
+<li><code>-p 4444:4444</code>：连接 Chrome 用的远程端口。</li>
+<li><code>-p 7900:7900</code>：查看容器内 Chrome 在发生什么的 VNC 端口（直接使用网页浏览器访问即可）。</li>
+<li><code>-e SE_VNC_NO_PASSWORD=1</code>：VNC 端口不设置密码。</li>
+<li><code>-e SE_NODE_SESSION_TIMEOUT=180</code>：Session 多久没有操作后断开连接。</li>
+<li><code>-e SE_NODE_MAX_SESSIONS=2</code>：同时多少个 Session 可以连接容器进行操作（理论上 1 个 Session 对应 1 个容器是最佳实践）。</li>
+<li><code>-e SE_SCREEN_WIDTH=1920</code> 和 <code>-e SE_SCREEN_HEIGHT=1080</code>：页面分辨率。</li>
+<li><code>--shm-size=&quot;2g&quot;</code>：容器可用内存，官方推荐的 2G 其实够用了。</li>
+</ul>
+<h3 id="二、启动-Selenium-standalone-chrome-容器"><a href="#二、启动-Selenium-standalone-chrome-容器" class="headerlink" title="二、启动 Selenium standalone-chrome 容器"></a>二、启动 Selenium standalone-chrome 容器</h3><blockquote>
+<p>如果你是云服务器，那么<strong>在启动前请先关闭 <code>4444</code> 端口和 <code>7900</code> 端口对应的防火墙或安全组</strong>。这两个端口并没有认证，被扫到后容器会被入侵。</p>
+</blockquote>
+<p>启动命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">  --name selenium \</span><br><span class="line">  --restart=unless-stopped \</span><br><span class="line">  --<span class="built_in">ulimit</span> nofile=32768:32768 \</span><br><span class="line">  -p 4444:4444 \</span><br><span class="line">  -p 7900:7900 \</span><br><span class="line">  -e SE_VNC_NO_PASSWORD=1 \</span><br><span class="line">  -e SE_NODE_SESSION_TIMEOUT=180 \</span><br><span class="line">  -e SE_NODE_MAX_SESSIONS=2 \</span><br><span class="line">  -e SE_SCREEN_WIDTH=1920 \</span><br><span class="line">  -e SE_SCREEN_HEIGHT=1080 \</span><br><span class="line">  --shm-size=<span class="string">&quot;2g&quot;</span> \</span><br><span class="line">  selenium/standalone-chrome:latest</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、Python3-使用例"><a href="#三、Python3-使用例" class="headerlink" title="三、Python3 使用例"></a>三、Python3 使用例</h3><h4 id="1、连接容器打开-Google-并查看页面标题"><a href="#1、连接容器打开-Google-并查看页面标题" class="headerlink" title="1、连接容器打开 Google 并查看页面标题"></a>1、连接容器打开 Google 并查看页面标题</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">chrome_options = webdriver.ChromeOptions()</span><br><span class="line">driver = webdriver.Remote(</span><br><span class="line">    command_executor=<span class="string">&#x27;http://127.0.0.1:4444/wd/hub&#x27;</span>, <span class="comment"># 远程服务器地址</span></span><br><span class="line">    options=chrome_options</span><br><span class="line">)</span><br><span class="line">driver.get(<span class="string">&#x27;https://www.google.com&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(driver.title)</span><br><span class="line">driver.quit()</span><br></pre></td></tr></table></figure>
+<p>执行结果：<br><img src="https://image.senjianlu.com/blog/2024-09-30/test_01.png" alt="Google 标题打印成功"></p>
+<h4 id="2、为容器内的-Chrome-配置代理"><a href="#2、为容器内的-Chrome-配置代理" class="headerlink" title="2、为容器内的 Chrome 配置代理"></a>2、为容器内的 Chrome 配置代理</h4><p><strong>注意：只能使用<u>不需要用户认证</u>的 HTTP 或 SOCKS5 代理！</strong></p>
+<blockquote>
+<p>在其他云服务器上启动 HTTP 代理服务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/go-gost/gost/releases/download/v3.0.0-nightly.20240927/gost_3.0.0-nightly.20240927_linux_amd64.tar.gz</span><br><span class="line">tar xzvf gost_3.0.0-nightly.20240927_linux_amd64.tar.gz</span><br><span class="line">./gost -L socks5://:37215</span><br></pre></td></tr></table></figure>
+<p>使用下面的命令测试代理可用性：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -x socks5://1.2.3.4:37215 http://ipinfo.io</span><br></pre></td></tr></table></figure>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">from selenium import webdriver</span><br><span class="line"></span><br><span class="line">chrome_options = webdriver.ChromeOptions()</span><br><span class="line"><span class="comment"># 为 Chrome 设置代理</span></span><br><span class="line">chrome_options.add_argument(<span class="string">&quot;--proxy-server=socks5://1.2.3.4:37215&quot;</span>)</span><br><span class="line">driver = webdriver.Remote(</span><br><span class="line">    command_executor=<span class="string">&#x27;http://127.0.0.1:4444/wd/hub&#x27;</span>, <span class="comment"># 远程服务器地址</span></span><br><span class="line">    options=chrome_options</span><br><span class="line">)</span><br><span class="line">driver.get(<span class="string">&quot;http://api.ip.sb/geoip&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(driver.page_source)</span><br><span class="line">driver.quit()</span><br></pre></td></tr></table></figure>
+<p>可以看到代理生效了，美国的服务器返回了代理所在的日本的 IP 信息：<br><img src="https://image.senjianlu.com/blog/2024-09-30/proxy.png" alt="代理生效">  </p>
+<blockquote>
+<p>如果你出现下面这样的错误：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">This site can’t be reached</span><br><span class="line">The webpage at https://ip-api.com/ might be temporarily down or it may have &gt; moved permanently to a new web address.</span><br><span class="line">ERR_NO_SUPPORTED_PROXIES</span><br></pre></td></tr></table></figure>
+<p>那么大概率就是你使用需要认证的代理了，请用 <a target="_blank" rel="noopener" href="https://gost.run/getting-started/quick-start/#_4">GOST 做下转发去掉它的认证</a>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./gost -L socks5://:8888 -F socks5://username:password@1.2.3.4:37215</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="3、截图页面并保存到本地"><a href="#3、截图页面并保存到本地" class="headerlink" title="3、截图页面并保存到本地"></a>3、截图页面并保存到本地</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">from selenium import webdriver</span><br><span class="line"></span><br><span class="line">chrome_options = webdriver.ChromeOptions()</span><br><span class="line">driver = webdriver.Remote(</span><br><span class="line">    command_executor=<span class="string">&#x27;http://127.0.0.1:4444/wd/hub&#x27;</span>, <span class="comment"># 远程服务器地址</span></span><br><span class="line">    options=chrome_options</span><br><span class="line">)</span><br><span class="line">driver.get(<span class="string">&#x27;https://www.youtube.com&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将截图保存到本地</span></span><br><span class="line">screenshot_path = <span class="string">&quot;./youtube.png&quot;</span></span><br><span class="line">screenshot = driver.get_screenshot_as_png()</span><br><span class="line">with open(screenshot_path, <span class="string">&quot;wb&quot;</span>) as file:</span><br><span class="line">    file.write(screenshot)</span><br><span class="line"><span class="built_in">print</span>(f<span class="string">&quot;Screenshot saved to &#123;screenshot_path&#125;&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>将服务器上的图片取到本地：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp root@1.2.3.4:/root/youtube.png ./</span><br></pre></td></tr></table></figure>
+
+<p>虽然内容还没加载，但是可以看出是 YouTube 的界面了：<br><img src="https://image.senjianlu.com/blog/2024-09-30/youtube.png" alt="YouTube 页面截图">  </p>
+<hr>
+<p>参考资料：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/SeleniumHQ/docker-selenium/issues/1817">[🐛 Bug]: SE_NODE_MAX_SESSIONS not taking effect on node-docker #1817</a></li>
+</ul>
+</div><div class="article-licensing box"><div class="licensing-title"><p>Selenium 容器 standalone-chrome 的启动和部分 Python3 使用例</p><p><a href="https://senjianlu.com/2024/09/30/selenium_docker_python3/">https://senjianlu.com/2024/09/30/selenium_docker_python3/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-09-30</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-09-30</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/Python3/">Python3</a><a class="link-muted mr-2" rel="tag" href="/tags/Selenium/">Selenium</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/10/01/linux_webdav/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Linux 下将 WebDAV 挂载为本地目录</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/09/30/docker_loki/"><span class="level-item">使用 Docker 部署 Loki + Grafana 日志聚合系统</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、确定容器启动的参数"><span class="level-left"><span class="level-item">一、确定容器启动的参数</span></span></a></li><li><a class="level is-mobile" href="#二、启动-Selenium-standalone-chrome-容器"><span class="level-left"><span class="level-item">二、启动 Selenium standalone-chrome 容器</span></span></a></li><li><a class="level is-mobile" href="#三、Python3-使用例"><span class="level-left"><span class="level-item">三、Python3 使用例</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#1、连接容器打开-Google-并查看页面标题"><span class="level-left"><span class="level-item">1、连接容器打开 Google 并查看页面标题</span></span></a></li><li><a class="level is-mobile" href="#2、为容器内的-Chrome-配置代理"><span class="level-left"><span class="level-item">2、为容器内的 Chrome 配置代理</span></span></a></li><li><a class="level is-mobile" href="#3、截图页面并保存到本地"><span class="level-left"><span class="level-item">3、截图页面并保存到本地</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2024 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script data-pjax src="/js/insight.js" defer></script><script data-pjax>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

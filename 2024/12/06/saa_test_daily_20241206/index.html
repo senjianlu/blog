@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/12/06 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam65 题 (No.386 ~ No.450) 只记录了 21 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。与正式考试题量一样，总共耗时 98&amp;#x2F;(130+30) 分钟，正确率为 49&amp;#x2F;65。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/12/06"><meta property="og:url" content="https://senjianlu.com/2024/12/06/saa_test_daily_20241206/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam65 题 (No.386 ~ No.450) 只记录了 21 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。与正式考试题量一样，总共耗时 98&amp;#x2F;(130+30) 分钟，正确率为 49&amp;#x2F;65。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-12-06T11:00:00.000Z"><meta property="article:modified_time" content="2024-12-06T12:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/12/06/saa_test_daily_20241206/"},"headline":"SAA 考试每日练习 - 2024/12/06","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-12-06T11:00:00.000Z","dateModified":"2024-12-06T12:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam65 题 (No.386 ~ No.450) 只记录了 21 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。与正式考试题量一样，总共耗时 98&#x2F;(130+30) 分钟，正确率为 49&#x2F;65。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/12/06/saa_test_daily_20241206/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-12-06T11:00:00.000Z" title="12/6/2024, 7:00:00 PM">2024-12-06</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/12/06</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/">Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam</a><br>65 题 (No.386 ~ No.450) <strong>只记录了 21 道首次碰到的、错误的或有疑问的题目</strong>，仅供自己复习使用。<br><em>与正式考试题量一样，总共耗时 98&#x2F;(130+30) 分钟，正确率为 49&#x2F;65。</em><br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<h3 id="一、PoLP-with-CloudFormation-stack"><a href="#一、PoLP-with-CloudFormation-stack" class="headerlink" title="一、PoLP with CloudFormation stack"></a>一、PoLP with CloudFormation stack</h3><p>A new employee has joined a company as a deployment engineer. The deployment engineer will be using AWS CloudFormation templates to create multiple AWS resources. A solutions architect wants the deployment engineer to perform job activities while following the principle of least privilege.<br>Which combination of actions should the solutions architect take to accomplish this goal? (Choose two.)</p>
+<ol>
+<li>Have the deployment engineer use AWS account root user credentials for performing AWS CloudFormation stack operations.</li>
+<li>Create a new IAM user for the deployment engineer and add the IAM user to a group that has the PowerUsers IAM policy attached.</li>
+<li>Create a new IAM user for the deployment engineer and add the IAM user to a group that has the AdministratorAccess IAM policy attached.</li>
+<li>✅ Create a new IAM user for the deployment engineer and add the IAM user to a group that has an IAM policy that allows AWS CloudFormation actions only.</li>
+<li>✅ Create an IAM role for the deployment engineer to explicitly define the permissions specific to the AWS CloudFormation stack and launch stacks using that IAM role.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ 5️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：这里的操作时只赋予开发者操作 <code>CloudFormation</code> 的权限，然后再创建一个拥有 <code>CloudFormation</code> 堆栈操作权限的角色并允许用户代入角色。<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/prescriptive-guidance/latest/least-privilege-cloudformation/cloudformation-stack-policies.html">CloudFormation 堆栈策略</a></p>
+<blockquote>
+<p>堆栈策略可以帮助防止堆栈资源在堆栈更新期间被意外更新或删除。堆栈策略是一个 JSON 文档，用于定义可在指定资源上执行的更新操作。默认情况下，任何具有cloudformation:UpdateStack权限的 IAM 委托人都可以更新 AWS CloudFormation 堆栈中的所有资源。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Option D, creating a new IAM user and adding them to a group with an IAM policy that allows AWS CloudFormation actions only, ensures that the deployment engineer has the necessary permissions to perform AWS CloudFormation operations while limiting access to other resources and actions. This aligns with the principle of least privilege by providing the minimum required permissions for their job activities.  </p>
+<p>Option E, creating an IAM role with specific permissions for AWS CloudFormation stack operations and allowing the deployment engineer to assume that role, is another valid approach. By using an IAM role, the deployment engineer can assume the role when necessary, granting them temporary permissions to perform CloudFormation actions. This provides a level of separation and limits the permissions granted to the engineer to only the required CloudFormation operations.</p>
+</blockquote>
+<hr>
+<h3 id="二、User-session-save"><a href="#二、User-session-save" class="headerlink" title="二、User session save"></a>二、User session save</h3><p>A company hosts a three-tier ecommerce application on a fleet of Amazon EC2 instances. The instances run in an Auto Scaling group behind an Application Load Balancer (ALB). All ecommerce data is stored in an Amazon RDS for MariaDB Multi-AZ DB instance.<br>The company wants to optimize customer session management during transactions. The application must store session data durably.<br>Which solutions will meet these requirements? (Choose two.)</p>
+<ol>
+<li>✅ Turn on the sticky sessions feature (session affinity) on the ALB.</li>
+<li>❌ Use an Amazon DynamoDB table to store customer session information.</li>
+<li>Deploy an Amazon Cognito user pool to manage user session information.</li>
+<li>✅ Deploy an Amazon ElastiCache for Redis cluster to store customer session information.</li>
+<li>Use AWS Systems Manager Application Manager in the application to manage user session information.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ 2️⃣ ❌ -&gt; 1️⃣ 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：重点在于使用什么服务保存用户 Session 使用户在多个运行在不同 <code>EC2</code> 实例的节点中保持登陆状态。<br>用 <code>DynamoDB</code> 当时是可以实现的，但是官方给了更好的方案：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/caching/session-management/">会话管理</a></p>
+<blockquote>
+<p>使用像 Amazon ElastiCache 这样的完全托管服务在云中进行缓存，可以很轻松上手。它消除了设置、管理和实施缓存的复杂性，使您能够专注于能为组织创造价值的任务。立即注册 Amazon ElastiCache。<br><img src="https://image.senjianlu.com/blog/2024-12-08/121911.png" alt="使用 ElastiCache 保存 Session 的架构"></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：It is A and D. Proof is in link below.<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/caching/session-management/">https://aws.amazon.com/caching/session-management/</a></p>
+</blockquote>
+<hr>
+<h3 id="三、RPO"><a href="#三、RPO" class="headerlink" title="三、RPO"></a>三、RPO</h3><p>A company needs a backup strategy for its three-tier stateless web application. The web application runs on Amazon EC2 instances in an Auto Scaling group with a dynamic scaling policy that is configured to respond to scaling events. The database tier runs on Amazon RDS for PostgreSQL. The web application does not require temporary local storage on the EC2 instances. The company’s recovery point objective (RPO) is 2 hours.<br>The backup strategy must maximize scalability and optimize resource utilization for this environment.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Take snapshots of Amazon Elastic Block Store (Amazon EBS) volumes of the EC2 instances and database every 2 hours to meet the RPO.</li>
+<li>Configure a snapshot lifecycle policy to take Amazon Elastic Block Store (Amazon EBS) snapshots. Enable automated backups in Amazon RDS to meet the RPO.</li>
+<li>✅ Retain the latest Amazon Machine Images (AMIs) of the web and application tiers. Enable automated backups in Amazon RDS and use point-in-time recovery to meet the RPO.</li>
+<li>❌ Take snapshots of Amazon Elastic Block Store (Amazon EBS) volumes of the EC2 instances every 2 hours. Enable automated backups in Amazon RDS and use point-in-time recovery to meet the RPO.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：2 hours</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：运行在 <code>RDS</code> 上的数据库只能丢 2 小时的数据，意味着最少 2 小时也要备份一下。<br>需要明确的是 <code>RDS</code> 是支持 point-in-time 恢复的：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/blogs/storage/point-in-time-recovery-and-continuous-backup-for-amazon-rds-with-aws-backup/">Point-in-time recovery and continuous backup for Amazon RDS with AWS Backup</a>，但是没有必要对 <code>EBS</code> 卷进行备份，因为数据不存在 <code>EC2</code> 本地。<br>3️⃣ 创建 <code>AMI</code> 用以恢复是更合理的。<br><u>在需要对 <code>EC2</code> 进行灾备的场景下，使用 <code>AMI</code> 是更好的选择。</u></p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：that if there is no temporary local storage on the EC2 instances, then snapshots of EBS volumes are not necessary. Therefore, if your application does not require temporary storage on EC2 instances, using AMIs to back up the web and application tiers is sufficient to restore the system after a failure.<br>Snapshots of EBS volumes would be necessary if you want to back up the entire EC2 instance, including any applications and temporary data stored on the EBS volumes attached to the instances. When you take a snapshot of an EBS volume, it backs up the entire contents of that volume. This ensures that you can restore the entire EC2 instance to a specific point in time more quickly. However, if there is no temporary data stored on the EBS volumes, then snapshots of EBS volumes are not necessary.  </p>
+</blockquote>
+<hr>
+<h3 id="四、20-000-IOPS"><a href="#四、20-000-IOPS" class="headerlink" title="四、20,000 IOPS"></a>四、20,000 IOPS</h3><p>A company is running a multi-tier ecommerce web application in the AWS Cloud. The application runs on Amazon EC2 instances with an Amazon RDS for MySQL Multi-AZ DB instance. Amazon RDS is configured with the latest generation DB instance with 2,000 GB of storage in a General Purpose SSD (gp3) Amazon Elastic Block Store (Amazon EBS) volume. The database performance affects the application during periods of high demand.<br>A database administrator analyzes the logs in Amazon CloudWatch Logs and discovers that the application performance always degrades when the number of read and write IOPS is higher than 20,000.<br>What should a solutions architect do to improve the application performance?</p>
+<ol>
+<li>Replace the volume with a magnetic volume.</li>
+<li>Increase the number of IOPS on the gp3 volume.</li>
+<li>✅ Replace the volume with a Provisioned IOPS SSD (io2) volume.</li>
+<li>Replace the 2,000 GB gp3 volume with two 1,000 GB gp3 volumes.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：2,000 GB of storage、read and write IOPS is higher than 20,000</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：总共 2 TB 的存储，需要将 IOPS 提升到 20,000。<br>在 2024 年 <code>RDS</code> 已经支持了 io2 类型的卷：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/blogs/aws/amazon-rds-now-supports-io2-block-express-volumes-for-mission-critical-database-workloads/">Amazon RDS now supports io2 Block Express volumes for mission-critical database workloads</a>  </p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonRDS/latest/UserGuide/CHAP_Storage.html">Amazon RDS 数据库实例存储</a> </p>
+<blockquote>
+<p>Amazon RDS 提供三种存储类型：预调配 IOPS SSD（也称为 io1 和 io2 Block Express）、通用型 SSD（也称为 gp2 和 gp3）和磁性存储（也称为标准存储）。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Answer is C, io2 volumes are supported<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/blogs/aws/amazon-rds-now-supports-io2-block-express-volumes-for-mission-critical-database-workloads/">https://aws.amazon.com/blogs/aws/amazon-rds-now-supports-io2-block-express-volumes-for-mission-critical-database-workloads/</a></p>
+</blockquote>
+<hr>
+<h3 id="五、An-hour-job"><a href="#五、An-hour-job" class="headerlink" title="五、An hour job"></a>五、An hour job</h3><p>An ecommerce company needs to run a scheduled daily job to aggregate and filter sales records for analytics. The company stores the sales records in an Amazon S3 bucket. Each object can be up to 10 GB in size. Based on the number of sales events, the job can take up to an hour to complete. The CPU and memory usage of the job are constant and are known in advance.<br>A solutions architect needs to minimize the amount of operational effort that is needed for the job to run.<br>Which solution meets these requirements?</p>
+<ol>
+<li>❌ Create an AWS Lambda function that has an Amazon EventBridge notification. Schedule the EventBridge event to run once a day.</li>
+<li>Create an AWS Lambda function. Create an Amazon API Gateway HTTP API, and integrate the API with the function. Create an Amazon EventBridge scheduled event that calls the API and invokes the function.</li>
+<li>✅ Create an Amazon Elastic Container Service (Amazon ECS) cluster with an AWS Fargate launch type. Create an Amazon EventBridge scheduled event that launches an ECS task on the cluster to run the job.</li>
+<li>Create an Amazon Elastic Container Service (Amazon ECS) cluster with an Amazon EC2 launch type and an Auto Scaling group with at least one EC2 instance. Create an Amazon EventBridge scheduled event that launches an ECS task on the cluster to run the job.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：an hour</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>Lambda</code> 函数最大运行时间为 15 分钟。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：The requirement is to run a daily scheduled job to aggregate and filter sales records for analytics in the most efficient way possible. Based on the requirement, we can eliminate option A and B since they use AWS Lambda which has a limit of 15 minutes of execution time, which may not be sufficient for a job that can take up to an hour to complete.<br>Between options C and D, option C is the better choice since it uses AWS Fargate which is a serverless compute engine for containers that eliminates the need to manage the underlying EC2 instances, making it a low operational effort solution.<br>Additionally, Fargate also provides instant scale-up and scale-down capabilities to run the scheduled job as per the requirement.  </p>
+<p>Therefore, the correct answer is:<br>C. Create an Amazon Elastic Container Service (Amazon ECS) cluster with an AWS Fargate launch type. Create an Amazon EventBridge scheduled event that launches an ECS task on the cluster to run the job.</p>
+</blockquote>
+<hr>
+<h3 id="六、Auto-Scaling"><a href="#六、Auto-Scaling" class="headerlink" title="六、Auto Scaling"></a>六、Auto Scaling</h3><p>A solutions architect is designing the architecture for a software demonstration environment. The environment will run on Amazon EC2 instances in an Auto Scaling group behind an Application Load Balancer (ALB). The system will experience significant increases in traffic during working hours but is not required to operate on weekends.<br>Which combination of actions should the solutions architect take to ensure that the system can scale to meet demand? (Choose two.)</p>
+<ol>
+<li>❌ Use AWS Auto Scaling to adjust the ALB capacity based on request rate.</li>
+<li>Use AWS Auto Scaling to scale the capacity of the VPC internet gateway.</li>
+<li>Launch the EC2 instances in multiple AWS Regions to distribute the load across Regions.</li>
+<li>✅ Use a target tracking scaling policy to scale the Auto Scaling group based on instance CPU utilization.</li>
+<li>✅ Use scheduled scaling to change the Auto Scaling group minimum, maximum, and desired capacity to zero for weekends. Revert to the default values at the start of the week.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ 5️⃣ ❌ -&gt; 4️⃣ 5️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/autoscaling/ec2/userguide/as-scaling-target-tracking.html#target-tracking-choose-metrics">选择指标</a>中提到了有 <code>ALB</code> 相关的指标：</p>
+<blockquote>
+<ul>
+<li><code>ASGAverageCPUUtilization — Auto Scaling</code> 组的平均CPU利用率。</li>
+<li><code>ASGAverageNetworkIn</code> – 单个实例在所有网络接口上收到的平均字节数。</li>
+<li><code>ASGAverageNetworkOut</code> – 单个实例在所有网络接口上发送的平均字节数</li>
+<li><code>ALBRequestCountPerTarget</code> – 每目标的应用程序负载均衡器请求计数。</li>
+</ul>
+</blockquote>
+<p>这意味着虽然不直接支持 1️⃣ 提到的 <code>ALB</code> 容量，但是支持基于每个目标均衡后的请求数进行扩展，1️⃣ 是相对合理的。<br>但是 4️⃣ 更正确吧，毕竟 <code>ASG</code> 明确了支持 CPU 相关指标。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Not A - “AWS Auto Scaling” cannot adjust “ALB capacity” (<a target="_blank" rel="noopener" href="https://aws.amazon.com/autoscaling/faqs/">https://aws.amazon.com/autoscaling/faqs/</a>)<br>Not B - VPC internet gateway has nothing to do with this<br>Not C - Regions have nothing to do with scaling  </p>
+</blockquote>
+<hr>
+<h3 id="七、Network-share"><a href="#七、Network-share" class="headerlink" title="七、Network share"></a>七、Network share</h3><p>A company has a business system that generates hundreds of reports each day. The business system saves the reports to a network share in CSV format. The company needs to store this data in the AWS Cloud in near-real time for analysis.<br>Which solution will meet these requirements with the LEAST administrative overhead?</p>
+<ol>
+<li>Use AWS DataSync to transfer the files to Amazon S3. Create a scheduled task that runs at the end of each day.</li>
+<li>✅ Create an Amazon S3 File Gateway. Update the business system to use a new network share from the S3 File Gateway.</li>
+<li>❌ Use AWS DataSync to transfer the files to Amazon S3. Create an application that uses the DataSync API in the automation workflow.</li>
+<li>Deploy an AWS Transfer for SFTP endpoint. Create a script that checks for new files on the network share and uploads the new files by using SFTP.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：系统将 .csv 文件保存给网络共享存储。<br>2️⃣ 的操作更简单些。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Both Amazon S3 File Gateway and AWS DataSync are suitable for this scenario.<br>But there is a requirement for ‘LEAST administrative overhead’.<br>Option C involves the creation of an entirely new application to consume the DataSync API, this rules out this option.</p>
+</blockquote>
+<hr>
+<h3 id="八、OLTP"><a href="#八、OLTP" class="headerlink" title="八、OLTP"></a>八、OLTP</h3><p>A rapidly growing global ecommerce company is hosting its web application on AWS. The web application includes static content and dynamic content. The website stores online transaction processing (OLTP) data in an Amazon RDS database The website’s users are experiencing slow page loads.<br>Which combination of actions should a solutions architect take to resolve this issue? (Choose two.)</p>
+<ol>
+<li>Configure an Amazon Redshift cluster.</li>
+<li>✅ Set up an Amazon CloudFront distribution.</li>
+<li>Host the dynamic web content in Amazon S3.</li>
+<li>✅ Create a read replica for the RDS DB instance.</li>
+<li>❌ Configure a Multi-AZ deployment for the RDS DB instance.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ 5️⃣ ❌ -&gt; 2️⃣ 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：需要解决 OLTP 带来的数据库负载升高而影响用户加载页面。<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/compare/the-difference-between-olap-and-oltp/">OLAP 与 OLTP 有何区别？</a></p>
+<blockquote>
+<p>联机分析处理 (OLAP) 系统和联机事务处理 (OLTP) 系统都是帮助您存储和分析业务数据的数据处理系统。您可以收集和存储来自多个来源的数据，例如网站、应用程序、智能电表和内部系统。</p>
+<ul>
+<li>OLAP 对数据进行合并和分组，因此您可以从不同的角度对其进行分析。</li>
+<li>OLTP 能够可靠、高效地存储和更新大量事务数据</li>
+</ul>
+<p>OLTP 数据库可以成为 OLAP 系统的多个数据来源之一。</p>
+</blockquote>
+<p>OLTP 确实是非只读操作的。<br>但是考试的侧重点是：只读副本重点提高性能，跨区域部署强调高可用和容灾。<br>因此 4️⃣ 和 5️⃣ 中选 4️⃣。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：To resolve the issue of slow page loads for a rapidly growing e-commerce website hosted on AWS, a solutions architect can take the following two actions:  </p>
+<ol>
+<li>Set up an Amazon CloudFront distribution</li>
+<li>Create a read replica for the RDS DB instance</li>
+</ol>
+<p>Configuring an Amazon Redshift cluster is not relevant to this issue since Redshift is a data warehousing service and is typically used for the analytical processing of large amounts of data.<br>Hosting the dynamic web content in Amazon S3 may not necessarily improve performance since S3 is an object storage service, not a web application server. While S3 can be used to host static web content, it may not be suitable for hosting dynamic web content since S3 doesn’t support server-side scripting or processing.<br>Configuring a Multi-AZ deployment for the RDS DB instance will improve high availability but may not necessarily improve performance.</p>
+</blockquote>
+<hr>
+<h3 id="十、Savings-Plan"><a href="#十、Savings-Plan" class="headerlink" title="十、Savings Plan"></a>十、Savings Plan</h3><p>A company uses Amazon EC2 instances and AWS Lambda functions to run its application. The company has VPCs with public subnets and private subnets in its AWS account. The EC2 instances run in a private subnet in one of the VPCs. The Lambda functions need direct network access to the EC2 instances for the application to work.<br>The application will run for at least 1 year. The company expects the number of Lambda functions that the application uses to increase during that time. The company wants to maximize its savings on all application resources and to keep network latency between the services low.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Purchase an EC2 Instance Savings Plan Optimize the Lambda functions’ duration and memory usage and the number of invocations. Connect the Lambda functions to the private subnet that contains the EC2 instances.</li>
+<li>Purchase an EC2 Instance Savings Plan Optimize the Lambda functions’ duration and memory usage, the number of invocations, and the amount of data that is transferred. Connect the Lambda functions to a public subnet in the same VPC where the EC2 instances run.</li>
+<li>✅ Purchase a Compute Savings Plan. Optimize the Lambda functions’ duration and memory usage, the number of invocations, and the amount of data that is transferred. Connect the Lambda functions to the private subnet that contains the EC2 instances.</li>
+<li>Purchase a Compute Savings Plan. Optimize the Lambda functions’ duration and memory usage, the number of invocations, and the amount of data that is transferred. Keep the Lambda functions in the Lambda service VPC.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/savingsplans/compute-pricing/">Savings Plans</a></p>
+<blockquote>
+<ul>
+<li><code>Compute Savings Plans</code> 的灵活性最高，最高可帮助您节省 66% 的费用。这些计划会自动应用于 EC2 实例用量，不分实例系列、大小、可用区、区域、操作系统或租期，并且还适用于 Fargate 和 Lambda 的使用。 例如，注册 Compute Savings Plans 后，您可以随时从 C4 实例更改为 M5 实例，将工作负载从欧洲（爱尔兰）区域转移到欧洲（伦敦）区域，或者将工作负载从 EC2 迁移到 Fargate 或 Lambda，并继续自动支付 Savings Plans 价格。</li>
+<li><code>EC2 Instance Savings Plans</code> 可提供最低的价格，最高可提供 72% 的折扣，以换取在单个区域内使用单个实例系列的承诺（例如在弗吉尼亚北部区域使用 M5 实例）。这会自动降低您在该区域的选定实例系列成本，不分可用区、实例大小、操作系统或租期。借助 EC2 Instance Savings Plans，您可以灵活地在该区域的一个实例系列中更改实例的使用情况。例如，您可以从运行 Windows 的 c5.xlarge 实例迁移到运行 Linux 的 c5.2xlarge 实例，并自动享受 Savings Plan 价格。</li>
+</ul>
+</blockquote>
+<p><code>Compute Savings Plans</code> 可以更改实例类型，更灵活；<code>EC2 Instance Savings Plans</code> 不能更改实例类型，但是更便宜。<br>但是由于 <code>Compute Savings Plans</code> 还适用于 <code>Lambda</code> 函数和 <code>Fargate</code>，因此在这个场景下更省钱，选 3️⃣。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Answer C is the best solution that meets the company’s requirements.<br>By purchasing a Compute Savings Plan, the company can save on the costs of running both EC2 instances and Lambda functions. The Lambda functions can be connected to the private subnet that contains the EC2 instances through a VPC endpoint for AWS services or a VPC peering connection. This provides direct network access to the EC2 instances while keeping the traffic within the private network, which helps to minimize network latency.<br>Optimizing the Lambda functions’ duration, memory usage, number of invocations, and amount of data transferred can help to further minimize costs and improve performance. Additionally, using a private subnet helps to ensure that the EC2 instances are not directly accessible from the public internet, which is a security best practice.</p>
+</blockquote>
+<hr>
+<h3 id="十一、Policy-Principal"><a href="#十一、Policy-Principal" class="headerlink" title="十一、Policy Principal"></a>十一、Policy Principal</h3><p>A solutions architect needs to allow team members to access Amazon S3 buckets in two different AWS accounts: a development account and a production account. The team currently has access to S3 buckets in the development account by using unique IAM users that are assigned to an IAM group that has appropriate permissions in the account.<br>The solutions architect has created an IAM role in the production account. The role has a policy that grants access to an S3 bucket in the production account.<br>Which solution will meet these requirements while complying with the principle of least privilege?</p>
+<ol>
+<li>Attach the Administrator Access policy to the development account users.</li>
+<li>✅ Add the development account as a principal in the trust policy of the role in the production account.</li>
+<li>Turn off the S3 Block Public Access feature on the S3 bucket in the production account.</li>
+<li>❌ Create a user in the production account with unique credentials for each team member.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/IAM/latest/UserGuide/reference_policies_elements_principal.html">AWS JSON 策略元素：Principal</a></p>
+<blockquote>
+<p>在基于资源的 JSON 策略中使用 Principal 元素指定允许或拒绝访问资源的主体。</p>
+<p>您必须使用基于资源的策略中的 Principal 元素。包括 IAM 在内的多项服务支持基于资源的策略。IAM 中唯一基于资源的策略类型是角色信任策略。在 IAM 角色中，在角色的信任策略中使用 Principal 元素来指定可担任该角色的对象。对于跨账户存取，您必须指定受信任账户的 12 位标识符。</p>
+</blockquote>
+<p>在基于资源的策略中，将指定账户添加到 <code>Principal</code> 中可以授权其访问资源。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：By adding the development account as a principal in the trust policy of the IAM role in the production account, you are allowing users from the development account to assume the role in the production account. This allows the team members to access the S3 bucket in the production account without granting them unnecessary privileges.</p>
+</blockquote>
+<hr>
+<h3 id="十二、Amazon-RDS-Multi-AZ-DB-cluster-DR"><a href="#十二、Amazon-RDS-Multi-AZ-DB-cluster-DR" class="headerlink" title="十二、Amazon RDS Multi-AZ DB cluster DR"></a>十二、Amazon RDS Multi-AZ DB cluster DR</h3><p>A company wants to use an Amazon RDS for PostgreSQL DB cluster to simplify time-consuming database administrative tasks for production database workloads. The company wants to ensure that its database is highly available and will provide automatic failover support in most scenarios in less than 40 seconds. The company wants to offload reads off of the primary instance and keep costs as low as possible.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>❌ Use an Amazon RDS Multi-AZ DB instance deployment. Create one read replica and point the read workload to the read replica.</li>
+<li>Use an Amazon RDS Multi-AZ DB duster deployment Create two read replicas and point the read workload to the read replicas.</li>
+<li>Use an Amazon RDS Multi-AZ DB instance deployment. Point the read workload to the secondary instances in the Multi-AZ pair.</li>
+<li>✅ Use an Amazon RDS Multi-AZ DB cluster deployment Point the read workload to the reader endpoint.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：根据 <a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/blogs/database/choose-the-right-amazon-rds-deployment-option-single-az-instance-multi-az-instance-or-multi-az-database-cluster/">Choose the right Amazon RDS deployment option: Single-AZ instance, Multi-AZ instance, or Multi-AZ database cluster</a>：</p>
+<blockquote>
+<ul>
+<li><strong>Single-AZ Instance</strong> - The RPO with an Amazon RDS Single-AZ instance is typically 5 minutes.</li>
+<li><strong>Multi-AZ instance</strong> - The amount of time it takes for failover is usually 1–2 minutes.</li>
+<li><strong>Multi-AZ DB cluster</strong> - The Multi-AZ DB cluster combines automatic failover with two readable standby instances and provides up to 2x faster commit latencies and automated failovers, typically under 35 seconds.</li>
+</ul>
+</blockquote>
+<p>4️⃣ 集群只需要最长 35 的灾难恢复时间，因此最符合。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A - multi-az instance : failover takes between 60-120 sec<br>D - multi-az cluster: failover around 35 sec </p>
+</blockquote>
+<hr>
+<h3 id="十三、SFTP-service"><a href="#十三、SFTP-service" class="headerlink" title="十三、SFTP service"></a>十三、SFTP service</h3><p>A company runs a highly available SFTP service. The SFTP service uses two Amazon EC2 Linux instances that run with elastic IP addresses to accept traffic from trusted IP sources on the internet. The SFTP service is backed by shared storage that is attached to the instances. User accounts are created and managed as Linux users in the SFTP servers.<br>The company wants a serverless option that provides high IOPS performance and highly configurable security. The company also wants to maintain control over user permissions.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Create an encrypted Amazon Elastic Block Store (Amazon EBS) volume. Create an AWS Transfer Family SFTP service with a public endpoint that allows only trusted IP addresses. Attach the EBS volume to the SFTP service endpoint. Grant users access to the SFTP service.</li>
+<li>✅ Create an encrypted Amazon Elastic File System (Amazon EFS) volume. Create an AWS Transfer Family SFTP service with elastic IP addresses and a VPC endpoint that has internet-facing access. Attach a security group to the endpoint that allows only trusted IP addresses. Attach the EFS volume to the SFTP service endpoint. Grant users access to the SFTP service.</li>
+<li>Create an Amazon S3 bucket with default encryption enabled. Create an AWS Transfer Family SFTP service with a public endpoint that allows only trusted IP addresses. Attach the S3 bucket to the SFTP service endpoint. Grant users access to the SFTP service.</li>
+<li>❌ Create an Amazon S3 bucket with default encryption enabled. Create an AWS Transfer Family SFTP service with a VPC endpoint that has internal access in a private subnet. Attach a security group that allows only trusted IP addresses. Attach the S3 bucket to the SFTP service endpoint. Grant users access to the SFTP service.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：替换共享存储方案，同时保留对用户权限的控制。<br>这里理解错了，以为是需要找到可以挂载到 <code>EC2</code> 上的存储方案，其实要求的是替换掉<u>通过 <code>EC2</code> 实现的 SFTP 服务</u>。<br>由于 4️⃣ 的配置会导致其只能在内网访问，因此选 2️⃣。 </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Not A - Transfer Family canj’t use EBS<br>B - Possible and meets requirement<br>Not C - S3 doesn’t guarantee “high IOPS performance”; also there is no “public endpoint that allows only trusted IP addresses” (you can assign a Security Group to a public endpoint but that is not mentioned here)<br>Not D - Endpoint would be in private subnet, not accessible from Internet at all</p>
+</blockquote>
+<hr>
+<h3 id="十四、Identity-based-Policy"><a href="#十四、Identity-based-Policy" class="headerlink" title="十四、Identity-based Policy"></a>十四、Identity-based Policy</h3><p>A solutions architect wants to use the following JSON text as an identity-based policy to grant specific permissions:<br><img src="https://image.senjianlu.com/blog/2024-12-08/141522.png" alt="No.14"><br>Which IAM principals can the solutions architect attach this policy to? (Choose two.)</p>
+<ol>
+<li>✅ Role</li>
+<li>✅ Group</li>
+<li>Organization</li>
+<li>❌ Amazon Elastic Container Service (Amazon ECS) resource</li>
+<li>❌ Amazon EC2 resource</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：identity-based</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ 5️⃣ ❌ -&gt; 1️⃣ 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：题目总已经明确了是基于身份的策略，因此选 1️⃣ 和 2️⃣。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：identity-based policy used for role and group</p>
+</blockquote>
+<hr>
+<h3 id="十五、15-000-IOPS-stroage"><a href="#十五、15-000-IOPS-stroage" class="headerlink" title="十五、15,000 IOPS stroage"></a>十五、15,000 IOPS stroage</h3><p>A company uses high block storage capacity to runs its workloads on premises. The company’s daily peak input and output transactions per second are not more than 15,000 IOPS. The company wants to migrate the workloads to Amazon EC2 and to provision disk performance independent of storage capacity.<br>Which Amazon Elastic Block Store (Amazon EBS) volume type will meet these requirements MOST cost-effectively?</p>
+<ol>
+<li>GP2 volume type</li>
+<li>❌ io2 volume type</li>
+<li>✅ GP3 volume type</li>
+<li>io1 volume type</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：看下答案中各存储的 IOPS 和价格：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/blogs/storage/migrate-your-amazon-ebs-volumes-from-gp2-to-gp3-and-save-up-to-20-on-costs/">Migrate your Amazon EBS volumes from gp2 to gp3 and save up to 20% on costs</a></p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>Max IOPS&#x2F;volume</th>
+<th>Price</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>gp3</td>
+<td>16,000</td>
+<td>$0.08&#x2F;GiB-month</td>
+</tr>
+<tr>
+<td>gp2</td>
+<td>16,000</td>
+<td>$0.10&#x2F;GiB-month</td>
+</tr>
+<tr>
+<td>io1</td>
+<td>64,000</td>
+<td>$0.125&#x2F;GiB-month</td>
+</tr>
+<tr>
+<td>io2</td>
+<td>256,000</td>
+<td>$0.125&#x2F;GiB-month</td>
+</tr>
+</tbody></table>
+</blockquote>
+<p>gp 系列已经能达到 IOPS 需求，选 gp3 更便宜。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Both GP2 and GP3 has max IOPS 16000 but GP3 is cost effective.<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/blogs/storage/migrate-your-amazon-ebs-volumes-from-gp2-to-gp3-and-save-up-to-20-on-costs/">https://aws.amazon.com/blogs/storage/migrate-your-amazon-ebs-volumes-from-gp2-to-gp3-and-save-up-to-20-on-costs/</a></p>
+</blockquote>
+<hr>
+<h3 id="十六、Scoreboard-in-near-real-time"><a href="#十六、Scoreboard-in-near-real-time" class="headerlink" title="十六、Scoreboard in near-real time"></a>十六、Scoreboard in near-real time</h3><p>A company has developed a new video game as a web application. The application is in a three-tier architecture in a VPC with Amazon RDS for MySQL in the database layer. Several players will compete concurrently online. The game’s developers want to display a top-10 scoreboard in near-real time and offer the ability to stop and restore the game while preserving the current scores.<br>What should a solutions architect do to meet these requirements?</p>
+<ol>
+<li>Set up an Amazon ElastiCache for Memcached cluster to cache the scores for the web application to display.</li>
+<li>✅ Set up an Amazon ElastiCache for Redis cluster to compute and cache the scores for the web application to display.</li>
+<li>Place an Amazon CloudFront distribution in front of the web application to cache the scoreboard in a section of the application.</li>
+<li>Create a read replica on Amazon RDS for MySQL to run queries to compute the scoreboard and serve the read traffic to the web application.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：top-10 scoreboard in near-real time</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：希望能够近乎实时地显示前10名的计分板，并提供在保留当前分数的情况下停止和恢复游戏的功能。<br>1️⃣ 和 2️⃣ 理论上都能解决问题，但是 <code>Amazon ElastiCache for Redis</code> 是官方推荐的解决方案：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/blogs/database/building-a-real-time-gaming-leaderboard-with-amazon-elasticache-for-redis/">Build a real-time gaming leaderboard with Amazon ElastiCache for Redis</a><br><code>Amazon ElastiCache for Redis</code> 更强调拥有排序的特性，适合该场景：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/elasticache/redis/#:~:text=ElastiCache%20for%20Redis.-,Gaming,-Leaderboards">与 Redis OSS 兼容的 Amazon ElastiCache</a></p>
+<blockquote>
+<p><strong>游戏排行榜</strong><br>借助 Amazon ElastiCache，用户可以轻松创建实时游戏排行榜。可直接使用 Redis OSS 有序集数据结构，此结构实现了元素的唯一性，同时又可维护按元素分数排序的列表。创建实时排序表像用户分数在每次更改后进行更新一样简单。您也可以使用时间戳作为分数，使用有序集处理时间序列数据。</p>
+</blockquote>
+<p>社区还有人提到了 <code>ElastiCache for Memcached</code> 不是持久的，没有备份和还原功能，这是真的，并且也应该是本题不选它的原因之一。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Real-time gaming leaderboards are easy to create with Amazon ElastiCache for Redis. Just use the Redis Sorted Set data structure, which provides uniqueness of elements while maintaining the list sorted by their scores. Creating a real-time ranked list is as simple as updating a user’s score each time it changes. You can also use Sorted Sets to handle time series data by using timestamps as the score.<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/elasticache/redis/#:~:text=ElastiCache%20for%20Redis.-,Gaming,-Leaderboards">https://aws.amazon.com/cn/elasticache/redis/#:~:text=ElastiCache%20for%20Redis.-,Gaming,-Leaderboards</a></p>
+</blockquote>
+<hr>
+<h3 id="十七、DR-in-another-region"><a href="#十七、DR-in-another-region" class="headerlink" title="十七、DR in another region"></a>十七、DR in another region</h3><p>A company hosts its application in the AWS Cloud. The application runs on Amazon EC2 instances behind an Elastic Load Balancer in an Auto Scaling group and with an Amazon DynamoDB table. The company wants to ensure the application can be made available in anotherAWS Region with minimal downtime.<br>What should a solutions architect do to meet these requirements with the LEAST amount of downtime?</p>
+<ol>
+<li>✅ Create an Auto Scaling group and a load balancer in the disaster recovery Region. Configure the DynamoDB table as a global table. Configure DNS failover to point to the new disaster recovery Region’s load balancer.</li>
+<li>Create an AWS CloudFormation template to create EC2 instances, load balancers, and DynamoDB tables to be launched when needed Configure DNS failover to point to the new disaster recovery Region’s load balancer.</li>
+<li>❌ Create an AWS CloudFormation template to create EC2 instances and a load balancer to be launched when needed. Configure the DynamoDB table as a global table. Configure DNS failover to point to the new disaster recovery Region’s load balancer.</li>
+<li>Create an Auto Scaling group and load balancer in the disaster recovery Region. Configure the DynamoDB table as a global table. Create an Amazon CloudWatch alarm to trigger an AWS Lambda function that updates Amazon Route 53 pointing to the disaster recovery load balancer.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：minimal downtime</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：3️⃣ 创建了一个 <code>CloudFormation</code> 模板用以容灾，理论上也可以实现短时内在另一个区域启动相同的架构。<br>但是没有 1️⃣ 一直启动着相同架构来的快。 </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：With the LEAST amount of downtime &#x3D; A<br>Cost effective &#x3D; C , but risky some of EC2 types&#x2F;capacity not available in Region at the time, when need to switch to DR</p>
+</blockquote>
+<hr>
+<h3 id="十八、Reserved-DB-instance"><a href="#十八、Reserved-DB-instance" class="headerlink" title="十八、Reserved DB instance"></a>十八、Reserved DB instance</h3><p>A company moved its on-premises PostgreSQL database to an Amazon RDS for PostgreSQL DB instance. The company successfully launched a new product. The workload on the database has increased. The company wants to accommodate the larger workload without adding infrastructure.<br>Which solution will meet these requirements MOST cost-effectively?</p>
+<ol>
+<li>✅ Buy reserved DB instances for the total workload. Make the Amazon RDS for PostgreSQL DB instance larger.</li>
+<li>Make the Amazon RDS for PostgreSQL DB instance a Multi-AZ DB instance.</li>
+<li>Buy reserved DB instances for the total workload. Add another Amazon RDS for PostgreSQL DB instance.</li>
+<li>❌ Make the Amazon RDS for PostgreSQL DB instance an on-demand DB instance.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：工作负载已经增加了 (increased)，并且之后架构不再增加了，可以使用预留实例了。 </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：”without adding infrastructure” means scaling vertically and choosing larger instance.<br>“MOST cost-effectively” reserved instances</p>
+</blockquote>
+<hr>
+<h3 id="十九、Add-CIDR-block-to-VPC"><a href="#十九、Add-CIDR-block-to-VPC" class="headerlink" title="十九、Add CIDR block to VPC"></a>十九、Add CIDR block to VPC</h3><p>A solutions architect configured a VPC that has a small range of IP addresses. The number of Amazon EC2 instances that are in the VPC is increasing, and there is an insufficient number of IP addresses for future workloads.<br>Which solution resolves this issue with the LEAST operational overhead?</p>
+<ol>
+<li>✅ Add an additional IPv4 CIDR block to increase the number of IP addresses and create additional subnets in the VPC. Create new resources in the new subnets by using the new CIDR.</li>
+<li>❌ Create a second VPC with additional subnets. Use a peering connection to connect the second VPC with the first VPC Update the routes and create new resources in the subnets of the second VPC.</li>
+<li>Use AWS Transit Gateway to add a transit gateway and connect a second VPC with the first VPUpdate the routes of the transit gateway and VPCs. Create new resources in the subnets of the second VPC.</li>
+<li>Create a second VPC. Create a Site-to-Site VPN connection between the first VPC and the second VPC by using a VPN-hosted solution on Amazon EC2 and a virtual private gateway. Update the route between VPCs to the traffic through the VPN. Create new resources in the subnets of the second VPC.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/vpc/latest/userguide/add-ipv4-cidr.html">将 CIDR 块添加到 VPC 或从中删除</a></p>
+<blockquote>
+<ul>
+<li>默认情况下，您的 VPC 可以最多有 5 个 IPv4 CIDR 块和 5 个 IPv6 CIDR 块，但此限额可调整。</li>
+<li>如果您的 VPC 关联了多个 IPv4 CIDR 块，则可以取消一个 IPv4 CIDR 块与 VPC 的关联。您不能将主 IPv4 CIDR 块取消关联。您只能将整个 CIDR 块取消关联；不能将 CIDR 块的子集或 CIDR 块的合并范围取消关联。必须首先删除 CIDR 块中的所有子网。</li>
+</ul>
+</blockquote>
+<p>拓展下子网的 CIDR 也支持修改：  </p>
+<blockquote>
+<p><img src="https://image.senjianlu.com/blog/2024-12-08/145952.png" alt="编辑子网 CIDR 预留"></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A is correct: You assign a single CIDR IP address range as the primary CIDR block when you create a VPC and can add up to four secondary CIDR blocks after creation of the VPC.</p>
+</blockquote>
+<hr>
+<h3 id="二十、Rebuild-DB-instance"><a href="#二十、Rebuild-DB-instance" class="headerlink" title="二十、Rebuild DB instance"></a>二十、Rebuild DB instance</h3><p>A company used an Amazon RDS for MySQL DB instance during application testing. Before terminating the DB instance at the end of the test cycle, a solutions architect created two backups. The solutions architect created the first backup by using the mysqldump utility to create a database dump. The solutions architect created the second backup by enabling the final DB snapshot option on RDS termination.<br>The company is now planning for a new test cycle and wants to create a new DB instance from the most recent backup. The company has chosen a MySQL-compatible edition of Amazon Aurora to host the DB instance.<br>Which solutions will create the new DB instance? (Choose two.)</p>
+<ol>
+<li>✅ Import the RDS snapshot directly into Aurora.</li>
+<li>Upload the RDS snapshot to Amazon S3. Then import the RDS snapshot into Aurora.</li>
+<li>✅ Upload the database dump to Amazon S3. Then import the database dump into Aurora.</li>
+<li>Use AWS Database Migration Service (AWS DMS) to import the RDS snapshot into Aurora.</li>
+<li>❌ Upload the database dump to Amazon S3. Then use AWS Database Migration Service (AWS DMS) to import the database dump into Aurora.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ 5️⃣ ❌ -&gt; 1️⃣ 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html">将数据从外部 MySQL 数据库迁移到 Amazon Aurora MySQL 数据库集群</a></p>
+<blockquote>
+<p>如果数据库支持 InnoDB 或 MyISAM 表空间，则可以使用以下选项将数据迁移到 Amazon Aurora MySQL 数据库集群：</p>
+<ul>
+<li>您可以使用 mysqldump 实用程序创建数据的转储，然后将该数据导入现有的 Amazon Aurora MySQL 数据库集群。</li>
+<li>您可以将完整备份文件和增量备份文件从数据库复制到 Amazon S3 桶，然后从这些文件还原到 Amazon Aurora MySQL 数据库集群。该选项可能比使用 mysqldump 迁移数据要快得多。</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A because the snapshot is already stored in AWS.<br>C because you dont need a migration tool going from MySQL to MySQL. You would use the MySQL utility.</p>
+</blockquote>
+<hr>
+<h3 id="二十一、Connect-from-local-to-AWS"><a href="#二十一、Connect-from-local-to-AWS" class="headerlink" title="二十一、Connect from local to AWS"></a>二十一、Connect from local to AWS</h3><p>A company has two VPCs named Management and Production. The Management VPC uses VPNs through a customer gateway to connect to a single device in the data center. The Production VPC uses a virtual private gateway with two attached AWS Direct Connect connections. The Management and Production VPCs both use a single VPC peering connection to allow communication between the applications.<br>What should a solutions architect do to mitigate any single point of failure in this architecture?</p>
+<ol>
+<li>Add a set of VPNs between the Management and Production VPCs.</li>
+<li>❌ Add a second virtual private gateway and attach it to the Management VPC.</li>
+<li>✅ Add a second set of VPNs to the Management VPC from a second customer gateway device.</li>
+<li>Add a second VPC peering connection between the Management VPC and the Production VPC.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：一个公司有两个 <code>VPC</code>，分别是 Management 和 Production。管理 <code>VPC</code> 通过客户网关使用 VPN 连接到数据中心的单个设备。生产 VPC 使用一个附加了 2 个 <code>AWS Direct Connect</code> 连接的虚拟私有网关。管理 <code>VPC</code> 和生产 <code>VPC</code> 都使用单个 <code>VPC</code> 对等连接，实现应用之间的通信。需要防止单点故障。<br>首先 <code>VPC</code> 对等连接不会出问题，然后 2 条 <code>AWS Direct Connect</code> 连接也保证了高可用，只有与管理 <code>VPC</code> 间的连接存在风险。</p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/vpn/latest/s2svpn/how_it_works.html">如何 AWS Site-to-Site VPN 运作</a></p>
+<blockquote>
+<p><img src="https://image.senjianlu.com/blog/2024-12-08/152309.png" alt="连接架构"></p>
+</blockquote>
+<p>虚拟专用网关 (virtual private gateway) 是在 AWS 侧的，而客户网关是在本地的，两者通过 VPN 或者基于 <code>AWS Direct Connect</code> 的 VPN 隧道进行连接。<br>所以在本题场景下，2️⃣ 的操作（在管理 <code>VPC</code> 新增一个虚拟专用网关）是没法让连接更加高可用的，只有增加一条本地到管理 <code>VPC</code> 的连接才行，只能选 3️⃣。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：C is the correct option to mitigate the single point of failure.<br>The Management VPC currently has a single VPN connection through one customer gateway device. This is a single point of failure.<br>Adding a second set of VPN connections from the Management VPC to a second customer gateway device provides redundancy and eliminates this single point of failure.</p>
+</blockquote>
+</div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/12/06</p><p><a href="https://senjianlu.com/2024/12/06/saa_test_daily_20241206/">https://senjianlu.com/2024/12/06/saa_test_daily_20241206/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-12-06</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-12-06</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/12/07/translate_news_nhk_20241207_k10014661141000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - 米 連邦控訴裁判所「TikTok」禁止する法律差し止め訴え 退ける</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/12/06/translate_news_nhk_20241205_k10014659801000/"><span class="level-item">日语翻译 - 新闻 - 先端半導体の国産化目指すラピダスにIPA通じ出資の案検討 政府</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、PoLP-with-CloudFormation-stack"><span class="level-left"><span class="level-item">一、PoLP with CloudFormation stack</span></span></a></li><li><a class="level is-mobile" href="#二、User-session-save"><span class="level-left"><span class="level-item">二、User session save</span></span></a></li><li><a class="level is-mobile" href="#三、RPO"><span class="level-left"><span class="level-item">三、RPO</span></span></a></li><li><a class="level is-mobile" href="#四、20-000-IOPS"><span class="level-left"><span class="level-item">四、20,000 IOPS</span></span></a></li><li><a class="level is-mobile" href="#五、An-hour-job"><span class="level-left"><span class="level-item">五、An hour job</span></span></a></li><li><a class="level is-mobile" href="#六、Auto-Scaling"><span class="level-left"><span class="level-item">六、Auto Scaling</span></span></a></li><li><a class="level is-mobile" href="#七、Network-share"><span class="level-left"><span class="level-item">七、Network share</span></span></a></li><li><a class="level is-mobile" href="#八、OLTP"><span class="level-left"><span class="level-item">八、OLTP</span></span></a></li><li><a class="level is-mobile" href="#十、Savings-Plan"><span class="level-left"><span class="level-item">十、Savings Plan</span></span></a></li><li><a class="level is-mobile" href="#十一、Policy-Principal"><span class="level-left"><span class="level-item">十一、Policy Principal</span></span></a></li><li><a class="level is-mobile" href="#十二、Amazon-RDS-Multi-AZ-DB-cluster-DR"><span class="level-left"><span class="level-item">十二、Amazon RDS Multi-AZ DB cluster DR</span></span></a></li><li><a class="level is-mobile" href="#十三、SFTP-service"><span class="level-left"><span class="level-item">十三、SFTP service</span></span></a></li><li><a class="level is-mobile" href="#十四、Identity-based-Policy"><span class="level-left"><span class="level-item">十四、Identity-based Policy</span></span></a></li><li><a class="level is-mobile" href="#十五、15-000-IOPS-stroage"><span class="level-left"><span class="level-item">十五、15,000 IOPS stroage</span></span></a></li><li><a class="level is-mobile" href="#十六、Scoreboard-in-near-real-time"><span class="level-left"><span class="level-item">十六、Scoreboard in near-real time</span></span></a></li><li><a class="level is-mobile" href="#十七、DR-in-another-region"><span class="level-left"><span class="level-item">十七、DR in another region</span></span></a></li><li><a class="level is-mobile" href="#十八、Reserved-DB-instance"><span class="level-left"><span class="level-item">十八、Reserved DB instance</span></span></a></li><li><a class="level is-mobile" href="#十九、Add-CIDR-block-to-VPC"><span class="level-left"><span class="level-item">十九、Add CIDR block to VPC</span></span></a></li><li><a class="level is-mobile" href="#二十、Rebuild-DB-instance"><span class="level-left"><span class="level-item">二十、Rebuild DB instance</span></span></a></li><li><a class="level is-mobile" href="#二十一、Connect-from-local-to-AWS"><span class="level-left"><span class="level-item">二十一、Connect from local to AWS</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2024 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script data-pjax src="/js/insight.js" defer></script><script data-pjax>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

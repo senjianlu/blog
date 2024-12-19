@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/12/01 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam30 题 (No.191 ~ No.220) 只记录了 10 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/12/01"><meta property="og:url" content="https://senjianlu.com/2024/12/01/saa_test_daily_20241201/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam30 题 (No.191 ~ No.220) 只记录了 10 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-12-01T11:00:00.000Z"><meta property="article:modified_time" content="2024-12-01T12:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/12/01/saa_test_daily_20241201/"},"headline":"SAA 考试每日练习 - 2024/12/01","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-12-01T11:00:00.000Z","dateModified":"2024-12-01T12:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam30 题 (No.191 ~ No.220) 只记录了 10 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/12/01/saa_test_daily_20241201/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-12-01T11:00:00.000Z" title="12/1/2024, 7:00:00 PM">2024-12-01</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/12/01</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/">Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam</a><br>30 题 (No.191 ~ No.220) <strong>只记录了 10 道首次碰到的、错误的或有疑问的题目</strong>，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<p><strong>🌟 单词：</strong></p>
+<ol>
+<li>comprehend<sub><u>v. 理解；领悟；懂</u></sub></li>
+<li>transcribe<sub><u>v. 记录，抄录，把…转成（另一种书写形式），用音标标音</u></sub></li>
+</ol>
+<hr>
+<h3 id="一、Medical-information"><a href="#一、Medical-information" class="headerlink" title="一、Medical information"></a>一、Medical information</h3><p>A hospital wants to create digital copies for its large collection of historical written records. The hospital will continue to add hundreds of new documents each day. The hospital’s data team will scan the documents and will upload the documents to the AWS Cloud.<br>A solutions architect must implement a solution to analyze the documents, extract the medical information, and store the documents so that an application can run SQL queries on the data. The solution must maximize scalability and operational efficiency.<br>Which combination of steps should the solutions architect take to meet these requirements? (Choose two.)</p>
+<ol>
+<li>Write the document information to an Amazon EC2 instance that runs a MySQL database.</li>
+<li>✅ Write the document information to an Amazon S3 bucket. Use Amazon Athena to query the data.</li>
+<li>Create an Auto Scaling group of Amazon EC2 instances to run a custom application that processes the scanned files and extracts the medical information.</li>
+<li>Create an AWS Lambda function that runs when new documents are uploaded. Use Amazon Rekognition to convert the documents to raw text. Use Amazon Transcribe Medical to detect and extract relevant medical information from the text.</li>
+<li>✅ Create an AWS Lambda function that runs when new documents are uploaded. Use Amazon Textract to convert the documents to raw text. Use Amazon Comprehend Medical to detect and extract relevant medical information from the text.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：documents、SQL queries、medical information</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ 5️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：现有大量文档，之后每天还有几百和文件。要能使用 SQL 查询文档数据并提取医学数据。<br>过下涉及到的 AI 工具：  </p>
+<ul>
+<li><code>Amazon Rekognition</code> - 图像、视频识别</li>
+<li><code>Amazon Transcribe Medical</code> - 医疗语音转文本</li>
+<li><code>Amazon Textract</code> - 文档文本检测和分析、信息提取</li>
+<li><code>Amazon Comprehend Medical</code> - 医疗文本分析和信息提取</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/rekognition/latest/dg/what-is.html">什么是 Amazon Rekognition？</a></p>
+<blockquote>
+<p>Amazon Rekognition 是一项基于云的图像和视频分析服务，可以轻松地向应用程序添加高级计算机视觉功能。该服务由久经考验的深度学习技术提供支持，无需任何机器学习专业知识即可使用。Amazon Rekognition 包含一个 easy-to-use 简单的 API，可以快速分析存储在 Amazon S3 中的任何图像或视频文件。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/transcribe/medical/?nc1=h_ls">Amazon Transcribe Medical</a></p>
+<blockquote>
+<p>Amazon Transcribe Medical 是一种自动语音识别 (ASR) 服务，让您能够轻松地为具有语音功能的应用程序添加医疗语音转文本功能。医疗保健提供者和患者之间的对话为患者的诊断和治疗计划以及临床文档工作流程提供了基础。确保这些信息准确无误是至关重要的。然而，准确的医疗转录（如口授记录器和抄写员）价格昂贵、耗时长，而且会破坏患者的体验。某些组织使用现有的医疗转录软件，但发现它们的效率和质量都很低。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/textract/latest/dg/what-is.html">什么是 Amazon Textract？</a></p>
+<blockquote>
+<p>Amazon Textract 让您可以向应用程序轻松添加文档文本检测和分析功能。<br>以下是使用 Amazon Textract 的常见使用案例：  </p>
+<ul>
+<li>创建智能搜索索引</li>
+<li>使用智能文本提取功能进行自然语言处理 (NLP)</li>
+<li>加快来自不同来源的数据的捕获和标准化</li>
+<li>自动从表单中捕获数据</li>
+</ul>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/comprehend-medical/latest/dev/comprehendmedical-welcome.html">什么是 Amazon Comprehend Medical？</a></p>
+<blockquote>
+<p>Amazon Comprehend Medical 可以检测并返回非结构化临床文本中的有用信息，例如医生记录、出院摘要、检验结果、病例记录等。Amazon Comprehend Medical 使用自然语言处理 (NLP) 模型来检测实体，这些实体是对医疗信息 [例如医学状况、药物或受保护的健康信息 (PHI)] 的文本引用。有关检测到的实体的完整列表，请参阅 检测实体（版本 2）。Amazon Comprehend Medical 还允许用户通过本体链接操作将这些检测到的实体与标准化医学知识库（ RxNorm 例如 ICD-10-CM）关联起来。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：B and E are correct.Textract to extract text from files. Rekognition can also be used for text detection but after Rekognition - it’s mentioned that Transcribe is used.Transcribe is used forSpeech to Text.So that option D may not be valid.</p>
+</blockquote>
+<hr>
+<h3 id="二、DynamoDB-keep-data-for-30-days"><a href="#二、DynamoDB-keep-data-for-30-days" class="headerlink" title="二、DynamoDB keep data for 30 days"></a>二、DynamoDB keep data for 30 days</h3><p>A company runs an application on a large fleet of Amazon EC2 instances. The application reads and writes entries into an Amazon DynamoDB table. The size of the DynamoDB table continuously grows, but the application needs only data from the last 30 days. The company needs a solution that minimizes cost and development effort.<br>Which solution meets these requirements?</p>
+<ol>
+<li>❌ Use an AWS CloudFormation template to deploy the complete solution. Redeploy the CloudFormation stack every 30 days, and delete the original stack.</li>
+<li>Use an EC2 instance that runs a monitoring application from AWS Marketplace. Configure the monitoring application to use Amazon DynamoDB Streams to store the timestamp when a new item is created in the table. Use a script that runs on the EC2 instance to delete items that have a timestamp that is older than 30 days.</li>
+<li>Configure Amazon DynamoDB Streams to invoke an AWS Lambda function when a new item is created in the table. Configure the Lambda function to delete items in the table that are older than 30 days.</li>
+<li>✅ Extend the application to add an attribute that has a value of the current timestamp plus 30 days to each new item that is created in the table. Configure DynamoDB to use the attribute as the TTL attribute.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：DynamoDB、needs only data from the last 30 days</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>DynamoDB</code> 删除 30 天以上的数据。<br>忘记 <code>AWS CloudFormation</code> 是什么了：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AWSCloudFormation/latest/UserGuide/Welcome.html">什么是 AWS CloudFormation？</a></p>
+<blockquote>
+<p>AWS CloudFormation 是一项服务，可帮助您对 AWS 资源进行建模和设置，以便能花较少的时间管理这些资源，而将更多的时间花在运行于 AWS 中的应用程序上。您创建一个描述您所需的所有 AWS 资源（如 Amazon EC2 实例或 Amazon RDS 数据库实例）的模板，并且 CloudFormation 将负责为您预置和配置这些资源。您无需单独创建和配置 AWS 资源并了解 what; CloudFormation 句柄处理该工作时所依赖的内容。以下方案演示 CloudFormation 如何提供帮助。</p>
+</blockquote>
+<p>它其实就是和 Terraform 一样的 IaC（基础设施即代码）工具，因此这里肯定不选 1️⃣。<br>3️⃣ 其实是我自己项目里的解决方案，新的数据来的时候做一次旧数据的删除。但是存在问题一直不来新数据怎么办。<br>4️⃣ 虽然要改到代码，但是如果 <code>DynamoDB</code> 本身不支持对数据插入时间的判断的话，已经是最优解了。</p>
+<p>来看下 <code>DynamoDB</code> TTL 是什么：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html">Using time to live (TTL) in DynamoDB</a></p>
+<blockquote>
+<p>DynamoDB 的 “有效时间”（TTL）是删除不再相关的项目的一种经济有效的方法。TTL 允许你定义每个项目的过期时间戳，以指示何时不再需要项目。DynamoDB 会在过期后几天内自动删除过期项目，而不会消耗写吞吐量。</p>
+<p>要使用 TTL，首先要在表上启用它，然后定义一个特定属性来存储 TTL 过期时间戳。时间戳必须以 Unix 时间格式存储，粒度为秒。每次创建或更新项目时，都可以计算过期时间并将其保存在 TTL 属性中。</p>
+</blockquote>
+<p>显然它就是本题的考点。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：changing myanswer to D after researching a bit.<br>The DynamoDB TTL feature allows you to define a per-item timestamp to determine when an item is no longer needed.Shortly after the date and time of the specified timestamp, DynamoDB deletes the item from your table without consuming any write throughput.</p>
+</blockquote>
+<hr>
+<h3 id="三、Amazon-Transcribe"><a href="#三、Amazon-Transcribe" class="headerlink" title="三、Amazon Transcribe"></a>三、Amazon Transcribe</h3><p>A telemarketing company is designing its customer call center functionality on AWS. The company needs a solution that provides multiple speaker recognition and generates transcript files. The company wants to query the transcript files to analyze the business patterns. The transcript files must be stored for 7 years for auditing purposes.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Use Amazon Rekognition for multiple speaker recognition. Store the transcript files in Amazon S3. Use machine learning models for transcript file analysis.</li>
+<li>✅ Use Amazon Transcribe for multiple speaker recognition. Use Amazon Athena for transcript file analysis.</li>
+<li>Use Amazon Translate for multiple speaker recognition. Store the transcript files in Amazon Redshift. Use SQL queries for transcript file analysis.</li>
+<li>Use Amazon Rekognition for multiple speaker recognition. Store the transcript files in Amazon S3. Use Amazon Textract for transcript file analysis.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：generates transcript files from voice、file analysis</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：需要语音转文字，并将文本保存和分析。<br><code>Amazon Rekognition</code> 是语音和图像<strong>识别</strong>工具，处理类似与打标签或是判断是否存在物体的工作。<br>题目中涉及到的 AI 服务：</p>
+<ul>
+<li><code>Amazon Transcribe</code> - 语音转文本</li>
+<li><code>Amazon Translate</code> - 结合机器学习的翻译服务</li>
+<li><code>Amazon Textract</code> - 文档文本检测和分析、信息提取</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/transcribe/latest/dg/what-is.html">什么是 Amazon Transcribe？</a></p>
+<blockquote>
+<p>Amazon Transcribe是一种自动语音识别服务，它使用机器学习模型将音频转换为文本。您可以用Amazon Transcribe作独立的转录服务，也可以向任何应用程序添加speech-to-text功能。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/translate/latest/dg/what-is.html">什么是 Amazon Translate？</a></p>
+<blockquote>
+<p>Amazon Translate 是一种文本翻译服务，它使用先进的机器学习技术，按需提供高质量的翻译。您可以使用 Amazon Translate 来翻译非结构化文本文档或构建使用多种语言的应用程序。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：The correct answer is B: Use Amazon Transcribe for multiple speaker recognition. Use Amazon Athena for transcript file analysis.<br>Amazon Transcribe isa service that automatically transcribes spoken language into written text. It can handle multiple speakers and can generate transcript files in real-time or asynchronously.These transcript files can be stored in Amazon S3 for long-term storage.<br>Amazon Athena isa query service that allows you to analyze data stored in Amazon S3 using SQL. You can use it to analyze the transcript filesand identify patterns in the data.  </p>
+<p>Option A is incorrect because Amazon Rekognition isa service for analyzing imagesand videos, not transcribing spoken language.<br>Option C is incorrect because Amazon Translate isa service for translating text from one language to another, not transcribing spoken language.<br>Option D is incorrect because Amazon Textract isa service forextracting text and data from documentsand images, not transcribing spoken language.  </p>
+</blockquote>
+<hr>
+<h3 id="四、Amazon-Cognito-and-API-access"><a href="#四、Amazon-Cognito-and-API-access" class="headerlink" title="四、Amazon Cognito and API access"></a>四、Amazon Cognito and API access</h3><p>A company hosts its application on AWS. The company uses Amazon Cognito to manage users. When users log in to the application, the application fetches required data from Amazon DynamoDB by using a REST API that is hosted in Amazon API Gateway. The company wants an AWS managed solution that will control access to the REST API to reduce development efforts.<br>Which solution will meet these requirements with the LEAST operational overhead?</p>
+<ol>
+<li>Configure an AWS Lambda function to be an authorizer in API Gateway to validate which user made the request.</li>
+<li>For each user, create and assign an API key that must be sent with each request. Validate the key by using an AWS Lambda function.</li>
+<li>Send the user’s email address in the header with every request. Invoke an AWS Lambda function to validate that the user with that email address has proper access.</li>
+<li>✅ Configure an Amazon Cognito user pool authorizer in API Gateway to allow Amazon Cognito to validate each request.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：Amazon Cognito、control access to the REST API</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：使用 <code>Amazon Cognito</code> 管理用户，用户登录应用后可以通过 <code>Amazon API Gateway</code> 提供的 API 获取 <code>DynamoDB</code> 的数据。现在希望使用 AWS 的服务来解决 API 权限问题。<br>使用 <code>Amazon Cognito 用户池 (user pool)</code> 控制用户对 REST API 的访问是官方的解决方案。<br>大概分为 3 步：</p>
+<ol>
+<li>在 <code>Amazon Cognito</code> 控制台创建用户池</li>
+<li>在 <code>API Gateway</code> 控制台选定用户池创建 <code>API Gateway Authorizer（授权方）</code></li>
+<li>在 <code>API Gateway</code> 控制台对指定的 API 启动授权方</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/cognito/latest/developerguide/what-is-amazon-cognito.html">什么是 Amazon Cognito？</a></p>
+<blockquote>
+<p>Amazon Cognito 是 Web 和移动应用程序的身份平台。它是一个用户目录、一个身份验证服务器以及一个用于 OAuth 2.0 访问令牌和 AWS 凭据的授权服务。使用 Amazon Cognito，您可以对内置用户目录、企业目录以及 Google 和 Facebook 等使用者身份提供者中的用户进行身份验证和授权。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html">使用 Amazon Cognito 用户池作为授权方控制对 REST API 的访问</a></p>
+<blockquote>
+<p>作为使用 IAM 角色和策略或 Lambda 授权方（以前称为自定义授权方）的替代方案，您可以使用 Amazon Cognito 用户池来控制谁可以在 Amazon API Gateway 中访问您的 API。</p>
+<p>要将 Amazon Cognito 用户池与您的 API 一起使用，您必须先创建 <code>COGNITO_USER_POOLS</code> 类型的授权方，然后配置 API 方法以使用该授权方。部署 API 之后，客户端必须先将用户注册到用户池，获取用户的身份令牌或访问令牌，然后使用令牌之一调用 API 方法，这通常设置为请求的 <code>Authorization</code> 标头。只有提供了所需的令牌并且提供的令牌有效时，API 调用才会成功，否则，客户端未获得授权来执行调用，因为客户端没有可用于授权的凭证。</p>
+<p>使用身份令牌，基于已登录用户的身份声明来授权 API 调用。使用访问令牌，基于指定访问受保护资源的自定义范围授权 API 调用。</p>
+<p>要为 API 创建和配置 Amazon Cognito 用户池，请执行以下任务：</p>
+<ol>
+<li>使用 Amazon Cognito 控制台、CLI&#x2F;开发工具包或 API 创建用户池，或者使用由其他 AWS 账户拥有的用户池。</li>
+<li>使用 API Gateway 控制台、CLI&#x2F;开发工具包或 API 创建具有选定用户池的 API Gateway Authorizer。</li>
+<li>使用 API Gateway 控制台、CLI&#x2F;开发工具包或 API，在所选 API 方法上启用授权方。</li>
+</ol>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：KEYWORD: LEAST operational overhead<br>To control access to the REST API and reduce development efforts, the company can use an Amazon Cognito user pool authorizer in API Gateway.This will allow Amazon Cognito to validate each request and ensure that onlyauthenticated users can access the API.This solution has the LEAST operational overhead,as it does not require the company to develop and maintain anyadditional infrastructure or code.<br>Therefore, Option D is the correct answer.<br>Option D. Configure an Amazon Cognito user pool authorizer in API Gateway to allow Amazon Cognito to validate each request.</p>
+</blockquote>
+<hr>
+<h3 id="五、SMS-messages"><a href="#五、SMS-messages" class="headerlink" title="五、SMS messages"></a>五、SMS messages</h3><p>A company is developing a marketing communications service that targets mobile app users. The company needs to send confirmation messages with Short Message Service (SMS) to its users. The users must be able to reply to the SMS messages.<br>The company must store the responses for a year for analysis.<br>What should a solutions architect do to meet these requirements?</p>
+<ol>
+<li>❌ Create an Amazon Connect contact flow to send the SMS messages. Use AWS Lambda to process the responses.</li>
+<li>✅ Build an Amazon Pinpoint journey. Configure Amazon Pinpoint to send events to an Amazon Kinesis data stream for analysis and archiving.</li>
+<li>Use Amazon Simple Queue Service (Amazon SQS) to distribute the SMS messages. Use AWS Lambda to process the responses.</li>
+<li>Create an Amazon Simple Notification Service (Amazon SNS) FIFO topic. Subscribe an Amazon Kinesis data stream to the SNS topic for analysis and archiving.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：send SMS and get the reply</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 2️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：公司需要发送短信并受到回复，回复需要保存一年用作分析。  </p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/pinpoint/latest/userguide/welcome.html">什么是 Amazon Pinpoint？</a></p>
+<blockquote>
+<p>您可以使用 Amazon Pinpoint 通过多个消息渠道与客户互动。 AWS 服务 您可以使用 Amazon Pinpoint 通过自定义渠道发送推送通知、应用程序内通知、电子邮件、文本消息、语音消息等。它包括客户细分、活动和旅程功能，可帮助您在正确的时间通过正确的渠道向正确的客户发送正确的信息。</p>
+</blockquote>
+<p>显然使用 <code>Amazon Pinpoint</code> 可以实现发送 SMS 这个需求，那么接收响应呢？<br>需要使用到 <code>two-way SMS</code>：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/sms-voice/latest/userguide/two-way-sms-phone-number.html">在 “AWS 最终用户SMS消息” 中为电话号码设置双向消息 SMS</a>  </p>
+<blockquote>
+<p>AWS 最终用户消息SMS包括对双向的支持SMS。设置双向时SMS，您可以接收来自客户的传入消息。您还可以将双向消息与 Lambda 和 Amazon Lex 等其他 AWS 服务消息一起使用，以创建交互式短信体验。</p>
+<p>当您的一位客户向您的电话号码发送消息时，消息正文将发送到亚马逊SNS主题或 Amazon Connect 实例进行处理。</p>
+</blockquote>
+<p>而关于数据存储一年的需求，<code>Amazon Kinesis Data Stream</code> 足以做到了：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/streams/latest/dev/kinesis-extended-retention.html">更改数据留存期</a></p>
+<blockquote>
+<p>Amazon Kinesis Data Streams 支持更改数据流的数据记录保留期。Kinesis 数据流是数据记录的有序序列，可用于执行实时写入和读取。因此，数据记录临时存储在您的流的分片中。从添加记录开始，到记录不再可供访问为止的时间段称为保留期。默认情况下，Kinesis 数据流的记录存储时间从 24 小时到 8760 小时（365 天）不等。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：By using Pinpoint, the company can effectively send SMS messages to its mobile app users. Additionally, Pinpoint allows the configuration of journeys, which enable the tracking and management of user interactions.The events generated during the journey, including user responses to SMS, can be captured and sent to an Kinesis data stream.This data stream can then be used for analysisand archiving purposes.  </p>
+<p>A. Creating an Amazon Connect contact flow is primarily focused on customer support and engagement,and it lacks the capability to store and processSMS responses for analysis.<br>C. Using SQS isa message queuing service and is not specifically designed for handling SMS responses or capturing them for analysis.<br>D. Creating an SNS FIFO topic and subscribing a Kinesis data stream is not the most appropriate solution for capturing and storing SMS responses,asSNS is primarily used for message publishing and distribution.  </p>
+<p>In summary, option B is the best choice as it leverages Pinpoint to send SMS messagesand captures user responses for analysis and archiving using an Kinesis data stream.</p>
+</blockquote>
+<hr>
+<h3 id="六、Data-Lake-and-fine-grained-permissions"><a href="#六、Data-Lake-and-fine-grained-permissions" class="headerlink" title="六、Data Lake and fine-grained permissions"></a>六、Data Lake and fine-grained permissions</h3><p>An online retail company has more than 50 million active customers and receives more than 25,000 orders each day. The company collects purchase data for customers and stores this data in Amazon S3. Additional customer data is stored in Amazon RDS.<br>The company wants to make all the data available to various teams so that the teams can perform analytics. The solution must provide the ability to manage fine-grained permissions for the data and must minimize operational overhead.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Migrate the purchase data to write directly to Amazon RDS. Use RDS access controls to limit access.</li>
+<li>Schedule an AWS Lambda function to periodically copy data from Amazon RDS to Amazon S3. Create an AWS Glue crawler. Use Amazon Athena to query the data. Use S3 policies to limit access.</li>
+<li>✅ Create a data lake by using AWS Lake Formation. Create an AWS Glue JDBC connection to Amazon RDS. Register the S3 bucket in Lake Formation. Use Lake Formation access controls to limit access.</li>
+<li>Create an Amazon Redshift cluster. Schedule an AWS Lambda function to periodically copy data from Amazon S3 and Amazon RDS to Amazon Redshift. Use Amazon Redshift access controls to limit access.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：get data from S3 and RDS、fine-grained permissions</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：需要汇总 <code>S3</code> 和 <code>RDS</code> 中的数据并提供精细的权限控制。<br>显然需要使用到数据湖或者数据仓库。<br>看下 <code>AWS Lake Formation</code>：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/lake-formation/latest/dg/what-is-lake-formation.html">什么是 AWS Lake Formation？</a></p>
+<blockquote>
+<p>AWS Lake Formation 帮助您集中管理、保护和全球共享用于分析和机器学习的数据。您可以对 Amazon Simple Storage Service (Amazon S3) 上的数据湖数据及其在 AWS Glue Data Catalog中的元数据进行精细访问控制。</p>
+</blockquote>
+<p>显然完美符合题目需求。<br>再看下同为数据仓库的 <code>Redshift</code>：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/redshift/latest/mgmt/welcome.html">什么是 Amazon Redshift</a></p>
+<blockquote>
+<p>Amazon Redshift 是云中一种完全托管的 PB 级数据仓库服务。Amazon Redshift Serverless 让您可以访问和分析数据，而无需对预置数据仓库执行任何配置操作。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/redshift/latest/dg/r_Database_objects.html">数据库安全</a></p>
+<blockquote>
+<p>您可以通过控制哪些用户可以访问哪些数据库对象来管理数据库安全。可以为用户分配角色或组，授予给用户、角色或组的权限决定了他们可以访问哪些数据库对象。</p>
+</blockquote>
+<p>4️⃣ 看上去也能完成任务，但是操作比 3️⃣ 更复杂。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Answer : C keyword “manage-fine-grained”<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/blogs/big-data/manage-fine-grained-access-control-using-aws-lake-formation/">https://aws.amazon.com/blogs/big-data/manage-fine-grained-access-control-using-aws-lake-formation/</a></p>
+<p>Lake Formation enables the creation of a secure and scalable data lake on AWS,allowing centralized access controls for both S3 and RDS data. By using Lake Formation, the company can manage permissionseffectivelyand integrate RDS data through the AWS Glue JDBC connection. Registering the S3 in Lake Formation ensures unified access control.This solution reduces operational overhead while providing fine-grained permissions management.<br>A. Directly writing purchase data to Amazon RDS with RDS access controls lacks comprehensive permissions management for both S3 and RDS data.<br>B. Periodically copying data from RDS to S3 using Lambda and using AWS Glue and Athena for querying does not offer finegrained permissions management and introduces data synchronization complexities.<br>D. Creating an Redshift cluster and copying data from S3 and RDS to Redshift adds complexityand operational overhead without the flexibility of Lake Formation’s permissions management capabilities.</p>
+</blockquote>
+<hr>
+<h3 id="七、EC2-connect-to-S3"><a href="#七、EC2-connect-to-S3" class="headerlink" title="七、EC2 connect to S3"></a>七、EC2 connect to S3</h3><p>A company needs to move data from an Amazon EC2 instance to an Amazon S3 bucket. The company must ensure that no API calls and no data are routed through public internet routes. Only the EC2 instance can have access to upload data to the S3 bucket.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>✅ Create an interface VPC endpoint for Amazon S3 in the subnet where the EC2 instance is located. Attach a resource policy to the S3 bucket to only allow the EC2 instance’s IAM role for access.</li>
+<li>❌ Create a gateway VPC endpoint for Amazon S3 in the Availability Zone where the EC2 instance is located. Attach appropriate security groups to the endpoint. Attach a resource policy to the S3 bucket to only allow the EC2 instance’s IAM role for access.</li>
+<li>Run the nslookup tool from inside the EC2 instance to obtain the private IP address of the S3 bucket’s service API endpoint. Create a route in the VPC route table to provide the EC2 instance with access to the S3 bucket. Attach a resource policy to the S3 bucket to only allow the EC2 instance’s IAM role for access.</li>
+<li>Use the AWS provided, publicly available ip-ranges.json file to obtain the private IP address of the S3 bucket’s service API endpoint. Create a route in the VPC route table to provide the EC2 instance with access to the S3 bucket. Attach a resource policy to the S3 bucket to only allow the EC2 instance’s IAM role for access.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：move data from an Amazon EC2 instance to an Amazon S3 bucket、no data are routed through public internet</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>EC2</code> 的数据要走私网传输到 <code>S3</code> 存储桶中。<br>社区在 1️⃣ 和 2️⃣ 争议较大。<br>争议的重点在于 2️⃣ 的 “Attach appropriate security groups to the endpoint” 这句，将适当的安全组附加到终端节点上。<br>如果它可以实现，那么 2️⃣ 显然是最优选择，但如果它无法实现，那就只能选 1️⃣。<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/vpc/latest/privatelink/create-interface-endpoint.html">使用接口 VPC 端点访问 AWS 服务</a>  </p>
+<blockquote>
+<p><strong>前提条件</strong><br>为端点网络接口 (endpoint network interface) 创建一个安全组，允许来自 VPC 资源的预期流量。例如，为确保 AWS CLI 可以向 AWS 服务 发送 HTTPS 请求，安全组必须允许入站 HTTPS 流量。</p>
+</blockquote>
+<p>首先我们明确 <code>interface VPC endpoint</code> 是可以配置安全组的。实测了下也确实：<br><img src="https://image.senjianlu.com/blog/2024-12-03/exam_aws_test_02.png" alt="接口终端节点">  </p>
+<p>那么网关端点呢？很遗憾的是 AWS 的文档里并没有明说，实践看下吧：<br><img src="https://image.senjianlu.com/blog/2024-12-03/exam_aws_test_01.png" alt="网关终端节点"><br>创建过程中和创建完成后都没有安全组相关配置，<strong>因此得出结论 <code>Gateway endpoint</code> 不支持安全组配置</strong>，选 1️⃣。     </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：I thinkanswer should be A and not B.<br>as we cannot “Attach a security groups to a gatewayendpoint.”</p>
+</blockquote>
+<hr>
+<h3 id="八、Files-convert"><a href="#八、Files-convert" class="headerlink" title="八、Files convert"></a>八、Files convert</h3><p>A company’s reporting system delivers hundreds of .csv files to an Amazon S3 bucket each day. The company must convert these files to Apache Parquet format and must store the files in a transformed data bucket.<br>Which solution will meet these requirements with the LEAST development effort?</p>
+<ol>
+<li>Create an Amazon EMR cluster with Apache Spark installed. Write a Spark application to transform the data. Use EMR File System (EMRFS) to write files to the transformed data bucket.</li>
+<li>✅ Create an AWS Glue crawler to discover the data. Create an AWS Glue extract, transform, and load (ETL) job to transform the data. Specify the transformed data bucket in the output step.</li>
+<li>Use AWS Batch to create a job definition with Bash syntax to transform the data and output the data to the transformed data bucket. Use the job definition to submit a job. Specify an array job as the job type.</li>
+<li>❌ Create an AWS Lambda function to transform the data and output the data to the transformed data bucket. Configure an event notification for the S3 bucket. Specify the Lambda function as the destination for the event notification.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：convert files from .csv to Apache Parquet format、S3</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：需要将 <code>S3</code> 存储桶内的 .csv 文件转为 Apache Parquet 格式再存入另一个桶中。<br>4️⃣ 当然可以解决问题，但是太过繁琐。  </p>
+<p><code>Glue</code> 是官方建议的解决方式：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/three-aws-glue-etl-job-types-for-converting-data-to-apache-parquet.html">Three AWS Glue ETL job types for converting data to Apache Parquet</a></p>
+<blockquote>
+<p>On the Amazon Web Services (AWS) Cloud, AWS Glue is a fully managed extract, transform, and load (ETL) service. AWS Glue makes it cost-effective to categorize your data, clean it, enrich it, and move it reliably between various data stores and data streams.  </p>
+</blockquote>
+<p>还需要补充一点是 <code>Glue</code> 是支持数据流的：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/glue/latest/dg/edit-jobs-source-streaming.html">使用流式处理数据源</a></p>
+<blockquote>
+<p>您可以创建连续运行并使用来自流式处理源的数据的流式处理提取、转换和负载（ETL）任务，例如 Amazon Kinesis Data Streams、Apache Kafka 和 Amazon Managed Streaming for Apache Kafka（Amazon MSK）。</p>
+</blockquote>
+<p>顺便看到 1️⃣ 的时候愣了一下，又忘记 <code>EMR</code> 是什么了：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/emr/latest/ManagementGuide/emr-what-is-emr.html">什么是 Amazon EMR？</a></p>
+<blockquote>
+<p>Amazon EMR（以前称为 Amazon Elastic MapReduce）是一个托管集群平台，可简化在AWS上运行大数据框架（如 Apache Hadoop 和 Apache Spark）的过程，以处理和分析海量数据。使用这些框架和相关的开源项目，您可以处理用于分析目的的数据和业务情报工作负载。Amazon EMR 还允许您转换大量数据并移出&#x2F;移入到其它AWS数据存储和数据库中，例如 Amazon Simple Storage Service（Amazon S3）和 Amazon DynamoDB。</p>
+</blockquote>
+<p><code>Amazon EMR</code> 是大数据框架托管平台。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：AWS Glue isa fully managed ETL service that simplifies the process of preparing and transforming data for analytics. Using AWS Glue requires minimal development effort compared to the other options.  </p>
+<p>Option A requires more development effort as it involves writing a Sparkapplication to transform the data. It also introduces additional infrastructure management with the EMR cluster.<br>Option C requires writing and managing custom Bash scripts for data transformation. It requires more manual effort and does not provide the built-in capabilities of AWS Glue for data transformation.<br>Option D requires developing and managing a custom Lambda for data transformation. While Lambda can handle the transformation, it requires more effort compared to AWS Glue, which is specifically designed for ETL operations.  </p>
+<p>Therefore, option B provides the easiest and least development effort by leveraging AWS Glue’s capabilities for data discovery, transformation,and output to the transformed data bucket.</p>
+</blockquote>
+<hr>
+<h3 id="九、Second-infrastructure-for-DR"><a href="#九、Second-infrastructure-for-DR" class="headerlink" title="九、Second infrastructure for DR"></a>九、Second infrastructure for DR</h3><p>A company runs a global web application on Amazon EC2 instances behind an Application Load Balancer. The application stores data in Amazon Aurora. The company needs to create a disaster recovery solution and can tolerate up to 30 minutes of downtime and potential data loss. The solution does not need to handle the load when the primary infrastructure is healthy.<br>What should a solutions architect do to meet these requirements?</p>
+<ol>
+<li>✅ Deploy the application with the required infrastructure elements in place. Use Amazon Route 53 to configure active-passive failover. Create an Aurora Replica in a second AWS Region.</li>
+<li>Host a scaled-down deployment of the application in a second AWS Region. Use Amazon Route 53 to configure active-active failover. Create an Aurora Replica in the second Region.</li>
+<li>Replicate the primary infrastructure in a second AWS Region. Use Amazon Route 53 to configure active-active failover. Create an Aurora database that is restored from the latest snapshot.</li>
+<li>Back up data with AWS Backup. Use the backup to create the required infrastructure in a second AWS Region. Use Amazon Route 53 to configure active-passive failover. Create an Aurora second primary instance in the second Region.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：DR</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：公司需要灾备方案，允许 30 分钟的离线和数据丢失，但是要求这个方案（容灾架构）在主服务正常的情况下不要工作。<br>为了达到主服务正常的情况下不工作的需求，需要使用 <code>Amazon Route 53</code> 的 <code>主动/被动 (active-passive)</code> 故障转移。<br>关于 <code>主动/主动 (active-active)</code> 和 <code>主动/被动 (active-passive)</code> 的区别：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/Route53/latest/DeveloperGuide/dns-failover-types.html">主动&#x2F;主动和主动&#x2F;被动故障转移</a>  </p>
+<blockquote>
+<p><strong>主动&#x2F;主动故障转移</strong><br>如果您<u>希望所有资源在大部分时间内都可用</u>，可使用此故障转移配置。当某个资源不可用时，Route 53 可以检测到它运行状况不佳并且停止在响应查询时包含该资源。<br>在双活故障转移中，具有相同名称、相同类型（例如 A 或 AAAA）和相同路由策略（如加权或延迟）的所有记录处于活动状态，除非 Route 53 认为它们运行状况不良。Route 53 可以使用任何运行状况良好的记录响应 DNS 查询。</p>
+<p><strong>主动&#x2F;被动故障转移</strong><br>如果您希望主资源或资源组在大部分时间内可用，同时<u>希望辅助资源或资源组处于备用状态以防所有主资源均不可用</u>，可使用主动&#x2F;被动故障转移配置。响应查询时，Route 53 将只包含运行状况良好的主资源。如果所有主资源的运行状况都不佳，Route 53 将只在 DNS 查询的响应中包含运行状况良好的辅助资源。</p>
+</blockquote>
+<p>4️⃣ 无疑也是可以做到恢复架构的，社区里有人提到了 <code>AWS Backup</code> 的 RTO 是以小时计算的，我并没有找到详细的资料说明。但是可以肯定的是它一定没有选项 1️⃣ 恢复得快。<br>4️⃣ 的多主数据库仅适用于 MySQL 引擎，不过在这里并没有必要，应用都停了，数据库还跑着没有意义。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Anything that is not instant recovery isactive - passive.<br>In active -passive we have:</p>
+<ol>
+<li>Aws Backup(least op overhead) - RTO&#x2F;RPO &#x3D; hours</li>
+<li>Pilot Light ( Basic Infra isalready deployed, but needs to be fully implemented) -RTO&#x2F;RPO &#x3D; 10’s of minutes.</li>
+<li>Warm Standby- (Basic infra + runs small loads ( might need to add auto scaling) -RTO&#x2F;RPO&#x3D; minutes</li>
+<li>( ACTIVE -ACTIVE ) : Multi AZ option : instant</li>
+</ol>
+<p>here we can tolerate 30 mins<br>hence B,D are incorrect. AWS backup is in hours, hence D is incorrect.<br>therefore A</p>
+</blockquote>
+<hr>
+<h3 id="十、In-memory-tasks"><a href="#十、In-memory-tasks" class="headerlink" title="十、In-memory tasks"></a>十、In-memory tasks</h3><p>A company’s application is having performance issues. The application is stateful and needs to complete in-memory tasks on Amazon EC2 instances. The company used AWS CloudFormation to deploy infrastructure and used the M5 EC2 instance family.<br>As traffic increased, the application performance degraded. Users are reporting delays when the users attempt to access the application.<br>Which solution will resolve these issues in the MOST operationally efficient way?  </p>
+<ol>
+<li>Replace the EC2 instances with T3 EC2 instances that run in an Auto Scaling group. Make the changes by using the AWS Management Console.</li>
+<li>Modify the CloudFormation templates to run the EC2 instances in an Auto Scaling group. Increase the desired capacity and the maximum capacity of the Auto Scaling group manually when an increase is necessary.</li>
+<li>Modify the CloudFormation templates. Replace the EC2 instances with R5 EC2 instances. Use Amazon CloudWatch built-in EC2 memory metrics to track the application performance for future capacity planning.</li>
+<li>✅ Modify the CloudFormation templates. Replace the EC2 instances with R5 EC2 instances. Deploy the Amazon CloudWatch agent on the EC2 instances to generate custom application latency metrics for future capacity planning.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：in-memory tasks</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：M5 型的 <code>EC2</code> 运行内存型任务出现了性能瓶颈。问有什么最具操作性价比的行为。<br>1️⃣ 2️⃣ 选择了水平扩容；3️⃣ 4️⃣ 选择了垂直扩容并监控状态为之后的扩容计划做准备。<br>显然是 3️⃣ 4️⃣ 更加合理。<br>过一下各类型的 <code>EC2</code> 实例：<a target="_blank" rel="noopener" href="https://www.amazonaws.cn/ec2/instance-types/">Amazon EC2 实例类型</a></p>
+<blockquote>
+<ul>
+<li>M 系列（通用型实例）- 提供了计算、内存和网络资源的平衡，可用于各种不同的工作负载。<blockquote>
+<p>这些实例非常适合于以相等比例使用这些资源的应用程序，例如 Web 服务器和代码库。 </p>
+</blockquote>
+</li>
+<li>C 系列（计算优化型实例）- 是计算限制型应用程序的理想选择，可以受益于高性能处理器。<blockquote>
+<p>非常适合于批处理工作负载、媒体转码、高性能 Web 服务器、高性能计算（HPC）、科学建模、专用游戏服务器和广告服务器引擎、机器学习推理和其他计算密集型应用程序。</p>
+</blockquote>
+</li>
+<li>R 系列（内存优化型实例）- 内存优化型实例旨在为处理内存中大型数据集的工作负载提供快速性能。<blockquote>
+<p>内存密集型工作负载，如开源数据库、内存缓存和实时大数据分析。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：D is the correct answer.<br>“in-memory tasks” &#x3D;&gt; need the “R” EC2 instance type to archive memory optimization.So we are concerned about C &amp; D.<br>Because EC2 instances don’t have built-in memory metrics to CW by default. Asa result, we have to install the CW agent to archive the purpose.</p>
+</blockquote>
+</div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/12/01</p><p><a href="https://senjianlu.com/2024/12/01/saa_test_daily_20241201/">https://senjianlu.com/2024/12/01/saa_test_daily_20241201/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-12-01</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-12-01</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/12/02/translate_news_nhk_20241202_k10014655341000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - マンション“投資より居住目的の人に”不動産会社に新たな動き</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/12/01/song_lyric_hacking_to_the_gate/"><span class="level-item">日语翻译 - 歌词 - Hacking to the Gate</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、Medical-information"><span class="level-left"><span class="level-item">一、Medical information</span></span></a></li><li><a class="level is-mobile" href="#二、DynamoDB-keep-data-for-30-days"><span class="level-left"><span class="level-item">二、DynamoDB keep data for 30 days</span></span></a></li><li><a class="level is-mobile" href="#三、Amazon-Transcribe"><span class="level-left"><span class="level-item">三、Amazon Transcribe</span></span></a></li><li><a class="level is-mobile" href="#四、Amazon-Cognito-and-API-access"><span class="level-left"><span class="level-item">四、Amazon Cognito and API access</span></span></a></li><li><a class="level is-mobile" href="#五、SMS-messages"><span class="level-left"><span class="level-item">五、SMS messages</span></span></a></li><li><a class="level is-mobile" href="#六、Data-Lake-and-fine-grained-permissions"><span class="level-left"><span class="level-item">六、Data Lake and fine-grained permissions</span></span></a></li><li><a class="level is-mobile" href="#七、EC2-connect-to-S3"><span class="level-left"><span class="level-item">七、EC2 connect to S3</span></span></a></li><li><a class="level is-mobile" href="#八、Files-convert"><span class="level-left"><span class="level-item">八、Files convert</span></span></a></li><li><a class="level is-mobile" href="#九、Second-infrastructure-for-DR"><span class="level-left"><span class="level-item">九、Second infrastructure for DR</span></span></a></li><li><a class="level is-mobile" href="#十、In-memory-tasks"><span class="level-left"><span class="level-item">十、In-memory tasks</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2024 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script data-pjax src="/js/insight.js" defer></script><script data-pjax>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
