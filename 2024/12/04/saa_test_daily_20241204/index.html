@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/12/04 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam50 题 (No.286 ~ No.335) 只记录了 11 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/12/04"><meta property="og:url" content="https://senjianlu.com/2024/12/04/saa_test_daily_20241204/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam50 题 (No.286 ~ No.335) 只记录了 11 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-12-04T11:00:00.000Z"><meta property="article:modified_time" content="2024-12-04T12:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/12/04/saa_test_daily_20241204/"},"headline":"SAA 考试每日练习 - 2024/12/04","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-12-04T11:00:00.000Z","dateModified":"2024-12-04T12:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam50 题 (No.286 ~ No.335) 只记录了 11 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/12/04/saa_test_daily_20241204/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-12-04T11:00:00.000Z" title="12/4/2024, 7:00:00 PM">2024-12-04</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/12/04</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/">Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam</a><br>50 题 (No.286 ~ No.335) <strong>只记录了 11 道首次碰到的、错误的或有疑问的题目</strong>，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<p><strong>🌟 单词：</strong></p>
+<ol>
+<li>legacy<sub><u>n. 遗产，遗赠财物，遗留问题，后遗症 | adj. （计算机系统或产品）已停产的</u></sub></li>
+<li>fully managed<sub><u>全托管</u></sub></li>
+<li>thumbnail<sub><u>adj. 极小的, 简短的(论文等) | n. 拇指甲, 索引图像, （打印预览）略图</u></sub></li>
+</ol>
+<hr>
+<h3 id="一、S3-share-url"><a href="#一、S3-share-url" class="headerlink" title="一、S3 share url"></a>一、S3 share url</h3><p>A media company uses Amazon CloudFront for its publicly available streaming video content. The company wants to secure the video content that is hosted in Amazon S3 by controlling who has access. Some of the company’s users are using a custom HTTP client that does not support cookies. Some of the company’s users are unable to change the hardcoded URLs that they are using for access.<br>Which services or methods will meet these requirements with the LEAST impact to the users? (Choose two.)</p>
+<ol>
+<li>✅ Signed cookies</li>
+<li>✅ Signed URLs</li>
+<li>AWS AppSync</li>
+<li>JSON Web Token (JWT)</li>
+<li>AWS Secrets Manager</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：a custom HTTP client that does not support cookies、unable to change the hardcoded URLs</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：要将 <code>S3</code> 存储桶中的文件分享给外部用户，有的用户使用着不支持 Cookies 的 HTTP 客户端，另一些无法改变硬编码后的访问 URL（例如写死在代码中）。<br>对于使用不支持 Cookies 客户端的用户，使用预签名 URL 和公开 URL 明显都可以。<br>而对于硬编码了的用户，明显也是公开 URL。<br>这里单纯选 2️⃣ 就行了。  </p>
+<p><a target="_blank" rel="noopener" href="https://www.amazonaws.cn/appsync/">Amazon AppSync 利用全球范围内一个或多个数据源的适当数据为您的应用程序提供技术支持</a></p>
+<blockquote>
+<p>借助 AppSync，您可以在 NoSQL 数据存储、关系数据库、HTTP API 等一系列数据源和您使用 Amazon Lambda 自定义的数据源上构建可扩展的应用程序，包括需要实时更新的应用程序。对于移动和 Web 应用程序，AppSync 会在设备离线时额外提供本地数据访问，并在设备重新上线时提供数据与可自定义冲突解决的同步。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：I thought that option A was totally wrong, because the question mentions “HTTP client does not support cookies”. However it is right,along with option B. Checkthe link bellow, first paragraph.<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/blogs/media/secure-content-using-cloudfront-functions/">https://aws.amazon.com/blogs/media/secure-content-using-cloudfront-functions/</a></p>
+</blockquote>
+<hr>
+<h3 id="二、Data-Stream-ETL-and-save"><a href="#二、Data-Stream-ETL-and-save" class="headerlink" title="二、Data Stream ETL and save"></a>二、Data Stream ETL and save</h3><p>A company is preparing a new data platform that will ingest real-time streaming data from multiple sources. The company needs to transform the data before writing the data to Amazon S3. The company needs the ability to use SQL to query the transformed data.<br>Which solutions will meet these requirements? (Choose two.)</p>
+<ol>
+<li>✅ Use Amazon Kinesis Data Streams to stream the data. Use Amazon Kinesis Data Analytics to transform the data. Use Amazon Kinesis Data Firehose to write the data to Amazon S3. Use Amazon Athena to query the transformed data from Amazon S3.</li>
+<li>✅ Use Amazon Managed Streaming for Apache Kafka (Amazon MSK) to stream the data. Use AWS Glue to transform the data and to write the data to Amazon S3. Use Amazon Athena to query the transformed data from Amazon S3.</li>
+<li>Use AWS Database Migration Service (AWS DMS) to ingest the data. Use Amazon EMR to transform the data and to write the data to Amazon S3. Use Amazon Athena to query the transformed data from Amazon S3.</li>
+<li>Use Amazon Managed Streaming for Apache Kafka (Amazon MSK) to stream the data. Use Amazon Kinesis Data Analytics to transform the data and to write the data to Amazon S3. Use the Amazon RDS query editor to query the transformed data from Amazon S3.</li>
+<li>Use Amazon Kinesis Data Streams to stream the data. Use AWS Glue to transform the data. Use Amazon Kinesis Data Firehose to write the data to Amazon S3. Use the Amazon RDS query editor to query the transformed data from Amazon S3.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：real-time streaming data、multiple sources、ETL、S3</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：来自多个源的近实时数据流，需要转换后写入 <code>S3</code> 中。之后能够通过 SQL 进行查询。<br>首先 <code>S3</code> 使用 SQL 查询只能使用 <code>Amazon Athena</code> 实现，这样排除后只有 1️⃣ 2️⃣ 3️⃣ 可以选了。<br>2️⃣ 的操作非常标准，通过 <code>Amazon Managed Streaming</code> 将数据流式传输，使用 <code>Glue</code> 进行 ETL 操作之后存入 <code>S3</code> 中。<br>而 1️⃣ 的有些繁琐，其中对 <code>Amazon Kinesis Data Analytics</code> 能否转换数据：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/examples-transforming-strings.html">Examples: Transforming String Values</a></p>
+<blockquote>
+<p>Amazon Kinesis Data Analytics supports formats such as JSON and CSV for records on a streaming source.</p>
+</blockquote>
+<p>是可以的，那么 1️⃣ 也就不存在问题了。<br>3️⃣ 的 <code>DMS</code> 是用来迁移数据库的，明显不对。  </p>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/msk/">Amazon Managed Streaming for Apache Kafka (MSK) 利用完全托管、高度可用的 Apache Kafka 服务安全地流式传输数据</a></p>
+<blockquote>
+<p>Amazon Managed Streaming for Apache Kafka（Amazon MSK）是一项流式传输数据服务，可以管理 Apache Kafka 基础设施和运营。  </p>
+<blockquote>
+<p>Apache Kafka 是一个开源、高性能、可容错且可扩展的平台，用于构建实时流式传输数据管道和应用程序。Apache Kafka 是一个流数据存储，它将生成流数据的应用程序（生产者）与从其数据存储中使用流数据的应用程序（使用者）分离到其数据存储中。各个组织将 Apache Kafka 用作持续分析和响应流式传输数据的应用程序的数据来源。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：OK, for B I did some research, <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/glue/latest/dg/add-job-streaming.html">https://docs.aws.amazon.com/glue/latest/dg/add-job-streaming.html</a><br>“You can create streaming extract, transform,and load (ETL) jobs that run continuously, consume data from streaming sources like Amazon Kinesis Data Streams, Apache Kafka,and Amazon Managed Streaming for Apache Kafka (Amazon MSK).The jobs cleanse and transform the data,and then load the results into Amazon S3 data lakes or JDBC data stores.”</p>
+</blockquote>
+<hr>
+<h3 id="三、High-performance-file-system"><a href="#三、High-performance-file-system" class="headerlink" title="三、High performance file system"></a>三、High performance file system</h3><p>A research laboratory needs to process approximately 8 TB of data. The laboratory requires sub-millisecond latencies and a minimum throughput of 6 GBps for the storage subsystem. Hundreds of Amazon EC2 instances that run Amazon Linux will distribute and process the data.<br>Which solution will meet the performance requirements?</p>
+<ol>
+<li>Create an Amazon FSx for NetApp ONTAP file system. Sat each volume’ tiering policy to ALL. Import the raw data into the file system. Mount the fila system on the EC2 instances.</li>
+<li>✅ Create an Amazon S3 bucket to store the raw data. Create an Amazon FSx for Lustre file system that uses persistent SSD storage. Select the option to import data from and export data to Amazon S3. Mount the file system on the EC2 instances.</li>
+<li>Create an Amazon S3 bucket to store the raw data. Create an Amazon FSx for Lustre file system that uses persistent HDD storage. Select the option to import data from and export data to Amazon S3. Mount the file system on the EC2 instances.</li>
+<li>❌ Create an Amazon FSx for NetApp ONTAP file system. Set each volume’s tiering policy to NONE. Import the raw data into the file system. Mount the file system on the EC2 instances.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：8 TB、sub-millisecond latencies、6 GBps</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：8 TB 的数据需要存储在亚毫秒级读取、6Gbps 速率的文件系统上。  </p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/fsx/latest/LustreGuide/what-is.html">Amazon for FSx Lustre 是什么？</a></p>
+<blockquote>
+<p>FSxfor Lustre 可以轻松且经济高效地启动和运行流行的高性能 Lustre 文件系统。您可以将 Lustre 用于速度至关重要的工作负载，例如机器学习、高性能计算 (HPC)、视频处理和财务建模。  </p>
+<p>开源 Lustre 文件系统专为需要快速存储的应用程序而设计，即希望存储能跟上计算速度。Lustre 的构建是为了解决既快又省地处理全球不断增长的数据集的问题。它是一个广泛使用的文件系统，专为世界上速度最快的计算机而设计。它提供亚毫秒级的延迟、高达数百的吞吐量和高达数百万GBps的吞吐量。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/fsx/latest/ONTAPGuide/what-is-fsx-ontap.html">什么是 Amazon FSx for NetApp ONTAP</a></p>
+<blockquote>
+<p>通过符合行业标准的 NFS、SMB、iSCSI 和 NVMe-over-TCP 协议向广泛的工作负载和用户提供您的数据。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-storage-capacity.html">Volume tiering policies</a></p>
+<blockquote>
+<ul>
+<li>Auto（自动）- 该策略将所有冷数据（用户数据和快照）移至容量池层。数据的冷却速度由策略的冷却期决定，默认为 31 天，可配置值在 2-183 天之间。</li>
+<li>Snapshot Only（仅快照）- 此策略仅将快照数据移动到容量池存储层。快照分层到容量池的速度由策略的冷却期决定，默认设置为 2 天，可配置值在 2-183 天之间。</li>
+<li>All（全部）- 此策略将所有用户数据和快照数据标记为冷数据，并将其存储在容量池层中。</li>
+<li>None - 该策略可将卷的所有数据保留在主存储层上，并防止其转移到容量池存储。</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Keyword here isa minimum throughput of 6 GBps. Only the FSx for Lustre with SSD option gives the sub-milli response and throughput of 6 GBps or more.<br>B. Create an Amazon S3 bucket to store the raw data. Create an Amazon FSx for Lustre file system that uses persistentSSD storage.Select the option to import data from and export data to Amazon S3. Mount the file system on the EC2 instances.<br>Refrences:<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/fsx/when-to-choose-fsx/">https://aws.amazon.com/fsx/when-to-choose-fsx/</a></p>
+</blockquote>
+<hr>
+<h3 id="四、Data-Transfer"><a href="#四、Data-Transfer" class="headerlink" title="四、Data Transfer"></a>四、Data Transfer</h3><p>A university research laboratory needs to migrate 30 TB of data from an on-premises Windows file server to Amazon FSx for Windows File Server. The laboratory has a 1 Gbps network link that many other departments in the university share.<br>The laboratory wants to implement a data migration service that will maximize the performance of the data transfer. However, the laboratory needs to be able to control the amount of bandwidth that the service uses to minimize the impact on other departments. The data migration must take place within the next 5 days.<br>Which AWS solution will meet these requirements?</p>
+<ol>
+<li>❌ AWS Snowcone</li>
+<li>Amazon FSx File Gateway</li>
+<li>✅ AWS DataSync</li>
+<li>AWS Transfer Family</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：30 TB、5 TB</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：有 30 TB 的数据需要在 5 天迁移到 AWS。有 1 Gbsp 的网络连接并希望最大化网络使用，但还能保留对带宽的控制。<br>如果是 1 Gbps 的话每天能传输 <code>(1000 / 8) * 3600 * 24 / 1024 / 1024 = 10.3 TB</code>，这意味着 5 天理论可以传输 51.5 TB，完全能满足文件传输的总大小要求。<br>选 3️⃣ 没有问题。并且 <code>Snowcone</code> 也无法在 5 天内寄到并传输完数据发送回 AWS。 </p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/transfer/latest/userguide/what-is-aws-transfer-family.html">什么是 AWS Transfer Family？</a></p>
+<blockquote>
+<p>AWS Transfer Family 是一种安全的传输服务，使您能够将文件传入和传出 AWS 存储服务。Transfer Family 是该 AWS Cloud 平台的一部分。 AWS Transfer Family 为通过SFTP、AS2、FTPS以及FTP直接传入和传出 Amazon S3 或 Amazon 的文件提供完全托管的支持EFS。通过维护现有的客户端身份验证、访问和防火墙配置，您可以无缝迁移、自动化和监控文件传输工作流程，因此您的客户、合作伙伴和内部团队或其应用程序不会发生任何变化。</p>
+</blockquote>
+<p><code>AWS Transfer Family</code> 主要功能是使用其他协议将文件传入传出到 <code>S3</code> 和 <code>EFS</code>。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：AWS DataSync isa data transfer service that can copy large amounts of data between on-premises storage and Amazon FSx for Windows File Server at high speeds. It allows you to control the amount of bandwidth used during data transfer.  </p>
+<ul>
+<li>DataSync usesagentsat the source and destination to automatically copy filesand file metadata over the network.This optimizes the data transfer and minimizes the impact on your network bandwidth.</li>
+<li>DataSync allows you to schedule data transfersand configure transfer rates to suit your needs. You can transfer 30 TB within 5 days while controlling bandwidth usage.</li>
+<li>DataSync can resume interrupted transfersand validate data to ensure integrity. It provides detailed monitoring and reporting on the progressand performance of data transfers.</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="五、Auto-Scaling"><a href="#五、Auto-Scaling" class="headerlink" title="五、Auto Scaling"></a>五、Auto Scaling</h3><p>A company is launching a new application deployed on an Amazon Elastic Container Service (Amazon ECS) cluster and is using the Fargate launch type for ECS tasks. The company is monitoring CPU and memory usage because it is expecting high traffic to the application upon its launch. However, the company wants to reduce costs when utilization decreases.<br>What should a solutions architect recommend?</p>
+<ol>
+<li>Use Amazon EC2 Auto Scaling to scale at certain periods based on previous traffic patterns.</li>
+<li>Use an AWS Lambda function to scale Amazon ECS based on metric breaches that trigger an Amazon CloudWatch alarm.</li>
+<li>Use Amazon EC2 Auto Scaling with simple scaling policies to scale when ECS metric breaches trigger an Amazon CloudWatch alarm.</li>
+<li>✅ Use AWS Application Auto Scaling with target tracking policies to scale when ECS metric breaches trigger an Amazon CloudWatch alarm.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：ECS、Auto Scaling</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：部署在 <code>ECS</code> 和 <code>Fargate</code> 平台上的应用需要准备弹性扩容措施。<br>看看 <code>AWS Application Auto Scaling</code> 是什么：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/autoscaling/application/userguide/what-is-application-auto-scaling.html">什么是 Application Auto Scaling？</a></p>
+<blockquote>
+<p>Application Auto Scaling 是一项网络服务，适用于需要一种解决方案来自动扩展其可扩展资源以用于亚马逊以外的各项 AWS 服务的开发人员和系统管理员EC2。使用 Application Auto Scaling，您可以为以下资源配置自动缩放：</p>
+<ul>
+<li>DynamoDB 表和全局二级索引</li>
+<li>亚马逊 ECS 服务</li>
+<li>Lambda 函数预置并发</li>
+</ul>
+<p>……等等大量服务</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Answer is D - Auto-scaling with target tracking</p>
+</blockquote>
+<hr>
+<h3 id="六、Bill-and-cost"><a href="#六、Bill-and-cost" class="headerlink" title="六、Bill and cost"></a>六、Bill and cost</h3><p>A company has multiple AWS accounts that use consolidated billing. The company runs several active high performance Amazon RDS for Oracle On-Demand DB instances for 90 days. The company’s finance team has access to AWS Trusted Advisor in the consolidated billing account and all other AWS accounts.<br>The finance team needs to use the appropriate AWS account to access the Trusted Advisor check recommendations for RDS.<br>The finance team must review the appropriate Trusted Advisor check to reduce RDS costs.<br>Which combination of steps should the finance team take to meet these requirements? (Choose two.)</p>
+<ol>
+<li>Use the Trusted Advisor recommendations from the account where the RDS instances are running.</li>
+<li>✅ Use the Trusted Advisor recommendations from the consolidated billing account to see all RDS instance checks at the same time.</li>
+<li>Review the Trusted Advisor check for Amazon RDS Reserved Instance Optimization.</li>
+<li>✅ Review the Trusted Advisor check for Amazon RDS Idle DB Instances.</li>
+<li>Review the Trusted Advisor check for Amazon Redshift Reserved Node Optimization.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：reduce RDS costs</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：公司最近运行了 90 天的 <code>RDS</code>。财务团等需要使用 <code>AWS Trusted Advisor</code> 查看建议并减少费用。<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/premiumsupport/technology/trusted-advisor/">AWS Trusted Advisor 优化成本、提高性能并解决安全漏洞</a></p>
+<blockquote>
+<p>AWS Trusted Advisor 可以帮助您优化成本、提升性能、提高安全性和韧性，并在云中大规模运营。Trusted Advisor 使用云成本优化、性能、韧性、安全性、卓越运营和服务限制等类别的最佳实践检查来持续评估您的 AWS 环境，并对任何偏离最佳实践的情况提出补救措施建议。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://repost.aws/zh-Hans/knowledge-center/trusted-advisor-cost-optimization">如何使用 AWS Trusted Advisor 优化成本？</a></p>
+<blockquote>
+<ul>
+<li>对未充分利用的资源进行的成本优化检查</li>
+<li>适用于预留的成本优化检查</li>
+<li>其他成本优化检查</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：B &amp; D<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/premiumsupport/knowledge-center/trusted-advisor-cost-optimization/">https://aws.amazon.com/premiumsupport/knowledge-center/trusted-advisor-cost-optimization/</a></p>
+</blockquote>
+<hr>
+<h3 id="七、Static-file-transfer"><a href="#七、Static-file-transfer" class="headerlink" title="七、Static file transfer"></a>七、Static file transfer</h3><p>A company sells datasets to customers who do research in artificial intelligence and machine learning (AI&#x2F;ML). The datasets are large, formatted files that are stored in an Amazon S3 bucket in the us-east-1 Region. The company hosts a web application that the customers use to purchase access to a given dataset. The web application is deployed on multiple Amazon EC2 instances behind an Application Load Balancer. After a purchase is made, customers receive an S3 signed URL that allows access to the files.<br>The customers are distributed across North America and Europe. The company wants to reduce the cost that is associated with data transfers and wants to maintain or improve performance.<br>What should a solutions architect do to meet these requirements?</p>
+<ol>
+<li>Configure S3 Transfer Acceleration on the existing S3 bucket. Direct customer requests to the S3 Transfer Acceleration endpoint. Continue to use S3 signed URLs for access control.</li>
+<li>✅ Deploy an Amazon CloudFront distribution with the existing S3 bucket as the origin. Direct customer requests to the CloudFront URL. Switch to CloudFront signed URLs for access control.</li>
+<li>❌ Set up a second S3 bucket in the eu-central-1 Region with S3 Cross-Region Replication between the buckets. Direct customer requests to the closest Region. Continue to use S3 signed URLs for access control.</li>
+<li>Modify the web application to enable streaming of the datasets to end users. Configure the web application to read the data from the existing S3 bucket. Implement access control directly in the application.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：大的数据集需要分发给北美和欧洲的用户，<code>S3</code> 存储桶位于 us-east-1。<br>看下 2️⃣ 提到的 <code>CloudFront signed URLs</code>：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonCloudFront/latest/DeveloperGuide/private-content-signed-urls.html">使用签名 URL</a></p>
+<blockquote>
+<p>签名 URL 包括额外的信息，例如，过期日期和时间，为您提供内容访问方面的更多控制权。该额外信息出现在策略声明中，且是基于标准策略或自定义策略。标准策略和自定义策略之间的差别将在接下来的两节中予以说明。</p>
+</blockquote>
+<p>那么显然是 2️⃣ 更好。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：To reduce the cost associated with data transfersand maintain or improve performance,a solutionsarchitect should use Amazon CloudFront,a content delivery network(CDN) service that securely delivers data, videos,applications,and APIs to customers globally with low latencyand high transfer speeds.<br>Deploying a CloudFront distribution with the existing S3 bucket as the origin will allow the company to serve the data to customers from edge locations that are closer to them, reducing data transfer costsand improving performance.<br>Directing customer requests to the CloudFront URL and switching to CloudFront signed URLs for access control will enable customers to access the data securelyand efficiently.</p>
+</blockquote>
+<hr>
+<h3 id="八、Vulnerabilities"><a href="#八、Vulnerabilities" class="headerlink" title="八、Vulnerabilities"></a>八、Vulnerabilities</h3><p>A company experienced a breach that affected several applications in its on-premises data center. The attacker took advantage of vulnerabilities in the custom applications that were running on the servers. The company is now migrating its applications to run on Amazon EC2 instances. The company wants to implement a solution that actively scans for vulnerabilities on the EC2 instances and sends a report that details the findings.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Deploy AWS Shield to scan the EC2 instances for vulnerabilities. Create an AWS Lambda function to log any findings to AWS CloudTrail.</li>
+<li>Deploy Amazon Macie and AWS Lambda functions to scan the EC2 instances for vulnerabilities. Log any findings to AWS CloudTrail.</li>
+<li>❌ Turn on Amazon GuardDuty. Deploy the GuardDuty agents to the EC2 instances. Configure an AWS Lambda function to automate the generation and distribution of reports that detail the findings.</li>
+<li>✅ Turn on Amazon Inspector. Deploy the Amazon Inspector agent to the EC2 instances. Configure an AWS Lambda function to automate the generation and distribution of reports that detail the findings.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：vulnerabilities</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：应用存在漏洞，需要进行防护。<br><code>AWS Shield</code> 是防 DDoS 的。<br><code>Amazon Macie</code> 是用来甄别敏感信息的。<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/guardduty/features/"><code>Amazon GuardDuty</code></a> 是以 AWS 账号为对象的安全检测服务。  </p>
+<blockquote>
+<p>GuardDuty 为您提供准确的账户盗用威胁检测，如果您没有以近乎实时的方式持续监控相关因素，可能难以快速发现这种情况。GuardDuty 可检测出账户盗用的迹象，例如在一天之中的非典型时间从异常地理位置访问 AWS 资源。对于编程 AWS 账户，GuardDuty 能够检查异常 API 调用，例如试图通过禁用 CloudTrail 日志记录或从恶意 IP 地址创建数据库快照掩盖账户活动。</p>
+</blockquote>
+<p><code>Amazon Inspector</code> 是漏洞检测服务：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/inspector/latest/user/what-is-inspector.html">Amazon Inspector 是什么？</a></p>
+<blockquote>
+<p>Amazon Inspector 是一项漏洞管理服务，可自动发现工作负载并持续扫描工作负载以查找软件漏洞和意外网络泄露。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：AWS Shield for DDOS<br>Amazon Macie for discover and protect sensitive date<br>Amazon GuardDuty for intelligent thread discovery to protect AWS account<br>Amazon Inspector for automated securityassessment. like known Vulnerability</p>
+</blockquote>
+<hr>
+<h3 id="九、Safe-movement-on-AWS-resources"><a href="#九、Safe-movement-on-AWS-resources" class="headerlink" title="九、Safe movement on AWS resources"></a>九、Safe movement on AWS resources</h3><p>A company recently migrated its entire IT environment to the AWS Cloud. The company discovers that users are provisioning oversized Amazon EC2 instances and modifying security group rules without using the appropriate change control process. A solutions architect must devise a strategy to track and audit these inventory and configuration changes.<br>Which actions should the solutions architect take to meet these requirements? (Choose two.)</p>
+<ol>
+<li>✅ Enable AWS CloudTrail and use it for auditing.</li>
+<li>Use data lifecycle policies for the Amazon EC2 instances.</li>
+<li>Enable AWS Trusted Advisor and reference the security dashboard.</li>
+<li>✅ Enable AWS Config and create rules for auditing and compliance purposes.</li>
+<li>Restore previous resource configurations with an AWS CloudFormation template.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：without using the appropriate change control process</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：用户对 AWS 资源的操作没有参照流程，安全问题。<br><code>CloudTrail</code> 会记录对 AWS 资源的操作历史，可以用来审计，没有疑问。<br>而 <code>AWS Config</code> 对用户操作的限制：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/config/latest/developerguide/evaluate-config.html">使用 AWS Config 规则评估资源</a>  </p>
+<blockquote>
+<p>AWS Config 用于评估 AWS 资源的配置设置。为此，您可以创建 AWS Config 规则，这些规则代表您的理想配置设置。 AWS Config 提供名为托管规则的可自定义预定义规则，以帮助您入门。</p>
+<p><strong>AWS Config 规则是如何运作的</strong><br>在 AWS Config 持续跟踪您的资源中出现的配置更改时，它会检查这些更改是否不符合规则中的任何条件。如果资源不符合规则，则会将该资源和规则 AWS Config 标记为不合规。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A.Enable AWS CloudTrail and use it for auditing. CloudTrail providesevent history of your AWS account activity, including actions taken through the AWS Management Console, AWS Command Line Interface (CLI),and AWS SDKsand APIs. By enabling CloudTrail, the company can track user activityand changes to AWS resources,and monitor compliance with internal policiesand external regulations.  </p>
+<p>D.Enable AWS Config and create rules for auditing and compliance purposes. AWS Config providesa detailed inventory of the AWS resources in your account,and continuously records changes to the configurations of those resources. By creating rules in AWS Config, the company can automate the evaluation of resource configurationsagainst desired state,and receive alerts when configurations drift from compliance.  </p>
+<p>Options B, C,and E are not directly relevant to the requirement of tracking and auditing inventoryand configuration changes.</p>
+</blockquote>
+<hr>
+<h3 id="十、Amazon-Cognito-identity-pool"><a href="#十、Amazon-Cognito-identity-pool" class="headerlink" title="十、Amazon Cognito identity pool"></a>十、Amazon Cognito identity pool</h3><p>A company is hosting a web application from an Amazon S3 bucket. The application uses Amazon Cognito as an identity provider to authenticate users and return a JSON Web Token (JWT) that provides access to protected resources that are stored in another S3 bucket.<br>Upon deployment of the application, users report errors and are unable to access the protected content. A solutions architect must resolve this issue by providing proper permissions so that users can access the protected content.<br>Which solution meets these requirements?</p>
+<ol>
+<li>✅ Update the Amazon Cognito identity pool to assume the proper IAM role for access to the protected content.</li>
+<li>Update the S3 ACL to allow the application to access the protected content.</li>
+<li>Redeploy the application to Amazon S3 to prevent eventually consistent reads in the S3 bucket from affecting the ability of users to access the protected content.</li>
+<li>❌ Update the Amazon Cognito pool to use custom attribute mappings within the identity pool and grant users the proper<br>permissions to access the protected content.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：应用使用 <code>Amazon Cognito</code> 作为认证提供者，生成 JWT 供用户访问 <code>S3</code> 存储桶内的数据。部署应用后收到用户的信息说无法访问受保护的文件。<br>1️⃣ 的操作是更新 <code>Amazon Cognito</code> 的认证池赋予合适的 <code>IAM</code> 用户使其能够访问 <code>S3</code> 内受保护的文件。<br>4️⃣ 则是更新自定义的属性映射来赋予用户适当的权限访问受保护文件。  </p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/cognito/latest/developerguide/identity-pools.html">身份池 (identity pool) 控制台概述</a></p>
+<blockquote>
+<p>Amazon Cognito 身份池为访客用户（未经身份验证）和已通过身份验证并收到令牌的用户提供临时 AWS 证书。身份池是指与您的外部身份提供商关联的用户标识符的存储。</p>
+</blockquote>
+<p>1️⃣ 中更具体的、与 <code>IAM</code> 角色相关的描述：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/cognito/latest/developerguide/iam-roles.html">IAM角色</a></p>
+<blockquote>
+<p>创建身份池时，系统会提示您更新用户所IAM扮演的角色。IAM角色的工作原理如下：当用户登录您的应用程序时，Amazon Cognito 会为该用户生成临时 AWS 证书。这些临时证书与特定IAM角色关联。使用该IAM角色，您可以定义一组访问 AWS 资源的权限。</p>
+<p>您可以为经过身份验证和未经身份验证的用户指定默认IAM角色。</p>
+</blockquote>
+<p>来看下 4️⃣ 描述的属性指的是什么：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/cognito/latest/developerguide/attributes-for-access-control.html">将属性用于访问控制</a>  </p>
+<blockquote>
+<p>访问控制属性是 Amazon Cognito 身份池对基于属性的访问控制 (ABAC) 的实现。您可以使用 IAM 策略，根据用户属性通过 Amazon Cognito 身份池控制对 AWS 资源的访问。这些属性可以来自社会和企业身份提供商。您可以将提供商的访问和 ID 标记或 SAML 断言中的属性映射到可在 IAM 权限策略中引用的标记。</p>
+<p>例如，假设您拥有一个具有免费和付费会员资格的媒体流式传输服务。您可以将媒体文件存储在 Amazon S3 中，并使用免费或高级标签对其贴标签。您可以将属性用于访问控制，以允许访问基于用户会员级别（这是用户配置文件的一部分）的免费和付费内容。您可以将成员资格属性映射到标签密钥，以便委托人传递给IAM权限策略。通过这种方式，您可以创建单个权限策略，并根据会员级别的值和内容文件上的标签有条件地允许对高级内容的访问。</p>
+</blockquote>
+<p>看上去它只是一种身份的标签，用以区分不同用户的不同权限组。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：To resolve the issue and provide proper permissions for users to access the protected content, the recommended solution is:<br>A. Update the Amazon Cognito identity pool to assume the proper IAM role for access to the protected content.  </p>
+<p>Explanation:<br>Amazon Cognito providesauthentication and user management services for web and mobile applications.<br>In this scenario, the application is using Amazon Cognito asan identity provider to authenticate usersand obtain JSON Web Tokens (JWTs).<br>The JWTs are used to access protected resources stored in anotherS3 bucket.<br>To grant users access to the protected content, the proper IAM role needs to be assumed by the identity pool in Amazon Cognito.<br>By updating the Amazon Cognito identity pool with the appropriate IAM role, users will be authorized to access the protected content in the S3 bucket.  </p>
+<p>Option D is incorrect because updating custom attribute mappings in Amazon Cognito will not directly grant users the proper<br>permissions to access the protected content.</p>
+</blockquote>
+<hr>
+<h3 id="十一、ASG-restore"><a href="#十一、ASG-restore" class="headerlink" title="十一、ASG restore"></a>十一、ASG restore</h3><p>A company is experiencing sudden increases in demand. The company needs to provision large Amazon EC2 instances from an Amazon Machine Image (AMI). The instances will run in an Auto Scaling group. The company needs a solution that provides minimum initialization latency to meet the demand.<br>Which solution meets these requirements?</p>
+<ol>
+<li>❌ Use the aws ec2 register-image command to create an AMI from a snapshot. Use AWS Step Functions to replace the AMI in the Auto Scaling group.</li>
+<li>✅ Enable Amazon Elastic Block Store (Amazon EBS) fast snapshot restore on a snapshot. Provision an AMI by using the snapshot. Replace the AMI in the Auto Scaling group with the new AMI.</li>
+<li>Enable AMI creation and define lifecycle rules in Amazon Data Lifecycle Manager (Amazon DLM). Create an AWS Lambda function that modifies the AMI in the Auto Scaling group.</li>
+<li>Use Amazon EventBridge to invoke AWS Backup lifecycle policies that provision AMIs. Configure Auto Scaling group capacity limits as an event source in EventBridge.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：需要为 <code>ASG</code> 准备 <code>AMI</code>。最快的启动方式。<br>没有读懂题目。<br>但是明确下可以从 <code>EC2</code> 实例的根卷快照创建 <code>AMI</code>（之后用于 <code>ASG</code> 等）：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">创建 Amazon EBS-backed AMI</a>  </p>
+<blockquote>
+<p>可以从 Amazon EC2 实例或从 Amazon EC2 实例的根设备快照创建自己的 Amazon EBS-backed AMI。</p>
+<p>要从实例创建 Amazon EBS-backed AMI，请先使用现有的 Amazon EBS-backed AMI 启动一个实例。此 AMI 可以是从 AWS Marketplace 获得的 AMI，可以是使用 VM Import&#x2F;Export 创建的 AMI，也可以是能够访问的任何其他 AMI。自定义满足特定要求的实例后，创建新的 AMI 并加以注册。然后，即可使用新的 AMI 启动具有自定义项的新实例。</p>
+<p>下述过程适用于由加密的 Amazon Elastic Block Store (Amazon EBS) 卷（包括根卷）支持的 Amazon EC2 实例，也适用于未加密卷。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：readed the question 5 times, didn’t understood a thing :(</p>
+<p>Enabling Amazon Elastic BlockStore (Amazon EBS) fast snapshot restore on a snapshot allows you to quickly create a new Amazon Machine Image (AMI) from a snapshot, which can help reduce the initialization latency when provisioning new instances. Once the AMI is provisioned, you can replace the AMI in the Auto Scaling group with the new AMI.This will ensure that new instancesare launched from the updated AMI and are able to meet the increased demand quickly.</p>
+<p>The question wording is pretty weird but the only thing of value is latency during initialisation which makes B the correct option.<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-fast-snapshot-restore.html">https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-fast-snapshot-restore.html</a></p>
+<p>A only helps with creating the AMI<br>C and D will probably work(ambiguous language) but won’t handle initialising latency issues.</p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/12/04</p><p><a href="https://senjianlu.com/2024/12/04/saa_test_daily_20241204/">https://senjianlu.com/2024/12/04/saa_test_daily_20241204/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-12-04</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-12-04</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/12/05/translate_news_nhk_20241205_k10014659031000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - 米大手自動車メーカーGM 中国事業関連で50億ドル超の損失計上</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/12/04/translate_news_nhk_20241204_k10014657551000/"><span class="level-item">日语翻译 - 新闻 - 全国のコメ事業者らが意見交換会“さらに価格上昇の可能性も”</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、S3-share-url"><span class="level-left"><span class="level-item">一、S3 share url</span></span></a></li><li><a class="level is-mobile" href="#二、Data-Stream-ETL-and-save"><span class="level-left"><span class="level-item">二、Data Stream ETL and save</span></span></a></li><li><a class="level is-mobile" href="#三、High-performance-file-system"><span class="level-left"><span class="level-item">三、High performance file system</span></span></a></li><li><a class="level is-mobile" href="#四、Data-Transfer"><span class="level-left"><span class="level-item">四、Data Transfer</span></span></a></li><li><a class="level is-mobile" href="#五、Auto-Scaling"><span class="level-left"><span class="level-item">五、Auto Scaling</span></span></a></li><li><a class="level is-mobile" href="#六、Bill-and-cost"><span class="level-left"><span class="level-item">六、Bill and cost</span></span></a></li><li><a class="level is-mobile" href="#七、Static-file-transfer"><span class="level-left"><span class="level-item">七、Static file transfer</span></span></a></li><li><a class="level is-mobile" href="#八、Vulnerabilities"><span class="level-left"><span class="level-item">八、Vulnerabilities</span></span></a></li><li><a class="level is-mobile" href="#九、Safe-movement-on-AWS-resources"><span class="level-left"><span class="level-item">九、Safe movement on AWS resources</span></span></a></li><li><a class="level is-mobile" href="#十、Amazon-Cognito-identity-pool"><span class="level-left"><span class="level-item">十、Amazon Cognito identity pool</span></span></a></li><li><a class="level is-mobile" href="#十一、ASG-restore"><span class="level-left"><span class="level-item">十一、ASG restore</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script data-pjax src="/js/insight.js" defer></script><script data-pjax>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

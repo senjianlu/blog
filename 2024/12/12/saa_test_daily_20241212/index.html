@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/12/12 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam100 题 (No.801 ~ No.900) 只记录了 18 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。其中有 65 题与正式考试题量一样，总共耗时 93&amp;#x2F;(130+30) 分钟，正确率为 52&amp;#x2F;65。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/12/12"><meta property="og:url" content="https://senjianlu.com/2024/12/12/saa_test_daily_20241212/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam100 题 (No.801 ~ No.900) 只记录了 18 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。其中有 65 题与正式考试题量一样，总共耗时 93&amp;#x2F;(130+30) 分钟，正确率为 52&amp;#x2F;65。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-12-12T12:00:00.000Z"><meta property="article:modified_time" content="2024-12-12T15:50:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/12/12/saa_test_daily_20241212/"},"headline":"SAA 考试每日练习 - 2024/12/12","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-12-12T12:00:00.000Z","dateModified":"2024-12-12T15:50:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam100 题 (No.801 ~ No.900) 只记录了 18 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。其中有 65 题与正式考试题量一样，总共耗时 93&#x2F;(130+30) 分钟，正确率为 52&#x2F;65。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/12/12/saa_test_daily_20241212/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-12-12T12:00:00.000Z" title="12/12/2024, 8:00:00 PM">2024-12-12</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/12/12</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/">Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam</a><br>100 题 (No.801 ~ No.900) <strong>只记录了 18 道首次碰到的、错误的或有疑问的题目</strong>，仅供自己复习使用。<br><em>其中有 65 题与正式考试题量一样，总共耗时 93&#x2F;(130+30) 分钟，正确率为 52&#x2F;65。</em><br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<h3 id="一、MPP-ML"><a href="#一、MPP-ML" class="headerlink" title="一、MPP ML"></a>一、MPP ML</h3><p>A company has an Amazon S3 data lake. The company needs a solution that transforms the data from the data lake and loads the data into a data warehouse every day. The data warehouse must have massively parallel processing (MPP) capabilities.<br>Data analysts then need to create and train machine learning (ML) models by using SQL commands on the data. The solution must use serverless AWS services wherever possible.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>❌ Run a daily Amazon EMR job to transform the data and load the data into Amazon Redshift. Use Amazon Redshift ML to create and train the ML models.</li>
+<li>Run a daily Amazon EMR job to transform the data and load the data into Amazon Aurora Serverless. Use Amazon Aurora ML to create and train the ML models.</li>
+<li>✅ Run a daily AWS Glue job to transform the data and load the data into Amazon Redshift Serverless. Use Amazon Redshift ML to create and train the ML models.</li>
+<li>Run a daily AWS Glue job to transform the data and load the data into Amazon Athena tables. Use Amazon Athena ML to create and train the ML models.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>RedShift</code> 具有 MPP 特性：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/redshift/latest/dg/c_challenges_achieving_high_performance_queries.html">Amazon Redshift 性能</a></p>
+<blockquote>
+<p><strong>大规模并行处理</strong><br>大规模并行处理 (MPP) 支持对大量数据快速运行最复杂的查询。多个计算节点处理所有查询处理以获得最终结果聚合，运行相同的编译后查询的每个节点的每个核心在整个数据的各个部分进行分段。</p>
+</blockquote>
+<p>因此 1️⃣ 和 3️⃣ 是合适的。<br>来看下 <code>EMR</code> job：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/emr/latest/EMR-Serverless-UserGuide/job-states.html">任务运行状态</a></p>
+<blockquote>
+<p>当您将作业运行提交到 Amazon EMR Serverless 作业队列时，作业运行将进入 SUBMITTED 状态。作业状态从 SUBMITTED 变为 RUNNING，直至达到 FAILED、SUCCESS 或 CANCELLING。</p>
+</blockquote>
+<p><code>Glue</code> 的：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/glue/latest/dg/components-key-concepts.html">AWS Glue 概念</a></p>
+<blockquote>
+<p><strong>作业</strong><br>执行 ETL 工作所需的业务逻辑。它由转换脚本、数据源和数据目标组成。作业运行通过可由事件计划或触发的触发器启动。</p>
+</blockquote>
+<p>1️⃣ 和 3️⃣ 还是都符合的，那只能看存不存在 <code>RedShift Serverless</code> 了：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/redshift/latest/mgmt/working-with-serverless.html">Amazon Redshift Serverless</a></p>
+<blockquote>
+<p>Amazon Redshift Serverless 可让您方便地运行和扩展分析，而无需预置和管理本地数据仓库。借助 Amazon Redshift Serverless，数据分析人员、开发人员和数据科学家现在通过将数据加载到云中的数据仓库并从其中查询记录，就可以使用 Amazon Redshift 在几秒钟内从数据中获取见解。Amazon Redshift 会自动预置和扩展数据仓库容量，以便为要求苛刻且不可预测的工作负载提供快速性能。您仅需为实际使用的容量付费。您无需更改现有分析和商业智能应用程序，即可受益于这种简单性。</p>
+</blockquote>
+<p>3️⃣ 更符合题目需求。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Data Warehouse &#x3D;&gt; redshift<br>Use AWS Services whereever possible &#x3D;&gt; Redshift serverless</p>
+</blockquote>
+<hr>
+<h3 id="二、Batch-job-success-call"><a href="#二、Batch-job-success-call" class="headerlink" title="二、Batch job success call"></a>二、Batch job success call</h3><p>A company uses an AWS Batch job to run its end-of-day sales process. The company needs a serverless solution that will invoke a third-party reporting application when the AWS Batch job is successful. The reporting application has an HTTP API interface that uses username and password authentication.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>✅ Configure an Amazon EventBridge rule to match incoming AWS Batch job SUCCEEDED events. Configure the third-party API as an EventBridge API destination with a username and password. Set the API destination as the EventBridge rule target.</li>
+<li>Configure Amazon EventBridge Scheduler to match incoming AWS Batch job SUCCEEDED events. Configure an AWS Lambda function to invoke the third-party API by using a username and password. Set the Lambda function as the EventBridge rule target.</li>
+<li>❌ Configure an AWS Batch job to publish job SUCCEEDED events to an Amazon API Gateway REST API. Configure an HTTP proxy integration on the API Gateway REST API to invoke the third-party API by using a username and password.</li>
+<li>Configure an AWS Batch job to publish job SUCCEEDED events to an Amazon API Gateway REST API. Configure a proxy integration on the API Gateway REST API to an AWS Lambda function. Configure the Lambda function to invoke the third-party API by using a username and password.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>EventBridge</code> 支持将 HTTP 终端节点作为目标这个没什么好疑惑的：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/eventbridge/latest/userguide/eb-api-destinations.html">API将目的地作为亚马逊的目标 EventBridge</a></p>
+<blockquote>
+<p>Amazon EventBridge API目标是您可以作为事件总线规则或管道目标调用的HTTP终端节点，类似于调用 AWS 服务或资源作为目标的方式。使用API目的地，您可以使用API呼叫在 AWS 服务、集成软件即服务 (SaaS) 应用程序和外部应用程序之间路由事件。</p>
+<blockquote>
+<p>API目标不支持私有目标，例如接口VPC终端节点，包括使用私有网络的虚拟私有云 (VPC) HTTPS APIs 中的私有目标、Application Load Balancer 以及接口端点。</p>
+</blockquote>
+</blockquote>
+<p>当然它也支持认证。<br>我比较好奇的是 <code>AWS Batch job</code> 没有成功的 Hook 吗？尝试搜了下好像只能将 <code>EventBridge</code> 作为作业状态的输出：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/batch/latest/userguide/batch_cwe_events.html">AWS Batch 事件</a></p>
+<blockquote>
+<p>AWS Batch将作业状态更改事件发送到 EventBridge。AWS Batch会跟踪作业的状态。如果先前提交的作业的状态发生变化，则会调用一个事件。例如，如果状态为RUNNING的作业变为FAILED状态。这些事件归类为作业状态更改事件。</p>
+</blockquote>
+<p>那么这种情况下就最好选 1️⃣ 了。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：<a target="_blank" rel="noopener" href="https://aws.amazon.com/blogs/compute/using-api-destinations-with-amazon-eventbridge/">https://aws.amazon.com/blogs/compute/using-api-destinations-with-amazon-eventbridge/</a><br>Amazon EventBridge enables developers to route events between AWS services, integrated software asa service (SaaS) applications,and your own applications. It can help decouple applicationsand produce more extensible, maintainable architectures. With the new API destinations feature,EventBridge can now integrate with services outside of AWS using REST API calls.</p>
+</blockquote>
+<hr>
+<h3 id="三、AWS-Glue-Studio-visual-canvas"><a href="#三、AWS-Glue-Studio-visual-canvas" class="headerlink" title="三、AWS Glue Studio visual canvas"></a>三、AWS Glue Studio visual canvas</h3><p>A company hosts a data lake on Amazon S3. The data lake ingests data in Apache Parquet format from various data sources. The company uses multiple transformation steps to prepare the ingested data. The steps include filtering of anomalies, normalizing of data to standard date and time values, and generation of aggregates for analyses.<br>The company must store the transformed data in S3 buckets that data analysts access. The company needs a prebuilt solution for data transformation that does not require code. The solution must provide data lineage and data profiling. The company needs to share the data transformation steps with employees throughout the company.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>❌ Configure an AWS Glue Studio visual canvas to transform the data. Share the transformation steps with employees by using AWS Glue jobs.</li>
+<li>Configure Amazon EMR Serverless to transform the data. Share the transformation steps with employees by using EMR Serverless jobs.</li>
+<li>✅ Configure AWS Glue DataBrew to transform the data. Share the transformation steps with employees by using DataBrew recipes.</li>
+<li>Create Amazon Athena tables for the data. Write Athena SQL queries to transform the data. Share the Athena SQL queries with employees.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/glue/latest/dg/visual-job-api-chapter.html">AWS Glue 可视化 (Visual) 任务 API</a></p>
+<blockquote>
+<p>AWS Glue 提供了一个 API，允许客户使用 AWS Glue API 从表示可视化步骤工作流的 JSON 对象创建数据集成任务。然后，客户可以使用 AWS Glue Studio 中的可视化编辑器来处理这些任务。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/databrew/latest/dg/what-is.html">什么是 AWS Glue DataBrew？</a></p>
+<blockquote>
+<p>AWS Glue DataBrew 是一种可视化数据准备工具，让用户无需编写任何代码即可清理数据并实现标准化。与定制开发的数据准备相比，使用 DataBrew 可将准备用于分析和机器学习 (ML) 的数据所需的时间缩短多达 80%。您可以从 250 多种现成的转换功能中进行选择，以自动执行数据准备任务，例如筛选异常、将数据转换为标准格式以及更正无效值。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/databrew/latest/dg/recipes.html">创建和使用 AWS Glue DataBrew 食谱 (Recipes)</a></p>
+<blockquote>
+<p>在继续开发食谱时，您可以通过发布食谱来保存您所做的工作。 DataBrew 为您的食谱维护已发布版本的列表。您可以在配方作业中使用任何已发布的版本来运行配方（在配方作业中）来转换您的数据集。您也可以下载配方步骤的副本，以便可以在其他项目或其他数据集转换中重复使用该配方。</p>
+</blockquote>
+<p>这意味着 <code>AWS Glue DataBrew</code> 完美符合可视化机器学习数据准备步骤和分享这些转换步骤的需求。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：AWS Glue DataBrew:This isa visual data preparation tool that allows you to clean and normalize data without writing code. It<br>has built-in transformations for common tasks like filtering anomalies, normalizing dates,and generating aggregates. It also<br>provides data lineage and profiling capabilities, which are required by the company.<br>DataBrew Recipes:These are reusable workflows that define the data transformation steps.They can be easily shared with other employees, making it simple to collaborate on data preparation tasks.</p>
+</blockquote>
+<hr>
+<h3 id="四、S3-encryption-automatically-rotate"><a href="#四、S3-encryption-automatically-rotate" class="headerlink" title="四、S3 encryption automatically rotate"></a>四、S3 encryption automatically rotate</h3><p>A company is planning to migrate data to an Amazon S3 bucket. The data must be encrypted at rest within the S3 bucket. The encryption key must be rotated automatically every year.<br>Which solution will meet these requirements with the LEAST operational overhead?</p>
+<ol>
+<li>❌ Migrate the data to the S3 bucket. Use server-side encryption with Amazon S3 managed keys (SSE-S3). Use the built-in key rotation behavior of SSE-S3 encryption keys.</li>
+<li>Create an AWS Key Management Service (AWS KMS) customer managed key. Enable automatic key rotation. Set the S3 bucket’s default encryption behavior to use the customer managed KMS key. Migrate the data to the S3 bucket.</li>
+<li>✅ Create an AWS Key Management Service (AWS KMS) customer managed key. Set the S3 bucket’s default encryption behavior to use the customer managed KMS key. Migrate the data to the S3 bucket. Manually rotate the KMS key every year.</li>
+<li>Use customer key material to encrypt the data. Migrate the data to the S3 bucket. Create an AWS Key Management Service (AWS KMS) key without key material. Import the customer key material into the KMS key. Enable automatic key rotation.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：SSE-S3 不支持自动轮转：  </p>
+<blockquote>
+<p><img src="https://image.senjianlu.com/blog/2024-12-13/sse_s3.png" alt="S3 加密设置"></p>
+</blockquote>
+<p>并且已经存在于桶中的文件在之后开启加密后，不会被加密。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：The anwser can’t be A. In addition to other justifications written here in the comments, if the data is copied before enabling encryption, this data will not be encrypted.</p>
+</blockquote>
+<hr>
+<h3 id="五、Aurora-storage-configuration"><a href="#五、Aurora-storage-configuration" class="headerlink" title="五、Aurora storage configuration"></a>五、Aurora storage configuration</h3><p>A company is planning to deploy its application on an Amazon Aurora PostgreSQL Serverless v2 cluster. The application will receive large amounts of traffic. The company wants to optimize the storage performance of the cluster as the load on the application increases.<br>Which solution will meet these requirements MOST cost-effectively?</p>
+<ol>
+<li>Configure the cluster to use the Aurora Standard storage configuration.</li>
+<li>❌ Configure the cluster storage type as Provisioned IOPS.</li>
+<li>Configure the cluster storage type as General Purpose.</li>
+<li>✅ Configure the cluster to use the Aurora I&#x2F;O-Optimized storage configuration.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.StorageReliability.html#aurora-storage-type">Amazon Aurora 数据库集群的存储配置</a></p>
+<blockquote>
+<p>Amazon Aurora 有两种数据库集群存储配置：</p>
+<ul>
+<li><strong>Aurora I&#x2F;O-Optimized</strong> – 提高了 I&#x2F;O 密集型应用程序的性价比和可预测性。您只需为数据库集群的使用量和存储付费，而无需为读取和写入 I&#x2F;O 操作支付额外费用。<br>  当您的 I&#x2F;O 支出占 Aurora 数据库总支出的 25% 或更多时，Aurora I&#x2F;O-Optimized 是最佳选择。<br>  当您使用支持 Aurora I&#x2F;O-Optimized 集群配置的数据库引擎版本创建或修改数据库集群时，可以选择 Aurora I&#x2F;O-Optimized。您可以随时从 Aurora I&#x2F;O-Optimized 切换到 Aurora Standard。</li>
+<li><strong>Aurora Standard</strong> – 为许多 I&#x2F;O 使用率适中的应用程序提供经济实惠的定价。除了数据库集群的使用量和存储外，您还需要为每 100 万个 I&#x2F;O 操作请求支付标准费率。<br>  当您的 I&#x2F;O 支出低于 Aurora 数据库总支出的 25% 时，Aurora Standard 是最佳选择。<br>  您可以每 30 天从 Aurora Standard 切换到 Aurora I&#x2F;O-Optimized 一次。从 Aurora Standard 切换到 Aurora I&#x2F;O-Optimized 或从 Aurora I&#x2F;O-Optimized 切换到 Aurora Standard 时不会出现停机。</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Aurora only have:<br>-&gt; Standard<br>-&gt; I&#x2F;O-Optimized (need optimise storage thats why i chose this)</p>
+</blockquote>
+<hr>
+<h3 id="六、AWS-Security-Hub"><a href="#六、AWS-Security-Hub" class="headerlink" title="六、AWS Security Hub"></a>六、AWS Security Hub</h3><p>A financial services company that runs on AWS has designed its security controls to meet industry standards. The industry standards include the National Institute of Standards and Technology (NIST) and the Payment Card Industry Data Security Standard (PCI DSS).<br>The company’s third-party auditors need proof that the designed controls have been implemented and are functioning correctly. The company has hundreds of AWS accounts in a single organization in AWS Organizations. The company needs to monitor the current state of the controls across accounts.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Designate one account as the Amazon Inspector delegated administrator account from the Organizations management account. Integrate Inspector with Organizations to discover and scan resources across all AWS accounts. Enable Inspector industry standards for NIST and PCI DSS.</li>
+<li>❌ Designate one account as the Amazon GuardDuty delegated administrator account from the Organizations management account. In the designated GuardDuty administrator account, enable GuardDuty to protect all member accounts. Enable GuardDuty industry standards for NIST and PCI DSS.</li>
+<li>Configure an AWS CloudTrail organization trail in the Organizations management account. Designate one account as the compliance account. Enable CloudTrail security standards for NIST and PCI DSS in the compliance account.</li>
+<li>✅ Designate one account as the AWS Security Hub delegated administrator account from the Organizations management account. In the designated Security Hub administrator account, enable Security Hub for all member accounts. Enable Security Hub standards for NIST and PCI DSS.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/securityhub/latest/userguide/what-is-securityhub.html">什么是 AWS Security Hub？</a></p>
+<blockquote>
+<p>AWS Security Hub 为您提供了 AWS 中安全状态的全面视图，可帮助您评测您的 AWS 环境是否符合安全行业标准和最佳实践。  </p>
+<p>Security Hub 可跨 AWS 账户、AWS 服务、和受支持的第三方产品收集安全数据，并可帮助您分析安全趋势，以及确定最高优先级的安全问题。  </p>
+<p><u>为了帮助您管理组织的安全状态，Security Hub 支持多种安全标准。其中包括由 AWS 制定的 AWS 基础安全最佳实践 (FSBP) 和外部合规性框架，如 Center for Internet Security (CIS)、支付卡行业数据安全标准 (PCI DSS) 和美国国家标准与技术研究所 (NIST)。</u>每个标准都包含多个安全控件，每种控件都代表一种安全最佳实践。Security Hub 对安全控件进行检查并生成控件调查发现，以帮助您评测您是否符合安全最佳实践。</p>
+</blockquote>
+<p>针对是否符合行业标准的评判，需要通过 <code>AWS Security Hub</code> 实现。<br>涉及到的其他安全服务：</p>
+<ul>
+<li><code>Amazon Inspector</code> - 是一项自动化漏洞管理服务，可近乎实时地持续扫描 Amazon Elastic Compute Cloud（EC2）、Amazon Lambda 函数以及 Amazon ECR 中的容器映像以及持续集成和持续交付（CI&#x2F;CD）工具中的软件漏洞和意外网络暴露。</li>
+<li><code>Amazon GuardDuty</code> - 威胁检测服务，可持续监控恶意活动和未经授权的行为。<br>  GuardDuty 可检测出账户盗用的迹象，例如在一天之中的非典型时间从异常地理位置访问 AWS 资源。对于编程 AWS 账户，GuardDuty 能够检查异常 API 调用，例如试图通过禁用 CloudTrail 日志记录或从恶意 IP 地址创建数据库快照掩盖账户活动。</li>
+<li><code>AWS CloudTrail</code> - 可帮助您实现 AWS 账户 的运营和风险审计、治理和合规性。用户、角色或 AWS 服务执行的操作将记录为 CloudTrail 中的事件。<br>  事件包括在 AWS Management Console、AWS Command Line Interface 和 AWS 开发工具包和 API 中执行的操作。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Security Hub: assess your AWS environment against security industry standardsand best practices.</p>
+</blockquote>
+<hr>
+<h3 id="七、Amazon-EventBridge-event-bus"><a href="#七、Amazon-EventBridge-event-bus" class="headerlink" title="七、Amazon EventBridge event bus"></a>七、Amazon EventBridge event bus</h3><p>A company is designing an event-driven order processing system. Each order requires multiple validation steps after the order is created. An idempotent AWS Lambda function performs each validation step. Each validation step is independent from the other validation steps. Individual validation steps need only a subset of the order event information.  </p>
+<blockquote>
+<p>某公司正在设计一个事件驱动订单处理系统。创建订单后，每个订单都需要多个验证步骤。一个幂等 AWS Lambda 函数执行每个验证步骤。每个验证步骤都独立于其他验证步骤。单个验证步骤只需要订单事件信息的一个子集。  </p>
+</blockquote>
+<p>The company wants to ensure that each validation step Lambda function has access to only the information from the order event that the function requires. The components of the order processing system should be loosely coupled to accommodate future business changes.  </p>
+<blockquote>
+<p>公司希望确保每个验证步骤的 Lambda 函数只能访问该函数所需的订单事件信息。订单处理系统的各个组件应松散耦合，以适应未来的业务变化。</p>
+</blockquote>
+<p>Which solution will meet these requirements?</p>
+<ol>
+<li>❌ Create an Amazon Simple Queue Service (Amazon SQS) queue for each validation step. Create a new Lambda function to transform the order data to the format that each validation step requires and to publish the messages to the appropriate SQS queues. Subscribe each validation step Lambda function to its corresponding SQS queue.</li>
+<li>Create an Amazon Simple Notification Service (Amazon SNS) topic. Subscribe the validation step Lambda functions to the SNS topic. Use message body filtering to send only the required data to each subscribed Lambda function.</li>
+<li>✅ Create an Amazon EventBridge event bus. Create an event rule for each validation step. Configure the input transformer to send only the required data to each target validation step Lambda function.</li>
+<li>Create an Amazon Simple Queue Service (Amazon SQS) queue. Create a new Lambda function to subscribe to the SQS queue and to transform the order data to the format that each validation step requires. Use the new Lambda function to perform synchronous invocations of the validation step Lambda functions in parallel on separate threads</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/eventbridge/latest/userguide/eb-event-bus.html">Event buses in Amazon EventBridge</a></p>
+<blockquote>
+<p>事件总线是接收事件并将其传送到零个或多个目的地或目标的路由器。事件总线非常适合将事件从多个源路由到多个目标，在将事件传送到目标之前可以选择转换事件。<br><img src="https://image.senjianlu.com/blog/2024-12-13/bus_eventbridge_conceptual.png" alt="事件总线的工作原理"></p>
+<p><strong>活动总线的工作原理 EventBridge</strong><br>它的工作方式可概括如下：</p>
+<ol>
+<li>事件源</li>
+<li>EventBridge 然后根据为该事件总线定义的每条规则评估事件。<br> 对于每个与规则匹配的事件， EventBridge 然后将该事件发送到为该规则指定的目标。或者，作为规则的一部分，您还可以指定在将事件发送到目标之前 EventBridge 应如何转换事件。</li>
+</ol>
+<p><img src="https://image.senjianlu.com/blog/2024-12-13/bus-overview_eventbridge_conceptual.png" alt="事件总线活动巴士的工作原理"></p>
+</blockquote>
+<p>活动巴士可以将事件分解为不同的小事件，并支持对消息进行拆分。<br>而 <code>SNS</code> 无法对消息进行拆分：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/sns/latest/dg/sns-message-filtering.html">亚马逊SNS邮件过滤</a> </p>
+<blockquote>
+<p>如果某个订阅没有筛选策略，则订阅者将接收发布到其主题的每条消息。当您向已设置筛选策略的主题发布消息时，Amazon 会将消息属性或消息正文与每个主题订阅的筛选策略中的属性进行SNS比较。<u>如果所有消息属性或消息正文属性都满足筛选策略中指定的条件，Amazon SNS 会将消息发送给订阅者。否则，Amazon SNS 不会向该订阅者发送消息</u>。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：not B because SNS cannot make messages manipulation, the option “message body filtering” will make discard or forward the FULL message if there isa matching field:<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html">https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html</a><br>C - eventbus instead can manipulate event:<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus.html">https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus.html</a><br>D - Works, but too much operation IMO  </p>
+</blockquote>
+<hr>
+<h3 id="八、Encrypt-at-rest"><a href="#八、Encrypt-at-rest" class="headerlink" title="八、Encrypt at rest"></a>八、Encrypt at rest</h3><p>A company is running a highly sensitive application on Amazon EC2 backed by an Amazon RDS database. Compliance regulations mandate that all personally identifiable information (PII) be encrypted at rest.<br>Which solution should a solutions architect recommend to meet this requirement with the LEAST amount of changes to the infrastructure?</p>
+<ol>
+<li>Deploy AWS Certificate Manager to generate certificates. Use the certificates to encrypt the database volume.</li>
+<li>❌ Deploy AWS CloudHSM, generate encryption keys, and use the keys to encrypt database volumes.</li>
+<li>Configure SSL encryption using AWS Key Management Service (AWS KMS) keys to encrypt database volumes.</li>
+<li>✅ Configure Amazon Elastic Block Store (Amazon EBS) encryption and Amazon RDS encryption with AWS Key Management Service (AWS KMS) keys to encrypt instance and database volumes.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/cloudhsm/latest/userguide/introduction.html">什么是 AWS CloudHSM？</a></p>
+<blockquote>
+<p>AWS CloudHSM 将 AWS 云的优势与硬件安全模块 (HSM, Hardware security module) 的安全性相结合。硬件安全模块 (HSM) 是一种计算设备，可处理加密操作并提供加密密钥的安全存储。您可通过 AWS CloudHSM 全面控制 Amazon Web Services Cloud 中的高可用性 HSM，以获得低延迟访问，以及可自动执行 HSM 管理（包括备份、预配、配置和维护）的安全信任根。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/cloudhsm/faqs/">其他 AWS 产品是否可以使用 AWS CloudHSM 存储和管理密钥？</a></p>
+<blockquote>
+<p>AWS 服务与 AWS Key Management Service 集成，后者又通过 KMS 自定义密钥存储功能与 AWS CloudHSM 集成。如果要使用许多 AWS 服务（例如 EBS、S3 或 Amazon RDS）提供的服务器端加密，可以通过在 AWS KMS 中配置自定义密钥存储来实现。</p>
+</blockquote>
+<p><code>AWS CloudHSM</code> 似乎是在用户提供密钥的场景下工作的，并且 4️⃣ 已经能处理当前问题场景，选 4️⃣ 没有问题。同时 4️⃣ 还是最简单的操作方式。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：SSL&#x2F;Certificate &#x3D;&gt; encrypt in transit, so A and C are wrong.<br>so i feel the answer is between B and D.</p>
+</blockquote>
+<hr>
+<h3 id="九、EBS-Snapshots"><a href="#九、EBS-Snapshots" class="headerlink" title="九、EBS Snapshots"></a>九、EBS Snapshots</h3><p>A company uses Amazon EC2 instances and Amazon Elastic Block Store (Amazon EBS) to run its self-managed database. The company has 350 TB of data spread across all EBS volumes. The company takes daily EBS snapshots and keeps the snapshots for 1 month. The daily change rate is 5% of the EBS volumes.<br>Because of new regulations, the company needs to keep the monthly snapshots for 7 years. The company needs to change its backup strategy to comply with the new regulations and to ensure that data is available with minimal administrative effort.<br>Which solution will meet these requirements MOST cost-effectively?</p>
+<ol>
+<li>Keep the daily snapshot in the EBS snapshot standard tier for 1 month. Copy the monthly snapshot to Amazon S3 Glacier Deep Archive with a 7-year retention period.</li>
+<li>✅ Continue with the current EBS snapshot policy. Add a new policy to move the monthly snapshot to Amazon EBS Snapshots Archive with a 7-year retention period.</li>
+<li>❌ Keep the daily snapshot in the EBS snapshot standard tier for 1 month. Keep the monthly snapshot in the standard tier for 7 years. Use incremental snapshots.</li>
+<li>Keep the daily snapshot in the EBS snapshot standard tier. Use EBS direct APIs to take snapshots of all the EBS volumes every month. Store the snapshots in an Amazon S3 bucket in the Infrequent Access tier for 7 years.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/ebs/latest/userguide/ebs-snapshots.html">亚马逊EBS快照</a></p>
+<blockquote>
+<p>您可以通过制作 point-in-time副本（称为亚马逊EBS快照）来备份您的 Amazon EBS 卷上的数据。快照是增量备份，这意味着我们仅保存卷上自最新快照之后发生更改的块。由于无需复制数据，这将最大限度缩短创建快照所需的时间和增加存储成本节省。</p>
+</blockquote>
+<p>需要注意的是，默认的托管给 AWS 的快照备份是增量的。<br>如果你将快照移动到 <code>S3</code> 等存储时，它是全量的因此容量会提升，从而提升费用。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：AnswerB<br>The problem is that we need to choose best solution which is most cost-effective and have minimal administrative effort. Glacier is the best choice for 1st look, but there is one problem with that solution. From what I know there is no easy way to copy from EBS to Glacier and additionally curent strategy is to make incremental snapshots. To copy file from EBS to (s3) Glacier we would need to run linux to which we will mount EBS and we will need copy everything to S3 and then move to glaceir deep archive. And what is more you will have only incremental snapshot. Hence every solution which will say copy&#x2F;move to S3 is not minimal administrative effort. Not mentionig that you will not have full snapshot<br><a target="_blank" rel="noopener" href="https://repost.aws/questions/QUsaCoBAfbR6WMOz6BH3vqHA/move-ebs-to-glacier">https://repost.aws/questions/QUsaCoBAfbR6WMOz6BH3vqHA/move-ebs-to-glacier</a></p>
+</blockquote>
+<hr>
+<h3 id="十、AWS-Backup"><a href="#十、AWS-Backup" class="headerlink" title="十、AWS Backup"></a>十、AWS Backup</h3><p>A company runs an application on several Amazon EC2 instances that store persistent data on an Amazon Elastic File System (Amazon EFS) file system. The company needs to replicate the data to another AWS Region by using an AWS managed service solution.<br>Which solution will meet these requirements MOST cost-effectively?</p>
+<ol>
+<li>❌ Use the EFS-to-EFS backup solution to replicate the data to an EFS file system in another Region.</li>
+<li>Run a nightly script to copy data from the EFS file system to an Amazon S3 bucket. Enable S3 Cross-Region Replication on the S3 bucket.</li>
+<li>Create a VPC in another Region. Establish a cross-Region VPC peer. Run a nightly rsync to copy data from the original Region to the new Region.</li>
+<li>✅ Use AWS Backup to create a backup plan with a rule that takes a daily backup and replicates it to another Region. Assign the EFS file system resource to the backup plan.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/efs/latest/ug/awsbackup.html">备份 EFS 文件系统</a></p>
+<blockquote>
+<p>Amazon EFS与AWS Backup原生集成，这是一种完全托管的基于策略的服务，您可以使用它来创建和管理备份策略，以保护Amazon EFS中的数据。<br>使用AWS Backup for Amazon EFS，您可以执行以下操作：</p>
+<ul>
+<li>通过配置备份计划来管理自动备份调度和保留。您可以指定备份频率、何时进行备份、保留备份的时间以及备份的生命周期策略。</li>
+<li>恢复Amazon EFS数据的备份。您可以将文件系统数据恢复到新的或现有的文件系统。您还可以选择是执行完整还原还是项级还原。</li>
+</ul>
+</blockquote>
+<p>官方也推荐使用 <code>AWS Backup</code> 进行 <code>EFS</code> 的备份操作。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Answer D: AWS Backup is a managed service that handles backup operations. If AWS Backup is not available in your region, you can consider using EFS-to-EFS backup.</p>
+</blockquote>
+<hr>
+<h3 id="十一、Amazon-Aurora-Serverless-cluster"><a href="#十一、Amazon-Aurora-Serverless-cluster" class="headerlink" title="十一、Amazon Aurora Serverless cluster"></a>十一、Amazon Aurora Serverless cluster</h3><p>A large company wants to provide its globally located developers separate, limited size, managed PostgreSQL databases for development purposes. The databases will be low volume. The developers need the databases only when they are actively working.  </p>
+<blockquote>
+<p>一家大公司希望为其全球范围内的开发人员提供独立的、有限大小的、托管的 PostgreSQL 数据库，用于开发目的。数据库将是小容量的。开发人员只有在积极工作时才需要数据库。</p>
+</blockquote>
+<p>Which solution will meet these requirements MOST cost-effectively?</p>
+<ol>
+<li>Give the developers the ability to launch separate Amazon Aurora instances. Set up a process to shut down Aurora instances at the end of the workday and to start Aurora instances at the beginning of the next workday.</li>
+<li>❌ Develop an AWS Service Catalog product that enforces size restrictions for launching Amazon Aurora instances. Give the developers access to launch the product when they need a development database.</li>
+<li>✅ Create an Amazon Aurora Serverless cluster. Develop an AWS Service Catalog product to launch databases in the cluster with the default capacity settings. Grant the developers access to the product.</li>
+<li>Monitor AWS Trusted Advisor checks for idle Amazon RDS databases. Create a process to terminate identified idle RDS databases.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：3️⃣ 的费用相对 2️⃣ 会更低。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：(A,B,D) eliminated. Aurora instances &amp; Amazon RDS use On-Demand or Reserved INSTANCES. These are more expensive than a serverless solution.<br>(C) is correct. Amazon Aurora Serverless automatically starts up, shuts down &amp; scales capacity up or down based on your application’s needs; you pay only for capacity consumed.</p>
+</blockquote>
+<hr>
+<h3 id="十二、ACM-Region"><a href="#十二、ACM-Region" class="headerlink" title="十二、ACM Region"></a>十二、ACM Region</h3><p>A company wants to configure its Amazon CloudFront distribution to use SSL&#x2F;TLS certificates. The company does not want to use the default domain name for the distribution. Instead, the company wants to use a different domain name for the distribution.<br>Which solution will deploy the certificate without incurring any additional costs?</p>
+<ol>
+<li>Request an Amazon issued private certificate from AWS Certificate Manager (ACM) in the us-east-1 Region.</li>
+<li>Request an Amazon issued private certificate from AWS Certificate Manager (ACM) in the us-west-1 Region.</li>
+<li>✅ Request an Amazon issued public certificate from AWS Certificate Manager (ACM) in the us-east-1 Region.</li>
+<li>❌ Request an Amazon issued public certificate from AWS Certificate Manager (ACM) in the us-west-1 Region.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonCloudFront/latest/DeveloperGuide/cnames-and-https-procedures.html#cnames-and-https-getting-certificates">获取 SSL&#x2F;TLS 证书</a></p>
+<blockquote>
+<blockquote>
+<p>建议您使用 ACM 在 AWS 托管资源上预置、管理和部署 SSL&#x2F;TLS 证书。您必须在美国东部（弗吉尼亚州北部）(us-east-1) 区域申请 ACM 证书。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Have to use east-1 region for ACM, and it should be public SSL&#x2F;TLS for domain, so it should be C</p>
+</blockquote>
+<hr>
+<h3 id="十三、Amazon-QuickSight-dashboard"><a href="#十三、Amazon-QuickSight-dashboard" class="headerlink" title="十三、Amazon QuickSight dashboard"></a>十三、Amazon QuickSight dashboard</h3><p>A company that uses AWS Organizations runs 150 applications across 30 different AWS accounts. The company used AWS Cost and Usage Report to create a new report in the management account. The report is delivered to an Amazon S3 bucket that is replicated to a bucket in the data collection account.<br>The company’s senior leadership wants to view a custom dashboard that provides NAT gateway costs each day starting at the beginning of the current month.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Share an Amazon QuickSight dashboard that includes the requested table visual. Configure QuickSight to use AWS DataSync to query the new report.</li>
+<li>✅ Share an Amazon QuickSight dashboard that includes the requested table visual. Configure QuickSight to use Amazon Athena to query the new report.</li>
+<li>Share an Amazon CloudWatch dashboard that includes the requested table visual. Configure CloudWatch to use AWS DataSync to query the new report.</li>
+<li>❌ Share an Amazon CloudWatch dashboard that includes the requested table visual. Configure CloudWatch to use Amazon Athena to query the new report.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://www.amazonaws.cn/quicksight/faqs/">什么是 Amazon QuickSight？</a></p>
+<blockquote>
+<p>Amazon QuickSight 是一项快速且易于使用的依托云的商业分析服务，它能让组织内的所有员工随时在任何设备上更轻松地构建可视化内容、执行临时分析并快速从数据中获取商业见解。上传 CSV 和 Excel 文件；访问本地数据库（如 SQL Server、MySQL 和 PostgreSQL）；连接到数据湖和数据仓库（如 Databricks、Snowflake 和 Teradat）以及无缝发现亚马逊云科技数据来源，如 Amazon Redshift、Amazon Relational Database Service（Amazon RDS）、Amazon Aurora、Amazon Athena 和 Amazon Simple Storage Service（Amazon S3）。借助 QuickSight，组织能够将其业务分析功能扩展到数十万用户，并通过使用强大的内存引擎（SPICE）实现快速且响应灵敏的查询性能。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/quicksight/gallery/?quicksight-gallery-cards.sort-by=item.additionalFields.industry&quicksight-gallery-cards.sort-order=asc">Amazon QuickSight 图库 - 探索由 Amazon QuickSight 客户构建的特定于行业和领域的分析示例。联系我们，帮助您开始自己的分析。</a></p>
+<blockquote>
+<p><img src="https://image.senjianlu.com/blog/2024-12-13/213557.png" alt="Amazon QuickSight 控制台示例"></p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html">使用 Amazon CloudWatch 控制面板</a></p>
+<blockquote>
+<p>Amazon CloudWatch 控制面板是 CloudWatch 控制台中的可自定义主页，可用于在单个视图中监控资源，即便是分布到不同区域的资源，也能对其进行监控。您可以使用 CloudWatch 控制面板创建 AWS 资源的指标和告警的自定义视图。<br>利用控制面板，您可以创建以下各项：  </p>
+<ul>
+<li>所选指标和告警的单一视图，用于帮助您跨一个或多个区域评估资源和应用程序的运行状况。您可以在每个图表上选择用于每个指标的颜色，以便轻松地跨多个图表跟踪同一指标。</li>
+<li>一个操作手册，为团队成员提供有关如何对操作事件期间发生的特定事故做出响应的指南。</li>
+<li>关键资源与应用程序测量的公共视图，团队成员可以共享该视图，以便在操作事件期间加快通信流。</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：QuickSight for dashboard and Athena for query each month so it is B</p>
+</blockquote>
+<hr>
+<h3 id="十四、Cache"><a href="#十四、Cache" class="headerlink" title="十四、Cache"></a>十四、Cache</h3><p>A company is hosting a high-traffic static website on Amazon S3 with an Amazon CloudFront distribution that has a default TTL of 0 seconds. The company wants to implement caching to improve performance for the website. However, the company also wants to ensure that stale content is not served for more than a few minutes after a deployment.<br>Which combination of caching methods should a solutions architect implement to meet these requirements? (Choose two.)</p>
+<ol>
+<li>✅ Set the CloudFront default TTL to 2 minutes.</li>
+<li>Set a default TTL of 2 minutes on the S3 bucket.</li>
+<li>✅ Add a Cache-Control private directive<sub><u>指令</u></sub> to the objects in Amazon S3.</li>
+<li>❌ Create an AWS Lambda@Edge function to add an Expires header to HTTP responses. Configure the function to run on viewer response.</li>
+<li>Add a Cache-Control max-age directive of 24 hours to the objects in Amazon S3. On deployment, create a CloudFront invalidation to clear any changed files from edge caches.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ 4️⃣ ❌ -&gt; 1️⃣ 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：社区在 1️⃣ 3️⃣ 和 1️⃣ 5️⃣ 间争议较大。<br><em>我猜测 1️⃣ 的目的是让 <code>CloudFront</code> 缓存 2 分钟内容，而 3️⃣ 的目的是让 <code>CloudFront</code> 每次回源 <code>S3</code> 都获取到最新文件，我认为这样的话就没什么问题。但是我不确定是不是可以这么理解。</em></p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：AE. By default, each file automatically expires after 24 hours, but you can change the default behavior in two ways:  </p>
+<ol>
+<li>To change the cache duration for all files that match the same path pattern, you can change the CloudFront settings for Minimum TTL, Maximum TTL, and Default TTL for a cache behavior.</li>
+<li>To change the cache duration for an individual file, you can configure your origin to add a Cache-Control header with the max-age or s-maxage directive, or an Expires header to the file.</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html#expiration-individual-objects">https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html#expiration-individual-objects</a></p>
+</blockquote>
+<hr>
+<h3 id="十五、Babelfish"><a href="#十五、Babelfish" class="headerlink" title="十五、Babelfish"></a>十五、Babelfish</h3><p>A company uses a Microsoft SQL Server database. The company’s applications are connected to the database. The company wants to migrate to an Amazon Aurora PostgreSQL database with minimal changes to the application code.<br>Which combination of steps will meet these requirements? (Choose two.)</p>
+<ol>
+<li>Use the AWS Schema Conversion Tool (AWS SCT) to rewrite the SQL queries in the applications.</li>
+<li>✅ Enable Babelfish on Aurora PostgreSQL to run the SQL queries from the applications.</li>
+<li>✅ Migrate the database schema and data by using the AWS Schema Conversion Tool (AWS SCT) and AWS Database Migration Service (AWS DMS).</li>
+<li>Use Amazon RDS Proxy to connect the applications to Aurora PostgreSQL.</li>
+<li>Use AWS Database Migration Service (AWS DMS) to rewrite the SQL queries in the applications.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/rds/aurora/babelfish/">Babelfish for Aurora PostgreSQL - 在 PostgreSQL 上运行 Microsoft SQL Server 应用程序，只需很少甚至无需进行代码更改</a></p>
+<blockquote>
+<p>借助 Babelfish，Aurora PostgreSQL 现在可以理解 Microsoft SQL Server 专有的 SQL 语言 T-SQL，并支持相同的通信协议，因此您最初为 SQL Server 编写的应用程序现在可以与 Aurora 一起使用，并且所需进行的代码更改更少。因此，修改 SQL Server 2005 或更高版本上运行的应用程序并将其移动到 Aurora 所需的工作量将减少，从而可实现更快、风险更低且更具成本效益的迁移。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：DMS + SCT is correct, but “ rewrite the SQL queries in the applications.” is wrong so A + E are out.<br>Then only left B + C -&gt; DMS + SCT + Babekfish (for SQL Server)</p>
+</blockquote>
+<hr>
+<h3 id="十六、EBS-encryption"><a href="#十六、EBS-encryption" class="headerlink" title="十六、EBS encryption"></a>十六、EBS encryption</h3><p>A company plans to rehost an application to Amazon EC2 instances that use Amazon Elastic Block Store (Amazon EBS) as the attached storage.<br>A solutions architect must design a solution to ensure that all newly created Amazon EBS volumes are encrypted by default. The solution must also prevent the creation of unencrypted EBS volumes.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>✅ Configure the EC2 account attributes to always encrypt new EBS volumes.</li>
+<li>❌ Use AWS Config. Configure the encrypted-volumes identifier. Apply the default AWS Key Management Service (AWS KMS) key.</li>
+<li>Configure AWS Systems Manager to create encrypted copies of the EBS volumes. Reconfigure the EC2 instances to use the encrypted volumes.</li>
+<li>Create a customer managed key in AWS Key Management Service (AWS KMS). Configure AWS Migration Hub to use the key when the company migrates workloads.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://repost.aws/knowledge-center/ebs-automatic-encryption">How do I turn on automatic encryption for new Amazon EBS volumes and snapshot copies created in my account?</a></p>
+<blockquote>
+<p>Newly created Amazon EBS volumes aren’t encrypted by default. However, you can turn on default encryption for new EBS volumes and snapshot copies that are created within a specified Region. To turn on encryption by default, use the Amazon Elastic Compute Cloud (Amazon EC2) console.<br>Before you turn on encryption by default, note the following:</p>
+<ul>
+<li>Encryption by default is a Region-specific setting. After you turn on encryption for a Region, you can’t turn encryption off for individual volumes or snapshots in that Region.</li>
+<li>After you turn on encryption by default, you can launch an instance only if the instance type supports Amazon EBS encryption.</li>
+<li>When you turn on encryption by default, that change doesn’t affect existing unencrypted or encrypted resources. The encryption configuration change affects only volumes and snapshot copies that you create after you turn on encryption by default.</li>
+<li>If encryption by default is turned on and you experience delta replication failures when you use AWS Server Migration Service, then turn off encryption by default. For lift-and-shift migration, it’s a best practice to use Application Migration Service.<blockquote>
+<p>默认情况下，新创建的Amazon EBS卷不加密。但是，您可以为在指定区域内创建的新EBS卷和快照副本启用默认加密。要默认开启加密，请使用Amazon Elastic Compute Cloud （Amazon EC2）控制台。<br>在启用默认加密之前，请注意以下事项：</p>
+<ul>
+<li>默认加密是特定于区域的设置。在为一个区域开启加密后，无法关闭该区域中单个卷或快照的加密。</li>
+<li>默认开启加密后，只有实例类型支持Amazon EBS加密，才能启动实例。</li>
+<li>当默认情况下启用加密时，该更改不会影响现有的未加密或加密资源。默认情况下，加密配置更改仅影响在启用加密后创建的卷和快照副本。</li>
+<li>如果默认开启加密，并且在使用AWS Server Migration Service时遇到增量复制失败，则默认关闭加密。对于升降迁移，使用应用程序迁移服务是最佳实践。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<p>因此开启区域的自动加密后，就无法再启动不带加密卷的 <code>EC2</code> 实例了。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Answer A<br>The task is to force automatic encryption for every new EBS volume and prevent possibility of creation any unencrypted volume<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#ebs-encryption">https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#ebs-encryption</a>_<br>mgmt</p>
+<p>To enable encryption by default for a Region<br>Open the Amazon EC2 console at <a target="_blank" rel="noopener" href="https://console.aws.amazon.com/ec2/">https://console.aws.amazon.com/ec2/</a></p>
+<p>From the navigation pane, select EC2 Dashboard.<br>In the upper-right corner of the page, choose Account Attributes, Data protection and security.<br>Choose Manage.<br>Select Enable. You keep the AWS managed key with the alias alias&#x2F;aws&#x2F;ebs created on your behalf as the default encryption key, or choose a symmetric customer managed encryption key.<br>Choose Update EBS encryption.  </p>
+</blockquote>
+<hr>
+<h3 id="十七、AWS-Resource-Access-Manager-RAM"><a href="#十七、AWS-Resource-Access-Manager-RAM" class="headerlink" title="十七、AWS Resource Access Manager (RAM)"></a>十七、AWS Resource Access Manager (RAM)</h3><p>A company wants to isolate its workloads by creating an AWS account for each workload. The company needs a solution that centrally manages networking components for the workloads. The solution also must create accounts with automatic security controls (guardrails).<br>Which solution will meet these requirements with the LEAST operational overhead?</p>
+<ol>
+<li>✅ Use AWS Control Tower to deploy accounts. Create a networking account that has a VPC with private subnets and public subnets. Use AWS Resource Access Manager (AWS RAM) to share the subnets with the workload accounts.</li>
+<li>Use AWS Organizations to deploy accounts. Create a networking account that has a VPC with private subnets and public subnets. Use AWS Resource Access Manager (AWS RAM) to share the subnets with the workload accounts.</li>
+<li>❌ Use AWS Control Tower to deploy accounts. Deploy a VPC in each workload account. Configure each VPC to route through an inspection VPC by using a transit gateway attachment.</li>
+<li>Use AWS Organizations to deploy accounts. Deploy a VPC in each workload account. Configure each VPC to route through an inspection VPC by using a transit gateway attachment.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/ram/latest/userguide/what-is.html">什么是 AWS Resource Access Manager？</a></p>
+<blockquote>
+<p>AWS Resource Access Manager (AWS RAM) 可帮助您跨 AWS 账户、在组织或组织单位 (OU) 内以及与 AWS Identity and Access Management (IAM) 角色和用户针对受支持资源类型安全地共享资源。如果您有多个 AWS 账户，可以一次性创建一个资源，然后使用 AWS RAM 使该资源可供其他账户使用。如果您的账户由 AWS Organizations 管理，则您可以与组织中的所有其他账户共享资源，也可以仅与一个或多个指定组织单位 (OU) 所包含的账户共享资源。您还可以根据账户 ID 与特定 AWS 账户共享，而不管该账户是否属于组织。一些支持的资源类型还允许您与指定的 IAM 角色和用户进行共享。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/ram/latest/userguide/shareable.html#shareable-vpc">RAM 可共享的资源 - Amazon VPC</a></p>
+<blockquote>
+<p>集中创建和管理子网，并与组织内的 AWS 账户 共享这些子网。这样，多个用户就可以将其应用程序资源 AWS 账户 启动到集中管理状态VPCs。这些资源包括亚马逊EC2实例、亚马逊关系数据库服务 (RDS) 数据库、Amazon Redshift 集群和 AWS Lambda 函数。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Statement:  </p>
+<ul>
+<li>The solution also must create accounts with automatic security controls (guardrails).</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html">https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html</a><br>AWS Control Tower provides a pre-packaged set of guardrails (policies) and blueprints (best-practice configurations) to ensure that the environment complies with security and compliance standards. It’s designed to simplify the process of creating and managing a multi-account AWS environment while maintaining security and compliance.</p>
+</blockquote>
+<hr>
+<h3 id="十八、Amazon-Security-Lake"><a href="#十八、Amazon-Security-Lake" class="headerlink" title="十八、Amazon Security Lake"></a>十八、Amazon Security Lake</h3><p>A company runs workloads in the AWS Cloud. The company wants to centrally collect security data to assess security across the entire company and to improve workload protection.<br>Which solution will meet these requirements with the LEAST development effort?</p>
+<ol>
+<li>Configure a data lake in AWS Lake Formation. Use AWS Glue crawlers to ingest the security data into the data lake.</li>
+<li>Configure an AWS Lambda function to collect the security data in .csv format. Upload the data to an Amazon S3 bucket.</li>
+<li>✅ Configure a data lake in Amazon Security Lake to collect the security data. Upload the data to an Amazon S3 bucket.</li>
+<li>Configure an AWS Database Migration Service (AWS DMS) replication instance to load the security data into an Amazon RDS cluster.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/security-lake/latest/userguide/what-is-security-lake.html">什么是 Amazon Security Lake？</a></p>
+<blockquote>
+<p>Amazon Security Lake 是一项完全托管的安全数据湖服务。您可以使用 Security Lake 自动将来自 AWS 环境、SaaS 提供商、本地、云源和第三方来源的安全数据集中到存储在您的专用的数据湖中。 AWS 账户 Security Lake 可以帮助您分析安全数据，让您更全面地了解整个组织的安全状况。借助 Security Lake，您还可以改善对工作负载、应用程序和数据的保护。<br>数据湖由 Amazon Simple Storage Service (Amazon S3) 存储桶提供支持，您保留数据的所有权。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A, B, D are senseless + .<br>Amazon Security Lake automatically centralizes security data from AWS environments, you can get a more complete understanding of your security data across your entire organization. You can also improve the protection.</p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/12/12</p><p><a href="https://senjianlu.com/2024/12/12/saa_test_daily_20241212/">https://senjianlu.com/2024/12/12/saa_test_daily_20241212/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-12-12</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-12-12</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/12/13/translate_news_nhk_20241212_k10014666691000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - 自宅で大麻草栽培か 12日施行の規制法違反で会社員逮捕 名古屋</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/12/12/translate_news_nhk_20241212_k10014665421000/"><span class="level-item">日语翻译 - 新闻 - 暗号資産の交換行う「コインチェックグループ」ナスダック上場</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、MPP-ML"><span class="level-left"><span class="level-item">一、MPP ML</span></span></a></li><li><a class="level is-mobile" href="#二、Batch-job-success-call"><span class="level-left"><span class="level-item">二、Batch job success call</span></span></a></li><li><a class="level is-mobile" href="#三、AWS-Glue-Studio-visual-canvas"><span class="level-left"><span class="level-item">三、AWS Glue Studio visual canvas</span></span></a></li><li><a class="level is-mobile" href="#四、S3-encryption-automatically-rotate"><span class="level-left"><span class="level-item">四、S3 encryption automatically rotate</span></span></a></li><li><a class="level is-mobile" href="#五、Aurora-storage-configuration"><span class="level-left"><span class="level-item">五、Aurora storage configuration</span></span></a></li><li><a class="level is-mobile" href="#六、AWS-Security-Hub"><span class="level-left"><span class="level-item">六、AWS Security Hub</span></span></a></li><li><a class="level is-mobile" href="#七、Amazon-EventBridge-event-bus"><span class="level-left"><span class="level-item">七、Amazon EventBridge event bus</span></span></a></li><li><a class="level is-mobile" href="#八、Encrypt-at-rest"><span class="level-left"><span class="level-item">八、Encrypt at rest</span></span></a></li><li><a class="level is-mobile" href="#九、EBS-Snapshots"><span class="level-left"><span class="level-item">九、EBS Snapshots</span></span></a></li><li><a class="level is-mobile" href="#十、AWS-Backup"><span class="level-left"><span class="level-item">十、AWS Backup</span></span></a></li><li><a class="level is-mobile" href="#十一、Amazon-Aurora-Serverless-cluster"><span class="level-left"><span class="level-item">十一、Amazon Aurora Serverless cluster</span></span></a></li><li><a class="level is-mobile" href="#十二、ACM-Region"><span class="level-left"><span class="level-item">十二、ACM Region</span></span></a></li><li><a class="level is-mobile" href="#十三、Amazon-QuickSight-dashboard"><span class="level-left"><span class="level-item">十三、Amazon QuickSight dashboard</span></span></a></li><li><a class="level is-mobile" href="#十四、Cache"><span class="level-left"><span class="level-item">十四、Cache</span></span></a></li><li><a class="level is-mobile" href="#十五、Babelfish"><span class="level-left"><span class="level-item">十五、Babelfish</span></span></a></li><li><a class="level is-mobile" href="#十六、EBS-encryption"><span class="level-left"><span class="level-item">十六、EBS encryption</span></span></a></li><li><a class="level is-mobile" href="#十七、AWS-Resource-Access-Manager-RAM"><span class="level-left"><span class="level-item">十七、AWS Resource Access Manager (RAM)</span></span></a></li><li><a class="level is-mobile" href="#十八、Amazon-Security-Lake"><span class="level-left"><span class="level-item">十八、Amazon Security Lake</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script data-pjax src="/js/insight.js" defer></script><script data-pjax>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

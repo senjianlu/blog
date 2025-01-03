@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAP 考试每日练习 - 2024/12/26 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Professional SAP-C02 Exam13 题 (No.1 ~ No.13)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAP 考试每日练习 - 2024/12/26"><meta property="og:url" content="https://senjianlu.com/2024/12/26/sap_test_daily_20241226./"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Professional SAP-C02 Exam13 题 (No.1 ~ No.13)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-12-24/sap.png"><meta property="article:published_time" content="2024-12-26T12:00:00.000Z"><meta property="article:modified_time" content="2024-12-26T15:50:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAP"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-12-24/sap.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/12/26/sap_test_daily_20241226./"},"headline":"SAP 考试每日练习 - 2024/12/26","image":["https://image.senjianlu.com/blog/2024-12-24/sap.png"],"datePublished":"2024-12-26T12:00:00.000Z","dateModified":"2024-12-26T15:50:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Professional SAP-C02 Exam13 题 (No.1 ~ No.13)，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/12/26/sap_test_daily_20241226./"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-12-26T12:00:00.000Z" title="12/26/2024, 8:00:00 PM">2024-12-26</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAP 考试每日练习 - 2024/12/26</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-professional-sap-c02/">Amazon AWS Certified Solutions Architect - Professional SAP-C02 Exam</a><br>13 题 (No.1 ~ No.13)，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+
+<hr>
+<h3 id="一、DNS-solution"><a href="#一、DNS-solution" class="headerlink" title="一、DNS solution"></a>一、DNS solution</h3><p>A company needs to architect a hybrid DNS solution. This solution will use an Amazon Route 53 private hosted zone for the domain cloud.example.com for the resources stored within VPCs.<br>The company has the following DNS resolution requirements:<br>On-premises systems should be able to resolve and connect to cloud.example.com.<br>All VPCs should be able to resolve cloud.example.com.<br>There is already an AWS Direct Connect connection between the on-premises corporate network and AWS Transit Gateway.<br>Which architecture should the company use to meet these requirements with the HIGHEST performance?  </p>
+<ol>
+<li>✅ Associate the private hosted zone to all the VPCs. Create a Route 53 inbound resolver in the shared services VPC. Attach all VPCs to the transit gateway and create forwarding rules in the on-premises DNS server for cloud.example.com that point to the inbound resolver.</li>
+<li>Associate the private hosted zone to all the VPCs. Deploy an Amazon EC2 conditional forwarder in the shared services VPC. Attach all VPCs to the transit gateway and create forwarding rules in the on-premises DNS server for cloud.example.com that point to the conditional forwarder.</li>
+<li>Associate the private hosted zone to the shared services VPC. Create a Route 53 outbound resolver in the shared services VPAttach all VPCs to the transit gateway and create forwarding rules in the on-premises DNS server for cloud.example.com that point to the outbound resolver.</li>
+<li>❌ Associate the private hosted zone to the shared services VPC. Create a Route 53 inbound resolver in the shared services VPC. Attach the shared services VPC to the transit gateway and create forwarding rules in the on-premises DNS server for cloud.example.com that point to the inbound resolver.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：公司需要一个混合 DNS 解决方案。本地和所有 AWS 的 <code>VPC</code> 都需要能够使用 <code>Route 53</code> 的私有托管区来解析 cloud.example.com 域名之后访问存储在 <code>VPC</code> 中的资源。目前在本地和 <code>AWS Transit Gateway</code> 之间已经有了一条 <code>DX</code> 连接。问为了追求最高性能还需要做什么？<br>1️⃣ 和 4️⃣ 的差别在于是将 <code>Route 53</code> 的私有托管区连接到所有 <code>VPC</code> 还是单纯附加给共享服务的 <code>VPC</code>，还有是将所有 <code>VPC</code> 还是只将共享服务的 <code>VPC</code> 附加给 <code>AWS Transit Gateway</code>。<br>针对题目中的所有 <code>VPC</code> 都需要能够解析域名，其实就该选 1️⃣ 了。  </p>
+<p>不过还是确认两个概念：</p>
+<ol>
+<li>可以为 <code>Route 53</code> 的私有托管区联系更多 <code>VPC</code><br> <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zone-private-associate-vpcs.html">Associating more VPCs with a private hosted zone</a></li>
+<li>可以将 <code>VPC</code> 附加到 <code>AWS Transit Gateway</code> 以实现互联<br> <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/aws-transit-gateway.html">AWS Transit Gateway</a>  <blockquote>
+<p>AWS Transit Gateway 是一种高可用性和可扩展性的服务，用于为具有中心辐射架构的区域整合 AWS VPC 路由配置。每个辐条 VPC 只需连接到转接网关，即可访问其他已连接的 VPC。AWS Transit Gateway 支持 IPv4 和 IPv6 流量。<br><img src="https://image.senjianlu.com/blog/2024-12-27/aws-transit-gateway.png" alt="AWS Transit Gateway 跨区域架构"></p>
+</blockquote>
+</li>
+</ol>
+<p>相应实践：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/blogs/networking-and-content-delivery/centralized-dns-management-of-hybrid-cloud-with-amazon-route-53-and-aws-transit-gateway/">Centralized DNS management of hybrid cloud with Amazon Route 53 and AWS Transit Gateway</a></p>
+<blockquote>
+<p><img src="https://image.senjianlu.com/blog/2024-12-27/image2-1.png" alt="architecture"></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A. Correct answer.Source: <a target="_blank" rel="noopener" href="https://aws.amazon.com/blogs/networking-and-content-delivery/centralized-dns-management-of-hybrid-cloud-with-amazon-route-53-and-aws-transit-gateway/">https://aws.amazon.com/blogs/networking-and-content-delivery/centralized-dns-management-of-hybrid-cloud-with-amazon-route-53-and-aws-transit-gateway/</a>  </p>
+<p>NOT B. EC2 conditional forwarder will not meet Highest performance requirement.  </p>
+<p>NOT C. Missing: Need to associate private hosted zone to all VPC.<br>“All VPC’s will need to associate their private hosted zones to all other VPC’s if required to.”  </p>
+<p>NOT D. Missing: Need to associate private hosted zone to all VPC.<br>“All VPC’s will need to associate their private hosted zones to all other VPC’s if required to.”  </p>
+</blockquote>
+<hr>
+<h3 id="二、DNS-HA-over-Regions"><a href="#二、DNS-HA-over-Regions" class="headerlink" title="二、DNS HA over Regions"></a>二、DNS HA over Regions</h3><p>A company is providing weather data over a REST-based API to several customers. The API is hosted by Amazon API Gateway and is integrated with different AWS Lambda functions for each API operation. The company uses Amazon Route 53 for DNS and has created a resource record of weather.example.com. The company stores data for the API in Amazon DynamoDB tables.<br>The company needs a solution that will give the API the ability to fail over to a different AWS Region.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Deploy a new set of Lambda functions in a new Region. Update the API Gateway API to use an edge-optimized API endpoint with Lambda functions from both Regions as targets. Convert the DynamoDB tables to global tables.</li>
+<li>Deploy a new API Gateway API and Lambda functions in another Region. Change the Route 53 DNS record to a multivalue answer. Add both API Gateway APIs to the answer. Enable target health monitoring. Convert the DynamoDB tables to global tables.</li>
+<li>✅ Deploy a new API Gateway API and Lambda functions in another Region. Change the Route 53 DNS record to a failover record. Enable target health monitoring. Convert the DynamoDB tables to global tables.</li>
+<li>Deploy a new API Gateway API in a new Region. Change the Lambda functions to global functions. Change the Route 53 DNS record to a multivalue answer. Add both API Gateway APIs to the answer. Enable target health monitoring. Convert the DynamoDB tables to global tables.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/apigateway/latest/developerguide/dns-failover.html">Configure custom health checks for DNS failover for an API Gateway API</a>  </p>
+<blockquote>
+<p>您可以使用 Amazon Route 53 健康检查来控制从主 AWS 区域中的 API Gateway API 到辅助区域中的 API Gateway API 的 DNS 故障转移。这有助于在发生区域问题时减轻影响。如果使用自定义域，则无需客户更改 API 端点即可执行故障转移。</p>
+</blockquote>
+<p>1️⃣ 的选项中提到了 <code>edge-optimized API endpoint</code>，确认下：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-endpoint-types.html">API endpoint types for REST APIs in API Gateway</a></p>
+<blockquote>
+<ul>
+<li><strong>Edge-optimized API endpoints</strong> （边缘优化的应用程序接口端点）- 边缘优化的 API 端点通常会将请求路由到最近的 CloudFront 存在点 (POP)，这对于客户分布在不同地理位置的情况很有帮助。这是 API Gateway REST API 的默认端点类型。</li>
+<li><strong>Regional API endpoints</strong> （区域应用程序接口端点）- 区域 API 端点面向同一区域的客户端。当运行在 EC2 实例上的客户端调用同一区域的 API 时，或者当 API 的目的是为少量需求较高的客户端提供服务时，区域 API 可以减少连接开销。</li>
+<li><strong>Private API endpoints</strong> （专用应用程序接口端点）- 私有 API 端点是只能从亚马逊虚拟私有云 (VPC) 使用接口 VPC 端点访问的 API 端点，接口 VPC 端点是您在 VPC 中创建的端点网络接口 (ENI)。</li>
+</ul>
+</blockquote>
+<p>它更多是用以优化延迟，而非容灾。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/apigateway/latest/developerguide/dns-failover.html">https://docs.aws.amazon.com/apigateway/latest/developerguide/dns-failover.html</a></p>
+</blockquote>
+<hr>
+<h3 id="三、OU-and-SCP"><a href="#三、OU-and-SCP" class="headerlink" title="三、OU and SCP"></a>三、OU and SCP</h3><p>A company uses AWS Organizations with a single OU named Production to manage multiple accounts. All accounts are members of the Production OU. Administrators use deny list SCPs in the root of the organization to manage access to restricted services.<br>The company recently acquired a new business unit and invited the new unit’s existing AWS account to the organization. Once onboarded, the administrators of the new business unit discovered that they are not able to update existing AWS Config rules to meet the company’s policies.<br>Which option will allow administrators to make changes and continue to enforce the current policies without introducing additional long-term maintenance?</p>
+<ol>
+<li>Remove the organization’s root SCPs that limit access to AWS Config. Create AWS Service Catalog products for the company’s standard AWS Config rules and deploy them throughout the organization, including the new account.</li>
+<li>Create a temporary OU named Onboarding for the new account. Apply an SCP to the Onboarding OU to allow AWS Config actions. Move the new account to the Production OU when adjustments to AWS Config are complete.</li>
+<li>Convert the organization’s root SCPs from deny list SCPs to allow list SCPs to allow the required services only. Temporarily apply an SCP to the organization’s root that allows AWS Config actions for principals only in the new account.</li>
+<li>✅ Create a temporary OU named Onboarding for the new account. Apply an SCP to the Onboarding OU to allow AWS Config actions. Move the organization’s root SCP to the Production OU. Move the new account to the Production OU when adjustments to AWS Config are complete.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：旧的策略附加到了根上，导致组织中所有非管理账户的用户都无法操作 <code>AWS Config</code>。<br><code>SCP</code> 不授予权限只控制权限，因此 2️⃣ 不对，只能选 4️⃣：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/organizations/latest/userguide/orgs_manage_policies_scps.html">服务控制策略 (SCPs)</a></p>
+<blockquote>
+<p>SCP 不会向组织中的 IAM 用户和 IAM 角色授予权限。SCP 不授予任何权限。SCP 为组织中的 IAM 用户和 IAM 角色可以执行的操作定义了权限护栏或设置了限制。要授予权限，管理员必须附加控制访问的策略，如附加到 IAM 用户和 IAM 角色的基于身份的策略，以及附加到账户资源的基于资源的策略。更多信息，请参阅《IAM 用户指南》中的基于身份的策略和基于资源的策略。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Right answer is D.<br>An SCP at a lower level can’t add a permission after it is blocked byan SCP at a higher level.SCPs can only filter; they never add permissions.<br>SO you need to create a new OU for the new account assign an SCP,and move the rootSCP to Production OU.Then move the new account to production OU when AWS config is done.  </p>
+</blockquote>
+<hr>
+<h3 id="四、Auto-Scaling"><a href="#四、Auto-Scaling" class="headerlink" title="四、Auto Scaling"></a>四、Auto Scaling</h3><p>A company is running a two-tier web-based application in an on-premises data center. The application layer consists of a single server running a stateful application. The application connects to a PostgreSQL database running on a separate server. The application’s user base is expected to grow significantly, so the company is migrating the application and database to AWS.<br>The solution will use Amazon Aurora PostgreSQL, Amazon EC2 Auto Scaling, and Elastic Load Balancing.<br>Which solution will provide a consistent user experience that will allow the application and database tiers to scale?</p>
+<ol>
+<li>Enable Aurora Auto Scaling for Aurora Replicas. Use a Network Load Balancer with the least outstanding requests routing algorithm and sticky sessions enabled.</li>
+<li>Enable Aurora Auto Scaling for Aurora writers. Use an Application Load Balancer with the round robin routing algorithm and sticky sessions enabled.</li>
+<li>✅ Enable Aurora Auto Scaling for Aurora Replicas. Use an Application Load Balancer with the round robin routing and sticky sessions enabled.</li>
+<li>Enable Aurora Scaling for Aurora writers. Use a Network Load Balancer with the least outstanding requests routing algorithm and sticky sessions enabled.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：stateful application</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：针对弹性扩展器的路由策略：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/elasticloadbalancing/latest/application/load-balancer-target-groups.html#modify-routing-algorithm">路由算法</a></p>
+<blockquote>
+<ul>
+<li><strong>轮询</strong> (Round robin) - 轮询路由算法按顺序将请求均匀地路由到目标组中运行状况良好的目标。</li>
+<li><strong>最少未完成请求</strong> (Least outstanding requests) - 最少未完成的请求路由算法将请求路由到正在进行的请求数最少的目标。</li>
+<li><strong>加权随机</strong> (Weighted random) - 加权随机路由算法以随机顺序在目标组中运行状况良好的目标之间均匀路由请求。</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：C.</p>
+<ul>
+<li>Aurora writers is a distractor.</li>
+<li>Single master mode only has read replica - with Aurora replicas.</li>
+<li>Multi master mode, not in the options</li>
+<li>NLB does not support round robin and least outstanding algorithm</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Integrating.AutoScaling.html">https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Integrating.AutoScaling.html</a></p>
+</blockquote>
+<hr>
+<h3 id="五、CloudFront-function"><a href="#五、CloudFront-function" class="headerlink" title="五、CloudFront function"></a>五、CloudFront function</h3><p>A company uses a service to collect metadata from applications that the company hosts on premises. Consumer devices such as TVs and internet radios access the applications. Many older devices do not support certain HTTP headers and exhibit errors when these headers are present in responses. The company has configured an on-premises load balancer to remove the unsupported headers from responses sent to older devices, which the company identified by the User-Agent headers.<br>The company wants to migrate the service to AWS, adopt serverless technologies, and retain the ability to support the older devices. The company has already migrated the applications into a set of AWS Lambda functions.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>✅ Create an Amazon CloudFront distribution for the metadata service. Create an Application Load Balancer (ALB). Configure the CloudFront distribution to forward requests to the ALB. Configure the ALB to invoke the correct Lambda function for each type of request. Create a CloudFront function to remove the problematic headers based on the value of the User-Agent header.</li>
+<li>Create an Amazon API Gateway REST API for the metadata service. Configure API Gateway to invoke the correct Lambda function for each type of request. Modify the default gateway responses to remove the problematic headers based on the value of the User-Agent header.</li>
+<li>Create an Amazon API Gateway HTTP API for the metadata service. Configure API Gateway to invoke the correct Lambda function for each type of request. Create a response mapping template to remove the problematic headers based on the value of the User-Agent. Associate the response data mapping with the HTTP API.</li>
+<li>❌ Create an Amazon CloudFront distribution for the metadata service. Create an Application Load Balancer (ALB). Configure the CloudFront distribution to forward requests to the ALB. Configure the ALB to invoke the correct Lambda function for each type of request. Create a Lambda@Edge function that will remove the problematic headers in response to viewer requests based on the value of the User-Agent header.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>CloudFront</code> 是支持简单的 JavaScript 方法的：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonCloudFront/latest/DeveloperGuide/cloudfront-functions.html">使用 CloudFront Functions 在边缘进行自定义</a></p>
+<blockquote>
+<p>借助 CloudFront Functions，您可以在 JavaScript 中编写轻量级函数，以实现大规模、延迟敏感的 CDN 自定义。您的函数可以操作通过 CloudFront 的请求和响应、执行基本身份验证和授权、在边缘生成 HTTP 响应等。CloudFront Functions 运行时环境提供亚毫秒的启动时间，可立即扩展，从而每秒处理数百万个请求，并且非常安全。CloudFront Functions 是 CloudFront 的原生功能，这意味着您可以完全在 CloudFront 中构建、测试和部署代码。</p>
+<p>在将 CloudFront 函数与 CloudFront 分配相关联时，CloudFront 在 CloudFront 边缘站点中截获请求和响应并将它们传递到您的函数。当发生以下事件时，您可以调用 CloudFront Functions：</p>
+<ul>
+<li>在 CloudFront 收到查看器的请求时 (查看器请求)</li>
+<li>在 CloudFront 将响应返回到查看器之前（查看器响应）</li>
+</ul>
+</blockquote>
+<p>同时它也能够对 HTTP 请求头进行处理：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonCloudFront/latest/DeveloperGuide/modifying-response-headers.html">使用策略在 CloudFront 响应中添加或删除 HTTP 标头</a></p>
+<blockquote>
+<p>您可以配置 CloudFront 以修改它发送给查看器（Web 浏览器和其他客户端）的响应中的 HTTP 标头。在将响应发送给查看器之前，CloudFront 可以删除从源接收到的标头，或者在响应中添加标头。进行这些更改不需要编写代码或更改源。</p>
+</blockquote>
+<p>社区对 1️⃣ 和 4️⃣ 存在争议，这里 1️⃣ 可以更简单地实现需求。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A.The only difference between A and D is CloudFront function vs Lambda@Edge. In this case the CloudFront function can remove the response header based on request header and much faster&#x2F;light-weight.</p>
+</blockquote>
+<hr>
+<h3 id="六、Cross-Account-S3-Access"><a href="#六、Cross-Account-S3-Access" class="headerlink" title="六、Cross Account S3 Access"></a>六、Cross Account S3 Access</h3><p>A retail company needs to provide a series of data files to another company, which is its business partner. These files are saved in an Amazon S3 bucket under Account A, which belongs to the retail company. The business partner company wants one of its IAM users, User_DataProcessor, to access the files from its own AWS account (Account B).<br>Which combination of steps must the companies take so that User_DataProcessor can access the S3 bucket successfully? (Choose two.)</p>
+<ol>
+<li>❌ Turn on the cross-origin resource sharing (CORS) feature for the S3 bucket in Account A.</li>
+<li>In Account A, set the S3 bucket policy to the following:<br> <img src="https://image.senjianlu.com/blog/2024-12-27/6_B.png" alt="6 - B"></li>
+<li>✅ In Account A, set the S3 bucket policy to the following:<br> <img src="https://image.senjianlu.com/blog/2024-12-27/6_C.png" alt="6 - C"></li>
+<li>✅ In Account B, set the permissions of User_DataProcessor to the following:<br> <img src="https://image.senjianlu.com/blog/2024-12-27/6_D_1.png" alt="6 - D - 1"><br> <img src="https://image.senjianlu.com/blog/2024-12-27/6_D_2.png" alt="6 - D - 2"></li>
+<li>In Account B, set the permissions of User_DataProcessor to the following:<br> <img src="https://image.senjianlu.com/blog/2024-12-27/6_E.png" alt="6 - E"></li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ 3️⃣ ❌ -&gt; 3️⃣ 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：3️⃣ 不存在问题，在账户 A 允许账户 B 的某个 <code>IAM 用户</code> 访问存储桶。<br>而针对 4️⃣，相关的事件文章中有准确描述：<a target="_blank" rel="noopener" href="https://repost.aws/zh-Hans/knowledge-center/cross-account-access-s3">如何授予对 Amazon S3 存储桶中对象的跨账户访问权限？</a></p>
+<blockquote>
+<p>向账户 B 中的 IAM 用户或角色授予 GetObject 和 PutObject 权限。此外，授予 IAM 用户或角色调用 PutObjectAcl 的权限，该权限向存储桶所有者授予对象权限：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;Version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2012-10-17&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;Statement&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;Effect&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Allow&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;Action&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;s3:GetObject&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;s3:PutObject&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;s3:PutObjectAcl&quot;</span></span><br><span class="line">            <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;Resource&quot;</span><span class="punctuation">:</span> <span class="string">&quot;arn:aws:s3:::AccountABucketName/*&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></blockquote>
+<p>相关的文档还有：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/userguide/example-walkthroughs-managing-access-example4.html">示例 4：存储桶拥有者针对自己未拥有的对象授予跨账户权限</a></p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：C &amp; D<br>To allow User_DataProcessor to access the S3 bucket from Account B, the following steps need to be taken:  </p>
+<p>In Account A, set the S3 bucket policy to allow access to the bucket from the IAM user in Account B.This is done byadding a statement to the bucket policy that allows the IAM user in Account B to perform the necessaryactions (GetObject and ListBucket) on the bucket and its contents.  </p>
+<p>In Account B, create an IAM policy that allows the IAM user (User_DataProcessor) to perform the necessaryactions (GetObject and ListBucket) on the S3 bucket and its contents.The policy should reference the ARN of the S3 bucket and the actions that the user isallowed to perform.</p>
+<p>Note: turning on the cross-origin resource sharing (CORS) feature for the S3 bucket in Account A is not necessary for this scenario as it is typically used for allowing web browsers to access resources from different domains.</p>
+</blockquote>
+<hr>
+<h3 id="七、Microservices-and-serverless"><a href="#七、Microservices-and-serverless" class="headerlink" title="七、Microservices and serverless"></a>七、Microservices and serverless</h3><p>A company is running a traditional web application on Amazon EC2 instances. The company needs to refactor the application as microservices that run on containers. Separate versions of the application exist in two distinct environments: production and testing. Load for the application is variable, but the minimum load and the maximum load are known. A solutions architect needs to design the updated application with a serverless architecture that minimizes operational complexity.<br>Which solution will meet these requirements MOST cost-effectively?</p>
+<ol>
+<li>Upload the container images to AWS Lambda as functions. Configure a concurrency limit for the associated Lambda functions to handle the expected peak load. Configure two separate Lambda integrations within Amazon API Gateway: one for production and one for testing.</li>
+<li>✅ Upload the container images to Amazon Elastic Container Registry (Amazon ECR). Configure two auto scaled Amazon Elastic Container Service (Amazon ECS) clusters with the Fargate launch type to handle the expected load. Deploy tasks from the ECR images. Configure two separate Application Load Balancers to direct traffic to the ECS clusters.</li>
+<li>Upload the container images to Amazon Elastic Container Registry (Amazon ECR). Configure two auto scaled Amazon Elastic Kubernetes Service (Amazon EKS) clusters with the Fargate launch type to handle the expected load. Deploy tasks from the ECR images. Configure two separate Application Load Balancers to direct traffic to the EKS clusters.</li>
+<li>Upload the container images to AWS Elastic Beanstalk. In Elastic Beanstalk, create separate environments and deployments for production and testing. Configure two separate Application Load Balancers to direct traffic to the Elastic Beanstalk deployments.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：微服务和容器化的无服务器架构离不开 <code>Fargate</code>，<code>ECS</code> 相比 <code>EKS</code> 操作更简单。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：B. Upload the container images to Amazon Elastic Container Registry (Amazon ECR). Configure two auto scaled Amazon Elastic ContainerService (Amazon ECS) clusters with the Fargate launch type to handle the expected load. Deploy tasks from the ECR images. Configure two separate Application Load Balancers to direct traffic to the ECS clusters.<br>This option meets the requirement of using a serverlessarchitecture by utilizing the Fargate launch type for the ECS clusters, which allows for automatic scaling of the containers based on the expected load. It also allows for separate deployments for production and testing by configuring separate ECS clustersand Application Load Balancers foreach environment.This option also minimizes operational complexity by utilizing ECS and Fargate for the container orchestration and scaling.</p>
+</blockquote>
+<hr>
+<h3 id="八、Route-53-health-check"><a href="#八、Route-53-health-check" class="headerlink" title="八、Route 53 health check"></a>八、Route 53 health check</h3><p>A company has a multi-tier web application that runs on a fleet of Amazon EC2 instances behind an Application Load Balancer (ALB). The instances are in an Auto Scaling group. The ALB and the Auto Scaling group are replicated in a backup AWS Region.<br>The minimum value and the maximum value for the Auto Scaling group are set to zero. An Amazon RDS Multi-AZ DB instance stores the application’s data. The DB instance has a read replica in the backup Region. The application presents an endpoint to end users by using an Amazon Route 53 record.<br>The company needs to reduce its RTO to less than 15 minutes by giving the application the ability to automatically fail over to the backup Region. The company does not have a large enough budget for an active-active strategy.<br>What should a solutions architect recommend to meet these requirements?</p>
+<ol>
+<li>Reconfigure the application’s Route 53 record with a latency-based routing policy that load balances traffic between the two ALBs. Create an AWS Lambda function in the backup Region to promote the read replica and modify the Auto Scaling group values. Create an Amazon CloudWatch alarm that is based on the HTTPCode_Target_5XX_Count metric for the ALB in the primary Region. Configure the CloudWatch alarm to invoke the Lambda function.  </li>
+<li>✅ Create an AWS Lambda function in the backup Region to promote the read replica and modify the Auto Scaling group values. Configure Route 53 with a health check that monitors the web application and sends an Amazon Simple Notification Service (Amazon SNS) notification to the Lambda function when the health check status is unhealthy. Update the application’s Route 53 record with a failover policy that routes traffic to the ALB in the backup Region when a health check failure occurs.</li>
+<li>Configure the Auto Scaling group in the backup Region to have the same values as the Auto Scaling group in the primary Region. Reconfigure the application’s Route 53 record with a latency-based routing policy that load balances traffic between the two ALBs. Remove the read replica. Replace the read replica with a standalone RDS DB instance. Configure Cross-Region Replication between the RDS DB instances by using snapshots and Amazon S3.</li>
+<li>Configure an endpoint in AWS Global Accelerator with the two ALBs as equal weighted targets. Create an AWS Lambda function in the backup Region to promote the read replica and modify the Auto Scaling group values. Create an Amazon CloudWatch alarm that is based on the HTTPCode_Target_5XX_Count metric for the ALB in the primary Region. Configure the CloudWatch alarm to invoke the Lambda function.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：RTO less than 15 minutes</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：公司在另一个区域部署了 0 容量的自动扩容组等架构，同时有只读的 <code>RDS</code> 副本。在没有太多预算的情况下希望控制 RTO 少于 15 分钟。<br>3️⃣ 涉及到启动空闲实例，不满足预算要求，首先排除。<br>4️⃣ 在两个 <code>ALB</code> 前面部署全球加速器，没有必要也排除。<br>1️⃣ 对 <code>ALB</code> 响应码进行判断，调用 <code>Lambda</code> 函数启动备份架构。<br>2️⃣ 使用 <code>Route 53</code> 的健康检查和 <code>SNS</code> 调用 <code>Lambda</code> 函数启动备份架构。  </p>
+<p>2️⃣ 设计到了 <code>Route 53</code> 的健康检查这个 AWS 提供的功能，更加符合出题目的：<a target="_blank" rel="noopener" href="https://docs.amazonaws.cn/Route53/latest/DeveloperGuide/welcome-health-checks.html">Amazon Route 53 如何检查您的资源的运行状况</a></p>
+<blockquote>
+<p>Amazon Route 53 运行状况检查可监控您的资源（如 Web 服务器和电子邮件服务器）的运行状况。您可以选择为运行状况检查配置 Amazon CloudWatch 警报，以便在资源不可用时收到通知。<br>如果您希望在资源变得不可用时收到通知，下面概述了运行状况检查的工作原理：<br><img src="https://image.senjianlu.com/blog/2024-12-27/how-health-checks-work.png" alt="健康检查的工作原理"></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：B is correct, because it meets the company’s requirements for reducing RTO to less than 15 minutesand not having a large budget for an active-active strategy.</p>
+<p>In this solution, the company createsan AWS Lambda function in the backup region which promotes the read replica and modifies the Auto Scaling group values. Route 53 is configured with a health checkthat monitors the web application and sendsan Amazon SNS notification to the Lambda function when the health checkstatus is unhealthy.The Route 53 record is also updated with a failover policy that routes traffic to the ALB in the backup region when a health checkfailure occurs.This way, when the primary region goes down, the failover policy triggersand traffic is directed to the backup region,ensuring a quickrecovery time.</p>
+</blockquote>
+<hr>
+<h3 id="九、HA-infrastructure"><a href="#九、HA-infrastructure" class="headerlink" title="九、HA infrastructure"></a>九、HA infrastructure</h3><p>A company is hosting a critical application on a single Amazon EC2 instance. The application uses an Amazon ElastiCache for Redis single-node cluster for an in-memory data store. The application uses an Amazon RDS for MariaDB DB instance for a relational database. For the application to function, each piece of the infrastructure must be healthy and must be in an active state.<br>A solutions architect needs to improve the application’s architecture so that the infrastructure can automatically recover from failure with the least possible downtime.<br>Which combination of steps will meet these requirements? (Choose three.)</p>
+<ol>
+<li>✅ Use an Elastic Load Balancer to distribute trafficacross multiple EC2 instances. Ensure that the EC2 instances are part of an Auto Scaling group that has a minimum capacity of two instances.</li>
+<li>Use an Elastic Load Balancer to distribute trafficacross multiple EC2 instances. Ensure that the EC2 instances are configured in unlimited mode.</li>
+<li>Modify the DB instance to create a read replica in the same Availability Zone. Promote the read replica to be the primary DB instance in failure scenarios.</li>
+<li>✅ Modify the DB instance to create a Multi-AZ deployment that extends across two Availability Zones.</li>
+<li>Create a replication group for the ElastiCache for Redis cluster. Configure the cluster to use an Auto Scaling group that has a minimum capacity of two instances.</li>
+<li>✅ Create a replication group for the ElastiCache for Redis cluster. Enable Multi-AZ on the cluster.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ 4️⃣ 6️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：1️⃣ 4️⃣ 6️⃣ 都是可用性最高的选择。<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/AutoFailover.html">通过使用 Valkey 和 Redis OSS 的 Multi-AZ 将 ElastiCache 的停机时间降至最短</a></p>
+<blockquote>
+<p>在许多情况下，ElastiCache for Valkey 和 Redis OSS 可能需要替换主节点；其中包括某些类型的计划维护，以及主节点或可用区发生故障的可能性不大的情况。<br>这种替换会导致群集出现一定的停机时间，但如果启用了多可用区，停机时间会降到最低。主节点的角色将自动切换到其中一个读取副本。无需创建和配置新的主节点，因为 ElastiCache 会以透明的方式进行处理。这种故障切换和副本升级可确保您在升级完成后立即恢复写入新的主节点。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：I go with ADF<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html">https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html</a></p>
+</blockquote>
+<hr>
+<h3 id="十、ALB-error-page"><a href="#十、ALB-error-page" class="headerlink" title="十、ALB error page"></a>十、ALB error page</h3><p>A retail company is operating its ecommerce application on AWS. The application runs on Amazon EC2 instances behind an Application Load Balancer (ALB). The company uses an Amazon RDS DB instance as the database backend. Amazon CloudFront is configured with one origin that points to the ALB. Static content is cached. Amazon Route 53 is used to host all public zones.<br>After an update of the application, the ALB occasionally returns a 502 status code (Bad Gateway) error. The root cause is malformed HTTP headers that are returned to the ALB. The webpage returns successfully when a solutions architect reloads the webpage immediately after the error occurs.<br>While the company is working on the problem, the solutions architect needs to provide a custom error page instead of the standard ALB error page to visitors.<br>Which combination of steps will meet this requirement with the LEAST amount of operational overhead? (Choose two.)</p>
+<ol>
+<li>✅ Create an Amazon S3 bucket. Configure the S3 bucket to host a static webpage. Upload the custom error pages to Amazon S3.</li>
+<li>Create an Amazon CloudWatch alarm to invoke an AWS Lambda function if the ALB health check response Target.FailedHealthChecks is greater than 0. Configure the Lambda function to modify the forwarding rule at the ALB to point to a publicly accessible web server.</li>
+<li>Modify the existing Amazon Route 53 records by adding health checks. Configure a fallback target if the health check fails. Modify DNS records to point to a publicly accessible webpage.</li>
+<li>Create an Amazon CloudWatch alarm to invoke an AWS Lambda function if the ALB health check response Elb.InternalError is greater than 0. Configure the Lambda function to modify the forwarding rule at the ALB to point to a publicaccessible web server.</li>
+<li>✅ Add a custom error response by configuring a CloudFront custom error page. Modify DNS records to point to a publicly accessible web page.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ 5️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages-procedure.html">配置错误响应行为</a>  </p>
+<blockquote>
+<p>您可以通过多个选项，管理 CloudFront 在出错时如何进行响应。要配置自定义错误响应，您可以使用 CloudFront 控制台、CloudFront API 或 AWS CloudFormation。无论您选择哪种方式来更新配置，请考虑以下提示和建议：</p>
+<ul>
+<li>在 CloudFront 可访问的位置保存自定义错误页面。建议您将这些页面存储在 Amazon S3 存储桶中，并且不要将它们与您的网站或应用程序的其余内容存储于同一位置。如果您将自定义错误页面与您的网站或应用程序存储在同一个源上，且源开始返回 5xx 错误，则 CloudFront 无法获取自定义错误页面，因为源服务器不可用。有关更多信息，请参阅将对象和自定义错误页面存储在不同的位置。</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A &amp; E<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/GeneratingCustomErrorResponses.html#custom-error-pages-procedure">https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/GeneratingCustomErrorResponses.html#custom-error-pages-procedure</a></p>
+</blockquote>
+<hr>
+<h3 id="十一、Share-AWS-Resources-cross-accoutns-in-AWS-Organization"><a href="#十一、Share-AWS-Resources-cross-accoutns-in-AWS-Organization" class="headerlink" title="十一、Share AWS Resources cross accoutns in AWS Organization"></a>十一、Share AWS Resources cross accoutns in AWS Organization</h3><p>A company has many AWS accounts and uses AWS Organizations to manage all of them. A solutions architect must implement a solution that the company can use to share a common network across multiple accounts.<br>The company’s infrastructure team has a dedicated infrastructure account that has a VPC. The infrastructure team must use this account to manage the network. Individual accounts cannot have the ability to manage their own networks. However, individual accounts must be able to create AWS resources within subnets.<br>Which combination of actions should the solutions architect perform to meet these requirements? (Choose two.)</p>
+<ol>
+<li>❌ Create a transit gateway in the infrastructure account.</li>
+<li>✅ Enable resource sharing from the AWS Organizations management account.</li>
+<li>Create VPCs in each AWS account within the organization in AWS Organizations. Configure the VPCs to share the same CIDR range and subnets as the VPC in the infrastructure account. Peer the VPCs in each individual account with the VPC in the infrastructure account.</li>
+<li>✅ Create a resource share in AWS Resource Access Manager in the infrastructure account. Select the specific AWS Organizations OU that will use the shared network. Select each subnet to associate with the resource share.</li>
+<li>Create a resource share in AWS Resource Access Manager in the infrastructure account. Select the specific AWS Organizations OU that will use the shared network. Select each prefix list to associate with the resource share.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：a common network across multiple accounts</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ 4️⃣ ❌ -&gt; 2️⃣ 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：组织中的其他账户不能管理网络，需要一个共通的账户单独管理网络。共通的账号拥有一个 <code>VPC</code>，同时，各个帐户必须能够在子网内创建 AWS 资源。<br>这里的重点似乎并不是网络，而是组织中其他账户在单一账户的 <code>VPC</code> 的 <code>子网</code> 中创建资源的能力。  </p>
+<p>这里需要参考官方关于资源共享的文档：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/ram/latest/userguide/getting-started-sharing.html">共享您的 AWS 资源</a></p>
+<blockquote>
+<p>要使用共享您拥有的资源 AWS RAM，请执行以下操作：</p>
+<ul>
+<li>在 AWS Organizations中启用资源共享</li>
+<li>创建资源共享</li>
+</ul>
+</blockquote>
+<p>2️⃣ 是必须的措施。<br>再来看看<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/ram/latest/userguide/what-is.html">什么是 AWS Resource Access Manager？</a></p>
+<blockquote>
+<p>AWS Resource Access Manager (AWS RAM) 可帮助您跨 AWS 账户、在组织或组织单位 (OU) 内以及与 AWS Identity and Access Management (IAM) 角色和用户针对受支持资源类型安全地共享资源。如果您有多个 AWS 账户，可以一次性创建一个资源，然后使用 AWS RAM 使该资源可供其他账户使用。如果您的账户由 AWS Organizations 管理，则您可以与组织中的所有其他账户共享资源，也可以仅与一个或多个指定组织单位 (OU) 所包含的账户共享资源。您还可以根据账户 ID 与特定 AWS 账户共享，而不管该账户是否属于组织。一些支持的资源类型还允许您与指定的 IAM 角色和用户进行共享。</p>
+</blockquote>
+<p>它是服务于 AWS 资源跨账户共享需求的。<br>而关于是附加到 <code>子网</code> 还是 <code>前缀</code>：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/ram/latest/userguide/shareable.html#shareable-vpc">可共享的资源 AWS - Amazon VPC</a></p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>资源类型和代码</th>
+<th>应用场景</th>
+<th>可以与IAM用户和角色共享</th>
+<th>可以与组织外部的账户共享</th>
+<th>可以使用客户托管权限</th>
+<th>可以与服务主体共享</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>前缀列表 <code>ec2:PrefixList</code></td>
+<td>集中创建和管理前缀列表，并与其他人 AWS 账户 或您的组织共享。这允许在其资源中使用多个 AWS 账户 引用前缀列表，例如 VPC 安全组和子网路由表。有关更多信息，请参阅《Amazon VPC 用户指南》中的使用共享前缀列表。</td>
+<td>否</td>
+<td>是</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td>子网 <code>ec2:Subnet</code></td>
+<td>集中创建和管理子网，并与组织内的 AWS 账户 共享这些子网。这样，多个用户就可以将其应用程序资源 AWS 账户启动到集中管理状态VPCs。这些资源包括亚马逊EC2实例、亚马逊关系数据库服务 (RDS) 数据库、Amazon Redshift 集群和 AWS Lambda 函数。有关更多信息，请参阅《Amazon VPC 用户指南》中的使用VPC共享。</td>
+<td>否</td>
+<td>否</td>
+<td>否</td>
+<td>否</td>
+</tr>
+</tbody></table>
+</blockquote>
+<p>4️⃣ 和 5️⃣ 看起来都可以，4️⃣ 更贴合题意吧。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Step B is needed because it enables the organization to share resourcesacrossaccounts.<br>Step D is needed because it allows the infrastructure account to share specific subnets with the other accounts in the organization, so that the other accounts can create resources within those subnets without having to manage their own networks.</p>
+</blockquote>
+<hr>
+<h3 id="十二、AWS-PrivateLink-interface"><a href="#十二、AWS-PrivateLink-interface" class="headerlink" title="十二、AWS PrivateLink interface"></a>十二、AWS PrivateLink interface</h3><p>A company wants to use a third-party software-as-a-service (SaaS) application. The third-party SaaS application is consumed through several API calls. The third-party SaaS application also runs on AWS inside a VPC.<br>The company will consume the third-party SaaS application from inside a VPC. The company has internal security policies that mandate the use of private connectivity that does not traverse the internet. No resources that run in the company VPC are allowed to be accessed from outside the company’s VPC. All permissions must conform to the principles of least privilege.<br>Which solution meets these requirements?</p>
+<ol>
+<li>✅ Create an AWS PrivateLink interface VPC endpoint. Connect this endpoint to the endpoint service that the third-party SaaS application provides. Create a security group to limit the access to the endpoint. Associate the security group with the endpoint.</li>
+<li>Create an AWS Site-to-Site VPN connection between the third-party SaaS application and the company VPC. Configure network ACLs to limit access across the VPN tunnels.</li>
+<li>Create a VPC peering connection between the third-party SaaS application and the company VPUpdate route tables by adding the needed routes for the peering connection.</li>
+<li>Create an AWS PrivateLink endpoint service. Ask the third-party SaaS provider to create an interface VPC endpoint for this endpoint service. Grant permissions for the endpoint service to the specificaccount of the third-party SaaS provider.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/vpc/latest/privatelink/privatelink-access-saas.html">通过以下方式访问 SaaS 产品 AWS PrivateLink</a></p>
+<blockquote>
+<p>下图显示了如何使用 VPC 端点连接到 SaaS 产品。服务提供商创建端点服务并向其客户授予端点服务的访问权限。作为服务使用者，您可以创建一个接口VPC终端节点，用于在您的 VPC 和终端节点服务中的一个或多个子网之间建立连接。<br><img src="https://image.senjianlu.com/blog/2024-12-27/endpoint-services.png" alt="PrivateLink 架构"></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：AccessSaas products throgh AWS Private Linkis the answer.</p>
+</blockquote>
+<hr>
+<h3 id="十三、A-variety-of-tools-to-perform-patching"><a href="#十三、A-variety-of-tools-to-perform-patching" class="headerlink" title="十三、A variety of tools to perform patching"></a>十三、A variety of tools to perform patching</h3><p>A company needs to implement a patching process for its servers. The on-premises servers and Amazon EC2 instances use a variety of tools to perform patching. Management requires a single report showing the patch status of all the servers and instances.<br>Which set of actions should a solutions architect take to meet these requirements?</p>
+<ol>
+<li>✅ Use AWS Systems Manager to manage patches on the on-premises servers and EC2 instances. Use Systems Manager to generate patch compliance reports.</li>
+<li>Use AWS OpsWorks to manage patches on the on-premises servers and EC2 instances. Use Amazon QuickSight integration with OpsWorks to generate patch compliance reports.</li>
+<li>Use an Amazon EventBridge rule to apply patches by scheduling an AWS Systems Manager patch remediation job. Use Amazon Inspector to generate patch compliance reports.</li>
+<li>Use AWS OpsWorks to manage patches on the on-premises servers and EC2 instances. Use AWS X-Ray to post the patch status to AWS Systems Manager OpsCenter to generate patch compliance reports.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/prescriptive-guidance/latest/patch-management-hybrid-cloud/design-on-premises.html">混合云环境中本地实例的修补解决方案设计</a></p>
+<blockquote>
+<p>下图描述了另一种使用 Systems Manager 自定义清单选项修补本地实例的方法。此过程是我们前面描述的针对可变 EC2 实例的自动修补解决方案的扩展。<br><img src="https://image.senjianlu.com/blog/2024-12-27/patching-process-on-premises.png" alt="Systems Manager 修补流程">  </p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A is correct. AWS Systems Manager can manage patches on both on-premises serversand EC2 instancesand can generate patch compliance reports. AWS OpsWorksand Amazon Inspector are not specifically designed for patch management and therefore would not be the best choice for this use case. Using Amazon EventBridge rule and AWS X-Ray to generate patch compliance reports is not a practical solution as theyare not designed for patch management reporting.</p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAP 考试每日练习 - 2024/12/26</p><p><a href="https://senjianlu.com/2024/12/26/sap_test_daily_20241226./">https://senjianlu.com/2024/12/26/sap_test_daily_20241226./</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-12-26</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-12-26</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAP/">SAP</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/12/27/translate_news_nhk_20241227_k10014680161000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - 11月の有効求人倍率 全国平均で1.25倍 前の月と同じ水準</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/12/26/knowledge_cloud_security_extend/"><span class="level-item">AWS 知识点 - 云安全 (Cloud Security) - 拓展（针对 SAP-C02 认证）</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、DNS-solution"><span class="level-left"><span class="level-item">一、DNS solution</span></span></a></li><li><a class="level is-mobile" href="#二、DNS-HA-over-Regions"><span class="level-left"><span class="level-item">二、DNS HA over Regions</span></span></a></li><li><a class="level is-mobile" href="#三、OU-and-SCP"><span class="level-left"><span class="level-item">三、OU and SCP</span></span></a></li><li><a class="level is-mobile" href="#四、Auto-Scaling"><span class="level-left"><span class="level-item">四、Auto Scaling</span></span></a></li><li><a class="level is-mobile" href="#五、CloudFront-function"><span class="level-left"><span class="level-item">五、CloudFront function</span></span></a></li><li><a class="level is-mobile" href="#六、Cross-Account-S3-Access"><span class="level-left"><span class="level-item">六、Cross Account S3 Access</span></span></a></li><li><a class="level is-mobile" href="#七、Microservices-and-serverless"><span class="level-left"><span class="level-item">七、Microservices and serverless</span></span></a></li><li><a class="level is-mobile" href="#八、Route-53-health-check"><span class="level-left"><span class="level-item">八、Route 53 health check</span></span></a></li><li><a class="level is-mobile" href="#九、HA-infrastructure"><span class="level-left"><span class="level-item">九、HA infrastructure</span></span></a></li><li><a class="level is-mobile" href="#十、ALB-error-page"><span class="level-left"><span class="level-item">十、ALB error page</span></span></a></li><li><a class="level is-mobile" href="#十一、Share-AWS-Resources-cross-accoutns-in-AWS-Organization"><span class="level-left"><span class="level-item">十一、Share AWS Resources cross accoutns in AWS Organization</span></span></a></li><li><a class="level is-mobile" href="#十二、AWS-PrivateLink-interface"><span class="level-left"><span class="level-item">十二、AWS PrivateLink interface</span></span></a></li><li><a class="level is-mobile" href="#十三、A-variety-of-tools-to-perform-patching"><span class="level-left"><span class="level-item">十三、A variety of tools to perform patching</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script data-pjax src="/js/insight.js" defer></script><script data-pjax>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

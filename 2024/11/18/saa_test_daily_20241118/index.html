@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/11/18 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam10 题 (No.11 ~ No.20)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/11/18"><meta property="og:url" content="https://senjianlu.com/2024/11/18/saa_test_daily_20241118/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam10 题 (No.11 ~ No.20)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-11-18T11:00:00.000Z"><meta property="article:modified_time" content="2024-11-18T12:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/11/18/saa_test_daily_20241118/"},"headline":"SAA 考试每日练习 - 2024/11/18","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-11-18T11:00:00.000Z","dateModified":"2024-11-18T12:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam10 题 (No.11 ~ No.20)，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/11/18/saa_test_daily_20241118/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-11-18T11:00:00.000Z" title="11/18/2024, 7:00:00 PM">2024-11-18</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/11/18</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/">Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam</a><br>10 题 (No.11 ~ No.20)，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<p><strong>🌟 单词：</strong></p>
+<ol>
+<li>credential<sub><u>n. 凭证；国书 | adj. 〈罕〉信任的 | v. 提供证明书（或证件）</u></sub></li>
+<li>maintenance<sub><u>n. 维护，保养；维持；（依法应负担的）生活费，抚养费</u></sub></li>
+<li>rotate<sub><u>v. （使）旋转，（使）转动；（使）轮流</u></sub></li>
+<li>ecommerce<sub><u>n. 电子商务（electronic commerce）</u></sub></li>
+<li>degrade<sub><u>v. 贬低，侮辱；（使）降级；降解；退化</u></sub></li>
+<li>inspection<sub><u>n. 检查，视察，查看，审视</u></sub></li>
+<li>visualization<sub><u>n. 可视化，形象化</u></sub></li>
+<li>durable<sub><u>adj. 耐用的，耐久的，长期的，长久的 | n. 耐久品</u></sub></li>
+<li>track<sub><u>n. 小路，小径；足迹，踪迹；跑道；轨道；路线；一首歌曲；音轨；工作方向；思路 | v. 跟踪，追踪；留下印迹；沿轨道运行</u></sub></li>
+<li>modification<sub><u>n. 修改；改造；改变；缓和；减轻；修改后的形式，变体；修饰，限定</u></sub></li>
+<li>three-tier<sub><u>三层架构（表示层，应用层，数据层）</u></sub></li>
+</ol>
+<hr>
+<h3 id="一、AWS-Secrets-Manager"><a href="#一、AWS-Secrets-Manager" class="headerlink" title="一、AWS Secrets Manager"></a>一、AWS Secrets Manager</h3><p>A company has an application that runs on Amazon EC2 instances and uses an Amazon Aurora database. The EC2 instances connect to the database by using user names and passwords that are stored locally in a file. The company wants to minimize the operational overhead of credential management.<br>What should a solutions architect do to accomplish this goal?</p>
+<ol>
+<li>✅ Use AWS Secrets Manager. Turn on automatic rotation.</li>
+<li>Use AWS Systems Manager Parameter Store. Turn on automatic rotation.</li>
+<li>Create an Amazon S3 bucket to store objects that are encrypted with an AWS Key Management Service (AWS KMS) encryption key. Migrate the credential file to the S3 bucket. Point the application to the S3 bucket.</li>
+<li>Create an encrypted Amazon Elastic Block Store (Amazon EBS) volume for each EC2 instance. Attach the new EBS volume to each EC2 instance. Migrate the credential file to the new EBS volume. Point the application to the new EBS volume.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：AWS Secrets Manager</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：题目背景有有应用程序连接到 <code>EC2</code> 实例，之前使用账号密码作认真，公司希望改用更简单的。<br>使用 <code>AWS Secrets Manager</code> 显然是可以达到需求并且也是最简单的。<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/secretsmanager/latest/userguide/intro.html">什么是 AWS Secrets Manager？</a></p>
+<blockquote>
+<p>借助 <code>AWS Secrets Manager</code>，您可以在数据库凭证、应用程序凭证、OAuth 令牌、API 密钥和其他密钥的整个生命周期内对其进行管理、检索和轮换。</p>
+</blockquote>
+<blockquote>
+<p>对于您的组织可能拥有的其他类型的密钥：</p>
+<ul>
+<li>AWS 凭证 – 建议使用 <code>AWS Identity and Access Management</code></li>
+<li>加密密钥 – 建议使用 <code>AWS Key Management Service</code></li>
+<li>SSH 密钥 – 建议使用 <code>Amazon EC2 Instance Connect</code></li>
+<li>私有密钥和证书 – 建议使用 <code>AWS Certificate Manager</code></li>
+</ul>
+</blockquote>
+<p>回到题目，社区里有人提到了 2️⃣ 中的 <code>AWS Systems Manager Parameter Store</code> 不支持自动轮换，因此错误。<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/systems-manager/latest/userguide/systems-manager-parameter-store.html">AWS Systems Manager Parameter Store</a>  </p>
+<blockquote>
+<p>要实施密码轮换生命周期，请使用 <code>AWS Secrets Manager</code>。您可以使用 Secrets Manager 在数据库凭证、API 密钥和其他密钥的整个生命周期内对其进行<u><strong>轮换</strong></u>、管理和检索。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：B is wrong because parameter store does not support auto rotation, unless the customer writes it themselves, A is the answer.</p>
+<p>READ!!! AWS Secrets Manager isa secrets management service that helps you protect access to your applications, services, and IT resources.This service enables you to rotate, manage,and retrieve database credentials, API keys,and other secrets throughout their lifecycle.</p>
+</blockquote>
+<hr>
+<h3 id="二、CloudFront"><a href="#二、CloudFront" class="headerlink" title="二、CloudFront"></a>二、CloudFront</h3><p>A global company hosts its web application on Amazon EC2 instances behind an Application Load Balancer (ALB). The web application has static data and dynamic data. The company stores its static data in an Amazon S3 bucket. The company wants to improve performance and reduce latency for the static data and dynamic data. The company is using its own domain name registered with Amazon Route 53.<br>What should a solutions architect do to meet these requirements?</p>
+<ol>
+<li>✅ Create an Amazon CloudFront distribution that has the S3 bucket and the ALB as origins. Configure Route 53 to route traffic to the CloudFront distribution.</li>
+<li>Create an Amazon CloudFront distribution that has the ALB as an origin. Create an AWS Global Accelerator standard accelerator that has the S3 bucket as an endpoint Configure Route 53 to route traffic to the CloudFront distribution.</li>
+<li>Create an Amazon CloudFront distribution that has the S3 bucket as an origin. Create an AWS Global Accelerator standard accelerator that has the ALB and the CloudFront distribution as endpoints. Create a custom domain name that points to the accelerator DNS name. Use the custom domain name as an endpoint for the web application.</li>
+<li>❌ Create an Amazon CloudFront distribution that has the ALB as an origin. Create an AWS Global Accelerator standard accelerator that has the S3 bucket as an endpoint. Create two domain names. Point one domain name to the CloudFront DNS name for dynamic content. Point the other domain name to the accelerator DNS name for static content. Use the domain names as endpoints for the web application.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：static data and dynamic data、reduce latency</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：全球公司希望对网站提速，网站有静态资源也有动态数据。<br>仅仅使用 <code>CloudFront</code> CDN 似乎就能解决问题（缓存静态资源、优化到源站的线路）。</p>
+<p>题目的重点在辨别 <code>CloudFront</code> 和 <code>Global Accelerator</code>。<br><code>CloudFront</code> 是 CDN，比较好理解了：缓存内容、优化线路、安全保护、集成 <code>WAF</code> 等 AWS 安全服务。</p>
+<p>而关于 <code>Global Accelerator</code>：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/global-accelerator/">AWS Global Accelerator 使用 AWS 全球网络提升应用程序的可用性、性能和安全性</a>  </p>
+<blockquote>
+<p>利用 AWS 全球基础设施的性能、安全性和可用性，在其中一个 Global Accelerator 边缘站点载入您的用户流量。用户可以通过静态 IP 地址访问您的应用程序端点，享受独立于 DNS 的确定性路由。</p>
+</blockquote>
+<ul>
+<li>全局负载均衡：将来自全球不同地区的用户流量智能地路由至最近的AWS边缘位置，从而降低延迟并提供更快的响应速度。</li>
+<li>客户 IP 保持：确保来自同一 IP 地址的请求始终路由到同一终端节点，适用于需要保持用户会话的应用程序。</li>
+<li>TCP&#x2F;UDP 支持：支持 TCP 和 UDP 协议，适用于各种应用程序，包括 HTTP、HTTPS、游戏、流媒体等。</li>
+<li>非常适合 VoIP 语音应用等。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Answer is A<br><strong>Explanation - AWS Global Accelerator vs CloudFront</strong>  </p>
+<ul>
+<li>They both use the AWS global networkand itsedge locationsaround the world</li>
+<li>Both services integrate with AWS Shield for DDoS protection.</li>
+</ul>
+<p><strong>CloudFront</strong></p>
+<ul>
+<li>Improves performance for both cacheable content (such as imagesand videos)</li>
+<li>Dynamic content (such as API acceleration and dynamic site delivery)</li>
+<li>Content is served at the edge</li>
+</ul>
+<p> <strong>Global Accelerator</strong></p>
+<ul>
+<li>Improves performance for a wide range of applications over TCP or UDP</li>
+<li>Proxying packetsat the edge to applications running in one or more AWS Regions.</li>
+<li>Good fit for non-HTTP use cases, such as gaming (UDP), IoT (MQTT), or Voice over IP</li>
+<li>Good for HTTP use cases that require static IP addresses</li>
+<li>Good for HTTP use cases that required deterministic, fast regional failover</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="三、AWS-Secrets-Manager"><a href="#三、AWS-Secrets-Manager" class="headerlink" title="三、AWS Secrets Manager"></a>三、AWS Secrets Manager</h3><p>A company performs monthly maintenance<sub><u>维护</u></sub> on its AWS infrastructure. During these maintenance activities, the company needs to rotate<sub><u>使流转</u></sub> the credentials for its Amazon RDS for MySQL databases across multiple AWS Regions.<br>Which solution will meet these requirements with the LEAST operational overhead?</p>
+<ol>
+<li>✅ Store the credentials as secrets in AWS Secrets Manager. Use multi-Region secret replication for the required Regions. Configure Secrets Manager to rotate the secrets on a schedule.</li>
+<li>Store the credentials as secrets in AWS Systems Manager by creating a secure string parameter. Use multi-Region secret replication for the required Regions. Configure Systems Manager to rotate the secrets on a schedule.</li>
+<li>Store the credentials in an Amazon S3 bucket that has server-side encryption (SSE) enabled. Use Amazon EventBridge (Amazon CloudWatch Events) to invoke an AWS Lambda function to rotate the credentials.</li>
+<li>Encrypt the credentials as secrets by using AWS Key Management Service (AWS KMS) multi-Region customer managed keys. Store the secrets in an Amazon DynamoDB global table. Use an AWS Lambda function to retrieve the secrets from DynamoDB. Use the RDS API to rotate the secrets.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：AWS Secrets Manager</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：公司计划每月轮转数据库认证密钥。<br>选 1️⃣ <code>AWS Secrets Manager</code> 完美符合需求。<br><code>AWS Systems Manager</code> 不支持流转排除 2️⃣；密钥存储在 <code>S3</code> 中并非最佳实践排除 3️⃣；<code>KMS</code> 是用来存储管理加密密钥的而非认证密钥，4️⃣ 也不对。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Keywords:  </p>
+<ul>
+<li>rotate the credentials for its Amazon RDS for MySQL databasesacross multiple AWS Regions</li>
+<li>LEAST operational overhead</li>
+</ul>
+<p>A: Correct - AWS Secrets Manager supports  </p>
+<ul>
+<li>Encrypt credential for RDS, DocumentDb, Redshift, other DBsand key&#x2F;value secret.</li>
+<li>multi-region replication.</li>
+<li>Remote base on schedule</li>
+</ul>
+<p>B: Incorrect - Secure string parameter onlyapply for ParameterStore. All the data in AWS Secrets Manager is encrypted<br>C: Incorrect - don’t mention about replicate S3 across region.<br>D: Incorrect - So many steps compare to answer A &#x3D;))</p>
+</blockquote>
+<hr>
+<h3 id="四、More-Database-Replicas"><a href="#四、More-Database-Replicas" class="headerlink" title="四、More Database Replicas"></a>四、More Database Replicas</h3><p>A company runs an ecommerce<sub><u>电子商务</u></sub> application on Amazon EC2 instances behind an Application Load Balancer. The instances run in an Amazon EC2 Auto Scaling group across multiple Availability Zones. The Auto Scaling group scales based on CPU utilization metrics. The ecommerce application stores the transaction data in a MySQL 8.0 database that is hosted on a large EC2 instance.<br>The database’s performance degrades<sub><u>降低，劣化</u></sub> quickly as application load increases. The application handles more read requests than write transactions. The company wants a solution that will automatically scale the database to meet the demand of unpredictable read workloads while maintaining high availability.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Use Amazon Redshift with a single node for leader and compute functionality.</li>
+<li>Use Amazon RDS with a Single-AZ deployment Configure Amazon RDS to add reader instances in a different Availability Zone.</li>
+<li>✅ Use Amazon Aurora with a Multi-AZ deployment. Configure Aurora Auto Scaling with Aurora Replicas.</li>
+<li>Use Amazon ElastiCache for Memcached with EC2 Spot Instances.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：multiple Availability Zones、more read requests than write transactions、</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：应用程序运作在跨可用区的弹性扩容架构上，之前的数据库是 MySQL 8.0 并且运行在 EC2 实例上，公司希望数据库也能视工作负载自动扩容。<br><code>Amazon Aurora</code> 是最佳选择，可以在多个可用去横向扩容，选 3️⃣。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：C, AURORA is 5x performance improvement over MySQL on RDS and handles more read requests than write,; maintaining high availability &#x3D; Multi-AZ deployment</p>
+</blockquote>
+<hr>
+<h3 id="五、Traffic-Mirroring"><a href="#五、Traffic-Mirroring" class="headerlink" title="五、Traffic Mirroring"></a>五、Traffic Mirroring</h3><p>A company recently migrated to AWS and wants to implement a solution to protect the traffic that flows in and out of the production VPC. The company had an inspection<sub><u>检查，审查</u></sub> server in its on-premises data center. The inspection server performed specific operations such as traffic flow inspection and traffic filtering. The company wants to have the same functionalities in the AWS Cloud.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Use Amazon GuardDuty for traffic inspection and traffic filtering in the production VPC.</li>
+<li>❌ Use Traffic Mirroring to mirror traffic from the production VPC for traffic inspection and filtering.</li>
+<li>✅ Use AWS Network Firewall to create the required rules for traffic inspection and traffic filtering for the production VPC.</li>
+<li>Use AWS Firewall Manager to create the required rules for traffic inspection and traffic filtering for the production VPC.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：inspection</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：公司需要对进出 VPC 的流量进行保护，之前公司有自己的托管审查机器，并希望在 AWS 云架构上使用一样的方案。<br>这里题目理解错了，以为是要事后审核，实际上是要进行实时的审查（和阻断），因此 3️⃣ 是最佳答案。<br>通过 AWS Network Firewall 建立规则审核进出 VPC 的流量。  </p>
+<blockquote>
+<p><code>GuardDuty</code> 是一项服务，为您的 AWS 基础设施和资源提供智能威胁检测。它通过持续监控 AWS 环境中的网络活动和账户行为来识别威胁。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：AWS NetworkFirewall isa managed firewall service that provides filtering for both inbound and outbound networktraffic. It allows you to create rules for traffic inspection and filtering, which can help protect your production VPC.<br><strong>Option 1️⃣</strong>: Amazon GuardDuty isa threat detection service, not a traffic inspection or filtering service.<br><strong>Option 2️⃣</strong>:Traffic Mirroring isa feature that allows you to replicate and send a copy of networktraffic from a VPC to another VPC or on-premises location. It is not a service that performs traffic inspection or filtering.<br><strong>Option 4️⃣</strong>: AWS Firewall Manager isa security management service that helps you to centrally configure and manage firewalls across your accounts. It is not a service that performs traffic inspection or filtering.</p>
+</blockquote>
+<hr>
+<h3 id="六、Data-visualizations-and-policy"><a href="#六、Data-visualizations-and-policy" class="headerlink" title="六、Data visualizations and policy"></a>六、Data visualizations and policy</h3><p>A company hosts a data lake on AWS. The data lake consists of data in Amazon S3 and Amazon RDS for PostgreSQL. The company needs a reporting solution that provides data visualization<sub><u>可视化</u></sub> and includes all the data sources within the data lake. Only the company’s management team should have full access to all the visualizations. The rest of the company should have only limited access.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>❌ Create an analysis in Amazon QuickSight. Connect all the data sources and create new datasets. Publish dashboards to visualize the data. Share the dashboards with the appropriate IAM roles.</li>
+<li>✅ Create an analysis in Amazon QuickSight. Connect all the data sources and create new datasets. Publish dashboards to visualize the data. Share the dashboards with the appropriate users and groups.</li>
+<li>Create an AWS Glue table and crawler for the data in Amazon S3. Create an AWS Glue extract, transform, and load (ETL) job to produce reports. Publish the reports to Amazon S3. Use S3 bucket policies to limit access to the reports.</li>
+<li>Create an AWS Glue table and crawler for the data in Amazon S3. Use Amazon Athena Federated Query to access data within Amazon RDS for PostgreSQL. Generate reports by using Amazon Athena. Publish the reports to Amazon S3. Use S3 bucket policies to limit access to the reports.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：visualizations、policy</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：需求是对数据湖（包括 S3 和 RDS for PostgreSQL 数据库的数据）生产报表，并只提供给公司管理层查看。<br>数据湖生产报表通过 <code>Amazon QuickSight</code> 实现，但是 <code>Amazon QuickSight</code> 控制面板只支持用户和组权限（这和 <code>CloudWatch</code> 的有点类似）。</p>
+<blockquote>
+<p>您可以与账户中的<u><strong>特定用户或组</strong></u>或者 Amazon QuickSight 账户中的所有人共享控制面板和视觉对象。您也可以与互联网上的任何人共享。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/quicksight/">Amazon QuickSight 超大规模的商业智能整合</a>  </p>
+<p>而题目中的另一个服务 <code>AWS Glue</code>，则是一项完全托管的 ETL（提取、转换和加载）服务，使您能够轻松而经济高效地对数据进行分类、清理和扩充，并在各种数据存储和数据流之间可靠地移动数据。<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/glue/latest/dg/what-is-glue.html">什么是 AWS Glue？</a>  </p>
+<blockquote>
+<p>AWS Glue 是一项无服务器数据集成服务，可让使用分析功能的用户轻松发现、准备、移动和集成来自多个来源的数据。您可以将其用于分析、机器学习和应用程序开发。它还包括用于编写、运行任务和实施业务工作流程的额外生产力和数据操作工具。<br>通过使用 AWS Glue，您可以发现并连接到 70 多个不同的数据来源，并在集中式数据目录中管理您的数据。您可以直观地创建、运行和监控“提取、转换、加载（ETL）”管道，以将数据加载到数据湖中。此外，您可以使用 Amazon Athena、Amazon EMR 和 Amazon Redshift Spectrum 立即搜索和查询已编目数据。</p>
+</blockquote>
+<p>它更适合用来做汇总、转移和加载，而非生产报表。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Keywords:  </p>
+<ul>
+<li>Data lake on AWS.</li>
+<li>Consists of data in Amazon S3 and Amazon RDS for PostgreSQL.</li>
+<li>The company needsa reporting solution that provides data VISUALIZATION and includes ALL the data sources within the data lake.</li>
+</ul>
+<p>1️⃣ - Incorrect: Amazon QuickSight only support users(standard version) and groups (enterprise version). usersand groups only exists without QuickSight. QuickSight don’t support IAM. We use usersand groups to view the QuickSight dashboard<br>2️⃣ - Correct:asexplained in answer A and QuickSight is used to created dashboard from S3, RDS, Redshift, Aurora, Athena, OpenSearch, Timestream<br>3️⃣ - Incorrect:This way don’t support visulization and don’t mention how to process RDS data<br>4️⃣ - Incorrect:This way don’t support visulization and don’t mention how to combine data RDS and S3</p>
+</blockquote>
+<hr>
+<h3 id="七、EC2-instances-connect-S3-bucket-with-IAM-roles"><a href="#七、EC2-instances-connect-S3-bucket-with-IAM-roles" class="headerlink" title="七、EC2 instances connect S3 bucket with IAM roles"></a>七、EC2 instances connect S3 bucket with IAM roles</h3><p>A company is implementing a new business application. The application runs on two Amazon EC2 instances and uses an Amazon S3 bucket for document storage. A solutions architect needs to ensure that the EC2 instances can access the S3 bucket.<br>What should the solutions architect do to meet this requirement?</p>
+<ol>
+<li>✅ Create an IAM role that grants access to the S3 bucket. Attach the role to the EC2 instances.</li>
+<li>Create an IAM policy that grants access to the S3 bucket. Attach the policy to the EC2 instances.</li>
+<li>Create an IAM group that grants access to the S3 bucket. Attach the group to the EC2 instances.</li>
+<li>❌ Create an IAM user that grants access to the S3 bucket. Attach the user account to the EC2 instances.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：EC2 instances、S3</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：很经典的赋予 <code>EC2</code> <code>IAM 角色</code> 使其能够访问 <code>S3</code> 存储桶，临时密钥会由 <code>STS</code> 生成，选 1️⃣。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Always remember that you should associate IAM roles to EC2 instances</p>
+</blockquote>
+<hr>
+<h3 id="八、SQS-and-Lambda"><a href="#八、SQS-and-Lambda" class="headerlink" title="八、SQS and Lambda"></a>八、SQS and Lambda</h3><p>An application development team is designing a microservice that will convert large images to smaller, compressed images. When a user uploads an image through the web interface, the microservice should store the image in an Amazon S3 bucket, process and compress the image with an AWS Lambda function, and store the image in its compressed form in a different S3 bucket.<br>A solutions architect needs to design a solution that uses durable<sub><u>耐用的</u></sub>, stateless components to process the images automatically.<br>Which combination of actions will meet these requirements? (Choose two.)</p>
+<ol>
+<li>✅ Create an Amazon Simple Queue Service (Amazon SQS) queue. Configure the S3 bucket to send a notification to the SQS queue when an image is uploaded to the S3 bucket.</li>
+<li>✅ Configure the Lambda function to use the Amazon Simple Queue Service (Amazon SQS) queue as the invocation source. When the SQS message is successfully processed, delete the message in the queue.</li>
+<li>Configure the Lambda function to monitor the S3 bucket for new uploads. When an uploaded image is detected, write the file name to a text file in memory and use the text file to keep track<sub><u>踪迹</u></sub> of the images that were processed.</li>
+<li>Launch an Amazon EC2 instance to monitor an Amazon Simple Queue Service (Amazon SQS) queue. When items are added to the queue, log the file name in a text file on the EC2 instance and invoke the Lambda function.</li>
+<li>Configure an Amazon EventBridge (Amazon CloudWatch Events) event to monitor the S3 bucket. When an image is uploaded, send an alert to an Amazon ample Notification Service (Amazon SNS) topic with the application owner’s email address for further processing.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：SQS、Lambda</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：需要将用户上传的图片存入 <code>S3</code> 存储桶，然后进行压缩，之后存入另一个 <code>S3</code> 存储桶。<br>非常适合引入 <code>SQS</code> 队列，大图片存储用 <code>S3</code> 存储桶发送消息，触发 <code>Lambda</code> 函数进行压缩之后存入压缩后的 <code>S3</code> 存储桶。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：To design a solution that uses durable, stateless components to process imagesautomatically,a solutionsarchitect could<br>consider the following actions:<br>Option A involves creating an SQS queue and configuring the S3 bucket to send a notification to the queue when an image is<br>uploaded.Thisallows the application to decouple the image upload process from the image processing processand ensures<br>that the image processing process is triggered automatically when a new image is uploaded.<br>Option B involves configuring the Lambda function to use the SQS queue as the invocation source. When the SQS message is<br>successfully processed, the message is deleted from the queue.Thisensures that the Lambda function is invoked only once per<br>image and that the image is not processed multiple times.</p>
+</blockquote>
+<hr>
+<h3 id="九、Gateway-Load-Balancer"><a href="#九、Gateway-Load-Balancer" class="headerlink" title="九、Gateway Load Balancer"></a>九、Gateway Load Balancer</h3><p>A company has a three-tier<sub><u>三层架构（表示层，应用层，数据层）</u></sub> web application that is deployed on AWS. The web servers are deployed in a public subnet in a VPC. The application servers and database servers are deployed in private subnets in the same VPC. The company has deployed a third-party virtual firewall appliance from AWS Marketplace in an inspection VPC. The appliance is configured with an IP interface that can accept IP packets.<br>A solutions architect needs to integrate the web application with the appliance to inspect all traffic to the application before the traffic reaches the web server.<br>Which solution will meet these requirements with the LEAST operational overhead?</p>
+<ol>
+<li>Create a Network Load Balancer in the public subnet of the application’s VPC to route the traffic to the appliance for packet inspection.</li>
+<li>Create an Application Load Balancer in the public subnet of the application’s VPC to route the traffic to the appliance for packet inspection.</li>
+<li>❌ Deploy a transit gateway in the inspection VPConfigure route tables to route the incoming packets through the transit gateway.</li>
+<li>✅ Deploy a Gateway Load Balancer in the inspection VPC. Create a Gateway Load Balancer endpoint to receive the incoming packets and forward the packets to the appliance.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：inspection</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：Web 服务部署在公有子网，后端应用和数据库部署在私有子网，现在有一个第三方的虚拟防火墙应用部署在了审核 VPC 中，这个应用有一个 IP 接口并可以接受 IP 包。架构师需要让流量在到达 Web 服务之前经过防火墙。使用最简单的架构。<br>审核场景优先使用的就是 <code>Gateway Load Balancer（网关负载均衡器）</code>。<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/elasticloadbalancing/gateway-load-balancer/">Gateway Load Balancer（网关负载均衡器）</a>  </p>
+<blockquote>
+<p>网关负载均衡器可帮助您轻松部署、扩展和管理第三方虚拟设备。它为您提供了一个网关，用于在多个虚拟设备之间分配流量，同时根据需求增加或缩减流量。这样可以减少网络中潜在的故障点并提高可用性。  </p>
+</blockquote>
+<blockquote>
+<ul>
+<li>⭐ ALB (Application Load Balancer) 工作在 OSI 的第 7 层（应用层），通过请求内容（路径、HOST 和查询字符串等）做出路由决策；HTTP、HTTPS 协议。</li>
+<li>⭐ NLB (Network Load Balancer) 工作在 OSI 的第 4 层（传输层），主要通过 IP 协议数据做出路由决策；适用于超高性能、极低延迟和大规模 TLS 卸载的使用场景；TCP、UDP、TLS 和 TCP_UDP 协议。</li>
+<li>⭐ GLB (GWLB, Gateway Load Balancer) 工作在 OSI 的第 3 层（网络层），将进入流量转发到监听规则中指定的目标组；适用于虚拟设备前端，如防火墙、入侵检测、防御系统和深度数据包检测系统等；监听所有端口的所有数据包；与虚拟设备使用 Geneve 协议，6081 端口交换流量。</li>
+</ul>
+</blockquote>
+<p>而 <a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/transit-gateway/">Transit Gateway</a> 是用来组网的，类似 ZeroTier。</p>
+</blockquote>
+<hr>
+<h3 id="十、EBS-snapshots"><a href="#十、EBS-snapshots" class="headerlink" title="十、EBS snapshots"></a>十、EBS snapshots</h3><p>A company wants to improve its ability to clone large amounts of production data into a test environment in the same AWS Region. The data is stored in Amazon EC2 instances on Amazon Elastic Block Store (Amazon EBS) volumes. Modifications<sub><u>修改，改造</u></sub> to the cloned data must not affect the production environment. The software that accesses this data requires consistently high I&#x2F;O performance.<br>A solutions architect needs to minimize the time that is required to clone the production data into the test environment.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Take EBS snapshots of the production EBS volumes. Restore the snapshots onto EC2 instance store volumes in the test environment.</li>
+<li>Configure the production EBS volumes to use the EBS Multi-Attach feature. Take EBS snapshots of the production EBS volumes. Attach the production EBS volumes to the EC2 instances in the test environment.</li>
+<li>Take EBS snapshots of the production EBS volumes. Create and initialize new EBS volumes. Attach the new EBS volumes to EC2 instances in the test environment before restoring the volumes from the production EBS snapshots.</li>
+<li>✅ Take EBS snapshots of the production EBS volumes. Turn on the EBS fast snapshot restore feature on the EBS snapshots. Restore the snapshots into new EBS volumes. Attach the new EBS volumes to EC2 instances in the test environment.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：clone large amounts of production data on EBS、minimize the time</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：公司需要迁移大量受保护的数据到同区域的测试环境中，数据目前存放在 <code>EBS</code> 卷上，克隆数据不能对生产环境造成影响，而生产环境的应用要求高 IO 标签。<strong>还要求尽可能快地完成数据拷贝。</strong><br>无法之间拷贝，那就只能创建快照，再通过快照重建为 EBS 硬盘。<br>由于还需要尽可能快，因此这里还有个考点：<code>Amazon EBS fast snapshot restore（Amazon EBS 快速快照还原）</code><br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/ebs/latest/userguide/ebs-fast-snapshot-restore.html">Amazon EBS 快速快照还原</a></p>
+<blockquote>
+<p>Amazon EBS 快速快照还原（FSR）使您能够从创建时已完全初始化的快照创建卷。这会消除首次访问块时对其执行 I&#x2F;O 操作的延迟。使用快速快照还原创建的卷可以立即交付其所有预置性能。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-fast-snapshot-restore.html">https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-fast-snapshot-restore.html</a><br>Amazon EBS fast snapshot restore (FSR) enables you to create a volume from a snapshot that is fully initialized at creation.This eliminates the latency of I&#x2F;O operations on a block when it isaccessed for the first time. Volumes that are created using fast snapshot restore instantly deliver all of their provisioned performance.</p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/11/18</p><p><a href="https://senjianlu.com/2024/11/18/saa_test_daily_20241118/">https://senjianlu.com/2024/11/18/saa_test_daily_20241118/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-11-18</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-11-18</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/11/18/knowledge_serverless/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">AWS 知识点 - 无服务器应用程序</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/11/18/knowledge_docker_ecs/"><span class="level-item">AWS 知识点 - Docker 容器和 ECS</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、AWS-Secrets-Manager"><span class="level-left"><span class="level-item">一、AWS Secrets Manager</span></span></a></li><li><a class="level is-mobile" href="#二、CloudFront"><span class="level-left"><span class="level-item">二、CloudFront</span></span></a></li><li><a class="level is-mobile" href="#三、AWS-Secrets-Manager"><span class="level-left"><span class="level-item">三、AWS Secrets Manager</span></span></a></li><li><a class="level is-mobile" href="#四、More-Database-Replicas"><span class="level-left"><span class="level-item">四、More Database Replicas</span></span></a></li><li><a class="level is-mobile" href="#五、Traffic-Mirroring"><span class="level-left"><span class="level-item">五、Traffic Mirroring</span></span></a></li><li><a class="level is-mobile" href="#六、Data-visualizations-and-policy"><span class="level-left"><span class="level-item">六、Data visualizations and policy</span></span></a></li><li><a class="level is-mobile" href="#七、EC2-instances-connect-S3-bucket-with-IAM-roles"><span class="level-left"><span class="level-item">七、EC2 instances connect S3 bucket with IAM roles</span></span></a></li><li><a class="level is-mobile" href="#八、SQS-and-Lambda"><span class="level-left"><span class="level-item">八、SQS and Lambda</span></span></a></li><li><a class="level is-mobile" href="#九、Gateway-Load-Balancer"><span class="level-left"><span class="level-item">九、Gateway Load Balancer</span></span></a></li><li><a class="level is-mobile" href="#十、EBS-snapshots"><span class="level-left"><span class="level-item">十、EBS snapshots</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script data-pjax src="/js/insight.js" defer></script><script data-pjax>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

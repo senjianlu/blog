@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/11/04 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：AWS解决方案架构师认证-助理级(SAA-C03)仿真练习题3 题，免费题库，题目质量不高，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/11/04"><meta property="og:url" content="https://senjianlu.com/2024/11/04/saa_test_daily_20241104/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：AWS解决方案架构师认证-助理级(SAA-C03)仿真练习题3 题，免费题库，题目质量不高，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-11-04T11:00:00.000Z"><meta property="article:modified_time" content="2024-11-04T12:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/11/04/saa_test_daily_20241104/"},"headline":"SAA 考试每日练习 - 2024/11/04","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-11-04T11:00:00.000Z","dateModified":"2024-11-04T12:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：AWS解决方案架构师认证-助理级(SAA-C03)仿真练习题3 题，免费题库，题目质量不高，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/11/04/saa_test_daily_20241104/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-11-04T11:00:00.000Z" title="11/4/2024, 7:00:00 PM">2024-11-04</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/11/04</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.iloveaws.cn/course/aws%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88%e6%9e%b6%e6%9e%84%e5%b8%88%e8%ae%a4%e8%af%81-%e5%8a%a9%e7%90%86%e7%ba%a7saa-c02%e7%bb%83%e4%b9%a0%e9%a2%98">AWS解决方案架构师认证-助理级(SAA-C03)仿真练习题</a><br>3 题，免费题库，题目质量不高，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<p><strong>🌟 单词：</strong></p>
+<ol>
+<li>vendor<sub><u>n. 供应商，小贩</u></sub></li>
+<li>troubleshoot<sub><u>v. 检修，分析难题</u></sub></li>
+<li>secure<sub><u>adj. 安心的，安全的 | v. 使安全；担保，保护；使获得</u></sub></li>
+<li>grant<sub><u>v. 同意；准予；承认 | n. 拨款；授权；合法转让</u></sub></li>
+<li>optionally<sub><u>adv. 随意地；可选择地；选择性地</u></sub></li>
+<li>specify<sub><u>明确说明；具体指定；详细说明</u></sub></li>
+<li>duration<sub><u>n. 持续时间，期间</u></sub></li>
+<li>consist<sub><u>v. 组成，构成；存在于</u></sub></li>
+<li>architecture<sub><u>n. 建筑学，建筑业；结构</u></sub></li>
+<li>layer<sub><u>n. 层, 层次, 表层, 阶层 | v. 把……分层堆放</u></sub></li>
+<li>vulnerable<sub><u>adj. 易受攻击的；易受伤害的；（身体上或感情上）脆弱的</u></sub></li>
+<li>architect<sub><u>n. 建筑师，设计师；缔造者，创造者</u></sub></li>
+<li>efficient<sub><u>adj. 效率高的，高效的</u></sub></li>
+<li>accomplish<sub><u>v. 完成</u></sub></li>
+<li>feature<sub><u>n. 特色，特征；特写；特色节目 | v. 以……为特色；为……加特写；起重要特色，占重要地位</u></sub></li>
+<li>optimal<sub><u>adj. 最适宜的, 最理想的, 最好的</u></sub></li>
+<li>optimize<sub><u>v. 使最优化；使尽可能有效</u></sub></li>
+<li>financial<sub><u>adj. 金融的；财政的；财务的</u></sub></li>
+<li>lustre<sub><u>n. 光泽；光彩；光辉；声望；荣誉</u></sub></li>
+</ol>
+<hr>
+<h3 id="一、Share-an-object-with-others"><a href="#一、Share-an-object-with-others" class="headerlink" title="一、Share an object with others"></a>一、Share an object with others</h3><p>An application hosted on AWS is experiencing performance problems, and the application vendor wants to perform an analysis of the log file to troubleshoot further. The log file is stored on Amazon S3 and is 10 GB in size. The application owner will make the log file available to the vendor for a limited time.<br>What is the MOST secure way to do this?  </p>
+<ol>
+<li>Enable public read on the S3 object and provide the link to the vendor.  </li>
+<li>Upload the file to Amazon WorkDocs and share the public link with the vendor.  </li>
+<li>✅ Generate a presigned URL and have the vendor download the log file before it expires.  </li>
+<li>❌ Create an IAM user for the vendor to provide access to the S3 bucket and the application. Enforce multi-factor authentication.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：S3、临时访问、<strong>Share an object with others</strong></p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：Share an object with others - All objects by default are private. Only the object owner has permission to access these objects. However, the object owner can optionally share objects with others by creating a presigned URL, using their own security credentials, to grant time-limited permission to download the objects.<br>When you create a presigned URL for your object, you must provide your security credentials, specify a bucket name, an object key, specify the HTTP method (GET to download the object) and expiration date and time. The presigned URLs are valid only for the specified duration.<br>Anyone who receives the presigned URL can then access the object. For example, if you have a video in your bucket and both the bucket and the object are private, you can share the video with others by generating a presigned URL.<br>Reference: <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL.html">https://docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL.html</a></p>
+</blockquote>
+<hr>
+<h3 id="二、Using-Amazon-S3-Origins-MediaPackage-Channels-and-Custom-Origins-for-Web-Distributions"><a href="#二、Using-Amazon-S3-Origins-MediaPackage-Channels-and-Custom-Origins-for-Web-Distributions" class="headerlink" title="二、Using Amazon S3 Origins, MediaPackage Channels, and Custom Origins for Web Distributions"></a>二、Using Amazon S3 Origins, MediaPackage Channels, and Custom Origins for Web Distributions</h3><p>Organizers for a global event want to put daily reports online as static HTML pages. The pages are expected to generate millions of views from users around the world. The files are stored in an Amazon S3 bucket. A solutions architect has been asked to design an efficient and effective solution.<br>Which action should the solutions architect take to accomplish this?<br>1. Generate presigned URLs for the files.<br>2. Use cross-Region replication to all Regions.<br>3. Use the geoproximity feature of Amazon Route 53.<br>4. ✅ Use Amazon CloudFront with the S3 bucket as its origin.  </p>
+<blockquote>
+<p>✨ 关键词：S3、Different Regions</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：Using Amazon S3 Buckets for Your Origin.<br>When you use Amazon S3 as an origin for your distribution, you place any objects that you want CloudFront to deliver in an Amazon S3 bucket. You can use any method that is supported by Amazon S3 to get your objects into Amazon S3, for example, the Amazon S3 console or API, or a third-party tool. You can create a hierarchy in your bucket to store the objects, just as you would with any other Amazon S3 bucket.<br>Using an existing Amazon S3 bucket as your CloudFront origin server doesn’t change the bucket in any way; you can still use it as you normally would to store and access Amazon S3 objects at the standard Amazon S3 price. You incur regular Amazon S3 charges for storing the objects in the bucket.<br>Using Amazon S3 Buckets Configured as Website Endpoints for Your Origin.<br>You can set up an Amazon S3 bucket that is configured as a website endpoint as custom origin with CloudFront.<br>When you configure your CloudFront distribution, for the origin, enter the Amazon S3 static website hosting endpoint for your bucket. This value appears in the Amazon S3 console, on the Properties tab, in the Static website hosting pane. For example: <a target="_blank" rel="noopener" href="http://bucket-name.s3-website-region.amazonaws.com/">http://bucket-name.s3-website-region.amazonaws.com</a><br>For more information about specifying Amazon S3 static website endpoints, see Website endpoints in the Amazon Simple Storage Service Developer Guide.<br>When you specify the bucket name in this format as your origin, you can use Amazon S3 redirects and Amazon S3 custom error documents. For more information about Amazon S3 features, see the Amazon S3 documentation.<br>Using an Amazon S3 bucket as your CloudFront origin server doesn’t change it in any way. You can still use it as you normally would and you incur regular Amazon S3 charges.<br>Reference: <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistS3AndCustomOrigins.html">https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistS3AndCustomOrigins.html</a></p>
+</blockquote>
+<hr>
+<h3 id="三、Amazon-FSx-for-Lustre"><a href="#三、Amazon-FSx-for-Lustre" class="headerlink" title="三、Amazon FSx for Lustre"></a>三、Amazon FSx for Lustre</h3><p>A solutions architect is designing storage for a high performance computing (HPC) environment based on Amazon Linux. The workload stores and processes a large amount of engineering drawings that require shared storage and heavy computing.<br>Which storage option would be the optimal solution?  </p>
+<ol>
+<li>❌ Amazon Elastic File System (Amazon EFS)  </li>
+<li>✅ Amazon FSx for Lustre  </li>
+<li>Amazon EC2 instance store  </li>
+<li>Amazon EBS Provisioned IOPS SSD (io1)</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：HPC、shared storage</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：Amazon FSx for Lustre is a new, fully managed service provided by AWS based on the Lustre file system. Amazon FSx for Lustre provides a high-performance file system optimized for fast processing of workloads such as machine learning, high performance computing (HPC), video processing, financial modeling, and electronic design automation (EDA).<br>FSx for Lustre allows customers to create a Lustre filesystem on demand and associate it to an Amazon S3 bucket. As part of the filesystem creation, Lustre reads the objects in the buckets and adds that to the file system metadata. Any Lustre client in your VPC is then able to access the data, which gets cached on the high- speed Lustre filesystem. This is ideal for HPC workloads, because you can get the speed of an optimized Lustre file system without having to manage the complexity of deploying, optimizing, and managing the Lustre cluster.<br>Additionally, having the filesystem work natively with Amazon S3 means you can shut down the Lustre filesystem when you don’t need it but still access objects in Amazon S3 via other AWS Services. FSx for Lustre also allows you to also write the output of your HPC job back to Amazon S3.<br>Reference: <a target="_blank" rel="noopener" href="https://d1.awsstatic.com/whitepapers/AWS%20Partner%20Network_HPC%20Storage%20Options_2019_FINAL.pdf">https://d1.awsstatic.com/whitepapers/AWS%20Partner%20Network_HPC%20Storage%20Options_2019_FINAL.pdf</a></p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/11/04</p><p><a href="https://senjianlu.com/2024/11/04/saa_test_daily_20241104/">https://senjianlu.com/2024/11/04/saa_test_daily_20241104/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-11-04</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-11-04</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/11/05/translate_news_nhk_20241105_k10014629181000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - スペイン 洪水発生から1週間 捜索続く 200人以上が死亡</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/11/04/translate_news_nhk_20241104_k10014628541000/"><span class="level-item">日语翻译 - 新闻 - 自転車 酒気帯び運転疑いで2人逮捕 今月1日から罰則対象に</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、Share-an-object-with-others"><span class="level-left"><span class="level-item">一、Share an object with others</span></span></a></li><li><a class="level is-mobile" href="#二、Using-Amazon-S3-Origins-MediaPackage-Channels-and-Custom-Origins-for-Web-Distributions"><span class="level-left"><span class="level-item">二、Using Amazon S3 Origins, MediaPackage Channels, and Custom Origins for Web Distributions</span></span></a></li><li><a class="level is-mobile" href="#三、Amazon-FSx-for-Lustre"><span class="level-left"><span class="level-item">三、Amazon FSx for Lustre</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script data-pjax src="/js/insight.js" defer></script><script data-pjax>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

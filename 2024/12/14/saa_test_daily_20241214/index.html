@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/12/14 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam53 题 (No.966 ~ No.1019) 只记录了 4 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/12/14"><meta property="og:url" content="https://senjianlu.com/2024/12/14/saa_test_daily_20241214/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam53 题 (No.966 ~ No.1019) 只记录了 4 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-12-14T07:00:00.000Z"><meta property="article:modified_time" content="2024-12-14T08:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/12/14/saa_test_daily_20241214/"},"headline":"SAA 考试每日练习 - 2024/12/14","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-12-14T07:00:00.000Z","dateModified":"2024-12-14T08:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam53 题 (No.966 ~ No.1019) 只记录了 4 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/12/14/saa_test_daily_20241214/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-12-14T07:00:00.000Z" title="12/14/2024, 3:00:00 PM">2024-12-14</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/12/14</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/">Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam</a><br>53 题 (No.966 ~ No.1019) <strong>只记录了 4 道首次碰到的、错误的或有疑问的题目</strong>，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<h3 id="一、Amazon-RDS-automated-backups"><a href="#一、Amazon-RDS-automated-backups" class="headerlink" title="一、Amazon RDS automated backups"></a>一、Amazon RDS automated backups</h3><p>A company is migrating its on-premises Oracle database to an Amazon RDS for Oracle database. The company needs to retain data for 90 days to meet regulatory requirements. The company must also be able to restore the database to a specific point in time for up to 14 days.<br>Which solution will meet these requirements with the LEAST operational overhead?</p>
+<ol>
+<li>Create Amazon RDS automated backups. Set the retention period to 90 days.</li>
+<li>Create an Amazon RDS manual snapshot every day. Delete manual snapshots that are older than 90 days.</li>
+<li>❌ Use the Amazon Aurora Clone feature for Oracle to create a point-in-time restore. Delete clones that are older than 90 days.</li>
+<li>✅ Create a backup plan that has a retention period of 90 days by using AWS Backup for Amazon RDS.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/getting-started/hands-on/amazon-rds-backup-restore-using-aws-backup/">使用 AWS Backup 备份和还原 Amazon RDS</a></p>
+<blockquote>
+<p>g. Enable continuous backups for point-in-time recovery（启用连续备份以进行时间点恢复）- 使用连续备份，您可以通过选择恢复时间（精确到秒）来执行时间点还原 (PITR)。工作负载的当前状态与最近的时间点还原之间的最长时间间隔为 5 分钟。连续备份最多可存储 35 天。如果您不启用连续备份，AWS Backup 会为您进行快照备份。</p>
+</blockquote>
+<p>连续备份只能最多保留 35 天，因此 3️⃣ 是错误的。  </p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.BackupRetention.html">备份保留期</a></p>
+<blockquote>
+<p>创建数据库实例或集群后，您可以修改备份保留期。您可以将数据库实例的备份保留期设置为在 0 到 35 天之间。要禁用自动备份，请将备份保留期设置为 0。对于多可用区数据库集群，可以将备份保留期设置为在 1 到 35 天之间。手动快照限制（每个区域 100 个）不适用于自动备份。</p>
+</blockquote>
+<p>自动备份的保留期也是 35 天，因此只有 4️⃣ 正确。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A: Amazon RDS automated backups support a maximum retention period of 35 days. This option does not meet the requirement to retain backups for 90 days.<br>B: This approach requires manual snapshot management, including scheduling snapshots and deleting old ones. This increases operational overhead and is prone to human error.<br>C: This option is not applicable as Aurora Clone is a feature specific to Amazon Aurora and not available for Amazon RDS for Oracle. Additionally, it would require manual management of clones, increasing complexity.<br>D: AWS Backup supports point-in-time recovery for Amazon RDS, enabling you to restore the database to any specific point within the defined retention period, up to 35 days. For the requirement of 14 days, AWS Backup easily supports this capability.</p>
+</blockquote>
+<hr>
+<h3 id="二、IAM-Identity-Center"><a href="#二、IAM-Identity-Center" class="headerlink" title="二、IAM Identity Center"></a>二、IAM Identity Center</h3><p>A company is building a cloud-based application on AWS that will handle sensitive customer data. The application uses Amazon RDS for the database, Amazon S3 for object storage, and S3 Event Notifications that invoke AWS Lambda for serverless processing.<br>The company uses AWS IAM Identity Center to manage user credentials. The development, testing, and operations teams need secure access to Amazon RDS and Amazon S3 while ensuring the confidentiality of sensitive customer data. The solution must comply with the principle of least privilege.<br>Which solution meets these requirements with the LEAST operational overhead?</p>
+<ol>
+<li>Use IAM roles with least privilege to grant all the teams access. Assign IAM roles to each team with customized IAM policies defining specific permission for Amazon RDS and S3 object access based on team responsibilities.</li>
+<li>✅ Enable IAM Identity Center with an Identity Center directory. Create and configure permission sets with granular access to Amazon RDS and Amazon S3. Assign all the teams to groups that have specific access with the permission sets.</li>
+<li>Create individual IAM users for each member in all the teams with role-based permissions. Assign the IAM roles with predefined policies for RDS and S3 access to each user based on user needs. Implement IAM Access Analyzer for periodic credential evaluation.</li>
+<li>Use AWS Organizations to create separate accounts for each team. Implement cross-account IAM roles with least privilege. Grant specific permission for RDS and S3 access based on team roles and responsibilities.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/singlesignon/latest/userguide/what-is.html">IAM Identity Center 是什么？</a></p>
+<blockquote>
+<p>AWS IAM Identity Center是一种AWS解决方案，用于将您的员工用户连接到AWS管理的应用程序（如Amazon Q Developer和Amazon QuickSight）以及其他AWS资源。您可以连接现有的身份提供者并从您的目录同步用户和组，或者直接在IAM identity Center中创建和管理您的用户。<br>然后，您可以使用IAM身份中心进行以下操作中的一项或两项：</p>
+<ul>
+<li>用户访问应用程序</li>
+<li>用户访问AWS帐户</li>
+</ul>
+<p>使用IAM Identity Center访问AWS管理的应用程序无需对当前AWS帐户工作流进行任何更改。如果您正在与IAM或IAM用户使用federation来访问AWS帐户，则您的用户可以继续以相同的方式访问AWS帐户，并且您可以继续使用现有的工作流来管理该访问。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：IAM Identity Center: This service simplifies user management by centralizing credentials and access control.<br>Permission Sets: You can create granular permission sets that align with the principle of least privilege, ensuring that each team has only the access they need.  </p>
+<blockquote>
+<p>Permission Sets: 您可以创建符合最小权限原则的粒度权限集，确保每个团队只拥有所需的访问权限。</p>
+</blockquote>
+<p>Group Assignments: By assigning teams to groups with specific permission sets, you streamline access management and reduce the complexity of individual user permissions.  </p>
+<blockquote>
+<p>Group Assignments: 通过将团队分配给具有特定权限集的组，可以简化访问管理并降低单个用户权限的复杂性。</p>
+</blockquote>
+<p>This approach minimizes operational overhead while maintaining secure and compliant access to sensitive customer data</p>
+</blockquote>
+<hr>
+<h3 id="三、AWSEC2-PatchLoadBalancerInstance"><a href="#三、AWSEC2-PatchLoadBalancerInstance" class="headerlink" title="三、AWSEC2-PatchLoadBalancerInstance"></a>三、AWSEC2-PatchLoadBalancerInstance</h3><p>A company uses AWS Systems Manager for routine management and patching of Amazon EC2 instances. The EC2 instances are in an IP address type target group behind an Application Load Balancer (ALB).<br>New security protocols require the company to remove EC2 instances from service during a patch. When the company attempts to follow the security protocol during the next patch, the company receives errors during the patching window.<br>Which combination of solutions will resolve the errors? (Choose two.)</p>
+<ol>
+<li>❌ Change the target type of the target group from IP address type to instance type.</li>
+<li>Continue to use the existing Systems Manager document without changes because it is already optimized to handle instances that are in an IP address type target group behind an ALB.</li>
+<li>✅ Implement the AWSEC2-PatchLoadBalanacerInstance Systems Manager Automation document to manage the patching process.</li>
+<li>✅ Use Systems Manager Maintenance Windows to automatically remove the instances from service to patch the instances.</li>
+<li>❌ Configure Systems Manager State Manager to remove the instances from service and manage the patching schedule. Use ALB health checks to re-route traffic.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ 5️⃣ ❌ -&gt; 3️⃣ 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/systems-manager-automation-runbooks/latest/userguide/automation-awsec2-patch-load-balancer-instance.html">AWSEC2-PatchLoadBalancerInstance</a>  </p>
+<blockquote>
+<p>升级并修补附加到任何负载均衡器（经典、ALB 或 NLB）的 Amazon EC2 实例（Windows 或 Linux）的次要版本。在修补该实例之前，会应用默认的连接耗尽时间。您可以为 ConnectionDrainTime 参数输入以分钟 (1-59) 为单位的自定义耗尽时间，从而覆盖等待时间。<br>自动化工作流程如下所示：</p>
+<ol>
+<li>确定实例所附加的负载均衡器或目标组，并验证该实例是否运行正常。</li>
+<li>该实例已从负载均衡器或目标组移除。</li>
+<li>此自动化将等待为连接耗尽时间指定的时间段。</li>
+<li>调用 AWS-RunPatchBaseline 自动化以修补该实例。</li>
+<li>该实例已从负载均衡器或目标组重新附加。</li>
+</ol>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-awsec2-patch-load-balancer-instance.html">https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-awsec2-patch-load-balancer-instance.html</a></p>
+</blockquote>
+<hr>
+<h3 id="四、Allow-IPs-for-API-Gateway"><a href="#四、Allow-IPs-for-API-Gateway" class="headerlink" title="四、Allow IPs for API Gateway"></a>四、Allow IPs for API Gateway</h3><p>A company is developing an application in the AWS Cloud. The application’s HTTP API contains critical information that is published in Amazon API Gateway. The critical information must be accessible from only a limited set of trusted IP addresses that belong to the company’s internal network.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Set up an API Gateway private integration to restrict access to a predefined set of IP addresses.</li>
+<li>✅ Create a resource policy for the API that denies access to any IP address that is not specifically allowed.</li>
+<li>Directly deploy the API in a private subnet. Create a network ACL. Set up rules to allow the traffic from specific IP addresses.</li>
+<li>❌ Modify the security group that is attached to API Gateway to allow inbound traffic from only the trusted IP addresses.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://repost.aws/zh-Hans/knowledge-center/api-gateway-resource-policy-access">如何只允许特定的 IP 地址访问我的 API Gateway REST API？</a></p>
+<blockquote>
+<p>创建并附加仅允许特定 IP 地址访问您的 API Gateway REST API 的资源策略</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：answer B</p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/12/14</p><p><a href="https://senjianlu.com/2024/12/14/saa_test_daily_20241214/">https://senjianlu.com/2024/12/14/saa_test_daily_20241214/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-12-14</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-12-14</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/12/15/translate_news_nhk_20241214_k10014668191000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - 長崎の被爆者 朝長さん “核兵器廃絶に若い世代欠かせない”</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/12/14/translate_news_nhk_20241214_k10014667841000/"><span class="level-item">日语翻译 - 新闻 - “北朝鮮 IT技術者使い不正に収入得る”米司法当局 14人を起訴</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、Amazon-RDS-automated-backups"><span class="level-left"><span class="level-item">一、Amazon RDS automated backups</span></span></a></li><li><a class="level is-mobile" href="#二、IAM-Identity-Center"><span class="level-left"><span class="level-item">二、IAM Identity Center</span></span></a></li><li><a class="level is-mobile" href="#三、AWSEC2-PatchLoadBalancerInstance"><span class="level-left"><span class="level-item">三、AWSEC2-PatchLoadBalancerInstance</span></span></a></li><li><a class="level is-mobile" href="#四、Allow-IPs-for-API-Gateway"><span class="level-left"><span class="level-item">四、Allow IPs for API Gateway</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script data-pjax src="/js/insight.js" defer></script><script data-pjax>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

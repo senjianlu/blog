@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/11/25 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam8 题 (No.58 ~ No.65)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/11/25"><meta property="og:url" content="https://senjianlu.com/2024/11/25/saa_test_daily_20241125/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam8 题 (No.58 ~ No.65)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-11-25T11:00:00.000Z"><meta property="article:modified_time" content="2024-11-25T12:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/11/25/saa_test_daily_20241125/"},"headline":"SAA 考试每日练习 - 2024/11/25","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-11-25T11:00:00.000Z","dateModified":"2024-11-25T12:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam8 题 (No.58 ~ No.65)，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/11/25/saa_test_daily_20241125/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-11-25T11:00:00.000Z" title="11/25/2024, 7:00:00 PM">2024-11-25</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/11/25</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/">Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam</a><br>8 题 (No.58 ~ No.65)，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<p><strong>🌟 单词：</strong></p>
+<ol>
+<li>clickstream<sub><u>点击流</u></sub></li>
+<li>separately<sub><u>adv. 单独地，分别地</u></sub></li>
+<li>external<sub><u>adj. 外部的，外面的，外来的</u></sub></li>
+<li>accommodate<sub><u>v. 容纳；适应；提供住宿；顾及</u></sub></li>
+<li>rapidly<sub><u>adv. 迅速地；很快地；立即</u></sub></li>
+<li>interact<sub><u>v. 交流，交往，互动；相互作用，相互影响</u></sub></li>
+<li>significant<sub><u>adj. 重要的，意义重大的；意味深长的；相当数量的；显著的；表示…的</u></sub></li>
+</ol>
+<hr>
+<h3 id="一、Containers"><a href="#一、Containers" class="headerlink" title="一、Containers"></a>一、Containers</h3><p>A company wants to run its critical applications in containers to meet requirements for scalability and availability. The company prefers to focus on maintenance of the critical applications. The company does not want to be responsible for provisioning and managing the underlying infrastructure that runs the containerized workload.<br>What should a solutions architect do to meet these requirements?</p>
+<ol>
+<li>Use Amazon EC2 instances, and install Docker on the instances.</li>
+<li>Use Amazon Elastic Container Service (Amazon ECS) on Amazon EC2 worker nodes.</li>
+<li>✅ Use Amazon Elastic Container Service (Amazon ECS) on AWS Fargate.</li>
+<li>Use Amazon EC2 instances from an Amazon Elastic Container Service (Amazon ECS)-optimized Amazon Machine Image (AMI).</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：containers、scalability and availability、does not want to be responsible for the containerized workload</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：应用运行在容器中，公司不希望管理运行容器的架构。<br>这是 <code>Fargate</code> 的最佳使用场景，同时注意它需要与 <code>ECS</code> 和 <code>EKS</code> 搭配使用。  </p>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/fargate/?nc1=h_ls">AWS Fargate 适用于容器的无服务器计算</a></p>
+<blockquote>
+<p>AWS Fargate 与 Amazon Elastic Container Service（Amazon ECS）和 Amazon Elastic Kubernetes Service（Amazon EKS）兼容。选择任何符合 OCI 标准的容器映像，定义内存和计算资源，然后使用无服务器计算运行容器。由于该服务支持多种 CPU 架构和操作系统，因此您可以在各种应用程序中享受这些好处。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Good answer is C:<br>AWS Fargate isa serverless, pay-as-you-go compute engine that lets you focus on building applications without having to manage servers. AWS Fargate is compatible with Amazon Elastic ContainerService (ECS) and Amazon Elastic Kubernetes Service (EKS).<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/fr/fargate/">https://aws.amazon.com/fr/fargate/</a></p>
+</blockquote>
+<hr>
+<h3 id="二、30-TB-of-clickstream"><a href="#二、30-TB-of-clickstream" class="headerlink" title="二、30 TB of clickstream"></a>二、30 TB of clickstream</h3><p>A company hosts more than 300 global websites and applications. The company requires a platform to analyze more than 30 TB of clickstream<sub><u>点击流</u></sub> data each day.<br>What should a solutions architect do to transmit<sub><u>传输</u></sub> and process the clickstream data?</p>
+<ol>
+<li>Design an AWS Data Pipeline to archive the data to an Amazon S3 bucket and run an Amazon EMR cluster with the data to generate analytics.</li>
+<li>Create an Auto Scaling group of Amazon EC2 instances to process the data and send it to an Amazon S3 data lake for Amazon Redshift to use for analysis.</li>
+<li>Cache the data to Amazon CloudFront. Store the data in an Amazon S3 bucket. When an object is added to the S3 bucket. run an AWS Lambda function to process the data for analysis.</li>
+<li>✅ Collect the data from Amazon Kinesis Data Streams. Use Amazon Kinesis Data Firehose to transmit the data to an Amazon S3 data lake. Load the data in Amazon Redshift for analysis.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：30 TB of clickstream、transmit、analyze</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：公司运行了超过 300 个全球网页和应用，需要每天分析超过 30 TB 的点击流数据。<br>数据流首选 <code>Amazon Kinesis Data</code> 系应用，4️⃣ 的处理也不存在问题，通过 <code>Amazon Kinesis Data Firehose</code> 将数据传输到 <code>S3</code> 存储桶中再通过 <code>Redshift</code> 数据湖进行分析。  </p>
+<p>社区中有些学友选了 1️⃣，来看下 <code>AWS Data Pipeline</code> 和 <code>Amazon EMR (Elastic MapReduce) cluster</code>。<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/datapipeline/latest/DeveloperGuide/what-is-datapipeline.html">什么是 AWS Data Pipeline？</a></p>
+<blockquote>
+<p>⚠ <u><strong>AWS Data Pipeline 服务处于维护模式，没有计划新功能或区域扩展</strong></u>。</p>
+<p>AWS Data Pipeline 是一项 Web 服务，可用于自动移动和转换数据。使用 AWS Data Pipeline，您可以定义数据驱动的工作流程，以便任务可以依赖于先前任务的成功完成。您可以定义数据转换的参数并 AWS Data Pipeline 强制执行已设置的逻辑。  </p>
+<p>例如，您可以使用每天将网络服务器的日志存档 AWS Data Pipeline 到亚马逊简单存储服务 (Amazon S3)，然后在这些日志上运行每周一次的亚马逊 EMR (Amazon EMR) 集群以生成流量报告。<br><img src="https://image.senjianlu.com/blog/2024-11-28/dp-how-dp-works-v2.png" alt="使用 AWS Data Pipeline 的日志分析架构"></p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/emr/?nc1=h_ls">Amazon EMR 轻松运行和扩展 Apache Spark、Hive、Presto 以及其他大数据工作负载</a></p>
+<blockquote>
+<p>Amazon EMR（以前称为 Amazon Elastic MapReduce）是一个托管集群平台，可简化在AWS上运行大数据框架（如 Apache Hadoop 和 Apache Spark）的过程，以处理和分析海量数据。</p>
+</blockquote>
+<p>看起来 1️⃣ 也能解决问题，甚至题目完美符合官方推荐的使用场景。有些人指出了它不能实时处理数据流，有些人则指出它已经不被官方推荐了。总之 4️⃣ 在当前时间点优于 1️⃣。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Option D is the most appropriate solution for transmitting and processing the clickstream data in this scenario.<br>Amazon Kinesis Data Streams isa highly scalable and durable service that enables real-time processing of streaming data at a high volume and high rate. You can use Kinesis Data Streams to collect and process the clickstream data in real-time.<br>Amazon Kinesis Data Firehose isa fully managed service that loads streaming data into data storesand analytics tools. You can use Kinesis Data Firehose to transmit the data from Kinesis Data Streams to an Amazon S3 data lake.<br>Once the data is in the data lake, you can use Amazon Redshift to load the data and perform analysis on it. Amazon Redshift is a fully managed, petabyte-scale data warehouse service that allows you to quicklyand efficientlyanalyze data using SQL and yourexisting business intelligence tools.</p>
+<p>Option A, which involves using AWS Data Pipeline to archive the data to an Amazon S3 bucket and running an Amazon EMR cluster with the data to generate analytics, is not the most appropriate solution because it does not involve real-time processing of the data.</p>
+<p>A: Not sure how recent this question is but Data Pipeline is not reallya product AWS is recommending anymore.</p>
+</blockquote>
+<hr>
+<h3 id="三、Redirect-HTTP-to-HTTPS"><a href="#三、Redirect-HTTP-to-HTTPS" class="headerlink" title="三、Redirect HTTP to HTTPS"></a>三、Redirect HTTP to HTTPS</h3><p>A company has a website hosted on AWS. The website is behind an Application Load Balancer (ALB) that is configured to handle HTTP and HTTPS separately<sub><u>分别地</u></sub>. The company wants to forward all requests to the website so that the requests will use HTTPS.<br>What should a solutions architect do to meet this requirement?</p>
+<ol>
+<li>Update the ALB’s network ACL to accept only HTTPS traffic.</li>
+<li>Create a rule that replaces the HTTP in the URL with HTTPS.</li>
+<li>✅ Create a listener rule on the ALB to redirect HTTP traffic to HTTPS.</li>
+<li>Replace the ALB with a Network Load Balancer configured to use Server Name Indication (SNI).</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：use HTTPS</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：有网站托管在 AWS，并前置 <code>ALB</code> 分开处理 HTTP 和 HTTPS 请求。现在希望让所有请求都使用 HTTPS。<br>将 HTTP 请求重定向为 HTTPS 就能够解决问题了，选 3️⃣。</p>
+<p><a target="_blank" rel="noopener" href="https://repost.aws/zh-Hans/knowledge-center/elb-redirect-http-to-https-using-alb">如何使用应用程序负载均衡器将 HTTP 请求重定向至 HTTPS？</a></p>
+<blockquote>
+<p>……<br>6. 选择一个负载均衡器，然后选择 HTTP 侦听器。<br>7. 在规则下，选择查看&#x2F;编辑规则。<br>8. 选择编辑规则以修改现有默认规则，从而将所有 HTTP 请求重定向到 HTTPS。或者，在现有规则之间插入一个规则（如果适合您的用例）。<br>9. 在然后下，删除现有条件。然后，使用重定向到操作添加新条件。<br>10. 对于 HTTPS，请输入 443 端口。<br>……</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：C. Create a listener rule on the ALB to redirect HTTP traffic to HTTPS.<br>To meet the requirement of forwarding all requests to the website so that the requests will use HTTPS,a solutionsarchitect can create a listener rule on the ALB that redirects HTTP traffic to HTTPS.This can be done by creating a rule with a condition that matchesall HTTP traffic and a rule action that redirects the traffic to the HTTPS listener.The HTTPS listener should already be configured to accept HTTPS traffic and forward it to the target group.</p>
+</blockquote>
+<hr>
+<h3 id="四、Database-credentials-automatic-rotation"><a href="#四、Database-credentials-automatic-rotation" class="headerlink" title="四、Database credentials automatic rotation"></a>四、Database credentials automatic rotation</h3><p>A company is developing a two-tier web application on AWS. The company’s developers have deployed the application on an Amazon EC2 instance that connects directly to a backend Amazon RDS database. The company must not hardcode database credentials in the application. The company must also implement a solution to automatically rotate the database credentials on a regular basis.<br>Which solution will meet these requirements with the LEAST operational overhead?</p>
+<ol>
+<li>Store the database credentials in the instance metadata. Use Amazon EventBridge (Amazon CloudWatch Events) rules to run a scheduled AWS Lambda function that updates the RDS credentials and instance metadata at the same time.</li>
+<li>Store the database credentials in a configuration file in an encrypted Amazon S3 bucket. Use Amazon EventBridge (Amazon CloudWatch Events) rules to run a scheduled AWS Lambda function that updates the RDS credentials and the credentials in the configuration file at the same time. Use S3 Versioning to ensure the ability to fall back to previous values.</li>
+<li>✅ Store the database credentials as a secret in AWS Secrets Manager. Turn on automatic rotation for the secret. Attach the required permission to the EC2 role to grant access to the secret.</li>
+<li>Store the database credentials as encrypted parameters in AWS Systems Manager Parameter Store. Turn on automatic rotation for the encrypted parameters. Attach the required permission to the EC2 role to grant access to the encrypted parameters.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：not hardcode database credentials in the application</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：双层架构的系统，并且不希望将数据库信息硬编码在应用程序中。定期轮转数据库认证信息。<br>涉及到密钥的轮转，优先考虑 <code>AWS Secrets Manager</code>，同时 3️⃣ 的解决方式也不存在问题：通过 <code>AWS Secrets Manager</code> 自动轮转数据库认证信息，授予 <code>EC2</code> 实例角色让它能访问密钥。  </p>
+<p>老生常谈的问题了，<code>AWS Systems Manager Parameter Store</code> 不支持自动轮转。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Secrets manager supports Autorotation unlike Parameter store.</p>
+</blockquote>
+<hr>
+<h3 id="五、AWS-Certificate-Manager-rotate-certificate"><a href="#五、AWS-Certificate-Manager-rotate-certificate" class="headerlink" title="五、AWS Certificate Manager rotate certificate"></a>五、AWS Certificate Manager rotate certificate</h3><p>A company is deploying a new public web application to AWS. The application will run behind an Application Load Balancer (ALB). The application needs to be encrypted at the edge with an SSL&#x2F;TLS certificate that is issued by an external<sub><u>外部的</u></sub> certificate authority (CA). The certificate must be rotated each year before the certificate expires.<br>What should a solutions architect do to meet these requirements?</p>
+<ol>
+<li>Use AWS Certificate Manager (ACM) to issue an SSL&#x2F;TLS certificate. Apply the certificate to the ALB. Use the managed renewal feature to automatically rotate the certificate.</li>
+<li>Use AWS Certificate Manager (ACM) to issue an SSL&#x2F;TLS certificate. Import the key material from the certificate. Apply the certificate to the ALUse the managed renewal feature to automatically rotate the certificate.</li>
+<li>❌ Use AWS Certificate Manager (ACM) Private Certificate Authority to issue an SSL&#x2F;TLS certificate from the root CA. Apply the certificate to the ALB. Use the managed renewal feature to automatically rotate the certificate.</li>
+<li>✅ Use AWS Certificate Manager (ACM) to import an SSL&#x2F;TLS certificate. Apply the certificate to the ALB. Use Amazon EventBridge (Amazon CloudWatch Events) to send a notification when the certificate is nearing expiration. Rotate the certificate manually.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：external CA、rotated each year</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：网页应用前置了 <code>ALB</code>，同时需要在边缘节点就开启 SSL 认证，证书来自外部 CA，证书需要每年更新。<br>首先需要明确 <code>ACM</code> 的证书是 <code>区域</code> 级别的。<br>1️⃣ 和 2️⃣ 使用 <code>ACM</code> 签发证书与题目描述的外部 CA 冲突，排除。<br>3️⃣ 和 4️⃣ 的差别在于 <code>ACM</code> 是否可以为外部 CA 自动（续）签发证书，答案是不可以，因此选 4️⃣。</p>
+<p><a target="_blank" rel="noopener" href="https://www.amazonaws.cn/certificate-manager/faqs/?nc1=h_ls">Amazon Certificate Manager 常见问题</a></p>
+<blockquote>
+<p><strong>问：可以使用 ACM 创建和管理哪些类型的证书</strong>？<br>使用 ACM，您可以管理公有证书的生命周期。ACM 的功能取决于证书是否为公有证书、您获得证书的方式，以及证书的部署位置。请参阅“ACM 公有证书”，了解有关公有证书的更多信息。<br>公有证书 – ACM 管理用于 ACM 集成服务（包括 Elastic Load Balancing 和 Amazon API Gateway）的公有证书的续订和部署。<br>已导入证书 – 如果想将第三方证书与 Elastic Load Balancing 或 Amazon API Gateway 配合使用，您可以使用 亚马逊云科技 管理控制台、Amazon CLI 或 ACM API 将该证书导入 ACM。ACM 不会管理已导入证书的续订流程。<strong>您负责监控所导入证书的到期日期，并在到期之前续订。<u>您可以使用 亚马逊云科技 管理控制台监控已导入证书的到期日期，并导入新的第三方证书来替换即将到期的证书</u></strong>。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：It’sa third-party certificate, hence AWS cannot manage renewal automatically.The closest thing you can do is to send a<br>notification to renew the 3rd party certificate.</p>
+</blockquote>
+<hr>
+<h3 id="六、Cost-effectively-stroage"><a href="#六、Cost-effectively-stroage" class="headerlink" title="六、Cost-effectively stroage"></a>六、Cost-effectively stroage</h3><p>A company runs its infrastructure on AWS and has a registered base of 700,000 users for its document management application. The company intends to create a product that converts large .pdf files to .jpg image files. The .pdf files average 5 MB in size. The company needs to store the original files and the converted files. A solutions architect must design a scalable solution to accommodate<sub><u>适应</u></sub> demand that will grow rapidly<sub><u>迅速地</u></sub> over time.<br>Which solution meets these requirements MOST cost-effectively?</p>
+<ol>
+<li>✅ Save the .pdf files to Amazon S3. Configure an S3 PUT event to invoke an AWS Lambda function to convert the files to .jpg format and store them back in Amazon S3.</li>
+<li>Save the .pdf files to Amazon DynamoDB. Use the DynamoDB Streams feature to invoke an AWS Lambda function to convert the files to .jpg format and store them back in DynamoDB.</li>
+<li>Upload the .pdf files to an AWS Elastic Beanstalk application that includes Amazon EC2 instances, Amazon Elastic Block Store (Amazon EBS) storage, and an Auto Scaling group. Use a program in the EC2 instances to convert the files to .jpg format. Save the .pdf files and the .jpg files in the EBS store.</li>
+<li>Upload the .pdf files to an AWS Elastic Beanstalk application that includes Amazon EC2 instances, Amazon ElasticFile System (Amazon EFS) storage, and an Auto Scaling group. Use a program in the EC2 instances to convert the file to .jpg format. Save the .pdf files and the .jpg files in the EBS store.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：converts large .pdf files to .jpg image files、grow rapidly、MOST cost-effectively</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：将 .pdf 文件转换为 .jpg 文件，原始文件和转换后的文件都需要保存，文件数量上涨很快。需要最便宜的方案。<br>最便宜的存储方案就是 <code>S3</code>，1️⃣ 的操作也没有问题：<code>S3</code> 的上传操作触发 <code>Lambda</code> 的转换，并将转换后的文件存回 <code>S3</code>。 </p>
+<p>拓展下，社区讨论中提到了 <code>DynamoDB</code> 有 400 KB 的最大文件大小限制。<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/amazondynamodb/latest/developerguide/ServiceQuotas.html">Amazon DynamoDB 中的服务、账户和表限额</a></p>
+<blockquote>
+<p>DynamoDB 中的项目大小上限为 400 KB，包括属性名称二进制长度（UTF-8 长度）和属性值长度（同为二进制长度）。属性名称也包含在此大小限制之内。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Option A.Elastic BeanStalkisexpensive,and DynamoDB has a 400KB max to upload files.So Lambda and S3 should be the one.</p>
+</blockquote>
+<hr>
+<h3 id="七、Amazon-FSx-File-Gateway"><a href="#七、Amazon-FSx-File-Gateway" class="headerlink" title="七、Amazon FSx File Gateway"></a>七、Amazon FSx File Gateway</h3><p>A company has more than 5 TB of file data on Windows file servers that run on premises. Users and applications interact<sub><u>交互</u></sub> with the data each day.<br>The company is moving its Windows workloads to AWS. As the company continues this process, the company requires access to AWS and on-premises file storage with minimum latency. The company needs a solution that minimizes operational overhead and requires no significant<sub><u>重大的</u></sub> changes to the existing file access patterns. The company uses an AWS Site-to-Site VPN connection for connectivity to AWS.<br>What should a solutions architect do to meet these requirements?</p>
+<ol>
+<li>Deploy and configure Amazon FSx for Windows File Server on AWS. Move the on-premises file data to FSx for Windows File Server. Reconfigure the workloads to use FSx for Windows File Server on AWS.</li>
+<li>Deploy and configure an Amazon S3 File Gateway on premises. Move the on-premises file data to the S3 File Gateway. Reconfigure the on-premises workloads and the cloud workloads to use the S3 File Gateway.</li>
+<li>Deploy and configure an Amazon S3 File Gateway on premises. Move the on-premises file data to Amazon S3. Reconfigure the workloads to use either Amazon S3 directly or the S3 File Gateway. depending on each workload’s location.</li>
+<li>✅ Deploy and configure Amazon FSx for Windows File Server on AWS. Deploy and configure an Amazon FSx File Gateway on premises. Move the on-premises file data to the FSx File Gateway. Configure the cloud workloads to use FSx for Windows File Server on AWS. Configure the on-premises workloads to use the FSx File Gateway.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：5 TB、Windows file servers、on-premises file storage、minimum latency</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：应用程序需要与 5 TB 大小的文件数据交互，文件存储在 Windows 文件服务器上。需要将应用程序迁移到 AWS，同时需要连接到 AWS 和本地托管文件存储都拥有低延迟。最少操作且对文件访问方式不要有重大变化。公司已经使用了 AWS <code>Site-to-Site VPN</code> 连接到 AWS。<br>这种场景下，需要考虑 <code>AWS 文件网关</code>，又因为是 Windows 系统，因此不能选择 <code>S3 文件网关</code>，2️⃣ 和 3️⃣ 肯定是错了，先排除。<br>然后又要求低延迟，<code>FSx File Gateway</code> 由于拥有缓存属性，因此一定是最好的选择，选 4️⃣。</p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/storagegateway/">AWS Storage Gateway 文档</a></p>
+<blockquote>
+<ul>
+<li><code>Amazon S3 File Gateway</code></li>
+<li><code>Amazon FSx File Gateway</code>：它提供从本地部署的设施中访问云中的 Amazon FSx for Windows File Server 共享的功能。</li>
+<li><code>Tape Gateway</code></li>
+<li><code>Volume Gateway</code></li>
+</ul>
+</blockquote>
+<p>不过社区指出了选项 4️⃣ 中存在的 “Move the on-premises file data to the FSx File Gateway” 行为不合理，因为将文件拷贝到缓存中是不合常理的。<br>但是题目考点似乎就是 <code>Amazon FSx File Gateway</code>。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Agree answer is D)  </p>
+<p>Requirementsare:</p>
+<ul>
+<li>“Usersand applications interact with the data each day”</li>
+<li>“the company requiresaccess to AWS and on-premises file storage with minimum latency”</li>
+</ul>
+<p>Explanation: Answer A) will work with the same on-prem &lt;&gt; aws latencyas in answer D) as both use the VPN Connection.<br>Having said this, by using an Amazon FSx File Gateway on premise as the D) scenario mentioned,all users will have a great benefit on using the cache that the FSx File Gateway has on their daily workloads. And that is part of the requierements: “users”, “each day”, “latency”</p>
+<p>🙅：D IS WRONG - Its used for caching. you cannot ‘Move the on-premises file data to the FSx File Gateway.’ which is stated in answer D. It pretty sure AWS employee’sare spamming this site with the wrong answers intentionally.</p>
+</blockquote>
+<hr>
+<h3 id="八、Protected-health-information"><a href="#八、Protected-health-information" class="headerlink" title="八、Protected health information"></a>八、Protected health information</h3><p>A hospital recently deployed a RESTful API with Amazon API Gateway and AWS Lambda. The hospital uses API Gateway and Lambda to upload reports that are in PDF format and JPEG format. The hospital needs to modify the Lambda code to identify protected health information (PHI) in the reports.<br>Which solution will meet these requirements with the LEAST operational overhead? </p>
+<ol>
+<li>Use existing Python libraries to extract the text from the reports and to identify the PHI from the extracted text.</li>
+<li>Use Amazon Textract to extract the text from the reports. Use Amazon SageMaker to identify the PHI from the extracted text.</li>
+<li>✅ Use Amazon Textract to extract the text from the reports. Use Amazon Comprehend Medical to identify the PHI from the extracted text.</li>
+<li>Use Amazon Rekognition to extract the text from the reports. Use Amazon Comprehend Medical to identify the PHI from the extracted text.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：API Gateway、Lambda、turn PDF format and JPEG format、identify protected health information</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：医院部署了 <code>API 网关</code> 并在后端使用 <code>Lambda</code> 将 PDF 转为 JPEG，现在需要添加识别保护的医疗数据的功能。要求最简单的方法。<br><code>Amazon Textract</code> 是从 PDF 中提取文字数据的 AI 服务，<code>Rekognition</code> 是识别照片中敏感信息的 AI 服务，<code>SageMaker</code> 是供科学家训练机器学习模型的服务，<code>Amazon Comprehend Medical</code> 摘取文本中医疗数据的 AI 服务。<br>选 3️⃣，先提取文字，再摘取医疗信息。  </p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/textract/latest/dg/what-is.html">什么是 Amazon Textract？</a></p>
+<blockquote>
+<p>Amazon Textract 是一种机器学习（ML）服务，从扫描的文档（如PDF）中自动提取文本、手写内容、布局元素和数据。 它不是简单的光学字符识别技术（OCR），而是可以识别、理解并提取文档中的特定数据。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/rekognition/latest/dg/what-is.html">Amazon Rekognition 图像识别</a></p>
+<blockquote>
+<p>Amazon Rekognition 是一项基于云的图像和视频分析服务，可以轻松地向应用程序添加高级计算机视觉功能。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/machine-learning/accelerate-amazon-sagemaker/">Amazon SageMaker 机器学习面向每位开发人员和数据科学家</a></p>
+<blockquote>
+<p>Amazon SageMaker 是一项完全托管的服务，可以帮助开发人员和数据科学家快速构建、训练和部署机器学习 (ML) 模型。SageMaker 完全消除了机器学习过程中每个步骤的繁重工作，让开发高质量模型变得更加轻松。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/comprehend-medical/latest/dev/comprehendmedical-welcome.html">什么是 Amazon Comprehend Medical？</a></p>
+<blockquote>
+<p>Amazon Comprehend Medical 可以检测并返回非结构化临床文本中的有用信息，例如医生记录、出院摘要、检验结果、病例记录等。Amazon Comprehend Medical 使用自然语言处理 (NLP) 模型来检测实体，这些实体是对<u><strong>医疗信息 [例如医学状况、药物或受保护的健康信息 (PHI)] 的文本引用</strong></u>。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：The correct solution is C: Use Amazon Textract to extract the text from the reports. Use Amazon Comprehend Medical to identify the PHI from the extracted text.  </p>
+<p>Option C: Using Amazon Textract to extract the text from the reports,and Amazon Comprehend Medical to identify the PHI from the extracted text, would be the most efficient solution as it would involve the least operational overhead.Textract is specifically designed forextracting text from documents,and Comprehend Medical isa fully managed service that can accurately identify PHI in medical text.This solution would require minimal maintenance and would not incur anyadditional costs beyond the usage fees forTextract and Comprehend Medical.</p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/11/25</p><p><a href="https://senjianlu.com/2024/11/25/saa_test_daily_20241125/">https://senjianlu.com/2024/11/25/saa_test_daily_20241125/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-11-25</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-11-25</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/11/26/translate_news_nhk_20241125_k10014648551000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - 名古屋市営バス 運賃支払うシステム障害 すべてのバスで復旧</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/11/25/hands_on_cloud_security/"><span class="level-item">AWS 实操 - 云安全 (Cloud Security)</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、Containers"><span class="level-left"><span class="level-item">一、Containers</span></span></a></li><li><a class="level is-mobile" href="#二、30-TB-of-clickstream"><span class="level-left"><span class="level-item">二、30 TB of clickstream</span></span></a></li><li><a class="level is-mobile" href="#三、Redirect-HTTP-to-HTTPS"><span class="level-left"><span class="level-item">三、Redirect HTTP to HTTPS</span></span></a></li><li><a class="level is-mobile" href="#四、Database-credentials-automatic-rotation"><span class="level-left"><span class="level-item">四、Database credentials automatic rotation</span></span></a></li><li><a class="level is-mobile" href="#五、AWS-Certificate-Manager-rotate-certificate"><span class="level-left"><span class="level-item">五、AWS Certificate Manager rotate certificate</span></span></a></li><li><a class="level is-mobile" href="#六、Cost-effectively-stroage"><span class="level-left"><span class="level-item">六、Cost-effectively stroage</span></span></a></li><li><a class="level is-mobile" href="#七、Amazon-FSx-File-Gateway"><span class="level-left"><span class="level-item">七、Amazon FSx File Gateway</span></span></a></li><li><a class="level is-mobile" href="#八、Protected-health-information"><span class="level-left"><span class="level-item">八、Protected health information</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script data-pjax src="/js/insight.js" defer></script><script data-pjax>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
