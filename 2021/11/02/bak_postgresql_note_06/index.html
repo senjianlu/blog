@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>【归档文章】PostgreSQL 学习笔记（六）对 JSONB 类型字段的增删改查操作 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="关于 PostgreSQL 数据库的学习笔记。  注：这篇文章是从旧的博客系统中迁移过来的、我觉得还存在价值的文章。但是由于时间关系，可能已经不再是最佳实践，请仅作参考。"><meta property="og:type" content="article"><meta property="og:title" content="【归档文章】PostgreSQL 学习笔记（六）对 JSONB 类型字段的增删改查操作"><meta property="og:url" content="https://senjianlu.com/2021/11/02/bak_postgresql_note_06/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="关于 PostgreSQL 数据库的学习笔记。  注：这篇文章是从旧的博客系统中迁移过来的、我觉得还存在价值的文章。但是由于时间关系，可能已经不再是最佳实践，请仅作参考。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-06/postgresql.png"><meta property="article:published_time" content="2021-11-02T01:00:00.000Z"><meta property="article:modified_time" content="2021-11-02T01:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="归档文章"><meta property="article:tag" content="PostgreSQL"><meta property="article:tag" content="数据库"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-06/postgresql.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2021/11/02/bak_postgresql_note_06/"},"headline":"【归档文章】PostgreSQL 学习笔记（六）对 JSONB 类型字段的增删改查操作","image":["https://image.senjianlu.com/blog/2024-09-06/postgresql.png"],"datePublished":"2021-11-02T01:00:00.000Z","dateModified":"2021-11-02T01:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"关于 PostgreSQL 数据库的学习笔记。  注：这篇文章是从旧的博客系统中迁移过来的、我觉得还存在价值的文章。但是由于时间关系，可能已经不再是最佳实践，请仅作参考。"}</script><link rel="canonical" href="https://senjianlu.com/2021/11/02/bak_postgresql_note_06/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-11-02T01:00:00.000Z" title="11/2/2021, 9:00:00 AM">2021-11-02</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/">开发笔记</a><span> / </span><a class="link-muted" href="/categories/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">【归档文章】PostgreSQL 学习笔记（六）对 JSONB 类型字段的增删改查操作</h1><div class="content"><blockquote>
+<p>关于 PostgreSQL 数据库的学习笔记。</p>
+</blockquote>
+<p><u><em>注：这篇文章是从旧的博客系统中迁移过来的、我觉得还存在价值的文章。但是由于时间关系，可能已经不再是最佳实践，请仅作参考。</em></u></p>
+<span id="more"></span>
+
+<p>苦 JSONB 久矣。</p>
+<blockquote>
+<p>介绍下实验用表 item 的表结构：</p>
+<table>
+<thead>
+<tr>
+<th>名</th>
+<th>类型</th>
+<th>长度</th>
+<th>小数点</th>
+<th>不是 null</th>
+<th>键</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>int4</td>
+<td>32</td>
+<td>0</td>
+<td>√</td>
+<td>🔑</td>
+<td>商品 ID</td>
+</tr>
+<tr>
+<td>name</td>
+<td>varchar</td>
+<td>255</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td>商品名</td>
+</tr>
+<tr>
+<td>property</td>
+<td>jsonb</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td>属性</td>
+</tr>
+</tbody></table>
+<p>表中数据：  </p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>property</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>毛巾</td>
+<td>{“price”: 5.88, “num”: 20, “type”: “厨卫”, “discount”: false}</td>
+</tr>
+<tr>
+<td>2</td>
+<td>饼干</td>
+<td>{“price”: 3.00, “num”: 55, “type”: “食品”, “discount”: true}</td>
+</tr>
+</tbody></table>
+<p><em>注：当然实际开发中绝对不会把价格等信息写在 JSONB 中，这里的结构和数据仅作测试用。</em>  </p>
+</blockquote>
+<p>然后考虑了一下介绍各操作的顺序，对于 JSON 类型，增加、删除、修改、查看的顺序居然意外的合理，那就按这个顺序来吧。  </p>
+<hr>
+<h4 id="1、增加操作"><a href="#1、增加操作" class="headerlink" title="1、增加操作"></a>1、增加操作</h4><p>① 为 JSONB 类型数据新增键值对的操作符为 <strong>||</strong>，即双竖杠。<br>具体操作：  </p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> item <span class="keyword">SET</span> property = property::<span class="type">JSONB</span> || <span class="string">&#x27;&#123;&quot;discount_percent&quot;: &quot;90%&quot;&#125;&#x27;</span>::<span class="type">JSONB</span> <span class="keyword">WHERE</span> id = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<p>这里为饼干新增了具体折扣数值这个属性，双冒号 <strong>::</strong> 起到了类型转换的作用。  </p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>property</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2</td>
+<td>饼干</td>
+<td>{“num”: 55, “type”: “食品”, “price”: 3.00, “discount”: true, “discount_percent”: “90%”}</td>
+</tr>
+</tbody></table>
+</blockquote>
+<p>② 使用 <strong>jsonb_insert</strong> 这个函数。<br>官方对这个函数的介绍：  </p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jsonb_insert(target <span class="type">jsonb</span>, <span class="type">path</span> <span class="type">text</span>[], new_value <span class="type">jsonb</span> [, insert_after <span class="type">boolean</span>])</span><br></pre></td></tr></table></figure>
+<p>第一个参数 target 为需要插入新属性的 JSONB 类型的对象；<br>第二个参数 path 为路径，列表类型，用 [] 或 {} 包裹元素都可以，键一般就写在这个列表的最后一位；<br>第三个参数 new_value 就是该键值对的值了；<br>第四个参数是个可选参数 insert_after，用以判断是将值插在指定位置之前还是之后，这个在路径最后一位为索引而非键的情况下常用，默认为 false。</p>
+<p>具体操作：</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 新建键值对</span></span><br><span class="line"><span class="keyword">UPDATE</span> item <span class="keyword">SET</span> property = jsonb_insert(property, <span class="string">&#x27;&#123;oriented&#125;&#x27;</span>, <span class="string">&#x27;[&quot;老人&quot;, &quot;小孩&quot;]&#x27;</span>::<span class="type">JSONB</span>, <span class="keyword">false</span>) <span class="keyword">WHERE</span> id = <span class="number">1</span>;</span><br><span class="line"><span class="comment">-- 为键值对的值做添加，添加在索引 1 的元素后面，即最终顺序为：[&quot;老人&quot;, &quot;小孩&quot;, &quot;青年&quot;]</span></span><br><span class="line"><span class="keyword">UPDATE</span> item <span class="keyword">SET</span> property = jsonb_insert(property, <span class="string">&#x27;&#123;oriented, 1&#125;&#x27;</span>, <span class="string">&#x27;&quot;青年&quot;&#x27;</span>::<span class="type">JSONB</span>, <span class="keyword">true</span>) <span class="keyword">WHERE</span> id = <span class="number">1</span>;</span><br><span class="line"><span class="comment">-- 由于 jsonb_insert 无法自动设置父节点，因此在创建 country 下的 city 属性时，首先得确保 country 属性存在！</span></span><br><span class="line"><span class="keyword">UPDATE</span> item <span class="keyword">SET</span> property = jsonb_insert(property, <span class="string">&#x27;&#123;country&#125;&#x27;</span>, <span class="string">&#x27;&#123;&quot;country&quot;: &quot;China&quot;&#125;&#x27;</span>::<span class="type">JSONB</span>, <span class="keyword">false</span>) <span class="keyword">WHERE</span> id = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">UPDATE</span> item <span class="keyword">SET</span> property = jsonb_insert(property, <span class="string">&#x27;&#123;from, city&#125;&#x27;</span>, <span class="string">&#x27;&quot;Changzhou&quot;&#x27;</span>::<span class="type">JSONB</span>, <span class="keyword">false</span>) <span class="keyword">WHERE</span> id = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>property</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>毛巾</td>
+<td>{“num”: 20, “from”: {“city”: “Changzhou”, “country”: “China”}, “type”: “厨卫”, “price”: 5.88, “discount”: false, “oriented”: [“老人”, “小孩”, “青年”]}</td>
+</tr>
+</tbody></table>
+</blockquote>
+<h4 id="2、删除操作"><a href="#2、删除操作" class="headerlink" title="2、删除操作"></a>2、删除操作</h4><p>删除的操作符为 <strong>-</strong>，即减号。<br>具体操作：</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 单个属性</span></span><br><span class="line"><span class="keyword">UPDATE</span> item <span class="keyword">SET</span> property = property::<span class="type">JSONB</span> - <span class="string">&#x27;discount_percent&#x27;</span> <span class="keyword">WHERE</span> id = <span class="number">2</span>;</span><br><span class="line"><span class="comment">-- 多个属性</span></span><br><span class="line"><span class="keyword">UPDATE</span> item <span class="keyword">SET</span> property = property::<span class="type">JSONB</span> - <span class="string">&#x27;&#123;&quot;discount&quot;, &quot;type&quot;&#125;&#x27;</span>::<span class="type">text</span>[] <span class="keyword">WHERE</span> id = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>property</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>毛巾</td>
+<td>{“num”: 20, “from”: {“city”: “Changzhou”, “country”: “China”}, “price”: 5.88, “country”: {“country”: “China”}, “oriented”: [“老人”, “小孩”, “青年”]}</td>
+</tr>
+<tr>
+<td>2</td>
+<td>饼干</td>
+<td>{“num”: 55, “type”: “食品”, “price”: 3.00, “discount”: true}</td>
+</tr>
+</tbody></table>
+</blockquote>
+<h4 id="3、更新操作"><a href="#3、更新操作" class="headerlink" title="3、更新操作"></a>3、更新操作</h4><p>使用 <strong>jsonb_set</strong> 这个函数。<br>官方对这个函数的介绍：  </p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jsonb_set(target <span class="type">jsonb</span>, <span class="type">path</span> <span class="type">text</span>[], new_value <span class="type">jsonb</span>[, create_missing <span class="type">boolean</span>])</span><br></pre></td></tr></table></figure>
+<p>第一个参数 target 为需要修改的 JSONB 类型的对象；<br>第二个参数 path 为路径，列表类型，用 [] 或 {} 包裹元素都可以，键一般就写在这个列表的最后一位；<br>第三个参数 new_value 就是该键值对的值了；<br>第四个参数是个可选参数 create_missing，是否在没有该值时创建，<strong>由此你也知道了 jsonb_set 在插入操作时也可使用</strong>，默认为 true。</p>
+<p>具体操作：</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 插入新值</span></span><br><span class="line"><span class="keyword">UPDATE</span> item <span class="keyword">SET</span> property = jsonb_set(property, <span class="string">&#x27;&#123;discount_percent&#125;&#x27;</span>, <span class="string">&#x27;&quot;100%&quot;&#x27;</span>::<span class="type">JSONB</span>, <span class="keyword">true</span>) <span class="keyword">WHERE</span> id = <span class="number">1</span>;</span><br><span class="line"><span class="comment">-- 修改旧值</span></span><br><span class="line"><span class="keyword">UPDATE</span> item <span class="keyword">SET</span> property = jsonb_set(property, <span class="string">&#x27;&#123;price&#125;&#x27;</span>, <span class="string">&#x27;4.88&#x27;</span>::<span class="type">JSONB</span>, <span class="keyword">false</span>) <span class="keyword">WHERE</span> id = <span class="number">1</span>;  </span><br><span class="line"><span class="comment">-- 对更深层的值进行修改</span></span><br><span class="line"><span class="keyword">UPDATE</span> item <span class="keyword">SET</span> property = jsonb_set(property, <span class="string">&#x27;&#123;&quot;from&quot;, &quot;city&quot;&#125;&#x27;</span>, <span class="string">&#x27;&quot;Suzhou&quot;&#x27;</span>::<span class="type">JSONB</span>, <span class="keyword">false</span>) <span class="keyword">WHERE</span> id = <span class="number">1</span>;  </span><br><span class="line"><span class="comment">-- 用一个新的 JSONB 类型数据来更新表中的字段，重复的键会使用新的数据，不重复的键值对会被添加（这里是添加符号 || 的另一种用法）</span></span><br><span class="line"><span class="keyword">UPDATE</span> item <span class="keyword">SET</span> property = property || <span class="string">&#x27;&#123;&quot;num&quot;: 108, &quot;sell_num&quot;: 1&#125;&#x27;</span>::<span class="type">JSONB</span> <span class="keyword">WHERE</span> id = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>property</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>毛巾</td>
+<td>{“num”: 108, “sell_num”: 1, “from”: {“city”: “Suzhou”, “country”: “China”}, “price”: 4.88, “oriented”: [“老人”, “小孩”, “青年”], “discount_percent”: “100%”}</td>
+</tr>
+</tbody></table>
+</blockquote>
+<h4 id="4、查找操作"><a href="#4、查找操作" class="headerlink" title="4、查找操作"></a>4、查找操作</h4><p>查找作为最基础的操作，可写的也最多，几乎所有能返回 Boolean 的函数都能作为查找条件，这里就只写几个我最常用的例子吧！<br>① 查找出存在这个属性的数据：</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 包含指定属性</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> item <span class="keyword">WHERE</span> property::<span class="type">JSONB</span> ? <span class="string">&#x27;from&#x27;</span>;</span><br><span class="line"><span class="comment">-- 只需包含列表中的任意属性</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> item <span class="keyword">WHERE</span> property::<span class="type">JSONB</span> ?| <span class="keyword">array</span>[<span class="string">&#x27;discount_percent&#x27;</span>, <span class="string">&#x27;discount&#x27;</span>];</span><br><span class="line"><span class="comment">-- 需要包含列表中的所有属性</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> item <span class="keyword">WHERE</span> property::<span class="type">JSONB</span> ?&amp; <span class="keyword">array</span>[<span class="string">&#x27;discount_percent&#x27;</span>, <span class="string">&#x27;discount&#x27;</span>];</span><br></pre></td></tr></table></figure>
+<p>② 查找某属性值符合条件的数据：  </p>
+<pre><code class="language-postgresql">-- 某属性等于某个值
+SELECT * FROM item WHERE property::JSONB @&gt; &#39;&#123;&quot;discount&quot;: true&#125;&#39;::JSONB;
+-- 更深层的属性相等
+SELECT * FROM item WHERE property::JSONB @&gt; &#39;&#123;&quot;from&quot;: &#123;&quot;country&quot;: &quot;China&quot;&#125;&#125;&#39;::JSONB;
+-- 大于某个值
+SELECT * FROM item WHERE (property::JSONB -&gt;&gt; &#39;price&#39;)::NUMERIC &gt;= 4;
+-- 更深层的值大于
+SELECT * FROM item WHERE (property::JSONB #&gt;&gt; &#39;&#123;&quot;from&quot;, &quot;zip_code&quot;&#125;&#39;)::INT &gt;= 213000;
+-- 列表包含（属于列表类型操作）
+SELECT * FROM item WHERE property::JSONB -&gt; &#39;oriented&#39; @&gt; &#39;&quot;老人&quot;&#39;;
+</code></pre>
+<p>如果上面这些操作无法满足你，那么请前往官方文档：<a target="_blank" rel="noopener" href="https://www.postgresql.org/docs/12/functions-json.html">JSON Functions and Operators</a> 继续学习。  </p>
+<p>结束。</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>【归档文章】PostgreSQL 学习笔记（六）对 JSONB 类型字段的增删改查操作</p><p><a href="https://senjianlu.com/2021/11/02/bak_postgresql_note_06/">https://senjianlu.com/2021/11/02/bak_postgresql_note_06/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2021-11-02</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2021-11-02</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E5%BD%92%E6%A1%A3%E6%96%87%E7%AB%A0/">归档文章</a><a class="link-muted mr-2" rel="tag" href="/tags/PostgreSQL/">PostgreSQL</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2021/11/04/bak_centos7_docker_unblock_netease_music/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">【归档文章】CentOS7 下用 Docker 部署 UnblockNeteaseMusic 并在 Clash 中配置分流以在局域网内解锁网易云音乐变灰的歌曲</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2021/11/01/bak_cloudflare_ssl_tls/"><span class="level-item">【归档文章】Cloudflare 四种 SSL/TLS 加密模式的功能解析及实践</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#1、增加操作"><span class="level-left"><span class="level-item">1、增加操作</span></span></a></li><li><a class="level is-mobile" href="#2、删除操作"><span class="level-left"><span class="level-item">2、删除操作</span></span></a></li><li><a class="level is-mobile" href="#3、更新操作"><span class="level-left"><span class="level-item">3、更新操作</span></span></a></li><li><a class="level is-mobile" href="#4、查找操作"><span class="level-left"><span class="level-item">4、查找操作</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script data-pjax src="/js/insight.js" defer></script><script data-pjax>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
