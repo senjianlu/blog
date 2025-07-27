@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>项目综合状态页开发笔记（一）技术选型 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="前言自己的各个小项目状态一直都散乱在各处：Zabbix、哪吒监控、Prometheus + Grafana 和 Rancher + Grafana，每天光确认项目运行状态都是一件相当费时费力的事情，由此萌生了开发个项目综合状态页的想法。"><meta property="og:type" content="article"><meta property="og:title" content="项目综合状态页开发笔记（一）技术选型"><meta property="og:url" content="https://senjianlu.com/2024/07/29/status_page_01_technology_stack/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="前言自己的各个小项目状态一直都散乱在各处：Zabbix、哪吒监控、Prometheus + Grafana 和 Rancher + Grafana，每天光确认项目运行状态都是一件相当费时费力的事情，由此萌生了开发个项目综合状态页的想法。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-08-07/221317.png"><meta property="article:published_time" content="2024-07-29T11:30:00.000Z"><meta property="article:modified_time" content="2024-07-29T11:30:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="前端"><meta property="article:tag" content="Next.js"><meta property="article:tag" content="React"><meta property="article:tag" content="NextUI"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-08-07/221317.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/07/29/status_page_01_technology_stack/"},"headline":"项目综合状态页开发笔记（一）技术选型","image":["https://image.senjianlu.com/blog/2024-08-07/221317.png"],"datePublished":"2024-07-29T11:30:00.000Z","dateModified":"2024-07-29T11:30:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"前言自己的各个小项目状态一直都散乱在各处：Zabbix、哪吒监控、Prometheus + Grafana 和 Rancher + Grafana，每天光确认项目运行状态都是一件相当费时费力的事情，由此萌生了开发个项目综合状态页的想法。"}</script><link rel="canonical" href="https://senjianlu.com/2024/07/29/status_page_01_technology_stack/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-07-29T11:30:00.000Z" title="7/29/2024, 7:30:00 PM">2024-07-29</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/">开发笔记</a><span> / </span><a class="link-muted" href="/categories/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/">前端</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">项目综合状态页开发笔记（一）技术选型</h1><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>自己的各个小项目状态一直都散乱在各处：Zabbix、哪吒监控、Prometheus + Grafana 和 Rancher + Grafana，每天光确认项目运行状态都是一件相当费时费力的事情，由此萌生了开发个<strong>项目综合状态页</strong>的想法。  </p>
+<span id="more"></span>
+
+<h2 id="前端技术选型"><a href="#前端技术选型" class="headerlink" title="前端技术选型"></a>前端技术选型</h2><h3 id="语言和框架"><a href="#语言和框架" class="headerlink" title="语言和框架"></a>语言和框架</h3><p>虽然目前工作中对日方老项目的重构，优先都考虑使用 Vue.js 以提高效率和降低开发门槛。<br>但是由于自己创业期间使用的前端技术栈是 React + TypeScript，带有私心且写的比较久，语言和框架于是就定下为更心水的了。  </p>
+<ul>
+<li>React</li>
+<li>TypeScript</li>
+</ul>
+<h3 id="组件库"><a href="#组件库" class="headerlink" title="组件库"></a>组件库</h3><p>对 React + TypeScript 友好，且文档和案例足够全的国内似乎只有 Ant Design 和 Element UI 两个。<br>看下效果：<br><img src="https://image.senjianlu.com/blog/2024-07-29/195227.png" alt="Ant Design 案例"><br><img src="https://image.senjianlu.com/blog/2024-07-29/205845.png" alt="Element UI 案例"><br>to B 的味道都有点太重了，尤其是白蓝的经典配色，写起来像是在上班 😂。<br>自己的项目还是希望美观一点，即使写起来稍微复杂一些也是可以接受的，于是又稍微找了下，看到了这个帖子：<a target="_blank" rel="noopener" href="https://s.v2ex.com/t/1005194">React UI 组件库选择</a><br>顺手翻了下还有排行：<a target="_blank" rel="noopener" href="https://bestofjs.org/projects?tags=component&tags=react&sort=total">Component set + React</a><br>于是花了点时间做了调查和比较：</p>
+<table>
+<thead>
+<tr>
+<th>库</th>
+<th>UI 库&#x2F;组件库</th>
+<th>优点</th>
+<th>缺点</th>
+<th>GitHub 数据</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://mui.com/material-ui/">Material UI</a></td>
+<td>组建库</td>
+<td>极高的自定义上限。</td>
+<td>有限的免费；有上手门槛。</td>
+<td>92.8k Star, 31.9k Fork, 1.7k Issues</td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ui.shadcn.com/docs">shadcn&#x2F;ui</a></td>
+<td>UI 库</td>
+<td>免费。</td>
+<td>并非组件库，需要自己封装。</td>
+<td>65.3k Star, 3.8k Fork, 285 Issues</td>
+<td>使用了 Tailwind CSS。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://v2.chakra-ui.com/">Chakra UI</a></td>
+<td>组件库</td>
+<td>有 Figma 资源。</td>
+<td>有限的免费；白绿配色有点丑。</td>
+<td>37.2k Star, 3.2k Fork, 277 Issues</td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://nextui.org/docs/guide/introduction">NextUI</a></td>
+<td>组件库</td>
+<td>有 Figma 资源；暗色深得我心。</td>
+<td>有限的免费。</td>
+<td>20.8k Star, 1.3k Fork, 395 Issues</td>
+<td>使用了 Tailwind CSS。</td>
+</tr>
+</tbody></table>
+<p><img src="https://image.senjianlu.com/blog/2024-07-29/200604.png" alt="Material UI 案例"><br><img src="https://image.senjianlu.com/blog/2024-07-29/202455.png" alt="shadcn&#x2F;ui 案例"><br><img src="https://image.senjianlu.com/blog/2024-07-29/202414.png" alt="Chakra UI 案例"><br><img src="https://image.senjianlu.com/blog/2024-07-29/202634.png" alt="NextUI 案例">  </p>
+<p>非常主观地最后选择了 NextUI，正好也是机会尝试下 Tailwind CSS。<br>免费的组件姑且足够搭建一个状态页了，后续再看情况决定是否付费也可以。  </p>
+<h3 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h3><p>虽然一开始并没有考虑使用 Next.js 作为项目的基础框架，但是在选择了 NextUI 之后，发现 NextUI 的文档中给了在 Next.js 项目中导入的示例，于是就顺手选择了 Next.js。<br>之前听说过 Next.js 的特点：</p>
+<ul>
+<li>服务器端渲染（SSR）：支持在服务器上渲染 React 组件，提供更快的初始页面加载速度和更好的 SEO。</li>
+<li>静态站点生成（SSG）：在构建时生成静态 HTML 文件，适用于内容不经常变化的网站。</li>
+<li>客户端路由：内置路由系统，简化页面间的导航。</li>
+<li>API 路由：允许在同一项目中创建 API 路由，简化前后端的集成。</li>
+<li>优化和性能：自动代码分割、预取、热模块替换等功能提高应用性能。</li>
+</ul>
+<p>内置路由系统和 API 路由对于快速开始项目还是很有帮助的，于是坚定了折腾一下的想法。</p>
+<h3 id="实际构建的过程"><a href="#实际构建的过程" class="headerlink" title="实际构建的过程"></a>实际构建的过程</h3><p>主要参考 NextUI 的文档：<a target="_blank" rel="noopener" href="https://nextui.org/docs/frameworks/nextjs">Next.js | NextUI - Beautiful, fast and modern React UI Library</a></p>
+<ol>
+<li>确定下 Node.js 和 <code>npm</code> 版本：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line"><span class="comment"># v20.16.0</span></span><br><span class="line"></span><br><span class="line">npm -v</span><br><span class="line"><span class="comment"># 10.8.1</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果没有安装的话前往：<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/download/package-manager">下载 Node.js</a> 进行安装。</p>
+</blockquote>
+<ol start="2">
+<li>安装 NextUI CLI：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g nextui-cli</span><br><span class="line"><span class="comment"># added 73 packages in 9s</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>初始化一个名为 <code>sbeer-io</code> 的项目：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nextui init -t app</span><br></pre></td></tr></table></figure>
+<p><img src="https://image.senjianlu.com/blog/2024-07-29/205058.png" alt="初始化选择"></p>
+<blockquote>
+<p>如果没有安装 <code>yarn</code> 的话可以选择 <code>npm</code>，当然你也可以使用以下命令安装 yarn：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --global yarn</span><br></pre></td></tr></table></figure>
+<p>相比 <code>npm</code>，<code>yarn</code> 有更快的下载速度和更好的缓存机制。</p>
+</blockquote>
+<ol start="4">
+<li>进入项目目录、安装依赖并启动项目：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> sbeer-io</span><br><span class="line">yarn install</span><br><span class="line">yarn dev</span><br></pre></td></tr></table></figure>
+<p>之后前往 <a target="_blank" rel="noopener" href="http://localhost:3000/">http://localhost:3000</a> 即可看到项目的初始页面：<br><img src="https://image.senjianlu.com/blog/2024-07-29/205534.png" alt="localhost:3000"></p>
+<h2 id="后端技术选型"><a href="#后端技术选型" class="headerlink" title="后端技术选型"></a>后端技术选型</h2><p>暂时不涉及到权限和复杂的功能，因此怎么方便怎么来吧：Python3 + FastAPI 一把梭就好了。</p>
+<h2 id="数据源"><a href="#数据源" class="headerlink" title="数据源"></a>数据源</h2><p>结合自己已有的项目和监控平台：</p>
+<ul>
+<li>Prometheus</li>
+<li>InfluxDB</li>
+<li>PostgreSQL</li>
+<li>Zabbix（接口）</li>
+</ul>
+<p>后端需要定义好数据结构。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>前端技术选型</strong>：</p>
+<ul>
+<li>Next.js</li>
+<li>React</li>
+<li>TypeScript</li>
+<li>NextUI</li>
+<li>Tailwind CSS</li>
+</ul>
+<p><strong>后端技术选型</strong>：</p>
+<ul>
+<li>Python3</li>
+<li>FastAPI</li>
+</ul>
+<p><strong>数据源</strong>：</p>
+<ul>
+<li>Prometheus</li>
+<li>InfluxDB</li>
+<li>PostgreSQL</li>
+<li>Zabbix（接口）</li>
+</ul>
+<p>暂时结束，开始写 Home Page 看看还存在什么问题。</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>项目综合状态页开发笔记（一）技术选型</p><p><a href="https://senjianlu.com/2024/07/29/status_page_01_technology_stack/">https://senjianlu.com/2024/07/29/status_page_01_technology_stack/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-07-29</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-07-29</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a><a class="link-muted mr-2" rel="tag" href="/tags/Next-js/">Next.js</a><a class="link-muted mr-2" rel="tag" href="/tags/React/">React</a><a class="link-muted mr-2" rel="tag" href="/tags/NextUI/">NextUI</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/07/29/translate_news_nhk_20240726_k10014524291000_4/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 -「山形と秋田で記録的大雨 東北日本海側 あすから再び大雨見込み」（最终部分）</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/07/28/translate_news_nhk_20240726_k10014524291000_3/"><span class="level-item">日语翻译 - 新闻 -「山形と秋田で記録的大雨 東北日本海側 あすから再び大雨見込み」（第三部分）</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#前言"><span class="level-left"><span class="level-item">前言</span></span></a></li><li><a class="level is-mobile" href="#前端技术选型"><span class="level-left"><span class="level-item">前端技术选型</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#语言和框架"><span class="level-left"><span class="level-item">语言和框架</span></span></a></li><li><a class="level is-mobile" href="#组件库"><span class="level-left"><span class="level-item">组件库</span></span></a></li><li><a class="level is-mobile" href="#更多"><span class="level-left"><span class="level-item">更多</span></span></a></li><li><a class="level is-mobile" href="#实际构建的过程"><span class="level-left"><span class="level-item">实际构建的过程</span></span></a></li></ul></li><li><a class="level is-mobile" href="#后端技术选型"><span class="level-left"><span class="level-item">后端技术选型</span></span></a></li><li><a class="level is-mobile" href="#数据源"><span class="level-left"><span class="level-item">数据源</span></span></a></li><li><a class="level is-mobile" href="#总结"><span class="level-left"><span class="level-item">总结</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script data-pjax src="/js/insight.js" defer></script><script data-pjax>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

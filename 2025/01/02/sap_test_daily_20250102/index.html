@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAP 考试每日练习 - 2025/01/02 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Professional SAP-C02 Exam10 题 (No.18 ~ No.27)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAP 考试每日练习 - 2025/01/02"><meta property="og:url" content="https://senjianlu.com/2025/01/02/sap_test_daily_20250102/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Professional SAP-C02 Exam10 题 (No.18 ~ No.27)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-12-24/sap.png"><meta property="article:published_time" content="2025-01-02T12:00:00.000Z"><meta property="article:modified_time" content="2025-01-02T15:50:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAP"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-12-24/sap.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2025/01/02/sap_test_daily_20250102/"},"headline":"SAP 考试每日练习 - 2025/01/02","image":["https://image.senjianlu.com/blog/2024-12-24/sap.png"],"datePublished":"2025-01-02T12:00:00.000Z","dateModified":"2025-01-02T15:50:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Professional SAP-C02 Exam10 题 (No.18 ~ No.27)，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2025/01/02/sap_test_daily_20250102/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-01-02T12:00:00.000Z" title="1/2/2025, 8:00:00 PM">2025-01-02</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAP 考试每日练习 - 2025/01/02</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-professional-sap-c02/">Amazon AWS Certified Solutions Architect - Professional SAP-C02 Exam</a><br>10 题 (No.18 ~ No.27)，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<h3 id="一、Video-categorization-application"><a href="#一、Video-categorization-application" class="headerlink" title="一、Video categorization application"></a>一、Video categorization application</h3><p>A company has a web application that allows users to upload short videos. The videos are stored on Amazon EBS volumes and analyzed by custom recognition software for categorization.<br>The website contains static content that has variable traffic with peaks in certain months. The architecture consists of Amazon EC2 instances running in an Auto Scaling group for the web application and EC2 instances running in an Auto Scaling group to process an Amazon SQS queue. The company wants to re-architect the application to reduce operational overhead using AWS managed services where possible and remove dependencies on third-party software.<br>Which solution meets these requirements?</p>
+<ol>
+<li>❌ Use Amazon ECS containers for the web application and Spot instances for the Auto Scaling group that processes the SQS queue. Replace the custom software with Amazon Rekognition to categorize the videos.</li>
+<li>Store the uploaded videos in Amazon EFS and mount the file system to the EC2 instances for the web application. Process the SQS queue with an AWS Lambda function that calls the Amazon Rekognition API to categorize the videos.</li>
+<li>✅ Host the web application in Amazon S3. Store the uploaded videos in Amazon S3. Use S3 event notification to publish events to the SQS queue. Process the SQS queue with an AWS Lambda function that calls the Amazon Rekognition API to categorize the videos.</li>
+<li>Use AWS Elastic Beanstalk to launch EC2 instances in an Auto Scaling group for the web application and launch a worker environment to process the SQS queue. Replace the custom software with Amazon Rekognition to categorize the videos.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：这里的问题在于 Web 应用程序是否是全静态的，如果是全静态的话无疑 3️⃣ 就是最佳选择：使用的技术栈都是 AWS 托管的。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：This solution meets the requirements by using multiple managed services offered by AWS which can reduce the operational overhead. Hosting the web application in Amazon S3 would make it highlyavailable, scalable and can handle variable traffic.<br>The uploaded videos can be stored in S3 and processed using S3 event notifications that trigger a Lambda function, which calls the Amazon Rekognition API to categorize the videos.SQS can be used to process the event notificationsand also it is a managed service.<br>This solution eliminates the need to manage EC2 instances, EBS volumesand the custom software. Additionally, using Lambda function in this case,eliminates the need for managing additional servers to process the SQS queue which will reduce operational overhead.<br>By using this solution, the company can benefit from the scalability, reliability,and cost-effectiveness that these services offer, which can help to reduce operational overhead and improve the overall performance and security of the application.</p>
+</blockquote>
+<hr>
+<h3 id="二、Serverless-Application-Deploy"><a href="#二、Serverless-Application-Deploy" class="headerlink" title="二、Serverless Application Deploy"></a>二、Serverless Application Deploy</h3><p>A company has a serverless application comprised of Amazon CloudFront, Amazon API Gateway, and AWS Lambda functions.<br>The current deployment process of the application code is to create a new version number of the Lambda function and run an AWS CLI script to update. If the new function version has errors, another CLI script reverts by deploying the previous working version of the function. The company would like to decrease the time to deploy new versions of the application logic provided by the Lambda functions, and also reduce the time to detect and revert when errors are identified.<br>How can this be accomplished?</p>
+<ol>
+<li>Create and deploy nested AWS CloudFormation stacks with the parent stack consisting of the AWS CloudFront distribution and API Gateway, and the child stack containing the Lambda function. For changes to Lambda, create an AWS CloudFormation change set and deploy; if errors are triggered, revert the AWS CloudFormation change set to the previous version.</li>
+<li>✅ Use AWS SAM and built-in AWS CodeDeploy to deploy the new Lambda version, gradually shift traffic to the new version, and use pre-traffic and post-traffic test functions to verify code. Rollback if Amazon CloudWatch alarms are triggered.</li>
+<li>Refactor the AWS CLI scripts into a single script that deploys the new Lambda version. When deployment is completed, the script tests execute. If errors are detected, revert to the previous Lambda version.</li>
+<li>Create and deploy an AWS CloudFormation stack that consists of a new API Gateway endpoint that references the new Lambda version. Change the CloudFront origin to the new API Gateway endpoint, monitor errors and if detected, change the AWS CloudFront origin to the previous API Gateway endpoint.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>Lambda</code> 的多版本部署问题。<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/serverless-application-model/latest/developerguide/automating-updates-to-serverless-apps.html">使用 AWS SAM 逐步部署无服务器应用程序</a>  </p>
+<blockquote>
+<p>AWS Serverless Application Model (AWS SAM) 内置于 CodeDeploy 中，可提供逐步 AWS Lambda 部署。只需几行配置，AWS SAM 即可为您完成以下操作：</p>
+<ul>
+<li>部署 Lambda 函数的新版本，并自动创建指向新版本的别名。</li>
+<li>逐步将客户流量转移到新版本，直到您确认它按预期方式运行。如果更新无法正常运行，则可以回滚更改。</li>
+<li>定义转移流量前和转移流量后的测试函数，来验证新部署的代码是否已正确配置并且您的应用程序是否按预期方式运行。</li>
+<li>如果触发了 CloudWatch 警报，则会自动回滚部署。</li>
+</ul>
+</blockquote>
+<p>这里需要注意的是，<code>SAM</code> 内置了 <code>CodeDeploy</code>，并且它的架构是这样的：</p>
+<blockquote>
+<p><img src="https://image.senjianlu.com/blog/2024-12-06/aws_ops_sam_cicd.png" alt="SAM 的 CI&#x2F;CD 架构"></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：AWS Serverless Application Model (SAM) is a frameworkthat helps you build, test and deploy your serverlessapplications. It uses CloudFormation under the hood, so it isa way to simplify the process of creating, updating,and deploying CloudFormation templates. CodeDeploy isa service that automates code deployments to any instance, including on-premises instancesand Lambda functions.<br>With AWS SAM you can use the built-in CodeDeploy to deploy new versions of the Lambda function, gradually shift traffic to the new version,and use pre-traffic and post-traffic test functions to verify code.<br>You can also define CloudWatch Alarms to trigger a rollbackin case of any issues.<br>Thisallows for a faster and more efficient deployment process,as well asa more reliable rollback process when errorsare identified.This way you can increase the speed of deployment and reduce the time to detect and revert when errorsare identified.</p>
+</blockquote>
+<hr>
+<h3 id="三、Glacier-Deep-Archive"><a href="#三、Glacier-Deep-Archive" class="headerlink" title="三、Glacier Deep Archive"></a>三、Glacier Deep Archive</h3><p>A company is planning to store a large number of archived documents and make the documents available to employees through the corporate intranet. Employees will access the system by connecting through a client VPN service that is attached to a VPC. The data must not be accessible to the public.<br>The documents that the company is storing are copies of data that is held on physical media elsewhere. The number of requests will be low. Availability and speed of retrieval are not concerns of the company.<br>Which solution will meet these requirements at the LOWEST cost?</p>
+<ol>
+<li>✅ Create an Amazon S3 bucket. Configure the S3 bucket to use the S3 One Zone-Infrequent Access (S3 One Zone-IA) storage class as default. Configure the S3 bucket for website hosting. Create an S3 interface endpoint. Configure the S3 bucket to allow access only through that endpoint.</li>
+<li>Launch an Amazon EC2 instance that runs a web server. Attach an Amazon ElasticFile System (Amazon EFS) file system to store the archived data in the EFS One Zone-Infrequent Access (EFS One Zone-IA) storage class Configure the instance security groups to allow access only from private networks.</li>
+<li>Launch an Amazon EC2 instance that runs a web server Attach an Amazon Elastic Block Store (Amazon EBS) volume to store the archived data. Use the Cold HDD (sc1) volume type. Configure the instance security groups to allow access only from private networks.</li>
+<li>❌ Create an Amazon S3 bucket. Configure the S3 bucket to use the S3 Glacier Deep Archive storage class as default. Configure the S3 bucket for website hosting. Create an S3 interface endpoint. Configure the S3 bucket to allow access only through that endpoint.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：这里社区存在整体，4️⃣ 的深度归档显然更便宜，但是它存在检索时间超过 12 的问题，如果使用它托管网页并请求下载的话，一定会出现超时问题，因此 4️⃣ 并不是很好。<br>而题目中强调了这些数据只是备份，因此可以使用单区存储，显然 1️⃣ 贴合了考点。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A - Glacier Deep Archive can’t be used for web hosting, regardless if the company says retrieval time is no concern.</p>
+</blockquote>
+<hr>
+<h3 id="四、AWS-AD"><a href="#四、AWS-AD" class="headerlink" title="四、AWS AD"></a>四、AWS AD</h3><p>A company is using an on-premises Active Directory service for user authentication. The company wants to use the same authentication service to sign in to the company’s AWS accounts, which are using AWS Organizations. AWS Site-to-Site VPN connectivity already exists between the on-premises environment and all the company’s AWS accounts.<br>The company’s security policy requires conditional access to the accounts based on user groups and roles. User identities must be managed in a single location.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>✅ Configure AWS IAM Identity Center (AWS Single Sign-On) to connect to Active Directory by using SAML 2.0. Enable automatic provisioning by using the System for Cross-domain Identity Management (SCIM) v2.0 protocol. Grant access to the AWS accounts by using attribute-based access controls (ABACs).</li>
+<li>Configure AWS IAM Identity Center (AWS Single Sign-On) by using IAM Identity Center as an identity source. Enable automatic provisioning by using the System for Cross-domain Identity Management (SCIM) v2.0 protocol. Grant access to the AWS accounts by using IAM Identity Center permission sets.</li>
+<li>In one of the company’s AWS accounts, configure AWS Identity and Access Management (IAM) to use a SAML 2.0 identity provider. Provision IAM users that are mapped to the federated users. Grant access that corresponds to appropriate groups in Active Directory. Grant access to the required AWS accounts by using cross-account IAM users.</li>
+<li>In one of the company’s AWS accounts, configure AWS Identity and Access Management (IAM) to use an OpenID Connect (OIDC) identity provider. Provision IAM roles that grant access to the AWS account for the federated users that correspond to appropriate groups in Active Directory. Grant access to the required AWS accounts by using cross-account IAM roles.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：本地有 <code>AD</code>，已经架设了 <code>Site-to-Site VPN</code>，希望用户凭证在单区进行管理。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Both option C and option A are valid solutions that meet the requirements for the scenario.<br>ABAC, or attribute-based access control, isa method of granting access to resources based on the attributes of the user, the resource,and the action.Thisallows for fine-grained access control, which can be useful for implementing a security policy that requires conditional access to the accounts based on user groupsand roles.<br>AWS IAM Identity Center (AWS SSO) allows you to connect to your on-premises Active Directory service using SAML 2.0. With<br>this, you can enable automatic provisioning by using the System for Cross-domain Identity Management (SCIM) v2.0 protocol,<br>which allows for the management of user identities in a single location.</p>
+</blockquote>
+<hr>
+<h3 id="五、API-throttling"><a href="#五、API-throttling" class="headerlink" title="五、API throttling"></a>五、API throttling</h3><p>A software company has deployed an application that consumes a REST API by using Amazon API Gateway, AWS Lambda functions, and an Amazon DynamoDB table. The application is showing an increase in the number of errors during PUT requests. Most of the PUT calls come from a small number of clients that are authenticated with specific API keys.<br>A solutions architect has identified that a large number of the PUT requests originate from one client. The API is noncritical, and clients can tolerate retries of unsuccessful calls. However, the errors are displayed to customers and are causing damage to the API’s reputation.<br>What should the solutions architect recommend to improve the customer experience?</p>
+<ol>
+<li>Implement retry logic with exponential backoff and irregular variation in the client application. Ensure that the errors are caught and handled with descriptive error messages.  </li>
+<li>✅ Implement API throttling through a usage plan at the API Gateway level. Ensure that the client application handles code 429 replies without error.</li>
+<li>Turn on API caching to enhance responsiveness for the production stage. Run 10-minute load tests. Verify that the cache capacity is appropriate for the workload.</li>
+<li>Implement reserved concurrency at the Lambda function level to provide the resources that are needed during sudden increases in traffic.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：问题的本质是来自单一客户端的大量请求导致出现大量错误，节流进行控制非常合理。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：API throttling isa technique that can be used to control the rate of requests to an API.This can be useful in situations where a small number of clientsare making a large number of requests, which is causing errors. By implementing API throttling through a usage plan at the API Gateway level, the solutionsarchitect can limit the number of requests that a client can make, which will help to reduce the number of errors.<br>It’s important that the client application handles the code 429 replies without error, this will help to improve the customer experience by reducing the number of errors that are displayed to customers. Additionally, it will prevent the API’s reputation from being damaged by the errors.</p>
+</blockquote>
+<hr>
+<h3 id="六、S3-lazy-loading"><a href="#六、S3-lazy-loading" class="headerlink" title="六、S3 lazy loading"></a>六、S3 lazy loading</h3><p>A company is running a data-intensive application on AWS. The application runs on a cluster of hundreds of Amazon EC2 instances. A shared file system also runs on several EC2 instances that store 200 TB of data. The application reads and modifies the data on the shared file system and generates a report. The job runs once monthly, reads a subset of the files from the shared file system, and takes about 72 hours to complete. The compute instances scale in an Auto Scaling group, but the instances that host the shared file system run continuously. The compute and storage instances are all in the same AWS Region.<br>A solutions architect needs to reduce costs by replacing the shared file system instances. The file system must provide high performance access to the needed data for the duration of the 72-hour run.<br>Which solution will provide the LARGEST overall cost reduction while meeting these requirements?</p>
+<ol>
+<li>✅ Migrate the data from the existing shared file system to an Amazon S3 bucket that uses the S3 Intelligent-Tiering storage class. Before the job runs each month, use Amazon FSx for Lustre to create a new file system with the data from Amazon S3 by using lazy loading. Use the new file system as the shared storage for the duration of the job. Delete the file system when the job is complete.</li>
+<li>Migrate the data from the existing shared file system to a large Amazon Elastic Block Store (Amazon EBS) volume with Multi-Attach enabled. Attach the EBS volume to each of the instances by using a user data script in the Auto Scaling group launch template. Use the EBS volume as the shared storage for the duration of the job. Detach the EBS volume when the job is complete</li>
+<li>❌ Migrate the data from the existing shared file system to an Amazon S3 bucket that uses the S3 Standard storage class. Before the job runs each month, use Amazon FSx for Lustre to create a new file system with the data from Amazon S3 by using batch loading. Use the new file system as the shared storage for the duration of the job. Delete the file system when the job is complete.</li>
+<li>Migrate the data from the existing shared file system to an Amazon S3 bucket. Before the job runs each month, use AWS Storage Gateway to create a file gateway with the data from Amazon S3. Use the file gateway as the shared storage for the job. Delete the file gateway when the job is complete.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/fsx/latest/FileCacheGuide/mdll-lazy-load.html">Lazy load</a></p>
+<blockquote>
+<p>当您使用缓存访问链接的 Amazon S3 或 NFS 数据存储库中的数据时，Amazon File Cache 会自动加载元数据（名称、所有权、时间戳和权限）和文件内容（如果缓存中还没有这些内容）。数据存储库中的数据会以文件和目录的形式出现在缓存中。<br>当您在 DRA 目录中读取或写入文件数据或元数据时，会触发懒加载。如果数据尚未可用，Amazon File Cache 会将数据从链接的数据存储库加载到缓存中。例如，当您打开文件、统计文件或对文件进行元数据更新时，就会触发懒加载。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A: Lazy loading is cost-effective because onlya subset of data is used at every job<br>B:There are hundreds of EC2 instances using the volume which is not possible (one EBS volume is limited to 16 nitro instances attached)<br>C: Batching would load too much data<br>D: storage gateway is used for on premises data access, I don’t know is you can install a gateway in AWS, but Amazon would never advise this</p>
+</blockquote>
+<hr>
+<h3 id="七、Assign-Elastic-IP-addresses-to-the-NLB"><a href="#七、Assign-Elastic-IP-addresses-to-the-NLB" class="headerlink" title="七、Assign Elastic IP addresses to the NLB"></a>七、Assign Elastic IP addresses to the NLB</h3><p>A company is developing a new service that will be accessed using TCP on a static port. A solutions architect must ensure that the service is highly available, has redundancy across Availability Zones, and is accessible using the DNS name my.service.com, which is publicly accessible. The service must use fixed address assignments so other companies can add the addresses to their allow lists.<br>Assuming that resources are deployed in multiple Availability Zones in a single Region, which solution will meet these requirements?  </p>
+<ol>
+<li>Create Amazon EC2 instances with an Elastic IP address for each instance. Create a Network Load Balancer (NLB) and expose the static TCP port. Register EC2 instances with the NLB. Create a new name server record set named my.service.com, and assign the Elastic IP addresses of the EC2 instances to the record set. Provide the Elastic IP addresses of the EC2 instances to the other companies to add to their allow lists.</li>
+<li>Create an Amazon ECS cluster and a service definition for the application. Create and assign public IP addresses for the ECS cluster. Create a Network Load Balancer (NLB) and expose the TCP port. Create a target group and assign the ECS cluster name to the NLCreate a new A record set named my.service.com, and assign the public IP addresses of the ECS cluster to the record set. Provide the public IP addresses of the ECS cluster to the other companies to add to their allow lists.</li>
+<li>✅ Create Amazon EC2 instances for the service. Create one Elastic IP address for each Availability Zone. Create a Network Load Balancer (NLB) and expose the assigned TCP port. Assign the Elastic IP addresses to the NLB for each Availability Zone. Create a target group and register the EC2 instances with the NLB. Create a new A (alias) record set named my.service.com, and assign the NLB DNS name to the record set.</li>
+<li>Create an Amazon ECS cluster and a service definition for the application. Create and assign public IP address for each host in the cluster. Create an Application Load Balancer (ALB) and expose the static TCP port. Create a target group and assign the ECS service definition name to the ALB. Create a new CNAME record set and associate the public IP addresses to the record set. Provide the Elastic IP addresses of the Amazon EC2 instances to the other companies to add to their allow lists.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://repost.aws/zh-Hans/questions/QUW3TfCzaNQJuVWFNrvRZIsg/alb%E4%B8%8Enlb%E8%83%BD%E5%90%A6%E7%BB%91%E5%AE%9A%E5%BC%B9%E6%80%A7ip">ALB 与 NLB 能否绑定弹性 IP</a></p>
+<blockquote>
+<p>ALB不支持绑定EIP，ALB是会根据业务负载进行扩展的， NLB可以绑定EIP。 解决方式是：</p>
+<ol>
+<li>将解析托管到 R53，R53 可以将顶级域名解析到 ALB（<code>ALIAS</code> 记录）</li>
+<li>在 Network Load Balancer (NLB) 的目标组中配置 ALB 作为其目标，然后将 EIP 分配给 NLB。</li>
+<li>使用 NLB, 替换 ALB。</li>
+</ol>
+</blockquote>
+<p>需要注意的是 <code>ALB</code> 不支持绑定弹性 IP。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Logical answer : Non http port like TCP should hint to NLB immediately.(ALB does not fit here) Sharing IP address of EC2 is not apt<br>whether it is from individual EC2 instances or those from ECS cluster.thiseliminates A,B.D, infact the NLB’saddress which stays in front of &#x2F; associates to ec2 instances need to be shared.So, only solution is C</p>
+</blockquote>
+<hr>
+<h3 id="八、SLA"><a href="#八、SLA" class="headerlink" title="八、SLA"></a>八、SLA</h3><p>A company uses an on-premises data analytics platform. The system is highly available in a fully redundant configuration across 12 servers in the company’s data center.<br>The system runs scheduled jobs, both hourly and daily, in addition to one-time requests from users. Scheduled jobs can take between 20 minutes and 2 hours to finish running and have tight SLAs. The scheduled jobs account for 65% of the system usage. User jobs typically finish running in less than 5 minutes and have no SLA. The user jobs account for 35% of system usage. During system failures, scheduled jobs must continue to meet SLAs. However, user jobs can be delayed.<br>A solutions architect needs to move the system to Amazon EC2 instances and adopt a consumption-based model to reduce costs with no long-term commitments. The solution must maintain high availability and must not affect the SLAs.<br>Which solution will meet these requirements MOST cost-effectively?</p>
+<ol>
+<li>Split the 12 instances across two Availability Zones in the chosen AWS Region. Run two instances in each Availability Zone as On-Demand Instances with Capacity Reservations. Run four instances in each Availability Zone as Spot Instances.</li>
+<li>Split the 12 instances across three Availability Zones in the chosen AWS Region. In one of the Availability Zones, run all four instances as On-Demand Instances with Capacity Reservations. Run the remaining instances as Spot Instances.</li>
+<li>Split the 12 instances across three Availability Zones in the chosen AWS Region. Run two instances in each Availability Zone as On-Demand Instances with a Savings Plan. Run two instances in each Availability Zone as Spot Instances.</li>
+<li>✅ Split the 12 instances across three Availability Zones in the chosen AWS Region. Run three instances in each Availability Zone as On-Demand Instances with Capacity Reservations. Run one instance in each Availability Zone as a Spot Instance.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：公司不想做长期保证因此不选 3️⃣。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Voted D because of the 65% &#x2F; 35% proportion. C seems to be good but with only 50% instancesavailable we breakthe SLA</p>
+</blockquote>
+<hr>
+<h3 id="九、AWS-Secrets-Manager-RotationSchedule"><a href="#九、AWS-Secrets-Manager-RotationSchedule" class="headerlink" title="九、AWS Secrets Manager RotationSchedule"></a>九、AWS Secrets Manager RotationSchedule</h3><p>A security engineer determined that an existing application retrieves credentials to an Amazon RDS for MySQL database from an encrypted file in Amazon S3. For the next version of the application, the security engineer wants to implement the following application design changes to improve security:<br>The database must use strong, randomly generated passwords stored in a secure AWS managed service.<br>The application resources must be deployed through AWS CloudFormation.<br>The application must rotate credentials for the database every 90 days.<br>A solutions architect will generate a CloudFormation template to deploy the application.<br>Which resources specified in the CloudFormation template will meet the security engineer’s requirements with the LEAST amount of operational overhead?</p>
+<ol>
+<li>✅ Generate the database password as a secret resource using AWS Secrets Manager. Create an AWS Lambda function resource to rotate the database password. Specify a Secrets Manager RotationSchedule resource to rotate the database password every 90 days.</li>
+<li>Generate the database password as a SecureString parameter type using AWS Systems Manager Parameter Store. Create an AWS Lambda function resource to rotate the database password. Specify a Parameter Store RotationSchedule resource to rotate the database password every 90 days.</li>
+<li>Generate the database password as a secret resource using AWS Secrets Manager. Create an AWS Lambda function resource to rotate the database password. Create an Amazon EventBridge scheduled rule resource to trigger the Lambda function password rotation every 90 days.</li>
+<li>Generate the database password as a SecureString parameter type using AWS Systems Manager Parameter Store. Specify an AWS AppSync DataSource resource to automatically rotate the database password every 90 days.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html">AWS::SecretsManager::RotationSchedule</a></p>
+<blockquote>
+<p>设置密文的旋转时间表和 Lambda 轮转函数。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;Type&quot;</span> <span class="punctuation">:</span> <span class="string">&quot;AWS::SecretsManager::RotationSchedule&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;Properties&quot;</span> <span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;HostedRotationLambda&quot;</span> <span class="punctuation">:</span> HostedRotationLambda<span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;RotateImmediatelyOnUpdate&quot;</span> <span class="punctuation">:</span> Boolean<span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;RotationLambdaARN&quot;</span> <span class="punctuation">:</span> String<span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;RotationRules&quot;</span> <span class="punctuation">:</span> RotationRules<span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;SecretId&quot;</span> <span class="punctuation">:</span> String</span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/cloudformation.html">https://docs.aws.amazon.com/secretsmanager/latest/userguide/cloudformation.html</a><br>Option B is wrong.The ParameterStore::RotationSchedule resource does not exist in CloudFormation.<br>Option C is wrong. It does not meet the requirement because it does not use CloudFormation.<br>Option D is wrong.The AWS::AppSync::DataSource resource is what to create data sources for resolvers in AWS AppSync to connect to.</p>
+</blockquote>
+<hr>
+<h3 id="十、API-Gateway-REST-API-direct-integrations"><a href="#十、API-Gateway-REST-API-direct-integrations" class="headerlink" title="十、API Gateway REST API direct integrations"></a>十、API Gateway REST API direct integrations</h3><p>A company is storing data in several Amazon DynamoDB tables. A solutions architect must use a serverless architecture to make the data accessible publicly through a simple API over HTTPS. The solution must scale automatically in response to demand.<br>Which solutions meet these requirements? (Choose two.)</p>
+<ol>
+<li>✅ Create an Amazon API Gateway REST API. Configure this API with direct integrations to DynamoDB by using API Gateway’s AWS integration type.</li>
+<li>Create an Amazon API Gateway HTTP API. Configure this API with direct integrations to Dynamo DB by using API Gateway’s AWS integration type.</li>
+<li>✅ Create an Amazon API Gateway HTTP API. Configure this API with integrations to AWS Lambda functions that return data from the DynamoDB tables.</li>
+<li>Create an accelerator in AWS Global Accelerator. Configure this accelerator with AWS Lambda@Edge function integrations that return data from the DynamoDB tables.</li>
+<li>Create a Network Load Balancer. Configure listener rules to forward requests to the appropriate AWS Lambda functions.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：AWS 介绍了使用 REST API 操作 <code>DynamoDB</code> 的案例：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/apigateway/latest/developerguide/api-gateway-overview-developer-experience.html">API Gateway 使用案例</a></p>
+<blockquote>
+<p><strong>使用 API Gateway 创建 REST API</strong><br>例如，使用 DynamoDB 作为后端，API 开发人员会设置集成请求以便将传入方法请求转发到所选的后端。该设置包括适当 DynamoDB 操作的规范、所需的 IAM 角色和策略以及所需的输入数据转换。后端将结果作为集成响应返回到 API Gateway。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A and C.<br>API Gateway REST API can invoke DynamoDB directly.<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-overview-developer-experience.html">https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-overview-developer-experience.html</a></p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAP 考试每日练习 - 2025/01/02</p><p><a href="https://senjianlu.com/2025/01/02/sap_test_daily_20250102/">https://senjianlu.com/2025/01/02/sap_test_daily_20250102/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2025-01-02</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2025-01-02</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAP/">SAP</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2025/01/03/sap_important_identity/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">SAP 考试重点 - 认证</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/12/30/translate_news_nhk_20241230_k10014682481000/"><span class="level-item">日语翻译 - 新闻 - 学校給食費の全国での無償化 通常国会でも論点に</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、Video-categorization-application"><span class="level-left"><span class="level-item">一、Video categorization application</span></span></a></li><li><a class="level is-mobile" href="#二、Serverless-Application-Deploy"><span class="level-left"><span class="level-item">二、Serverless Application Deploy</span></span></a></li><li><a class="level is-mobile" href="#三、Glacier-Deep-Archive"><span class="level-left"><span class="level-item">三、Glacier Deep Archive</span></span></a></li><li><a class="level is-mobile" href="#四、AWS-AD"><span class="level-left"><span class="level-item">四、AWS AD</span></span></a></li><li><a class="level is-mobile" href="#五、API-throttling"><span class="level-left"><span class="level-item">五、API throttling</span></span></a></li><li><a class="level is-mobile" href="#六、S3-lazy-loading"><span class="level-left"><span class="level-item">六、S3 lazy loading</span></span></a></li><li><a class="level is-mobile" href="#七、Assign-Elastic-IP-addresses-to-the-NLB"><span class="level-left"><span class="level-item">七、Assign Elastic IP addresses to the NLB</span></span></a></li><li><a class="level is-mobile" href="#八、SLA"><span class="level-left"><span class="level-item">八、SLA</span></span></a></li><li><a class="level is-mobile" href="#九、AWS-Secrets-Manager-RotationSchedule"><span class="level-left"><span class="level-item">九、AWS Secrets Manager RotationSchedule</span></span></a></li><li><a class="level is-mobile" href="#十、API-Gateway-REST-API-direct-integrations"><span class="level-left"><span class="level-item">十、API Gateway REST API direct integrations</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script data-pjax src="/js/insight.js" defer></script><script data-pjax>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

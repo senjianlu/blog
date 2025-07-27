@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/11/27 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam20 题 (No.81 ~ No.100)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/11/27"><meta property="og:url" content="https://senjianlu.com/2024/11/27/saa_test_daily_20241127/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam20 题 (No.81 ~ No.100)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-11-27T11:00:00.000Z"><meta property="article:modified_time" content="2024-11-27T12:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/11/27/saa_test_daily_20241127/"},"headline":"SAA 考试每日练习 - 2024/11/27","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-11-27T11:00:00.000Z","dateModified":"2024-11-27T12:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam20 题 (No.81 ~ No.100)，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/11/27/saa_test_daily_20241127/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-11-27T11:00:00.000Z" title="11/27/2024, 7:00:00 PM">2024-11-27</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/11/27</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/">Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam</a><br>20 题 (No.81 ~ No.100)，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<p><strong>🌟 单词：</strong></p>
+<ol>
+<li>gather<sub><u>v. 聚集，集合，搜集，积聚，增加（力量，速度等），收割，收获 | n. 聚集，收缩，衣褶</u></sub></li>
+<li>confidential<sub><u>adj. 秘密的，机密的；委以机密的；获信任的</u></sub></li>
+<li>audit<sub><u>n. 审计，（地主与佃户间的）决算 | v. 审计，检查，〔美国〕（大学生）旁听（课程）</u></sub></li>
+<li>staging<sub><u>暂存</u></sub></li>
+</ol>
+<hr>
+<h3 id="一、Auto-Sacling-Group-and-SQS"><a href="#一、Auto-Sacling-Group-and-SQS" class="headerlink" title="一、Auto Sacling Group and SQS"></a>一、Auto Sacling Group and SQS</h3><p>A solutions architect is designing the cloud architecture for a new application being deployed on AWS. The process should run in parallel while adding and removing application nodes as needed based on the number of jobs to be processed. The processor application is stateless. The solutions architect must ensure that the application is loosely coupled and the job items are durably stored.<br>Which design should the solutions architect use?</p>
+<ol>
+<li>Create an Amazon SNS topic to send the jobs that need to be processed. Create an Amazon Machine Image (AMI) that consists of the processor application. Create a launch configuration that uses the AMI. Create an Auto Scaling group using the launch configuration. Set the scaling policy for the Auto Scaling group to add and remove nodes based on CPU usage.</li>
+<li>Create an Amazon SQS queue to hold the jobs that need to be processed. Create an Amazon Machine Image (AMI) that consists of the processor application. Create a launch configuration that uses the AMI. Create an Auto Scaling group using the launch configuration. Set the scaling policy for the Auto Scaling group to add and remove nodes based on network usage.</li>
+<li>✅ Create an Amazon SQS queue to hold the jobs that need to be processed. Create an Amazon Machine Image (AMI) that consists of the processor application. Create a launch template that uses the AMI. Create an Auto Scaling group using the launch template. Set the scaling policy for the Auto Scaling group to add and remove nodes based on the number of items in the SQS queue.</li>
+<li>Create an Amazon SNS topic to send the jobs that need to be processed. Create an Amazon Machine Image (AMI) that consists of the processor application. Create a launch template that uses the AMI. Create an Auto Scaling group using the launch template. Set the scaling policy for the Auto Scaling group to add and remove nodes based on the number of messages published to the SNS topic.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：based on the number of jobs to be processed、processor application is stateless、the job items are durably stored</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：应用程序无状态，且需要按照任务数量动态扩展。任务需要持久保存。<br><code>SQS</code> + 弹性扩展 <code>EC2</code> 实例的最佳使用场景，但是 3️⃣ 和 4️⃣ 存在使用 launch configuration 还是 launch template 的区别。</p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html">Auto Scaling launch configurations</a></p>
+<blockquote>
+<p>You can not call CreateLaunchConfiguration with new Amazon EC2 instance types that are released after December 31, 2022. In addition, any new accounts created on or after June 1, 2023 will not have the option to create new launch configurations through the console. Starting on October 1, 2024, new accounts will not be able to create new launch configurations by using the console, API, CLI, and CloudFormation. Migrate to launch templates to ensure that you don’t need to create new launch configurations now or in the future. For information about migrating your Auto Scaling groups to launch templates, see Migrate your Auto Scaling groups to launch templates.</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html">Auto Scaling launch templates</a></p>
+<blockquote>
+<p>A launch template is similar to a launch configuration, in that it specifies instance configuration information. It includes the ID of the Amazon Machine Image (AMI), the instance type, a key pair, security groups, and other parameters used to launch EC2 instances. However, defining a launch template instead of a launch configuration allows you to have multiple versions of a launch template.</p>
+</blockquote>
+<p>launch configurations 可以指定的属性较少，并且已经不再更新了，之后都选 launch templates 即可。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：decoupled &#x3D; SQS<br>Launch template &#x3D; AMI<br>Launch configuration &#x3D; EC2  </p>
+</blockquote>
+<hr>
+<h3 id="二、Certificates-expiration"><a href="#二、Certificates-expiration" class="headerlink" title="二、Certificates expiration"></a>二、Certificates expiration</h3><p>A company hosts its web applications in the AWS Cloud. The company configures Elastic Load Balancers to use certificates that are imported into AWS Certificate Manager (ACM). The company’s security team must be notified 30 days before the expiration of each certificate.<br>What should a solutions architect recommend to meet this requirement?  </p>
+<ol>
+<li>Add a rule in ACM to publish a custom message to an Amazon Simple Notification Service (Amazon SNS) topic every day, beginning 30 days before any certificate will expire.</li>
+<li>✅ Create an AWS Config rule that checks for certificates that will expire within 30 days. Configure Amazon EventBridge (Amazon CloudWatch Events) to invoke a custom alert by way of Amazon Simple Notification Service (Amazon SNS) when AWS Config reports a noncompliant resource.</li>
+<li>Use AWS Trusted Advisor to check for certificates that will expire within 30 days. Create an Amazon CloudWatch alarm that is based on Trusted Advisor metrics for check status changes. Configure the alarm to send a custom alert by way of Amazon Simple Notification Service (Amazon SNS).</li>
+<li>Create an Amazon EventBridge (Amazon CloudWatch Events) rule to detect any certificates that will expire within 30 days. Configure the rule to invoke an AWS Lambda function. Configure the Lambda function to send a custom alert by way of Amazon Simple Notification Service (Amazon SNS).</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：ELB with ACM、must notified 30 days before the expiration of each certificate</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：应用程序部署在 <code>ELB</code> 后，同时使用了导入到 <code>ACM</code> 中的证书，需要在证书过期前 30 天进行提醒。<br>本来认为如果 <code>ACM</code> 自己拥有检测证书过期功能的话，1️⃣ 就是最佳选择，否则就得选 4️⃣ 了。<br><strong>但是社区的投票 2️⃣ 却占多数</strong>。  </p>
+<p>首先，根据官方的问答 <a target="_blank" rel="noopener" href="https://repost.aws/zh-Hans/knowledge-center/acm-certificate-expiration">当 ACM 导入的证书即将到期时，如何收到通知？</a>，很显然 <code>ACM</code> 是并没有集成证书过期触发事件的功能的，需要通过 <code>Amazon EventBridge</code> 中的 ACM API 配置 ACM 证书即将到期事件：</p>
+<blockquote>
+<p><strong>在 EventBridge 中配置“ACM 证书即将到期”事件</strong><br>对于接近到期日期的事件，ACM 会通过 CloudWatch 发送通知。默认情况下，ACM 证书即将到期事件会在<u><strong>活动到期前 45 天</strong></u>发送通知。要配置此通知的计时，请首先在 EventBridge 中将该事件添加为规则。</p>
+</blockquote>
+<p>这个事件是必不可少的，这些选 4️⃣ 的学友占了 47%。<br>而选 2️⃣ 的则是因为在上述的问答中，提到了：</p>
+<blockquote>
+<p><strong>创建 AWS Conﬁg 规则</strong><br>……<br>4. 对于 AWS 托管规则，选择 acm-certificate-expiration-check，然后选择下一步。<br>5. 在参数页上，对于值，在 daysToExpiration 键中输入希望规则调用的天数。**注意：**对于接近所输入的天数的到期日期的证书，acm-certificate-expiration-check AWS Config 规则会被标记为 Noncompliant。</p>
+</blockquote>
+<p>如果需要像题目中一样指定 30 天的过期事件，需要修改 acm-certificate-expiration-check 的配置。<br>只能说 2️⃣ 更有必要，题目的考点似乎是针对过期时间的修改的。  </p>
+<p>最后来看下文档：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/config/latest/developerguide/acm-certificate-expiration-check.html">acm-certificate-expiration-check</a>  </p>
+<blockquote>
+<p>检查账户中的 AWS Certificate Manager 证书是否标记为在指定天数内到期。ACM 提供的证书会自动更新。ACM 不会自动更新您导入的证书。如果您的证书即将过期，则规则为 NON_COMPLIANT。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：AWS Config hasa managed rule<br>named acm-certificate-expiration-check<br>to checkforexpiring certificates<br>(configurable number of days)</p>
+</blockquote>
+<hr>
+<h3 id="三、Optimize-site-loading-time"><a href="#三、Optimize-site-loading-time" class="headerlink" title="三、Optimize site loading time"></a>三、Optimize site loading time</h3><p>A company’s dynamic website is hosted using on-premises servers in the United States. The company is launching its product in Europe, and it wants to optimize site loading times for new European users. The site’s backend must remain in the United States. The product is being launched in a few days, and an immediate solution is needed.<br>What should the solutions architect recommend?</p>
+<ol>
+<li>Launch an Amazon EC2 instance in us-east-1 and migrate the site to it.</li>
+<li>Move the website to Amazon S3. Use Cross-Region Replication between Regions.</li>
+<li>✅ Use Amazon CloudFront with a custom origin pointing to the on-premises servers.</li>
+<li>Use an Amazon Route 53 geoproximity routing policy pointing to on-premises servers.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：dynamic website in US、launching its product in Europe、optimize site loading times for new European users、site’s backend must remain in the United States</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：动态网站的后端在美国，需要优化欧洲用户的访问，时间紧急。<br>使用 3️⃣ 可以优化，请求在达到欧洲的边缘节点后，就会通过 AWS 的网络达到美国的网站后端。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：C. Use Amazon CloudFront with a custom origin pointing to the on-premises servers.<br>Amazon CloudFront isa content delivery network(CDN) that speeds up the delivery of static and dynamic web content, such as HTML, CSS, JavaScript, images,and videos. By using CloudFront, the company can distribute the content of their website from edge locations that are closer to the users in Europe, reducing the loading times for these users.<br>To use CloudFront, the company can set up a custom origin pointing to their on-premises servers in the United States. CloudFront will then cache the content of the website at edge locationsaround the world and serve the content to users from the location that is closest to them.This will allow the company to optimize the loading times for their European users without having to move the backend of the website to a different region.</p>
+</blockquote>
+<hr>
+<h3 id="四、EC2-Billing-Method"><a href="#四、EC2-Billing-Method" class="headerlink" title="四、EC2 Billing Method"></a>四、EC2 Billing Method</h3><p>A company wants to reduce the cost of its existing three-tier web architecture. The web, application, and database servers are running on Amazon EC2 instances for the development, test, and production environments. The EC2 instances average 30% CPU utilization during peak<sub><u>巅峰</u></sub> hours and 10% CPU utilization during non-peak hours.<br>The production EC2 instances run 24 hours a day. The development and test EC2 instances run for at least 8 hours each day. The company plans to implement automation to stop the development and test EC2 instances when they are not in use.<br>Which EC2 instance purchasing solution will meet the company’s requirements MOST cost-effectively?</p>
+<ol>
+<li>Use Spot Instances for the production EC2 instances. Use Reserved Instances for the development and test EC2 instances.</li>
+<li>✅ Use Reserved Instances for the production EC2 instances. Use On-Demand Instances for the development and test EC2 instances.</li>
+<li>Use Spot blocks for the production EC2 instances. Use Reserved Instances for the development and test EC2 instances.</li>
+<li>Use On-Demand Instances for the production EC2 instances. Use Spot blocks for the development and test EC2 instances.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：reduce the cost、30% CPU utilization during peak hours、production EC2 instances run 24 hours a day、development and test EC2 instances run for at least 8 hours each day、automation development and test EC2 instances</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：公司希望节省开销，<code>EC2</code> 实例巅峰占用为 30%，平常为 10%，生产环境机器 24 小时运行，开发测试环境每天至少 8 小时，计划不使用时自动停止开发和测试环境的 <code>EC2</code> 实例。<br>生产环境使用预留实例计费模式，开发测试使用按需，选 2️⃣。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Option B, would indeed be the most cost-effective solution. Reserved Instances provide cost savings for instances that run consistently, such as the production environment in this case, while On-Demand Instances offer flexibilityand are suitable for instances with variable usage patterns like the development and test environments.This combination ensures cost optimization based on the specific requirementsand usage patterns described in the question.  </p>
+<p>Spot blocksare not longer available,and you can’t use spot instances on Prod machines 24x7, so option B should be valid.</p>
+</blockquote>
+<hr>
+<h3 id="五、S3-Object-Lock"><a href="#五、S3-Object-Lock" class="headerlink" title="五、S3 Object Lock"></a>五、S3 Object Lock</h3><p>A company has a production web application in which users upload documents through a web interface or a mobile app.<br>According to a new regulatory requirement. new documents cannot be modified or deleted after they are stored.<br>What should a solutions architect do to meet this requirement?</p>
+<ol>
+<li>✅ Store the uploaded documents in an Amazon S3 bucket with S3 Versioning and S3 Object Lock enabled.</li>
+<li>Store the uploaded documents in an Amazon S3 bucket. Configure an S3 Lifecycle policy to archive the documents periodically.</li>
+<li>Store the uploaded documents in an Amazon S3 bucket with S3 Versioning enabled. Configure an ACL to restrict all access to read-only.</li>
+<li>Store the uploaded documents on an Amazon ElasticFile System (Amazon EFS) volume. Access the data by mounting the volume in read-only mode.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：cannot be modified or deleted after they are stored</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：用户通过 API 上传文档，受限于新的审计要求，新的文档保存后就无法修改和删除。<br>使用 <code>S3 Object Lock</code> 可以解决问题。  </p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/userguide/object-lock.html#object-lock-overview">S3 对象锁定的工作原理</a></p>
+<blockquote>
+<ul>
+<li><strong>保留期限</strong> - 保留期限可在固定时间内保护对象版本。当您对对象版本施加保留期限时，Amazon S3 会在该对象版本的元数据中存储时间戳，以指示保留期限的到期时间。在保留期限到期后，便可覆盖或删除对象版本。</li>
+<li><strong>保留模式</strong><ul>
+<li>合规性模式 (Compliance mode) - 完全没法修改</li>
+<li>监管模式 (Governance mode) - 有权限的特别用户可以修改</li>
+</ul>
+</li>
+<li><strong>依法保留 (Legal holds)</strong> - 使用对象锁定，您还可以在对象版本上实施依法保留。与保留期限相似，依法保留可防止对象版本被覆盖或删除。但是，依法保留没有关联的固定时间长度，会一直有效，直至删除。拥有 <code>s3:PutObjectLegalHold</code> 权限的任何用户均可自由实施和删除依法保留。</li>
+</ul>
+</blockquote>
+<p><code>S3 Object Lock</code> 在官方文档中，提到了很多次与 <code>Versioning</code> 的结合使用，之后的题目中需要注意。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：You can use S3 Object Lockto store objects using a write-once-read-many (WORM) model. Object Lockcan help prevent objects from being deleted or overwritten for a fixed amount of time or indefinitely. You can use S3 Object Lockto meet regulatory requirements that require WORM storage, or add an extra layer of protection against object changesand deletion.<br>Versioning is required and automaticallyactivated as Object Lockisenabled.<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html">https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html</a></p>
+</blockquote>
+<hr>
+<h3 id="六、AWS-Secrets-Manager"><a href="#六、AWS-Secrets-Manager" class="headerlink" title="六、AWS Secrets Manager"></a>六、AWS Secrets Manager</h3><p>A company has several web servers that need to frequently access a common Amazon RDS MySQL Multi-AZ DB instance. The company wants a secure method for the web servers to connect to the database while meeting a security requirement to rotate user credentials frequently.<br>Which solution meets these requirements?</p>
+<ol>
+<li>✅ Store the database user credentials in AWS Secrets Manager. Grant the necessary IAM permissions to allow the web servers to access AWS Secrets Manager.</li>
+<li>Store the database user credentials in AWS Systems Manager OpsCenter. Grant the necessary IAM permissions to allow the web servers to access OpsCenter.</li>
+<li>Store the database user credentials in a secure Amazon S3 bucket. Grant the necessary IAM permissions to allow the web servers to retrieve credentials and access the database.</li>
+<li>Store the database user credentials in files encrypted with AWS Key Management Service (AWS KMS) on the web server file system. The web server should be able to decrypt the files and access the database.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：several web servers connect a common Amazon RDS MySQL Multi-AZ DB instance、rotate user credentials frequently</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：多个应用程序连接到同一个 <code>RDS</code> MySQL 多可用区数据库实例，需要能够自动流转用户认证信息。<br>数据库凭证、自动流转都是 <code>AWS Secrets Manager</code> 的使用场景，遇到非常多次了。  </p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/redshift/latest/mgmt/data-api-secrets.html">在 AWS Secrets Manager 中存储数据库凭证</a></p>
+<blockquote>
+<p>在调用数据 API 时，您可以使用 AWS Secrets Manager 中的密钥传递集群或无服务器工作组的凭证。要通过此方式传递凭证，您需要指定密钥的名称或密钥的 Amazon 资源名称（ARN）。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Secrets Managerenables you to replace hardcoded credentials in your code, including passwords, with an API call to Secrets Manager to retrieve the secret programmatically.This helpsensure the secret can’t be compromised by someone examining your code, because the secret no longerexists in the code. Also, you can configure Secrets Manager to automatically rotate the secret for you according to a specified schedule.Thisenables you to replace long-term secrets with short-term ones, significantly reducing the risk of compromise.<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html">https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html</a></p>
+</blockquote>
+<hr>
+<h3 id="七、Database-Upgrade-and-Decouple"><a href="#七、Database-Upgrade-and-Decouple" class="headerlink" title="七、Database Upgrade and Decouple"></a>七、Database Upgrade and Decouple</h3><p>A company hosts an application on AWS Lambda functions that are invoked by an Amazon API Gateway API. The Lambda functions save customer data to an Amazon Aurora MySQL database. Whenever the company upgrades the database, the Lambda functions fail to establish database connections until the upgrade is complete. The result is that customer data is not recorded for some of the event.<br>A solutions architect needs to design a solution that stores customer data that is created during database upgrades.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Provision an Amazon RDS proxy to sit between the Lambda functions and the database. Configure the Lambda functions to connect to the RDS proxy.</li>
+<li>Increase the run time of the Lambda functions to the maximum. Create a retry mechanism in the code that stores the customer data in the database.</li>
+<li>Persist the customer data to Lambda local storage. Configure new Lambda functions to scan the local storage to save the customer data to the database.</li>
+<li>✅ Store the customer data in an Amazon Simple Queue Service (Amazon SQS) FIFO queue. Create a new Lambda function that polls the queue and stores the customer data in the database.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：save customer data to an Amazon Aurora MySQL database、that customer data is not recorded because of the db upgrade</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：用户信息经由 <code>Lambda</code> 后保存到 <code>Amazon Aurora MySQL</code> 数据库中，但是数据库升级时相应的处理数据丢失了。问如何设计一个新的解决方案。<br>使用 <code>SQS</code> 解耦并设立一个新的 <code>Lambda</code> 函数处理保存数据的操作可以解决。  </p>
+<p>社区有 40% 的学友选了 1️⃣ 使用 <code>Amazon RDS proxy</code>，似乎是针对单台实例升级或故障的场景。<br>提一下 <code>Amazon Aurora MySQL</code> 是支持多主数据库实例的，这意味着可以多写。<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/about-aws/whats-new/2019/08/amazon-aurora-multimaster-now-generally-available/">Amazon Aurora Multi-Master is Now Generally Available</a></p>
+<blockquote>
+<p>Amazon Aurora Multi-Master 现已全面上市，允许您在多个可用区为 Aurora 数据库创建多个读写实例，从而使对正常运行时间敏感的应用程序能够在实例发生故障时实现持续的写入可用性。在实例或可用区发生故障的情况下，Aurora Multi-Master可使Aurora数据库保持读写可用性，应用程序停机时间为零。有了Aurora Multi-Master，数据库无需进行故障切换即可恢复写操作。查看本博客，了解如何使用Aurora Multi-Master构建高可用性的MySQL应用程序。</p>
+</blockquote>
+<p>并且关于 <code>Amazon RDS proxy</code> 的介绍 <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonRDS/latest/UserGuide/rds-proxy.howitworks.html">RDS Proxy 概念和术语</a>也明确了它在数据库故障时进行转移：</p>
+<blockquote>
+<p><strong>故障转移</strong><br>故障转移是一项高可用性功能，可在原始实例变得不可用时将数据库实例替换为另一个数据库实例。可能会因为数据库实例出现问题而发生故障转移。故障转移也可能是正常维护程序的一部分，例如在数据库升级期间。故障转移适用于多可用区配置中的 RDS 数据库实例。</p>
+</blockquote>
+<p>但我认为升级 <code>Amazon Aurora MySQL</code> 总需要你手动执行：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.MajorVersionUpgrade.html#AuroraMySQL.Upgrading.Sequence">Aurora MySQL 主要版本就地升级的工作原理</a>。<br>并且升级是以集群为单位的，单台升级的场景就站不住脚了。 </p>
+<blockquote>
+<p>……<br>2. Aurora 使您的<u><strong>集群</strong></u>离线。然后，Aurora 执行与上一阶段类似的一组测试，以确认关机过程中没有产生新问题。如果此时 Aurora 检测到任何会阻止升级的情况，Aurora 会取消升级并使集群恢复联机。在这种情况下，请确认条件何时不再适用，然后再次开始升级。<br>……</p>
+</blockquote>
+<p>这个题目场景更多是手动升级，而非灾难情况。<br>4️⃣ 的方法可以一劳永逸解决问题，且符合题目需要的新架构需求。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：<a target="_blank" rel="noopener" href="https://aws.amazon.com/rds/proxy/">https://aws.amazon.com/rds/proxy/</a><br>RDS Proxy minimizesapplication disruption from outagesaffecting the availability of your database byautomatically connecting to a new database instance while preserving application connections. When failovers occur, RDS Proxy routes requests directly to the new database instance.This reduces failover times for Aurora and RDS databases by up to 66%.  </p>
+<p>🙅：The original question wasabout handling a situation where the database is unavailable due to an upgrade, not a failover situation. During a database upgrade, the database instance is not available,and RDS Proxy would not be able to connect to a new database instance because there isn’t one.<br>In this specific scenario, using Amazon SQS as described in option D providesa buffer for the incoming data during the period when the database is unavailable.Thisensures that no data is lost,and it can be written to the database once the upgrade is complete.</p>
+</blockquote>
+<hr>
+<h3 id="八、S3-Cross-Region-Replication"><a href="#八、S3-Cross-Region-Replication" class="headerlink" title="八、S3 Cross-Region Replication"></a>八、S3 Cross-Region Replication</h3><p>A survey company has gathered<sub><u>收集</u></sub> data for several years from areas in the United States. The company hosts the data in an Amazon S3 bucket that is 3 TB in size and growing. The company has started to share the data with a European marketing firm that has S3 buckets. The company wants to ensure that its data transfer costs remain as low as possible.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>✅ Configure the Requester Pays feature on the company’s S3 bucket.</li>
+<li>❌ Configure S3 Cross-Region Replication from the company’s S3 bucket to one of the marketing firm’s S3 buckets.</li>
+<li>Configure cross-account access for the marketing firm so that the marketing firm has access to the company’s S3 bucket.</li>
+<li>Configure the company’s S3 bucket to use S3 Intelligent-Tiering. Sync the S3 bucket to one of the marketing firm’s S3 buckets.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：United States S3 share with European S3、low cost</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：公司在美国的 <code>S3</code> 存储桶中存了 3 TB 数据，要分享给欧洲其他 AWS 账户的 <code>S3</code> 存储桶。需要最便宜的方案。<br>使用跨区域副本功能将 <code>S3</code> 存储桶备份给对方。  </p>
+<p>我在进行选择的适合犹豫了下 <code>S3 Cross-Region Replication</code> 是否可以跨 AWS 账户，确认了是支持的。<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html#replication-workload-requirements">Workload requirements and live replication</a></p>
+<table>
+<thead>
+<tr>
+<th>Workload requirement</th>
+<th>S3 RTC (15-minute SLA)</th>
+<th>Cross-Region Replication (CRR)</th>
+<th>Same-Region Replication (SRR)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Replicate objects between different AWS accounts</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+<p>社区投票 1️⃣ 和 2️⃣ 一半一半，有人提到了 <code>S3 Cross-Region Replication</code> 不支持现有数据，查了下是真的：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/userguide/replication.html">在区域内和跨区域复制对象</a></p>
+<blockquote>
+<ul>
+<li>实时复制 (Live replication)：想要在向源存储桶写入新的和更新的对象的同时，自动复制这些对象，请使用实时复制。<u><strong>实时复制不会复制在设置复制之前就存在于存储桶中的任何对象。想要复制在设置复制之前就存在的对象，请使用按需复制</strong></u>。<ul>
+<li>跨区域复制（CRR）– 可以使用 CRR 跨不同 AWS 区域中的 S3 存储桶复制对象。有关 CRR 的更多信息，请参阅何时使用跨区域复制。</li>
+<li>同区域复制（SRR）– 可以使用 SRR 跨同一 AWS 区域中的 Amazon S3 存储桶复制对象。有关 SRR 的更多信息，请参阅何时使用同区域复制。</li>
+</ul>
+</li>
+<li>按需复制 (On-demand replication)：想要按需从源存储桶中复制现有对象到一个或多个目标存储桶，请使用 S3 批量复制。有关复制现有对象的更多信息，请参阅 何时使用 S3 分批复制。</li>
+</ul>
+</blockquote>
+<p>根据这点 2️⃣ 就是错误的了，因此选 1️⃣。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：this question is too vague imho<br>if the question is looking for a way to incur charges to the European company instead of the US company, then requester pay makes sense.<br>if theyare looking to reduce overall data transfer cost, then B makes sense because the data does not leave the AWS network, thus data transfer cost should be lower technically?<br>A. makes sense because the US company saves money, but the European company is paying for the charges so there is no overall saving in cost when you lookat the big picture<br>I will go for B because theyare not explicitly stating that they want the other company to pay for the charges</p>
+<p>🙅：”Typically, you configure buckets to be Requester Pays buckets when you want to share data but not incur chargesassociated with othersaccessing the data. Forexample, you might use Requester Pays buckets when making available large datasets, such as zip code directories, reference data, geospatial information, or web crawling data.”<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html</a></p>
+<p>🙅：B) Cross Region Replication: $0.02&#x2F;GB<br>A) over the internet it is $0.09&#x2F;GB</p>
+</blockquote>
+<hr>
+<h3 id="九、Amazon-S3-accidental-deletion"><a href="#九、Amazon-S3-accidental-deletion" class="headerlink" title="九、Amazon S3 accidental deletion"></a>九、Amazon S3 accidental deletion</h3><p>A company uses Amazon S3 to store its confidential<sub><u>机密的</u></sub> audit<sub><u>审计</u></sub> documents. The S3 bucket uses bucket policies to restrict access to audit team IAM user credentials according to the principle of least privilege. Company managers are worried about accidental deletion of documents in the S3 bucket and want a more secure solution.<br>What should a solutions architect do to secure the audit documents?</p>
+<ol>
+<li>✅ Enable the versioning and MFA Delete features on the S3 bucket.</li>
+<li>Enable multi-factor authentication (MFA) on the IAM user credentials for each audit team IAM user account.</li>
+<li>Add an S3 Lifecycle policy to the audit team’s IAM user accounts to deny the s3:DeleteObject action during audit dates.</li>
+<li>Use AWS Key Management Service (AWS KMS) to encrypt the S3 bucket and restrict audit team IAM user accounts from accessing the KMS key.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：confidential audit documents、IAM user、accidental deletion</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：在 <code>S3</code> 上存储了机密的审计文档，已经按照最少权限原则创建了 IAM 用户，公司管理层还是担心意外删除并想要一个另外的保障措施。<br>开启版本、删除操作时的二步确认都能解决这个问题。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Same as Question #44  </p>
+<blockquote>
+<p>#44 一样的场景，两个正确选项：  </p>
+<ul>
+<li>Enable versioning on the S3 bucket.  </li>
+<li>Enable MFA Delete on the S3 bucket.</li>
+</ul>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="十、Read-replica-for-RDS"><a href="#十、Read-replica-for-RDS" class="headerlink" title="十、Read replica for RDS"></a>十、Read replica for RDS</h3><p>A company is using a SQL database to store movie data that is publicly accessible. The database runs on an Amazon RDS Single-AZ DB instance. A script runs queries at random intervals each day to record the number of new movies that have been added to the database. The script must report a final total during business hours.<br>The company’s development team notices that the database performance is inadequate for development tasks when the script is running. A solutions architect must recommend a solution to resolve this issue.<br>Which solution will meet this requirement with the LEAST operational overhead?</p>
+<ol>
+<li>Modify the DB instance to be a Multi-AZ deployment.</li>
+<li>✅ Create a read replica of the database. Configure the script to query only the read replica.</li>
+<li>Instruct the development team to manually export the entries in the database at the end of each day.</li>
+<li>Use Amazon ElastiCache to cache the common queries that the script runs against the database.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：Single-AZ、database performance is inadequate</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：有一个公开的存放影视数据的单区 <code>RDS</code> 数据库，有一个每天随机运行的统计新电影条数的脚本。发现脚本运行的时候数据库性能下降。最简单的架构解决问题。<br>新增只读副本供脚本查询可以解决。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Elasti Cache if for reading common results.The script is looking for new moviesadded. Read replica would be the best choice.</p>
+</blockquote>
+<hr>
+<h3 id="十一、VPC-gateway-endpoint"><a href="#十一、VPC-gateway-endpoint" class="headerlink" title="十一、VPC gateway endpoint"></a>十一、VPC gateway endpoint</h3><p>A company has applications that run on Amazon EC2 instances in a VPC. One of the applications needs to call the Amazon S3 API to store and read objects. According to the company’s security regulations, no traffic from the applications is allowed to travel across the internet.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>✅ Configure an S3 gateway endpoint.</li>
+<li>Create an S3 bucket in a private subnet.</li>
+<li>Create an S3 bucket in the same AWS Region as the EC2 instances.</li>
+<li>Configure a NAT gateway in the same subnet as the EC2 instances.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：EC2 in VPC needs to call the Amazon S3 API、private subnet、</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：私有子网的 <code>EC2</code> 需要访问 <code>S3</code>。<br><code>网关终端节点</code>（连接 <code>S3</code> 或 <code>DynamoDB</code>）的使用场景。<br>需要注意的是，终端节点是 <code>VPC</code> 级别的。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Gateway endpoints provide reliable connectivity to Amazon S3 and DynamoDB without requiring an internet gateway or a NAT device for your VPC. It should be option A.<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/vpc/latest/privatelink/gateway-endpoints.html">https://docs.aws.amazon.com/vpc/latest/privatelink/gateway-endpoints.html</a></p>
+</blockquote>
+<hr>
+<h3 id="十二、S3-bucket-policy"><a href="#十二、S3-bucket-policy" class="headerlink" title="十二、S3 bucket policy"></a>十二、S3 bucket policy</h3><p>A company is storing sensitive user information in an Amazon S3 bucket. The company wants to provide secure access to this bucket from the application tier running on Amazon EC2 instances inside a VPC.<br>Which combination of steps should a solutions architect take to accomplish this? (Choose two.)</p>
+<ol>
+<li>✅ Configure a VPC gateway endpoint for Amazon S3 within the VPC.</li>
+<li>Create a bucket policy to make the objects in the S3 bucket public.</li>
+<li>✅ Create a bucket policy that limits access to only the application tier running in the VPC.</li>
+<li>Create an IAM user with an S3 access policy and copy the IAM credentials to the EC2 instance.</li>
+<li>Create a NAT instance and have the EC2 instances use the NAT instance to access the S3 bucket.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：provide secure access to this bucket</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ 3️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：有敏感的用户信息存放在 <code>S3</code> 存储桶中，需要让运行在 <code>VPC</code> 中 <code>EC2</code> 上的应用程序对其安全访问。<br><code>IAM</code> 角色权限或存储桶权限都能解决权限问题。2️⃣ 错在不应该公开存储桶，4️⃣ 错在不是 <code>IAM</code> 用户而应该是 <code>IAM</code> 角色 (Role)。<br>而访问 <code>S3</code> 应该使用 <code>网关终端节点</code>。<br>因此选 1️⃣ 3️⃣。  </p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/userguide/example-bucket-policies.html">Amazon S3 存储桶策略的示例</a></p>
+<blockquote>
+<ul>
+<li>向公共匿名用户授予只读权限</li>
+<li>需要加密</li>
+<li>使用标准 ACL 管理存储桶</li>
+<li>使用对象标记管理对象访问权限</li>
+<li>使用全局条件键管理对象访问权限</li>
+<li>管理基于 HTTP 或 HTTPS 请求的访问权限</li>
+<li>管理用户对特定文件夹的访问权限</li>
+<li>管理访问日志的访问权限</li>
+<li>管理对 Amazon CloudFront OAI 的访问</li>
+<li>管理 Amazon S3 Storage Lens 存储统计管理工具的访问权限</li>
+<li>管理 S3 清单、S3 分析和 S3 清单报告的权限</li>
+<li>需要 MFA</li>
+<li>防止用户删除对象</li>
+</ul>
+</blockquote>
+<p>有多种方式实现只让应用程序能够安全访问 <code>S3</code> 存储桶。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A: VPC S3 gateway for direct connection (no public internet) to access S3<br>C: Bucket policy to secure access and only allow the VPC application tier to access it  </p>
+<p>B: Opens up to public<br>D: Not secure to copy credentials<br>E: NAT instance (obsolete now) is not useful for limiting resource access, it’s for subnet connections  </p>
+</blockquote>
+<hr>
+<h3 id="十三、Amazon-Aurora-MySQL-database-cloning"><a href="#十三、Amazon-Aurora-MySQL-database-cloning" class="headerlink" title="十三、Amazon Aurora MySQL database cloning"></a>十三、Amazon Aurora MySQL database cloning</h3><p>A company runs an on-premises application that is powered by a MySQL database. The company is migrating the application to AWS to increase the application’s elasticity and availability.<br>The current architecture shows heavy read activity on the database during times of normal operation. Every 4 hours, the company’s development team pulls a full export of the production database to populate<sub><u>填充</u></sub> a database in the staging<sub><u>暂存</u></sub> environment. During this period, users experience unacceptable application latency. The development team is unable to use the staging environment until the procedure completes.<br>A solutions architect must recommend replacement architecture that alleviates the application latency issue. The replacement architecture also must give the development team the ability to continue using the staging environment without delay.<br>Which solution meets these requirements?</p>
+<ol>
+<li>Use Amazon Aurora MySQL with Multi-AZ Aurora Replicas for production. Populate the staging database by implementing a backup and restore process that uses the mysqldump utility.</li>
+<li>✅ Use Amazon Aurora MySQL with Multi-AZ Aurora Replicas for production. Use database cloning to create the staging database on-demand.</li>
+<li>Use Amazon RDS for MySQL with a Multi-AZ deployment and read replicas for production. Use the standby instance for the staging database.</li>
+<li>Use Amazon RDS for MySQL with a Multi-AZ deployment and read replicas for production. Populate the staging database by implementing a backup and restore process that uses the mysqldump utility.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：database full export、latency</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：公司本地运行的数据库，每 4 小时做一次全量导出到暂存环境，导致用户感受到延迟、开发者暂时也无法使用暂存环境。迁移到新架构需要解决延迟问题，并确保暂存环境实时可用。<br>数据库环境要分开，因此不能使用集群而要使用副本，3️⃣ 排除。<br>而解决暂存环境实时可用使用 <code>Aurora MySQL</code> 数据库的复制功能即可。  </p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Clone.html#Aurora.Clone.Overview">Aurora 克隆 (Aurora cloning) 概述</a>  </p>
+<blockquote>
+<p>Aurora 使用写入时复制协议创建克隆。此机制占用最少的额外空间来创建初始克隆。首次创建克隆时，Aurora 会保留源 Aurora 数据库集群和新（克隆的）Aurora 数据库集群使用的数据的单个副本。只有当源 Aurora 数据库集群或 Aurora 数据库集群克隆对数据（在 Aurora 存储卷上）进行更改时，才会分配额外的存储空间。</p>
+<p>Aurora 克隆非常适合使用您的生产数据快速设置测试环境，且不会有损坏数据的风险。您可以将克隆用于多种类型的应用程序，例如：</p>
+<ul>
+<li>对潜在的变化（例如模式变化和参数组变化）进行试验，以评估所有影响。</li>
+<li>执行工作负载密集型操作，例如导出数据或在克隆上运行分析查询。</li>
+<li>为开发、测试或其他用途创建生产数据库集群的副本。</li>
+</ul>
+</blockquote>
+<p><em>虽然这里我也不知道有 <code>Aurora cloning</code> 这个功能，但是和手动的数据库备份相比，既然 AWS 在选项中提供了更优雅的解决方式，那它应该是有自信自己拥有的 🤦</em></p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：The recommended solution is Option B: Use Amazon Aurora MySQL with Multi-AZ Aurora Replicas for production. Use database cloning to create the staging database on-demand.<br>To alleviate the application latency issue, the recommended solution is to use Amazon Aurora MySQL with Multi-AZ Aurora Replicas for production, and use database cloning to create the staging database on-demand. This allows the development Replicas for production, and use database cloning to create the staging database on-demand. This allows the development team to continue using the staging environment without delay, while also providing elasticity and availability for the production application.<br>Therefore, Options A, C, and D are not recommended</p>
+</blockquote>
+<hr>
+<h3 id="十四、Lambda"><a href="#十四、Lambda" class="headerlink" title="十四、Lambda"></a>十四、Lambda</h3><p>A company is designing an application where users upload small files into Amazon S3. After a user uploads a file, the file requires one-time simple processing to transform the data and save the data in JSON format for later analysis.<br>Each file must be processed as quickly as possible after it is uploaded. Demand will vary. On some days, users will upload a high number of files. On other days, users will upload a few files or no files.<br>Which solution meets these requirements with the LEAST operational overhead?</p>
+<ol>
+<li>Configure Amazon EMR to read text files from Amazon S3. Run processing scripts to transform the data. Store the resulting JSON file in an Amazon Aurora DB cluster.</li>
+<li>Configure Amazon S3 to send an event notification to an Amazon Simple Queue Service (Amazon SQS) queue. Use Amazon EC2 instances to read from the queue and process the data. Store the resulting JSON file in Amazon DynamoDB.</li>
+<li>✅ Configure Amazon S3 to send an event notification to an Amazon Simple Queue Service (Amazon SQS) queue. Use an AWS Lambda function to read from the queue and process the data. Store the resulting JSON file in Amazon DynamoDB.</li>
+<li>Configure Amazon EventBridge (Amazon CloudWatch Events) to send an event to Amazon Kinesis Data Streams when a new file is uploaded. Use an AWS Lambda function to consume the event from the stream and process the data. Store the resulting JSON file in an Amazon Aurora DB cluster.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：save the data in JSON format、Demand will vary</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：用户上传到 <code>S3</code> 存储桶的文件需要立即进行处理并保存数据为 JSON 格式。处理需求无法预测且波动剧烈。要求最简单的架构。<br><code>Lambda</code> 足够简单 (Serverless)，且自带弹性扩容属性非常适合这个场景，3️⃣ 中提到了，并且还使用了 <code>SQS</code> 进行解耦，<code>DynamoDB</code> 也符合 JSON 数据存储需求。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A. Configuring EMR and an Aurora DB cluster for this use case would introduce unnecessary complexity and operational overhead. EMR is typically used for processing large datasets and running big data frameworks like Apache Spark or Hadoop.<br>B. While using S3 event notifications and SQS for decoupling is a good approach, using EC2 to process the data would introduce operational overhead in terms of managing and scaling the EC2.<br>D. Using EventBridge and Kinesis Data Streams for this use case would introduce additional complexity and operational overhead compared to the other options. EventBridge and Kinesis are typically used for real-time streaming and processing of large volumes of data.  </p>
+<p>In summary, option C is the recommended solution as it provides a serverless and scalable approach for processing uploaded files using S3 event notifications, SQS, and Lambda. It offers low operational overhead, automatic scaling, and efficient handling of varying demand. Storing the resulting JSON file in DynamoDB aligns with the requirement of saving the data for later analysis.</p>
+</blockquote>
+<hr>
+<h3 id="十五、Database-read-replicas"><a href="#十五、Database-read-replicas" class="headerlink" title="十五、Database read replicas"></a>十五、Database read replicas</h3><p>An application allows users at a company’s headquarters to access product data. The product data is stored in an Amazon RDS MySQL DB instance. The operations team has isolated an application performance slowdown and wants to separate read traffic from write traffic. A solutions architect needs to optimize the application’s performance quickly.<br>What should the solutions architect recommend?</p>
+<ol>
+<li>Change the existing database to a Multi-AZ deployment. Serve the read requests from the primary Availability Zone.</li>
+<li>Change the existing database to a Multi-AZ deployment. Serve the read requests from the secondary Availability Zone.</li>
+<li>Create read replicas for the database. Configure the read replicas with half of the compute and storage resources as the source database.</li>
+<li>✅ Create read replicas for the database. Configure the read replicas with the same compute and storage resources as the source database.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：separate read traffic from write traffic</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：应用程序处理存储在 <code>Amazon RDS MySQL</code> 中的数据，操作团队发现性能缓慢并希望读写分离。架构师需要迅速解决问题。<br>读写分离需要创建只读副本，副本最少需要和主数据库保持一样的配置，选 4️⃣。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：The solutions architect should recommend option D: Create read replicas for the database. Configure the read replicas with the same compute and storage resources as the source database.<br>Creating read replicas allows the application to offload read traffic from the source database, improving its performance. The read replicas should be configured with the same compute and storage resources as the source database to ensure that they can handle the read workload effectively.</p>
+</blockquote>
+<hr>
+<h3 id="十六、IAM-policy"><a href="#十六、IAM-policy" class="headerlink" title="十六、IAM policy"></a>十六、IAM policy</h3><p>An Amazon EC2 administrator created the following policy associated with an IAM group containing several users:<br><img src="https://image.senjianlu.com/blog/2024-11-30/101847.png" alt="No.16"><br>What is the effect of this policy?</p>
+<ol>
+<li>Users can terminate an EC2 instance in any AWS Region except us-east-1.</li>
+<li>Users can terminate an EC2 instance with the IP address 10.100.100.1 in the us-east-1 Region.</li>
+<li>✅ Users can terminate an EC2 instance in the us-east-1 Region when the user’s source IP is 10.100.100.254.</li>
+<li>Users cannot terminate an EC2 instance in the us-east-1 Region when the user’s source IP is 10.100.100.254.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：IAM policy</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：第一段意为允许所有来源 IP 属于 10.100.100.0&#x2F;24 的执行 ec2:TerminateInstances 命令；第二段意为禁止对所有不属于 us-east-1 区域的 <code>EC2</code> 实例进行操作。<br>这意味着要登陆 <code>EC2</code> 实例，需要用户 IP 属于 10.100.100.0&#x2F;24 段，同时实例属于 us-east-1 区域。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：What the policy means:  </p>
+</blockquote>
+<ol>
+<li>Allow termination of any instance if user’s source IP address is 100.100.254.  </li>
+<li>Deny termination of instances that are not in the us-east-1<blockquote>
+<p>Combining this two, you get: “Allow instance termination in the us-east-1 region if the user’s source IP address is 10.100.100.254. Deny termination operation<br>on other regions.”</p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<h3 id="十七、Windows-File-Server-and-AD"><a href="#十七、Windows-File-Server-and-AD" class="headerlink" title="十七、Windows File Server and AD"></a>十七、Windows File Server and AD</h3><p>A company has a large Microsoft SharePoint deployment running on-premises that requires Microsoft Windows shared file storage. The company wants to migrate this workload to the AWS Cloud and is considering various storage options. The storage solution must be highly available and integrated with Active Directory for access control.<br>Which solution will satisfy these requirements?</p>
+<ol>
+<li>Configure Amazon EFS storage and set the Active Directory domain for authentication.</li>
+<li>Create an SMB file share on an AWS Storage Gateway file gateway in two Availability Zones.</li>
+<li>Create an Amazon S3 bucket and configure Microsoft Windows Server to mount it as a volume.</li>
+<li>✅ Create an Amazon FSx for Windows File Server file system on AWS and set the Active Directory domain for authentication.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：Windows shared file storage、highly available、integrated with Active Directory for access control</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：公司在本地部署有 Windwos 文件存储分享系统，想迁移到 AWS 并使用 AD 控制访问权限。<br>Windows 存储使用 <code>FSx for Windows File Server</code> 没有疑问，AD 使用三种方案都能解决：  </p>
+<ul>
+<li><code>AWS Managed Microsoft AD</code> - 在 AWS 中建立新的 AD 并与本地 AD 建立信任关系</li>
+<li><code>AD Connector</code> - 代理，AD 认证请求到 AWS 后发回本地认证</li>
+<li><code>Simple AD</code> - 功能简单的 AD</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：D. Create an Amazon FSx for Windows File Server file system on AWS and set the Active Directory domain for authentication.<br>Amazon FSx for Windows File Server is a fully managed file storage service that is designed to be used with Microsoft Windows workloads. It is integrated with Active Directory for access control and is highly available, as it stores data across multiple availability zones. Additionally, FSx can be used to migrate data from on-premises Microsoft Windows file servers to the AWS Cloud. This makes it a good fit for the requirements described in the question.</p>
+</blockquote>
+<hr>
+<h3 id="十八、SQS-message-multiple-consumed"><a href="#十八、SQS-message-multiple-consumed" class="headerlink" title="十八、SQS message multiple consumed"></a>十八、SQS message multiple consumed</h3><p>An image-processing company has a web application that users use to upload images. The application uploads the images into an Amazon S3 bucket. The company has set up S3 event notifications to publish the object creation events to an Amazon Simple Queue Service (Amazon SQS) standard queue. The SQS queue serves as the event source for an AWS Lambda function that processes the images and sends the results to users through email.<br>Users report that they are receiving multiple email messages for every uploaded image. A solutions architect determines that SQS messages are invoking the Lambda function more than once, resulting in multiple email messages.<br>What should the solutions architect do to resolve this issue with the LEAST operational overhead?</p>
+<ol>
+<li>Set up long polling in the SQS queue by increasing the ReceiveMessage wait time to 30 seconds.</li>
+<li>Change the SQS standard queue to an SQS FIFO queue. Use the message deduplication ID to discard duplicate messages.</li>
+<li>✅ Increase the visibility timeout in the SQS queue to a value that is greater than the total of the function timeout and the batch window timeout.</li>
+<li>❌ Modify the Lambda function to delete each message from the SQS queue immediately after the message is read before processing.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：multiple email messages、SQS messages are invoking the Lambda function more than once</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>SQS</code> 队列后到 <code>Lambda</code> 多次消费同一条消息。要求最简单的解决方式。<br>第一时间觉得需要通过 <code>ChangeMessageVisibility</code> 在第一次消费消息时，将消息设置为隐藏（不可见），但是没有这个选项。</p>
+<p>1️⃣ 增加对 <code>SQS</code> 轮训的时间，没有用；<br>2️⃣ 通过 FIFO 队列和去重 ID 保证消息不重复；<br>3️⃣ 将 <code>SQS</code> 中的消息的可见性超时增加到大于函数超时和批处理窗口超时之和的值；<br>4️⃣ 将 <code>Lambda</code> 方法设置为读取到消息就立即删除，即使还没有处理。  </p>
+<p>如果是消息重复的场景应该选 2️⃣，但是这里明显 <code>S3</code> 存储桶的通知不会出现消息发送重复的低级问题。<br>4️⃣ 它存在函数失败后消息丢失的可能性。  </p>
+<p>而要选出 3️⃣，需要你了解 <code>SQS</code> 中消息的生命周期：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Amazon SQS 可见性超时</a>  </p>
+<blockquote>
+<p>当消费者收到来自 Amazon SQS 队列的消息时，该消息会保留在队列中，但其他消费者暂时看不见。这种暂时的隐身性由可见性超时控制，这是一种防止其他使用者在处理同一消息时处理该消息的机制。Amazon SQS 不会自动删除该消息；相反，消费者必须在消息成功处理后使用DeleteMessage操作将其明确删除。<br><img src="https://image.senjianlu.com/blog/2024-11-30/105021.png" alt="消息的生命周期"></p>
+<p><strong>设置可见性超时</strong><br>当一条消息返回给消费者时，Amazon 中的可见性超时就SQS开始了。在这段时间内，消费者需要处理和删除消息。但是，如果消费者未能在可见性超时到期之前删除消息，则该消息将在队列中再次可见，并且可以由其他使用者检索。<br>每个 Amazon SQS 队列的默认可见性超时为 30 秒，但您可以根据应用程序的需求调整此设置。通常，最好将可见性超时设置为与应用程序处理和删除消息所需的最长时间相匹配。您也可以为单个消息配置特定的可见性超时，而无需更改队列的总体超时设置。</p>
+</blockquote>
+<p>那么很显然题目场景就是 <code>Lambda</code> 函数和批处理的总执行时间超过了默认可见性超时的 30 秒，导致消息被重复消费了。<br><em>我在过往的 RabbitMQ 使用过程中，竟然从来没让消息超时过，以至于一时忽视了这个默认超时机制</em> 🤦</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：answer should be C,<br>users get duplicated messages because -&gt; lambda polls the message, and starts processing the message.<br>However, before the first lambda can finish processing the message, the visibility timeout runs out on SQS, and SQS returns the message to the poll, causing another Lambda node to process that same message.<br>By increasing the visibility timeout, it should prevent SQS from returning a message back to the poll before Lambda can finish processing the message.  </p>
+<p>this is important part:<br>Immediately after a message is received, it remains in the queue. To prevent other consumers from processing the message again, Amazon SQS sets a visibility timeout, a period of time during which Amazon SQS prevents other consumers from receiving and processing the message. The default visibility timeout for a message is 30 seconds. The minimum is 0 seconds.<br>The maximum is 12 hours.</p>
+</blockquote>
+<hr>
+<h3 id="十九、Lustre-storage"><a href="#十九、Lustre-storage" class="headerlink" title="十九、Lustre storage"></a>十九、Lustre storage</h3><p>A company is implementing a shared storage solution for a gaming application that is hosted in an on-premises data center.<br>The company needs the ability to use Lustre clients to access data. The solution must be fully managed.<br>Which solution meets these requirements?</p>
+<ol>
+<li>Create an AWS Storage Gateway file gateway. Create a file share that uses the required client protocol. Connect the application server to the file share.</li>
+<li>Create an Amazon EC2 Windows instance. Install and configure a Windows file share role on the instance. Connect the application server to the file share.</li>
+<li>Create an Amazon Elastic File System (Amazon EFS) file system, and configure it to support Lustre. Attach the file system to the origin server. Connect the application server to the file system.</li>
+<li>✅ Create an Amazon FSx for Lustre file system. Attach the file system to the origin server. Connect the application server to the file system.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：shared storage solution、use Lustre clients to access data</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：需要能让 <code>Lustre</code> 客户端访问的共享存储空间。<br><code>Amazon FSx for Lustre</code> 可以解决。  </p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/fsx/latest/LustreGuide/what-is.html">Amazon for FSx Lustre 是什么？</a></p>
+<blockquote>
+<p>FSxfor Lustre 可以轻松且经济高效地启动和运行流行的高性能 Lustre 文件系统。您可以将 Lustre 用于速度至关重要的工作负载，例如机器学习、高性能计算 (HPC)、视频处理和财务建模。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7245145215799099451">浅谈HPC中的Lustre</a></p>
+<blockquote>
+<p>Lustre 体系结构是一个为集群设计的存储体系结构。 其核心组件是运行在 Linux 操作系统上、 支持标准的 POSIX* UNIX 文件系统接口、 并遵循 GPL2.0 许可的 Lustre 文件系统。 据 IDC 的统计， Lustre 是在 HPC 领域应用最广的文件系统， 世界上最快的 50 个超算网站有 60%都使用 Lustre。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Lustre in the question is only available as FSx<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/fsx/lustre/">https://aws.amazon.com/fsx/lustre/</a></p>
+</blockquote>
+<hr>
+<h3 id="二十、Certificates-encryption-and-data-encryption"><a href="#二十、Certificates-encryption-and-data-encryption" class="headerlink" title="二十、Certificates encryption and data encryption"></a>二十、Certificates encryption and data encryption</h3><p>A company’s containerized application runs on an Amazon EC2 instance. The application needs to download security certificates before it can communicate with other business applications. The company wants a highly secure solution to encrypt and decrypt the certificates in near real time. The solution also needs to store data in highly available storage after the data is encrypted.<br>Which solution will meet these requirements with the LEAST operational overhead?</p>
+<ol>
+<li>Create AWS Secrets Manager secrets for encrypted certificates. Manually update the certificates as needed. Control access to the data by using fine-grained IAM access.</li>
+<li>Create an AWS Lambda function that uses the Python cryptography library to receive and perform encryption operations. Store the function in an Amazon S3 bucket.</li>
+<li>✅ Create an AWS Key Management Service (AWS KMS) customer managed key. Allow the EC2 role to use the KMS key for encryption operations. Store the encrypted data on Amazon S3.</li>
+<li>Create an AWS Key Management Service (AWS KMS) customer managed key. Allow the EC2 role to use the KMS key for encryption operations. Store the encrypted data on Amazon Elastic Block Store (Amazon EBS) volumes.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：encrypt and decrypt the certificates in near real time、highly available storage、data is encrypted</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：应用程序与其他商业营销交互前需要下载密钥凭证，需要高度安全的解决方案去近实时地加密解密凭证，还需要将数据保密并存于高可用的存储上。最简单的架构。<br>加密解密需要使用到 <code>KMS</code>，高可用且可以加密的存储使用 <code>S3</code>。  </p>
+<p>这里看上去还是 <code>S3</code> 的客户端加密 (SSE-C) 场景。<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/userguide/serv-side-encryption.html">使用服务器端加密保护数据</a></p>
+<blockquote>
+<ul>
+<li>具有 Amazon S3 托管密钥的服务器端加密（SSE-S3）</li>
+<li>具有 AWS Key Management Service（AWS KMS）密钥的服务器端加密（SSE-KMS）</li>
+<li>具有 AWS Key Management Service（AWS KMS）密钥的双层服务器端加密（DSSE-KMS）</li>
+<li>具有客户提供密钥的服务器端加密（SSE-C）</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：C makes a better sense. Between C (S3) and D (EBS), S3 is highly available with LEAST operational overhead.</p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/11/27</p><p><a href="https://senjianlu.com/2024/11/27/saa_test_daily_20241127/">https://senjianlu.com/2024/11/27/saa_test_daily_20241127/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-11-27</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-11-27</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/11/27/knowledge_monitor/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">AWS 知识点 - 监控、日志和审计</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/11/27/hands_on_storage/"><span class="level-item">AWS 实操 - 块和文件存储</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、Auto-Sacling-Group-and-SQS"><span class="level-left"><span class="level-item">一、Auto Sacling Group and SQS</span></span></a></li><li><a class="level is-mobile" href="#二、Certificates-expiration"><span class="level-left"><span class="level-item">二、Certificates expiration</span></span></a></li><li><a class="level is-mobile" href="#三、Optimize-site-loading-time"><span class="level-left"><span class="level-item">三、Optimize site loading time</span></span></a></li><li><a class="level is-mobile" href="#四、EC2-Billing-Method"><span class="level-left"><span class="level-item">四、EC2 Billing Method</span></span></a></li><li><a class="level is-mobile" href="#五、S3-Object-Lock"><span class="level-left"><span class="level-item">五、S3 Object Lock</span></span></a></li><li><a class="level is-mobile" href="#六、AWS-Secrets-Manager"><span class="level-left"><span class="level-item">六、AWS Secrets Manager</span></span></a></li><li><a class="level is-mobile" href="#七、Database-Upgrade-and-Decouple"><span class="level-left"><span class="level-item">七、Database Upgrade and Decouple</span></span></a></li><li><a class="level is-mobile" href="#八、S3-Cross-Region-Replication"><span class="level-left"><span class="level-item">八、S3 Cross-Region Replication</span></span></a></li><li><a class="level is-mobile" href="#九、Amazon-S3-accidental-deletion"><span class="level-left"><span class="level-item">九、Amazon S3 accidental deletion</span></span></a></li><li><a class="level is-mobile" href="#十、Read-replica-for-RDS"><span class="level-left"><span class="level-item">十、Read replica for RDS</span></span></a></li><li><a class="level is-mobile" href="#十一、VPC-gateway-endpoint"><span class="level-left"><span class="level-item">十一、VPC gateway endpoint</span></span></a></li><li><a class="level is-mobile" href="#十二、S3-bucket-policy"><span class="level-left"><span class="level-item">十二、S3 bucket policy</span></span></a></li><li><a class="level is-mobile" href="#十三、Amazon-Aurora-MySQL-database-cloning"><span class="level-left"><span class="level-item">十三、Amazon Aurora MySQL database cloning</span></span></a></li><li><a class="level is-mobile" href="#十四、Lambda"><span class="level-left"><span class="level-item">十四、Lambda</span></span></a></li><li><a class="level is-mobile" href="#十五、Database-read-replicas"><span class="level-left"><span class="level-item">十五、Database read replicas</span></span></a></li><li><a class="level is-mobile" href="#十六、IAM-policy"><span class="level-left"><span class="level-item">十六、IAM policy</span></span></a></li><li><a class="level is-mobile" href="#十七、Windows-File-Server-and-AD"><span class="level-left"><span class="level-item">十七、Windows File Server and AD</span></span></a></li><li><a class="level is-mobile" href="#十八、SQS-message-multiple-consumed"><span class="level-left"><span class="level-item">十八、SQS message multiple consumed</span></span></a></li><li><a class="level is-mobile" href="#十九、Lustre-storage"><span class="level-left"><span class="level-item">十九、Lustre storage</span></span></a></li><li><a class="level is-mobile" href="#二十、Certificates-encryption-and-data-encryption"><span class="level-left"><span class="level-item">二十、Certificates encryption and data encryption</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script data-pjax src="/js/insight.js" defer></script><script data-pjax>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
