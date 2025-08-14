@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>AWS 实操 - EC2 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="AWS EC2 相关实际操作。"><meta property="og:type" content="article"><meta property="og:title" content="AWS 实操 - EC2"><meta property="og:url" content="https://senjianlu.com/2024/11/19/hands_on_ec2/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="AWS EC2 相关实际操作。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-11-26/aws.png"><meta property="article:published_time" content="2024-11-19T05:00:00.000Z"><meta property="article:modified_time" content="2024-11-19T05:15:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="SAP"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-11-26/aws.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/11/19/hands_on_ec2/"},"headline":"AWS 实操 - EC2","image":["https://image.senjianlu.com/blog/2024-11-26/aws.png"],"datePublished":"2024-11-19T05:00:00.000Z","dateModified":"2024-11-19T05:15:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"AWS EC2 相关实际操作。"}</script><link rel="canonical" href="https://senjianlu.com/2024/11/19/hands_on_ec2/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-11-19T05:00:00.000Z" title="11/19/2024, 1:00:00 PM">2024-11-19</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%AE%9E%E6%93%8D/">实操</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">AWS 实操 - EC2</h1><div class="content"><blockquote>
+<p>AWS EC2 相关实际操作。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<h1 id="启动-EC2-实例"><a href="#启动-EC2-实例" class="headerlink" title="启动 EC2 实例"></a>启动 EC2 实例</h1><h3 id="一、在公有子网中启动一个-EC2-实例"><a href="#一、在公有子网中启动一个-EC2-实例" class="headerlink" title="一、在公有子网中启动一个 EC2 实例"></a>一、在公有子网中启动一个 EC2 实例</h3><ol>
+<li>选择 <code>区域</code></li>
+<li>点击实例，选择启动新实例</li>
+<li>填写实例信息<ol>
+<li>填写名称和标签</li>
+<li>选择 <code>AMI</code>（系统镜像）</li>
+<li>选择实例类型（配置）</li>
+<li>配置（创建）SSH 密钥对</li>
+<li>设置网络</li>
+<li>配置 <code>安全组</code></li>
+<li>配置存储</li>
+<li><em>填写高级详细信息</em></li>
+</ol>
+</li>
+<li>填写实例数量</li>
+<li>确认信息后启动实例</li>
+</ol>
+<hr>
+<h1 id="EC2-Instance-Connect-和-SSH"><a href="#EC2-Instance-Connect-和-SSH" class="headerlink" title="EC2 Instance Connect 和 SSH"></a>EC2 Instance Connect 和 SSH</h1><h3 id="一、四种连接方式"><a href="#一、四种连接方式" class="headerlink" title="一、四种连接方式"></a>一、四种连接方式</h3><p><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_connect.png" alt="四种连接方式"></p>
+<h3 id="二、EC2-Instance-Connect"><a href="#二、EC2-Instance-Connect" class="headerlink" title="二、EC2 Instance Connect"></a>二、EC2 Instance Connect</h3><p><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_instance_connect_01.png" alt="直接在连接方式页面点击连接按钮"><br><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_instance_connect_02.png" alt="出现连接页面"></p>
+<h3 id="三、SSH"><a href="#三、SSH" class="headerlink" title="三、SSH"></a>三、SSH</h3><p><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_ssh_connect_01.png" alt="连接方式页面有详细的 SSH 连接方法介绍"><br><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_ssh_connect_02.png" alt="需要使用共有 DNS 或 IP 进行连接"></p>
+<hr>
+<h1 id="实例的状态检查和自动恢复"><a href="#实例的状态检查和自动恢复" class="headerlink" title="实例的状态检查和自动恢复"></a>实例的状态检查和自动恢复</h1><h3 id="一、查看实例的状态检查结果"><a href="#一、查看实例的状态检查结果" class="headerlink" title="一、查看实例的状态检查结果"></a>一、查看实例的状态检查结果</h3><p><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_status_check_overview.png" alt="选择相应实例后点击状态检查按钮"></p>
+<h3 id="二、创建自动恢复"><a href="#二、创建自动恢复" class="headerlink" title="二、创建自动恢复"></a>二、创建自动恢复</h3><blockquote>
+<p>只支持<strong>系统状态检查失败时</strong>自动恢复。</p>
+</blockquote>
+<ol>
+<li>创建状态警报</li>
+<li>配置警报<ol>
+<li>配置发送 <code>SNS</code> 通知</li>
+<li>配置操作<ul>
+<li>恢复此实例（停止、启动实例以切换底层物理服务器）</li>
+<li>停止此实例</li>
+<li>中止此实例</li>
+<li>重启此实例（不会切换底层物理服务器）</li>
+</ul>
+</li>
+<li>配置触发条件</li>
+<li>配置警告名称</li>
+</ol>
+</li>
+<li>警报创建成功后，前往 CloudWatch 等待数据收集完成</li>
+</ol>
+<p><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_stauts_check_alarms.png" alt="创建状态警报"><br><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_stauts_check_alarms_cloudwatch.png" alt="CloudWatch 面板查看警报数据"></p>
+<h3 id="三、手动触发警报"><a href="#三、手动触发警报" class="headerlink" title="三、手动触发警报"></a>三、手动触发警报</h3><p>触发警报的命令：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">aws cloudwatch set-alarm-sate --alarm-name <span class="string">&quot;test&quot;</span> \</span><br><span class="line">  --state-value ALARM \</span><br><span class="line">  --state-reason <span class="string">&quot;test&quot;</span> \</span><br><span class="line">  --region ap-northeast-1</span><br></pre></td></tr></table></figure>
+<p><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_status_check_alarm_test_success.png" alt="CloudWatch 警报触发成功"><br><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_status_check_alarm_test_success_ec2.png" alt="EC2 也处于警报中"><br><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_status_check_alarm_test_success_log.png" alt="CloudWatch 警报触发及操作历史">  </p>
+<blockquote>
+<p>需要注意的是，手动触发的警报虽然在历史记录中有 <code>EC2</code> 实例停止、启动的操作记录，<strong>但是 AWS 并不会实际执行</strong>。<br>只有在实际发生系统状态检查失败时，才会真正执行来切换底层硬件。</p>
+</blockquote>
+<hr>
+<h1 id="EC2-置放群组-Placement-groups"><a href="#EC2-置放群组-Placement-groups" class="headerlink" title="EC2 置放群组 (Placement groups)"></a>EC2 置放群组 (Placement groups)</h1><h3 id="一、集群-Cluster-置放群组"><a href="#一、集群-Cluster-置放群组" class="headerlink" title="一、集群 (Cluster) 置放群组"></a>一、集群 (Cluster) 置放群组</h3><ol>
+<li>在 EC2 控制台的网络与安全菜单下，选择置放群组</li>
+<li>创建置放群组<ol>
+<li>输入名称</li>
+<li>选择置放策略<ul>
+<li>集群</li>
+<li>分布</li>
+<li>分区</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>等待置放群组创建成功</li>
+<li>启动新的 <code>EC2</code> 实例并放入刚刚创建的置放群组中<blockquote>
+<p>⚠ 有的实例不支持放入置放群组。</p>
+</blockquote>
+</li>
+</ol>
+<p><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_placement_groups_cluster_create_01.png" alt="选择创建置放群组"><br><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_placement_groups_cluster_create_02.png" alt="创建置放群组"><br><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_add_to_placement_groups_cluster.png" alt="配置新实例的详细信息以放入置放群组"></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>AWS 实操 - EC2</p><p><a href="https://senjianlu.com/2024/11/19/hands_on_ec2/">https://senjianlu.com/2024/11/19/hands_on_ec2/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-11-19</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-11-19</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/SAP/">SAP</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/11/19/saa_test_daily_20241119/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">SAA 考试每日练习 - 2024/11/19</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/11/19/knowledge_ec2/"><span class="level-item">AWS 知识点 - EC2</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#启动-EC2-实例"><span class="level-left"><span class="level-item">启动 EC2 实例</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、在公有子网中启动一个-EC2-实例"><span class="level-left"><span class="level-item">一、在公有子网中启动一个 EC2 实例</span></span></a></li></ul></li><li><a class="level is-mobile" href="#EC2-Instance-Connect-和-SSH"><span class="level-left"><span class="level-item">EC2 Instance Connect 和 SSH</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、四种连接方式"><span class="level-left"><span class="level-item">一、四种连接方式</span></span></a></li><li><a class="level is-mobile" href="#二、EC2-Instance-Connect"><span class="level-left"><span class="level-item">二、EC2 Instance Connect</span></span></a></li><li><a class="level is-mobile" href="#三、SSH"><span class="level-left"><span class="level-item">三、SSH</span></span></a></li></ul></li><li><a class="level is-mobile" href="#实例的状态检查和自动恢复"><span class="level-left"><span class="level-item">实例的状态检查和自动恢复</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、查看实例的状态检查结果"><span class="level-left"><span class="level-item">一、查看实例的状态检查结果</span></span></a></li><li><a class="level is-mobile" href="#二、创建自动恢复"><span class="level-left"><span class="level-item">二、创建自动恢复</span></span></a></li><li><a class="level is-mobile" href="#三、手动触发警报"><span class="level-left"><span class="level-item">三、手动触发警报</span></span></a></li></ul></li><li><a class="level is-mobile" href="#EC2-置放群组-Placement-groups"><span class="level-left"><span class="level-item">EC2 置放群组 (Placement groups)</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、集群-Cluster-置放群组"><span class="level-left"><span class="level-item">一、集群 (Cluster) 置放群组</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

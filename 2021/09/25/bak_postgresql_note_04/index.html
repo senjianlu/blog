@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>【归档文章】PostgreSQL 学习笔记（四）安装 plpythonu 以使用 Python3 语言编写函数 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="关于 PostgreSQL 数据库的学习笔记。  注：这篇文章是从旧的博客系统中迁移过来的、我觉得还存在价值的文章。但是由于时间关系，可能已经不再是最佳实践，请仅作参考。"><meta property="og:type" content="article"><meta property="og:title" content="【归档文章】PostgreSQL 学习笔记（四）安装 plpythonu 以使用 Python3 语言编写函数"><meta property="og:url" content="https://senjianlu.com/2021/09/25/bak_postgresql_note_04/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="关于 PostgreSQL 数据库的学习笔记。  注：这篇文章是从旧的博客系统中迁移过来的、我觉得还存在价值的文章。但是由于时间关系，可能已经不再是最佳实践，请仅作参考。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-06/postgresql.png"><meta property="article:published_time" content="2021-09-25T01:00:00.000Z"><meta property="article:modified_time" content="2021-09-25T01:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="归档文章"><meta property="article:tag" content="Python3"><meta property="article:tag" content="PostgreSQL"><meta property="article:tag" content="数据库"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-06/postgresql.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2021/09/25/bak_postgresql_note_04/"},"headline":"【归档文章】PostgreSQL 学习笔记（四）安装 plpythonu 以使用 Python3 语言编写函数","image":["https://image.senjianlu.com/blog/2024-09-06/postgresql.png"],"datePublished":"2021-09-25T01:00:00.000Z","dateModified":"2021-09-25T01:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"关于 PostgreSQL 数据库的学习笔记。  注：这篇文章是从旧的博客系统中迁移过来的、我觉得还存在价值的文章。但是由于时间关系，可能已经不再是最佳实践，请仅作参考。"}</script><link rel="canonical" href="https://senjianlu.com/2021/09/25/bak_postgresql_note_04/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-09-25T01:00:00.000Z" title="9/25/2021, 9:00:00 AM">2021-09-25</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/">开发笔记</a><span> / </span><a class="link-muted" href="/categories/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">【归档文章】PostgreSQL 学习笔记（四）安装 plpythonu 以使用 Python3 语言编写函数</h1><div class="content"><blockquote>
+<p>关于 PostgreSQL 数据库的学习笔记。</p>
+</blockquote>
+<p><u><em>注：这篇文章是从旧的博客系统中迁移过来的、我觉得还存在价值的文章。但是由于时间关系，可能已经不再是最佳实践，请仅作参考。</em></u></p>
+<span id="more"></span>
+
+<p>我不想写 SQL。</p>
+<hr>
+<h4 id="1、首先安装-plpython3u-包"><a href="#1、首先安装-plpython3u-包" class="headerlink" title="1、首先安装 plpython3u 包"></a>1、首先安装 plpython3u 包</h4><p>PostgreSQL 版本请自行更改，安装之前先前往 <a target="_blank" rel="noopener" href="https://pkgs.org/search/?q=Postgresql12-plpython3">pkgs.org</a> 搜索以确定有对应的包。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install postgresql12-plpython3</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、为数据库添加扩展"><a href="#2、为数据库添加扩展" class="headerlink" title="2、为数据库添加扩展"></a>2、为数据库添加扩展</h4><p>切换到你需要安装 Python3 语言扩展的数据库并执行：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">EXTENSION</span> plpython3u;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、测试是否安装成功"><a href="#3、测试是否安装成功" class="headerlink" title="3、测试是否安装成功"></a>3、测试是否安装成功</h4><p>创建函数：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR REPLACE</span> <span class="keyword">FUNCTION</span> &quot;public&quot;.&quot;python3_test&quot; (a <span class="type">integer</span>, b <span class="type">integer</span>)</span><br><span class="line">  <span class="keyword">RETURNS</span> <span class="type">INT</span></span><br><span class="line">  <span class="keyword">LANGUAGE</span> plpython3u</span><br><span class="line"><span class="keyword">AS</span> $$<span class="language-ruby"></span></span><br><span class="line"><span class="language-ruby">  <span class="keyword">if</span> a &gt; <span class="symbol">b:</span></span></span><br><span class="line"><span class="language-ruby">    <span class="keyword">return</span> a</span></span><br><span class="line"><span class="language-ruby">  <span class="keyword">return</span> b</span></span><br><span class="line"><span class="language-ruby"><span class="variable">$$</span></span>;</span><br></pre></td></tr></table></figure>
+<p>测试一下：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> python3_test(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">&gt; OK</span><br><span class="line">&gt; 时间: <span class="number">0.058</span>s</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>python3_test</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2</td>
+</tr>
+</tbody></table>
+<p>没有问题。</p>
+<h4 id="4、导入-Python3-包和在本数据库执行查询语句"><a href="#4、导入-Python3-包和在本数据库执行查询语句" class="headerlink" title="4、导入 Python3 包和在本数据库执行查询语句"></a>4、导入 Python3 包和在本数据库执行查询语句</h4><p><strong>注意：Python3 语句严格使用 4 空格进行缩进！</strong></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR REPLACE</span> <span class="keyword">FUNCTION</span> &quot;public&quot;.&quot;python3_test&quot;(str <span class="type">text</span>)</span><br><span class="line">  <span class="keyword">RETURNS</span> <span class="type">INT</span></span><br><span class="line">	<span class="keyword">LANGUAGE</span> plpython3u</span><br><span class="line"><span class="keyword">AS</span> $$<span class="language-python"></span></span><br><span class="line"><span class="language-python">    <span class="keyword">import</span> random</span></span><br><span class="line"><span class="language-python">    <span class="comment"># 获取字符串长度</span></span></span><br><span class="line"><span class="language-python">    <span class="comment"># 使用 plpy.execute() 直接在本数据库执行 SQL 语句</span></span></span><br><span class="line"><span class="language-python">    select_result = plpy.execute(<span class="string">&quot;SELECT CHAR_LENGTH(&#x27;&#123;&#125;&#x27;);&quot;</span>.<span class="built_in">format</span>(<span class="built_in">str</span>))</span></span><br><span class="line"><span class="language-python">    str_length = <span class="built_in">int</span>(select_result[<span class="number">0</span>][<span class="string">&quot;char_length&quot;</span>])</span></span><br><span class="line"><span class="language-python">    <span class="comment"># 随机数</span></span></span><br><span class="line"><span class="language-python">    random_int = random.randint(<span class="number">0</span>, str_length)</span></span><br><span class="line"><span class="language-python">    <span class="keyword">return</span> random_int</span></span><br><span class="line"><span class="language-python">$$</span>;</span><br></pre></td></tr></table></figure>
+<p>运行：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> python3_test(<span class="string">&#x27;1234567890&#x27;</span>)</span><br><span class="line">&gt; OK</span><br><span class="line">&gt; 时间: <span class="number">0.033</span>s</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>python3_test</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>7</td>
+</tr>
+</tbody></table>
+<h4 id="5、第三方-Python-模块的安装和导入"><a href="#5、第三方-Python-模块的安装和导入" class="headerlink" title="5、第三方 Python 模块的安装和导入"></a>5、第三方 Python 模块的安装和导入</h4><p><em>注：这里不修改配置文件，直接用最简单的方法在函数中添加包路径。</em><br>第三方模块的安装直接使用 pip3 install 即可，和平时使用 Python3 无异；导入则需要先找到模块安装路径，这里以 requests 为例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-8-12-centos ~]# pip3 show requests</span><br><span class="line">Name: requests</span><br><span class="line">Version: 2.26.0</span><br><span class="line">Summary: Python HTTP <span class="keyword">for</span> Humans.</span><br><span class="line">Home-page: https://requests.readthedocs.io</span><br><span class="line">Author: Kenneth Reitz</span><br><span class="line">Author-email: me@kennethreitz.org</span><br><span class="line">License: Apache 2.0</span><br><span class="line">Location: /usr/local/lib/python3.6/site-packages</span><br><span class="line">Requires: urllib3, charset-normalizer, certifi, idna</span><br></pre></td></tr></table></figure>
+<p>那么 pip3 默认的安装路径则为：&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python3.6&#x2F;site-packages，在函数中进行导入：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR REPLACE</span> <span class="keyword">FUNCTION</span> &quot;public&quot;.&quot;python3_test&quot;(url <span class="type">text</span>)</span><br><span class="line">  <span class="keyword">RETURNS</span> <span class="type">INT</span></span><br><span class="line">	<span class="keyword">LANGUAGE</span> plpython3u</span><br><span class="line"><span class="keyword">AS</span> $$<span class="language-pgsql"></span></span><br><span class="line"><span class="language-pgsql">    <span class="keyword">import</span> sys</span></span><br><span class="line"><span class="language-pgsql">    sys.path.append(&quot;/usr/local/lib/python3.6/site-packages/&quot;)</span></span><br><span class="line"><span class="language-pgsql">    <span class="keyword">import</span> requests</span></span><br><span class="line"><span class="language-pgsql">    # 访问</span></span><br><span class="line"><span class="language-pgsql">    response = requests.<span class="keyword">get</span>(url)</span></span><br><span class="line"><span class="language-pgsql">    <span class="keyword">return</span> response.status_code</span></span><br><span class="line"><span class="language-pgsql">$$</span>;</span><br></pre></td></tr></table></figure>
+<p>运行：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> python3_test(<span class="string">&#x27;https://baidu.com&#x27;</span>)</span><br><span class="line">&gt; OK</span><br><span class="line">&gt; 时间: <span class="number">0.526</span>s</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>python3_test</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>200</td>
+</tr>
+</tbody></table>
+<h4 id="6、打印日志和返回表结构的数据"><a href="#6、打印日志和返回表结构的数据" class="headerlink" title="6、打印日志和返回表结构的数据"></a>6、打印日志和返回表结构的数据</h4><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR REPLACE</span> <span class="keyword">FUNCTION</span> &quot;public&quot;.&quot;python3_test&quot;(str <span class="type">text</span>)</span><br><span class="line">  <span class="keyword">RETURNS</span> <span class="keyword">TABLE</span>(_varchar <span class="type">VARCHAR</span>, _numeric <span class="type">NUMERIC</span>, _boolean <span class="type">BOOLEAN</span>)</span><br><span class="line">	<span class="keyword">LANGUAGE</span> plpython3u</span><br><span class="line"><span class="keyword">AS</span> $$<span class="language-python"></span></span><br><span class="line"><span class="language-python">    <span class="keyword">import</span> sys</span></span><br><span class="line"><span class="language-python">    sys.path.append(<span class="string">&quot;/usr/local/lib/python3.6/site-packages/&quot;</span>)</span></span><br><span class="line"><span class="language-python">    <span class="comment"># 类</span></span></span><br><span class="line"><span class="language-python">    <span class="keyword">class</span> <span class="title class_">return_class</span>():</span></span><br><span class="line"><span class="language-python">        <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, _varchar, _numeric, _boolean</span>):</span></span><br><span class="line"><span class="language-python">            <span class="variable language_">self</span>._varchar = _varchar</span></span><br><span class="line"><span class="language-python">            <span class="variable language_">self</span>._numeric = _numeric</span></span><br><span class="line"><span class="language-python">            <span class="variable language_">self</span>._boolean = _boolean</span></span><br><span class="line"><span class="language-python">    <span class="comment"># 打印日志</span></span></span><br><span class="line"><span class="language-python">    plpy.debug(<span class="string">&quot;debug&quot;</span>)</span></span><br><span class="line"><span class="language-python">    plpy.log(<span class="string">&quot;log&quot;</span>)</span></span><br><span class="line"><span class="language-python">    plpy.info(<span class="string">&quot;info&quot;</span>)</span></span><br><span class="line"><span class="language-python">    plpy.notice(<span class="string">&quot;notice&quot;</span>)</span></span><br><span class="line"><span class="language-python">    plpy.warning(<span class="string">&quot;warning&quot;</span>)</span></span><br><span class="line"><span class="language-python">    <span class="comment"># 返回表结构（在声明了返回表的列名后只要以列为单位生成对象并放入数组返回即可）</span></span></span><br><span class="line"><span class="language-python">    return_classes = []</span></span><br><span class="line"><span class="language-python">    a_class = return_class(<span class="built_in">str</span>, <span class="number">1.00</span>, <span class="literal">True</span>)</span></span><br><span class="line"><span class="language-python">    a_class._numeric = <span class="number">0.01</span></span></span><br><span class="line"><span class="language-python">    return_classes.append(a_class)</span></span><br><span class="line"><span class="language-python">    return_classes.append(return_class(<span class="string">&quot;bb&quot;</span>, <span class="number">1.23</span>, <span class="literal">True</span>))</span></span><br><span class="line"><span class="language-python">    return_classes.append(return_class(<span class="string">&quot;cc&quot;</span>, <span class="number">3.21</span>, <span class="literal">False</span>))</span></span><br><span class="line"><span class="language-python">    <span class="keyword">return</span> return_classes</span></span><br><span class="line"><span class="language-python">$$</span>;</span><br></pre></td></tr></table></figure>
+<p>运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM python3_test(<span class="string">&#x27;test_log_table&#x27;</span>)</span><br><span class="line">&gt; INFO:  info</span><br><span class="line">&gt; NOTICE:  notice</span><br><span class="line">&gt; WARNING:  warning</span><br><span class="line">&gt; OK</span><br><span class="line">&gt; 时间: 0.115s</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>_varchar</th>
+<th>_numeric</th>
+<th>_boolean</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>test_log_table</td>
+<td>0.01</td>
+<td>t</td>
+</tr>
+<tr>
+<td>bb</td>
+<td>1.23</td>
+<td>t</td>
+</tr>
+<tr>
+<td>cc</td>
+<td>3.21</td>
+<td>f</td>
+</tr>
+</tbody></table>
+<p>结束。</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>【归档文章】PostgreSQL 学习笔记（四）安装 plpythonu 以使用 Python3 语言编写函数</p><p><a href="https://senjianlu.com/2021/09/25/bak_postgresql_note_04/">https://senjianlu.com/2021/09/25/bak_postgresql_note_04/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2021-09-25</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2021-09-25</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E5%BD%92%E6%A1%A3%E6%96%87%E7%AB%A0/">归档文章</a><a class="link-muted mr-2" rel="tag" href="/tags/Python3/">Python3</a><a class="link-muted mr-2" rel="tag" href="/tags/PostgreSQL/">PostgreSQL</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2021/09/27/bak_k3s_note_01/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">【归档文章】K3s 学习（一）高可用模式在 CentOS7 服务器上构建第一组 server + agent 节点</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2021/09/24/bak_centos7_jupyter/"><span class="level-item">【归档文章】CentOS7 下安装 Jupyter</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#1、首先安装-plpython3u-包"><span class="level-left"><span class="level-item">1、首先安装 plpython3u 包</span></span></a></li><li><a class="level is-mobile" href="#2、为数据库添加扩展"><span class="level-left"><span class="level-item">2、为数据库添加扩展</span></span></a></li><li><a class="level is-mobile" href="#3、测试是否安装成功"><span class="level-left"><span class="level-item">3、测试是否安装成功</span></span></a></li><li><a class="level is-mobile" href="#4、导入-Python3-包和在本数据库执行查询语句"><span class="level-left"><span class="level-item">4、导入 Python3 包和在本数据库执行查询语句</span></span></a></li><li><a class="level is-mobile" href="#5、第三方-Python-模块的安装和导入"><span class="level-left"><span class="level-item">5、第三方 Python 模块的安装和导入</span></span></a></li><li><a class="level is-mobile" href="#6、打印日志和返回表结构的数据"><span class="level-left"><span class="level-item">6、打印日志和返回表结构的数据</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

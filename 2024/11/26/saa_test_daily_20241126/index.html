@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/11/26 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam15 题 (No.66 ~ No.80)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/11/26"><meta property="og:url" content="https://senjianlu.com/2024/11/26/saa_test_daily_20241126/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam15 题 (No.66 ~ No.80)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-11-26T11:00:00.000Z"><meta property="article:modified_time" content="2024-11-26T12:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/11/26/saa_test_daily_20241126/"},"headline":"SAA 考试每日练习 - 2024/11/26","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-11-26T11:00:00.000Z","dateModified":"2024-11-26T12:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam15 题 (No.66 ~ No.80)，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/11/26/saa_test_daily_20241126/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-11-26T11:00:00.000Z" title="11/26/2024, 7:00:00 PM">2024-11-26</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/11/26</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/">Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam</a><br>15 题 (No.66 ~ No.80)，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<p><strong>🌟 单词：</strong></p>
+<ol>
+<li>approximately<sub><u>adv. 大约，大概，约莫</u></sub></li>
+<li>critical<sub><u>adj. 批评的，批判的；紧要的，关键性的；严重的，危急的；审慎的，严谨的；评论性的；挑剔的；临界的</u></sub></li>
+<li>appropriate<sub><u>adj. 合适的；适当的，相称的 | v. 拨出（款项）；占用，挪用</u></sub></li>
+<li>visibility<sub><u>n. 可见性，能见度，可见度，能见距离</u></sub></li>
+<li>corruption<sub><u>n. 腐败，贪污，受贿，贿赂</u></sub></li>
+<li>bastion<sub><u>n. 堡垒，捍卫者，防御工事</u></sub></li>
+<li>transaction<sub><u>n. 交易，生意；处理，办理</u></sub></li>
+<li>instrumentation<sub><u>n. 仪表, 器乐谱写</u></sub></li>
+<li>delivery<sub><u>n. 递送；交付；分娩</u></sub></li>
+<li>unpredictable<sub><u>adj. 无法预言的，不可预测的，难以预料的，（人）善变的</u></sub></li>
+</ol>
+<hr>
+<h3 id="一、S3-Lifestyle"><a href="#一、S3-Lifestyle" class="headerlink" title="一、S3 Lifestyle"></a>一、S3 Lifestyle</h3><p>A company has an application that generates a large number of files, each approximately<sub><u>大约</u></sub> 5 MB in size. The files are stored in Amazon S3. Company policy requires the files to be stored for 4 years before they can be deleted. Immediate accessibility is always required as the files contain critical<sub><u>重要的</u></sub> business data that is not easy to reproduce. The files are frequently accessed in the first 30 days of the object creation but are rarely accessed after the first 30 days.<br>Which storage solution is MOST cost-effective?</p>
+<ol>
+<li>Create an S3 bucket lifecycle policy to move files from S3 Standard to S3 Glacier 30 days from object creation. Delete the files 4 years after object creation.</li>
+<li>Create an S3 bucket lifecycle policy to move files from S3 Standard to S3 One Zone-Infrequent Access (S3 One Zone-IA) 30 days from object creation. Delete the files 4 years after object creation.</li>
+<li>✅ Create an S3 bucket lifecycle policy to move files from S3 Standard to S3 Standard-Infrequent Access (S3 Standard-IA) 30 days from object creation. Delete the files 4 years after object creation.</li>
+<li>Create an S3 bucket lifecycle policy to move files from S3 Standard to S3 Standard-Infrequent Access (S3 Standard-IA) 30 days from object creation. Move the files to S3 Glacier 4 years after object creation.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：stored for 4 years、Immediate accessibility is always required、frequently accessed in the first 30 days、rarely accessed after the first 30 days</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：文件需要存放 4 年，第 1 个月访问频繁，之后偶尔访问，但是需要能立即获取。最便宜的方案。<br>需要立即获取的话，只能使用 <code>S3</code> 标准 + <code>S3 IA</code> 的方式，然后使用生命周期策略，选 3️⃣。  </p>
+<p>社区对 1️⃣ 和 2️⃣ 还有争议，2️⃣ 明显错误单区 IA 数据一丢就没了。<br>而针对 1️⃣，<code>S3 Glacier</code> 其实也分多种：</p>
+<ul>
+<li><code>S3 Glacier Instant Retrieval</code></li>
+<li><code>S3 Glacier Flexible Retrieval</code></li>
+<li><code>S3 Glacier Deep Archive</code></li>
+</ul>
+<p><code>S3 Glacier Deep Archive</code> 长久归档、检索时间 9 小时 ~ 48 小时，已经很熟练了就不介绍了。  </p>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/s3/storage-classes/glacier/instant-retrieval/">Amazon S3 Glacier Instant Retrieval 成本极低的归档存储，提供毫秒级检索能力，适合极少访问的数据</a></p>
+<blockquote>
+<p>Amazon S3 Glacier Instant Retrieval 是一种归档存储类，可以为很少访问且需要毫秒级检索速度的长期数据提供最低成本的存储。<u><strong>如果您每季度访问一次数据</strong></u>，则与 S3 Standard-Infrequent Access (S3 Standard-IA) 存储类相比，S3 Glacier 即时检索可为您节省高达 68% 的存储成本。<br>它专为很少访问但在性能敏感的用例中仍需要立即访问的数据而设计，<u>例如图像托管、在线文件共享应用程序、医疗成像和健康记录、新闻媒体资产以及基因组学</u>。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/glacier-storage-classes.html#GFR">S3 Glacier Flexible Retrieval</a></p>
+<blockquote>
+<p>对于不需要立即访问但需要灵活地免费检索大量数据的归档数据，例如<u>备份或灾难恢复</u>使用场景，请选择 S3 Glacier Flexible Retrieval，它可在几分钟内检索，也可以在 5-12 小时内进行免费批量检索。</p>
+<p>对象存储在 S3 Glacier Flexible Retrieval 并不适用于实时访问。访问这些对象，首先启动一个恢复请求，它创建了一个临时的复制的对象，这你可以访问请求时完成。</p>
+</blockquote>
+<p>它们一个适合医疗图像等每季度访问一次的对象，一个适合灾难恢复场景，都不符合题目中偶尔访问的需求。<br>况且考 Glacier 下细分存储类型的题目本身就很少，不用太过纠结。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：i think C should be the answer here,</p>
+<blockquote>
+<p>Immediate accessibility isalways required as the files contain critical business data that is not easy to reproduce</p>
+</blockquote>
+<p>If they do not explicitly mention that theyare using Glacier Instant Retrieval, we should assume that Glacier -&gt; takes more time to retrieve and may not meet the requirements</p>
+</blockquote>
+<hr>
+<h3 id="二、Multi-consumers-in-SQS"><a href="#二、Multi-consumers-in-SQS" class="headerlink" title="二、Multi-consumers in SQS"></a>二、Multi-consumers in SQS</h3><p>A company hosts an application on multiple Amazon EC2 instances. The application processes messages from an Amazon SQS queue, writes to an Amazon RDS table, and deletes the message from the queue. Occasional duplicate records are found in the RDS table. The SQS queue does not contain any duplicate messages.<br>What should a solutions architect do to ensure messages are being processed once only?</p>
+<ol>
+<li>Use the CreateQueue API call to create a new queue.</li>
+<li>Use the AddPermission API call to add appropriate<sub><u>合适的</u></sub> permissions.</li>
+<li>Use the ReceiveMessage API call to set an appropriate wait time.</li>
+<li>✅ Use the ChangeMessageVisibility API call to increase the visibility<sub><u>可见的</u></sub> timeout.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：Occasional duplicate records are found in the RDS table</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：多个 <code>EC2</code> 主机消费 <code>SQS</code> 队列信息，处理后插入 <code>RDS</code> 表中，但是出现了消息被消费多次创建多条表数据的情况。做什么来确保消息只被消费一次。<br>通过 <code>ChangeMessageVisibility</code> 来隐藏消息可以确保其他消费者不会重复消费该消息。  </p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibility.html">ChangeMessageVisibility</a></p>
+<blockquote>
+<p>将队列中指定报文的可见性超时更改为新值。信息的默认可见性超时为 30 秒。最小值为 0 秒。最大为 12 小时。</p>
+<p>例如，如果队列的默认超时时间是 60 秒，而您收到信息后已过去了 15 秒，并且您发送了将可见性超时设置为 10 秒的 ChangeMessageVisibility 调用，那么这 10 秒将从您发出 ChangeMessageVisibility 调用时开始计算。因此，在最初更改可见性超时 10 秒（共 25 秒）后再试图更改可见性超时或删除该信息可能会导致错误。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：In case of SQS - multi-consumers if one consumer hasalready picked the message and is processing, in meantime other consumer can pickit up and process the message there by two copiesare added at the end. To avoid this the message is made invisible from the time its picked and deleted after processing.This visibility timeout is increased according to max time taken to process the message</p>
+</blockquote>
+<hr>
+<h3 id="三、AWS-Direct-Connect-VPN"><a href="#三、AWS-Direct-Connect-VPN" class="headerlink" title="三、AWS Direct Connect &amp; VPN"></a>三、AWS Direct Connect &amp; VPN</h3><p>A solutions architect is designing a new hybrid architecture to extend a company’s on-premises infrastructure to AWS. The company requires a highly available connection with consistent low latency to an AWS Region. The company needs to minimize costs and is willing to accept slower traffic if the primary connection fails.<br>What should the solutions architect do to meet these requirements?</p>
+<ol>
+<li>✅ Provision an AWS Direct Connect connection to a Region. Provision a VPN connection as a backup if the primary Direct Connect connection fails.</li>
+<li>Provision a VPN tunnel connection to a Region for private connectivity. Provision a second VPN tunnel for private connectivity and as a backup if the primary VPN connection fails.</li>
+<li>Provision an AWS Direct Connect connection to a Region. Provision a second Direct Connect connection to the same Region as a backup if the primary Direct Connect connection fails.</li>
+<li>Provision an AWS Direct Connect connection to a Region. Use the Direct Connect failover attribute from the AWS CLI to automatically create a backup connection if the primary Direct Connect connection fails.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：highly available connection with consistent low latency、accept slower traffic if the primary connection fails</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：将托管架构迁移到 AWS，要求高可用和低延迟的连接。在主要的网络连接出问题后，愿意接受慢的网络。要求低费用。<br>低延迟连接到 <code>区域</code> 首选 <code>AWS Direct Connect</code>，之后备用连接搭建 VPN 即可。  </p>
+<p>过一下常见的几个连接方式：</p>
+<ul>
+<li><code>AWS Site-to-Site VPN</code><ul>
+<li>在公网上建立专有网络 (VPN) 来让本地数据中心连接到 AWS <code>VPC</code></li>
+<li>⭐ <strong><code>VPC</code> 级别的</strong></li>
+<li>会创建<strong>两条</strong> VPN 隧道进行冗余</li>
+</ul>
+</li>
+<li><code>AWS VPN CloudHub</code><ul>
+<li>将多个 VPC、本地数据中心组网</li>
+</ul>
+</li>
+<li><code>AWS Client VPN</code><ul>
+<li>AWS 提供的 VPN 服务</li>
+</ul>
+</li>
+<li><code>软件 VPC</code><ul>
+<li>自己在 <code>EC2</code> 上搭建 VPN</li>
+</ul>
+</li>
+<li><code>AWS Direct Connect(DX)</code><ul>
+<li>通过专线连接到 <code>AWS</code>，类似：本地数据中心 &lt;–&gt; AWS Direct Connect 位置 &lt;–&gt; 某区域内的某 VPC</li>
+<li>无论那种方案都需要 1 个月以上的时间</li>
+</ul>
+</li>
+<li><code>Transit VPC</code><ul>
+<li>非 AWS 托管</li>
+<li>类似 ZeroTier 的异地组网方式</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Direct Connect + VPN best of both</p>
+<p>Direct Connect goes throught 1 Gbps, 10 Gbps or 100 Gbpsand the VPN goes up to 1.25 Gbps.<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/aws-direct-connect-vpn.html">https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/aws-direct-connect-vpn.html</a></p>
+</blockquote>
+<hr>
+<h3 id="四、HA-database"><a href="#四、HA-database" class="headerlink" title="四、HA database"></a>四、HA database</h3><p>A company is running a business-critical web application on Amazon EC2 instances behind an Application Load Balancer. The EC2 instances are in an Auto Scaling group. The application uses an Amazon Aurora PostgreSQL database that is deployed in a single Availability Zone. The company wants the application to be highly available with minimum downtime and minimum loss of data.<br>Which solution will meet these requirements with the LEAST operational effort?</p>
+<ol>
+<li>Place the EC2 instances in different AWS Regions. Use Amazon Route 53 health checks to redirect traffic. Use Aurora PostgreSQL Cross-Region Replication.</li>
+<li>✅ Configure the Auto Scaling group to use multiple Availability Zones. Configure the database as Multi-AZ. Configure an Amazon RDS Proxy instance for the database.</li>
+<li>Configure the Auto Scaling group to use one Availability Zone. Generate hourly snapshots of the database. Recover the database from the snapshots in the event of a failure.</li>
+<li>Configure the Auto Scaling group to use multiple AWS Regions. Write the data from the application to Amazon S3. Use S3 Event Notifications to launch an AWS Lambda function to write the data to the database.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：Amazon Aurora PostgreSQL database that is deployed in a single Availability Zone、highly available</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：公司应用程序部署在 <code>ALB</code> 后面的弹性 <code>EC2</code> 组上，使用了单一区域的 <code>Aurora PostgreSQL</code> 数据库，希望变得高可用且减少数据丢失。最简单的架构。<br>需要跨可用区横向扩展 <code>Aurora PostgreSQL</code> 数据库。</p>
+<p>这里需要注意的是，<code>Aurora PostgreSQL</code> 数据库的跨可用区副本只是用来在主库灾难时恢复（提升为主库）用的。</p>
+<blockquote>
+<p>在 Aurora 预置数据库集群中创建第二个、第三个以及更多数据库实例时，Aurora 自动设置从写入器数据库实例到所有其他数据库实例的复制。这些其他数据库实例是只读实例，称为 Aurora 副本。讨论如何在集群中组合写入器和读取器数据库实例时，我们还将其称为读取器实例。</p>
+</blockquote>
+<p>由于读写都在主数据库实例上进行，且灾难场景下的数据库提升 (Promote) 需要数分钟完成，无法进行自动化无缝切换，因此 <code>Amazon RDS Proxy</code> 在此场景下并不必要。</p>
+<blockquote>
+<p>提升过程需要几分钟才能完成。在提升只读副本时，RDS 会停止复制并重启只读副本。完成重启后，只读副本即可作为新数据库实例使用。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/rds/proxy/">Amazon RDS Proxy 提高您的应用程序的扩展性、弹性和安全性</a>  </p>
+<blockquote>
+<p>通过使用 Amazon RDS 代理，您可以允许您的应用程序池化和共享数据库连接，以提高其扩展能力。RDS Proxy 通过在保留应用程序连接的同时自动连接到备用数据库实例，使应用程序能够更好地抵御数据库故障。使用 RDS Proxy 还使您能够为数据库强制执行 AWS Identity and Access Management (IAM) 身份验证，并将凭证安全地存储在 AWS Secrets Manager。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：By configuring the Auto Scaling group to use multiple Availability Zones, the application will be able to continue running even if one Availability Zone goes down. Configuring the database as Multi-AZ will also ensure that the database remainsavailable in the event of a failure in one Availability Zone. Using an Amazon RDS Proxy instance for the database will allow the application to automatically route traffic to healthy database instances, further increasing the availability of the application.<br>This solution will meet the requirements for high availability with minimal operational effort.</p>
+</blockquote>
+<hr>
+<h3 id="五、NLB-and-ALB"><a href="#五、NLB-and-ALB" class="headerlink" title="五、NLB and ALB"></a>五、NLB and ALB</h3><p>A company’s HTTP application is behind a Network Load Balancer (NLB). The NLB’s target group is configured to use an Amazon EC2 Auto Scaling group with multiple EC2 instances that run the web service.<br>The company notices that the NLB is not detecting HTTP errors for the application. These errors require a manual restart of the EC2 instances that run the web service. The company needs to improve the application’s availability without writing custom scripts or code.<br>What should a solutions architect do to meet these requirements?</p>
+<ol>
+<li>Enable HTTP health checks on the NLB, supplying the URL of the company’s application.</li>
+<li>Add a cron job to the EC2 instances to check the local application’s logs once each minute. If HTTP errors are detected. the application will restart.</li>
+<li>✅ Replace the NLB with an Application Load Balancer. Enable HTTP health checks by supplying the URL of the company’s application. Configure an Auto Scaling action to replace unhealthy instances.</li>
+<li>Create an Amazon Cloud Watch alarm that monitors the UnhealthyHostCount metric for the NLB. Configure an Auto Scaling action to replace unhealthy instances when the alarm is in the ALARM state.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：NLB、HTTP errors</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：公司的应用程序部署在 <code>NLB</code> 后面的弹性 <code>EC2</code> 组上，现在需要添加针对 HTTP 错误重启 <code>EC2</code> 实例的功能，不改现有脚本和代码。<br><code>NLB</code> 在第 4 层，负责 TCP、UDP 请求，而 <code>ALB</code> 运行在第 7 层，能处理 HTTP、HTTPS 请求，替换为 <code>ALB</code> 并设置健康状态检查，对不通过的实例进行重启操作可以解决这个问题。  </p>
+<p>社区指出了 <code>NLB</code> 也可以进行 HTTP、HTTPS 错误的检查，但是无法针对 URL 进行提供（筛选）。<br>不过有 <code>ALB</code> 的情况下，<code>ALB</code> 总是更优的、针对 HTTP、HTTPS 错误进行检查的选择。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：I would choose A,as NLB supports HTTP and HTTPS Health Checks, BUT you can’t put any URL (as proposed), only the node IP<br>addresses.<br>So, the solution is C.  </p>
+<p>NLBs support HTTP, HTTPS and TCP health checks:<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/target-group-health-checks.html">https://docs.aws.amazon.com/elasticloadbalancing/latest/network/target-group-health-checks.html</a> (check HealthCheckProtocol)<br>But NLBs onlyaccept either selecting EC2 instances or IP addresses directlyas targets. You can’t provide a URL to your endpoints, onlya health check path (if you’re using HTTP or HTTPS health checks).</p>
+</blockquote>
+<hr>
+<h3 id="六、DynamoDB-point-in-time-recovery"><a href="#六、DynamoDB-point-in-time-recovery" class="headerlink" title="六、DynamoDB point-in-time recovery"></a>六、DynamoDB point-in-time recovery</h3><p>A company runs a shopping application that uses Amazon DynamoDB to store customer information. In case of data corruption<sub><u>数据损坏</u></sub>, a solutions architect needs to design a solution that meets a recovery point objective (RPO) of 15 minutes and a recovery time objective (RTO) of 1 hour.<br>What should the solutions architect recommend to meet these requirements?</p>
+<ol>
+<li>Configure DynamoDB global tables. For RPO recovery, point the application to a different AWS Region.</li>
+<li>✅ Configure DynamoDB point-in-time recovery. For RPO recovery, restore to the desired point in time.</li>
+<li>Export the DynamoDB data to Amazon S3 Glacier on a daily basis. For RPO recovery, import the data from S3 Glacier to DynamoDB.</li>
+<li>Schedule Amazon Elastic Block Store (Amazon EBS) snapshots for the DynamoDB table every 15 minutes. For RPO recovery, restore the DynamoDB table by using the EBS snapshot.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：DR、RPO for 15 minutes、RTO for 1 hour</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：应用程序通过 <code>DynamoDB</code> 存储数据，从上次备份到出错控制在 15 分钟，灾难恢复控制在 1 小时。<br>每 15 分钟备份一次，虽然不清楚 <code>point-in-time recovery</code> 服务，但只有 2️⃣ 是最佳选择。 </p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/amazondynamodb/latest/developerguide/Point-in-time-recovery.html">DynamoDB 的时间点备份</a></p>
+<blockquote>
+<p>Amazon DynamoDB 时间点故障恢复（PITR）提供 DynamoDB 表数据的自动持续备份。时间点故障恢复（PITR）备份由 DynamoDB 完全管理，以每秒粒度提供长达 35 天的恢复点。使用时间点恢复，您不必担心创建、维护或计划按需备份。本部分概述在 DynamoDB 中此过程如何运行。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A - DynamoDB global tables provides multi-Region, and multi-active database, but it not valid “in case of data corruption”. In this case, you need a backup.This solutions isn’t valid.<br><strong>B</strong> - Point in Time Recovery is designed asa continuous backup juts to recover it fast. It covers perfectly the RPO,and probably the RTO. <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/PointInTimeRecovery.html">https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/PointInTimeRecovery.html</a><br>C - A dailyexport will not cover the RPO of 15min.<br>D - DynamoDB is serverless… so what are these EBS snapshots taken from???  </p>
+</blockquote>
+<hr>
+<h3 id="七、Gateway-Endpoint"><a href="#七、Gateway-Endpoint" class="headerlink" title="七、Gateway Endpoint"></a>七、Gateway Endpoint</h3><p>A company runs a photo processing application that needs to frequently upload and download pictures from Amazon S3 buckets that are located in the same AWS Region. A solutions architect has noticed an increased cost in data transfer fees and needs to implement a solution to reduce these costs.<br>How can the solutions architect meet this requirement?</p>
+<ol>
+<li>Deploy Amazon API Gateway into a public subnet and adjust the route table to route S3 calls through it.</li>
+<li>Deploy a NAT gateway into a public subnet and attach an endpoint policy that allows access to the S3 buckets.</li>
+<li>Deploy the application into a public subnet and allow it to route through an internet gateway to access the S3 buckets.</li>
+<li>✅ Deploy an S3 VPC gateway endpoint into the VPC and attach an endpoint policy that allows access to the S3 buckets.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：same AWS Region、increased cost in data transfer fees</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：同 <code>区域</code> 运行了从 <code>S3</code> 存储桶上传和下载图片的应用程序，数据传输费用开始上涨。<br>可能存在 <code>VPC</code> 和 <code>S3</code> 没有走内网而走了公网进行连接的问题，使用 <code>网关节点</code>（只支持 <code>S3</code> 和 <code>DynamoDB</code>）可以解决问题。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：The correct answer is Option D. Deployan S3 VPC gatewayendpoint into the VPC and attach an endpoint policy that allows access to the S3 buckets.<br>By deploying an S3 VPC gatewayendpoint, the application can access the S3 buckets over a private networkconnection within the VPC,eliminating the need for data transfer over the internet. This can help reduce data transfer feesas well as improve the performance of the application. The endpoint policy can be used to specify which S3 buckets the application hasaccess to.</p>
+</blockquote>
+<hr>
+<h3 id="八、Security-Group"><a href="#八、Security-Group" class="headerlink" title="八、Security Group"></a>八、Security Group</h3><p>A company recently launched Linux-based application instances on Amazon EC2 in a private subnet and launched a Linux-based bastion<sub><u>堡垒</u></sub> host on an Amazon EC2 instance in a public subnet of a VPC. A solutions architect needs to connect from the on-premises network, through the company’s internet connection, to the bastion host, and to the application servers. The solutions architect must make sure that the security groups of all the EC2 instances will allow that access.<br>Which combination of steps should the solutions architect take to meet these requirements? (Choose two.)</p>
+<ol>
+<li>Replace the current security group of the bastion host with one that only allows inbound access from the application instances.</li>
+<li>Replace the current security group of the bastion host with one that only allows inbound access from the internal IP range for the company.</li>
+<li>✅ Replace the current security group of the bastion host with one that only allows inbound access from the external IP range for the company.</li>
+<li>✅ Replace the current security group of the application instances with one that allows inbound SSH access from only the private IP address of the bastion host.</li>
+<li>Replace the current security group of the application instances with one that allows inbound SSH access from only the public IP address of the bastion host.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：bastion host in public subnet、application in private subnet</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ 4️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：堡垒机在公有子网，应用程序在私有子网，需要从本地网络通过堡垒机连接到应用程序主机。<br>答案都是针对安全组的操作。<br>堡垒机的安全组需要放行来自公有 IP 的入站流量，应用程序 <code>EC2</code> 需要放行来自堡垒机 IP 的入站流量。  </p>
+<p>引申 2 点：</p>
+<ul>
+<li>安全组没有拒绝规则</li>
+<li>有拒绝规则的网络 <code>ACL</code> 是位于 <code>子网</code> 级别的</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：C because from on-prem networkto bastion through internet (using on-prem resource’s public IP),<br>D because bastion and ec2 is in same VPC, meaning bastion can communicate to EC2 via it’s private IP address</p>
+</blockquote>
+<hr>
+<h3 id="九、Security-Group"><a href="#九、Security-Group" class="headerlink" title="九、Security Group"></a>九、Security Group</h3><p>A solutions architect is designing a two-tier web application. The application consists of a public-facing web tier hosted on Amazon EC2 in public subnets. The database tier consists of Microsoft SQL Server running on Amazon EC2 in a private subnet. Security is a high priority for the company.<br>How should security groups be configured in this situation? (Choose two.)</p>
+<ol>
+<li>✅ Configure the security group for the web tier to allow inbound traffic on port 443 from 0.0.0.0&#x2F;0.</li>
+<li>Configure the security group for the web tier to allow outbound traffic on port 443 from 0.0.0.0&#x2F;0.</li>
+<li>✅ Configure the security group for the database tier to allow inbound traffic on port 1433 from the security group for the web tier.</li>
+<li>Configure the security group for the database tier to allow outbound traffic on ports 443 and 1433 to the security group for the web tier.</li>
+<li>Configure the security group for the database tier to allow inbound traffic on ports 443 and 1433 from the security group for the web tier.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：web in public subnets、database in a private subnet</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ 3️⃣</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：两层架构，Web 应用在公有子网，数据库在私有子网。<br>安全组配置，公有子网的 <code>EC2</code> 实例面对所有 IP 放行 443 端口的入栈请求，私有子网的数据库实例面对公有子网实例放行 1433 端口的入栈请求。</p>
+<p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/sql/database-engine/configure-windows/configure-a-server-to-listen-on-a-specific-tcp-port?view=sql-server-ver16">配置 SQL Server 以侦听特定 TCP 端口</a>  </p>
+<blockquote>
+<p>由于端口 1433 是 SQL Server 的已知标准，某些组织指定应更改 SQL Server 端口号以增强安全性。这在某些环境中可能很有用。但是，TCP&#x2F;IP 体系结构允许端口扫描程序查询打开的端口，因此更改端口号并不是一种可靠的安全措施。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Web Server Rules: Inbound traffic from 443 (HTTPS) Source 0.0.0.0&#x2F;0 - Allows inbound HTTPS access from any IPv4 address Database Rules : 1433 (MS SQL)The default port to accessa MicrosoftSQL Server database, forexample, on an Amazon RDS<br>instance<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html">https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html</a></p>
+</blockquote>
+<hr>
+<h3 id="十、Multi-tiered-application-and-overload"><a href="#十、Multi-tiered-application-and-overload" class="headerlink" title="十、Multi-tiered application and overload"></a>十、Multi-tiered application and overload</h3><p>A company wants to move a multi-tiered application from on premises to the AWS Cloud to improve the application’s performance. The application consists of application tiers that communicate with each other by way of RESTful services. Transactions<sub><u>处理</u></sub> are dropped when one tier becomes overloaded. A solutions architect must design a solution that resolves these issues and modernizes the application.<br>Which solution meets these requirements and is the MOST operationally efficient?</p>
+<ol>
+<li>✅ Use Amazon API Gateway and direct transactions to the AWS Lambda functions as the application layer. Use Amazon Simple Queue Service (Amazon SQS) as the communication layer between application services.</li>
+<li>Use Amazon CloudWatch metrics to analyze the application performance history to determine the servers’ peak utilization during the performance failures. Increase the size of the application server’s Amazon EC2 instances to meet the peak requirements.</li>
+<li>Use Amazon Simple Notification Service (Amazon SNS) to handle the messaging between application servers running on Amazon EC2 in an Auto Scaling group. Use Amazon CloudWatch to monitor the SNS queue length and scale up and down as required.</li>
+<li>❌ Use Amazon Simple Queue Service (Amazon SQS) to handle the messaging between application servers running on Amazon EC2 in an Auto Scaling group. Use Amazon CloudWatch to monitor the SQS queue length and scale up when communication failures are detected.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：multi-tiered application、RESTful、Transactions are dropped when one tier becomes overloaded、<u><strong>modernizes</strong></u>、<u><strong>design a solution</strong></u></p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：应用程序由多层（应用程序）构成，使用 RESTful API 互相通信。目前存在问题某一层过载后处理就会被丢弃。需要最简单的架构进行解决。<br>弹性扩容 + 通过 <code>SQS</code> 解耦是这类“由于某一节点负荷过高导致整体运行效率下降”的通用解，4️⃣ 看起来不存在问题。<br>不过 4️⃣ 中有个错误是 <code>CloudWatch</code> 在检测到通信的失败 (communication failures are detected) 才开始扩容已经太迟了。    </p>
+<p><strong>并且题目中还有个需求 modernizes</strong>，像 1️⃣ 一样使用 <code>Amazon API Gateway</code> 并在后端部署 <code>Lambda</code> 可以实现相同的功能并且由于自带弹性扩展因此更加现代。<br>之后再碰到有 modernizes 和 design a solution 这样关键词的题目需要留意下，是不是要重新考虑架构。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Agree with A&gt;&gt;&gt; Lambda &#x3D; serverless + autoscale (modernize),SQS&#x3D; decouple (no more drops)</p>
+<p>The catch phrase is “scale up when communication failuresare detected” Scaling should not be based on communication failures, that’ll be crying over spilled milk! or rather too late. So D is wrong.</p>
+</blockquote>
+<hr>
+<h3 id="十一、Data-sync-to-S3"><a href="#十一、Data-sync-to-S3" class="headerlink" title="十一、Data sync to S3"></a>十一、Data sync to S3</h3><p>A company receives 10 TB of instrumentation<sub><u>仪表</u></sub> data each day from several machines located at a single factory. The data consists of JSON files stored on a storage area network (SAN) in an on-premises data center located within the factory. The company wants to send this data to Amazon S3 where it can be accessed by several additional systems that provide critical near-real-time analytics. A secure transfer is important because the data is considered sensitive.<br>Which solution offers the MOST reliable data transfer?</p>
+<ol>
+<li>AWS DataSync over public internet</li>
+<li>✅ AWS DataSync over AWS Direct Connectz</li>
+<li>AWS Database Migration Service (AWS DMS) over public internet</li>
+<li>AWS Database Migration Service (AWS DMS) over AWS Direct Connect</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：10 TB、JSON、SAN in an on-premises data center located within the factory、near-real-time analytics、secure</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：工厂每天有 10 TB 的敏感数据以 JSON 文件形式存在本地，现在需要传输到 <code>S3</code> 存储桶中，并通过其他系统进行近实时的分析。<br>安全敏感数据因此选择 <code>AWS Direct Connect</code>，它在数据到达 AWS Direct Connect 位置后到 AWS 的过程中会走 AWS 的网络。而 <code>AWS Database Migration Service</code> 是本地数据库迁移到 AWS 时使用的。  </p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/datasync/latest/userguide/what-is-datasync.html">什么是 AWS DataSync？</a></p>
+<blockquote>
+<p>AWS DataSync是一项在线数据移动和发现服务，可简化数据迁移，并帮助您在AWS存储服务之间快速、轻松、安全地传输文件或对象数据。</p>
+<p>通过使用 DataSync，您可以获得以下好处：</p>
+<ul>
+<li><strong>简化迁移规划</strong> - 通过自动数据收集和建议，DataSyncDiscovery 可以最大限度地减少与规划数据迁移到AWS相关的时间、工作量和成本。您可以使用建议为预算计划提供信息，并在迁移临近时重新运行发现任务以验证您的假设。</li>
+<li><strong>自动移动数据</strong> - DataSync 使通过网络在存储系统和服务之间移动数据变得更加容易。DataSync自动管理数据传输过程和高性能和安全数据传输所需的基础架构。</li>
+<li><strong>安全传输数据</strong> - DataSync 提供端到端安全性，包括加密和完整性验证，以帮助确保您的数据安全、完好无损地到达并随时可用。DataSync通过内置AWS安全机制（例如 AWS Identity and Access Management (IAM) 角色）访问您的AWS存储。它还支持虚拟私有云 (VPC) 终端节点，使您可以选择在不穿越公共互联网的情况下传输数据，并进一步提高了在线复制的数据的安全性。</li>
+<li><strong>更快地移动数据</strong> - DataSync 使用专门构建的网络协议和parallel 多线程架构来加快传输速度。这种方法可以加快迁移、用于分析和机器学习的重复数据处理工作流程以及数据保护流程。</li>
+<li><strong>降低运营成本</strong> — 采用每千兆字节的固定定价，经济高效地移动数据。DataSync避免编写和维护自定义脚本或使用昂贵的商业传输工具。</li>
+</ul>
+</blockquote>
+<p>看起来 <code>AWS DataSync</code> 本身就已经具备了传输过程中的端到端加密功能，不过有 <code>AWS Direct Connect</code> 的情况下加个保障更好。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：DMS is for databasesand here refers to “JSON files”. Public internet is not reliable.So best option is B</p>
+<p>The most reliable solution for transferring the data in a secure manner would be option B: AWS DataSync over AWS Direct Connect.<br>AWS DataSync isa data transfer service that uses network optimization techniques to transfer data efficientlyand securely between on-premises storage systemsand Amazon S3 or other storage targets. When used over AWS Direct Connect, DataSync can provide a dedicated and secure networkconnection between your on-premises data center and AWS.This can help to ensure a more reliable and secure data transfer compared to using the public internet.</p>
+</blockquote>
+<hr>
+<h3 id="十二、Real-time-data-ingestion-architecture"><a href="#十二、Real-time-data-ingestion-architecture" class="headerlink" title="十二、Real-time data ingestion architecture"></a>十二、Real-time data ingestion architecture</h3><p>A company needs to configure a real-time data ingestion architecture for its application. The company needs an API, a process that transforms data as the data is streamed, and a storage solution for the data.<br>Which solution will meet these requirements with the LEAST operational overhead?</p>
+<ol>
+<li>Deploy an Amazon EC2 instance to host an API that sends data to an Amazon Kinesis data stream. Create an Amazon Kinesis Data Firehose delivery<sub><u>递交</u></sub> stream that uses the Kinesis data stream as a data source. Use AWS Lambda functions to transform the data. Use the Kinesis Data Firehose delivery stream to send the data to Amazon S3.</li>
+<li>Deploy an Amazon EC2 instance to host an API that sends data to AWS Glue. Stop source&#x2F;destination checking on the EC2 instance. Use AWS Glue to transform the data and to send the data to Amazon S3.</li>
+<li>✅ Configure an Amazon API Gateway API to send data to an Amazon Kinesis data stream. Create an Amazon Kinesis Data Firehose delivery stream that uses the Kinesis data stream as a data source. Use AWS Lambda functions to transform the data. Use the Kinesis Data Firehose delivery stream to send the data to Amazon S3.</li>
+<li>Configure an Amazon API Gateway API to send data to AWS Glue. Use AWS Lambda functions to transform the data. Use AWS Glue to send the data to Amazon S3.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：real-time data ingestion architecture、an API、a process that transforms data as the data is streamed、a storage solution</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：为应用程序配置一个实时的数据摄取架构。一个 API、一个转换数据流样式数据的进程、一个存储。要求最少操作的架构。<br>API 可以考虑使用 <code>Amazon API Gateway API</code>，数据流可以考虑 <code>Amazon Kinesis data</code> 系，数据最终存储在 <code>S3</code> 中。<br>3️⃣ 最贴合，在数据流的操作流程种，创建一个 <code>Kinesis Data Firehose</code> 并将 <code>Kinesis data stream</code> 作为数据源，然后用 <code>Lambda</code> 处理数据。  </p>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/glue/">AWS Glue 发现、准备和集成所有任意规模的数据</a></p>
+<blockquote>
+<p>AWS Glue 是一项无服务器数据集成服务，它简化了发现、准备、移动和集成来自多个来源的数据以进行分析、机器学习（ML）和应用程序开发的工作。</p>
+</blockquote>
+<p>看上去 <code>AWS Glue</code> 更像是为机器学习准备的。而且是由收集数据的功能，不能完成提取 (Extract)、<strong>转换</strong> (Transform)、加载 (Load) 的整个流程。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：(A) - You don’t need to deployan EC2 instance to host an API - Operational overhead<br>(B) - Same as A<br>(<strong>C</strong>) - Is the answer<br>(D) - AWS Glue gets data from S3, not from API GW. AWS Glue could do ETL (Extract-Transform-Load) by itself, so don’t need lambda. Non sense.<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/glue/">https://aws.amazon.com/glue/</a></p>
+<p>The company needsan API &#x3D; Amazon API Gateway API<br>A real-time data ingestion &#x3D; Amazon Kinesis data stream<br>A process that transforms data &#x3D; AWS Lambda functions<br>Kinesis Data Firehose delivery stream to send the data to Amazon S3<br>A storage solution for the data &#x3D; Amazon S3  </p>
+</blockquote>
+<hr>
+<h3 id="十三、DynamoDB-backup"><a href="#十三、DynamoDB-backup" class="headerlink" title="十三、DynamoDB backup"></a>十三、DynamoDB backup</h3><p>A company needs to keep user transaction data in an Amazon DynamoDB table. The company must retain the data for 7 years.<br>What is the MOST operationally efficient solution that meets these requirements?</p>
+<ol>
+<li>Use DynamoDB point-in-time recovery to back up the table continuously.</li>
+<li>✅ Use AWS Backup to create backup schedules and retention policies for the table.</li>
+<li>Create an on-demand backup of the table by using the DynamoDB console. Store the backup in an Amazon S3 bucket. Set an S3 Lifecycle configuration for the S3 bucket.</li>
+<li>Create an Amazon EventBridge (Amazon CloudWatch Events) rule to invoke an AWS Lambda function. Configure the Lambda function to back up the table and to store the backup in an Amazon S3 bucket. Set an S3 Lifecycle configuration for the S3 bucket.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：transaction data、DynamoDB、retain the data for 7 years</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：公司将数据数据保存在 <code>DynamoDB</code> 表中，需要存放 7 年。需要最高效的解决方案。<br><code>DynamoDB</code> 本身就高可用，配置定时备份和相关保护策略即可，看上去选 2️⃣。<br><code>DynamoDB</code> 的 point-in-time recovery 只提供最长 35 天的数据恢复能力，不选。3️⃣ 和 4️⃣ 操作繁琐。  </p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Backup-and-Restore.html">Backup and restore for DynamoDB</a></p>
+<blockquote>
+<p>With on-demand backups, you can create a snapshot backup of your table that DynamoDB stores and manages. You’re charged based on the size and duration of your backups. Using on-demand backup, you can restore your entire DynamoDB table to the exact state it was in when the backup was created.</p>
+</blockquote>
+<p>在 <code>DynamoDB</code> 的备份文档中也并未提及可以直接将备份保存到 <code>S3</code> 中，因此 3️⃣ 还存在错误。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Answer is B<br>“Amazon DynamoDB offers two types of backups: point-in-time recovery (PITR) and on-demand backups. (&#x3D;&#x3D;&gt; D is not the answer)<br>PITR is used to recover your table to any point in time in a rolling 35 day window, which is used to help customers mitigate accidental deletes or writes to their tables from bad code, maliciousaccess, or usererror. (&#x3D;&#x3D;&gt; A isn’t the answer)<br>On demand backupsare designed for long-term archiving and retention, which is typically used to help customers meet compliance and regulatory requirements.<br>This is the second of a series of two blog postsabout using AWS Backup to set up scheduled on-demand backups for Amazon DynamoDB. Part 1 presents the steps to set up a scheduled backup for DynamoDB tables from the AWS Management Console.” (&#x3D;&#x3D;&gt; Not the DynamoBD console and C isn’t the answereither)<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/blogs/database/part-2-set-up-scheduled-backups-for-amazon-dynamodb-using-aws-backup/">https://aws.amazon.com/blogs/database/part-2-set-up-scheduled-backups-for-amazon-dynamodb-using-aws-backup/</a></p>
+</blockquote>
+<hr>
+<h3 id="十四、On-demand-DynamoDB"><a href="#十四、On-demand-DynamoDB" class="headerlink" title="十四、On-demand DynamoDB"></a>十四、On-demand DynamoDB</h3><p>A company is planning to use an Amazon DynamoDB table for data storage. The company is concerned about cost optimization. The table will not be used on most mornings. In the evenings, the read and write traffic will often be unpredictable<sub><u>不可预料的</u></sub>. When traffic spikes occur, they will happen very quickly.<br>What should a solutions architect recommend?</p>
+<ol>
+<li>✅ Create a DynamoDB table in on-demand capacity mode.</li>
+<li>Create a DynamoDB table with a global secondary index.</li>
+<li>Create a DynamoDB table with provisioned capacity and auto scaling.</li>
+<li>Create a DynamoDB table in provisioned capacity mode, and configure it as a global table.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：unpredictable traffic、cost optimization</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：使用 <code>DynamoDB</code> 存储数据，早晨不使用，夜间流量不可预料，流量猛增会非常快。需要最便宜的架构。<br>按需付费的最佳使用场景。</p>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/dynamodb/pricing/">Amazon DynamoDB 定价</a></p>
+<blockquote>
+<ul>
+<li>按需容量模式的定价 - DynamoDB 按需模式是一种无服务器选项，采用按请求付费定价和自动扩缩，无需规划、预置和管理容量。</li>
+<li>预置容量模式的定价 - 使用预置容量模式，必须指定预计您的应用程序需要的每秒读取和写入次数。您需要根据预置的每小时读取和写入容量付费，而不是根据应用程序消耗的容量付费。<ul>
+<li>现有应用程序具有稳定且可预测的吞吐量模式</li>
+<li>可以预测容量要求以控制成本</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：On-demand mode isa good option if any of the following are true:</p>
+<ul>
+<li>You create new tables with unknown workloads.</li>
+<li>You have unpredictable application traffic.</li>
+<li>You prefer the ease of paying for only what you use.</li>
+</ul>
+<p>C - provisioned capacity is recommended for known patterns. Not the case here.</p>
+</blockquote>
+<hr>
+<h3 id="十五、AMI-Share-and-KMS-Share"><a href="#十五、AMI-Share-and-KMS-Share" class="headerlink" title="十五、AMI Share and KMS Share"></a>十五、AMI Share and KMS Share</h3><p>A company recently signed a contract with an AWS Managed Service Provider (MSP) Partner for help with an application migration initiative. A solutions architect needs to share an Amazon Machine Image (AMI) from an existing AWS account with the MSP Partner’s AWS account. The AMI is backed by Amazon Elastic Block Store (Amazon EBS) and uses an AWS Key Management Service (AWS KMS) customer managed key to encrypt EBS volume snapshots.<br>What is the MOST secure way for the solutions architect to share the AMI with the MSP Partner’s AWS account?</p>
+<ol>
+<li>Make the encrypted AMI and snapshots publicly available. Modify the key policy to allow the MSP Partner’s AWS account to use the key.</li>
+<li>✅ Modify the launchPermission property of the AMI. Share the AMI with the MSP Partner’s AWS account only. Modify the key policy to allow the MSP Partner’s AWS account to use the key.</li>
+<li>Modify the launchPermission property of the AMI. Share the AMI with the MSP Partner’s AWS account only. Modify the key policy to trust a new KMS key that is owned by the MSP Partner for encryption.</li>
+<li>Export the AMI from the source account to an Amazon S3 bucket in the MSP Partner’s AWS account, Encrypt the S3 bucket with a new KMS key that is owned by the MSP Partner. Copy and launch the AMI in the MSP Partner’s AWS account.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：share an Amazon Machine Image from an existing AWS account with the MSP Partner’s AWS account</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：需要共享一个 <code>AMI</code> 给第三方的 AWS 账号，这个 <code>AMI</code> 有一个用 <code>KMS</code> 的密钥加密了 <code>EBS</code>。问该怎么共享这个 <code>AMI</code>。<br>首先需要共享这个 <code>AMI</code> 本身，之后参照最小权限原则只将这个密钥共享给第三方 AWS 账户，选 2️⃣。  </p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html">Allowing users in other accounts to use a KMS key</a></p>
+<blockquote>
+<p><strong>Allowing use of external KMS keys with AWS services</strong><br>You can give a user in a different account permission to use your KMS key with a service that is integrated with AWS KMS. For example, a user in an external account can use your KMS key to encrypt the objects in an Amazon S3 bucket or to encrypt the secrets they store in AWS Secrets Manager.</p>
+<p>The key policy must give the external user or the external user’s account permission to use the KMS key. In addition, you need to attach IAM policies to the identity that gives the user permission to use the AWS service. The service might also require that users have additional permissions in the key policy or IAM policy. For a list of permissions that the AWS service requires on a customer managed key, see the Data Protection topic in the Security chapter of the user guide or developer guide for the service.</p>
+</blockquote>
+<p>没有实操过，对于 Key 的共享和解密 <code>EBS</code> 流程有点云里雾里的，不过总归是可以共享 Key 就是了。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Share the existing KMS key with the MSP external account because it hasalready been used to encrypt the AMI snapshot.<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html">https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html</a></p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/11/26</p><p><a href="https://senjianlu.com/2024/11/26/saa_test_daily_20241126/">https://senjianlu.com/2024/11/26/saa_test_daily_20241126/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-11-26</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-11-26</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/11/27/translate_news_nhk_20241127_k10014650591000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - セブン＆アイHD 中間持ち株会社の株式入札 住商などが参加検討</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/11/26/hands_on_dns/"><span class="level-item">AWS 实操 - DNS、缓存与性能优化（包括 AWS Route 53）</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、S3-Lifestyle"><span class="level-left"><span class="level-item">一、S3 Lifestyle</span></span></a></li><li><a class="level is-mobile" href="#二、Multi-consumers-in-SQS"><span class="level-left"><span class="level-item">二、Multi-consumers in SQS</span></span></a></li><li><a class="level is-mobile" href="#三、AWS-Direct-Connect-VPN"><span class="level-left"><span class="level-item">三、AWS Direct Connect &amp; VPN</span></span></a></li><li><a class="level is-mobile" href="#四、HA-database"><span class="level-left"><span class="level-item">四、HA database</span></span></a></li><li><a class="level is-mobile" href="#五、NLB-and-ALB"><span class="level-left"><span class="level-item">五、NLB and ALB</span></span></a></li><li><a class="level is-mobile" href="#六、DynamoDB-point-in-time-recovery"><span class="level-left"><span class="level-item">六、DynamoDB point-in-time recovery</span></span></a></li><li><a class="level is-mobile" href="#七、Gateway-Endpoint"><span class="level-left"><span class="level-item">七、Gateway Endpoint</span></span></a></li><li><a class="level is-mobile" href="#八、Security-Group"><span class="level-left"><span class="level-item">八、Security Group</span></span></a></li><li><a class="level is-mobile" href="#九、Security-Group"><span class="level-left"><span class="level-item">九、Security Group</span></span></a></li><li><a class="level is-mobile" href="#十、Multi-tiered-application-and-overload"><span class="level-left"><span class="level-item">十、Multi-tiered application and overload</span></span></a></li><li><a class="level is-mobile" href="#十一、Data-sync-to-S3"><span class="level-left"><span class="level-item">十一、Data sync to S3</span></span></a></li><li><a class="level is-mobile" href="#十二、Real-time-data-ingestion-architecture"><span class="level-left"><span class="level-item">十二、Real-time data ingestion architecture</span></span></a></li><li><a class="level is-mobile" href="#十三、DynamoDB-backup"><span class="level-left"><span class="level-item">十三、DynamoDB backup</span></span></a></li><li><a class="level is-mobile" href="#十四、On-demand-DynamoDB"><span class="level-left"><span class="level-item">十四、On-demand DynamoDB</span></span></a></li><li><a class="level is-mobile" href="#十五、AMI-Share-and-KMS-Share"><span class="level-left"><span class="level-item">十五、AMI Share and KMS Share</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

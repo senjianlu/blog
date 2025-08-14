@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>Terraform 学习笔记（二）Terraform 是什么以及如何使用 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="仅做个人学习笔记复习使用，如果侵权请联系。  前言关于 Terraform 的优势、特性、使用场景、架构（实现）以及常用命令等。"><meta property="og:type" content="article"><meta property="og:title" content="Terraform 学习笔记（二）Terraform 是什么以及如何使用"><meta property="og:url" content="https://senjianlu.com/2024/10/06/terraform_note_02/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="仅做个人学习笔记复习使用，如果侵权请联系。  前言关于 Terraform 的优势、特性、使用场景、架构（实现）以及常用命令等。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-10-01/235838.png"><meta property="article:published_time" content="2024-10-06T15:00:00.000Z"><meta property="article:modified_time" content="2024-10-06T15:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="Terraform"><meta property="article:tag" content="IaC"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-10-01/235838.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/10/06/terraform_note_02/"},"headline":"Terraform 学习笔记（二）Terraform 是什么以及如何使用","image":["https://image.senjianlu.com/blog/2024-10-01/235838.png"],"datePublished":"2024-10-06T15:00:00.000Z","dateModified":"2024-10-06T15:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"仅做个人学习笔记复习使用，如果侵权请联系。  前言关于 Terraform 的优势、特性、使用场景、架构（实现）以及常用命令等。"}</script><link rel="canonical" href="https://senjianlu.com/2024/10/06/terraform_note_02/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-10-06T15:00:00.000Z" title="10/6/2024, 11:00:00 PM">2024-10-06</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/DevOps/">DevOps</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">Terraform 学习笔记（二）Terraform 是什么以及如何使用</h1><div class="content"><blockquote>
+<p><u>仅做个人学习笔记复习使用，如果侵权请联系。</u></p>
+</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关于 <code>Terraform</code> 的优势、特性、使用场景、架构（实现）以及常用命令等。  </p>
+<span id="more"></span>
+
+<hr>
+<h2 id="什么是-Terraform"><a href="#什么是-Terraform" class="headerlink" title="什么是 Terraform"></a>什么是 Terraform</h2><p><code>Terraform</code> 是一款强大的工具，它可以帮助自动化并管理：</p>
+<ul>
+<li>基础设施</li>
+<li>平台</li>
+<li>运行在平台上的各种服务</li>
+</ul>
+<h3 id="一、优势和特性"><a href="#一、优势和特性" class="headerlink" title="一、优势和特性"></a>一、优势和特性</h3><p>这款工具是开源的，并且使用<strong>声明式</strong>语言进行操作，这意味着您无需定义每一步的自动化和管理过程，你只需要明确你想要的最终的结果，而 <code>Terraform</code> 会帮助搞定如何实现。  </p>
+<blockquote>
+<p>它这与<strong>命令式</strong>（程序式）风格的操作方式不同，命令式风格需要您详细定义每一步的执行过程。<br><img src="https://image.senjianlu.com/blog/2024-10-06/210217.png" alt="声明式与命令式的区别"></p>
+</blockquote>
+<h3 id="二、能力和角色"><a href="#二、能力和角色" class="headerlink" title="二、能力和角色"></a>二、能力和角色</h3><p><code>Terraform</code> 是一款<u><strong>专注于基础设施配置和部署的工具</strong></u>。<br>简单来说它可以帮助快速搭建起运行应用程序所需的基础设施环境。</p>
+<p>在我们实际的应用程序部署中，往往包含两个独立任务的过程：</p>
+<ol>
+<li>提供并配置基础设施，并准备部署应用程序所需的一切。</li>
+<li>在基础设施上实际部署应用程序。</li>
+</ol>
+<p>这两个任务甚至可能需要有两个独立的团队或人员来执行。<br><img src="https://image.senjianlu.com/blog/2024-10-06/211644.png" alt="两个独立的任务过程">  </p>
+<blockquote>
+<p>例如：您刚开始一个新项目，想要从头开始设置一个基础设施来运行您的应用程序。<br>这个基础设施可能包括几台服务器，用于部署您的微服务应用程序，而这些微服务以 Docker 容器的形式存在。<br><img src="https://image.senjianlu.com/blog/2024-10-06/211305.png" alt="Docker 形式的微服务应用程序"><br>此外您可能还需要一个数据库容器，您决定选择 AWS 作为构建整个基础设施的平台。在 AWS 上准备和配置资源，以便部署应用程序。这是一个复杂的过程，需要：创建私有网络空间和 EC2 服务器实例；在每个实例上安装所需的其他的工具；设置服务器安全性（防火墙等）；配置网络等等……<br>一旦基础设施就绪，就需要将 Docker 应用程序或容器部署到已经准备好的基础设施上。<br><img src="https://image.senjianlu.com/blog/2024-10-06/211152.png" alt="大致架构"></p>
+</blockquote>
+<p>那么在这其中，<code>Terraform</code> 扮演什么角色呢？<br>很明显，<strong>它负责第一部分的工作：基础设施的配置和部署</strong>，以准备应用程序的部署。<br>它可以帮助您创建 VPC、启动服务器、设置安全性、创建 AWS 用户和权限，以及比如在服务器上安装特定版本的 Docker 等等……  </p>
+<blockquote>
+<p>BTW 所有这些任务都需要以正确的顺序完成，因为一项任务可能依赖于另一项任务。</p>
+</blockquote>
+<h3 id="三、Ansible-和-Terraform-的区别"><a href="#三、Ansible-和-Terraform-的区别" class="headerlink" title="三、Ansible 和 Terraform 的区别"></a>三、Ansible 和 Terraform 的区别</h3><h4 id="1、相同"><a href="#1、相同" class="headerlink" title="1、相同"></a>1、相同</h4><p>都是基础设施及代码的工具，用于自动化提供配置和管理基础设施。</p>
+<h4 id="2、不同"><a href="#2、不同" class="headerlink" title="2、不同"></a>2、不同</h4><ol>
+<li><p>侧重点不同。</p>
+<ul>
+<li><code>Terraform</code> 主要用于基础设施的配置和部署。<blockquote>
+<p>当然也支持在该基础设施上通过其他工具部署应用程序。</p>
+</blockquote>
+</li>
+<li><code>Ansible</code> 主要是配置工具，一旦提供了基础设施，就可以对其进行配置。<blockquote>
+<p>例如：配置基础设施、该基础设施上部署应用程序安装和更新软件。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>新旧差异。</p>
+<ul>
+<li><code>Terraform</code> 较新，还在不断地动态的发展。</li>
+<li><code>Ansible</code> 在 2012 年被创造，历经 12 年的发展，相对成熟。</li>
+</ul>
+</li>
+<li><p>通常使用的领域不同。</p>
+<ul>
+<li><code>Terraform</code> 在资源编排方面展现出了更强大的能力，因此被用于基础设施的预配置。</li>
+<li><code>Ansible</code> 则更多地被用于配置基础设施，以及部署和安装软件、应用程序等任务。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><h3 id="一、创建基础设施"><a href="#一、创建基础设施" class="headerlink" title="一、创建基础设施"></a>一、创建基础设施</h3><p>这是 <code>Terraform</code> 的强项且反复被提及，因此不再赘述。</p>
+<h3 id="二、管理现有的基础设施"><a href="#二、管理现有的基础设施" class="headerlink" title="二、管理现有的基础设施"></a>二、管理现有的基础设施</h3><blockquote>
+<p><em>回到之前的微服务部署案例，现在我们使用了 <code>Terraform</code> 成功地创建了基础设施，并在 AWS 上为项目进行了一些必要的配置，随后在基础设施上面部署了应用程序</em>。  </p>
+<p>然而随着开发团队开发出更多的新功能需要部署，我们决定要在现有的基础设施中增加 6 台服务器以支持更多的微服务的部署需求，然后还想添加一些安全配置，以及删除一些在开始时配置的东西。<br><img src="https://image.senjianlu.com/blog/2024-10-06/213935.png" alt="在微服务项目中添加和修改现有基础设施"><br>很明显现在我们处于管理现有基础设施的阶段，包括添加一些东西，重新配置删除一些东西等等……</p>
+</blockquote>
+<p>使用 <code>Terraform</code>，上述的这些操作也都可以很容易的实现。<br>管理基础设施的任务同样重要，因为一旦为项目创建了初始的基础设施之后，就需要不断的调整和更改它。<br>也正因为如此，就更需要自动化的工具来完成大部分繁重的工作，而不必每次都需要手动来完成这些任务。</p>
+<h3 id="三、复制基础设施"><a href="#三、复制基础设施" class="headerlink" title="三、复制基础设施"></a>三、复制基础设施</h3><blockquote>
+<p>通过前面创建和调整，在测试了配置并确保一切正常后，你可能希望将开发环境的应用程序发布到生产环境中。<br>因此你可能需要创建生产环境，然后完全复制之前的这套环境所有的设置。<em>因为这套环境的基础设施和环境等配置都是测试验证过了，直接复制是最好的选择，不容易出现问题且效率高，而不是在生产环境中重新再从头来一遍</em>。</p>
+</blockquote>
+<p>而 <code>Terraform</code> 同样能在这里表现的很好。<br>使用 <code>Terraform</code> 可以复制构建一套与开发环境相同的基础设施，也就是<u><strong>直接使用与第一个设置开发环境相同的 <code>Terraform</code> 代码</strong></u>，轻松地进行复制启动和设置相同的基础设施。</p>
+<hr>
+<h2 id="Terraform-架构"><a href="#Terraform-架构" class="headerlink" title="Terraform 架构"></a>Terraform 架构</h2><p><code>Terraform</code> 是如何实现这上述场景中对应功能的呢？它是如何与这些基础设施提供商平台通信对接，并利用各种技术来配置资源的呢？<br>这就要讲到 <code>Terraform</code> 的架构了。</p>
+<h3 id="一、核心的两组件（Core-和-State）"><a href="#一、核心的两组件（Core-和-State）" class="headerlink" title="一、核心的两组件（Core 和 State）"></a>一、核心的两组件（Core 和 State）</h3><p><code>Terraform</code> 主要由两个组件构成其架构：</p>
+<ol>
+<li><p><strong>第一个主要组件是其核心库 (Core)​</strong>：它负责接收并处理输入源，以执行相应的操作。</p>
+<blockquote>
+<p>这些输入源主要是用户编写的 <code>Terraform</code> 配置文件，其中定义了需要创建配置或管理的资源。</p>
+</blockquote>
+</li>
+<li><p><strong>第二个组件是状态 (State)​</strong>：<code>Terraform</code> 用它来跟踪和更新基础设施的当前配置状态。</p>
+</li>
+</ol>
+<p>当 <code>Core</code> 接收到用户提供的配置输入后，它会根据这些信息计算出需要执行的操作计划，以确保实际的基础设施状态与期望的状态一致。<br>而之后 <code>Terraform</code> 会比较当前的基础设施状态与您所期望的配置状态，当检测到当前的状态与期望的状态之间存在差异时，它就会计算出需要执行的操作，用以将当前的实际状态与配置文件中所定义的状态一致，这可能包括：创建新资源、更新现有资源或删除不再需要的资源。<br>此外 <code>Terraform</code> 还会确定应该以何种顺序执行这些操作，以确保整个过程的顺利和高效。<br><img src="https://image.senjianlu.com/blog/2024-10-06/215559.png" alt="Terraform Core 和 Terraform State">  </p>
+<h3 id="二、提供商-Providers"><a href="#二、提供商-Providers" class="headerlink" title="二、提供商 (Providers)"></a>二、提供商 (Providers)</h3><p>这是 <code>Terraform</code> 的最重要的组成部分。<br>通过 <code>Providers </code>提供的特定的技术接口，<code>Terraform</code> 才得以与提供商平台进行通信，并执行相应的操作。<br>这些 <code>Providers</code> 可以是：</p>
+<ul>
+<li>云服务提供商 (IaaS)。<blockquote>
+<p>例如：AWS、微软云、阿里云、腾讯云等。</p>
+</blockquote>
+</li>
+<li>更高级别的组件、平台及服务 (PaaS) 工具。<blockquote>
+<p>例如：Kubernetes 等容器编排平台。</p>
+</blockquote>
+</li>
+<li>软件即服务 (SaaS) 工具。<blockquote>
+<p>例如：Fastly。</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>你可以做到：创建 AWS 基础设施，然后在其上部署创建 Kubernetes 集群，最后在集群内部创建服务或组件。<br>这就实现了<strong>从基础设施到应用程序的全方位配置和管理</strong>。</p>
+</blockquote>
+<p>你可以在这里看到所有的 Providers：<a target="_blank" rel="noopener" href="https://registry.terraform.io/browse/providers">Providers</a><br>有些是官方提供的，有些是服务提供商自己提供的，也有一部分是用户编写并共享的。  </p>
+<h3 id="三、流程"><a href="#三、流程" class="headerlink" title="三、流程"></a>三、流程</h3><p>当 <code>Core</code> 根据配置文件和 <code>State</code> 的输入创建执行计划时，它会利用这些不同供应商的 <code>Provider</code> 来执行该计划。<br>而这些 <code>Provider</code> 负责与相应的供应商进行通讯，并执行实际的配置和管理操作。  </p>
+<h3 id="四、配置样例"><a href="#四、配置样例" class="headerlink" title="四、配置样例"></a>四、配置样例</h3><h4 id="1、将-AWS-作为云服务提供商的例子"><a href="#1、将-AWS-作为云服务提供商的例子" class="headerlink" title="1、将 AWS 作为云服务提供商的例子"></a>1、将 AWS 作为云服务提供商的例子</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 定义 Provider</span><br><span class="line">provider &quot;aws&quot; &#123;</span><br><span class="line">    version = &quot;~&gt; 2.0&quot;</span><br><span class="line">    region  = &quot;us-west-2&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 配置 Providers 的资源</span><br><span class="line">resource &quot;aws_vpc&quot; &quot;test&quot; &#123;</span><br><span class="line">    cidr_block = &quot;10.0.0.0/16&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、将-Kubernetes-作为平台及服务工具的例子"><a href="#2、将-Kubernetes-作为平台及服务工具的例子" class="headerlink" title="2、将 Kubernetes 作为平台及服务工具的例子"></a>2、将 Kubernetes 作为平台及服务工具的例子</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 定义 Provider</span><br><span class="line">provider &quot;kubernetes&quot; &#123;</span><br><span class="line">    config_context_auth_info = &quot;ops&quot;</span><br><span class="line">    config_context_cluster   = &quot;my_cluster&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 配置 Providers 的资源</span><br><span class="line">resource &quot;kubernetes_namespace&quot; &quot;test&quot; &#123;</span><br><span class="line">    metadata &#123;</span><br><span class="line">        name = &quot;my-test-namespace&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="五、Terraform-声明式配置所带来的优势"><a href="#五、Terraform-声明式配置所带来的优势" class="headerlink" title="五、Terraform 声明式配置所带来的优势"></a>五、Terraform 声明式配置所带来的优势</h3><p><strong>简单来说，当创建 <code>Terraform</code> 的配置文件时，不需要详细定义每一步的执行过程，比如：如何创建 VPC、如何启动多台实例或如何配置网络等</strong>。<br><strong>而是只需要定义期望的最终状态是什么样的，比如：我想要几台具备特定网络配置的服务器，以及一个拥有特定权限的 AWS 用户来访问这些服务器，然后 <code>Terraform</code> 就会根据您的配置自动为您完成这些操作</strong>。</p>
+<blockquote>
+<p>在对资源进行初始配置时，声明式方法或许并不会带来太直观的感受，它与命令式方法在呈现上可能大致接近。<br>但当需要更新基础设施的时候，例如增删服务器或进行其他调整时，两者之间的区别就会凸显出来：</p>
+<ul>
+<li>命令式方法需要您在配置文件中具体的说明要执行的每一步操作。<blockquote>
+<p>这些操作都需要被详细记录为步骤：删除两台服务器，添加一个防火墙配置，以及为 AWS 的用户某某某分配某些权限等。</p>
+</blockquote>
+</li>
+<li>声明式方法只需要描述您期望的最终状态。<blockquote>
+<p><code>Terraform</code> 会自动处理所有必要的操作，确保从当前状态平滑过渡到你所描述的期望状态。</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://image.senjianlu.com/blog/2024-10-06/224807.png" alt="更新时的差别">  </p>
+</blockquote>
+<p>这带来的好处就是：</p>
+<ol>
+<li>配置足够简单。</li>
+<li>所见即所得，可以清晰地预测最终状态是什么样子的。</li>
+<li>降低了出错的风险，所有的参数复杂的具体操作都由 <code>Terraform</code> 计划和实现。</li>
+</ol>
+<hr>
+<h2 id="Terraform-命令"><a href="#Terraform-命令" class="headerlink" title="Terraform 命令"></a>Terraform 命令</h2><h3 id="一、refresh-获取当前状态"><a href="#一、refresh-获取当前状态" class="headerlink" title="一、refresh 获取当前状态"></a>一、refresh 获取当前状态</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">terraform refresh</span><br></pre></td></tr></table></figure>
+<p><code>Terraform</code> 会联系基础设施供应商，来获取基础设施的当前状态。</p>
+<h3 id="二、plan-创建执行计划以供预览"><a href="#二、plan-创建执行计划以供预览" class="headerlink" title="二、plan 创建执行计划以供预览"></a>二、plan 创建执行计划以供预览</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">terraform plan</span><br></pre></td></tr></table></figure>
+<p><code>Core</code> 会根据当前的基础设施状态 <code>State</code> 和配置文件中定义的目标状态，制定一个详细的执行的计划。<br>详细地列出需要执行的操作，以及执行这些操作的顺序。<br><strong>但是它并不会实际执行这些操作，只是提供一个预览</strong>。</p>
+<h3 id="三、apply-执行计划"><a href="#三、apply-执行计划" class="headerlink" title="三、apply 执行计划"></a>三、apply 执行计划</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">terraform apply</span><br></pre></td></tr></table></figure>
+<p><code>Core</code> 会根据 <code>plan</code> 生成的执行计划，执行实际的操作，以确保当前的基础设施状态与配置文件中所定义的状态一致。</p>
+<h3 id="四、destroy-销毁基础设置及资源"><a href="#四、destroy-销毁基础设置及资源" class="headerlink" title="四、destroy 销毁基础设置及资源"></a>四、destroy 销毁基础设置及资源</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">terraform destroy</span><br></pre></td></tr></table></figure>
+<p><code>Terraform</code> 会销毁配置文件涉及到的所有资源，以确保基础设施回到最初的状态。  </p>
+<blockquote>
+<p><code>Terraform</code> 当然会智能地按照资源之间的依赖关系，以正确的顺序销毁资源。  </p>
+</blockquote>
+<p>在销毁资源之前，它会再次像 <code>apply</code> 命令一样检查当前的状态，并制定一个详细的删除计划。</p>
+<hr>
+<h2 id="All-in-One"><a href="#All-in-One" class="headerlink" title="All in One"></a>All in One</h2><p>由于巨量的 <code>Providers</code> 和 <code>Resources</code>，<code>Terraform</code> 可以帮助您实现几乎所有主流的基础设施的配置和管理。<br><img src="https://image.senjianlu.com/blog/2024-10-06/230343.png" alt="数量众多的 Provider"><br>当需要同时使用公司内部的私有云和多个公共云服务提供商时，<code>Terraform</code> 可以成为你的统一管理工具。<br>一个 <code>Terraform</code> 搞定这一切，而不再需要学习每个云服务提供商的专有工具。同时得益于 <code>Providers</code> 的封装，无需再学习并掌握每个工具的 API 的使用方法。<br><strong><code>Terraform</code> 屏蔽了底层的复杂性，让我们能够更专注于业务逻辑的实现，这太棒了不是吗</strong>？</p>
+<hr>
+<p>参考资料：</p>
+<ul>
+<li>📺 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=YL4HRQbPoYs">Terraform课程-Terraform简介</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.iloveaws.cn/course/terraform">Terraform – 从初级到高级</a><blockquote>
+<p>非常非常好的中文课程，恶魔老师有浅入深讲得非常好，强烈推荐！</p>
+</blockquote>
+</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>Terraform 学习笔记（二）Terraform 是什么以及如何使用</p><p><a href="https://senjianlu.com/2024/10/06/terraform_note_02/">https://senjianlu.com/2024/10/06/terraform_note_02/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-10-06</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-10-06</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/Terraform/">Terraform</a><a class="link-muted mr-2" rel="tag" href="/tags/IaC/">IaC</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/10/06/markdown_cant_blod/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">解决 Markdown 加粗符号 (**) 在其他符号后无法生效的问题</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/10/06/terraform_note_01/"><span class="level-item">Terraform 学习笔记（一）基础设施即代码 (IaC, Infrastructure as Code) 的概念及相关工具</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#前言"><span class="level-left"><span class="level-item">前言</span></span></a></li><li><a class="level is-mobile" href="#什么是-Terraform"><span class="level-left"><span class="level-item">什么是 Terraform</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、优势和特性"><span class="level-left"><span class="level-item">一、优势和特性</span></span></a></li><li><a class="level is-mobile" href="#二、能力和角色"><span class="level-left"><span class="level-item">二、能力和角色</span></span></a></li><li><a class="level is-mobile" href="#三、Ansible-和-Terraform-的区别"><span class="level-left"><span class="level-item">三、Ansible 和 Terraform 的区别</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#1、相同"><span class="level-left"><span class="level-item">1、相同</span></span></a></li><li><a class="level is-mobile" href="#2、不同"><span class="level-left"><span class="level-item">2、不同</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="#使用场景"><span class="level-left"><span class="level-item">使用场景</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、创建基础设施"><span class="level-left"><span class="level-item">一、创建基础设施</span></span></a></li><li><a class="level is-mobile" href="#二、管理现有的基础设施"><span class="level-left"><span class="level-item">二、管理现有的基础设施</span></span></a></li><li><a class="level is-mobile" href="#三、复制基础设施"><span class="level-left"><span class="level-item">三、复制基础设施</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Terraform-架构"><span class="level-left"><span class="level-item">Terraform 架构</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、核心的两组件（Core-和-State）"><span class="level-left"><span class="level-item">一、核心的两组件（Core 和 State）</span></span></a></li><li><a class="level is-mobile" href="#二、提供商-Providers"><span class="level-left"><span class="level-item">二、提供商 (Providers)</span></span></a></li><li><a class="level is-mobile" href="#三、流程"><span class="level-left"><span class="level-item">三、流程</span></span></a></li><li><a class="level is-mobile" href="#四、配置样例"><span class="level-left"><span class="level-item">四、配置样例</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#1、将-AWS-作为云服务提供商的例子"><span class="level-left"><span class="level-item">1、将 AWS 作为云服务提供商的例子</span></span></a></li><li><a class="level is-mobile" href="#2、将-Kubernetes-作为平台及服务工具的例子"><span class="level-left"><span class="level-item">2、将 Kubernetes 作为平台及服务工具的例子</span></span></a></li></ul></li><li><a class="level is-mobile" href="#五、Terraform-声明式配置所带来的优势"><span class="level-left"><span class="level-item">五、Terraform 声明式配置所带来的优势</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Terraform-命令"><span class="level-left"><span class="level-item">Terraform 命令</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、refresh-获取当前状态"><span class="level-left"><span class="level-item">一、refresh 获取当前状态</span></span></a></li><li><a class="level is-mobile" href="#二、plan-创建执行计划以供预览"><span class="level-left"><span class="level-item">二、plan 创建执行计划以供预览</span></span></a></li><li><a class="level is-mobile" href="#三、apply-执行计划"><span class="level-left"><span class="level-item">三、apply 执行计划</span></span></a></li><li><a class="level is-mobile" href="#四、destroy-销毁基础设置及资源"><span class="level-left"><span class="level-item">四、destroy 销毁基础设置及资源</span></span></a></li></ul></li><li><a class="level is-mobile" href="#All-in-One"><span class="level-left"><span class="level-item">All in One</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

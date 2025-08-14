@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/12/15 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam160 题 (No.1 ~ No.160) 只记录了 11 道错误的题目，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/12/15"><meta property="og:url" content="https://senjianlu.com/2024/12/15/saa_test_daily_20241215/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam160 题 (No.1 ~ No.160) 只记录了 11 道错误的题目，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-12-15T07:00:00.000Z"><meta property="article:modified_time" content="2024-12-15T08:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/12/15/saa_test_daily_20241215/"},"headline":"SAA 考试每日练习 - 2024/12/15","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-12-15T07:00:00.000Z","dateModified":"2024-12-15T08:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam160 题 (No.1 ~ No.160) 只记录了 11 道错误的题目，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/12/15/saa_test_daily_20241215/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-12-15T07:00:00.000Z" title="12/15/2024, 3:00:00 PM">2024-12-15</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/12/15</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/">Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam</a><br>160 题 (No.1 ~ No.160) <strong>只记录了 11 道错误的题目</strong>，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<h3 id="一、流量审计"><a href="#一、流量审计" class="headerlink" title="一、流量审计"></a>一、流量审计</h3><p>一家公司最近迁移到了 AWS，并希望实施一套解决方案来保护进出 AWS 生产 VPC 流量。该公司在内部数据中心有一个检查服务器。检查服务器执行流量检查和流量过滤等特定操作。该公司希望在 AWS 云中拥有相同的功能。<br>哪种解决方案能满足这些要求？</p>
+<ol>
+<li>在生产 VPC 中使用 Amazon GuardDuty 进行流量检查和流量过滤。</li>
+<li>❌ 使用流量镜像从生产 VPC 镜像流量，以进行流量检查和过滤。</li>
+<li>✅ 使用 AWS 网络防火墙为生产 VPC 创建流量检查和流量过滤所需的规则。</li>
+<li>使用 AWS Firewall Manager 为生产 VPC 创建流量检查和流量过滤所需的规则。</li>
+</ol>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/network-firewall/">AWS Network Firewall - 跨 VPC 部署网络防火墙安全</a></p>
+<blockquote>
+<ul>
+<li>检查入站互联网流量 - 使用入站加密流量检查、状态检查、协议检测等功能检查流量。</li>
+<li>筛选出站流量 - 部署出站流量筛选，以防止数据丢失、帮助满足合规要求，以及阻止已知的恶意软件通信。</li>
+<li>防止入站互联网流量入侵 - 使用状态检测、协议检测等功能检查活动流量。</li>
+<li>保护 AWS Direct Connect 和 VPN 流量的安全 - 保护来自客户端设备和 AWS Transit Gateway 支持的本地环境的 Direct Connect 和 VPN 流量的安全。</li>
+</ul>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="二、Microsoft-Active-Directory"><a href="#二、Microsoft-Active-Directory" class="headerlink" title="二、Microsoft Active Directory"></a>二、Microsoft Active Directory</h3><p>一家公司正在将应用程序迁移到 AWS。这些应用程序部署在不同的账户中。公司使用 AWS 组织集中管理这些账户。公司的安全团队需要一个跨公司所有账户的单点登录（SSO）解决方案。公司必须继续管理内部自管理 Microsoft Active Directory 中的用户和组。<br>哪种解决方案能满足这些要求？  </p>
+<ol>
+<li>❌ 从 AWS SSO 控制台启用 AWS 单点登录（AWS SSO）。创建单向林信任或单向域信任，通过使用 AWS Directory Service for Microsoft Active Directory 将公司自主管理的 Microsoft Active Directory 与 AWS SSO 连接起来。</li>
+<li>✅ 从 AWS SSO 控制台启用 AWS 单点登录（AWS SSO）。创建双向森林信任，使用 AWS Directory Service for Microsoft Active Directory 将公司自主管理的 Microsoft Active Directory 与 AWS SSO 连接起来。</li>
+<li>使用 AWS 目录服务。与公司自主管理的 Microsoft Active Directory 建立双向信任关系。</li>
+<li>在办公场所部署身份提供程序 (IdP)。从 AWS SSO 控制台启用 AWS 单点登录（AWS SSO）。</li>
+</ol>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：需要在公司内部自管理的 AD 上管理用户和组，这是 AD Connector 的使用场景：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/directoryservice/latest/admin-guide/directory_ad_connector.html">AD Connector</a></p>
+<blockquote>
+<p>AD Connector 是一种目录网关，借助它可以将目录请求重定向到本地 Microsoft Active Directory，而无需在云中缓存任何信息。</p>
+</blockquote>
+<p>而选项 1️⃣ 中提到的 <code>AWS Directory Service for Microsoft Active Directory</code> 则是：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/directoryservice/latest/admin-guide/what_is.html">什么是 AWS Directory Service？</a></p>
+<blockquote>
+<p>AWS Directory Service for Microsoft Active Directory 也称为 AWS Managed Microsoft AD，由 AWS Cloud 中的 AWS 管理的实际 Microsoft Windows Server Active Directory（AD）提供支持。</p>
+</blockquote>
+<p>它已经是一个完整的 AD 服务了，当然通过它建立与本地 AD 的信任关系（云 AD 信任本地 AD）：这样在云 AD 找不到用户的时候就会前往本地查找了，是可以解决问题。<br>我认为选 2️⃣ 的原因是 1️⃣ 并没有描述得很清楚，2️⃣ 则肯定没错。  </p>
+</blockquote>
+<hr>
+<h3 id="三、ACM-导入-HTTPS-证书"><a href="#三、ACM-导入-HTTPS-证书" class="headerlink" title="三、ACM 导入 HTTPS 证书"></a>三、ACM 导入 HTTPS 证书</h3><p>某公司在亚马逊 Route 53 注册了域名。该公司使用 ca-central-1 区域的亚马逊 API 网关作为其后端微服务 API 的公共接口。第三方服务安全地使用 API。该公司希望使用公司域名和相应证书设计 API Gateway URL，以便第三方服务可以使用 HTTPS。<br>哪种解决方案能满足这些要求？</p>
+<ol>
+<li>在 API Gateway 中创建 Name&#x3D;”Endpoint-URL” 和 Value&#x3D;”Company Domain Name” 的阶段变量，以覆盖默认 URL。将与公司域名相关的公共证书导入 AWS 证书管理器 (ACM)。</li>
+<li>使用公司域名创建 Route 53 DNS 记录。将别名记录指向区域 API 网关阶段端点。将与公司域名相关的公共证书导入 us-east-1 区域的 AWS 证书管理器 (ACM)。</li>
+<li>✅ 创建区域 API Gateway 端点。将 API Gateway 端点与公司域名关联。将与公司域名相关联的公共证书导入同一区域的 AWS 证书管理器 (ACM)。将证书附加到 API Gateway 端点。配置 Route 53，将流量路由到 API Gateway 端点。</li>
+<li>❌ 创建区域 API Gateway 端点。将 API Gateway 端点与公司域名关联。将与公司域名相关联的公共证书导入 us-east-1 区域的 AWS 证书管理器 (ACM)。将证书附加到 API Gateway API。创建与公司域名相关的 Route 53 DNS 记录。将 A 记录指向公司域名。</li>
+</ol>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>ALB</code> 和 <code>Amazon API Gateway</code> 可以在相应的区域申请&#x2F;导入 SSL 证书，而使用 <code>CloudFront</code> 则需要将证书配置在弗吉尼亚北部区域 (us-east-1) 中：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/getting-started/hands-on/how-to-apply-ssl-tls-certificate/#bz1">第一步 - 确认区域</a>  </p>
+<blockquote>
+<p>对于 ALB 或者 Amazon API Gateway 服务，您需要选择在与之相同的区域来申请 ACM 证书；如果您使用的是海外区域 Amazon CloudFront，则需要将证书配置在弗吉尼亚北部区域 (us-east-1)。您可以在页面右上角确认当前所处区域。</p>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="四、SQS-API-操作"><a href="#四、SQS-API-操作" class="headerlink" title="四、SQS API 操作"></a>四、SQS API 操作</h3><p>某公司希望将一个多层应用程序从公司内部转移到 AWS 云，以提高应用程序的性能。该应用程序由多个应用程序层组成，这些层通过 RESTful 服务相互通信。当其中一个层超载时，事务就会被丢弃。解决方案架构师必须设计一个解决方案来解决这些问题并使应用程序现代化。<br>哪种解决方案既能满足这些要求，又能最大限度地提高运行效率？</p>
+<ol>
+<li>✅ 使用亚马逊 API 网关，并将事务直接连接到 AWS Lambda 函数作为应用层。使用亚马逊简单队列服务（Amazon SQS）作为应用服务之间的通信层。</li>
+<li>使用 Amazon CloudWatch 指标分析应用程序性能历史记录，以确定服务器在性能故障期间的峰值利用率。增加应用服务器的 Amazon EC2 实例大小，以满足峰值要求。</li>
+<li>使用 Amazon Simple Notification Service (Amazon SNS) 处理自动扩展组中 Amazon EC2 上运行的应用程序服务器之间的消息传递。使用 Amazon CloudWatch 监控 SNS 队列长度，并根据需要进行增减。</li>
+<li>❌ 使用 Amazon Simple Queue Service (Amazon SQS) 处理自动扩展组中 Amazon EC2 上运行的应用程序服务器之间的消息传递。使用 Amazon CloudWatch 监控 SQS 队列长度，并在检测到通信故障时进行扩展。</li>
+</ol>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>SQS</code> 并不支持之间通过 RESTful API 进行操作：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-working-with-apis.html">将 API 与亚马逊 SQS 配合使用</a></p>
+<blockquote>
+<p>本节提供有关构建 Amazon SQS 端点、通过 GET 和 POST 方法发出查询 API 请求以及使用批处理 API 操作的信息。有关 Amazon SQS 操作（包括参数、错误、示例和数据类型）的详细信息，请参阅 Amazon Simple Queue Service API 参考。</p>
+</blockquote>
+<p>它的 API 并不是 RESTful 风格的：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_Operations.html">Actions</a></p>
+<blockquote>
+<p>The following actions are supported:</p>
+<ul>
+<li>AddPermission</li>
+<li>CancelMessageMoveTask</li>
+<li>ChangeMessageVisibility</li>
+<li>ChangeMessageVisibilityBatch</li>
+<li>CreateQueue</li>
+<li>DeleteMessage</li>
+</ul>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="五、Glue-的数据源"><a href="#五、Glue-的数据源" class="headerlink" title="五、Glue 的数据源"></a>五、Glue 的数据源</h3><p>一家公司需要为其应用程序配置一个实时数据摄取架构。该公司需要一个应用程序接口、一个在数据流中转换数据的流程和一个数据存储解决方案。<br>哪种解决方案能以最少的运行开销满足这些要求？</p>
+<ol>
+<li>部署 Amazon EC2 实例来托管向 Amazon Kinesis 数据流发送数据的 API。创建将 Kinesis 数据流用作数据源的 Amazon Kinesis Data Firehose 交付流。使用 AWS Lambda 函数转换数据。使用 Kinesis Data Firehose 交付流将数据发送到 Amazon S3。</li>
+<li>部署一个 Amazon EC2 实例来托管向 AWS Glue 发送数据的 API。在 EC2 实例上停止源&#x2F;目标检查。使用 AWS Glue 转换数据并将数据发送到 Amazon S3。</li>
+<li>✅ 配置 Amazon API Gateway API，将数据发送到 Amazon Kinesis 数据流。创建一个将 Kinesis 数据流用作数据源的 Amazon Kinesis Data Firehose 交付流。使用 AWS Lambda 函数转换数据。使用 Kinesis Data Firehose 交付流将数据发送到 Amazon S3。</li>
+<li>❌ 配置亚马逊 API Gateway API，将数据发送到 AWS Glue。使用 AWS Lambda 函数转换数据。使用 AWS Glue 将数据发送到 亚马逊 S3。</li>
+</ol>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>Glue</code> 不支持 <code>API Gateway API</code> 作为数据摄取源：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/glue/#How_it_works">Glue 的工作原理</a></p>
+<blockquote>
+<p><img src="https://image.senjianlu.com/blog/2024-12-17/glue.png" alt="数据集成引擎选项"></p>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="六、ACM-SSL-证书过期提醒"><a href="#六、ACM-SSL-证书过期提醒" class="headerlink" title="六、ACM SSL 证书过期提醒"></a>六、ACM SSL 证书过期提醒</h3><p>某公司在 AWS 云中托管其网络应用程序。该公司将弹性负载平衡器配置为使用导入 AWS 证书管理器 (ACM) 的证书。公司的安全团队必须在每个证书到期前 30 天收到通知。<br>解决方案架构师应如何建议才能满足这一要求？</p>
+<ol>
+<li>在 ACM 中添加一条规则，从任何证书过期前 30 天开始，每天向 Amazon Simple Notification Service (Amazon SNS) 主题发布一条自定义消息。</li>
+<li>✅ 创建一个 AWS Config 规则，检查将在 30 天内过期的证书。配置 Amazon EventBridge（Amazon CloudWatch 事件），以便在 AWS Config 报告不合规资源时通过 Amazon Simple Notification Service (Amazon SNS) 调用自定义警报。</li>
+<li>使用 AWS Trusted Advisor 检查将在 30 天内过期的证书。创建一个基于 Trusted Advisor 指标的 Amazon CloudWatch 警报，以检查状态变化。配置警报，以便通过 Amazon Simple Notification Service (Amazon SNS) 发送自定义警报。</li>
+<li>❌ 创建一个 Amazon EventBridge（Amazon CloudWatch 事件）规则，以检测任何将在 30 天内过期的证书。配置该规则以调用 AWS Lambda 函数。配置 Lambda 函数，以便通过 Amazon Simple Notification Service (Amazon SNS) 发送自定义警报。</li>
+</ol>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：默认 <code>ACM</code> 证书会在到期前的 45 天发送 <code>CloudWatch</code> 事件：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/acm/latest/userguide/supported-events.html">Amazon EventBridge support for ACM</a></p>
+<blockquote>
+<p>客户可以监听此事件，以便在证书续期前必须采取客户行动时收到警报。例如，如果客户添加的 CAA 记录阻止 ACM 更新证书，则 ACM 会在到期前 45 天自动更新失败时发布此事件。如果客户没有采取任何措施，ACM 会在 30 天、15 天、3 天和 1 天时再尝试续期，直到客户采取了措施、证书过期或证书不再符合续期条件为止。每次续期尝试都会发布一个事件。</p>
+</blockquote>
+<p>而修改这个默认的到期时间，需要使用到 <code>AWS Config</code>：<a target="_blank" rel="noopener" href="https://repost.aws/zh-Hans/knowledge-center/acm-certificate-expiration">当 ACM 导入的证书即将到期时，如何收到通知？</a></p>
+<blockquote>
+<p>要创建 AWS Config 规则，请完成下面的步骤：</p>
+<ol>
+<li>打开 AWS Config 控制台。</li>
+<li>选择规则，然后选择添加规则。</li>
+<li>在选择规则类型中，选择添加 AWS 托管规则。</li>
+<li>对于 AWS 托管规则，选择 <code>acm-certificate-expiration-check</code>，然后选择下一步。</li>
+<li>在参数页上，对于值，在 daysToExpiration 键中输入希望规则调用的天数。<br> <strong>注意</strong>：对于接近所输入的天数的到期日期的证书，acm-certificate-expiration-check AWS Config 规则会被标记为 Noncompliant。</li>
+<li>选择下一步，然后选择添加规则。</li>
+</ol>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="七、MySQL-生产数据库的数据同步到开发数据库"><a href="#七、MySQL-生产数据库的数据同步到开发数据库" class="headerlink" title="七、MySQL 生产数据库的数据同步到开发数据库"></a>七、MySQL 生产数据库的数据同步到开发数据库</h3><p>某公司运行一个由 MySQL 数据库支持的内部部署应用程序。该公司正在将应用程序迁移到 AWS，以提高应用程序的弹性和可用性。<br>当前的架构显示，在正常运行期间，数据库的读取活动非常频繁。每隔 4 个小时，公司的开发团队就会完全导出生产数据库，以填充暂存环境中的数据库。在此期间，用户会遇到无法接受的应用程序延迟。在程序完成之前，开发团队无法使用暂存环境。<br>解决方案架构师必须推荐能够缓解应用程序延迟问题的替代架构。替换架构还必须让开发团队能够继续使用暂存环境，而不会出现延迟。<br>哪种解决方案能满足这些要求？</p>
+<ol>
+<li>❌ 将亚马逊极光 MySQL 与多 AZ 极光副本一起用于生产。通过使用 mysqldump 实用程序实施备份和还原流程来填充暂存数据库。</li>
+<li>✅ 将亚马逊极光 MySQL 与多 AZ 极光副本一起用于生产。使用数据库克隆按需创建暂存数据库。</li>
+<li>使用 Amazon RDS for MySQL 进行多 AZ 部署，并为生产读取副本。将备用实例用于暂存数据库。</li>
+<li>使用 Amazon RDS for MySQL 进行多 AZ 部署，并为生产读取副本。通过使用 mysqldump 实用程序实施备份和还原流程来填充暂存数据库。</li>
+</ol>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：1️⃣ 仍然会造成数据库的查询延迟。<br>而 2️⃣ 是 <code>Create Clone</code> 是官方更推荐的、为（生产等）数据库创造（开发等用途的）备份的方案：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/blogs/aws/amazon-aurora-fast-database-cloning/">Amazon Aurora Fast Database Cloning</a></p>
+<blockquote>
+<p><img src="https://image.senjianlu.com/blog/2024-12-17/Screenshot-2017-08-28-12.29.13.png" alt="create-clone"></p>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="八、本地数据传输到-AWS"><a href="#八、本地数据传输到-AWS" class="headerlink" title="八、本地数据传输到 AWS"></a>八、本地数据传输到 AWS</h3><p>某公司希望将内部部署的数据中心迁移到 AWS。该数据中心托管着一个 SFTP 服务器，其数据存储在一个基于 NFS 的文件系统。服务器上有 200 GB 的数据需要传输。服务器必须托管在使用 Amazon Elastic File System (Amazon EFS) 文件系统的 Amazon EC2 实例上。<br>解决方案架构师应采取哪些步骤组合来自动完成这项任务？(选择两个）。</p>
+<ol>
+<li>❌ 将 EC2 实例启动到与 EFS 文件系统相同的可用性区域。</li>
+<li>✅ 在内部部署数据中心安装 AWS DataSync 代理。</li>
+<li>在 EC2 实例上为数据创建辅助 Amazon Elastic Block Store (Amazon EBS) 卷。</li>
+<li>手动使用操作系统复制命令将数据推送到 EC2 实例。</li>
+<li>✅ 使用 AWS DataSync 为内部部署 SFTP 服务器创建合适的位置配置。<blockquote>
+<p>Use AWS DataSync to create a suitable location configuration for the on-premises SFTP server.</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>1️⃣ 2️⃣ ❌ -&gt; 2️⃣ 5️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>EFS</code> 是区域级别（跨可用区）的，这个没有问题。<br>看看 5️⃣ 具体是什么操作：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/datasync/getting-started/?nc1=hls">AWS DataSync 入门</a></p>
+<blockquote>
+<ul>
+<li>步骤 1：注册免费 AWS 账户</li>
+<li>步骤 2：了解 DataSync</li>
+<li>步骤 3：转到控制台</li>
+<li>步骤 4：要在本地存储与 AWS 之间传输数据，请部署代理</li>
+<li>步骤 5：创建数据传输任务<br>  通过指定数据传输的源位置和目标位置，并配置要用于传输的任何选项（例如安排任务和启用任务报告）来创建任务。<blockquote>
+<p>Create a task by specifying <u>the source location and destination location</u> for your data transfer, and configure any options you want to use with the transfer, such as scheduling the task and enabling task reports.</p>
+</blockquote>
+</li>
+<li>步骤 6：开始传输</li>
+</ul>
+</blockquote>
+<p>是有位置相关的配置流程的，因此 5️⃣ 需要选择。 </p>
+</blockquote>
+<hr>
+<h3 id="九、对未加密的-RDS-实例进行加密"><a href="#九、对未加密的-RDS-实例进行加密" class="headerlink" title="九、对未加密的 RDS 实例进行加密"></a>九、对未加密的 RDS 实例进行加密</h3><p>某公司正在 AWS 上运行一个在线事务处理 (OLTP) 工作负载。该工作负载使用未加密的 Amazon 多 AZ 部署中的 RDS DB 实例。每天从该实例中提取数据库快照。<br>解决方案架构师应如何确保数据库和快照始终加密？</p>
+<ol>
+<li>✅ 加密最新数据库快照的副本。通过恢复加密快照替换现有数据库实例。</li>
+<li>创建新的加密 Amazon Elastic Block Store (Amazon EBS) 卷，并将快照复制到其中。在 DB 实例上启用加密。</li>
+<li>❌ 复制快照并使用 AWS 密钥管理服务 (AWS KMS) 启用加密 恢复加密快照到现有 DB 实例。</li>
+<li>将快照复制到使用 AWS 密钥管理服务 (AWS KMS) 管理的密钥 (SSE-KMS) 进行服务器端加密的 Amazon S3 存储桶。</li>
+</ol>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/prescriptive-guidance/latest/patterns/encrypt-an-existing-amazon-rds-for-postgresql-db-instance.html">加密现有的 Amazon for P RDS ostgre SQL 数据库实例</a></p>
+<blockquote>
+<p><img src="https://image.senjianlu.com/blog/2024-12-17/201813.png" alt="加密流程"> </p>
+</blockquote>
+<p>使用快照进行加密时：拍摄快照 -&gt; 加密快照 -&gt; 还原加密后的快照为加密的数据库实例。 </p>
+</blockquote>
+<hr>
+<h3 id="十、单方面连接到其他账户的-VPC-中的服务"><a href="#十、单方面连接到其他账户的-VPC-中的服务" class="headerlink" title="十、单方面连接到其他账户的 VPC 中的服务"></a>十、单方面连接到其他账户的 VPC 中的服务</h3><p>某公司在 AWS 上运行工作负载。该公司需要连接到外部提供商的一项服务。该服务是在提供商的 VPC 中托管。根据公司安全团队的要求，连接必须是专用的，而且必须仅限于目标服务。连接必须只能从公司的 VPC 启动。<br>哪种解决方案能满足这些要求？</p>
+<ol>
+<li>在公司的 VPC 和提供商的 VPC 之间创建 VPC 对等连接。更新路由表以连接到目标服务。</li>
+<li>❌ 要求提供商在其 VPC 中创建虚拟专用网关。使用 AWS PrivateLink 连接到目标服务。</li>
+<li>在公司虚拟机的公共子网中创建一个 NAT 网关更新路由表，以连接到目标服务。</li>
+<li>✅ 要求提供商为目标服务创建一个 VPC 端点。使用 AWS PrivateLink 连接到目标服务。</li>
+</ol>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/privatelink/faqs/">How can I use PrivateLink?</a></p>
+<blockquote>
+<p>作为用户<u>您需要创建VPC端点（由PrivateLink提供支持）</u>来访问服务和资源。这些VPC端点在VPC中显示为具有私有ip的弹性网络接口。一旦创建了这些端点，任何前往这些ip的流量都将被私有地路由到相应的服务或资源。<br>作为服务所有者，您可以通过建立一个网络负载平衡器来为您的服务提供前端服务，并创建一个PrivateLink服务来向网络负载平衡器注册，从而将您的服务装载到AWS PrivateLink。在您允许列出他们的帐户和IAM角色之后，您的客户将能够在他们的VPC内建立端点以连接到您的服务。</p>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="十、数据需要滞留在指定区域"><a href="#十、数据需要滞留在指定区域" class="headerlink" title="十、数据需要滞留在指定区域"></a>十、数据需要滞留在指定区域</h3><p>某公司希望将其内部部署数据中心迁移到 AWS。根据公司的合规要求，公司只能使用 ap-northeast-3 区域。公司管理员不得将 VPC 连接到互联网。<br>哪些解决方案可以满足这些要求？(选择两个）。</p>
+<ol>
+<li>✅ 使用 AWS 控制塔实施数据驻留防护栏，拒绝互联网访问，并拒绝访问除 ap-northeast-3 以外的所有 AWS 区域。</li>
+<li>使用 AWS WAF 中的规则阻止互联网访问。在 AWS 账户设置中拒绝访问除 ap-northeast-3 以外的所有 AWS 区域。</li>
+<li>✅ 使用 AWS 组织配置服务控制策略 (SCPS)，防止 VPC 访问互联网。拒绝访问除 ap-northeast-3 以外的所有 AWS 区域。</li>
+<li>❌ 为每个 VPC 中的网络 ACL 创建一条出站规则，拒绝来自 0.0.0.0&#x2F;0 的所有流量。为每个用户创建 IAM 策略，防止使用除 ap-northeast-3 以外的任何 AWS 区域。</li>
+<li>使用 AWS 配置激活受管规则，以检测互联网网关并发出警报，检测部署在 ap-northeast-3 以外的新资源并发出警报。</li>
+</ol>
+<blockquote>
+<p>1️⃣ 4️⃣ ❌ -&gt; 1️⃣ 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：关于 3️⃣ 的正确性：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/organizations/latest/userguide/orgs_manage_policies_scps_examples_vpc.html#example_vpc_2">阻止还没有 Internet 访问权的任何 VPC 获取它</a></p>
+<blockquote>
+<p>此 SCP 阻止任何受影响账户中的用户或角色更改 Amazon EC2 Virtual Private Cloud（VPC）的配置以允许他们直接访问 Internet。它不会阻止现有直接访问或通过您的本地网络环境路由的任何访问。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;Version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2012-10-17&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;Statement&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;Effect&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Deny&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;Action&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;ec2:AttachInternetGateway&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;ec2:CreateInternetGateway&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;ec2:CreateEgressOnlyInternetGateway&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;ec2:CreateVpcPeeringConnection&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;ec2:AcceptVpcPeeringConnection&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;globalaccelerator:Create*&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;globalaccelerator:Update*&quot;</span></span><br><span class="line">      <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;Resource&quot;</span><span class="punctuation">:</span> <span class="string">&quot;*&quot;</span></span><br><span class="line">   <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></blockquote>
+<p>因此 SCP 可以做到控制用户或角色修改 <code>VPC</code> 的配置来联网。</p>
+</blockquote>
+<hr>
+<h3 id="十一、备份-Aurora-数据库长达-5-年"><a href="#十一、备份-Aurora-数据库长达-5-年" class="headerlink" title="十一、备份 Aurora 数据库长达 5 年"></a>十一、备份 Aurora 数据库长达 5 年</h3><p>某公司在 Amazon Aurora PostgreSQL DB 集群中存储数据。该公司必须将所有数据存储 5 年，并且必须 5 年后删除所有数据。公司还必须无限期地保留在数据库中执行的操作的审计日志。目前，公司已为 Aurora 配置了自动备份。<br>为满足这些要求，解决方案架构师应采取哪些步骤组合？(选择两个）。</p>
+<ol>
+<li>手动快照数据库群集。</li>
+<li>❌ 为自动备份创建生命周期策略。</li>
+<li>配置自动备份保留 5 年。</li>
+<li>✅ 为数据库群集配置 Amazon CloudWatch 日志导出。</li>
+<li>✅ 使用 AWS 备份进行备份，并将备份保存 5 年。</li>
+</ol>
+<blockquote>
+<p>2️⃣ 4️⃣ ❌ -&gt; 4️⃣ 5️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>Aurora</code> 数据库的自动备份最多保留 35 天：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html">备份和还原 Aurora 数据库集群的概述</a></p>
+<blockquote>
+<p>Aurora 自动备份您的集群卷并将还原数据保留备份保留期的时长。Aurora 自动备份是连续和递增的，您可以快速还原到备份保留期内的任何时间点。在写入备份数据时，不会发生任何性能影响或数据库服务中断。在创建或修改数据库集群时，可指定备份保留期（1 天到 35 天）。</p>
+</blockquote>
+<p>因此 2️⃣ 和 3️⃣ 均错误。 </p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/12/15</p><p><a href="https://senjianlu.com/2024/12/15/saa_test_daily_20241215/">https://senjianlu.com/2024/12/15/saa_test_daily_20241215/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-12-15</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-12-15</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/12/16/translate_news_nhk_20241216_k10014668721000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - 日銀 18日から金融政策決定会合 追加の利上げは</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/12/15/translate_news_nhk_20241214_k10014668191000/"><span class="level-item">日语翻译 - 新闻 - 長崎の被爆者 朝長さん “核兵器廃絶に若い世代欠かせない”</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、流量审计"><span class="level-left"><span class="level-item">一、流量审计</span></span></a></li><li><a class="level is-mobile" href="#二、Microsoft-Active-Directory"><span class="level-left"><span class="level-item">二、Microsoft Active Directory</span></span></a></li><li><a class="level is-mobile" href="#三、ACM-导入-HTTPS-证书"><span class="level-left"><span class="level-item">三、ACM 导入 HTTPS 证书</span></span></a></li><li><a class="level is-mobile" href="#四、SQS-API-操作"><span class="level-left"><span class="level-item">四、SQS API 操作</span></span></a></li><li><a class="level is-mobile" href="#五、Glue-的数据源"><span class="level-left"><span class="level-item">五、Glue 的数据源</span></span></a></li><li><a class="level is-mobile" href="#六、ACM-SSL-证书过期提醒"><span class="level-left"><span class="level-item">六、ACM SSL 证书过期提醒</span></span></a></li><li><a class="level is-mobile" href="#七、MySQL-生产数据库的数据同步到开发数据库"><span class="level-left"><span class="level-item">七、MySQL 生产数据库的数据同步到开发数据库</span></span></a></li><li><a class="level is-mobile" href="#八、本地数据传输到-AWS"><span class="level-left"><span class="level-item">八、本地数据传输到 AWS</span></span></a></li><li><a class="level is-mobile" href="#九、对未加密的-RDS-实例进行加密"><span class="level-left"><span class="level-item">九、对未加密的 RDS 实例进行加密</span></span></a></li><li><a class="level is-mobile" href="#十、单方面连接到其他账户的-VPC-中的服务"><span class="level-left"><span class="level-item">十、单方面连接到其他账户的 VPC 中的服务</span></span></a></li><li><a class="level is-mobile" href="#十、数据需要滞留在指定区域"><span class="level-left"><span class="level-item">十、数据需要滞留在指定区域</span></span></a></li><li><a class="level is-mobile" href="#十一、备份-Aurora-数据库长达-5-年"><span class="level-left"><span class="level-item">十一、备份 Aurora 数据库长达 5 年</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

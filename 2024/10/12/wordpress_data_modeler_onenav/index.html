@@ -1,0 +1,1259 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>WordPress 表结构描述与 OneNav 一为导航新建网址实际生成的表数据 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="前言之后 steam.cash 导航站的网址一定是通过脚本自动抓取和添加的，因此必须要分析 WordPress 的表结构和 OneNav 操作对表的实际影响。需要注意的是，本文仅仅做了对 OneNav 导航添加 分类 和 网址 相关的分析。自定义网址、评论和主题相关的操作均不涉及，我也推荐将这些极度个性化的操作只在页面端实施。OneNav 一为导航主题版本为 V4.1810。"><meta property="og:type" content="article"><meta property="og:title" content="WordPress 表结构描述与 OneNav 一为导航新建网址实际生成的表数据"><meta property="og:url" content="https://senjianlu.com/2024/10/12/wordpress_data_modeler_onenav/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="前言之后 steam.cash 导航站的网址一定是通过脚本自动抓取和添加的，因此必须要分析 WordPress 的表结构和 OneNav 操作对表的实际影响。需要注意的是，本文仅仅做了对 OneNav 导航添加 分类 和 网址 相关的分析。自定义网址、评论和主题相关的操作均不涉及，我也推荐将这些极度个性化的操作只在页面端实施。OneNav 一为导航主题版本为 V4.1810。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-10-10/onenav.png"><meta property="article:published_time" content="2024-10-12T11:30:00.000Z"><meta property="article:modified_time" content="2024-10-12T13:30:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="数据库"><meta property="article:tag" content="MySQL"><meta property="article:tag" content="WordPress"><meta property="article:tag" content="OneNav"><meta property="article:tag" content="steam.cash"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-10-10/onenav.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/10/12/wordpress_data_modeler_onenav/"},"headline":"WordPress 表结构描述与 OneNav 一为导航新建网址实际生成的表数据","image":["https://image.senjianlu.com/blog/2024-10-10/onenav.png"],"datePublished":"2024-10-12T11:30:00.000Z","dateModified":"2024-10-12T13:30:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"前言之后 steam.cash 导航站的网址一定是通过脚本自动抓取和添加的，因此必须要分析 WordPress 的表结构和 OneNav 操作对表的实际影响。需要注意的是，本文仅仅做了对 OneNav 导航添加 分类 和 网址 相关的分析。自定义网址、评论和主题相关的操作均不涉及，我也推荐将这些极度个性化的操作只在页面端实施。OneNav 一为导航主题版本为 V4.1810。"}</script><link rel="canonical" href="https://senjianlu.com/2024/10/12/wordpress_data_modeler_onenav/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-10-12T11:30:00.000Z" title="10/12/2024, 7:30:00 PM">2024-10-12</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/">开发笔记</a><span> / </span><a class="link-muted" href="/categories/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">WordPress 表结构描述与 OneNav 一为导航新建网址实际生成的表数据</h1><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之后 <code>steam.cash</code> 导航站的网址一定是通过脚本自动抓取和添加的，因此必须要分析 WordPress 的表结构和 OneNav 操作对表的实际影响。<br><strong>需要注意的是，本文仅仅做了对 OneNav 导航添加 <code>分类</code> 和 <code>网址</code> 相关的分析。自定义网址、评论和主题相关的操作均不涉及，我也推荐将这些极度个性化的操作只在页面端实施</strong>。<br><em>OneNav 一为导航主题版本为</em> <code>V4.1810</code>。</p>
+<span id="more"></span>
+
+<hr>
+<h2 id="WordPress-与-OneNav-的表结构描述"><a href="#WordPress-与-OneNav-的表结构描述" class="headerlink" title="WordPress 与 OneNav 的表结构描述"></a>WordPress 与 OneNav 的表结构描述</h2><h3 id="一、WordPress"><a href="#一、WordPress" class="headerlink" title="一、WordPress"></a>一、WordPress</h3><blockquote>
+<p>官方文档：<a target="_blank" rel="noopener" href="https://codex.wordpress.org/zh-cn:%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8F%8F%E8%BF%B0#Table:_wp_commentmeta">zh-cn:数据库描述</a>  </p>
+</blockquote>
+<p>WordPress 自身拥有 <code>11</code> 张表，它们支撑起了 WordPress 最基础的功能，包括文章编辑、发布、评论和用户操作等。<br><img src="https://image.senjianlu.com/blog/2024-10-11/WP3.0-ERD.png" alt="WordPress 表建模"></p>
+<p>稍作解释：</p>
+<ol>
+<li><code>wp_comments</code>：保存对文章的评论的信息。<br> ❌ 导航添加 <code>分类</code> 和 <code>网址</code> 不涉及。<blockquote>
+<p><code>管理</code> &gt; <code>评论</code> &gt; <code>评论</code></p>
+</blockquote>
+</li>
+<li><code>wp_commentmeta</code>：保存评论的元数据（特征信息）。<br> ❌ 导航添加 <code>分类</code> 和 <code>网址</code> 不涉及。<blockquote>
+<p><code>管理</code> &gt; <code>评论</code> &gt; <code>评论</code></p>
+</blockquote>
+</li>
+<li><code>wp_links</code>：保存于网址相关的信息。<br> ❌ <strong>看起来似乎和导航主题的 <code>网址</code> 概念匹配，但实际没有关系</strong>。<blockquote>
+<p><code>管理</code> &gt; <code>网址</code> &gt; <code>添加</code><br><code>管理</code> &gt; <code>网址</code> &gt; <code>编辑</code></p>
+</blockquote>
+</li>
+<li><code>wp_options</code>：保存设置的各项及其值。<br> ❌ 导航添加 <code>分类</code> 和 <code>网址</code> 不涉及。<blockquote>
+<p><code>管理</code> &gt; <code>设置</code> &gt; <code>常规</code><br><code>管理</code> &gt; <code>设置</code> &gt; <code>撰写</code><br><code>管理</code> &gt; <code>设置</code> &gt; <code>阅读</code><br><code>管理</code> &gt; <code>设置</code> &gt; <code>讨论</code><br><code>管理</code> &gt; <code>设置</code> &gt; <code>隐私</code><br><code>管理</code> &gt; <code>设置</code> &gt; <code>固定网址</code><br><code>管理</code> &gt; <code>设置</code> &gt; <code>杂项</code><br><code>管理</code> &gt; <code>外观</code> &gt; <code>小工具</code></p>
+</blockquote>
+</li>
+<li><code>wp_postmeta</code>：保存发布用的对象的元数据（特征信息），包含描述、网址、查看数和收藏数等。<br> ✅ 导航中的一个 <code>网址</code> 实际上是 WordPress 中的一篇文章，因此导航添加 <code>分类</code> 和 <code>网址</code> 涉及该表。  <blockquote>
+<p><code>管理</code> &gt; <code>文章</code> &gt; <code>添加</code><br><code>管理</code> &gt; <code>页面</code> &gt; <code>添加</code></p>
+</blockquote>
+</li>
+<li><code>wp_posts</code>：保存各种发布用的对象的数据，包含标题、内容和状态等。而展示目录的时候，也会使用到该表。<br> ✅ 导航添加 <code>分类</code> 和 <code>网址</code> 涉及该表。  <blockquote>
+<p><code>管理</code> &gt; <code>文章</code> &gt; <code>添加</code><br><code>管理</code> &gt; <code>文章</code> &gt; <code>编辑</code><br><code>管理</code> &gt; <code>页面</code> &gt; <code>添加</code><br><code>管理</code> &gt; <code>页面</code> &gt; <code>编辑</code><br><code>管理</code> &gt; <code>媒体</code> &gt; <code>添加</code><br><code>管理</code> &gt; <code>媒体</code> &gt; <code>媒体库</code></p>
+</blockquote>
+</li>
+<li><code>wp_terms</code>：保存文章的分类和 Tags。<br> ✅ 导航添加 <code>分类</code> 和 <code>网址</code> 涉及该表。  <blockquote>
+<p><code>管理</code> &gt; <code>文章</code> &gt; <code>Tags</code><br><code>管理</code> &gt; <code>文章</code> &gt; <code>分类</code><br><code>管理</code> &gt; <code>网址</code> &gt; <code>网址分类</code><br><code>管理</code> &gt; <code>文章</code> &gt; <code>添加</code><br><code>管理</code> &gt; <code>文章</code> &gt; <code>编辑</code><br><code>管理</code> &gt; <code>文章</code> &gt; <code>添加</code><br><code>管理</code> &gt; <code>文章</code> &gt; <code>编辑</code></p>
+</blockquote>
+</li>
+<li><code>wp_term_relationships</code>：保存与与文章有关的分类。<br> ✅ 导航添加 <code>分类</code> 和 <code>网址</code> 涉及该表。  <blockquote>
+<p><em>涉及操作与 <code>wp_terms</code> 表相同</em>。</p>
+</blockquote>
+</li>
+<li><code>wp_term_taxonomy</code>：保存分类和 Tags 的属性，比如描述和父子结构等。<br> ✅ 导航添加 <code>分类</code> 和 <code>网址</code> 涉及该表。<blockquote>
+<p><em>涉及操作与 <code>wp_terms</code> 表相同</em>。</p>
+</blockquote>
+</li>
+<li><code>wp_usermeta</code>：保存每个用户的元数据（特征信息）。<br>❌ 导航添加 <code>分类</code> 和 <code>网址</code> 不涉及。<blockquote>
+<p><code>管理</code> &gt; <code>用户</code></p>
+</blockquote>
+</li>
+<li><code>wp_users</code>：用户列表。<br>❌ 导航添加 <code>分类</code> 和 <code>网址</code> 不涉及。<blockquote>
+<p><code>管理</code> &gt; <code>用户</code></p>
+</blockquote>
+</li>
+</ol>
+<p><strong>综上，我们只需要关注 <code>wp_posts</code>、<code>wp_postmeta</code>、<code>wp_terms</code>、<code>wp_term_relationships</code> 和 <code>wp_term_taxonomy</code> 即可</strong>。</p>
+<h3 id="二、OneNav"><a href="#二、OneNav" class="headerlink" title="二、OneNav"></a>二、OneNav</h3><blockquote>
+<p>表结构原文件等可以到我整理的仓库获取：<a target="_blank" rel="noopener" href="https://github.com/senjianlu/steamcash/tree/master/docs/onenav">senjianlu&#x2F;steamcash</a></p>
+</blockquote>
+<p>OneNav 新增了 <code>6</code> 张表，来支撑导航需要的功能。<br><img src="https://image.senjianlu.com/blog/2024-10-12/onenav_tables.png" alt="OneNav 的表">  </p>
+<ol>
+<li><code>wp_io_custom_term</code>：与 OneNav 主题中商城有关的表。<br> ❌ 导航添加 <code>分类</code> 和 <code>网址</code> 不涉及。<blockquote>
+<p><code>管理</code> &gt; <code>商城数据</code></p>
+</blockquote>
+</li>
+<li><code>wp_io_custom_url</code>：与 OneNav 主题中商城有关的表。<br> ❌ 导航添加 <code>分类</code> 和 <code>网址</code> 不涉及。<blockquote>
+<p><code>管理</code> &gt; <code>商城数据</code></p>
+</blockquote>
+</li>
+<li><code>wp_io_pay_order</code>：与 OneNav 主题中商城有关的表。<br> ❌ 导航添加 <code>分类</code> 和 <code>网址</code> 不涉及。<blockquote>
+<p><code>管理</code> &gt; <code>商城数据</code></p>
+</blockquote>
+</li>
+<li><code>wp_io_custom_messages</code>：可能是与 OneNav 主题中商城有关的表。虽然可能也和其他内部消息推送功能相关，不过我在长久使用后它内部依然没有新增数据。<br> ❌ 导航添加 <code>分类</code> 和 <code>网址</code> 不涉及。<blockquote>
+<p><code>管理</code> &gt; <code>商城数据</code></p>
+</blockquote>
+</li>
+<li><code>wp_io_views</code>：存储 <code>网址</code> 的点击、访问次数等。<br> ✅ 导航添加 <code>分类</code> 和 <code>网址</code> 涉及该表。<blockquote>
+<p><code>管理</code> &gt; <code>网址</code></p>
+</blockquote>
+</li>
+<li><code>wp_termmeta</code>：存储 <code>分类</code> 的元数据（特征信息），包含 SEO 信息和其下 <code>网址</code> 的展示方式等。<br> ✅ 导航添加 <code>分类</code> 和 <code>网址</code> 涉及该表。<blockquote>
+<p><code>管理</code> &gt; <code>网址</code> &gt; <code>网址分类</code></p>
+</blockquote>
+</li>
+</ol>
+<p><strong>综上，我们只需要关注 <code>wp_io_views</code> 和 <code>wp_termmeta</code> 即可</strong>。</p>
+<hr>
+<h2 id="OneNav-一为导航新建网址实际生成的表数据"><a href="#OneNav-一为导航新建网址实际生成的表数据" class="headerlink" title="OneNav 一为导航新建网址实际生成的表数据"></a>OneNav 一为导航新建网址实际生成的表数据</h2><blockquote>
+<p>OneNav 导航站的大致数据结构：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">站点</span><br><span class="line">- 目录 1（父）</span><br><span class="line">  - 目录 a（子）</span><br><span class="line">    - 网址百度</span><br><span class="line">    - 网址 Google</span><br><span class="line">  - 目录 b（子）</span><br><span class="line">- 目录 2（父）</span><br><span class="line">...</span><br><span class="line">...</span><br></pre></td></tr></table></figure></blockquote>
+<h3 id="一、新建目录（父）"><a href="#一、新建目录（父）" class="headerlink" title="一、新建目录（父）"></a>一、新建目录（父）</h3><blockquote>
+<p>相关表：<code>wp_terms</code>、<code>wp_termmeta</code>、<code>wp_term_taxonomy</code> 和 <code>wp_term_relationships</code>。<br><strong>只方便理解，暂时不会将该功能写入脚本</strong>。</p>
+</blockquote>
+<h4 id="1、新建测试用的目录（父）"><a href="#1、新建测试用的目录（父）" class="headerlink" title="1、新建测试用的目录（父）"></a>1、新建测试用的目录（父）</h4><p><img src="https://image.senjianlu.com/blog/2024-10-12/add_path_parent.png" alt="测试用的目录（父）"><br><img src="https://image.senjianlu.com/blog/2024-10-12/add_path_parent_success.png" alt="目录（父）添加成功">  </p>
+<h4 id="2、带来的新的数据"><a href="#2、带来的新的数据" class="headerlink" title="2、带来的新的数据"></a>2、带来的新的数据</h4><ul>
+<li><p><strong><code>wp_terms</code></strong> 表</p>
+<table>
+<thead>
+<tr>
+<th>term_id</th>
+<th>name</th>
+<th>slug</th>
+<th>term_group</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong><code>7</code></strong></td>
+<td>表数据判断用目录（父）</td>
+<td>table_data_check_for_path_parent</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>最重要就是 <code>term_id</code>，它是这个目录的唯一标识符。</p>
+</blockquote>
+</li>
+<li><p><strong><code>wp_termmeta</code></strong> 表</p>
+<table>
+<thead>
+<tr>
+<th>meta_id</th>
+<th>term_id</th>
+<th>meta_key</th>
+<th>meta_value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>22</td>
+<td><strong><code>7</code></strong></td>
+<td>_term_order</td>
+<td>99</td>
+</tr>
+<tr>
+<td>23</td>
+<td><strong><code>7</code></strong></td>
+<td>seo_title</td>
+<td>SEO 自定义标题</td>
+</tr>
+<tr>
+<td>24</td>
+<td><strong><code>7</code></strong></td>
+<td>seo_metakey</td>
+<td>SEO 自定义关键词一、关键词2</td>
+</tr>
+<tr>
+<td>25</td>
+<td><strong><code>7</code></strong></td>
+<td>seo_desc</td>
+<td>自定义描述。 另起一行。</td>
+</tr>
+<tr>
+<td>26</td>
+<td><strong><code>7</code></strong></td>
+<td>card_mode</td>
+<td>default</td>
+</tr>
+<tr>
+<td>27</td>
+<td><strong><code>7</code></strong></td>
+<td>columns_type</td>
+<td>custom</td>
+</tr>
+<tr>
+<td>28</td>
+<td><strong><code>7</code></strong></td>
+<td>columns</td>
+<td>a:5:{s:2:”sm”;s:1:”3”;s:2:”md”;s:1:”4”;s:2:”lg”;s:1:”5”;s:2:”xl”;s:1:”6”;s:3:”xxl”;s:1:”7”;}</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><code>meta_id</code> 应该是自增 ID。  </p>
+</blockquote>
+</li>
+<li><p><strong><code>wp_term_taxonomy</code></strong> 表</p>
+<table>
+<thead>
+<tr>
+<th>term_taxonomy_id</th>
+<th>term_id</th>
+<th>taxonomy</th>
+<th>description</th>
+<th>parent</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>7</td>
+<td><strong><code>7</code></strong></td>
+<td>favorites</td>
+<td>表数据判断用目录（父）的描述。另起一行。Home of Emoji Meanings ? ????</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><code>term_taxonomy_id</code> <a target="_blank" rel="noopener" href="https://codex.wordpress.org/WordPress_Taxonomy">官方标记了它为自增 ID</a>：<code>term_taxonomy_id bigint(20) unsigned NOT NULL auto_increment,</code>，它的值与 <code>term_id</code> 并不总是相同，需要区分对待：<a target="_blank" rel="noopener" href="https://salferrarello.com/term_taxonomy_id-vs-term_id/">term_taxonomy_id vs term_id</a>。<br>而 <code>description</code> 在表数据中虽然显示有问题（可能是我 MySQL GUI 的问题），但是实际在 WordPress 中表示是好的，后续在脚本编写的时候也会克服这个问题。  </p>
+</blockquote>
+</li>
+<li><p><strong><code>wp_term_relationships</code></strong> 表</p>
+<table>
+<thead>
+<tr>
+<th>object_id</th>
+<th>term_taxonomy_id</th>
+<th>term_order</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>虽然单纯创建目录（父）不会新增数据，但这里还是提一下 <code>object_id</code> 将是作为 <code>网址</code> 的 WordPress 文章的 <code>post_id</code>，而 <code>term_taxonomy_id</code> 则是上面 <code>wp_term_taxonomy</code> 表的主键。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="3、配置项与表字段的映射关系"><a href="#3、配置项与表字段的映射关系" class="headerlink" title="3、配置项与表字段的映射关系"></a>3、配置项与表字段的映射关系</h4><table>
+<thead>
+<tr>
+<th>WordPress 页面配置项</th>
+<th>对应表字段</th>
+<th>备注</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>名称</td>
+<td><code>wp_terms.name</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>别名</td>
+<td><code>wp_terms.slug</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>父级分类目录</td>
+<td><code>wp_term_taxonomy.parent</code></td>
+<td>没有父目录的时候为 0</td>
+<td></td>
+</tr>
+<tr>
+<td>描述</td>
+<td><code>wp_term_taxonomy.description</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>排序</td>
+<td><code>wp_termmeta</code> 表中 <code>meta_key</code> 为 <code>_term_order</code> 的行</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>自定义标题</td>
+<td><code>wp_termmeta</code> 表中 <code>meta_key</code> 为 <code>seo_title</code> 的行</td>
+<td>SEO设置（可留空）</td>
+<td></td>
+</tr>
+<tr>
+<td>设置关键词</td>
+<td><code>wp_termmeta</code> 表中 <code>meta_key</code> 为 <code>seo_metakey</code> 的行</td>
+<td>SEO设置（可留空）</td>
+<td></td>
+</tr>
+<tr>
+<td>自定义描述</td>
+<td><code>wp_termmeta</code> 表中 <code>meta_key</code> 为 <code>seo_desc</code> 的行</td>
+<td>SEO设置（可留空）</td>
+<td></td>
+</tr>
+<tr>
+<td>网址卡片样式</td>
+<td><code>wp_termmeta</code> 表中 <code>meta_key</code> 为 <code>card_mode</code> 的行</td>
+<td>自定义选项</td>
+<td></td>
+</tr>
+<tr>
+<td>网址列数</td>
+<td><code>wp_termmeta</code> 表中 <code>meta_key</code> 为 <code>columns_type</code> 的行、<code>wp_termmeta</code> 表中 <code>meta_key</code> 为 <code>columns</code> 的行</td>
+<td>自定义选项</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>其他字段：</p>
+<ul>
+<li><code>wp_terms.term_id</code>：创建目录的时候自动生成。</li>
+<li><code>wp_terms.term_group</code>：目录（父）没有再上级的目录，因此为 <code>0</code>。</li>
+<li><code>wp_term_taxonomy.taxonomy</code>：总为固定值 <code>favorites</code>。</li>
+<li><code>wp_term_taxonomy.count</code>：目录中的网址个数。</li>
+</ul>
+<h3 id="二、展示目录（父）"><a href="#二、展示目录（父）" class="headerlink" title="二、展示目录（父）"></a>二、展示目录（父）</h3><blockquote>
+<p>相关表：<code>wp_posts</code>、<code>wp_postmeta</code> 和 <code>wp_term_relationships</code>。<br><strong>只方便理解，暂时不会将该功能写入脚本</strong>。</p>
+</blockquote>
+<h4 id="1、展示测试用的目录（父）"><a href="#1、展示测试用的目录（父）" class="headerlink" title="1、展示测试用的目录（父）"></a>1、展示测试用的目录（父）</h4><p>添加至菜单，之后保存：<br><img src="https://image.senjianlu.com/blog/2024-10-12/show_path_parent.png" alt="展示目录（父）"><br><img src="https://image.senjianlu.com/blog/2024-10-12/save.png" alt="保存目录（父）"><br><img src="https://image.senjianlu.com/blog/2024-10-12/show_path_parent_success.png" alt="展示目录（父）成功"></p>
+<h4 id="2、带来的新的数据-1"><a href="#2、带来的新的数据-1" class="headerlink" title="2、带来的新的数据"></a>2、带来的新的数据</h4><ul>
+<li><p><strong><code>wp_posts</code></strong> 表  </p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>post_author</th>
+<th>post_date</th>
+<th>post_date_gmt</th>
+<th>post_content</th>
+<th>post_title</th>
+<th>post_excerpt</th>
+<th>post_status</th>
+<th>comment_status</th>
+<th>ping_status</th>
+<th>post_password</th>
+<th>post_name</th>
+<th>to_ping</th>
+<th>pinged</th>
+<th>post_modified</th>
+<th>post_modified_gmt</th>
+<th>post_content_filtered</th>
+<th>post_parent</th>
+<th>guid</th>
+<th>menu_order</th>
+<th>post_type</th>
+<th>post_mime_type</th>
+<th>comment_count</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong><code>27</code></strong></td>
+<td>1</td>
+<td>2024-10-12 14:21:54</td>
+<td>2024-10-12 06:21:54</td>
+<td>表数据判断用目录（父）的描述。 另起一行。 Home of Emoji Meanings ? ????</td>
+<td></td>
+<td></td>
+<td>publish</td>
+<td>closed</td>
+<td>closed</td>
+<td></td>
+<td>27</td>
+<td></td>
+<td></td>
+<td>2024-10-12 14:21:54</td>
+<td>2024-10-12 06:21:54</td>
+<td></td>
+<td>0</td>
+<td><a target="_blank" rel="noopener" href="https://steam.cash/?p=27">https://steam.cash/?p=27</a></td>
+<td>4</td>
+<td>nav_menu_item</td>
+<td></td>
+<td>0</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>虽然乍一看都能明白数据来源，但是基本都是从其他表中检索而来，同时还伴有 <code>menu_order</code> 这种需要检索对应数据进行重新排序生成的值</strong>。<br><strong>因此可以预见的是展示目录功能使用 Python3 来实现会比较复杂，顺位最后</strong>。</p>
+</blockquote>
+</li>
+<li><p><strong><code>wp_postmeta</code></strong> 表</p>
+<table>
+<thead>
+<tr>
+<th>meta_id</th>
+<th>post_id</th>
+<th>meta_key</th>
+<th>meta_value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>192</td>
+<td>27</td>
+<td>_menu_item_type</td>
+<td>taxonomy</td>
+</tr>
+<tr>
+<td>193</td>
+<td>27</td>
+<td>_menu_item_menu_item_parent</td>
+<td>0</td>
+</tr>
+<tr>
+<td>194</td>
+<td>27</td>
+<td>_menu_item_object_id</td>
+<td>7</td>
+</tr>
+<tr>
+<td>195</td>
+<td>27</td>
+<td>_menu_item_object</td>
+<td>favorites</td>
+</tr>
+<tr>
+<td>196</td>
+<td>27</td>
+<td>_menu_item_target</td>
+<td></td>
+</tr>
+<tr>
+<td>197</td>
+<td>27</td>
+<td>_menu_item_classes</td>
+<td>a:1:{i:0;s:0:””””;}</td>
+</tr>
+<tr>
+<td>198</td>
+<td>27</td>
+<td>_menu_item_xfn</td>
+<td></td>
+</tr>
+<tr>
+<td>199</td>
+<td>27</td>
+<td>_menu_item_url</td>
+<td></td>
+</tr>
+<tr>
+<td>204</td>
+<td>27</td>
+<td>menu_ico</td>
+<td>iconfont icon-category</td>
+</tr>
+<tr>
+<td>205</td>
+<td>27</td>
+<td>open</td>
+<td></td>
+</tr>
+<tr>
+<td>206</td>
+<td>27</td>
+<td>purview</td>
+<td>0</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><strong><code>wp_term_relationships</code></strong> 表</p>
+<table>
+<thead>
+<tr>
+<th>object_id</th>
+<th>term_taxonomy_id</th>
+<th>term_order</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong><code>27</code></strong></td>
+<td>4</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>这里的 <code>object_id</code> 是上一张 <code>wp_posts</code> 表的 ID，而 <code>term_taxonomy_id</code> 则大概率为 <code>4</code>。<br>原因是与表中的这条数据有关：  </p>
+<table>
+<thead>
+<tr>
+<th>term_taxonomy_id</th>
+<th>term_id</th>
+<th>taxonomy</th>
+<th>description</th>
+<th>parent</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong><code>4</code></strong></td>
+<td>4</td>
+<td>nav_menu</td>
+<td></td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p>OneNav 用其管理所有需要展示的分类，而一般你需要新建一个目录（它的 <code>term_taxonomy_id</code> 将自增为 <code>3</code>），再进行展示操作，OneNav 自动新建数据，自增为 <code>4</code>。</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h3 id="三、新建目录（子）"><a href="#三、新建目录（子）" class="headerlink" title="三、新建目录（子）"></a>三、新建目录（子）</h3><blockquote>
+<p>相关表：<code>wp_terms</code>、<code>wp_termmeta</code>、<code>wp_term_taxonomy</code> 和 <code>wp_term_relationships</code>。<br>数据与目录（父）基本一致。<br><strong>只方便理解，暂时不会将该功能写入脚本</strong>。</p>
+</blockquote>
+<h4 id="1、新建测试用的目录（子）"><a href="#1、新建测试用的目录（子）" class="headerlink" title="1、新建测试用的目录（子）"></a>1、新建测试用的目录（子）</h4><p><img src="https://image.senjianlu.com/blog/2024-10-12/add_path_child.png" alt="测试用的目录（子）"><br><img src="https://image.senjianlu.com/blog/2024-10-12/add_path_child_success.png" alt="目录（子）添加成功">  </p>
+<h4 id="2、带来的新的数据-2"><a href="#2、带来的新的数据-2" class="headerlink" title="2、带来的新的数据"></a>2、带来的新的数据</h4><ul>
+<li><p><strong><code>wp_terms</code></strong> 表</p>
+<table>
+<thead>
+<tr>
+<th>term_id</th>
+<th>name</th>
+<th>slug</th>
+<th>term_group</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong><code>8</code></strong></td>
+<td>表数据判断用目录（子）</td>
+<td>table_data_check_for_path_child</td>
+<td>0</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><strong><code>wp_termmeta</code></strong> 表</p>
+<table>
+<thead>
+<tr>
+<th>meta_id</th>
+<th>term_id</th>
+<th>meta_key</th>
+<th>meta_value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>29</td>
+<td><strong><code>8</code></strong></td>
+<td>_term_order</td>
+<td>50</td>
+</tr>
+<tr>
+<td>30</td>
+<td><strong><code>8</code></strong></td>
+<td>seo_title</td>
+<td>子的自定义标题</td>
+</tr>
+<tr>
+<td>31</td>
+<td><strong><code>8</code></strong></td>
+<td>seo_metakey</td>
+<td>子的自定义关键词一、关键词2</td>
+</tr>
+<tr>
+<td>32</td>
+<td><strong><code>8</code></strong></td>
+<td>seo_desc</td>
+<td>子的自定义描述。 另起一行。</td>
+</tr>
+<tr>
+<td>33</td>
+<td><strong><code>8</code></strong></td>
+<td>card_mode</td>
+<td>min</td>
+</tr>
+<tr>
+<td>34</td>
+<td><strong><code>8</code></strong></td>
+<td>columns_type</td>
+<td>custom</td>
+</tr>
+<tr>
+<td>35</td>
+<td><strong><code>8</code></strong></td>
+<td>columns</td>
+<td>a:5:{s:2:”sm”;s:2:”10”;s:2:”md”;s:1:”9”;s:2:”lg”;s:1:”8”;s:2:”xl”;s:1:”7”;s:3:”xxl”;s:1:”6”;}</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><strong><code>wp_term_taxonomy</code></strong> 表</p>
+<table>
+<thead>
+<tr>
+<th>term_taxonomy_id</th>
+<th>term_id</th>
+<th>taxonomy</th>
+<th>description</th>
+<th>parent</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>8</td>
+<td><strong><code>8</code></strong></td>
+<td>favorites</td>
+<td>表数据判断用目录（子）的描述。 另起一行。 Home of Emoji Meanings ? ????</td>
+<td><code>7</code></td>
+<td>0</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>这里指定了父目录，因此 <code>parent</code> 为 <code>7</code>。</p>
+</blockquote>
+</li>
+<li><p><strong><code>wp_term_relationships</code></strong> 表</p>
+<table>
+<thead>
+<tr>
+<th>object_id</th>
+<th>term_taxonomy_id</th>
+<th>term_order</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h3 id="四、展示目录（子）"><a href="#四、展示目录（子）" class="headerlink" title="四、展示目录（子）"></a>四、展示目录（子）</h3><blockquote>
+<p>相关表：<code>wp_posts</code>、<code>wp_postmeta</code> 和 <code>wp_term_relationships</code>。<br><strong>只方便理解，暂时不会将该功能写入脚本</strong>。</p>
+</blockquote>
+<h4 id="1、展示测试用的目录（子）"><a href="#1、展示测试用的目录（子）" class="headerlink" title="1、展示测试用的目录（子）"></a>1、展示测试用的目录（子）</h4><p><img src="https://image.senjianlu.com/blog/2024-10-12/show_path_child.png" alt="展示目录（子）"><br><img src="https://image.senjianlu.com/blog/2024-10-12/save.png" alt="保存目录（子）"><br><img src="https://image.senjianlu.com/blog/2024-10-12/show_path_child_success.png" alt="展示目录（子）成功"></p>
+<h4 id="2、带来的新的数据-3"><a href="#2、带来的新的数据-3" class="headerlink" title="2、带来的新的数据"></a>2、带来的新的数据</h4><ul>
+<li><p><strong><code>wp_posts</code></strong> 表  </p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>post_author</th>
+<th>post_date</th>
+<th>post_date_gmt</th>
+<th>post_content</th>
+<th>post_title</th>
+<th>post_excerpt</th>
+<th>post_status</th>
+<th>comment_status</th>
+<th>ping_status</th>
+<th>post_password</th>
+<th>post_name</th>
+<th>to_ping</th>
+<th>pinged</th>
+<th>post_modified</th>
+<th>post_modified_gmt</th>
+<th>post_content_filtered</th>
+<th>post_parent</th>
+<th>guid</th>
+<th>menu_order</th>
+<th>post_type</th>
+<th>post_mime_type</th>
+<th>comment_count</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong><code>28</code></strong></td>
+<td>1</td>
+<td>2024-10-12 14:52:49</td>
+<td>2024-10-12 06:52:49</td>
+<td>表数据判断用目录（子）的描述。 另起一行。 Home of Emoji Meanings ? ????</td>
+<td></td>
+<td></td>
+<td>publish</td>
+<td>closed</td>
+<td>closed</td>
+<td></td>
+<td>28</td>
+<td></td>
+<td></td>
+<td>2024-10-12 14:52:49</td>
+<td>2024-10-12 06:52:49</td>
+<td></td>
+<td>7</td>
+<td><a target="_blank" rel="noopener" href="https://steam.cash/?p=28">https://steam.cash/?p=28</a></td>
+<td>5</td>
+<td>nav_menu_item</td>
+<td></td>
+<td>0</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>这里指定了父目录，因此 <code>post_parent</code> 为 <code>7</code>。</p>
+</blockquote>
+</li>
+<li><p><strong><code>wp_postmeta</code></strong> 表</p>
+<table>
+<thead>
+<tr>
+<th>meta_id</th>
+<th>post_id</th>
+<th>meta_key</th>
+<th>meta_value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>207</td>
+<td>28</td>
+<td>_menu_item_type</td>
+<td>taxonomy</td>
+</tr>
+<tr>
+<td>208</td>
+<td>28</td>
+<td>_menu_item_menu_item_parent</td>
+<td>27</td>
+</tr>
+<tr>
+<td>209</td>
+<td>28</td>
+<td>_menu_item_object_id</td>
+<td>8</td>
+</tr>
+<tr>
+<td>210</td>
+<td>28</td>
+<td>_menu_item_object</td>
+<td>favorites</td>
+</tr>
+<tr>
+<td>211</td>
+<td>28</td>
+<td>_menu_item_target</td>
+<td></td>
+</tr>
+<tr>
+<td>212</td>
+<td>28</td>
+<td>_menu_item_classes</td>
+<td>a:1:{i:0;s:0:””””;}</td>
+</tr>
+<tr>
+<td>213</td>
+<td>28</td>
+<td>_menu_item_xfn</td>
+<td></td>
+</tr>
+<tr>
+<td>214</td>
+<td>28</td>
+<td>_menu_item_url</td>
+<td></td>
+</tr>
+<tr>
+<td>216</td>
+<td>28</td>
+<td>menu_ico</td>
+<td>iconfont icon-category</td>
+</tr>
+<tr>
+<td>217</td>
+<td>28</td>
+<td>open</td>
+<td></td>
+</tr>
+<tr>
+<td>218</td>
+<td>28</td>
+<td>purview</td>
+<td>0</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><strong><code>wp_term_relationships</code></strong> 表</p>
+<table>
+<thead>
+<tr>
+<th>object_id</th>
+<th>term_taxonomy_id</th>
+<th>term_order</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong><code>28</code></strong></td>
+<td>4</td>
+<td>0</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<hr>
+<h3 id="五、新建网址"><a href="#五、新建网址" class="headerlink" title="五、新建网址"></a>五、新建网址</h3><blockquote>
+<p>相关表：<code>wp_posts</code> 和 <code>wp_postmeta</code>。</p>
+</blockquote>
+<h4 id="1、新建测试用的网址（在子目录中）"><a href="#1、新建测试用的网址（在子目录中）" class="headerlink" title="1、新建测试用的网址（在子目录中）"></a>1、新建测试用的网址（在子目录中）</h4><p><img src="https://image.senjianlu.com/blog/2024-10-12/add_website.png" alt="测试用的网址"><br><img src="https://image.senjianlu.com/blog/2024-10-12/add_website_success.png" alt="网址添加成功"></p>
+<h4 id="2、带来的新的数据-4"><a href="#2、带来的新的数据-4" class="headerlink" title="2、带来的新的数据"></a>2、带来的新的数据</h4><ul>
+<li><p><strong><code>wp_posts</code></strong> 表  </p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>post_author</th>
+<th>post_date</th>
+<th>post_date_gmt</th>
+<th>post_content</th>
+<th>post_title</th>
+<th>post_excerpt</th>
+<th>post_status</th>
+<th>comment_status</th>
+<th>ping_status</th>
+<th>post_password</th>
+<th>post_name</th>
+<th>to_ping</th>
+<th>pinged</th>
+<th>post_modified</th>
+<th>post_modified_gmt</th>
+<th>post_content_filtered</th>
+<th>post_parent</th>
+<th>guid</th>
+<th>menu_order</th>
+<th>post_type</th>
+<th>post_mime_type</th>
+<th>comment_count</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>29</td>
+<td>1</td>
+<td>2024-10-12 15:04:43</td>
+<td>0000-00-00 00:00:00</td>
+<td></td>
+<td>自动草稿</td>
+<td></td>
+<td>auto-draft</td>
+<td>open</td>
+<td>closed</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>2024-10-12 15:04:43</td>
+<td>0000-00-00 00:00:00</td>
+<td></td>
+<td>0</td>
+<td><a target="_blank" rel="noopener" href="https://steam.cash/sites/29.html">https://steam.cash/sites/29.html</a></td>
+<td>0</td>
+<td>sites</td>
+<td></td>
+<td>0</td>
+</tr>
+<tr>
+<td>30</td>
+<td>1</td>
+<td>2024-10-12 15:11:54</td>
+<td>2024-10-12 07:11:54</td>
+<td>正文信息。另起一行。&lt;a href&#x3D;””<a target="_blank" rel="noopener" href="https://steam.cash/sample-page%22%22%3E%E7%A4%BA%E4%BE%8B%E9%A1%B5%E9%9D%A2">https://steam.cash/sample-page&quot;&quot;&gt;示例页面</a></a></td>
+<td>测试用的新网址（子目录中）</td>
+<td></td>
+<td>publish</td>
+<td>open</td>
+<td>closed</td>
+<td></td>
+<td>%e6%b5%8b%e8%af%95%e7%94%a8%e7%9a%84%e6%96%b0%e7%bd%91%e5%9d%80%ef%bc%88%e5%ad%90%e7%9b%ae%e5%bd%95%e4%b8%ad%ef%bc%89</td>
+<td></td>
+<td></td>
+<td>2024-10-12 15:11:54</td>
+<td>2024-10-12 07:11:54</td>
+<td></td>
+<td>0</td>
+<td><a target="_blank" rel="noopener" href="https://steam.cash/sites/30.html">https://steam.cash/sites/30.html</a></td>
+<td>0</td>
+<td>sites</td>
+<td></td>
+<td>0</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><strong><code>wp_postmeta</code></strong> 表</p>
+<table>
+<thead>
+<tr>
+<th>meta_id</th>
+<th>post_id</th>
+<th>meta_key</th>
+<th>meta_value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>224</td>
+<td>30</td>
+<td>views</td>
+<td>0</td>
+</tr>
+<tr>
+<td>225</td>
+<td>30</td>
+<td>_down_count</td>
+<td>0</td>
+</tr>
+<tr>
+<td>226</td>
+<td>30</td>
+<td>_like_count</td>
+<td>0</td>
+</tr>
+<tr>
+<td>227</td>
+<td>30</td>
+<td>_star_count</td>
+<td>0</td>
+</tr>
+<tr>
+<td>228</td>
+<td>30</td>
+<td>_user_purview_level</td>
+<td>all</td>
+</tr>
+<tr>
+<td>229</td>
+<td>30</td>
+<td>_edit_last</td>
+<td>1</td>
+</tr>
+<tr>
+<td>230</td>
+<td>30</td>
+<td>_edit_lock</td>
+<td>1728717031:1</td>
+</tr>
+<tr>
+<td>231</td>
+<td>30</td>
+<td>_seo_title</td>
+<td></td>
+</tr>
+<tr>
+<td>232</td>
+<td>30</td>
+<td>_seo_metakey</td>
+<td></td>
+</tr>
+<tr>
+<td>233</td>
+<td>30</td>
+<td>_seo_desc</td>
+<td></td>
+</tr>
+<tr>
+<td>234</td>
+<td>30</td>
+<td>sidebar_layout</td>
+<td>default</td>
+</tr>
+<tr>
+<td>235</td>
+<td>30</td>
+<td>_sites_type</td>
+<td>sites</td>
+</tr>
+<tr>
+<td>236</td>
+<td>30</td>
+<td>_goto</td>
+<td>0</td>
+</tr>
+<tr>
+<td>237</td>
+<td>30</td>
+<td>_wechat_id</td>
+<td></td>
+</tr>
+<tr>
+<td>238</td>
+<td>30</td>
+<td>_is_min_app</td>
+<td></td>
+</tr>
+<tr>
+<td>239</td>
+<td>30</td>
+<td>_sites_link</td>
+<td><a target="_blank" rel="noopener" href="https://google.com/">https://google.com</a></td>
+</tr>
+<tr>
+<td>240</td>
+<td>30</td>
+<td>_spare_sites_link</td>
+<td>a:1:{i:0;a:3:{s:10:””spare_name””;s:4:””Bing””;s:9:””spare_url””;s:16:””<a target="_blank" rel="noopener" href="https://bing.com"";s:10:""spare_note"";s:30:""这是">https://bing.com&quot;&quot;;s:10:&quot;&quot;spare_note&quot;&quot;;s:30:&quot;&quot;这是</a> Bing 的跳转链接。””;}}</td>
+</tr>
+<tr>
+<td>241</td>
+<td>30</td>
+<td>_sites_sescribe</td>
+<td>这是 Google 的跳转链接。另起一行。</td>
+</tr>
+<tr>
+<td>242</td>
+<td>30</td>
+<td>_sites_language</td>
+<td>zh,en</td>
+</tr>
+<tr>
+<td>243</td>
+<td>30</td>
+<td>_sites_country</td>
+<td>中国</td>
+</tr>
+<tr>
+<td>244</td>
+<td>30</td>
+<td>_sites_order</td>
+<td>0</td>
+</tr>
+<tr>
+<td>245</td>
+<td>30</td>
+<td>_thumbnail</td>
+<td><a target="_blank" rel="noopener" href="https://image.senjianlu.com/blog/icon.png">https://image.senjianlu.com/blog/icon.png</a></td>
+</tr>
+<tr>
+<td>246</td>
+<td>30</td>
+<td>_sites_preview</td>
+<td><a target="_blank" rel="noopener" href="https://image.senjianlu.com/blog/2024-10-10/onenav.png">https://image.senjianlu.com/blog/2024-10-10/onenav.png</a></td>
+</tr>
+<tr>
+<td>247</td>
+<td>30</td>
+<td>_wechat_qr</td>
+<td></td>
+</tr>
+<tr>
+<td>248</td>
+<td>30</td>
+<td>_down_version</td>
+<td></td>
+</tr>
+<tr>
+<td>249</td>
+<td>30</td>
+<td>_down_size</td>
+<td></td>
+</tr>
+<tr>
+<td>250</td>
+<td>30</td>
+<td>_down_url_list</td>
+<td></td>
+</tr>
+<tr>
+<td>251</td>
+<td>30</td>
+<td>_dec_password</td>
+<td></td>
+</tr>
+<tr>
+<td>252</td>
+<td>30</td>
+<td>_app_platform</td>
+<td></td>
+</tr>
+<tr>
+<td>253</td>
+<td>30</td>
+<td>_down_preview</td>
+<td></td>
+</tr>
+<tr>
+<td>254</td>
+<td>30</td>
+<td>_down_formal</td>
+<td></td>
+</tr>
+<tr>
+<td>255</td>
+<td>30</td>
+<td>_screenshot</td>
+<td></td>
+</tr>
+<tr>
+<td>256</td>
+<td>30</td>
+<td>buy_option</td>
+<td>a:7:{s:8:””buy_type””;s:4:””view””;s:5:””limit””;s:3:””all””;s:8:””pay_type””;s:5:””money””;s:10:””price_type””;s:6:””single””;s:9:””pay_title””;s:0:””””;s:9:””pay_price””;s:1:””0””;s:5:””price””;s:1:””0””;}</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><strong><code>wp_term_taxonomy</code></strong> 表</p>
+<table>
+<thead>
+<tr>
+<th>term_taxonomy_id</th>
+<th>term_id</th>
+<th>taxonomy</th>
+<th>description</th>
+<th>parent</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>8</td>
+<td>8</td>
+<td>favorites</td>
+<td>表数据判断用目录（子）的描述。 另起一行。 Home of Emoji Meanings ? ????</td>
+<td>7</td>
+<td><code>1</code></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>更新了子目录的 <code>count</code>，将其加一从 <code>0</code> 变成了 <code>1</code>。父目录的不会跟着变化。  </p>
+</blockquote>
+</li>
+<li><p><strong><code>wp_term_relationships</code></strong> 表</p>
+<table>
+<thead>
+<tr>
+<th>object_id</th>
+<th>term_taxonomy_id</th>
+<th>term_order</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong><code>30</code></strong></td>
+<td>8</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><code>term_taxonomy_id</code> 是子目录的 <code>term_taxonomy_id</code> 为 <code>8</code>。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="3、配置项与表字段的映射关系-1"><a href="#3、配置项与表字段的映射关系-1" class="headerlink" title="3、配置项与表字段的映射关系"></a>3、配置项与表字段的映射关系</h4><table>
+<thead>
+<tr>
+<th>WordPress 页面配置项</th>
+<th>对应表字段</th>
+<th>备注</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>网址分类</td>
+<td><code>wp_term_relationships</code> 表中 <code>object_id</code> 为对应 <code>post_id</code> 的行</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>标题</td>
+<td><code>wp_posts.post_title</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>正文</td>
+<td><code>wp_posts.post_content</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>链接</td>
+<td><code>wp_postmeta</code> 表中 <code>meta_key</code> 为 <code>_sites_link</code> 的行</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>备用链接地址（其他站点）</td>
+<td><code>wp_postmeta</code> 表中 <code>meta_key</code> 为 <code>_spare_sites_link</code> 的行</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>一句话描述（简介）</td>
+<td><code>wp_postmeta</code> 表中 <code>meta_key</code> 为 <code>_sites_sescribe</code> 的行</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>站点语言</td>
+<td><code>wp_postmeta</code> 表中 <code>meta_key</code> 为 <code>_sites_language</code> 的行</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>站点所在国家或地区</td>
+<td><code>wp_postmeta</code> 表中 <code>meta_key</code> 为 <code>_sites_country</code> 的行</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>排序</td>
+<td><code>wp_postmeta</code> 表中 <code>meta_key</code> 为 <code>_sites_order</code> 的行</td>
+<td>拖动排序的情况下无法更改，一直为 <code>0</code></td>
+<td></td>
+</tr>
+<tr>
+<td>LOGO，标志</td>
+<td><code>wp_postmeta</code> 表中 <code>meta_key</code> 为 <code>_thumbnail</code> 的行</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>网站预览截图</td>
+<td><code>wp_postmeta</code> 表中 <code>meta_key</code> 为 <code>_sites_preview</code> 的行</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>公众号二维码</td>
+<td><code>wp_postmeta</code> 表中 <code>meta_key</code> 为 <code>_wechat_qr</code> 的行</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>其他字段：</p>
+<ul>
+<li><code>wp_posts.id</code>：自增。</li>
+<li><code>wp_posts.post_name</code>：Url 编码后的标题。</li>
+<li><code>wp_posts.uid</code>：<code>&quot;https://steam.cash/sites/&#123;&#125;.html&quot;.format(id)</code> 形式的值。  </li>
+<li><code>wp_postmeta</code> 表中 <code>meta_key</code> 为 <code>_edit_lock</code> 的行：前面的值是秒级的时间戳，<code>&quot;&#123;&#125;:1&quot;.format(str(int(time.time())))</code> 形式的值。</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>WordPress 表结构描述与 OneNav 一为导航新建网址实际生成的表数据</p><p><a href="https://senjianlu.com/2024/10/12/wordpress_data_modeler_onenav/">https://senjianlu.com/2024/10/12/wordpress_data_modeler_onenav/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-10-12</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-10-12</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><a class="link-muted mr-2" rel="tag" href="/tags/MySQL/">MySQL</a><a class="link-muted mr-2" rel="tag" href="/tags/WordPress/">WordPress</a><a class="link-muted mr-2" rel="tag" href="/tags/OneNav/">OneNav</a><a class="link-muted mr-2" rel="tag" href="/tags/steam-cash/">steam.cash</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/10/12/onenav_python3_site_crud/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">OneNav 一为导航通过 Python3 脚本实现网址的增删改查</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/10/12/translate_news_nhk_20241011_k10014607191000/"><span class="level-item">日语翻译 - 新闻 - 過労死白書 “芸術や芸能分野 長時間労働の傾向”明らかに</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#前言"><span class="level-left"><span class="level-item">前言</span></span></a></li><li><a class="level is-mobile" href="#WordPress-与-OneNav-的表结构描述"><span class="level-left"><span class="level-item">WordPress 与 OneNav 的表结构描述</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、WordPress"><span class="level-left"><span class="level-item">一、WordPress</span></span></a></li><li><a class="level is-mobile" href="#二、OneNav"><span class="level-left"><span class="level-item">二、OneNav</span></span></a></li></ul></li><li><a class="level is-mobile" href="#OneNav-一为导航新建网址实际生成的表数据"><span class="level-left"><span class="level-item">OneNav 一为导航新建网址实际生成的表数据</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、新建目录（父）"><span class="level-left"><span class="level-item">一、新建目录（父）</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#1、新建测试用的目录（父）"><span class="level-left"><span class="level-item">1、新建测试用的目录（父）</span></span></a></li><li><a class="level is-mobile" href="#2、带来的新的数据"><span class="level-left"><span class="level-item">2、带来的新的数据</span></span></a></li><li><a class="level is-mobile" href="#3、配置项与表字段的映射关系"><span class="level-left"><span class="level-item">3、配置项与表字段的映射关系</span></span></a></li></ul></li><li><a class="level is-mobile" href="#二、展示目录（父）"><span class="level-left"><span class="level-item">二、展示目录（父）</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#1、展示测试用的目录（父）"><span class="level-left"><span class="level-item">1、展示测试用的目录（父）</span></span></a></li><li><a class="level is-mobile" href="#2、带来的新的数据-1"><span class="level-left"><span class="level-item">2、带来的新的数据</span></span></a></li></ul></li><li><a class="level is-mobile" href="#三、新建目录（子）"><span class="level-left"><span class="level-item">三、新建目录（子）</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#1、新建测试用的目录（子）"><span class="level-left"><span class="level-item">1、新建测试用的目录（子）</span></span></a></li><li><a class="level is-mobile" href="#2、带来的新的数据-2"><span class="level-left"><span class="level-item">2、带来的新的数据</span></span></a></li></ul></li><li><a class="level is-mobile" href="#四、展示目录（子）"><span class="level-left"><span class="level-item">四、展示目录（子）</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#1、展示测试用的目录（子）"><span class="level-left"><span class="level-item">1、展示测试用的目录（子）</span></span></a></li><li><a class="level is-mobile" href="#2、带来的新的数据-3"><span class="level-left"><span class="level-item">2、带来的新的数据</span></span></a></li></ul></li><li><a class="level is-mobile" href="#五、新建网址"><span class="level-left"><span class="level-item">五、新建网址</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#1、新建测试用的网址（在子目录中）"><span class="level-left"><span class="level-item">1、新建测试用的网址（在子目录中）</span></span></a></li><li><a class="level is-mobile" href="#2、带来的新的数据-4"><span class="level-left"><span class="level-item">2、带来的新的数据</span></span></a></li><li><a class="level is-mobile" href="#3、配置项与表字段的映射关系-1"><span class="level-left"><span class="level-item">3、配置项与表字段的映射关系</span></span></a></li></ul></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

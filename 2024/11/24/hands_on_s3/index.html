@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>AWS 实操 - S3 (Simple Storage Service) - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="AWS S3 相关实际操作。"><meta property="og:type" content="article"><meta property="og:title" content="AWS 实操 - S3 (Simple Storage Service)"><meta property="og:url" content="https://senjianlu.com/2024/11/24/hands_on_s3/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="AWS S3 相关实际操作。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-11-26/aws.png"><meta property="article:published_time" content="2024-11-24T07:40:00.000Z"><meta property="article:modified_time" content="2024-11-24T07:50:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="SAP"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-11-26/aws.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/11/24/hands_on_s3/"},"headline":"AWS 实操 - S3 (Simple Storage Service)","image":["https://image.senjianlu.com/blog/2024-11-26/aws.png"],"datePublished":"2024-11-24T07:40:00.000Z","dateModified":"2024-11-24T07:50:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"AWS S3 相关实际操作。"}</script><link rel="canonical" href="https://senjianlu.com/2024/11/24/hands_on_s3/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-11-24T07:40:00.000Z" title="11/24/2024, 3:40:00 PM">2024-11-24</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%AE%9E%E6%93%8D/">实操</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">AWS 实操 - S3 (Simple Storage Service)</h1><div class="content"><blockquote>
+<p>AWS S3 相关实际操作。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<h1 id="创建-S3-存储桶"><a href="#创建-S3-存储桶" class="headerlink" title="创建 S3 存储桶"></a>创建 S3 存储桶</h1><h3 id="一、创建一个-S3-存储桶"><a href="#一、创建一个-S3-存储桶" class="headerlink" title="一、创建一个 S3 存储桶"></a>一、创建一个 S3 存储桶</h3><ol>
+<li>打开服务控制台，选择存储</li>
+<li>选择 S3 进入 S3 控制台</li>
+<li>点击创建存储桶按钮</li>
+<li>填写存储桶信息<ol>
+<li>填写存储桶名称（全球唯一）</li>
+<li>选择 AWS <code>区域</code></li>
+<li>配置对象所有权 <code>ACL</code><blockquote>
+<p>默认为禁用，即该存储桶只能由我这个账号使用。<br>如果需要跨 AWS 账户使用存储桶，需要启用 <code>ACL</code>。</p>
+</blockquote>
+</li>
+<li>配置公有访问<blockquote>
+<p>默认阻止所有公有访问。</p>
+</blockquote>
+</li>
+<li>配置存储桶版本控制</li>
+<li><em>配置标签</em></li>
+<li><em>配置加密</em></li>
+<li><em>高级设置</em></li>
+<li>创建存储桶</li>
+</ol>
+</li>
+<li>等待存储桶创建成功，查看详情</li>
+<li>上传文件<ol>
+<li>选择文件</li>
+<li>选择文件的存储类别</li>
+<li><em>设置文件的加密</em></li>
+<li><em>添加标签</em></li>
+<li><em>添加元数据</em></li>
+<li>点击上传</li>
+</ol>
+</li>
+<li>等待文件上传成功，查看文件的详细信息</li>
+<li>如果配置了存储桶可以公开访问，就能通过文件的对象 URL 访问文件了</li>
+<li>存储桶的 <code>ACL</code> 和文件对象的 <code>ACL</code> 是分开的</li>
+</ol>
+<p><img src="https://image.senjianlu.com/blog/2024-11-24/154535.png" alt="存储桶创建成功"><br><img src="https://image.senjianlu.com/blog/2024-11-24/154610.png" alt="上传文件"><br><img src="https://image.senjianlu.com/blog/2024-11-24/154717.png" alt="选择文件的存储类别"><br><img src="https://image.senjianlu.com/blog/2024-11-24/154848.png" alt="文件上传成功"><br><img src="https://image.senjianlu.com/blog/2024-11-24/154921.png" alt="文件的详细信息"></p>
+<hr>
+<h1 id="访问控制列表-ACL"><a href="#访问控制列表-ACL" class="headerlink" title="访问控制列表 (ACL)"></a>访问控制列表 (ACL)</h1><h3 id="一、为存储桶中的对象开启公有访问"><a href="#一、为存储桶中的对象开启公有访问" class="headerlink" title="一、为存储桶中的对象开启公有访问"></a>一、为存储桶中的对象开启公有访问</h3><ol>
+<li>进入到存储桶中<blockquote>
+<p>存储桶当前还处于不公开状态。</p>
+</blockquote>
+</li>
+<li>选择任意对象并拷贝其对象 URL，测试访问发现访问被拒绝</li>
+<li>回到存储桶并选择权限</li>
+<li>修改存储桶级别的访问控制列表 (ACL)<ol>
+<li>点击编辑阻止公有访问（存储桶设置）<ol>
+<li>取消组织所有公开访问的勾选框</li>
+<li>确认公开访问</li>
+</ol>
+</li>
+<li>点击查看访问控制列表 (ACL)，不需要更改保持默认即可<blockquote>
+<p>⭐ 启用对象的公共访问是不需要开启存储桶的列出权限的。</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li>选择存储桶内的对象并选择权限</li>
+<li>编辑存储桶对象级别的访问控制列表 (ACL)<ol>
+<li>勾选所有人（公有访问权限）</li>
+<li>确认了解变更对对象的影响</li>
+<li>保存更改</li>
+</ol>
+</li>
+<li>再次尝试通过对象 URL 访问对象，成功了</li>
+<li>更简单的方式是选择对象并点击操作，选择使用 ACL 设为公开</li>
+</ol>
+<p><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_public_01.png" alt="点击编辑阻止公有访问（存储桶设置）"><br><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_public_02.png" alt="取消组织所有公开访问的勾选框"><br><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_public_03.png" alt="确认公开访问"><br><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_public_04.png" alt="点击查看访问控制列表 (ACL)"><br><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_public_05.png" alt="不需要更改存储桶的 ACL 保持默认即可"><br><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_public_06.png" alt="编辑存储桶对象级别的访问控制列表 (ACL)"><br><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_public_07.png" alt="勾选所有人（公有访问权限）"><br><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_public_08.png" alt="确认了解变更对对象的影响并保存更改"><br><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_public_09.png" alt="再次尝试通过对象 URL 访问对象，成功了"><br><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_public_10.png" alt="更简单的方式是选择对象并点击操作，选择使用 ACL 设为公开"></p>
+<h3 id="二、为存储桶开启跨-AWS-账户的访问"><a href="#二、为存储桶开启跨-AWS-账户的访问" class="headerlink" title="二、为存储桶开启跨 AWS 账户的访问"></a>二、为存储桶开启跨 AWS 账户的访问</h3><ol>
+<li>进入到存储桶中</li>
+<li>选择权限</li>
+<li>编辑访问控制列表 (ACL)<ol>
+<li>在底部添加被授权者的规范 ID 并设置权限</li>
+<li>保存更改</li>
+</ol>
+</li>
+</ol>
+<p><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_public_11.png" alt="编辑访问控制列表 (ACL)"><br><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_public_12.png" alt="在底部添加被授权者的规范 ID 并设置权限"></p>
+<hr>
+<h1 id="S3-生命周期配置"><a href="#S3-生命周期配置" class="headerlink" title="S3 生命周期配置"></a>S3 生命周期配置</h1><h3 id="一、为-S3-存储桶配置生命周期规则（转换）"><a href="#一、为-S3-存储桶配置生命周期规则（转换）" class="headerlink" title="一、为 S3 存储桶配置生命周期规则（转换）"></a>一、为 S3 存储桶配置生命周期规则（转换）</h3><ol>
+<li>进入到存储桶中</li>
+<li>选择管理</li>
+<li>创建生命周期规则</li>
+<li>填写生命周期规则信息<ol>
+<li>填写生命周期规则名称</li>
+<li>选择规则范围<ul>
+<li>设置筛选条件（来筛选影响的对象）</li>
+<li>或确定应用到存储桶中的所有对象</li>
+</ul>
+</li>
+<li>选择生命周期规范操作<ul>
+<li>在存储桶之间转移对象的当前版本<ol>
+<li>设定 30 天后转换为标准 - IA</li>
+<li>设置 90 天后转换为 Glacier 归档类型</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>审核规则</li>
+<li>点击创建</li>
+</ol>
+</li>
+<li>转换规则创建成功</li>
+</ol>
+<p><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_lifestyle_create_01.png" alt="创建生命周期规则"><br><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_lifestyle_create_02.png" alt="确定应用到存储桶中的所有对象"><br><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_lifestyle_create_04.png" alt="选择生命周期规范操作"><br><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_lifestyle_create_05.png" alt="审核规则并创建"><br><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_lifestyle_create_06.png" alt="转换规则创建成功">  </p>
+<h3 id="二、为-S3-存储桶配置生命周期规则（过期）"><a href="#二、为-S3-存储桶配置生命周期规则（过期）" class="headerlink" title="二、为 S3 存储桶配置生命周期规则（过期）"></a>二、为 S3 存储桶配置生命周期规则（过期）</h3><ol>
+<li>进入到存储桶中</li>
+<li>选择管理</li>
+<li>创建生命周期规则</li>
+<li>填写生命周期规则信息<ol>
+<li>填写生命周期规则名称</li>
+<li>选择规则范围<ul>
+<li>设置筛选条件（来筛选影响的对象）</li>
+<li>或确定应用到存储桶中的所有对象</li>
+</ul>
+</li>
+<li>选择生命周期规范操作<ul>
+<li>永久删除对象的非当前版本<ol>
+<li>删除 30 天后对象的非当前版本</li>
+<li><em>保留较新版本的数量</em></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>审核规则</li>
+<li>点击创建</li>
+</ol>
+</li>
+<li>转换规则创建成功</li>
+</ol>
+<p><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_lifestyle_create_guoqi_01.png" alt="创建生命周期规则"><br><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_lifestyle_create_guoqi_02.png" alt="永久删除对象的非当前版本"></p>
+<h3 id="三、禁用存储桶的生命周期规则"><a href="#三、禁用存储桶的生命周期规则" class="headerlink" title="三、禁用存储桶的生命周期规则"></a>三、禁用存储桶的生命周期规则</h3><p><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_lifestyle_disable_01.png" alt="禁用存储桶的生命周期规则 01"><br><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_lifestyle_disable_02.png" alt="禁用存储桶的生命周期规则 02"></p>
+<hr>
+<h1 id="使用-S3-预签名-URL-共享对象"><a href="#使用-S3-预签名-URL-共享对象" class="headerlink" title="使用 S3 预签名 URL 共享对象"></a>使用 S3 预签名 URL 共享对象</h1><h3 id="一、使用-AWS-CLI-为-S3-对象创建预签名-URL"><a href="#一、使用-AWS-CLI-为-S3-对象创建预签名-URL" class="headerlink" title="一、使用 AWS CLI 为 S3 对象创建预签名 URL"></a>一、使用 AWS CLI 为 S3 对象创建预签名 URL</h3><ol>
+<li>进入到存储桶中</li>
+<li>选择任意对象并拷贝其对象 URL，测试访问发现访问被拒绝</li>
+<li>通过 AWS CLI 生成这个对象的预签名 URL <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 60 秒过期</span></span><br><span class="line">aws s3 presign s3://iloveawscn-saa/presignurl.jpeg --expires-in 60</span><br></pre></td></tr></table></figure></li>
+<li>通过返回的链接成功访问对象（在有效期内）</li>
+<li>过了有效期后访问被拒绝（提示访问过期，同时有详细的过期时间显示）</li>
+<li>通过 S3 控制台也能生成预签名 URL</li>
+</ol>
+<p><img src="https://image.senjianlu.com/blog/2024-11-28/aws_presign_create_01.png" alt="通过 AWS CLI 生成这个对象的预签名 URL"><br><img src="https://image.senjianlu.com/blog/2024-11-28/aws_presign_create_02.png" alt="通过返回的链接成功访问对象（在有效期内）"><br><img src="https://image.senjianlu.com/blog/2024-11-28/aws_presign_create_03.png" alt="过了有效期后访问被拒绝"><br><img src="https://image.senjianlu.com/blog/2024-11-28/aws_presign_create_04.png" alt="通过 S3 控制台也能生成预签名 URL"><br><img src="https://image.senjianlu.com/blog/2024-11-28/aws_presign_create_05.png" alt="通过 S3 控制台填写预签名 URL 过期时间">  </p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>AWS 实操 - S3 (Simple Storage Service)</p><p><a href="https://senjianlu.com/2024/11/24/hands_on_s3/">https://senjianlu.com/2024/11/24/hands_on_s3/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-11-24</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-11-24</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/SAP/">SAP</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/11/24/saa_test_daily_20241124/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">SAA 考试每日练习 - 2024/11/24</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/11/24/knowledge_s3/"><span class="level-item">AWS 知识点 - S3 (Simple Storage Service)</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#创建-S3-存储桶"><span class="level-left"><span class="level-item">创建 S3 存储桶</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、创建一个-S3-存储桶"><span class="level-left"><span class="level-item">一、创建一个 S3 存储桶</span></span></a></li></ul></li><li><a class="level is-mobile" href="#访问控制列表-ACL"><span class="level-left"><span class="level-item">访问控制列表 (ACL)</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、为存储桶中的对象开启公有访问"><span class="level-left"><span class="level-item">一、为存储桶中的对象开启公有访问</span></span></a></li><li><a class="level is-mobile" href="#二、为存储桶开启跨-AWS-账户的访问"><span class="level-left"><span class="level-item">二、为存储桶开启跨 AWS 账户的访问</span></span></a></li></ul></li><li><a class="level is-mobile" href="#S3-生命周期配置"><span class="level-left"><span class="level-item">S3 生命周期配置</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、为-S3-存储桶配置生命周期规则（转换）"><span class="level-left"><span class="level-item">一、为 S3 存储桶配置生命周期规则（转换）</span></span></a></li><li><a class="level is-mobile" href="#二、为-S3-存储桶配置生命周期规则（过期）"><span class="level-left"><span class="level-item">二、为 S3 存储桶配置生命周期规则（过期）</span></span></a></li><li><a class="level is-mobile" href="#三、禁用存储桶的生命周期规则"><span class="level-left"><span class="level-item">三、禁用存储桶的生命周期规则</span></span></a></li></ul></li><li><a class="level is-mobile" href="#使用-S3-预签名-URL-共享对象"><span class="level-left"><span class="level-item">使用 S3 预签名 URL 共享对象</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、使用-AWS-CLI-为-S3-对象创建预签名-URL"><span class="level-left"><span class="level-item">一、使用 AWS CLI 为 S3 对象创建预签名 URL</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

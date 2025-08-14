@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/12/11 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam100 题 (No.701 ~ No.800) 只记录了 15 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。其中有 65 题与正式考试题量一样，总共耗时 87&amp;#x2F;(130+30) 分钟，正确率为 57&amp;#x2F;65。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/12/11"><meta property="og:url" content="https://senjianlu.com/2024/12/11/saa_test_daily_20241211/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam100 题 (No.701 ~ No.800) 只记录了 15 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。其中有 65 题与正式考试题量一样，总共耗时 87&amp;#x2F;(130+30) 分钟，正确率为 57&amp;#x2F;65。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-12-11T12:00:00.000Z"><meta property="article:modified_time" content="2024-12-11T15:50:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/12/11/saa_test_daily_20241211/"},"headline":"SAA 考试每日练习 - 2024/12/11","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-12-11T12:00:00.000Z","dateModified":"2024-12-11T15:50:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam100 题 (No.701 ~ No.800) 只记录了 15 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。其中有 65 题与正式考试题量一样，总共耗时 87&#x2F;(130+30) 分钟，正确率为 57&#x2F;65。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/12/11/saa_test_daily_20241211/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-12-11T12:00:00.000Z" title="12/11/2024, 8:00:00 PM">2024-12-11</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/12/11</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/">Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam</a><br>100 题 (No.701 ~ No.800) <strong>只记录了 15 道首次碰到的、错误的或有疑问的题目</strong>，仅供自己复习使用。<br><em>其中有 65 题与正式考试题量一样，总共耗时 87&#x2F;(130+30) 分钟，正确率为 57&#x2F;65。</em><br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<h3 id="一、SnowFamily-and-S3"><a href="#一、SnowFamily-and-S3" class="headerlink" title="一、SnowFamily and S3"></a>一、SnowFamily and S3</h3><p>A company copies 200 TB of data from a recent ocean survey onto AWS Snowball Edge Storage Optimized devices. The company has a high performance computing (HPC) cluster that is hosted on AWS to look for oil and gas deposits. A solutions architect must provide the cluster with consistent sub-millisecond latency and high-throughput access to the data on the Snowball Edge Storage Optimized devices. The company is sending the devices back to AWS.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Create an Amazon S3 bucket. Import the data into the S3 bucket. Configure an AWS Storage Gateway file gateway to use the S3 bucket. Access the file gateway from the HPC cluster instances.</li>
+<li>✅ Create an Amazon S3 bucket. Import the data into the S3 bucket. Configure an Amazon FSx for Lustre file system, and integrate it with the S3 bucket. Access the FSx for Lustre file system from the HPC cluster instances.</li>
+<li>Create an Amazon S3 bucket and an Amazon ElasticFile System (Amazon EFS) file system. Import the data into the S3 bucket. Copy the data from the S3 bucket to the EFS file system. Access the EFS file system from the HPC cluster instances.</li>
+<li>❌ Create an Amazon FSx for Lustre file system. Import the data directly into the FSx for Lustre file system. Access the FSx for Lustre file system from the HPC cluster instances.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 2️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/snowball/latest/developer-guide/using-adapter.html">使用 Amazon S3 适配器传输文件，以便在 Snow Family 设备之间迁移数据</a></p>
+<blockquote>
+<p>以下是 Amazon S3 适配器的概述，您可以使用该适配器通过 Amazon S3 操作以编程方式将数据传输到设备上已有的 S3 存储桶或从 AWS Snowball Edge 设备上传输数据。REST API此 Amazon S3 REST API 支持仅限于部分操作。您可以将此操作子集与其中一个操作配合使用， AWS SDKs以编程方式传输数据。您还可以对 Amazon S3 使用这一部分受支持的 AWS Command Line Interface （AWS CLI）命令来以编程方式传输数据。</p>
+</blockquote>
+<p>社区选 2️⃣ 的原因是 <code>SnowFamily</code> 只支持 <code>S3</code> 形式的存储，但是我并没有在官方的文档中找到完全一样的描述，只有说支持 <code>S3</code> 的：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/snowball/latest/developer-guide/device-differences.html">什么是 AWS Snowball Edge？</a></p>
+<blockquote>
+<blockquote>
+<p>在这些设备上的 Snow Family 设备上使用与 Amazon S3 兼容的存储空间时，可用存储空间会有所不同。请参阅在 Snow Family 设备上在 Snow Family 设备上使用兼容 Amazon S3 的存储，了解在 Sn ow Family 设备上使用兼容 Amazon S3 的存储容量。</p>
+</blockquote>
+</blockquote>
+<p><em>姑且暂时这么认为吧：<code>SnowFamily</code> 设备上只能以 <code>S3</code> 形式存储文件</em>。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：No direct integration between Snowball and Fsx for Lustre. It must be via S3.<br>Snowball Edge (Storage Optimized) –&gt; S3 –integrate–&gt; FSx for Lustre<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html">https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html</a><br><a target="_blank" rel="noopener" href="https://aws.amazon.com/tw/blogs/aws/enhanced-amazon-s3-integration-for-amazon-fsx-for-lustre/">https://aws.amazon.com/tw/blogs/aws/enhanced-amazon-s3-integration-for-amazon-fsx-for-lustre/</a></p>
+</blockquote>
+<hr>
+<h3 id="二、Route-53-Resolver"><a href="#二、Route-53-Resolver" class="headerlink" title="二、Route 53 Resolver"></a>二、Route 53 Resolver</h3><p>A company is designing a web application on AWS. The application will use a VPN connection between the company’s existing data centers and the company’s VPCs.<br>The company uses Amazon Route 53 as its DNS service. The application must use private DNS records to communicate with the on-premises services from a VPC.<br>Which solution will meet these requirements in the MOST secure manner?</p>
+<ol>
+<li>✅ Create a Route 53 Resolver outbound endpoint. Create a resolver rule. Associate the resolver rule with the VPC.</li>
+<li>Create a Route 53 Resolver inbound endpoint. Create a resolver rule. Associate the resolver rule with the VPC.</li>
+<li>❌ Create a Route 53 private hosted zone. Associate the private hosted zone with the VPC.</li>
+<li>Create a Route 53 publichosted zone. Create a record for each service to allow service communication</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/Route53/latest/DeveloperGuide/resolver.html">什么是 Amazon Route 53 Resolver？</a></p>
+<blockquote>
+<p>Amazon Route 53 Resolver 会递归响应 AWS 资源对公共记录、Amazon VPC 特定 DNS 名称和 Amazon Route 53 私有托管区域的 DNS 查询，默认情况下在所有 VPC 中都可用。</p>
+<p><strong>出站</strong>（实心箭头 1–5）：</p>
+<ol>
+<li>亚马逊EC2实例需要解析对域名internal.example.com的DNS查询。权威DNS服务器位于本地数据中心。此DNS查询被发送到连接VPC到 Route 53 Resolver 的 VPC +2。</li>
+<li>Route 53 Resolver 转发规则配置为将查询转发到本地数据中心的 internal.example.com。</li>
+<li>查询将被转发到出站端点。</li>
+<li>出站终端节点通过与数据中心之间的 AWS 私有连接将查询转发给本地DNS解析器。该连接可以是 AWS Direct Connect 或 AWS Site-to-Site VPN，可以描述为虚拟专用网关。</li>
+<li>本地DNS解析器解析对 internal.example.com 的DNS查询，并通过相同的路径反向将答案返回给亚马逊EC2实例。</li>
+</ol>
+<p><strong>入站</strong>（虚线箭头 a–d）：</p>
+<ol>
+<li>本地数据中心的客户端需要解析对域 dev.example.com AWS 资源的DNS查询。它将查询发送到本地解DNS析器。</li>
+<li>本地解DNS析器具有转发规则，可将发往 dev.example.com 的查询指向入站终端节点。</li>
+<li>查询通过私有连接（例如 AWS Direct Connect 或）到达入站终端节点 AWS Site-to-Site VPN，该连接被描述为虚拟网关。</li>
+<li>入站终端节点将查询发送到 Route 53 解析器，Route 53 解析器解析 dev.example.com 的DNS查询，并通过相同的路径反向将答案返回给客户端。</li>
+</ol>
+<p><img src="https://image.senjianlu.com/blog/2024-12-12/Resolver-routing.png" alt="例子"></p>
+</blockquote>
+<p>本题中，<code>VPC</code> 内的服务要访问本地托管的服务，因此属于出栈，需要使用 <code>Route 53 Resolver outbound endpoint</code>。</p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/Route53/latest/DeveloperGuide/AboutHZWorkingWith.html">使用公有托管区</a></p>
+<blockquote>
+<p>公有托管区域是一个容器，其中包含的信息说明您希望如何路由特定域（如 example.com）及其子域（acme.example.com 和 zenith.example.com）的 Internet 流量。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/Route53/latest/DeveloperGuide/hosted-zones-private.html">使用私有托管区</a></p>
+<blockquote>
+<p>私有托管区域是一个容器，其中包含有关您希望 Amazon Route 53 如何响应您使用 Amazon VPC 服务创建的一个或多个VPCs域名及其子域名的DNS查询的信息。</p>
+</blockquote>
+<p>公有托管区面向互联网，私有托管区面向 <code>VPC</code>。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：If you have workloads that leverage both VPCsand on-premises resources, you also need to resolve DNS records hosted on-premises.Similarly, these on-premises resources may need to resolve names hosted on AWS.Through Resolver endpoints and conditional forwarding rules, you can resolve DNS queries between your on-premises resourcesand VPCs to create a hybrid cloud setup over VPN or Direct Connect (DX).Specifically:<br>Inbound Resolver endpoints allow DNS queries to your VPC from your on-premises network or another VPC.<br>Outbound Resolver endpoints allow DNS queries from your VPC to your on-premises network or another VPC.<br>Reference: <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html">https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html</a></p>
+</blockquote>
+<hr>
+<h3 id="三、Saving-Plans-coverage"><a href="#三、Saving-Plans-coverage" class="headerlink" title="三、Saving Plans coverage"></a>三、Saving Plans coverage</h3><p>A company uses Amazon EC2, AWS Fargate, and AWS Lambda to run multiple workloads in the company’s AWS account. The company wants to fully make use of its Compute Savings Plans. The company wants to receive notification when coverage of the Compute Savings Plans drops.<br>Which solution will meet these requirements with the MOST operational efficiency?</p>
+<ol>
+<li>✅ Create a daily budget for the Savings Plans by using AWS Budgets. Configure the budget with a coverage threshold to send notifications to the appropriate email message recipients.</li>
+<li>Create a Lambda function that runs a coverage report against the Savings Plans. Use Amazon Simple Email Service (Amazon SES) to email the report to the appropriate email message recipients.</li>
+<li>Create an AWS Budgets report for the Savings Plans budget. Set the frequency to daily.</li>
+<li>❌ Create a Savings Plans alert subscription. Enable all notification options. Enter an email address to receive notifications.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/cost-management/latest/userguide/budgets-managing-costs.html">使用 AWS Budgets 管理成本</a></p>
+<blockquote>
+<p>您可以使用 AWS Budgets 来跟踪 AWS 成本和使用情况并执行操作。您可以使用 AWS Budgets 监控预留实例 (RI) 或 Savings Plans 的聚合利用率和覆盖率指标。  </p>
+<p>您可以使用 AWS Budgets 启用简单到复杂成本和使用情况跟踪。一些示例包括：</p>
+<ul>
+<li>设置每日利用率或覆盖率预算，以跟踪您的 RI 或 Savings Plans。您可以选择在指定日期的利用率降至 80% 以下时通过电子邮件和 Amazon SNS 主题接收通知。</li>
+</ul>
+<p>您可创建下列类型的预算：</p>
+<ul>
+<li><strong>Savings Plans 使用率预算</strong> - 定义使用率阈值，并在 Savings Plans 的使用率低于该阈值时接收提醒。这使您可以查看 Savings Plans 是否未使用或未充分利用。</li>
+<li><strong>Savings Plans 覆盖率预算</strong> - 定义覆盖率阈值，并在 Savings Plans 覆盖的 Savings Plans 合格使用量低于该阈值时接收提醒。这使您可以查看 Savings Plans 所覆盖的实例使用量的多少。</li>
+</ul>
+</blockquote>
+<p>这和题目中描述的 Saving Plans 覆盖率下降相符。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：My vote is for A : <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/savingsplans/latest/userguide/sp-usingBudgets.html">https://docs.aws.amazon.com/savingsplans/latest/userguide/sp-usingBudgets.html</a></p>
+</blockquote>
+<hr>
+<h3 id="四、Default-Host-Configuration-Management"><a href="#四、Default-Host-Configuration-Management" class="headerlink" title="四、Default Host Configuration Management"></a>四、Default Host Configuration Management</h3><p>A company has applications that run on Amazon EC2 instances. The EC2 instances connect to Amazon RDS databases by using an IAM role that has associated policies. The company wants to use AWS Systems Manager to patch the EC2 instances without disrupting the running applications.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>❌ Create a new IAM role. Attach the AmazonSSMManagedInstanceCore policy to the new IAM role. Attach the new IAM role to the EC2 instances and the existing IAM role.</li>
+<li>Create an IAM user. Attach the AmazonSSMManagedInstanceCore policy to the IAM user. Configure Systems Manager to use the IAM user to manage the EC2 instances.</li>
+<li>✅ Enable Default Host Configuration Management in Systems Manager to manage the EC2 instances.</li>
+<li>Remove the existing policies from the existing IAM role. Add the AmazonSSMManagedInstanceCore policy to the existing IAM role.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/systems-manager/latest/userguide/fleet-manager-default-host-management-configuration.html">使用默认主机管理配置自动管理 EC2 实例</a></p>
+<blockquote>
+<p>通过“默认主机管理配置”设置，AWS Systems Manager 可以将 Amazon EC2 实例作为托管式实例自动管理。托管实例是一个配置为与 Systems Manager 一起使用的 EC2 实例。<br>使用 Systems Manager 管理实例的好处包括以下几点：</p>
+<ul>
+<li>可以使用 Session Manager 安全地连接到您的 EC2 实例。</li>
+<li>可以使用 Patch Manager 执行自动补丁扫描。</li>
+<li>可以使用 Systems Manager 清单查看有关您的实例的详细信息。</li>
+<li>可以使用 Fleet Manager 追踪和管理实例。</li>
+<li>可以自动保持 SSM Agent 处于最新状态。</li>
+</ul>
+<p>“默认主机管理配置”使您无需手动创建 AWS Identity and Access Management（IAM）实例配置文件即可管理 EC2 实例。“默认主机管理配置”会创建并应用默认 IAM 角色，确保 Systems Manager 有权管理已激活该设置的 AWS 账户 和 AWS 区域 中的所有实例。  </p>
+<p>如果提供的权限不足以满足您的应用场景要求，您还可以向“默认主机管理配置”创建的默认 IAM 角色添加策略。或者，如果您不需要默认 IAM 角色提供的所有功能的权限，可以创建自己的自定义角色和策略。对您为“默认主机管理配置”选择的 IAM 角色所做的任何更改，都适用于相应区域和账户中的所有托管 Amazon EC2 实例。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：option C….Default Host Management Configuration createsand appliesa default IAM role to ensure thatSystems Manager has permissions to manage all instances in the Region and perform automated patch scans using Patch Manager.</p>
+</blockquote>
+<hr>
+<h3 id="五、AWS-Direct-Connect-Gateway"><a href="#五、AWS-Direct-Connect-Gateway" class="headerlink" title="五、AWS Direct Connect Gateway"></a>五、AWS Direct Connect Gateway</h3><p>A company has an AWS Direct Connect connection from its corporate data center to its VPC in the us-east-1 Region. The company recently acquired a corporation that has several VPCs and a Direct Connect connection between its on-premises data center and the eu-west-2 Region. The CIDR blocks for the VPCs of the company and the corporation do not overlap. The company requires connectivity between two Regions and the data centers. The company needs a solution that is scalable while reducing operational overhead.<br>What should a solutions architect do to meet these requirements?</p>
+<ol>
+<li>Set up inter-Region VPC peering between the VPC in us-east-1 and the VPCs in eu-west-2.</li>
+<li>Create private virtual interfaces from the Direct Connect connection in us-east-1 to the VPCs in eu-west-2.</li>
+<li>❌ Establish VPN appliances in a fully meshed VPN network hosted by Amazon EC2. Use AWS VPN CloudHub to send and receive data between the data centers and each VPC.</li>
+<li>✅ Connect the existing Direct Connect connection to a Direct Connect gateway. Route traffic from the virtual private gateways of the VPCs in each Region to the Direct Connect gateway.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/directconnect/latest/UserGuide/direct-connect-gateways-intro.html">AWS Direct Connect 网关</a></p>
+<blockquote>
+<p>使用 AWS Direct Connect 网关连接您的 VPC。将 AWS Direct Connect 网关与以下任一网关关联：</p>
+<ul>
+<li>当您在同一区域有多个 VPC 时的中转网关</li>
+<li>虚拟私有网关</li>
+</ul>
+<p>您也可以使用虚拟私有网关来扩展本地区域。<br>Direct Connect 网关是<u><strong>全球可用资源</strong></u>。您可以使用 Direct Connect 网关连接到全球任何区域。</p>
+</blockquote>
+<p>你可以通过使用 <code>AWS Direct Connect</code> 连接到 <code>AWS Direct Connect Gateway</code>，之后再连接到其他 <code>区域</code>，因此 4️⃣ 正确。<br>需要注意的是，<code>AWS VPN CloudHub</code> 是使用建立在公网上的 VPN 隧道，并连接 <code>Amazon VPC 虚拟私有网关</code> 和 <code>客户网关</code> 实现的：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/whitepapers/latest/aws-vpc-connectivity-options/aws-vpn-cloudhub.html">AWS VPN CloudHub</a></p>
+<blockquote>
+<p><img src="https://image.senjianlu.com/blog/2024-12-12/aws-vpn-cloudhub.png" alt="AWS VPN CloudHub"></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：”If you want to set up a Direct Connect to one or more VPC in many different regions (same account), you must use a Direct Connect Gateway.”</p>
+</blockquote>
+<hr>
+<h3 id="六、S3-Transfer-Acceleration"><a href="#六、S3-Transfer-Acceleration" class="headerlink" title="六、S3 Transfer Acceleration"></a>六、S3 Transfer Acceleration</h3><p>A company has a new mobile app. Anywhere in the world, users can see local news on topics they choose. Users also can post photos and videos from inside the app.<br>Users access content often in the first minutes after the content is posted. New content quickly replaces older content, and then the older content disappears. The local nature of the news means that users consume 90% of the content within the AWS Region where it is uploaded.<br>Which solution will optimize the user experience by providing the LOWEST latency for content uploads?</p>
+<ol>
+<li>Upload and store content in Amazon S3. Use Amazon CloudFront for the uploads.</li>
+<li>✅ Upload and store content in Amazon S3. Use S3 Transfer Acceleration for the uploads.</li>
+<li>Upload content to Amazon EC2 instances in the Region that is closest to the user. Copy the data to Amazon S3.</li>
+<li>❌ Upload and store content in Amazon S3 in the Region that is closest to the user. Use multiple distributions of Amazon CloudFront.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/userguide/transfer-acceleration.html">使用 Amazon S3 Transfer Acceleration 配置快速、安全的文件传输</a></p>
+<blockquote>
+<p>mazon S3 Transfer Acceleration 是一项存储桶级别功能，可在您的客户端和 S3 存储桶之间实现快速、轻松、安全的远距离文件传输。Transfer Acceleration 旨在优化从世界各地传入 S3 存储桶的传输速度。Transfer Acceleration 利用 Amazon CloudFront 中的全球分布式边缘站点。当数据到达某个边缘站点时，数据会被经过优化的网络路径路由至 Amazon S3。</p>
+</blockquote>
+<p><code>Amazon S3 Transfer Acceleration</code> 也使用到了 <code>CloudFront</code> 的边缘节点，因此和 4️⃣ 的效果差不多。<br>我依然觉得 4️⃣ 的延迟会更低，毕竟将文件上传到就近的 <code>S3</code> 存储桶了，但是操作会更复杂，实际场景下我也会改用 2️⃣。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Question says - “ LOWEST latency for content uploads”<br>Hence Use S3 Transfer Acceleration for the uploads.</p>
+</blockquote>
+<hr>
+<h3 id="七、S3-Glacier-Flexible-Retrieval"><a href="#七、S3-Glacier-Flexible-Retrieval" class="headerlink" title="七、S3 Glacier Flexible Retrieval"></a>七、S3 Glacier Flexible Retrieval</h3><p>A media company stores movies in Amazon S3. Each movie is stored in a single video file that ranges from 1 GB to 10 GB in size.<br>The company must be able to provide the streaming content of a movie within 5 minutes of a user purchase. There is higher demand for movies that are less than 20 years old than for movies that are more than 20 years old. The company wants to minimize hosting service costs based on demand.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Store all media content in Amazon S3. Use S3 Lifecycle policies to move media data into the Infrequent Access tier when the demand for a movie decreases.</li>
+<li>✅ Store newer movie video files in S3 Standard. Store older movie video files in S3 Standard-infrequent Access (S3 Standard-IA). When a user orders an older movie, retrieve the video file by using standard retrieval.</li>
+<li>❌ Store newer movie video files in S3 Intelligent-Tiering. Store older movie video files in S3 Glacier Flexible Retrieval. When a user orders an older movie, retrieve the video file by using expedited retrieval.</li>
+<li>Store newer movie video files in S3 Standard. Store older movie video files in S3 Glacier Flexible Retrieval. When a user orders an older movie, retrieve the video file by using bulk retrieval.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/userguide/restoring-objects-retrieval-options.html">了解归档检索选项</a></p>
+<blockquote>
+<ul>
+<li><strong>加速</strong> (Expedited) - <u>对于除最大归档对象（250MB+）之外的所有其他归档对象</u>，使用加速检索访问的数据通常在 1 到 5 分钟内可用。<blockquote>
+<p>加速检索是一项高级特征，按加急请求和检索费率收费。</p>
+</blockquote>
+</li>
+<li><strong>标准</strong> (Standard) - 对于存储在 S3 Glacier Flexible Retrieval 存储类或 S3 Intelligent-Tiering 归档访问层中的对象，标准检索通常在 3-5 小时内完成。<br>   对于存储在 S3 Glacier Deep Archive 存储类或 S3 Intelligent-Tiering 深度归档访问层中的对象，这些检索通常会在 12 小时内完成。</li>
+<li><strong>批量</strong> (Bulk) - 使用 Amazon S3 Glacier 中成本最低的检索选项访问您的数据。通过批量检索，您能够以低廉的成本检索大量数据，甚至达到 PB 级。<br>   对于存储在 S3 Glacier Flexible Retrieval 存储类或 S3 Intelligent-Tiering 存档访问层中的对象，批量检索通常在 5-12 小时内完成。<br>   对于存储在 S3 Glacier Deep Archive 存储类或 S3 Intelligent-Tiering 深度存档访问层中的对象，这些检索通常会在 48 小时内完成。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>存储类或层</th>
+<th>加速</th>
+<th>标准（带批量 Batch 操作）</th>
+<th>标准（不带批量 Batch 操作）</th>
+<th>批量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>S3 Glacier Flexible Retrieval 或 S3 Intelligent-Tiering 归档访问</td>
+<td>1 – 5 分钟</td>
+<td>数分钟 – 5 小时</td>
+<td>3 – 5 小时</td>
+<td>5 – 12 小时</td>
+</tr>
+<tr>
+<td>S3 Glacier Deep Archive 或 S3 Intelligent-Tiering 深度归档访问</td>
+<td>不可用</td>
+<td>9 - 12 小时</td>
+<td>12 小时内</td>
+<td>48 小时内</td>
+</tr>
+</tbody></table>
+</blockquote>
+<p>本题中的文件大小超过 1 GB，因此 3️⃣ 中即使使用加速检索，也无法确保能在 5 分钟内完成。<br>4️⃣ 的批量检索耗时更长，肯定也不对。<br>而 <code>IA</code> 和标准都支持毫秒级访问，因此 2️⃣ 是绝对正确且比 1️⃣ 更便宜的。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Technically,expedited retrieval for files is not guaranteed within 1-5 minutes for files larger than 250 MB+. See:<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/restoring-objects-retrieval-options.html">https://docs.aws.amazon.com/AmazonS3/latest/userguide/restoring-objects-retrieval-options.html</a></p>
+</blockquote>
+<hr>
+<h3 id="八、LDAP"><a href="#八、LDAP" class="headerlink" title="八、LDAP"></a>八、LDAP</h3><p>A company needs to use its on-premises LDAP directory service to authenticate its users to the AWS Management Console. The directory service is not compatible with Security Assertion Markup Language (SAML).<br>Which solution meets these requirements?</p>
+<ol>
+<li>❌ Enable AWS IAM Identity Center (AWS Single Sign-On) between AWS and the on-premises LDAP.</li>
+<li>Create an IAM policy that uses AWS credentials, and integrate the policy into LDAP.</li>
+<li>Set up a process that rotates the IAM credentials whenever LDAP credentials are updated.</li>
+<li>✅ Develop an on-premises custom identity broker application or process that uses AWS Security Token Service (AWS STS) to get short-lived credentials.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/security/what-is-ldap-authentication">什么是轻量级目录访问协议（LDAP）身份验证？</a></p>
+<blockquote>
+<p>LDAP 是微软的 Active Directory（AD）目录服务中使用的核心协议（但并非是其专用）；而 Active Directory 是一个大型目录服务数据库，包含网络中每一用户帐户的信息。更具体地说，LDAP 是目录访问协议（DAP）的轻量级版本，提供一个中央位置来访问和管理在传输控制协议&#x2F;互联网协议（TCP&#x2F;IP）上运行的目录服务，其最新版本是 LDAPv3。</p>
+</blockquote>
+<p>题目中提到它于 SAML 并不兼容：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/identity/saml/">为您的 AWS 资源启用 SAML</a></p>
+<blockquote>
+<p>安全断言标记语言 2.0 (SAML) 是一种开放联合标准，允许身份提供商 (IdP) 对用户进行身份验证，并将有关用户的身份和安全信息传递给服务提供商 (SP)，通常是应用程序或服务。使用 SAML，您可以跨很多启用了 SAML 的应用程序和服务为您的用户启用单点登录体验。用户使用一组凭证通过 IdP 进行一次身份验证，然后无需额外登录即可访问多个应用程序和服务。 由于启用了 SAML 的应用程序将身份验证委托给 IdP，所以当管理员在 IdP 中添加、删除或修改用户信息时，SP 可以自动授予、撤销或更改用户对应用程序和服务的访问范围。<br><u><strong>AWS 提供不同的 SAML 解决方案来验证员工、承包商和合作伙伴（劳动力）的 AWS 账户和业务应用程序身份，并增加对面向客户的 Web 和移动应用程序的 SAML 支持</strong></u>。</p>
+</blockquote>
+<p>因此这里不能选 1️⃣。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：The solution that best meets the requirements.Thisapproach providesa pathway for authenticating LDAP users to AWS without requiring direct LDAP to AWS IAM Identity Center integration orSAML compatibility, offering a flexible and secure method to extend on-premisesauthentication mechanisms to AWS services.</p>
+</blockquote>
+<hr>
+<h3 id="九、AWS-Storage-Gateway"><a href="#九、AWS-Storage-Gateway" class="headerlink" title="九、AWS Storage Gateway"></a>九、AWS Storage Gateway</h3><p>A pharmaceutical company is developing a new drug. The volume of data that the company generates has grown exponentially over the past few months. The company’s researchers regularly require a subset of the entire dataset to be immediately available with minimal lag. However, the entire dataset does not need to be accessed on a daily basis. All the data currently resides in on-premises storage arrays, and the company wants to reduce ongoing capital expenses.<br>Which storage solution should a solutions architect recommend to meet these requirements?</p>
+<ol>
+<li>Run AWS DataSyncas a scheduled cron job to migrate the data to an Amazon S3 bucket on an ongoing basis.</li>
+<li>❌ Deploy an AWS Storage Gateway file gateway with an Amazon S3 bucket as the target storage. Migrate the data to the Storage Gateway appliance.</li>
+<li>✅ Deploy an AWS Storage Gateway volume gateway with cached volumes with an Amazon S3 bucket as the target storage. Migrate the data to the Storage Gateway appliance.</li>
+<li>Configure an AWS Site-to-Site VPN connection from the on-premises environment to AWS. Migrate data to an Amazon ElasticFile System (Amazon EFS) file system.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>file gateway</code> 和 <code>volume gateway (cached mode)</code> 都支持对频繁访问的文件进行本地缓存：</p>
+<blockquote>
+<p><img src="https://image.senjianlu.com/blog/2024-11-27/aws_storage_gateway_file_gateway_01.png" alt="AWS 存储网关 - 文件网关 (File Gateway) 架构"><br><img src="https://image.senjianlu.com/blog/2024-11-27/aws_storage_gateway_volume_gateway_01.png" alt="AWS 存储网关 - 卷网关 (Volume Gateway) 架构">  </p>
+</blockquote>
+<p>但是题目中提到了 <code>storage arrays</code> 存储整列，这种情况下 3️⃣ 的卷网关更符合。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Deploying an AWS Storage Gateway file gateway with an Amazon S3 bucket as the target storage would require the entire dataset to be stored in Amazon S3, which might not be cost-effective considering that onlya subset of the data needs to be accessed regularly. Additionally,accessing data directly from S3 might introduce latency. so correct option is C bcz AWS Storage Gateway volume gateway with cached volumesallows the company to keep frequentlyaccessed data locally on-premises while storing the entire dataset in Amazon S3.This solution provides immediate access to the subset of data with minimal lag,as frequentlyaccessed data is cached locally. It also reduces ongoing capital expensesas it leverages Amazon S3 storage, which is cost-effective.</p>
+</blockquote>
+<hr>
+<h3 id="十、AWS-Config"><a href="#十、AWS-Config" class="headerlink" title="十、AWS Config"></a>十、AWS Config</h3><p>A solutions architect must provide an automated solution for a company’s compliance policy that states security groups cannot include a rule that allows SSH from 0.0.0.0&#x2F;0. The company needs to be notified if there is any breach in the policy. A solution is needed as soon as possible.<br>What should the solutions architect do to meet these requirements with the LEAST operational overhead?</p>
+<ol>
+<li>Write an AWS Lambda script that monitors security groups for SSH being open to 0.0.0.0&#x2F;0 addresses and creates a notification every time it finds one.</li>
+<li>✅ Enable the restricted-ssh AWS Config managed rule and generate an Amazon Simple Notification Service (Amazon SNS) notification when a noncompliant rule is created.</li>
+<li>Create an IAM role with permissions to globally open security groups and network ACLs. Create an Amazon Simple Notification Service (Amazon SNS) topic to generate a notification every time the role is assumed by a user.</li>
+<li>❌ Configure a service control policy (SCP) that prevents non-administrative users from creating or editing security groups. Create a notification in the ticketing system when a user requests a rule that needs administrator permissions.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>AWS Config</code> 中有专门针对 SSH 来源的规则：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/config/latest/developerguide/restricted-ssh.html">restricted-ssh</a></p>
+<blockquote>
+<p>检查安全组的传入SSH流量是否可访问。规则是安全组中传入SSH流量的 IP 地址COMPLIANT是否受到限制（0.0.0.0&#x2F;0 或:: &#x2F;0 CIDR 除外）。否则，NON_ COMPLIANT。</p>
+<ul>
+<li><strong>标识符</strong>：INCOMING_ SSH _ DISABLED</li>
+<li><strong>资源类型</strong>： AWS::EC2::SecurityGroup</li>
+<li><strong>触发器类型</strong>：配置更改和定期</li>
+<li><strong>AWS 区域</strong>: 全部支持 AWS 区域</li>
+<li><strong>参数</strong>：无</li>
+</ul>
+</blockquote>
+<p>之后一些细节的配置限制可以都考虑选择 <code>AWS Config</code> 进行实现。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Option B</p>
+</blockquote>
+<hr>
+<h3 id="十一、VPC-Lattice-service-network"><a href="#十一、VPC-Lattice-service-network" class="headerlink" title="十一、VPC Lattice service network"></a>十一、VPC Lattice service network</h3><p>Use Amazon Elastic Kubernetes Service (Amazon EKS) with Amazon EC2 worker nodes.<br>A company has deployed an application in an AWS account. The application consists of microservices that run on AWS Lambda and Amazon Elastic Kubernetes Service (Amazon EKS). A separate team supports each microservice. The company has multiple AWS accounts and wants to give each team its own account for its microservices.<br>A solutions architect needs to design a solution that will provide service-to-service communication over HTTPS (port 443). The solution also must provide a service registry for service discovery.<br>Which solution will meet these requirements with the LEAST administrative overhead?</p>
+<ol>
+<li>Create an inspection VPC. Deploy an AWS Network Firewall firewall to the inspection VPC. Attach the inspection VPC to a new transit gateway. Route VPC-to-VPC traffic to the inspection VPC. Apply firewall rules to allow only HTTPS communication.</li>
+<li>✅ Create a VPC Lattice service network. Associate the microservices with the service network. Define HTTPS listeners for each service. Register microservice compute resources as targets. Identify VPCs that need to communicate with the services. Associate those VPCs with the service network.</li>
+<li>Create a Network Load Balancer (NLB) with an HTTPS listener and target groups for each microservice. Create an AWS PrivateLink endpoint service for each microservice. Create an interface VPC endpoint in each VPC that needs to consume that microservice.</li>
+<li>Create peering connections between VPCs that contain microservices. Create a prefix list for each service that requires a connection to a client. Create route tables to route traffic to the appropriate VPC. Create security groups to allow only HTTPS communication.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/vpc-lattice/latest/ug/what-is-vpc-lattice.html">什么是 Amazon VPC Lattice？</a></p>
+<blockquote>
+<p>Amazon VPC Lattice 是一项完全托管的应用程序网络服务，用于连接、保护和监控应用程序的服务。您可以将 VPC Lattice 与单个虚拟私有云（VPC）一起使用，也可以从一个或多个账户跨多个 VPC 使用。<br>现代应用程序可以由多个小型模块化服务组成，这些服务通常称为微服务。现代化固然有其优势，但在连接这些微服务时，也可能带来网络复杂性和挑战。例如，如果开发人员分布在不同的团队，他们可能会在多个账户或 VPC 上构建和部署微服务。<br><img src="https://image.senjianlu.com/blog/2024-12-12/200442.png" alt="关键组件"></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：VPC Lattice is a completely new way to simplify API communication between services or microservices in one or more AWS accounts.</p>
+</blockquote>
+<hr>
+<h3 id="十二、Amazon-ElastiCache-for-Redis"><a href="#十二、Amazon-ElastiCache-for-Redis" class="headerlink" title="十二、Amazon ElastiCache for Redis"></a>十二、Amazon ElastiCache for Redis</h3><p>A company has a mobile game that reads most of its metadata from an Amazon RDS DB instance. As the game increased in popularity, developers noticed slowdowns related to the game’s metadata load times. Performance metrics indicate that simply scaling the database will not help. A solutions architect must explore all options that include capabilities for snapshots, replication, and sub-millisecond response times.<br>What should the solutions architect recommend to solve these issues?</p>
+<ol>
+<li>Migrate the database to Amazon Aurora with Aurora Replicas.</li>
+<li>Migrate the database to Amazon DynamoDB with global tables.</li>
+<li>✅ Add an Amazon ElastiCache for Redis layer in front of the database.</li>
+<li>❌ Add an Amazon ElastiCache for Memcached layer in front of the database.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：Redis 和 Memcached 都支持亚毫秒级延迟，但是只有 Redis 支持快照和复制功能：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/elasticache/redis-vs-memcached/">比较 Redis OSS 与 Memcached</a></p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>特点</th>
+<th><strong>Memcached</strong></th>
+<th><strong>Redis</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>亚毫秒级延迟</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>开发人员易用性</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>数据分区</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>支持多种编程语言</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>高级数据结构</td>
+<td>-</td>
+<td>是</td>
+</tr>
+<tr>
+<td>多线程架构</td>
+<td>是</td>
+<td>-</td>
+</tr>
+<tr>
+<td>快照</td>
+<td>-</td>
+<td>是</td>
+</tr>
+<tr>
+<td>复制</td>
+<td>-</td>
+<td>是</td>
+</tr>
+<tr>
+<td>事务处理</td>
+<td>-</td>
+<td>是</td>
+</tr>
+<tr>
+<td>发布&#x2F;订阅</td>
+<td>-</td>
+<td>是</td>
+</tr>
+<tr>
+<td>Lua 脚本编写</td>
+<td>-</td>
+<td>是</td>
+</tr>
+<tr>
+<td>地理空间支持</td>
+<td>-</td>
+<td>是</td>
+</tr>
+</tbody></table>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Option C is better as we need replication and snapshots</p>
+</blockquote>
+<hr>
+<h3 id="十三、Amazon-Quantum-Ledger-Database"><a href="#十三、Amazon-Quantum-Ledger-Database" class="headerlink" title="十三、Amazon Quantum Ledger Database"></a>十三、Amazon Quantum Ledger Database</h3><p>A company maintains its accounting records in a custom application that runs on Amazon EC2 instances. The company needs to migrate the data to an AWS managed service for development and maintenance of the application data. The solution must require minimal operational support and provide immutable, cryptographically verifiable logs of data changes.<br>Which solution will meet these requirements MOST cost-effectively?</p>
+<ol>
+<li>Copy the records from the application into an Amazon Redshift cluster.</li>
+<li>Copy the records from the application into an Amazon Neptune cluster.</li>
+<li>Copy the records from the application into an Amazon Timestream database.</li>
+<li>✅ Copy the records from the application into an Amazon Quantum Ledger Database (Amazon QLDB) ledger.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/qldb/latest/developerguide/what-is.html">什么是 Amazon QLDB？</a></p>
+<blockquote>
+<p>Amazon Quantum Ledger 数据库 (AmazonQLDB) 是一个完全托管的账本数据库，它提供由中央可信机构拥有的透明、不可变且可加密验证的交易日志。您可以使用 Amazon QLDB 来跟踪所有应用程序数据更改，并维护一段时间内完整且可验证的更改历史记录。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/neptune/latest/userguide/intro.html">什么是 Amazon Neptune？</a></p>
+<blockquote>
+<p>Amazon Neptune 是一项快速、可靠且完全托管式的图数据库服务，可帮助您轻松构建和运行适用于高度互连数据集的应用程序。Neptune 的核心是一个专门打造的高性能图形数据库引擎。该引擎经过优化，可存储数十亿个关系并能以毫秒级延迟进行图形查询。Neptune 支持流行的属性图查询语言 Apache TinkerPop Gremlin 和 Neo4j，以及 W3C 的openCypher查询语言。RDF SPARQL这可让您构建能够高效地浏览高度互联的数据集的查询。Neptune 支持图形用例，如建议引擎、欺诈检测、知识图谱、药物开发和网络安全。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/timestream/">Amazon Timestream 易于管理的时间序列数据库，针对安全性、性能、可用性和可扩展性进行了优化</a></p>
+<blockquote>
+<p>Amazon Timestream 为从低延迟查询到大规模数据摄取的工作负载提供完全托管、专门构建的时间序列数据库引擎。借助 Timestream for LiveAnalytics，您可以每分钟摄取数十 GB 以上的时间序列数据，并在几秒钟内对数 TB 的时间序列数据运行 SQL 查询，可用性最高达 99.99%。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Option D</p>
+</blockquote>
+<hr>
+<h3 id="十四、Amazon-Athena"><a href="#十四、Amazon-Athena" class="headerlink" title="十四、Amazon Athena"></a>十四、Amazon Athena</h3><p>A company has stored 10 TB of log files in Apache Parquet format in an Amazon S3 bucket. The company occasionally needs to use SQL to analyze the log files.<br>Which solution will meet these requirements MOST cost-effectively?</p>
+<ol>
+<li>Create an Amazon Aurora MySQL database. Migrate the data from the S3 bucket into Aurora by using AWS Database Migration Service (AWS DMS). Issue SQL statements to the Aurora database.</li>
+<li>❌ Create an Amazon Redshift cluster. Use Redshift Spectrum to run SQL statements directly on the data in the S3 bucket.</li>
+<li>✅ Create an AWS Glue crawler to store and retrieve table metadata from the S3 bucket. Use Amazon Athena to run SQL statements directly on the data in the S3 bucket.</li>
+<li>Create an Amazon EMR cluster. Use Apache Spark SQL to run SQL statements directly on the data in the S3 bucket.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/blogs/china/value-of-mining-eb-level-data-redshift-spectrum-introduction-and-best-practice/">Redshift Spectrum 介绍</a></p>
+<blockquote>
+<p>Redshift Spectrum可以帮助客户通过Redshift直接查询S3中的数据。如同Amazon EMR，通过Redshift Spectrum客户可以方便的使用多种开放数据格式并享有低廉的存储成本，同时还可以轻松扩展到上千个计算节点实现数据的提取、筛选、投影、聚合、group、排序等等操作。<br>Redshift Spectrum采用了无服务器架构，所以客户不需要额外配置或管理任何资源，而只需为Redshift Spectrum的用量付费。</p>
+</blockquote>
+<p>需要注意的是，<code>Athena SQL</code> 可以和 <code>AWS Glue Data Catalog</code> 等进行配合：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/athena/latest/ug/using-athena-sql.html">使用 Athena SQL</a></p>
+<blockquote>
+<p>您可以使用 Athena SQL，借助 AWS Glue Data Catalog（外部 Hive 元存储）或者通过各种预构建连接器对其他数据来源进行联合查询，从而在 Amazon S3 中就地查询数据。</p>
+</blockquote>
+<p>这就是 3️⃣ 中 <code>Glue</code> 在做的事情。<br>而相关的 <code>Apache Spark</code>：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/athena/latest/ug/notebooks-spark.html">在 Amazon Athena 中使用 Apache Spark</a></p>
+<blockquote>
+<p>Amazon Athena 让您可以轻松使用 Apache Spark 以交互方式运行数据分析和探索，无需规划、配置或管理资源。在 Athena 上运行 Apache Spark 应用程序意味着，无需额外配置即可提交 Spark 代码进行处理和直接接收结果。您可以使用 Amazon Athena 控制台中简化的笔记本体验，以通过 Python 或 Athena notebook API 开发 Apache Spark 应用程序。Amazon Athena 上的 Apache Spark 无服务器，可通过提供即时计算实现自动按需扩展，从而满足不断变化的数据卷和处理要求。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：S3 + SQL &#x3D; Athena</p>
+</blockquote>
+<hr>
+<h3 id="十五、Cross-Account-Lambda"><a href="#十五、Cross-Account-Lambda" class="headerlink" title="十五、Cross Account Lambda"></a>十五、Cross Account Lambda</h3><p>A company needs to create an AWS Lambda function that will run in a VPC in the company’s primary AWS account. The Lambda function needs to access files that the company stores in an Amazon Elastic File System (Amazon EFS) file system. The EFS file system is located in a secondary AWS account. As the company adds files to the file system, the solution must scale to meet the demand.<br>Which solution will meet these requirements MOST cost-effectively?</p>
+<ol>
+<li>Create a new EFS file system in the primary account. Use AWS DataSync to copy the contents of the original EFS file system to the new EFS file system.</li>
+<li>✅ Create a VPC peering connection between the VPCs that are in the primary account and the secondary account.</li>
+<li>Create a second Lambda function in the secondary account that has a mount that is configured for the file system. Use the primary account’s Lambda function to invoke the secondary account’s Lambda function.</li>
+<li>❌ Move the contents of the file system to a Lambda layer. Configure the Lambda layer’s permissions to allow the company’s secondary account to use the Lambda layer.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/efs/latest/ug/manage-fs-access-vpc-peering.html">从其他EFS服务器挂载文件系统 AWS 账户 或 VPC</a></p>
+<blockquote>
+<p>您可以使用挂载帮助程序使用NFS客户端和EFS接入点的IAM授权来EFS挂载您的 Amazon EFS 文件系统。默认情况下，EFS挂载助手使用域名服务 (DNS) 来解析您的EFS挂载目标的 IP 地址。如果要从其他账户或虚拟私有云 (VPC) 挂载文件系统，则需要手动解析EFS挂载目标。</p>
+<p>接下来，您可以找到有关确定用于NFS客户端的正确EFS挂载目标 IP 地址的说明。您还可以找到有关将客户机配置为使用该 IP 地址挂载EFS文件系统的说明。</p>
+</blockquote>
+<p>可以提供 <code>EFS</code> 服务给其他 AWS 账号使用，因此这个问题从 <code>Lambda</code> 如何访问其他账号中的 <code>EFS</code> 变为了如何跨 <code>VPC</code> 访问。    </p>
+<p>顺便看下 <code>Lambda Layer</code>：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/lambda/latest/dg/chapter-layers.html">使用层管理 Lambda 依赖项</a></p>
+<blockquote>
+<p>Lambda 层是包含补充代码或数据的 .zip 文件存档。层通常包含库依赖项、自定义运行时系统或配置文件。<br>您可能会基于很多原因考虑使用层：</p>
+<ul>
+<li><strong>减小部署包的大小</strong>。与其将所有函数依赖项和函数代码都包含在部署包中，不如将其放在一个层中。这样可以减小部署包的大小并对其进行组织。</li>
+<li><strong>分离核心函数逻辑与依赖项</strong>。借助层，您无需使用函数代码即可更新函数依赖项，反之亦然。这有助于将二者分离，并帮助您专注于函数逻辑。</li>
+<li><strong>在多个函数之间共享依赖项</strong>。创建层后，您可以将其应用到账户中任意数量的函数。如果没有层，则需要在每个单独的部署包中包含相同的依赖项。</li>
+<li><strong>使用 Lambda 控制台代码编辑器</strong>。代码编辑器是快速测试次要功能代码更新的得力工具。但是，如果部署包过大，则无法使用编辑器。使用层可以减小部署包的大小，并解锁代码编辑器的用法。</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：B -&gt; VPC peering allows the Lambda access secondary account securely and efficiently<br>A -&gt; redundancy<br>C -&gt; additional complexity<br>D -&gt; sharing code libraries  </p>
+<p>You can configure a function to mount an Amazon EFS file system in another AWS account. Before you mount the file system, you must ensure the following:<br>VPC peering must be configured, and appropriate routes must be added to the route tables in each VPC.</p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/12/11</p><p><a href="https://senjianlu.com/2024/12/11/saa_test_daily_20241211/">https://senjianlu.com/2024/12/11/saa_test_daily_20241211/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-12-11</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-12-11</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/12/12/translate_news_nhk_20241212_k10014665421000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - 暗号資産の交換行う「コインチェックグループ」ナスダック上場</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/12/11/translate_news_nhk_20241211_k10014664321000/"><span class="level-item">日语翻译 - 新闻 - 副業や兼業する人の割増賃金ルール見直しへ 環境整備ねらい</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、SnowFamily-and-S3"><span class="level-left"><span class="level-item">一、SnowFamily and S3</span></span></a></li><li><a class="level is-mobile" href="#二、Route-53-Resolver"><span class="level-left"><span class="level-item">二、Route 53 Resolver</span></span></a></li><li><a class="level is-mobile" href="#三、Saving-Plans-coverage"><span class="level-left"><span class="level-item">三、Saving Plans coverage</span></span></a></li><li><a class="level is-mobile" href="#四、Default-Host-Configuration-Management"><span class="level-left"><span class="level-item">四、Default Host Configuration Management</span></span></a></li><li><a class="level is-mobile" href="#五、AWS-Direct-Connect-Gateway"><span class="level-left"><span class="level-item">五、AWS Direct Connect Gateway</span></span></a></li><li><a class="level is-mobile" href="#六、S3-Transfer-Acceleration"><span class="level-left"><span class="level-item">六、S3 Transfer Acceleration</span></span></a></li><li><a class="level is-mobile" href="#七、S3-Glacier-Flexible-Retrieval"><span class="level-left"><span class="level-item">七、S3 Glacier Flexible Retrieval</span></span></a></li><li><a class="level is-mobile" href="#八、LDAP"><span class="level-left"><span class="level-item">八、LDAP</span></span></a></li><li><a class="level is-mobile" href="#九、AWS-Storage-Gateway"><span class="level-left"><span class="level-item">九、AWS Storage Gateway</span></span></a></li><li><a class="level is-mobile" href="#十、AWS-Config"><span class="level-left"><span class="level-item">十、AWS Config</span></span></a></li><li><a class="level is-mobile" href="#十一、VPC-Lattice-service-network"><span class="level-left"><span class="level-item">十一、VPC Lattice service network</span></span></a></li><li><a class="level is-mobile" href="#十二、Amazon-ElastiCache-for-Redis"><span class="level-left"><span class="level-item">十二、Amazon ElastiCache for Redis</span></span></a></li><li><a class="level is-mobile" href="#十三、Amazon-Quantum-Ledger-Database"><span class="level-left"><span class="level-item">十三、Amazon Quantum Ledger Database</span></span></a></li><li><a class="level is-mobile" href="#十四、Amazon-Athena"><span class="level-left"><span class="level-item">十四、Amazon Athena</span></span></a></li><li><a class="level is-mobile" href="#十五、Cross-Account-Lambda"><span class="level-left"><span class="level-item">十五、Cross Account Lambda</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

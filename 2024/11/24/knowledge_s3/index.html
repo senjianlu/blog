@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>AWS 知识点 - S3 (Simple Storage Service) - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="AWS S3 相关知识点。"><meta property="og:type" content="article"><meta property="og:title" content="AWS 知识点 - S3 (Simple Storage Service)"><meta property="og:url" content="https://senjianlu.com/2024/11/24/knowledge_s3/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="AWS S3 相关知识点。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-11-26/aws.png"><meta property="article:published_time" content="2024-11-24T07:00:00.000Z"><meta property="article:modified_time" content="2024-11-24T07:30:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="SAP"><meta property="article:tag" content="S3"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-11-26/aws.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/11/24/knowledge_s3/"},"headline":"AWS 知识点 - S3 (Simple Storage Service)","image":["https://image.senjianlu.com/blog/2024-11-26/aws.png"],"datePublished":"2024-11-24T07:00:00.000Z","dateModified":"2024-11-24T07:30:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"AWS S3 相关知识点。"}</script><link rel="canonical" href="https://senjianlu.com/2024/11/24/knowledge_s3/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-11-24T07:00:00.000Z" title="11/24/2024, 3:00:00 PM">2024-11-24</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E7%9F%A5%E8%AF%86%E7%82%B9/">知识点</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">AWS 知识点 - S3 (Simple Storage Service)</h1><div class="content"><blockquote>
+<p>AWS S3 相关知识点。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<h1 id="Amazon-S3-概述"><a href="#Amazon-S3-概述" class="headerlink" title="Amazon S3 概述"></a>Amazon S3 概述</h1><h3 id="一、Amazon-S3-基本概念"><a href="#一、Amazon-S3-基本概念" class="headerlink" title="一、Amazon S3 基本概念"></a>一、Amazon S3 基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-24/150420.png" alt="Amazon S3 基本概念 01"><br><img src="https://image.senjianlu.com/blog/2024-11-24/150931.png" alt="Amazon S3 基本概念 02">  </p>
+<ul>
+<li>⭐ <strong><code>S3</code> 存储桶的名称必须是全球唯一的</strong></li>
+<li>存储桶的数据存储在单个 <code>区域</code> 中</li>
+<li>⭐ <strong>存储桶中的对象是没有层次结构的</strong>（目录是对象键的一部分）</li>
+<li><code>S3</code> 提供了强读写一致性<blockquote>
+<p><strong>强读写一致性</strong>：任何一次读都能读到某个数据的最近一次写的数据。<br><strong>弱读写一致性</strong>：数据更新后，如果能容忍后续的访问只能访问到部分或者全部访问不到，则是弱一致性。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="二、存储桶、文件夹和对象"><a href="#二、存储桶、文件夹和对象" class="headerlink" title="二、存储桶、文件夹和对象"></a>二、存储桶、文件夹和对象</h3><p><img src="https://image.senjianlu.com/blog/2024-11-24/151153.png" alt="存储桶、文件夹和对象 01"><br><img src="https://image.senjianlu.com/blog/2024-11-24/151318.png" alt="存储桶、文件夹和对象 02"></p>
+<h3 id="三、访问-Amazon-S3"><a href="#三、访问-Amazon-S3" class="headerlink" title="三、访问 Amazon S3"></a>三、访问 Amazon S3</h3><p><img src="https://image.senjianlu.com/blog/2024-11-24/151625.png" alt="访问 Amazon S3">  </p>
+<ul>
+<li><code>EC2</code> 实例可以通过 <code>互联网网关</code> 使用公有终端节点与 <code>S3</code> 进行通信</li>
+<li>⭐ <code>EC2</code> 实例也可以通过 <code>网关终端节点</code> 使用私有连接访问 <code>S3</code></li>
+</ul>
+<hr>
+<h1 id="S3-存储类别及成本优化"><a href="#S3-存储类别及成本优化" class="headerlink" title="S3 存储类别及成本优化"></a>S3 存储类别及成本优化</h1><h3 id="一、S3-的存储类别"><a href="#一、S3-的存储类别" class="headerlink" title="一、S3 的存储类别"></a>一、S3 的存储类别</h3><p><img src="https://image.senjianlu.com/blog/2024-11-24/152453.png" alt="S3 的存储类别"><br><img src="https://image.senjianlu.com/blog/2024-11-24/152602.png" alt="存储类别的详细区别">  </p>
+<ul>
+<li><code>S3 标准 (S3 Standard)</code>：常用用途</li>
+<li><code>S3 标准 - 不频繁访问存储 (S3 Standard-IA, S3 Standard-Infrequent Access)</code><ul>
+<li>适合存储不频繁访问的数据</li>
+<li>存储价格较低</li>
+<li>检索价格较高</li>
+<li>将数据存储在至少三个可用区中</li>
+</ul>
+</li>
+<li><code>S3 单区 - 不频繁访问存储 (S3 One Zone-IA, S3 One Zone-Infrequent Access)</code><blockquote>
+<p>例如可以用来存储图片缩略图。</p>
+</blockquote>
+<ul>
+<li>可以接受丢失数据</li>
+<li>存储价格更低，低于 <code>Amazon S3 Standard-IA</code></li>
+<li>将数据存储在<strong>单个可用区</strong>中</li>
+</ul>
+</li>
+<li><code>S3 智能分层 (S3 Intelligent-Tiering)</code><ul>
+<li>30 天没有访问的对象转移至 <code>S3 Standard-IA</code>，而如果你又重新访问了不频繁访问层的数据，这些对象又会被移动到 <code>S3 Standard</code></li>
+<li>非常适合存储访问模式未知或不断变化的数据</li>
+<li>每个对象每月会产生少量的监控和自动化费用</li>
+</ul>
+</li>
+<li><code>S3 Glacier Flexible Retrieval</code><ul>
+<li>低成本存储，专为数据归档而设计</li>
+<li>能够在几分钟到几小时内完成对象检索</li>
+</ul>
+</li>
+<li><code>S3 Glacier Deep Archive</code><blockquote>
+<p>可以作为磁带的替代方案。</p>
+</blockquote>
+<ul>
+<li>适合保存每年只访问一两次的数据</li>
+<li>数据检索时间为 12 小时到 48 小时</li>
+<li>成本最低的对象存储类</li>
+</ul>
+</li>
+</ul>
+<h3 id="二、S3-存储类型使用场景"><a href="#二、S3-存储类型使用场景" class="headerlink" title="二、S3 存储类型使用场景"></a>二、S3 存储类型使用场景</h3><p><img src="https://image.senjianlu.com/blog/2024-11-24/153119.png" alt="S3 存储类型使用场景">  </p>
+<h3 id="三、S3-成本优化"><a href="#三、S3-成本优化" class="headerlink" title="三、S3 成本优化"></a>三、S3 成本优化</h3><p><img src="https://image.senjianlu.com/blog/2024-11-24/153828.png" alt="S3 成本优化">  </p>
+<ul>
+<li>⭐ 使用 <code>S3 Select</code> 和 <code>Glacier Select</code> 节省 CPU 和网络成本<blockquote>
+<p><code>S3 Select</code>：使用结构化查询语言 (SQL) 语句筛选 <code>Amazon S3</code> 对象的内容，并仅检索所需的部分数据。<br><code>Glacier Select</code>：允许直接对存储在 <code>Amazon Glacier</code> 中的数据运行查询，从而只从您的存档中检索所需数据来用于分析。</p>
+</blockquote>
+</li>
+<li>使用 <code>S3</code> 生命周期策略 (Lifecycle rules) 在存储层（类）之间自动移动数据</li>
+<li>请求方付费 (S3 Requester Pays)</li>
+</ul>
+<hr>
+<h1 id="IAM-策略、存储桶策略和-ACL"><a href="#IAM-策略、存储桶策略和-ACL" class="headerlink" title="IAM 策略、存储桶策略和 ACL"></a>IAM 策略、存储桶策略和 ACL</h1><h3 id="一、IAM-策略"><a href="#一、IAM-策略" class="headerlink" title="一、IAM 策略"></a>一、IAM 策略</h3><p><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_policy_iam.png" alt="IAM 策略">  </p>
+<ul>
+<li>⭐ <strong>在 <code>IAM</code> 策略中，Principal 元素是不需要的</strong><blockquote>
+<p>在基于资源的 JSON 策略中使用 Principal 元素指定<u><strong>允许或拒绝访问资源的主体（谁）</strong></u>。<br>基于身份的策略是附加到 IAM 身份（用户、群体或角色）的权限策略。在这些策略中，附加了策略的身份即是主体的身份。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="二、存储桶策略-Bucket-Policy"><a href="#二、存储桶策略-Bucket-Policy" class="headerlink" title="二、存储桶策略 (Bucket Policy)"></a>二、存储桶策略 (Bucket Policy)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_policy_bucket.png" alt="存储桶策略">  </p>
+<ul>
+<li>⭐ <strong>存储桶策略 (Bucket Policy) 可以跨 AWS 账号</strong></li>
+</ul>
+<h3 id="三、S3-访问控制列表-ACL"><a href="#三、S3-访问控制列表-ACL" class="headerlink" title="三、S3 访问控制列表 (ACL)"></a>三、S3 访问控制列表 (ACL)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_policy_acl.png" alt="S3 访问控制列表 (ACL)">  </p>
+<ul>
+<li>⚠ 它是早于 <code>IAM</code> 的访问控制机制</li>
+<li>⭐ <strong>S3 访问控制列表 (ACL) 不仅可以应用到存储桶，还可以直接应用到存储桶中的对象上</strong></li>
+</ul>
+<h3 id="四、各访问控制机制与其适合的场景"><a href="#四、各访问控制机制与其适合的场景" class="headerlink" title="四、各访问控制机制与其适合的场景"></a>四、各访问控制机制与其适合的场景</h3><p><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_policy_iam_and_bucket.png" alt="各访问控制机制与其适合的场景"></p>
+<h3 id="五、⭐-授权过程"><a href="#五、⭐-授权过程" class="headerlink" title="五、⭐ 授权过程"></a>五、⭐ 授权过程</h3><p><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_policy_step.png" alt="授权过程"></p>
+<ul>
+<li>⭐ <strong>除了显示允许的策略，其他策略都拒绝</strong></li>
+</ul>
+<hr>
+<h1 id="S3-版本控制、复制和生命周期配置"><a href="#S3-版本控制、复制和生命周期配置" class="headerlink" title="S3 版本控制、复制和生命周期配置"></a>S3 版本控制、复制和生命周期配置</h1><h3 id="一、S3-版本控制-Versioning"><a href="#一、S3-版本控制-Versioning" class="headerlink" title="一、S3 版本控制 (Versioning)"></a>一、S3 版本控制 (Versioning)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_versioning.png" alt="S3 版本控制 (Versioning)"></p>
+<h3 id="二、S3-复制-Replication"><a href="#二、S3-复制-Replication" class="headerlink" title="二、S3 复制 (Replication)"></a>二、S3 复制 (Replication)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_replication.png" alt="S3 复制 (Replication)"></p>
+<ul>
+<li>⭐ <strong>S3 复制 (Replication) 前提是开启了 S3 版本控制</strong></li>
+</ul>
+<h3 id="三、S3-生命周期配置"><a href="#三、S3-生命周期配置" class="headerlink" title="三、S3 生命周期配置"></a>三、S3 生命周期配置</h3><p><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_lifestyle_01.png" alt="S3 生命周期配置支持的转换"><br><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_lifestyle_02.png" alt="S3 生命周期配置不支持的转换">  </p>
+<hr>
+<h1 id="S3-加密"><a href="#S3-加密" class="headerlink" title="S3 加密"></a>S3 加密</h1><h3 id="一、S3-加密类型"><a href="#一、S3-加密类型" class="headerlink" title="一、S3 加密类型"></a>一、S3 加密类型</h3><p><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_encryption_01.png" alt="S3 加密类型 01"><br><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_encryption_02.png" alt="S3 加密类型 02">  </p>
+<h3 id="二、S3-默认加密配置"><a href="#二、S3-默认加密配置" class="headerlink" title="二、S3 默认加密配置"></a>二、S3 默认加密配置</h3><p><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_default_encryption.png" alt="S3 默认加密配置"></p>
+<ul>
+<li>⚠ <strong>启用默认加密之前就已经上传到存储桶的对象，其加密状态不会更改</strong></li>
+</ul>
+<h3 id="三、阻止上传未加密的对象"><a href="#三、阻止上传未加密的对象" class="headerlink" title="三、阻止上传未加密的对象"></a>三、阻止上传未加密的对象</h3><p><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_deny.png" alt="阻止上传未加密的对象"></p>
+<hr>
+<h1 id="使用-S3-预签名-URL-共享对象"><a href="#使用-S3-预签名-URL-共享对象" class="headerlink" title="使用 S3 预签名 URL 共享对象"></a>使用 S3 预签名 URL 共享对象</h1><h3 id="一、使用-S3-预签名-URL-共享对象基本概念"><a href="#一、使用-S3-预签名-URL-共享对象基本概念" class="headerlink" title="一、使用 S3 预签名 URL 共享对象基本概念"></a>一、使用 S3 预签名 URL 共享对象基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-28/aws_presign.png" alt="使用 S3 预签名 URL 共享对象基本概念"></p>
+<hr>
+<h1 id="S3-分段上传-Multipart-Upload-和传输加速-Transfer-Acceleration"><a href="#S3-分段上传-Multipart-Upload-和传输加速-Transfer-Acceleration" class="headerlink" title="S3 分段上传 (Multipart Upload) 和传输加速 (Transfer Acceleration)"></a>S3 分段上传 (Multipart Upload) 和传输加速 (Transfer Acceleration)</h1><h3 id="一、S3-分段上传-Multipart-Upload-基本概念"><a href="#一、S3-分段上传-Multipart-Upload-基本概念" class="headerlink" title="一、S3 分段上传 (Multipart Upload) 基本概念"></a>一、S3 分段上传 (Multipart Upload) 基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_multipart_upload.png" alt="分段上传 (Multipart Upload) 基本概念"></p>
+<h3 id="二、S3-传输加速-Transfer-Acceleration"><a href="#二、S3-传输加速-Transfer-Acceleration" class="headerlink" title="二、S3 传输加速 (Transfer Acceleration)"></a>二、S3 传输加速 (Transfer Acceleration)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_transfer_acceleration.png" alt="S3 传输加速 (Transfer Acceleration)"></p>
+<ul>
+<li>⭐ <strong>在存储桶级别启用传输加速功能</strong></li>
+</ul>
+<hr>
+<h1 id="S3-Select-和-Glacier-Select"><a href="#S3-Select-和-Glacier-Select" class="headerlink" title="S3 Select 和 Glacier Select"></a>S3 Select 和 Glacier Select</h1><h3 id="一、S3-Select-和-Glacier-Select-基本概念"><a href="#一、S3-Select-和-Glacier-Select-基本概念" class="headerlink" title="一、S3 Select 和 Glacier Select 基本概念"></a>一、S3 Select 和 Glacier Select 基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_select.png" alt="S3 Select 和 Glacier Select 基本概念"></p>
+<ul>
+<li>⭐ 截至 2024 年末，<code>S3 Select</code> 已经不再向新的 AWS 用户提供，推荐使用功能更强大的 <code>Amazon Athena</code><blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/athena/latest/ug/what-is.html">什么是 Amazon Athena？</a></p>
+<blockquote>
+<p>Amazon Athena 是一种交互式查询服务，让您能够轻松使用标准 SQL 直接分析 Amazon Simple Storage Service (Amazon S3) 中的数据。只需在 AWS Management Console 中执行几项操作，即可将 Athena 指向 Amazon S3 中存储的数据，并开始使用标准 SQL 运行临时查询，然后在几秒钟内获得结果。</p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h1 id="S3-服务器访问日志记录"><a href="#S3-服务器访问日志记录" class="headerlink" title="S3 服务器访问日志记录"></a>S3 服务器访问日志记录</h1><h3 id="一、S3-服务器访问日志记录基本概念"><a href="#一、S3-服务器访问日志记录基本概念" class="headerlink" title="一、S3 服务器访问日志记录基本概念"></a>一、S3 服务器访问日志记录基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_log.png" alt="S3 服务器访问日志记录基本概念"><br><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_log_acl.png" alt="在目标存储桶上赋予 S3 日志传输组写入权限"></p>
+<hr>
+<h1 id="S3-跨账户访问"><a href="#S3-跨账户访问" class="headerlink" title="S3 跨账户访问"></a>S3 跨账户访问</h1><h3 id="一、S3-跨账户访问基本概念"><a href="#一、S3-跨账户访问基本概念" class="headerlink" title="一、S3 跨账户访问基本概念"></a>一、S3 跨账户访问基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_across_accounts.png" alt="S3 跨账户访问基本概念"></p>
+<h3 id="二、S3-跨账户访问场景"><a href="#二、S3-跨账户访问场景" class="headerlink" title="二、S3 跨账户访问场景"></a>二、S3 跨账户访问场景</h3><p><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_across_accounts_example.png" alt="S3 跨账户访问场景"></p>
+<hr>
+<h1 id="架构模式之亚马逊-S3"><a href="#架构模式之亚马逊-S3" class="headerlink" title="架构模式之亚马逊 S3"></a>架构模式之亚马逊 S3</h1><p><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_01.png" alt="架构模式之亚马逊 S3 01"><br><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_02.png" alt="架构模式之亚马逊 S3 02"><br><img src="https://image.senjianlu.com/blog/2024-11-28/aws_s3_03.png" alt="架构模式之亚马逊 S3 03">  </p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>AWS 知识点 - S3 (Simple Storage Service)</p><p><a href="https://senjianlu.com/2024/11/24/knowledge_s3/">https://senjianlu.com/2024/11/24/knowledge_s3/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-11-24</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-11-24</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/SAP/">SAP</a><a class="link-muted mr-2" rel="tag" href="/tags/S3/">S3</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/11/24/hands_on_s3/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">AWS 实操 - S3 (Simple Storage Service)</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/11/24/translate_news_nhk_20241123_k10014647531000/"><span class="level-item">日语翻译 - 新闻 - 東海道新幹線 ダイヤの乱れ続く 2時間以上の遅れも</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#Amazon-S3-概述"><span class="level-left"><span class="level-item">Amazon S3 概述</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、Amazon-S3-基本概念"><span class="level-left"><span class="level-item">一、Amazon S3 基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、存储桶、文件夹和对象"><span class="level-left"><span class="level-item">二、存储桶、文件夹和对象</span></span></a></li><li><a class="level is-mobile" href="#三、访问-Amazon-S3"><span class="level-left"><span class="level-item">三、访问 Amazon S3</span></span></a></li></ul></li><li><a class="level is-mobile" href="#S3-存储类别及成本优化"><span class="level-left"><span class="level-item">S3 存储类别及成本优化</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、S3-的存储类别"><span class="level-left"><span class="level-item">一、S3 的存储类别</span></span></a></li><li><a class="level is-mobile" href="#二、S3-存储类型使用场景"><span class="level-left"><span class="level-item">二、S3 存储类型使用场景</span></span></a></li><li><a class="level is-mobile" href="#三、S3-成本优化"><span class="level-left"><span class="level-item">三、S3 成本优化</span></span></a></li></ul></li><li><a class="level is-mobile" href="#IAM-策略、存储桶策略和-ACL"><span class="level-left"><span class="level-item">IAM 策略、存储桶策略和 ACL</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、IAM-策略"><span class="level-left"><span class="level-item">一、IAM 策略</span></span></a></li><li><a class="level is-mobile" href="#二、存储桶策略-Bucket-Policy"><span class="level-left"><span class="level-item">二、存储桶策略 (Bucket Policy)</span></span></a></li><li><a class="level is-mobile" href="#三、S3-访问控制列表-ACL"><span class="level-left"><span class="level-item">三、S3 访问控制列表 (ACL)</span></span></a></li><li><a class="level is-mobile" href="#四、各访问控制机制与其适合的场景"><span class="level-left"><span class="level-item">四、各访问控制机制与其适合的场景</span></span></a></li><li><a class="level is-mobile" href="#五、⭐-授权过程"><span class="level-left"><span class="level-item">五、⭐ 授权过程</span></span></a></li></ul></li><li><a class="level is-mobile" href="#S3-版本控制、复制和生命周期配置"><span class="level-left"><span class="level-item">S3 版本控制、复制和生命周期配置</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、S3-版本控制-Versioning"><span class="level-left"><span class="level-item">一、S3 版本控制 (Versioning)</span></span></a></li><li><a class="level is-mobile" href="#二、S3-复制-Replication"><span class="level-left"><span class="level-item">二、S3 复制 (Replication)</span></span></a></li><li><a class="level is-mobile" href="#三、S3-生命周期配置"><span class="level-left"><span class="level-item">三、S3 生命周期配置</span></span></a></li></ul></li><li><a class="level is-mobile" href="#S3-加密"><span class="level-left"><span class="level-item">S3 加密</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、S3-加密类型"><span class="level-left"><span class="level-item">一、S3 加密类型</span></span></a></li><li><a class="level is-mobile" href="#二、S3-默认加密配置"><span class="level-left"><span class="level-item">二、S3 默认加密配置</span></span></a></li><li><a class="level is-mobile" href="#三、阻止上传未加密的对象"><span class="level-left"><span class="level-item">三、阻止上传未加密的对象</span></span></a></li></ul></li><li><a class="level is-mobile" href="#使用-S3-预签名-URL-共享对象"><span class="level-left"><span class="level-item">使用 S3 预签名 URL 共享对象</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、使用-S3-预签名-URL-共享对象基本概念"><span class="level-left"><span class="level-item">一、使用 S3 预签名 URL 共享对象基本概念</span></span></a></li></ul></li><li><a class="level is-mobile" href="#S3-分段上传-Multipart-Upload-和传输加速-Transfer-Acceleration"><span class="level-left"><span class="level-item">S3 分段上传 (Multipart Upload) 和传输加速 (Transfer Acceleration)</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、S3-分段上传-Multipart-Upload-基本概念"><span class="level-left"><span class="level-item">一、S3 分段上传 (Multipart Upload) 基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、S3-传输加速-Transfer-Acceleration"><span class="level-left"><span class="level-item">二、S3 传输加速 (Transfer Acceleration)</span></span></a></li></ul></li><li><a class="level is-mobile" href="#S3-Select-和-Glacier-Select"><span class="level-left"><span class="level-item">S3 Select 和 Glacier Select</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、S3-Select-和-Glacier-Select-基本概念"><span class="level-left"><span class="level-item">一、S3 Select 和 Glacier Select 基本概念</span></span></a></li></ul></li><li><a class="level is-mobile" href="#S3-服务器访问日志记录"><span class="level-left"><span class="level-item">S3 服务器访问日志记录</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、S3-服务器访问日志记录基本概念"><span class="level-left"><span class="level-item">一、S3 服务器访问日志记录基本概念</span></span></a></li></ul></li><li><a class="level is-mobile" href="#S3-跨账户访问"><span class="level-left"><span class="level-item">S3 跨账户访问</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、S3-跨账户访问基本概念"><span class="level-left"><span class="level-item">一、S3 跨账户访问基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、S3-跨账户访问场景"><span class="level-left"><span class="level-item">二、S3 跨账户访问场景</span></span></a></li></ul></li><li><a class="level is-mobile" href="#架构模式之亚马逊-S3"><span class="level-left"><span class="level-item">架构模式之亚马逊 S3</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

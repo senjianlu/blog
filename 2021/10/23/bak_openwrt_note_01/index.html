@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>【归档文章】定制 OpenWrt 软路由系统（一）从源码开始编译第一个系统固件 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="关于 OpenWrt 软路由系统的学习笔记。   注：这篇文章是从旧的博客系统中迁移过来的、我觉得还存在价值的文章。但是由于时间关系，可能已经不再是最佳实践，请仅作参考。"><meta property="og:type" content="article"><meta property="og:title" content="【归档文章】定制 OpenWrt 软路由系统（一）从源码开始编译第一个系统固件"><meta property="og:url" content="https://senjianlu.com/2021/10/23/bak_openwrt_note_01/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="关于 OpenWrt 软路由系统的学习笔记。   注：这篇文章是从旧的博客系统中迁移过来的、我觉得还存在价值的文章。但是由于时间关系，可能已经不再是最佳实践，请仅作参考。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-05/openwrt.png"><meta property="article:published_time" content="2021-10-23T01:00:00.000Z"><meta property="article:modified_time" content="2021-10-23T01:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="归档文章"><meta property="article:tag" content="長城を越える"><meta property="article:tag" content="OpenWrt"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-05/openwrt.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2021/10/23/bak_openwrt_note_01/"},"headline":"【归档文章】定制 OpenWrt 软路由系统（一）从源码开始编译第一个系统固件","image":["https://image.senjianlu.com/blog/2024-09-05/openwrt.png"],"datePublished":"2021-10-23T01:00:00.000Z","dateModified":"2021-10-23T01:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"关于 OpenWrt 软路由系统的学习笔记。   注：这篇文章是从旧的博客系统中迁移过来的、我觉得还存在价值的文章。但是由于时间关系，可能已经不再是最佳实践，请仅作参考。"}</script><link rel="canonical" href="https://senjianlu.com/2021/10/23/bak_openwrt_note_01/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-10-23T01:00:00.000Z" title="10/23/2021, 9:00:00 AM">2021-10-23</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E5%90%84%E7%A7%8D%E6%95%99%E7%A8%8B/">各种教程</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">【归档文章】定制 OpenWrt 软路由系统（一）从源码开始编译第一个系统固件</h1><div class="content"><blockquote>
+<p>关于 OpenWrt 软路由系统的学习笔记。 </p>
+</blockquote>
+<p><u><em>注：这篇文章是从旧的博客系统中迁移过来的、我觉得还存在价值的文章。但是由于时间关系，可能已经不再是最佳实践，请仅作参考。</em></u></p>
+<span id="more"></span>
+
+<p>第一次完全按照视频教程装了爱快和 LEDE 双软路由系统，当时只是为了实现功能而完全没有考虑安全性和整个系统是否过于臃肿的问题，但是在使用了近 2 年之后，看了下 LEDE 页面完全没有点开过的大半菜单选项，于是决定根据需求定制下属于自己的 OpenWrt 系统固件。<br><u><strong>对于 OpenWrt 系统我的需求就两个：1、干净整洁；2、可以实现路由器端的科学上网，这里我选用的插件是 Clash。​</strong></u><br><em>小提一句，LEDE 是 OpenWrt 在 2016 年 5 月后被新建的一条分支，但是由于之后 OpenWrt 的大量开发人员选择参与 LEDE 项目，经历长时间的两边维护后，于 2018 年 2 月 LEDE 又合并回了 OpenWrt 的主分支内，因此现在编译 OpenWrt 即可，不用再去管 LEDE 了。</em>  </p>
+<p>本章主要参考教程为：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ZMh-AvQV8n0">打造一个专属于你的软路由系统，让它好用十倍！</a>  </p>
+<hr>
+<h4 id="1、安装一个-Ubuntu-系统"><a href="#1、安装一个-Ubuntu-系统" class="headerlink" title="1、安装一个 Ubuntu 系统"></a>1、安装一个 Ubuntu 系统</h4><p>截至 2021-10-23 GitHub 项目的 README.md 上已经开始推荐 Ubuntu 20.04 LTS x64 系统，因为升级了 Windows11 的关系，直接使用 WSL2 安装个 Linux 虚拟机即可。  </p>
+<blockquote>
+<p>关于<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package"> Windows 11 如何开启 WSL2 </a>并安装 Linux 子系统，稍微记录一下。  </p>
+<ol>
+<li>Win + X 键打开 Windos 终端（管理员）并执行：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开启 Linux 子系统功能</span></span><br><span class="line">dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</span><br><span class="line"><span class="comment"># 开启虚拟机功能</span></span><br><span class="line">dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>在微软商店搜索并下载 Ubuntu 20.04 TLS 系统（发行版可根据自己需求更换）：<br><img src="https://image.senjianlu.com/blog/2024-09-05/63d21015584a3.png" alt="搜索">  </li>
+<li>安装、打开，然后设置用户密码：<br><img src="https://image.senjianlu.com/blog/2024-09-05/63d208f264040.png" alt="打开">  </li>
+<li>设置磁盘映射，Linux 子系统默认的路径如下（用户和 Linux 发行版自行替换）：<br><strong>注意：在这个目录下你会看到一个磁盘映射文件，因为涉及到文件编码格式的不同，官方是不推荐跨系统做文件管理的，但单纯的从 Linux 子系统中拷贝编译后的文件出来是没问题的。​</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\$用户\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu20.04onWindows_79rhkp1fndgsc\LocalState</span><br></pre></td></tr></table></figure></blockquote>
+<p><img src="https://image.senjianlu.com/blog/2024-09-05/63d208d2b17a1.png" alt="用户目录"></p>
+<h4 id="2、更新软件源并安装编译所需依赖"><a href="#2、更新软件源并安装编译所需依赖" class="headerlink" title="2、更新软件源并安装编译所需依赖"></a>2、更新软件源并安装编译所需依赖</h4><p>需要注意的是部分包境内下载速度缓慢，这一步最好在全局科学情况下执行。<br>更新软件源：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get update</span><br></pre></td></tr></table></figure>
+<p>安装编译所需依赖：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、克隆代码"><a href="#3、克隆代码" class="headerlink" title="3、克隆代码"></a>3、克隆代码</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/coolsnowwolf/lede</span><br></pre></td></tr></table></figure>
+
+<h4 id="4、执行编译前准备工作"><a href="#4、执行编译前准备工作" class="headerlink" title="4、执行编译前准备工作"></a>4、执行编译前准备工作</h4><p>也都是官方文档的代码，直接拷贝执行：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> lede</span><br><span class="line">./scripts/feeds update -a</span><br><span class="line">./scripts/feeds install -a</span><br></pre></td></tr></table></figure>
+
+<h4 id="5、接下来配置软路由系统"><a href="#5、接下来配置软路由系统" class="headerlink" title="5、接下来配置软路由系统"></a>5、接下来配置软路由系统</h4><p>这一步是较为关键的，直接决定了编译出来系统的架构和里面所包含的插件，因为是第一章只编译一个最基础的软路由系统固件，因此不会包含插件信息单单只做架构为 x86 的配置。<br>执行：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make menuconfig</span><br></pre></td></tr></table></figure>
+<p>到图形化界面，发现前 3 项已经配置好了 x86_64 的架构设置，那么就不用动了，保存退出即可。<br><img src="https://image.senjianlu.com/blog/2024-09-05/63d20f3ecba1a.png" alt="不用变更">  </p>
+<h4 id="6、下载-dl-库"><a href="#6、下载-dl-库" class="headerlink" title="6、下载 dl 库"></a>6、下载 dl 库</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make -j8 download V=s</span><br></pre></td></tr></table></figure>
+
+<h4 id="7、打包编译"><a href="#7、打包编译" class="headerlink" title="7、打包编译"></a>7、打包编译</h4><p>-j1 参数意为单线程编译，官方文档推荐第一次使用单线程，但其实后续编译不再需要下很多包因此速度会提升很多，继续使用单线程也无妨。<br>执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make -j1 V=s</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这里需要注意的是，如果你和我一样使用的是 WSL 或者 WSL2 进行编译，由于部分 PATH 中路径包含带空格的 Windows 路径，很可能会导致编译失败，因此请执行下面的命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin make -j1 V=s</span><br></pre></td></tr></table></figure></blockquote>
+<p>我的 CPU 是 3700X，这一步的单线程编译了 6 个小时左右，最后如下图显示就说明编译结束了：<br><img src="https://image.senjianlu.com/blog/2024-09-05/63d20fc77cc5a.png" alt="编译结束">  </p>
+<h4 id="8、拷贝编译完的固件"><a href="#8、拷贝编译完的固件" class="headerlink" title="8、拷贝编译完的固件"></a>8、拷贝编译完的固件</h4><p>Window11 的 ESL2 会自动生成磁盘映射方便访问，直接进入即可。<br><img src="https://image.senjianlu.com/blog/2024-09-05/63d207fb0079a.png" alt="磁盘映射"><br>路径如下（用户名请自行替换）：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\\wsl.localhost\Ubuntu-20.04\home\$用户\lede\bin\targets\x86\64</span><br></pre></td></tr></table></figure>
+<p>选 openwrt-x86-64-generic-squashfs-combined-efi.img 即可：<br><img src="https://image.senjianlu.com/blog/2024-09-05/63d20b899f268.png" alt="成果物"><br>因为我的软路由系统是跑在 PVE 平台上的，因此使用 Xftp 上传下即可，因为是 .img 文件，还需要做一次 img2kvm 直接写成可挂载硬盘的操作，直接上传至 &#x2F;root 目录下即可。</p>
+<blockquote>
+<p>附带说一句，PVE 下用以存储 .iso 文件的路径如下：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/var/lib/vz/template/iso/</span><br></pre></td></tr></table></figure>
+<p>这个目录下的操作系统镜像文件可以在 PVE 控制面板新建虚拟机时直接进行选择。</p>
+</blockquote>
+<h4 id="9、测试安装"><a href="#9、测试安装" class="headerlink" title="9、测试安装"></a>9、测试安装</h4><p>先在 PVE 端创建个操作系统不使用任何介质、先不配置任何网络设备的空虚拟机：<br><img src="https://image.senjianlu.com/blog/2024-09-05/63d20d0542603.png" alt="空虚拟机"><br>再使用 img2kvm 工具将编译后的系统镜像写成可挂载硬盘：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./img2kvm openwrt-x86-64-generic-squashfs-combined-efi.img 103 vm-103-disk-1</span><br></pre></td></tr></table></figure>
+<p>写完之后会看见一个新盘被挂载到了虚拟机，直接添加，然后在选项 → 引导顺序中更改为从新盘启动：<br><img src="https://image.senjianlu.com/blog/2024-09-05/63d20a0839751.png" alt="引导顺序"><br>接着启动虚拟机并切换至控制台准备更改管理面板 IP（这里可能需要按下回车）：<br><img src="https://image.senjianlu.com/blog/2024-09-05/63d20bba55b02.png" alt="准备更改管理面板 IP"><br>更新配置文件：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/config/network</span><br></pre></td></tr></table></figure>
+<p>将第 15 行的 192.168.1.1 更改为你需要的 IP 地址即可：<br><img src="https://image.senjianlu.com/blog/2024-09-05/63d200792ca3a.png" alt="第 15 行"><br>之后重启。<br>最后看下你之前 LEDE 软路由的网络设备是什么样的配置，抄一份在硬件处添加：<br><img src="https://image.senjianlu.com/blog/2024-09-05/63d2007a4cb7d.png" alt="添加网络设备"><br>接着重启并访问配置了的 IP 地址：<br><img src="https://image.senjianlu.com/blog/2024-09-05/2021-10-24-120915.png" alt="访问"><br>这里的密码需要去控制台里更改：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd root</span><br></pre></td></tr></table></figure>
+<p>接着登录即可：<br><img src="https://image.senjianlu.com/blog/2024-09-05/2021-10-24-121019.png" alt="登录"><br>看到还是有一些插件被默认添加了，下一章对插件的自定义会尝试去除。  </p>
+<p>本章结束。</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>【归档文章】定制 OpenWrt 软路由系统（一）从源码开始编译第一个系统固件</p><p><a href="https://senjianlu.com/2021/10/23/bak_openwrt_note_01/">https://senjianlu.com/2021/10/23/bak_openwrt_note_01/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2021-10-23</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2021-10-23</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E5%BD%92%E6%A1%A3%E6%96%87%E7%AB%A0/">归档文章</a><a class="link-muted mr-2" rel="tag" href="/tags/%E9%95%B7%E5%9F%8E%E3%82%92%E8%B6%8A%E3%81%88%E3%82%8B/">長城を越える</a><a class="link-muted mr-2" rel="tag" href="/tags/OpenWrt/">OpenWrt</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2021/10/24/bak_pve_openwrt_ikuai/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">【归档文章】PVE 下 OpenWrt 纯净系统 + 爱快双软路由部署配置文件的整理</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2021/10/10/bak_github_action_push_to_docker_hub/"><span class="level-item">【归档文章】GitHub Action 自动构建项目容器镜像并 Push 到官方 Docker Hub</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#1、安装一个-Ubuntu-系统"><span class="level-left"><span class="level-item">1、安装一个 Ubuntu 系统</span></span></a></li><li><a class="level is-mobile" href="#2、更新软件源并安装编译所需依赖"><span class="level-left"><span class="level-item">2、更新软件源并安装编译所需依赖</span></span></a></li><li><a class="level is-mobile" href="#3、克隆代码"><span class="level-left"><span class="level-item">3、克隆代码</span></span></a></li><li><a class="level is-mobile" href="#4、执行编译前准备工作"><span class="level-left"><span class="level-item">4、执行编译前准备工作</span></span></a></li><li><a class="level is-mobile" href="#5、接下来配置软路由系统"><span class="level-left"><span class="level-item">5、接下来配置软路由系统</span></span></a></li><li><a class="level is-mobile" href="#6、下载-dl-库"><span class="level-left"><span class="level-item">6、下载 dl 库</span></span></a></li><li><a class="level is-mobile" href="#7、打包编译"><span class="level-left"><span class="level-item">7、打包编译</span></span></a></li><li><a class="level is-mobile" href="#8、拷贝编译完的固件"><span class="level-left"><span class="level-item">8、拷贝编译完的固件</span></span></a></li><li><a class="level is-mobile" href="#9、测试安装"><span class="level-left"><span class="level-item">9、测试安装</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>
