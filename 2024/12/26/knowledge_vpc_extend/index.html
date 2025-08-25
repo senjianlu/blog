@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>AWS 知识点 - 亚马逊虚拟私有云 (Amazon Virtual Private Cloud, VPC) - 拓展（针对 SAP-C02 认证） - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="借助 Amazon Virtual Private Cloud (Amazon VPC)，您可以在自己定义的逻辑隔离的虚拟网络中启动 AWS 资源。这个虚拟网络与您在数据中心中运行的传统网络极其相似，并会为您提供使用 AWS 的可扩展基础设施的优势。"><meta property="og:type" content="article"><meta property="og:title" content="AWS 知识点 - 亚马逊虚拟私有云 (Amazon Virtual Private Cloud, VPC) - 拓展（针对 SAP-C02 认证）"><meta property="og:url" content="https://senjianlu.com/2024/12/26/knowledge_vpc_extend/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="借助 Amazon Virtual Private Cloud (Amazon VPC)，您可以在自己定义的逻辑隔离的虚拟网络中启动 AWS 资源。这个虚拟网络与您在数据中心中运行的传统网络极其相似，并会为您提供使用 AWS 的可扩展基础设施的优势。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-11-26/aws.png"><meta property="article:published_time" content="2024-12-26T00:00:00.000Z"><meta property="article:modified_time" content="2024-12-26T01:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="SAP"><meta property="article:tag" content="VPC"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-11-26/aws.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/12/26/knowledge_vpc_extend/"},"headline":"AWS 知识点 - 亚马逊虚拟私有云 (Amazon Virtual Private Cloud, VPC) - 拓展（针对 SAP-C02 认证）","image":["https://image.senjianlu.com/blog/2024-11-26/aws.png"],"datePublished":"2024-12-26T00:00:00.000Z","dateModified":"2024-12-26T01:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"借助 Amazon Virtual Private Cloud (Amazon VPC)，您可以在自己定义的逻辑隔离的虚拟网络中启动 AWS 资源。这个虚拟网络与您在数据中心中运行的传统网络极其相似，并会为您提供使用 AWS 的可扩展基础设施的优势。"}</script><link rel="canonical" href="https://senjianlu.com/2024/12/26/knowledge_vpc_extend/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-12-26T00:00:00.000Z" title="12/26/2024, 8:00:00 AM">2024-12-26</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E7%9F%A5%E8%AF%86%E7%82%B9/">知识点</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">AWS 知识点 - 亚马逊虚拟私有云 (Amazon Virtual Private Cloud, VPC) - 拓展（针对 SAP-C02 认证）</h1><div class="content"><blockquote>
+<p>借助 Amazon Virtual Private Cloud (Amazon VPC)，您可以在自己定义的逻辑隔离的虚拟网络中启动 AWS 资源。<br>这个虚拟网络与您在数据中心中运行的传统网络极其相似，并会为您提供使用 AWS 的可扩展基础设施的优势。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<h1 id="AWS-PrivateLink"><a href="#AWS-PrivateLink" class="headerlink" title="AWS PrivateLink"></a>AWS PrivateLink</h1><h3 id="一、AWS-PrivateLink-基本概念"><a href="#一、AWS-PrivateLink-基本概念" class="headerlink" title="一、AWS PrivateLink 基本概念"></a>一、AWS PrivateLink 基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-12-27/aws_privatelink_01.png" alt="AWS PrivateLink 基本概念"></p>
+<ul>
+<li>⭐ <strong>通过为自己的应用程序配置终端节点，使其他用户可以通过 AWS 的私有访问访问它</strong></li>
+<li>⭐ <strong>其他用户需要通过创建 VPC 接口终端节点 (Interface VPC Endpoint) 来访问应用程序</strong></li>
+</ul>
+<h3 id="二、使用-PrivateLink-的集中化进行-Web-访问过滤的解决方案"><a href="#二、使用-PrivateLink-的集中化进行-Web-访问过滤的解决方案" class="headerlink" title="二、使用 PrivateLink 的集中化进行 Web 访问过滤的解决方案"></a>二、使用 PrivateLink 的集中化进行 Web 访问过滤的解决方案</h3><p><img src="https://image.senjianlu.com/blog/2024-12-27/aws_privatelink_02.png" alt="PrivateLink 使用案例"></p>
+<hr>
+<h1 id="AWS-与本地网络间的高可用连接方案"><a href="#AWS-与本地网络间的高可用连接方案" class="headerlink" title="AWS 与本地网络间的高可用连接方案"></a>AWS 与本地网络间的高可用连接方案</h1><h3 id="一、连接高可用的基本概念"><a href="#一、连接高可用的基本概念" class="headerlink" title="一、连接高可用的基本概念"></a>一、连接高可用的基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-12-27/aws_network_ha_01.png" alt="连接高可用的基本概念"></p>
+<ul>
+<li>避免单点故障 (Single Point of Failure)<ul>
+<li>双设备</li>
+<li>双线路</li>
+<li>多服务提供商</li>
+</ul>
+</li>
+<li>尽量使用动态路由协议（自动切换）</li>
+</ul>
+<h3 id="二、冗余-Active-Active-VPN-连接"><a href="#二、冗余-Active-Active-VPN-连接" class="headerlink" title="二、冗余 Active&#x2F;Active VPN 连接"></a>二、冗余 Active&#x2F;Active VPN 连接</h3><p><img src="https://image.senjianlu.com/blog/2024-12-27/aws_network_ha_02.png" alt="冗余 Active&#x2F;Active VPN 连接"></p>
+<ul>
+<li>两个数据中心的内部连接故障后，仍然可以通过 AWS 的 <code>CloudHub</code> 实现互相访问</li>
+</ul>
+<h3 id="三、冗余的-Active-Active-AWS-Direct-Connect-DX-线路"><a href="#三、冗余的-Active-Active-AWS-Direct-Connect-DX-线路" class="headerlink" title="三、冗余的 Active&#x2F;Active AWS Direct Connect (DX) 线路"></a>三、冗余的 Active&#x2F;Active AWS Direct Connect (DX) 线路</h3><p><img src="https://image.senjianlu.com/blog/2024-12-27/aws_network_ha_03.png" alt="冗余的 Active&#x2F;Active AWS Direct Connect (DX) 线路"></p>
+<h3 id="四、Active-AWS-Direct-Connect-DX-为主-VPN-为辅"><a href="#四、Active-AWS-Direct-Connect-DX-为主-VPN-为辅" class="headerlink" title="四、Active AWS Direct Connect (DX) 为主 VPN 为辅"></a>四、Active AWS Direct Connect (DX) 为主 VPN 为辅</h3><p><img src="https://image.senjianlu.com/blog/2024-12-27/aws_network_ha_04.png" alt="Active AWS Direct Connect (DX) 为主 VPN 为辅"></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>AWS 知识点 - 亚马逊虚拟私有云 (Amazon Virtual Private Cloud, VPC) - 拓展（针对 SAP-C02 认证）</p><p><a href="https://senjianlu.com/2024/12/26/knowledge_vpc_extend/">https://senjianlu.com/2024/12/26/knowledge_vpc_extend/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-12-26</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-12-26</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/SAP/">SAP</a><a class="link-muted mr-2" rel="tag" href="/tags/VPC/">VPC</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/12/26/translate_news_nhk_20241225_k10014678891000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - 東京都立中央図書館 旧「こどもの城」周辺へ移転の方向性示す</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/12/25/translate_news_nhk_20241224_k10014678201000/"><span class="level-item">日语翻译 - 新闻 - 熊本など 外国人エンジニアのビザ取得要件緩和へ 人手不足懸念</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#AWS-PrivateLink"><span class="level-left"><span class="level-item">AWS PrivateLink</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、AWS-PrivateLink-基本概念"><span class="level-left"><span class="level-item">一、AWS PrivateLink 基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、使用-PrivateLink-的集中化进行-Web-访问过滤的解决方案"><span class="level-left"><span class="level-item">二、使用 PrivateLink 的集中化进行 Web 访问过滤的解决方案</span></span></a></li></ul></li><li><a class="level is-mobile" href="#AWS-与本地网络间的高可用连接方案"><span class="level-left"><span class="level-item">AWS 与本地网络间的高可用连接方案</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、连接高可用的基本概念"><span class="level-left"><span class="level-item">一、连接高可用的基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、冗余-Active-Active-VPN-连接"><span class="level-left"><span class="level-item">二、冗余 Active/Active VPN 连接</span></span></a></li><li><a class="level is-mobile" href="#三、冗余的-Active-Active-AWS-Direct-Connect-DX-线路"><span class="level-left"><span class="level-item">三、冗余的 Active/Active AWS Direct Connect (DX) 线路</span></span></a></li><li><a class="level is-mobile" href="#四、Active-AWS-Direct-Connect-DX-为主-VPN-为辅"><span class="level-left"><span class="level-item">四、Active AWS Direct Connect (DX) 为主 VPN 为辅</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

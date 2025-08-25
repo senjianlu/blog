@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/12/02 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam15 题 (No.221 ~ No.235) 只记录了 4 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/12/02"><meta property="og:url" content="https://senjianlu.com/2024/12/02/saa_test_daily_20241202/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam15 题 (No.221 ~ No.235) 只记录了 4 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-12-02T11:00:00.000Z"><meta property="article:modified_time" content="2024-12-02T12:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/12/02/saa_test_daily_20241202/"},"headline":"SAA 考试每日练习 - 2024/12/02","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-12-02T11:00:00.000Z","dateModified":"2024-12-02T12:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam15 题 (No.221 ~ No.235) 只记录了 4 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/12/02/saa_test_daily_20241202/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-12-02T11:00:00.000Z" title="12/2/2024, 7:00:00 PM">2024-12-02</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/12/02</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/">Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam</a><br>15 题 (No.221 ~ No.235) <strong>只记录了 4 道首次碰到的、错误的或有疑问的题目</strong>，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<p><strong>🌟 单词：</strong></p>
+<ol>
+<li>demonstration<sub><u>n. 示范，演示，证明；表示，表露；示威游行；示威集会</u></sub></li>
+<li>isolated<sub><u>adj. 偏远的，孤立的，孤独的 | v. 分离</u></sub></li>
+</ol>
+<hr>
+<h3 id="一、Amazon-Route-53-routing-policy"><a href="#一、Amazon-Route-53-routing-policy" class="headerlink" title="一、Amazon Route 53 routing policy"></a>一、Amazon Route 53 routing policy</h3><p>A company recently migrated its web application to AWS by rehosting the application on Amazon EC2 instances in a single AWS Region. The company wants to redesign its application architecture to be highly available and fault tolerant. Traffic must reach all running EC2 instances randomly.<br>Which combination of steps should the company take to meet these requirements? (Choose two.)</p>
+<ol>
+<li>❌ Create an Amazon Route 53 failover routing policy.</li>
+<li>Create an Amazon Route 53 weighted routing policy.</li>
+<li>✅ Create an Amazon Route 53 multivalue answer routing policy.</li>
+<li>Launch three EC2 instances: two instances in one Availability Zone and one instance in another Availability Zone.</li>
+<li>✅ Launch four EC2 instances: two instances in one Availability Zone and two instances in another Availability Zone.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：Traffic must reach all running EC2 instances randomly</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ 5️⃣ ❌ -&gt; 3️⃣ 5️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：应用要高可用和容灾，同时流量随机到每个 <code>EC2</code> 实例。<br>5️⃣ 肯定是对的，但是要来过一下路由策略：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/Route53/latest/DeveloperGuide/routing-policy.html">选择路由策略</a></p>
+<blockquote>
+<ul>
+<li>简单路由策略 (Simple routing policy)</li>
+<li>故障转移路由策略 (Failover routing policy) - <code>主动-被动 (active-passive)</code> 故障转移的情况下使用。<blockquote>
+<p>故障转移路由允许您将流量路由到某个资源 (如果该资源正常) 或路由到其他资源 (如果第一个资源不正常)。主和辅助记录可以将流量路由到从配置为网站的 Amazon S3 存储桶到复杂记录树的任何目的地</p>
+</blockquote>
+</li>
+<li>地理位置路由策略 (Geolocation routing policy)</li>
+<li>地理位置临近度路由策略 (Geoproximity routing policy)</li>
+<li>延迟路由策略 (Latency routing policy)</li>
+<li>基于 IP 的路由策略 (IP-based routing policy)</li>
+<li>多值应答路由策略 (Multivalue answer routing policy) - 如果您想要让 Route 53 用随机选择的正常记录（最多八条）响应 DNS 查询，则可以使用该策略。在私有托管区域中，可以使用多值应答路由创建记录。</li>
+<li>加权路由策略 (Weighted routing policy)</li>
+</ul>
+</blockquote>
+<p>当前场景下是由 3️⃣ 正确。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：C. A multivalue answer routing policy in Route 53 allows you to configure multiple values for a DNS record,and Route 53 responds to DNS queries with multiple random values.Thisenables the distribution of traffic randomlyamong the available EC2 instances.<br>E. By launching EC2 instances in different AZs, you achieve high availabilityand fault tolerance. Launching four instances (two in each AZ) ensures that there are enough resources to handle the traffic load and maintain the desired level of availability.  </p>
+<p>A. Failover routing is designed to direct traffic to a backup resource or secondary location only when the primary resource or location is unavailable.<br>B. Although a weighted routing policyallows you to distribute traffic across multiple EC2 instances, it does not ensure random distribution.<br>D. While launching instances in multiple AZs is important for fault tolerance, having only three instances does not provide an even distribution of traffic. With only three instances, the traffic may not be evenly distributed, potentially leading to imbalanced resource utilization.</p>
+</blockquote>
+<hr>
+<h3 id="二、Petabytes-size-of-data"><a href="#二、Petabytes-size-of-data" class="headerlink" title="二、Petabytes size of data"></a>二、Petabytes size of data</h3><p>A media company collects and analyzes user activity data on premises. The company wants to migrate this capability to AWS.<br>The user activity data store will continue to grow and will be petabytes in size. The company needs to build a highly available data ingestion solution that facilitates on-demand analytics of existing data and new data with SQL.<br>Which solution will meet these requirements with the LEAST operational overhead?</p>
+<ol>
+<li>❌ Send activity data to an Amazon Kinesis data stream. Configure the stream to deliver the data to an Amazon S3 bucket.</li>
+<li>✅ Send activity data to an Amazon Kinesis Data Firehose delivery stream. Configure the stream to deliver the data to an Amazon Redshift cluster.</li>
+<li>Place activity data in an Amazon S3 bucket. Configure Amazon S3 to run an AWS Lambda function on the data as the data arrives in the S3 bucket.</li>
+<li>Create an ingestion service on Amazon EC2 instances that are spread across multiple Availability Zones. Configure the service to forward data to an Amazon RDS Multi-AZ database.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：petabytes、data storage、analytics with SQL</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：PB 级别的数据存储与分析。<br><code>S3</code> 当然是能存储 PB 级别的数据的，但是存储加分析显然使用 <code>Redshift</code> 更合适：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/redshift/pricing/">Amazon Redshift 定价</a></p>
+<blockquote>
+<p>使用 Amazon Redshift 时，您可以从小规模开始（每小时 0.25 美元），逐渐扩展到 PB 级数据和数千个并发用户。</p>
+</blockquote>
+<p>社区讨论中提到了 <code>Kinesis Data Stream</code> 存储数据使用分片，数据增多时需要手动增加分片，这并不准确：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/streams/latest/dev/key-concepts.html">容量模式</a></p>
+<blockquote>
+<p>若采用按需模式，Kinesis Data Streams 会自动管理分片来提供必要的吞吐量。您只需为实际使用的吞吐量付费，Kinesis Data Streams 会在工作负载增加或减少时自动适应吞吐量需求。</p>
+<p>若采用预置模式，您必须为数据流指定分片数。数据流的总容量是其分片容量的总和。您可以根据需要增加或减少数据流中的分片数，并且按小时费率支付分片数的费用。</p>
+</blockquote>
+<p>Amazon 总是推荐选择集成度更高、且能符合题目需求的服务。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Petabyte scale- Redshift</p>
+<p>1 - Kinesis Data Stream providesa fully managed platform for custom data processing and analysis. Or we can say that used for custom data processing and analysis which required more manual intervention.<br>2 - Kinesis Data Firehose simplifies the delivery of streaming data to various destinations without the need for complex transformations.<br>Option B is more suitable for the given scenario.</p>
+</blockquote>
+<hr>
+<h3 id="三、Notify-RDP-or-SSH-access"><a href="#三、Notify-RDP-or-SSH-access" class="headerlink" title="三、Notify RDP or SSH access"></a>三、Notify RDP or SSH access</h3><p>A company runs demonstration<sub><u>演示</u></sub> environments for its customers on Amazon EC2 instances. Each environment is isolated<sub><u>孤立的</u></sub> in its own VPC. The company’s operations team needs to be notified when RDP or SSH access to an environment has been established.</p>
+<ol>
+<li>❌ Configure Amazon CloudWatch Application Insights to create AWS Systems Manager OpsItems when RDP or SSH access is detected.</li>
+<li>Configure the EC2 instances with an IAM instance profile that has an IAM role with the AmazonSSMManagedInstanceCore policy attached.</li>
+<li>✅ Publish VPC flow logs to Amazon CloudWatch Logs. Create required metric filters. Create an Amazon CloudWatch metric alarm with a notification action for when the alarm is in the ALARM state.</li>
+<li>Configure an Amazon EventBridge rule to listen for events of type EC2 Instance State-change Notification. Configure an Amazon Simple Notification Service (Amazon SNS) topicas a target. Subscribe the operations team to the topic.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：需要监控对 <code>EC2</code> 实例的 SSH 和 RDP 连接。<br>我并不了解 <code>CloudWatch Application Insights（见解）</code> 实际上能完成哪些工作，来看下：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonCloudWatch/latest/monitoring/appinsights-what-is.html">Amazon CloudWatch Application Insights 是什么？</a>  </p>
+<blockquote>
+<p>CloudWatch Application Insights 可帮助您监控使用 Amazon EC2 实例以及其他应用程序资源的应用程序。它可在应用程序资源和技术堆栈（例如，Microsoft SQL Server 数据库、Web (IIS) 和应用程序服务器、操作系统、负载均衡器和队列）中识别和设置关键指标、日志和警报。它会持续监控指标和日志，以检测异常情况和错误并将它们关联起来。</p>
+</blockquote>
+<p>看上去它是用以监控警告和错误信息，并将其关联起来的。并不适用于当前的 SSH 和 RDP 登录场景。<br>而 4️⃣ 错在 <code>EC2</code> 的实例中不会反映登录状态：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/monitoring-instance-state-changes.html">Amazon EC2 实例的状态更改事件</a>  </p>
+<blockquote>
+<p>state 可使用的值为：</p>
+<ul>
+<li>pending</li>
+<li>running</li>
+<li>stopping</li>
+<li>stopped</li>
+<li>shutting-down</li>
+<li>terminated</li>
+</ul>
+<p>当您启用或启动实例时，它会进入 pending 状态，然后进入 running 状态。当您停止实例时，它会进入 stopping 状态，然后进入 stopped 状态。当您终止实例时，它会进入 shutting-down 状态，然后进入 terminated 状态。</p>
+</blockquote>
+<p>最终答案只剩 3️⃣ 了：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/blogs/security/how-to-monitor-and-visualize-failed-ssh-access-attempts-to-amazon-ec2-linux-instances/">How to Monitor and Visualize Failed SSH Access Attempts to Amazon EC2 Linux Instances</a>  </p>
+<blockquote>
+<p><img src="https://image.senjianlu.com/blog/2024-12-03/AssafDiagram-AugustFINAL.png" alt="监控 SSH 和 RDP 登录的最佳实践"></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：By publishing VPC flow logs to CloudWatch Logsand creating metric filters to detect RDP orSSH access, the operations team can configure an CloudWatch metric alarm to notify them when the alarm is triggered.This will provide the desired notification when RDP orSSH access to an environment isestablished.  </p>
+<p>Option A is incorrect because CloudWatch Application Insights is not designed for detecting RDP or SSH access.<br>Option B isalso incorrect because configuring an IAM instance profile with the AmazonSSMManagedInstanceCore policy does not directlyaddress the requirement of notifying the operations team when RDP orSSH access occurs.<br>Option D is wrong beacuse configuring an EventBridge rule to listen for EC2 Instance State-change Notification eventsand using an SNS topic asa target will notify the operations team about changes in the instance state, such as starting or stopping instances. However, it does not specifically detect or notify when RDP orSSH access isestablished, which is the requirement stated in the question.</p>
+</blockquote>
+<hr>
+<h3 id="四、Database-migration"><a href="#四、Database-migration" class="headerlink" title="四、Database migration"></a>四、Database migration</h3><p>A company is moving its on-premises Oracle database to Amazon Aurora PostgreSQL. The database has several applications that write to the same tables. The applications need to be migrated one by one with a month in between each migration.<br>Management has expressed concerns that the database has a high number of reads and writes. The data must be kept in sync across both databases throughout the migration.<br>What should a solutions architect recommend?</p>
+<ol>
+<li>Use AWS DataSync for the initial migration. Use AWS Database Migration Service (AWS DMS) to create a change data capture (CDC) replication task and a table mapping to select all tables.</li>
+<li>Use AWS DataSync for the initial migration. Use AWS Database Migration Service (AWS DMS) to create a full load plus change data capture (CDC) replication task and a table mapping to select all tables.</li>
+<li>✅ Use the AWS Schema Conversion Tool with AWS Database Migration Service (AWS DMS) using a memory optimized replication instance. Create a full load plus change data capture (CDC) replication task and a table mapping to select all tables.</li>
+<li>Use the AWS Schema Conversion Tool with AWS Database Migration Service (AWS DMS) using a compute optimized replication instance. Create a full load plus change data capture (CDC) replication task and a table mapping to select the largest tables.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：Oracle database to Amazon Aurora PostgreSQL、high number of reads and writes</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：要将数据库从本地 Oracle 迁移到云上的 PostgreSQL，并且需要改善性能。<br>需要适用 <code>AWS Schema Conversion Tool</code> 来处理数据库类型的转换。<br>我比较好奇 <code>change data capture (CDC)</code> 是什么：<a target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/integration/what-is-change-data-capture">什么是变更数据捕获（CDC）？</a></p>
+<blockquote>
+<p>变更数据捕获是一种经过验证的数据集成模式，用于跟踪数据更改，并向必须响应这些更改的其他系统和服务发出警报。变更数据捕获有助于确保所有依赖数据的系统数据同步，功能正常。</p>
+</blockquote>
+<p>它在 <code>DMS</code> 中的使用：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/dms/latest/userguide/CHAP_Task.CDC.html">使用 AWS DMS 为持续复制创建任务</a></p>
+<blockquote>
+<p>您可以创建一个 AWS DMS 任务来捕获源数据存储的持续更改。您可以在迁移数据时执行此捕获。您还可以创建一个任务，以便在初始（完全加载）迁移到支持的目标数据存储完成后捕获持续更改。此过程称为持续复制或更改数据捕获 (CDC)。AWS DMS 在从源数据存储复制持续更改时使用此过程。此过程的工作方式是使用数据库引擎的原生 API 来收集对数据库日志的更改。</p>
+<p>有两种类型的持续复制任务：</p>
+<ul>
+<li>Full load plus CDC – The task migrates existing data and then updates the target database based on changes to the source database.</li>
+<li>CDC only – The task migrates ongoing changes after you have data on your target database.</li>
+</ul>
+</blockquote>
+<p>我认为这是代表着：<code>Full load plus CDC</code> 包含初始化行为，<code>CDC only</code> 不包含。也能与题目中的操作对应。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：C : because we need SCT to convert from Oracle to PostgreSQL,and we need memory optimized machine for databases not compute optimized.</p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/12/02</p><p><a href="https://senjianlu.com/2024/12/02/saa_test_daily_20241202/">https://senjianlu.com/2024/12/02/saa_test_daily_20241202/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-12-02</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-12-02</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/12/03/translate_news_nhk_20241203_k10014656621000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - ナスダック株価指数 最高値更新 ハイテク関連銘柄など買い注文</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/12/02/translate_news_nhk_20241202_k10014655341000/"><span class="level-item">日语翻译 - 新闻 - マンション“投資より居住目的の人に”不動産会社に新たな動き</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、Amazon-Route-53-routing-policy"><span class="level-left"><span class="level-item">一、Amazon Route 53 routing policy</span></span></a></li><li><a class="level is-mobile" href="#二、Petabytes-size-of-data"><span class="level-left"><span class="level-item">二、Petabytes size of data</span></span></a></li><li><a class="level is-mobile" href="#三、Notify-RDP-or-SSH-access"><span class="level-left"><span class="level-item">三、Notify RDP or SSH access</span></span></a></li><li><a class="level is-mobile" href="#四、Database-migration"><span class="level-left"><span class="level-item">四、Database migration</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/12/13 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam65 题 (No.901 ~ No.965) 只记录了 9 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。与正式考试题量一样，总共耗时 101&amp;#x2F;(130+30) 分钟，正确率为 50&amp;#x2F;65。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/12/13"><meta property="og:url" content="https://senjianlu.com/2024/12/13/saa_test_daily_20241213/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam65 题 (No.901 ~ No.965) 只记录了 9 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。与正式考试题量一样，总共耗时 101&amp;#x2F;(130+30) 分钟，正确率为 50&amp;#x2F;65。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-12-13T12:00:00.000Z"><meta property="article:modified_time" content="2024-12-13T15:50:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/12/13/saa_test_daily_20241213/"},"headline":"SAA 考试每日练习 - 2024/12/13","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-12-13T12:00:00.000Z","dateModified":"2024-12-13T15:50:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam65 题 (No.901 ~ No.965) 只记录了 9 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。与正式考试题量一样，总共耗时 101&#x2F;(130+30) 分钟，正确率为 50&#x2F;65。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/12/13/saa_test_daily_20241213/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-12-13T12:00:00.000Z" title="12/13/2024, 8:00:00 PM">2024-12-13</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/12/13</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/">Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam</a><br>65 题 (No.901 ~ No.965) <strong>只记录了 9 道首次碰到的、错误的或有疑问的题目</strong>，仅供自己复习使用。<br><em>与正式考试题量一样，总共耗时 101&#x2F;(130+30) 分钟，正确率为 50&#x2F;65。</em><br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<h3 id="一、S3-Access-Points"><a href="#一、S3-Access-Points" class="headerlink" title="一、S3 Access Points"></a>一、S3 Access Points</h3><p>A company manages a data lake in an Amazon S3 bucket that numerous applications access. The S3 bucket contains a unique prefix for each application. The company wants to restrict each application to its specific prefix and to have granular control of the objects under each prefix.<br>Which solution will meet these requirements with the LEAST operational overhead?</p>
+<ol>
+<li>✅ Create dedicated S3 access points and access point policies for each application.</li>
+<li>Create an S3 Batch Operations job to set the ACL permissions for each object in the S3 bucket.</li>
+<li>Replicate the objects in the S3 bucket to new S3 buckets for each application. Create replication rules by prefix.</li>
+<li>❌ Replicate the objects in the S3 bucket to new S3 buckets for each application. Create dedicated S3 access points for each application.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/s3/features/access-points/">Amazon S3 访问点 - 轻松管理对 Amazon S3 上共享数据集的访问</a></p>
+<blockquote>
+<p>S3 的 Amazon S3 访问点功能可简化在 S3 中存储数据的任何 AWS 服务或客户应用程序的数据访问。通过 S3 访问点，客户可以为每个访问点创建独有的访问控制策略，以轻松地控制对共享数据集的访问权限。<br><u>拥有共享数据集（包括数据湖、媒体存档和用户生成的内容）的客户可以通过创建针对每个应用程序定制名称和权限的个性化访问点，轻松扩展数百个应用程序的访问范围</u>。<br>可以将任何访问点限制为 Virtual Private Cloud (VPC)，以将 S3 数据访问范围限制在客户的防火墙之后，并且可以使用 AWS 服务控制策略确保所有访问点均受 VPC 限制。<br>S3 访问点可在所有区域免费使用。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/userguide/access-points-policies.html">配置使用接入点的 IAM 策略</a></p>
+<blockquote>
+<p>Amazon S3 接入点支持 AWS Identity and Access Management（IAM）资源策略，这些策略允许您按资源、用户或其他条件控制接入点的使用。要使应用程序或用户能够通过接入点访问对象，接入点和底层存储桶都必须允许请求。</p>
+</blockquote>
+<p>使用 <code>S3 Access Points</code> 和对应的策略就已经能解决题目的需求，不需要为每个应用程序再单独创建存储桶存储对象。 </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Create dedicated S3 access points and access point policies for each application.</p>
+</blockquote>
+<hr>
+<h3 id="二、TCP-based-and-UDP-based"><a href="#二、TCP-based-and-UDP-based" class="headerlink" title="二、TCP-based and UDP-based"></a>二、TCP-based and UDP-based</h3><p>A company wants to improve the availability and performance of its hybrid application. The application consists of a stateful TCP-based workload hosted on Amazon EC2 instances in different AWS Regions and a stateless UDP-based workload hosted on premises.<br>Which combination of actions should a solutions architect take to improve availability and performance? (Choose two.)</p>
+<ol>
+<li>✅ Create an accelerator using AWS Global Accelerator. Add the load balancers as endpoints.</li>
+<li>❌ Create an Amazon CloudFront distribution with an origin that uses Amazon Route 53 latency-based routing to route requests to the load balancers.</li>
+<li>Configure two Application Load Balancers in each Region. The first will route to the EC2 endpoints, and the second will route to the on-premises endpoints.</li>
+<li>✅ Configure a Network Load Balancer in each Region to address the EC2 endpoints. Configure a Network Load Balancer in each Region that routes to the on-premises endpoints.</li>
+<li>Configure a Network Load Balancer in each Region to address the EC2 endpoints. Configure an Application Load Balancer in each Region that routes to the on-premises endpoints.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ 4️⃣ ❌ -&gt; 1️⃣ 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>Network Load Balancer</code> 已经可以完成 TCP 和 UDP 流量的负载均衡。<br><code>Amazon CloudFront</code> 只能对 TCP 流量进行加速，而 <code>AWS Global Accelerator</code> 可以加速 TCP 和 UDP 流量。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：TCP &gt;&gt; NLB<br>non-http &gt;&gt; accelerator</p>
+</blockquote>
+<hr>
+<h3 id="三、DB-IO-performance"><a href="#三、DB-IO-performance" class="headerlink" title="三、DB IO performance"></a>三、DB IO performance</h3><p>A company recently performed a lift and shift migration of its on-premises Oracle database workload to run on an Amazon EC2 memory optimized Linux instance. The EC2 Linux instance uses a 1 TB Provisioned IOPS SSD (io1) EBS volume with 64,000 IOPS.<br>The database storage performance after the migration is slower than the performance of the on-premises database.<br>Which solution will improve storage performance?</p>
+<ol>
+<li>✅ Add more Provisioned IOPS SSD (io1) EBS volumes. Use OS commands to create a Logical Volume Management (LVM) stripe.</li>
+<li>❌ Increase the Provisioned IOPS SSD (io1) EBS volume to more than 64,000 IOPS.</li>
+<li>Increase the size of the Provisioned IOPS SSD (io1) EBS volume to 2 TB.</li>
+<li>Change the EC2 Linux instance to a storage optimized instance type. Do not change the Provisioned IOPS SSD (io1) EBS volume.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/ebs/latest/userguide/provisioned-iops.html#EBSVolumeTypes_piops">已配置 IOPS SSD (io1) 卷</a></p>
+<blockquote>
+<p>io1卷的大小范围从4 GiB到16 TiB，每个卷可以提供100 IOPS到64,000 IOPS。分配的IOPS与请求的卷大小（以GiB为单位）的最大比例为50:1。例如，100 GiB io1卷最多可以分配5000 IOPS。</p>
+<blockquote>
+<p>You can achieve up to 64,000 IOPS only on instances built on the Nitro System. On other instances, you can achieve performance up to 32,000 IOPS.</p>
+</blockquote>
+</blockquote>
+<p>这意味着 io1 卷的最大 IOPS 就是 64,000 了（在 Nitro 系统上），没法再通过普通的方式提升。因此 2️⃣ 和 3️⃣ 错误。<br>4️⃣ 切换到存储优化型实例显然是错的。  </p>
+<p>拓展下 io2 最大能支持到 256,000 的 IOPS（在 Nitro 系统上）：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/ebs/latest/userguide/provisioned-iops.html#io2-block-express">已配置 IOPS SSD (io2) Block Express 卷</a></p>
+<blockquote>
+<p>Provisioned IOPS up to 256,000, with an IOPS:GiB ratio of 1,000:1. Maximum IOPS can be provisioned with volumes 256 GiB and larger (1,000 IOPS × 256 GiB &#x3D; 256,000 IOPS).</p>
+<blockquote>
+<p>通过在Nitro系统上构建实例，您可以实现高达256,000 IOPS的目标。在其他实例上，性能最高可达32,000 IOPS。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A is correct, The maximum provisioned IOPS for io1 is 64000 and hence you can achieve higher aggregate performance by adding more io1 volumes</p>
+</blockquote>
+<hr>
+<h3 id="四、NLB-Security"><a href="#四、NLB-Security" class="headerlink" title="四、NLB Security"></a>四、NLB Security</h3><p>A company hosts a video streaming web application in a VPC. The company uses a Network Load Balancer (NLB) to handle TCP traffic for real-time data processing. There have been unauthorized attempts to access the application.<br>The company wants to improve application security with minimal architectural change to prevent unauthorized attempts to access the application.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>❌ Implement a series of AWS WAF rules directly on the NLB to filter out unauthorized traffic.</li>
+<li>✅ Recreate the NLB with a security group to allow only trusted IP addresses.</li>
+<li>Deploy a second NLB in parallel with the existing NLB configured with a strict IP address allow list.</li>
+<li>Use AWS Shield Advanced to provide enhanced DDoS protection and prevent unauthorized access attempts.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://repost.aws/questions/QU2fYXwSWUS0q9vZiWDoaEzA/nlb-need-to-attach-aws-waf">NLB need to Attach AWS WAF</a></p>
+<blockquote>
+<p>NLB is a Lyer 3&#x2F;4 component while WAF is a Layer 7 protection component.<br>That is why WAF is only available for Application Load Balancer in the ELB portfolio. NLB does not terminate the TLS session therefore WAF is not capable of acting on the content. I would consider using AWS Shield at Layer 3&#x2F;4.</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/about-aws/whats-new/2023/08/network-load-balancer-supports-security-groups/">网络负载均衡器现支持安全组</a></p>
+<blockquote>
+<p>网络负载均衡器 (NLB) 现在支持安全组，这让您能够筛选 NLB 接受并转发到应用程序的流量。使用安全组，您可以配置规则，帮助确保 NLB 只接受来自可信 IP 地址的流量，并集中执行访问控制策略。这可以改善应用程序的安全状况，并简化操作。 </p>
+</blockquote>
+<p>社区提到了 4️⃣ 也是对的，当然，不过在这里 2️⃣ 有官方文档提供支持。 </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：I don’t think B is correct. if you only allow selected IPs to access then this company cannot host their video streaming service to the public.<br>D should be the correct answer. AWS shield advanced if I rmb correctly prevent unauthorised attempts</p>
+</blockquote>
+<hr>
+<h3 id="五、SNS-encryption"><a href="#五、SNS-encryption" class="headerlink" title="五、SNS encryption"></a>五、SNS encryption</h3><p>A healthcare company is developing an AWS Lambda function that publishes notifications to an encrypted Amazon Simple Notification Service (Amazon SNS) topic. The notifications contain protected health information (PHI).  </p>
+<blockquote>
+<p>一家医疗保健公司正在开发一个AWS Lambda函数，用于向加密的Amazon Simple Notification Service （Amazon SNS）主题发布通知。通知包含受保护的健康信息（PHI）。</p>
+</blockquote>
+<p>The SNS topic uses AWS Key Management Service (AWS KMS) customer managed keys for encryption. The company must ensure that the application has the necessary permissions to publish messages securely to the SNS topic.  </p>
+<blockquote>
+<p>SNS主题使用AWS密钥管理服务（AWS KMS）客户管理的密钥进行加密。公司必须确保应用程序具有将消息安全地发布到SNS主题所需的权限。</p>
+</blockquote>
+<p>Which combination of steps will meet these requirements? (Choose three.)</p>
+<ol>
+<li><p>✅ Create a resource policy for the SNS topic that allows the Lambda function to publish messages to the topic.</p>
+</li>
+<li><p>❌ Use server-side encryption with AWS KMS keys (SSE-KMS) for the SNS topic instead of customer managed keys.</p>
+<blockquote>
+<p>对SNS主题使用带有AWS KMS密钥（SSE-KMS）的服务器端加密，而不是客户管理的密钥。</p>
+</blockquote>
+</li>
+<li><p>✅ Create a resource policy for the encryption key that the SNS topic uses that has the necessary AWS KMS permissions.</p>
+<blockquote>
+<p>为SNS主题使用的具有必要AWS KMS权限的加密密钥创建资源策略。</p>
+</blockquote>
+</li>
+<li><p>Specify the Lambda function’s Amazon Resource Name (ARN) in the SNS topic’s resource policy.</p>
+<blockquote>
+<p>在SNS主题的资源策略中指定Lambda函数的Amazon Resource Name （ARN）。</p>
+</blockquote>
+</li>
+<li><p>Associate an Amazon API Gateway HTTP API with the SNS topic to control access to the topic by using API Gateway resource policies.</p>
+</li>
+<li><p>✅ Configure a Lambda execution role that has the necessary IAM permissions to use a customer managed key in AWS KMS.</p>
+</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ 2️⃣ 6️⃣ ❌ -&gt; 1️⃣ 3️⃣ 6️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：1️⃣ 和 6️⃣ 没有争议，社区在 2️⃣ 和 3️⃣ 间争议较大。<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/sns/latest/dg/sns-enable-encryption-for-topic.html#set-up-topic-with-sse">设置使用服务器端加密的 Amazon SNS 主题</a>，这个题目似乎更注重 KMS 密钥策略。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：D is correct too and С is not clear, but seems like it is about KMS policy and adding permissions for sns service which has to be added in case of CMK</p>
+</blockquote>
+<hr>
+<h3 id="六、Cross-Account-SNS"><a href="#六、Cross-Account-SNS" class="headerlink" title="六、Cross Account SNS"></a>六、Cross Account SNS</h3><p>A media company has a multi-account AWS environment in the us-east-1 Region. The company has an Amazon Simple Notification Service (Amazon SNS) topic in a production account that publishes performance metrics. The company has an AWS Lambda function in an administrator account to process and analyze log data.<br>The Lambda function that is in the administrator account must be invoked by messages from the SNS topic that is in the production account when significant metrics are reported.<br>Which combination of steps will meet these requirements? (Choose two.)</p>
+<ol>
+<li>✅ Create an IAM resource policy for the Lambda function that allows Amazon SNS to invoke the function.</li>
+<li>❌ Implement an Amazon Simple Queue Service (Amazon SQS) queue in the administrator account to buffer messages from the SNS topic that is in the production account. Configure the SQS queue to invoke the Lambda function.</li>
+<li>✅ Create an IAM policy for the SNS topic that allows the Lambda function to subscribe to the topic.</li>
+<li>Use an Amazon EventBridge rule in the production account to capture the SNS topic notifications. Configure the EventBridge rule to forward notifications to the Lambda function that is in the administrator account.</li>
+<li>Store performance metrics in an Amazon S3 bucket in the production account. Use Amazon Athena to analyze the<br>metrics from the administrator account.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ 2️⃣ ❌ -&gt; 1️⃣ 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://repost.aws/knowledge-center/sns-with-crossaccount-lambda-subscription">How do I set up a cross-account AWS Lambda subscription with an SNS topic?</a></p>
+<blockquote>
+<p>在开始之前，请确保：</p>
+<ul>
+<li>Lambda函数资源策略允许SNS调用该函数。</li>
+<li>SNS主题访问策略允许Lambda订阅主题。</li>
+</ul>
+<p>注意：SNS主题驻留在帐户A中，Lambda函数驻留在帐户B中。<br>订阅跨帐户Lambda函数向SNS主题订阅跨帐户Lambda函数有两种可能的方法：</p>
+<ul>
+<li>从帐户B中的Lambda控制台添加SNS触发器。</li>
+<li>从帐户B（具有Lambda函数的帐户）的SNS控制台添加Lambda订阅</li>
+</ul>
+</blockquote>
+<p>因此 1️⃣ 和 3️⃣ 是最简单最正确的，分别在两个账号允许 SNS 调用自己的 Lambda 函数、允许 Lambda 函数订阅自己的主题。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：No need to complicate stuff, AWS services already exist only permissions are missing. A&amp;C will set up the necessary permissions and subscriptions for cross-account invocation of the Lambda function by the SNS topic.</p>
+</blockquote>
+<hr>
+<h3 id="七、Amazon-VPC-CNI-plugin"><a href="#七、Amazon-VPC-CNI-plugin" class="headerlink" title="七、Amazon VPC CNI plugin"></a>七、Amazon VPC CNI plugin</h3><p>A company is migrating an application from an on-premises location to Amazon Elastic Kubernetes Service (Amazon EKS). The company must use a custom subnet for pods that are in the company’s VPC to comply with requirements. The company also needs to ensure that the pods can communicate securely within the pods’ VPC.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Configure AWS Transit Gateway to directly manage custom subnet configurations for the pods in Amazon EKS.</li>
+<li>Create an AWS Direct Connect connection from the company’s on-premises IP address ranges to the EKS pods.</li>
+<li>✅ Use the Amazon VPC CNI plugin for Kubernetes. Define custom subnets in the VPC cluster for the pods to use.</li>
+<li>❌ Implement a Kubernetes network policy that has pod anti-affinity rules to restrict pod placement to specific nodes that are within custom subnets.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/eks/latest/userguide/managing-vpc-cni.html">Amazon VPC CNI</a></p>
+<blockquote>
+<p>Amazon VPC CNI plugin for Kubernetes 附加组件部署在 Amazon EKS 集群中的每个 Amazon EC2 节点上。附加组件会创建弹性网络接口并将其附加到 Amazon EC2 节点。附加组件还会将 VPC 中的私有 IPv4 或 IPv6 地址分配给每个 Pod。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://repost.aws/knowledge-center/eks-custom-subnet-for-pod">How do I choose specific IP subnets to be used for pods in my Amazon EKS cluster?</a></p>
+<blockquote>
+<p><strong>解决方案</strong><br>使用Amazon VPC CNI的自定义组网组件解决该问题。这个特性允许您在Amazon VPC集群中定义特定的子网，以供您的pod使用。它将您的子网与工作节点使用的子网区分开来。作为一个额外的好处，您可以为您的pod定义安全组。有关自定义网络用例的更多信息，请参阅教程：自定义网络。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：The Amazon VPC Container Network Interface (CNI) plugin is the default network plugin for Amazon EKS. It allows Kubernetes pods to receive IP addresses from a VPC’s subnet and enables pods to communicate securely within the VPC as if they were native VPC resources.</p>
+</blockquote>
+<hr>
+<h3 id="八、Kubernetes-service-access-AWS-resources"><a href="#八、Kubernetes-service-access-AWS-resources" class="headerlink" title="八、Kubernetes service access AWS resources"></a>八、Kubernetes service access AWS resources</h3><p>A company is using an Amazon Elastic Kubernetes Service (Amazon EKS) cluster. The company must ensure that Kubernetes service accounts in the EKS cluster have secure and granular access to specific AWS resources by using IAM roles for service accounts (IRSA).<br>Which combination of solutions will meet these requirements? (Choose two.)</p>
+<ol>
+<li>Create an IAM policy that defines the required permissions Attach the policy directly to the IAM role of the EKS nodes.</li>
+<li>Implement network policies within the EKS cluster to prevent Kubernetes service accounts from accessing specific AWS<br>services.</li>
+<li>❌ Modify the EKS cluster’s IAM role to include permissions for each Kubernetes service account. Ensure a one-to-one mapping between IAM roles and Kubernetes roles.</li>
+<li>✅ Define an IAM role that includes the necessary permissions. Annotate the Kubernetes service accounts with the Amazon ResourceName (ARN) of the IAM role.</li>
+<li>✅ Set up a trust relationship between the IAM roles for the service accounts and an OpenID Connect (OIDC) identity provider.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ 4️⃣ ❌ -&gt; 4️⃣ 5️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：4️⃣ 毫无疑问，需要创建 IAM 角色让服务代入。<br>5️⃣ 的出处为：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/eks/latest/userguide/iam-roles-for-service-accounts.html">服务账户的 IAM 角色</a></p>
+<blockquote>
+<p>2014 年，AWS Identity and Access Management 使用 OpenID Connect（OIDC）增加了对联合身份验证的支持。此功能允许您通过支持的身份提供商对 AWS API 调用进行身份验证，并获得有效的 OIDC JSON Web 令牌（JWT）。您可以将此令牌传递到 AWS STS AssumeRoleWithWebIdentity API 操作并接收 IAM 临时角色凭证。您可以使用这些凭证与任意 AWS 服务交互，包括 Amazon S3 和 DynamoDB。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html">https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html</a><br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html">https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html</a><br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html">https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html</a><br>&#x3D;&gt; DE</p>
+</blockquote>
+<hr>
+<h3 id="九、AWS-WAF"><a href="#九、AWS-WAF" class="headerlink" title="九、AWS WAF"></a>九、AWS WAF</h3><p>A company uses AWS to host its public ecommerce website. The website uses an AWS Global Accelerator accelerator for traffic from the internet. The Global Accelerator accelerator forwards the traffic to an Application Load Balancer (ALB) that is the entry point for an Auto Scaling group.<br>The company recently identified a DDoS attack on the website. The company needs a solution to mitigate future attacks.<br>Which solution will meet these requirements with the LEAST implementation effort?</p>
+<ol>
+<li>Configure an AWS WAF web ACL for the Global Accelerator accelerator to block traffic by using rate-based rules</li>
+<li>Configure an AWS Lambda function to read the ALB metrics to block attacks by updating a VPC network ACL</li>
+<li>✅ Configure an AWS WAF web ACL on the ALB to block traffic by using rate-based rules</li>
+<li>❌ Configure an Amazon CloudFront distribution in front of the Global Accelerator accelerator</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://repost.aws/knowledge-center/globalaccelerator-aws-waf-filter-layer7-traffic">How do I use AWS WAF with AWS Global Accelerator to block Layer 7 HTTP method and headers from accessing my application?</a></p>
+<blockquote>
+<p>您可以使用AWS WAF和具有全局加速器的应用程序负载平衡器来阻止对第7层HTTP方法和头的访问。在此架构中，AWS WAF将web访问控制列表（web ACL）规则与应用程序负载平衡器一起使用。负载平衡器成为全局加速器的一个端点。注意：AWS Global Accelerator本身不支持AWS WAF。</p>
+<blockquote>
+<p>User –&gt; Global Accelerator –&gt; Application Load Balancer with AWS WAF –&gt; EC2 instance</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：WAF can be applied on ALB, API gateway or cloud front.</p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/12/13</p><p><a href="https://senjianlu.com/2024/12/13/saa_test_daily_20241213/">https://senjianlu.com/2024/12/13/saa_test_daily_20241213/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-12-13</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-12-13</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/12/14/translate_news_nhk_20241214_k10014667841000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - “北朝鮮 IT技術者使い不正に収入得る”米司法当局 14人を起訴</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/12/13/translate_news_nhk_20241212_k10014666691000/"><span class="level-item">日语翻译 - 新闻 - 自宅で大麻草栽培か 12日施行の規制法違反で会社員逮捕 名古屋</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、S3-Access-Points"><span class="level-left"><span class="level-item">一、S3 Access Points</span></span></a></li><li><a class="level is-mobile" href="#二、TCP-based-and-UDP-based"><span class="level-left"><span class="level-item">二、TCP-based and UDP-based</span></span></a></li><li><a class="level is-mobile" href="#三、DB-IO-performance"><span class="level-left"><span class="level-item">三、DB IO performance</span></span></a></li><li><a class="level is-mobile" href="#四、NLB-Security"><span class="level-left"><span class="level-item">四、NLB Security</span></span></a></li><li><a class="level is-mobile" href="#五、SNS-encryption"><span class="level-left"><span class="level-item">五、SNS encryption</span></span></a></li><li><a class="level is-mobile" href="#六、Cross-Account-SNS"><span class="level-left"><span class="level-item">六、Cross Account SNS</span></span></a></li><li><a class="level is-mobile" href="#七、Amazon-VPC-CNI-plugin"><span class="level-left"><span class="level-item">七、Amazon VPC CNI plugin</span></span></a></li><li><a class="level is-mobile" href="#八、Kubernetes-service-access-AWS-resources"><span class="level-left"><span class="level-item">八、Kubernetes service access AWS resources</span></span></a></li><li><a class="level is-mobile" href="#九、AWS-WAF"><span class="level-left"><span class="level-item">九、AWS WAF</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>
