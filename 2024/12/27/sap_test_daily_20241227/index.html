@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAP 考试每日练习 - 2024/12/27 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Professional SAP-C02 Exam4 题 (No.14 ~ No.17)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAP 考试每日练习 - 2024/12/27"><meta property="og:url" content="https://senjianlu.com/2024/12/27/sap_test_daily_20241227/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Professional SAP-C02 Exam4 题 (No.14 ~ No.17)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-12-24/sap.png"><meta property="article:published_time" content="2024-12-27T12:00:00.000Z"><meta property="article:modified_time" content="2024-12-27T15:50:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAP"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-12-24/sap.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/12/27/sap_test_daily_20241227/"},"headline":"SAP 考试每日练习 - 2024/12/27","image":["https://image.senjianlu.com/blog/2024-12-24/sap.png"],"datePublished":"2024-12-27T12:00:00.000Z","dateModified":"2024-12-27T15:50:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Professional SAP-C02 Exam4 题 (No.14 ~ No.17)，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/12/27/sap_test_daily_20241227/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-12-27T12:00:00.000Z" title="12/27/2024, 8:00:00 PM">2024-12-27</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAP 考试每日练习 - 2024/12/27</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-professional-sap-c02/">Amazon AWS Certified Solutions Architect - Professional SAP-C02 Exam</a><br>4 题 (No.14 ~ No.17)，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<h3 id="一、Auto-Scaling-Group-terminate-event"><a href="#一、Auto-Scaling-Group-terminate-event" class="headerlink" title="一、Auto Scaling Group terminate event"></a>一、Auto Scaling Group terminate event</h3><p>A company is running an application on several Amazon EC2 instances in an Auto Scaling group behind an Application Load Balancer. The load on the application varies throughout the day, and EC2 instances are scaled in and out on a regular basis. Log files from the EC2 instances are copied to a central Amazon S3 bucket every 15 minutes. The security team discovers that log files are missing from some of the terminated EC2 instances.<br>Which set of actions will ensure that log files are copied to the central S3 bucket from the terminated EC2 instances?</p>
+<ol>
+<li>Create a script to copy log files to Amazon S3, and store the script in a file on the EC2 instance. Create an Auto Scaling lifecycle hook and an Amazon EventBridge rule to detect lifecycle events from the Auto Scaling group. Invoke an AWS Lambda function on the autoscaling:EC2_INSTANCE_TERMINATING transition to send ABANDON to the Auto Scaling group to prevent termination, run the script to copy the log files, and terminate the instance using the AWS SDK.</li>
+<li>✅ Create an AWS Systems Manager document with a script to copy log files to Amazon S3. Create an Auto Scaling lifecycle hook and an Amazon EventBridge rule to detect lifecycle events from the Auto Scaling group. Invoke an AWS Lambda function on the autoscaling:EC2_INSTANCE_TERMINATING transition to call the AWS Systems Manager API SendCommand operation to run the document to copy the log files and send CONTINUE to the Auto Scaling group to terminate the instance.</li>
+<li>Change the log delivery rate to every 5 minutes. Create a script to copy log files to Amazon S3, and add the script to EC2 instance user data. Create an Amazon EventBridge rule to detect EC2 instance termination. Invoke an AWS Lambda function from the EventBridge rule that uses the AWS CLI to run the user-data script to copy the log files and terminate the instance.</li>
+<li>❌ Create an AWS Systems Manager document with a script to copy log files to Amazon S3. Create an Auto Scaling lifecycle hook that publishes a message to an Amazon Simple Notification Service (Amazon SNS) topic. From the SNS notification, call the AWS Systems Manager API SendCommand operation to run the document to copy the log files and send ABANDON to the Auto Scaling group to terminate the instance.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：弹性组中的 <code>EC2</code> 实例每 15 分钟发送日志到统一的存储桶中，需要在终止的时候也执行这个操作。<br>如何监听弹性组的实例终止事件：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/blogs/infrastructure-and-automation/run-code-before-terminating-an-ec2-auto-scaling-instance/">Run code before terminating an EC2 Auto Scaling instance</a></p>
+<blockquote>
+<ol start="5">
+<li>Create a CloudWatch Events rule.  </li>
+<li>Add a Systems Manager automation document as a CloudWatch Event target.</li>
+</ol>
+</blockquote>
+<p>需要使用到 <code>CloudWatch Event</code> 和 <code>Systems Manager document</code>，因此选 2️⃣。<br>这里还需要注意 <code>EC2_INSTANCE_TERMINATING</code> 这个事件，它会在相应的钩子事件触发后进入等待状态，只有钩子事件给予继续的命令才会进行实际的实例终止行为：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/autoscaling/ec2/userguide/ec2-auto-scaling-lifecycle.html#as-lifecycle-hooks">生命周期钩子</a>  </p>
+<blockquote>
+<p>当 Amazon EC2 Auto Scaling 响应缩减事件时，它将终止一个或多个实例。这些实例将从 Auto Scaling 组中分离并进入 <code>Terminating</code> 状态。如果您已将一个 <code>autoscaling:EC2_INSTANCE_TERMINATING</code> 生命周期挂钩添加到您的 Auto Scaling 组，则实例将从 <code>Terminating</code> 状态转换为 <code>Terminating:Wait</code> 状态。完成生命周期操作后，实例将进入 <code>Terminating:Proceed</code> 状态。在完全终止实例后，实例将进入 <code>Terminated</code> 状态。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：B. Create an AWS Systems Manager document with a script to copy log files to Amazon S3. Create an Auto Scaling lifecycle hook and an Amazon EventBridge rule to detect lifecycle events from the Auto Scaling group. Invoke an AWS Lambda function on the autoscaling:EC2_INSTANCE_TERMINATING transition to call the AWS Systems Manager API SendCommand operation to run the document to copy the log files and send CONTINUE to the Auto Scaling group to terminate the instance. This approach will use the Auto Scaling lifecycle hook to execute the script that copies log files to S3, before the instance is terminated, ensuring that all log files are copied from the terminated instances.</p>
+</blockquote>
+<hr>
+<h3 id="二、Cross-Account-DNS"><a href="#二、Cross-Account-DNS" class="headerlink" title="二、Cross Account DNS"></a>二、Cross Account DNS</h3><p>A company is using multiple AWS accounts. The DNS records are stored in a private hosted zone for Amazon Route 53 in Account A. The company’s applications and databases are running in Account B.<br>A solutions architect will deploy a two-tier application in a new VPC. To simplify the configuration, the db.example.com CNAME record set for the Amazon RDS endpoint was created in a private hosted zone for Amazon Route 53.<br>During deployment, the application failed to start. Troubleshooting revealed that db.example.com is not resolvable on the Amazon EC2 instance. The solutions architect confirmed that the record set was created correctly in Route 53.<br>Which combination of steps should the solutions architect take to resolve this issue? (Choose two.)</p>
+<ol>
+<li>❌ Deploy the database on a separate EC2 instance in the new VPC. Create a record set for the instance’s private IP in the private hosted zone.</li>
+<li>Use SSH to connect to the application tier EC2 instance. Add an RDS endpoint IP address to the &#x2F;etc&#x2F;resolv.conf file.</li>
+<li>✅ Create an authorization to associate the private hosted zone in Account A with the new VPC in Account B.</li>
+<li>Create a private hosted zone for the example com domain in Account B. Configure Route 53 replication between AWS accounts.</li>
+<li>✅ Associate a new VPC in Account B with a hosted zone in Account A. Delete the association authorization in Account A.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ 3️⃣ ❌ -&gt; 3️⃣ 5️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>Route 53</code> 的私有托管区在账户 A 中，数据库实例在账户 B 中。<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/Route53/latest/DeveloperGuide/hosted-zone-private-associate-vpcs-different-accounts.html">将您创建的 Amazon VPC 和私有托管区域关联到不同的账户 AWS</a></p>
+<blockquote>
+<ol>
+<li>使用创建托管区域的账户 A，授权（其他账户的）VPC 与私有托管区域的关联。  </li>
+<li>使用创建 VPC 的账户 B，将 VPC 与托管区域关联。</li>
+<li>（推荐）删除与托管区域 VPC 关联的授权。</li>
+</ol>
+</blockquote>
+<p>本题的 3️⃣ 选项对应的就是操作 1，而 5️⃣ 选项对应的就是操作 2 和 3。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：C and E are correct.  </p>
+<p>C. Create an authorization to associate the private hosted zone in Account A with the new VPC in Account B. This step is necessary because the VPC in Account B needs to be associated with the private hosted zone in Account A to be able to resolve the DNS records.  </p>
+<p>E. Associate a new VPC in Account B with a hosted zone in Account A. Delete the association authorization in Account A. This step is necessary because the association authorization needs to be removed in Account A after the association is done in Account B.</p>
+</blockquote>
+<hr>
+<h3 id="三、Content-distribution"><a href="#三、Content-distribution" class="headerlink" title="三、Content distribution"></a>三、Content distribution</h3><p>A company used Amazon EC2 instances to deploy a web fleet to host a blog site. The EC2 instances are behind an Application Load Balancer (ALB) and are configured in an Auto Scaling group. The web application stores all blog content on an Amazon EFS volume.<br>The company recently added a feature for bloggers to add video to their posts, attracting 10 times the previous user traffic. At peak times of day, users report buffering and timeout issues while attempting to reach the site or watch videos.<br>Which is the MOST cost-efficient and scalable deployment that will resolve the issues for users?</p>
+<ol>
+<li>Reconfigure Amazon EFS to enable maximum I&#x2F;O.</li>
+<li>Update the blog site to use instance store volumes for storage. Copy the site contents to the volumes at launch and to Amazon S3 at shutdown.</li>
+<li>✅ Configure an Amazon CloudFront distribution. Point the distribution to an S3 bucket, and migrate the videos from EFS to Amazon S3.</li>
+<li>Set up an Amazon CloudFront distribution for all site contents, and point the distribution at the ALB.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：静态内容分发使用 <code>CloudFront</code> 和 <code>S3</code>。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：C. Configure an Amazon CloudFront distribution. Point the distribution to an S3 bucket, and migrate the videos from EFS to Amazon S3.  </p>
+<p>Amazon CloudFront is a content delivery network (CDN) that can be used to deliver content to users with low latency and high data transfer speeds. By configuring a CloudFront distribution for the blog site and pointing it at an S3 bucket, the videos can be cached at edge locations closer to users, reducing buffering and timeout issues. Additionally, S3 is designed for scalable storage and can handle high levels of user traffic. Migrating the videos from EFS to S3, would also improve the performance and scalability of the website.</p>
+</blockquote>
+<hr>
+<h3 id="四、AWS-Direct-Connect-Gateway"><a href="#四、AWS-Direct-Connect-Gateway" class="headerlink" title="四、AWS Direct Connect Gateway"></a>四、AWS Direct Connect Gateway</h3><p>A company with global offices has a single 1 Gbps AWS Direct Connect connection to a single AWS Region. The company’s on-premises network uses the connection to communicate with the company’s resources in the AWS Cloud. The connection has a single private virtual interface that connects to a single VPC.<br>A solutions architect must implement a solution that adds a redundant Direct Connect connection in the same Region. The solution also must provide connectivity to other Regions through the same pair of Direct Connect connections as the company expands into other Regions.<br>Which solution meets these requirements?</p>
+<ol>
+<li>✅ Provision a Direct Connect gateway. Delete the existing private virtual interface from the existing connection. Create the second Direct Connect connection. Create a new private virtual interface on each connection, and connect both private virtual interfaces to the Direct Connect gateway. Connect the Direct Connect gateway to the single VPC.</li>
+<li>Keep the existing private virtual interface. Create the second Direct Connect connection. Create a new private virtual interface on the new connection, and connect the new private virtual interface to the single VPC.</li>
+<li>Keep the existing private virtual interface. Create the second Direct Connect connection. Create a new public virtual interface on the new connection, and connect the new public virtual interface to the single VPC.</li>
+<li>❌ Provision a transit gateway. Delete the existing private virtual interface from the existing connection. Create the second Direct Connect connection. Create a new private virtual interface on each connection, and connect both private virtual interfaces to the transit gateway. Associate the transit gateway with the single VPC.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/blogs/aws/new-aws-direct-connect-gateway-inter-region-vpc-access/">New – AWS Direct Connect Gateway – Inter-Region VPC Access</a></p>
+<blockquote>
+<p><img src="https://image.senjianlu.com/blog/2024-12-29/163516.png" alt="架构图">  </p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/directconnect/latest/UserGuide/direct-connect-gateways-intro.html">AWS Direct Connect 网关</a></p>
+<blockquote>
+<p>使用 AWS Direct Connect 网关连接您的 VPC。将 AWS Direct Connect 网关与以下任一网关关联：</p>
+<ul>
+<li>当您在同一区域有多个 VPC 时的中转网关 (A transit gateway when you have multiple VPCs in the same Region)</li>
+<li>虚拟私有网关 (A virtual private gateway)</li>
+<li>An AWS Cloud WAN core network</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A. Provision a Direct Connect gateway. Delete the existing private virtual interface from the existing connection. Create the second Direct Connect connection. Create a new private virtual interface on each connection, and connect both private virtual interfaces to the Direct Connect gateway. Connect the Direct Connect gateway to the single VPC.  </p>
+<p>This solution provides a redundant Direct Connect connection in the same Region by creating a new private virtual interface on each connection, and connecting both private virtual interfaces to a Direct Connect gateway. The Direct Connect gateway is then connected to the single VPC. This solution also allows the company to expand into other Regions while providing connectivity through the same pair of Direct Connect connections.<br>The Direct Connect Gateway allows you to connect multiple VPCs and on-premises networks in different accounts and different regions to a single Direct Connect connection.<br>It also provides automatic failover and routing capabilities.</p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAP 考试每日练习 - 2024/12/27</p><p><a href="https://senjianlu.com/2024/12/27/sap_test_daily_20241227/">https://senjianlu.com/2024/12/27/sap_test_daily_20241227/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-12-27</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-12-27</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAP/">SAP</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/12/29/translate_news_nhk_20241228_k10014681701000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - ChatGPT 手がける「オープンAI」 新たな営利企業が事業主導へ</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/12/27/knowledge_s3_extend/"><span class="level-item">AWS 知识点 - S3 (Simple Storage Service) - 拓展（针对 SAP-C02 认证）</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、Auto-Scaling-Group-terminate-event"><span class="level-left"><span class="level-item">一、Auto Scaling Group terminate event</span></span></a></li><li><a class="level is-mobile" href="#二、Cross-Account-DNS"><span class="level-left"><span class="level-item">二、Cross Account DNS</span></span></a></li><li><a class="level is-mobile" href="#三、Content-distribution"><span class="level-left"><span class="level-item">三、Content distribution</span></span></a></li><li><a class="level is-mobile" href="#四、AWS-Direct-Connect-Gateway"><span class="level-left"><span class="level-item">四、AWS Direct Connect Gateway</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

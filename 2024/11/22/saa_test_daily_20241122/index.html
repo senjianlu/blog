@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/11/22 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam5 题 (No.41 ~ No.45)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/11/22"><meta property="og:url" content="https://senjianlu.com/2024/11/22/saa_test_daily_20241122/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam5 题 (No.41 ~ No.45)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-11-22T11:00:00.000Z"><meta property="article:modified_time" content="2024-11-22T12:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/11/22/saa_test_daily_20241122/"},"headline":"SAA 考试每日练习 - 2024/11/22","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-11-22T11:00:00.000Z","dateModified":"2024-11-22T12:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam5 题 (No.41 ~ No.45)，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/11/22/saa_test_daily_20241122/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-11-22T11:00:00.000Z" title="11/22/2024, 7:00:00 PM">2024-11-22</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/11/22</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/">Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam</a><br>5 题 (No.41 ~ No.45)，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<p><strong>🌟 单词：</strong></p>
+<ol>
+<li>concerned<sub><u>adj. 担心的，忧虑的；感兴趣的；关切的，关注的 | v. 涉及，牵涉；让……担忧（“concern”的过去式和过去分词）</u></sub></li>
+<li>time-sensitive<sub><u>时间敏感的</u></sub></li>
+<li>long-term<sub><u>长期的</u></sub></li>
+<li>critical<sub><u>adj. 批评的，批判的；紧要的，关键性的；严重的，危急的；审慎的，严谨的；评论性的；挑剔的；临界的</u></sub></li>
+<li>accidental<sub><u>adj. 意外的，偶然的；不测的；非本质的；附带的 | n. 偶然，临时符，变音记号</u></sub></li>
+<li>occasionally<sub><u>adv. 偶尔地</u></sub></li>
+<li>corresponding<sub><u>adj. 符合的，相应的，相关的 | v. “correspond”的现在分词</u></sub></li>
+</ol>
+<hr>
+<h3 id="一、Data-flows-from-SaaS"><a href="#一、Data-flows-from-SaaS" class="headerlink" title="一、Data flows from SaaS"></a>一、Data flows from SaaS</h3><p>A company’s application integrates with multiple software-as-a-service (SaaS) sources for data collection. The company runs Amazon EC2 instances to receive the data and to upload the data to an Amazon S3 bucket for analysis. The same EC2 instance that receives and uploads the data also sends a notification to the user when an upload is complete. The company has noticed slow application performance and wants to improve the performance as much as possible.<br>Which solution will meet these requirements with the LEAST operational overhead?</p>
+<ol>
+<li>Create an Auto Scaling group so that EC2 instances can scale out. Configure an S3 event notification to send events to an Amazon Simple Notification Service (Amazon SNS) topic when the upload to the S3 bucket is complete.</li>
+<li>✅ Create an Amazon AppFlow flow to transfer data between each SaaS source and the S3 bucket. Configure an S3 event notification to send events to an Amazon Simple Notification Service (Amazon SNS) topic when the upload to the S3 bucket is complete.</li>
+<li>Create an Amazon EventBridge (Amazon CloudWatch Events) rule for each SaaS source to send output data. Configure the S3 bucket as the rule’s target. Create a second EventBridge (Cloud Watch Events) rule to send events when the upload to the S3 bucket is complete. Configure an Amazon Simple Notification Service (Amazon SNS) topicas the second rule’s target.</li>
+<li>Create a Docker container to use instead of an EC2 instance. Host the containerized application on Amazon Elastic Container Service (Amazon ECS). Configure Amazon CloudWatch Container Insights to send events to an Amazon Simple Notification Service (Amazon SNS) topic when the upload to the S3 bucket is complete</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：LEAST operational overhead、</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：应该程序接收数据并上传到 <code>S3</code> 存储桶，上传完成后发送通知给客户。现在遇到性能问题。希望使用最简单的架构。<br>上传后的通知可以通过 <code>S3</code> 事件 + <code>SNS</code> 实现，数据的传输 <code>AppFlow</code> 就能实现。</p>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/appflow/">Amazon AppFlow 软件即服务（SaaS）和 AWS 服务之间的自动化数据流</a>  </p>
+<blockquote>
+<p>Amazon AppFlow 是一项完全托管的集成服务，让您只需单击几下即可在 Salesforce、Marketo、Slack 和 ServiceNow 之类的软件即服务 (SaaS) 应用程序与 Amazon S3 和 Amazon Redshift 之类的 AWS 服务之间安全地传输数据。使用 AppFlow，您可以根据计划几乎以任何规模按您选择的频率针对业务事件要求或按需运行数据流。您可以配置强大的数据转换功能，例如筛选和验证，以生成丰富、随时可用的数据作为流本身的一部分，无需执行额外步骤。AppFlow 会自动加密动态数据，使用户可以限制与 AWS PrivateLink 集成的 SaaS 应用程序的数据在公共互联网上流动，从而减少暴露于安全威胁之中的风险。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：It says “LEAST operational overhead” (ie do it in a way it’s the less workfor me).<br>If you know a little Amazon AppFlow (see the some videos) you’ll see you’ll need time to configure and test it,and at the end cope with the errors during the extraction and load the info to the target.<br>The customer in the example ALREADY has some EC2 that do the work, the only problem is the performance, that WILL be improved scaling out and adding a queue (SNS) to decouple the work of notify the user.<br>The operational load of doing this is LESS that configuring AppFlow.</p>
+</blockquote>
+<hr>
+<h3 id="二、VPC-Gateway-endpoint"><a href="#二、VPC-Gateway-endpoint" class="headerlink" title="二、VPC Gateway endpoint"></a>二、VPC Gateway endpoint</h3><p>A company runs a highly available image-processing application on Amazon EC2 instances in a single VPC. The EC2 instances run inside several subnets across multiple Availability Zones. The EC2 instances do not communicate with each other.<br>However, the EC2 instances download images from Amazon S3 and upload images to Amazon S3 through a single NAT gateway. The company is concerned<sub><u>担忧</u></sub> about data transfer charges.<br>What is the MOST cost-effective way for the company to avoid Regional data transfer charges?</p>
+<ol>
+<li>Launch the NAT gateway in each Availability Zone.</li>
+<li>Replace the NAT gateway with a NAT instance.</li>
+<li>✅ Deploy a gateway VPC endpoint for Amazon S3.</li>
+<li>Provision an EC2 Dedicated Host to run the EC2 instances.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：the MOST cost-effective way、NAT gateway、data transfer charges</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：不同子网、不同可用区的 <code>EC2</code> 实例访问 <code>S3</code> 存在网络传输问题，之前是使用一个 <code>NAT 网关</code>，那么就相当于走公网了，需要改成走私网。<br>毫无疑问选择 <code>网关终端节点</code>（只支持 <code>S3</code> 和 <code>DynamoDB</code>）。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Deploying a gateway VPC endpoint for Amazon S3 is the most cost-effective way for the company to avoid Regional data transfer charges. A gateway VPC endpoint isa network gateway that allows communication between instances in a VPC and a service, such as Amazon S3, without requiring an Internet gateway or a NAT device. Data transfer between the VPC and the service through a gateway VPC endpoint is free of charge, while data transfer between the VPC and the Internet through an Internet gateway or NAT device is subject to data transfer charges. By using a gateway VPC endpoint, the company can reduce its data transfer costs byeliminating the need to transfer data through the NAT gateway to access Amazon S3.This option would provide the required connectivity to Amazon S3 and minimize data transfer charges.</p>
+</blockquote>
+<hr>
+<h3 id="三、Internet-bandwidth-limitations"><a href="#三、Internet-bandwidth-limitations" class="headerlink" title="三、Internet bandwidth limitations"></a>三、Internet bandwidth limitations</h3><p>A company has an on-premises application that generates a large amount of time-sensitive<sub><u>时间敏感的</u></sub> data that is backed up to Amazon S3. The application has grown and there are user complaints about internet bandwidth limitations. A solutions architect needs to design a long-term<sub><u>长期的</u></sub> solution that allows for both timely backups to Amazon S3 and with minimal impact on internet connectivity for internal users.<br>Which solution meets these requirements?</p>
+<ol>
+<li>Establish AWS VPN connections and proxy all traffic through a VPC gateway endpoint.</li>
+<li>✅ Establish a new AWS Direct Connect connection and direct backup traffic through this new connection.</li>
+<li>Order daily AWS Snowball devices. Load the data onto the Snowball devices and return the devices to AWS each day.</li>
+<li>Submit a support ticket through the AWS Management Console. Request the removal of S3 service limits from the account.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：on-premises application、time-sensitive data、timely backups to Amazon S3、minimal impact on internet connectivity for internal users</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：本地部署的应用程序定时存数据到 <code>S3</code>，同时公网用户抱怨网络传输速度。需要长期的解决方案。<br>本地应用程序有公网传输速度瓶颈，又需要使用 <code>S3</code>，似乎需要本地部署基础设施。但是选项中没有，选 2️⃣ 是唯一可以解决公网传输速度瓶颈问题的。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A: VPN also goes through the internet and uses the bandwidth<br>C: dailySnowball transfer is not reallya long-term solution when it comes to cost and efficiency<br>D: S3 limits don’t change anything here  </p>
+</blockquote>
+<hr>
+<h3 id="四、Protect-critical-data-from-accidental-deletion"><a href="#四、Protect-critical-data-from-accidental-deletion" class="headerlink" title="四、Protect critical data from accidental deletion"></a>四、Protect critical data from accidental deletion</h3><p>A company has an Amazon S3 bucket that contains critical<sub><u>关键的</u></sub> data. The company must protect the data from accidental<sub><u>意外的</u></sub> deletion.<br>Which combination of steps should a solutions architect take to meet these requirements? (Choose two.)</p>
+<ol>
+<li>✅ Enable versioning on the S3 bucket.</li>
+<li>✅ Enable MFA Delete on the S3 bucket.</li>
+<li>❌ Create a bucket policy on the S3 bucket.</li>
+<li>Enable default encryption on the S3 bucket.</li>
+<li>Create a lifecycle policy for the objects in the S3 bucket.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：critical data、protect from accidental deletion</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ 3️⃣ ❌ -&gt; 1️⃣ 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：需要对 <code>S3</code> 存储桶进行操作来防止用户误删关键数据。<br>1️⃣ 开启版本支持，可以做到误删后还原。<br>2️⃣ 开启删除时的二步验证。<br>3️⃣ 开启存储桶策略，可以做到保护，<u><strong>但是无法做到授权可访问用户的意外删除</strong></u>。<br>4️⃣ 开启默认加密，无法阻止删除操作。<br>5️⃣ 开启生命周期策略，做文件转移，无法保护其不被删除。  </p>
+<p>题目似乎聚焦于 <code>architect</code> <code>误删</code> 这个动作，更多强调的是有权删除的用户不小心删除重要文件。<br>需要做的是保证误删后的立即恢复以及二步验证做确认。  </p>
+<p>除了 1️⃣ 版本控制 2️⃣ 二步验证以外，官方还推荐进行 <code>Cross-Region Replication</code> 跨区域复制保留副本来应对误删行为。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：The correct solution is AB,as you can see here:<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/it/premiumsupport/knowledge-center/s3-audit-deleted-missing-objects/">https://aws.amazon.com/it/premiumsupport/knowledge-center/s3-audit-deleted-missing-objects/</a>  </p>
+<p>It states the following:  </p>
+<blockquote>
+<p>To prevent or mitigate future accidental deletions, consider the following features:<br>Enable versioning to keep historical versions of an object.<br>Enable Cross-Region Replication of objects.<br>Enable MFA delete to require multi-factor authentication (MFA) when deleting an object version.</p>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="五、Data-ingestion-with-queue"><a href="#五、Data-ingestion-with-queue" class="headerlink" title="五、Data ingestion with queue"></a>五、Data ingestion with queue</h3><p>A company has a data ingestion workflow that consists of the following:</p>
+<ul>
+<li>An Amazon Simple Notification Service (Amazon SNS) topic for notifications about new data deliveries</li>
+<li>An AWS Lambda function to process the data and record metadata</li>
+</ul>
+<p>The company observes that the ingestion workflow fails occasionally<sub><u>偶尔地</u></sub> because of network connectivity issues. When such a failure occurs, the Lambda function does not ingest the corresponding<sub><u>相应的</u></sub> data unless the company manually reruns the job.<br>Which combination of actions should a solutions architect take to ensure that the Lambda function ingests all data in the future? (Choose two.)</p>
+<ol>
+<li>Deploy the Lambda function in multiple Availability Zones.</li>
+<li>✅ Create an Amazon Simple Queue Service (Amazon SQS) queue, and subscribe it to the SNS topic.</li>
+<li>Increase the CPU and memory that are allocated to the Lambda function.</li>
+<li>Increase provisioned throughput for the Lambda function.</li>
+<li>✅ Modify the Lambda function to read from an Amazon Simple Queue Service (Amazon SQS) queue.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：the Lambda function does not ingest the corresponding data、SNS</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ 5️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：数据处理工作流程：<code>SNS</code> 发送新数据达到的通知，<code>Lambda</code> 处理数据并记录元数据。由于网络原因偶发 <code>Lambda</code> 函数不接受新数据的问题，只能通过公司手动重启工作才能恢复。做什么才能确保 <code>Lambda</code> 处理所有数据。<br><code>SQS</code> <code>FIFO</code> 队列可以确保数据不丢失和先进先出。没有 FIFO 的话也没有关系，2️⃣ 4️⃣ 就能解决问题。<br><code>SNS</code> + <code>SQS</code> 是 Fan Out 架构，同时让 <code>Lambda</code> 函数监听 <code>SQS</code> 队列，处理一条消费一条保证不丢失。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A, C, D optionsare out, since Lambda is fully managed service which provides high availabilityand scalability by its own<br>Answersare B and E</p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/11/22</p><p><a href="https://senjianlu.com/2024/11/22/saa_test_daily_20241122/">https://senjianlu.com/2024/11/22/saa_test_daily_20241122/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-11-22</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-11-22</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/11/22/knowledge_iam/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">AWS 知识点 - IAM (Identity and Access Management)</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/11/22/translate_news_nhk_20241122_k10014645851000/"><span class="level-item">日语翻译 - 新闻 - 精神障害になったとして労災と認められた管理職など 過去最多</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、Data-flows-from-SaaS"><span class="level-left"><span class="level-item">一、Data flows from SaaS</span></span></a></li><li><a class="level is-mobile" href="#二、VPC-Gateway-endpoint"><span class="level-left"><span class="level-item">二、VPC Gateway endpoint</span></span></a></li><li><a class="level is-mobile" href="#三、Internet-bandwidth-limitations"><span class="level-left"><span class="level-item">三、Internet bandwidth limitations</span></span></a></li><li><a class="level is-mobile" href="#四、Protect-critical-data-from-accidental-deletion"><span class="level-left"><span class="level-item">四、Protect critical data from accidental deletion</span></span></a></li><li><a class="level is-mobile" href="#五、Data-ingestion-with-queue"><span class="level-left"><span class="level-item">五、Data ingestion with queue</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

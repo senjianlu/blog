@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/11/24 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam7 题 (No.51 ~ No.57)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/11/24"><meta property="og:url" content="https://senjianlu.com/2024/11/24/saa_test_daily_20241124/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam7 题 (No.51 ~ No.57)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-11-24T11:00:00.000Z"><meta property="article:modified_time" content="2024-11-24T12:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/11/24/saa_test_daily_20241124/"},"headline":"SAA 考试每日练习 - 2024/11/24","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-11-24T11:00:00.000Z","dateModified":"2024-11-24T12:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam7 题 (No.51 ~ No.57)，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/11/24/saa_test_daily_20241124/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-11-24T11:00:00.000Z" title="11/24/2024, 7:00:00 PM">2024-11-24</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/11/24</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/">Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam</a><br>7 题 (No.51 ~ No.57)，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<p><strong>🌟 单词：</strong></p>
+<ol>
+<li>retrieval<sub><u>n. 取回，索回，数据检索</u></sub></li>
+<li>statistics<sub><u>n. 统计数据</u></sub></li>
+<li>extract<sub><u>v. （费力）取出，拔出；提取，提炼；榨取；摘录；设法得到；开方，求根 | n. 提取物；萃取物；精，汁；摘录；选段；引文</u></sub></li>
+<li>low-confidence<sub><u>低信心</u></sub></li>
+<li>prediction<sub><u>n. 预言；预测；预报，预告</u></sub></li>
+</ol>
+<hr>
+<h3 id="一、Send-formatted-data-by-email"><a href="#一、Send-formatted-data-by-email" class="headerlink" title="一、Send formatted data by email"></a>一、Send formatted data by email</h3><p>A company is developing an application that provides order shipping statistics<sub><u>统计数据</u></sub> for retrieval by a REST API. The company wants to extract<sub><u>提炼</u></sub> the shipping statistics, organize the data into an easy-to-read HTML format, and send the report to several email addresses at the same time every morning.<br>Which combination of steps should a solutions architect take to meet these requirements? (Choose two.)</p>
+<ol>
+<li>Configure the application to send the data to Amazon Kinesis Data Firehose.</li>
+<li>✅ Use Amazon Simple Email Service (Amazon SES) to format the data and to send the report by email.</li>
+<li>Create an Amazon EventBridge (Amazon CloudWatch Events) scheduled event that invokes an AWS Glue job to query the application’s API for the data.</li>
+<li>✅ Create an Amazon EventBridge (Amazon CloudWatch Events) scheduled event that invokes an AWS Lambda function to query the application’s API for the data.</li>
+<li>Store the application data in Amazon S3. Create an Amazon Simple Notification Service (Amazon SNS) topicas an S3 event destination to send the report by email.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：the same time every morning、organize the data into HTML format、send email</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ 4️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：应用程序能通过 REST API 获取船运统计数据，公司希望提炼数据并将其组织成 HTML 格式，然后每天早上发送给多个邮箱。<br>答案中能够实现定时任务的只有 <code>Amazon CloudWatch Events</code>，然后调用 <code>Lambda</code> 结构化数据，之后通过 <code>SES</code> 发出。  </p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/eventbridge/latest/userguide/eb-what-is.html">什么是亚马逊 EventBridge？</a></p>
+<blockquote>
+<p>EventBridge 是一项无服务器服务，它使用事件将应用程序组件连接在一起，使您可以更轻松地构建可扩展的事件驱动应用程序。<br>事件驱动型架构 (event-driven applications) 是一种构建松耦合软件系统的风格，这些系统通过发出和响应事件来协同工作。事件驱动型架构可以帮助您提高敏捷性，并构建可靠、可扩展的应用程序。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/eventbridge/latest/userguide/eb-create-rule-schedule.html">创建在 Amazon 中按计划运行的规则 EventBridge</a>  </p>
+<blockquote>
+<p>规则可以响应事件运行，也可以按<u><strong>特定的时间间隔</strong></u>运行。例如，要定期运行 AWS Lambda 函数，可以创建按计划运行的规则</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：B&amp;D are the only 2 correct options. If you are choosing option E then you missed the daily morning schedule requirement mentioned in the question which cant be achieved with S3 events forSNS.Event Bridge can used to configure scheduled events (every morning in this case). Option B fulfills the email in HTML format requirement (bySES) and D fulfillsevery morning schedule event requirement (by EventBridge)</p>
+<p>EventBridge can be used to schedule regular invocations of a Lambda function that retrieves the required data from the application’s API.This step sets up the process to collect the data at the specified time every morning.</p>
+</blockquote>
+<hr>
+<h3 id="二、Standard-file-system-structure"><a href="#二、Standard-file-system-structure" class="headerlink" title="二、Standard file system structure"></a>二、Standard file system structure</h3><p>A company wants to migrate its on-premises application to AWS. The application produces output files that vary in size from tens of gigabytes to hundreds of terabytes. The application data must be stored in a standard file system structure. The company wants a solution that scales automatically. is highly available, and requires minimum operational overhead.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Migrate the application to run as containers on Amazon Elastic Container Service (Amazon ECS). Use Amazon S3 for storage.</li>
+<li>Migrate the application to run as containers on Amazon Elastic Kubernetes Service (Amazon EKS). Use Amazon Elastic Block Store (Amazon EBS) for storage.</li>
+<li>✅ Migrate the application to Amazon EC2 instances in a Multi-AZ Auto Scaling group. Use Amazon ElasticFile System (Amazon EFS) for storage.</li>
+<li>Migrate the application to Amazon EC2 instances in a Multi-AZ Auto Scaling group. Use Amazon Elastic Block Store (Amazon EBS) for storage.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：10 GB 到 100 TB 的文件、standard file system structure、scales automatically、ha、minimum operational overhead</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：私有云迁移到 AWS，应用程序会产生 10 GB 到 100 TB 的文件，需要部署在独立文件系统架构上，并且易于扩展、高可用、操作低延迟。<br><code>S3</code> 的最大文件大小限制为 5 TB，因此需要选择 <code>EFS</code>。  </p>
+<p>不过社区讨论中指出了 <code>EFS</code> 最大也仅支持 47.9 TB 的文件，可能题目的重点在 a standard file system structure，<code>S3</code> 是对象存储，<code>EBS</code> 是块存储，都不是文件存储系统。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：</p>
+<ul>
+<li>S3, 5TiB is per object but you can have more than one object in a bucket, meaning infinity<br>  <a target="_blank" rel="noopener" href="https://aws.amazon.com/fr/blogs/aws/amazon-s3-object-size-limit/">https://aws.amazon.com/fr/blogs/aws/amazon-s3-object-size-limit/</a></li>
+<li>EBS 64 Tib is per block of storage<br>  <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_constraints.html">https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_constraints.html</a></li>
+<li>EFS 47.9 TiB per file and in the questions its says Files the ‘s’<br>  <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/efs/latest/ug/limits.html">https://docs.aws.amazon.com/efs/latest/ug/limits.html</a></li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="三、S3-Object-Lock"><a href="#三、S3-Object-Lock" class="headerlink" title="三、S3 Object Lock"></a>三、S3 Object Lock</h3><p>A company needs to store its accounting records in Amazon S3. The records must be immediately accessible for 1 year and then must be archived for an additional 9 years. No one at the company, including administrative users and root users, can be able to delete the records during the entire 10-year period. The records must be stored with maximum resiliency<sub><u>弹性（恢复能力）</u></sub>.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Store the records in S3 Glacier for the entire 10-year period. Use an access control policy to deny deletion of the records for a period of 10 years.</li>
+<li>Store the records by using S3 Intelligent-Tiering. Use an IAM policy to deny deletion of the records. After 10 years, change the IAM policy to allow deletion.</li>
+<li>✅ Use an S3 Lifecycle policy to transition the records from S3 Standard to S3 Glacier Deep Archive after 1 year. Use S3 Object Lock in compliance mode for a period of 10 years.</li>
+<li>Use an S3 Lifecycle policy to transition the records from S3 Standard to S3 One Zone-Infrequent Access (S3 One Zone-IA) after 1 year. Use S3 Object Lock in governance mode for a period of 10 years.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：be immediately accessible for 1 year、archived for an additional 9 years、no one can delete</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：账号记录存储在 <code>S3</code> 中，第 1 年需要立即可用，之后再归档 9 年，不允许删除。<br>需要使用 <code>S3</code> 生命周期策略来完成标准和归档间的迁移，并使用锁来禁止删除。</p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/userguide/object-lock.html">使用对象锁定以锁定对象</a></p>
+<blockquote>
+<p>​S3 对象锁定可以协助在固定的时间长度内或无限期地阻止删除或覆盖 Amazon S3 对象。对象锁定使用一次写入多次读取（WORM）模式存储对象。您可以使用对象锁定来协助满足需要 WORM 存储的法规要求，或用于添加额外的保护层来防止对象被更改和删除。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Only CD provides Object Lock options which is required for stopping admin&#x2F;root users from deleting.<br>D is governance mode which is like government, payenough moneyand you can do anything.This is not what we want so compliance is the option.<br>C is right choice.  </p>
+<p>For future, remember</p>
+<ul>
+<li><code>S3 Lock Governance</code> &#x3D; corrupt government official（腐败的政府官员）<blockquote>
+<p>在管理模式下，除非用户拥有特殊权限，否则无法覆盖或删除对象版本或更改其锁定设置。使用管理模式，可以防止大多数用户删除对象，但仍可授予某些用户更改保留设置或在必要时删除对象的权限。在创建合规模式保留期之前，还可以使用管理模式测试保留期设置。</p>
+</blockquote>
+</li>
+<li><code>S3 Lock Compliance</code> &#x3D; honest solution architect!（诚实的解决方案架构师！）<blockquote>
+<p>在合规模式下，受保护对象版本不能被任何用户覆盖或删除，包括 AWS 账户中的根用户。在合规模式下锁定对象时，不能更改保留模式，也不能缩短保留期。合规模式有助于确保对象版本在保留期内无法被覆盖或删除。 S3 Object Lock 已通过 Cohasset Associates 的评估，符合 SEC 规则 17a-4(f)、FINRA 规则 4511 和 CFTC 条例 1.31。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="四、Windows-File-Server"><a href="#四、Windows-File-Server" class="headerlink" title="四、Windows File Server"></a>四、Windows File Server</h3><p>A company runs multiple Windows workloads on AWS. The company’s employees use Windows file shares that are hosted on two Amazon EC2 instances. The file shares synchronize data between themselves and maintain duplicate copies. The company wants a highly available and durable storage solution that preserves how users currently access the files.<br>What should a solutions architect do to meet these requirements?</p>
+<ol>
+<li>Migrate all the data to Amazon S3. Set up IAM authentication for users to access files.</li>
+<li>Set up an Amazon S3 File Gateway. Mount the S3 File Gateway on the existing EC2 instances.</li>
+<li>✅ Extend the file share environment to Amazon FSx for Windows File Server with a Multi-AZ configuration. Migrate all the data to FSx for Windows File Server.</li>
+<li>Extend the file share environment to Amazon ElasticFile System (Amazon EFS) with a Multi-AZ configuration. Migrate all the data to Amazon EFS.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：Windows workloads、HA、durable</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：有工作负载运行在两台 Windows 实例上，之前使用 Windows 文件共享来同步文件并保留两份备份，希望迁移到高可用持久的存储上。<br>因为使用了 Windows 因此 <code>EFS</code> 不适用，需要选择 <code>Amazon FSx for Windows File Server</code>。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：EFS is not supported on Windows instances<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/AmazonEFS.html">https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/AmazonEFS.html</a><br>Amazon FSx for Windows File Server provides fully managed Microsoft Windows file servers, backed bya fully native Windows file system.<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html">https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html</a></p>
+</blockquote>
+<hr>
+<h3 id="五、Security-Group"><a href="#五、Security-Group" class="headerlink" title="五、Security Group"></a>五、Security Group</h3><p>A solutions architect is developing a VPC architecture that includes multiple subnets. The architecture will host applications that use Amazon EC2 instances and Amazon RDS DB instances. The architecture consists of six subnets in two Availability Zones. Each Availability Zone includes a public subnet, a private subnet, and a dedicated subnet for databases. Only EC2 instances that run in the private subnets can have access to the RDS databases.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Create a new route table that excludes the route to the public subnets’ CIDR blocks. Associate the route table with the database subnets.</li>
+<li>Create a security group that denies inbound traffic from the security group that is assigned to instances in the public subnets. Attach the security group to the DB instances.</li>
+<li>✅ Create a security group that allows inbound traffic from the security group that is assigned to instances in the private subnets. Attach the security group to the DB instances.</li>
+<li>Create a new peering connection between the public subnets and the private subnets. Create a different peering connection between the private subnets and the database subnets.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：six subnets in two Availability Zones、Each Availability Zone includes a public subnet and a private subnet and a dedicated subnet for databases</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>EC2</code> 和 <code>RDS</code> 分布于总计 2 个可用区 6 个子网，每个可用区有 1 个公有子网、1 个私有子网和 1 个运行数据库的专有子网，只有在私有子网中的 <code>EC2</code> 实例才能访问数据库。问怎样解决这个需求。  </p>
+<p>首先明确 <code>VPC</code> 是区域级别的，可以跨可用区，而 <code>子网</code> 则无法跨可用区。<br>1️⃣ 创建一个包含前往公有子网 CIDR 块记录的路由表，将这个路由表附加在数据库子网。<br>2️⃣ 创建一个安全组，阻止来自公有子网实例的入站流量，将这个安全组附加在 DB 实例上。<br>3️⃣ 创建一个安全组，允许来自私有子网实例的入站流量，将这个安全组附加在 DB 实例上。<br>4️⃣ 创建一个连接公有子网和私有子网的对等连接，再创建一个对等连接连接私有子网和数据库子网。  </p>
+<p>1️⃣ 没有意义，数据库子网不需要访问公有子网实例；2️⃣ 错在安全组没有拒绝规则；3️⃣ 更贴合题意，允许来自私有子网实例的连接；4️⃣ 对等连接是 <code>VPC</code> 级别的。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A: doesn’t fully configure the traffic flow<br>B: security groups don’t have deny rules<br>D: peering is mostly between VPCs, doesn’t really help here</p>
+</blockquote>
+<hr>
+<h3 id="六、API-Gateway-with-doamin-and-SSL"><a href="#六、API-Gateway-with-doamin-and-SSL" class="headerlink" title="六、API Gateway with doamin and SSL"></a>六、API Gateway with doamin and SSL</h3><p>A company has registered its domain name with Amazon Route 53. The company uses Amazon API Gateway in the ca-central-1 Region as a public interface for its backend microservice APIs. Third-party services consume the APIs securely. The company wants to design its API Gateway URL with the company’s domain name and corresponding certificate so that the third-party services can use HTTPS.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Create stage variables in API Gateway with Name&#x3D;”Endpoint-URL” and Value&#x3D;”Company Domain Name” to overwrite the default URL. Import the public certificate associated with the company’s domain name into AWS Certificate Manager (ACM).</li>
+<li>❌ Create Route 53 DNS records with the company’s domain name. Point the alias record to the Regional API Gateway stage endpoint. Import the public certificate associated with the company’s domain name into AWS Certificate Manager (ACM) in the us-east-1 Region.</li>
+<li>✅ Create a Regional API Gateway endpoint. Associate the API Gateway endpoint with the company’s domain name. Import the public certificate associated with the company’s domain name into AWS Certificate Manager (ACM) in the same Region. Attach the certificate to the API Gateway endpoint. Configure Route 53 to route traffic to the API Gateway endpoint.</li>
+<li>Create a Regional API Gateway endpoint. Associate the API Gateway endpoint with the company’s domain name. Import the public certificate associated with the company’s domain name into AWS Certificate Manager (ACM) in the us-east-1 Region. Attach the certificate to the API Gateway APIs. Create Route 53 DNS records with the company’s domain name. Point an A record to the company’s domain name.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：domain on Amazon Route 53、design its API Gateway URL with the company’s domain name、corresponding certificate</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：让 <code>API Gateway</code> 上的接口使用 <code>Route 53</code> 上的域名，并配置证书开启 HTTPS。<br>这里需要注意 <code>ACM</code> 中的证书是区域级的资源，因此需要首先将 <code>API Gateway</code> 限制在一个区域（或者就是每个区域都配置 SSL 证书）。</p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/acm/latest/userguide/acm-overview.html">什么是 AWS Certificate Manager？</a></p>
+<blockquote>
+<p>ACM 中的证书属于区域性资源。若要为多个AWS区域中相同的完全限定域名 (FQDN) 或 FQDN 组将证书用于 Elastic Load Balancing，您必须为每个区域请求或导入一个证书。对于 ACM 提供的证书，这意味着您必须重新验证每个区域的证书中的每个域名。您不能在各区域之间复制证书。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/apigateway/latest/developerguide/apigateway-regional-api-custom-domain-create.html">在 API Gateway 中设置区域自定义域名</a></p>
+<blockquote>
+<p>使用区域自定义域名创建用户友好的 API 基本 URL。利用区域自定义域名，您可以将 HTTP 和 REST API 阶段映射到相同的自定义域名并使用双向 TLS 身份验证。</p>
+<p><strong>注意事项</strong></p>
+<ul>
+<li>您必须提供特定于区域的 ACM 证书。该证书必须与您的 API 位于同一区域。有关创建或上传自定义域名证书的更多信息，请参阅在 AWS Certificate Manager 中准备好证书。  </li>
+<li>在您创建（或迁移）包含 ACM 证书的区域自定义域名时，API Gateway 会在您的账户中创建一个服务相关角色。需要使用服务相关角色，才能将 ACM 证书附加到您的区域端点。该角色名为 AWSServiceRoleForAPIGateway，将对其附加 APIGatewayServiceRolePolicy 托管策略。有关使用服务相关角色的更多信息，请参阅使用服务相关角色。</li>
+<li>创建区域自定义域名后，您必须创建将该自定义域名指向区域域名的“A”型 DNS 记录。这使绑定到自定义域名的流量可以路由到 API 的区域主机名。</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：The correct solution to meet these requirements is option C.<br>To design the API Gateway URL with the company’s domain name and corresponding certificate, the company needs to do the following:</p>
+<ol>
+<li>Create a Regional API Gatewayendpoint:This will allow the company to create an endpoint that is specific to a region.</li>
+<li>Associate the API Gatewayendpoint with the company’s domain name:This will allow the company to use its own domain name for the API Gateway URL.</li>
+<li>Import the public certificate associated with the company’s domain name into AWS Certificate Manager (ACM) in the same Region:This will allow the company to use HTTPS for secure communication with its APIs.</li>
+<li>Attach the certificate to the API Gatewayendpoint:This will allow the company to use the certificate for securing the API Gateway URL.</li>
+<li>Configure Route 53 to route traffic to the API Gatewayendpoint:This will allow the company to use Route 53 to route traffic to the API Gateway URL using the company’s domain name.</li>
+</ol>
+</blockquote>
+<hr>
+<h3 id="七、Amazon-Rekognition-Ground-Truth"><a href="#七、Amazon-Rekognition-Ground-Truth" class="headerlink" title="七、Amazon Rekognition &amp; Ground Truth"></a>七、Amazon Rekognition &amp; Ground Truth</h3><p>A company is running a popular social media website. The website gives users the ability to upload images to share with other users. The company wants to make sure that the images do not contain inappropriate content. The company needs a solution that minimizes development effort.<br>What should a solutions architect do to meet these requirements?</p>
+<ol>
+<li>Use Amazon Comprehend to detect inappropriate content. Use human review for low-confidence<sub><u>低信心</u></sub> predictions<sub><u>预测</u></sub>.</li>
+<li>✅ Use Amazon Rekognition to detect inappropriate content. Use human review for low-confidence predictions.</li>
+<li>Use Amazon SageMaker to detect inappropriate content. Use ground truth to label low-confidence predictions.</li>
+<li>❌ Use AWS Fargate to deploy a custom machine learning model to detect inappropriate content. Use ground truth to label low-confidence predictions.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：do not contain inappropriate content、AI</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 2️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：社交媒体应用需要确保用户上传的图片不包含隐私信息。<br>使用 AI 进行筛选，之后结合人工进行核实。<br>考点就是各 AWS AI 产品的特性和使用场景。  </p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/sagemaker/latest/dg/sms.html">使用 Amazon G SageMaker round Truth 使用人类训练数据标签</a>  </p>
+<blockquote>
+<p>要训练机器学习模型，您需要一个大型、高质量的标注数据集。Ground Truth 有助于您为机器学习模型构建高质量的训练数据集。借助 Ground Truth，您可以将来自 Amazon Mechanical Turk、您选择的供应商公司或内部私有人力资源的工作人员与机器学习相结合，以便创建已标注的数据集。您可以使用从 Ground Truth 输出的已标注数据集来训练自己的模型。您也可以将输出用作 Amazon SageMaker 模型的训练数据集。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/comprehend/features/">Amazon Comprehend（理解）自然语言处理（NLP）服务</a></p>
+<blockquote>
+<p>Amazon Comprehend使用自然语言处理 (NLP) 来提取有关文档内容的见解。它可以通过识别文档中的实体、关键短语、语言、情绪和其他常见元素生成见解。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/rekognition/latest/dg/what-is.html">Amazon Rekognition 图像识别</a></p>
+<blockquote>
+<p>Amazon Rekognition 是一项基于云的图像和视频分析服务，可以轻松地向应用程序添加高级计算机视觉功能。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/machine-learning/accelerate-amazon-sagemaker/">Amazon SageMaker 机器学习面向每位开发人员和数据科学家</a></p>
+<blockquote>
+<p>Amazon SageMaker 是一项完全托管的服务，可以帮助开发人员和数据科学家快速构建、训练和部署机器学习 (ML) 模型。SageMaker 完全消除了机器学习过程中每个步骤的繁重工作，让开发高质量模型变得更加轻松。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/fargate/">AWS Fargate 适用于容器的无服务器计算</a></p>
+<blockquote>
+<p>AWS Fargate 是一种无服务器、随用随付的计算引擎，可让您专注于构建应用程序，而无需管理服务器。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：The best solution to meet these requirements would be option B: Use Amazon Rekognition to detect inappropriate content, and use human review for low-confidence predictions.<br>Amazon Rekognition isa cloud-based image and video analysis service that can detect inappropriate content in images using its pre-trained label detection model. It can identifya wide range of inappropriate content, including explicit or suggestive adult content, violent content,and offensive language.The service provides high accuracyand low latency, making it a good choice for this use case.</p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/11/24</p><p><a href="https://senjianlu.com/2024/11/24/saa_test_daily_20241124/">https://senjianlu.com/2024/11/24/saa_test_daily_20241124/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-11-24</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-11-24</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/11/25/translate_news_nhk_20241125_k10014648341000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - 警視庁 任期付き職員を民間から採用 サイバー犯罪捜査体制強化</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/11/24/hands_on_s3/"><span class="level-item">AWS 实操 - S3 (Simple Storage Service)</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、Send-formatted-data-by-email"><span class="level-left"><span class="level-item">一、Send formatted data by email</span></span></a></li><li><a class="level is-mobile" href="#二、Standard-file-system-structure"><span class="level-left"><span class="level-item">二、Standard file system structure</span></span></a></li><li><a class="level is-mobile" href="#三、S3-Object-Lock"><span class="level-left"><span class="level-item">三、S3 Object Lock</span></span></a></li><li><a class="level is-mobile" href="#四、Windows-File-Server"><span class="level-left"><span class="level-item">四、Windows File Server</span></span></a></li><li><a class="level is-mobile" href="#五、Security-Group"><span class="level-left"><span class="level-item">五、Security Group</span></span></a></li><li><a class="level is-mobile" href="#六、API-Gateway-with-doamin-and-SSL"><span class="level-left"><span class="level-item">六、API Gateway with doamin and SSL</span></span></a></li><li><a class="level is-mobile" href="#七、Amazon-Rekognition-Ground-Truth"><span class="level-left"><span class="level-item">七、Amazon Rekognition &amp; Ground Truth</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

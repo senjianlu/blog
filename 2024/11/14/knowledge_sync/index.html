@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>AWS 知识点 - 迁移 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="本地环境迁移到 AWS 相关的知识点。"><meta property="og:type" content="article"><meta property="og:title" content="AWS 知识点 - 迁移"><meta property="og:url" content="https://senjianlu.com/2024/11/14/knowledge_sync/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="本地环境迁移到 AWS 相关的知识点。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-11-26/aws.png"><meta property="article:published_time" content="2024-11-14T09:00:00.000Z"><meta property="article:modified_time" content="2024-11-14T10:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="SAP"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-11-26/aws.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/11/14/knowledge_sync/"},"headline":"AWS 知识点 - 迁移","image":["https://image.senjianlu.com/blog/2024-11-26/aws.png"],"datePublished":"2024-11-14T09:00:00.000Z","dateModified":"2024-11-14T10:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"本地环境迁移到 AWS 相关的知识点。"}</script><link rel="canonical" href="https://senjianlu.com/2024/11/14/knowledge_sync/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-11-14T09:00:00.000Z" title="11/14/2024, 5:00:00 PM">2024-11-14</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E7%9F%A5%E8%AF%86%E7%82%B9/">知识点</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">AWS 知识点 - 迁移</h1><div class="content"><blockquote>
+<p>本地环境迁移到 AWS 相关的知识点。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<h1 id="AWS-迁移工具"><a href="#AWS-迁移工具" class="headerlink" title="AWS 迁移工具"></a>AWS 迁移工具</h1><h3 id="一、AWS-迁移工具（服务）概览"><a href="#一、AWS-迁移工具（服务）概览" class="headerlink" title="一、AWS 迁移工具（服务）概览"></a>一、AWS 迁移工具（服务）概览</h3><p><img src="https://image.senjianlu.com/blog/2024-11-15/aws_sync_tools.png" alt="AWS 迁移工具（服务）概览"></p>
+<ul>
+<li>使用 <code>AWS 应用程序发现服务 (AWS Application Discovery Service, ADS)</code> 收集本地数据中心的服务器和资源的使用情况或配置数据。</li>
+<li>使用 <code>AWS 应用迁移服务 (AWS Application Migration Service, MGN)</code> 将本地服务器迁移到 <code>EC2</code> 实例中。</li>
+<li>使用 <code>AWS 数据库迁移服务 (AWS Database Migration Service, DMS )</code> 将本地数据库迁移到 <code>RDS</code> 等数据库。</li>
+<li>使用 <code>AWS DataSync</code> 将本地的数据迁移到 <code>S3</code>、<code>EFS</code> 和 <code>FSx</code> 等文件服务中。</li>
+<li>使用 <code>AWS Migration Hub</code> 监控迁移过程并进行相关配置。</li>
+</ul>
+<h3 id="二、AWS-应用程序发现服务-AWS-Application-Discovery-Service-ADS"><a href="#二、AWS-应用程序发现服务-AWS-Application-Discovery-Service-ADS" class="headerlink" title="二、AWS 应用程序发现服务 (AWS Application Discovery Service, ADS)"></a>二、AWS 应用程序发现服务 (AWS Application Discovery Service, ADS)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-15/aws_sync_tool_ads.png" alt="AWS 应用程序发现服务"><br><img src="https://image.senjianlu.com/blog/2024-11-15/aws_sync_tool_ads_02.png" alt="AWS 应用程序发现服务数据收集工具"></p>
+<ul>
+<li>支持收集本地的 VMware 虚拟机、物理服务器和 Hyper-V 虚拟机的信息并进行存储（到 <code>S3</code> 存储桶中）和分析。<blockquote>
+<p>支持收集的信息包括：主机名、IP 地址、MAC 地址、资源分配和利用情况等。</p>
+</blockquote>
+</li>
+<li><code>Application Discovery Service</code> 数据收集工具主要有两种：<ol>
+<li><code>发现连接器 (Discovery Connector)</code>：部署在虚拟机平台上，只支持 VMWare 平台。</li>
+<li><code>发现代理 (Discovery Agent)</code>：部署在各个（虚拟）服务器上。</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h1 id="AWS-数据库迁移服务-DMS"><a href="#AWS-数据库迁移服务-DMS" class="headerlink" title="AWS 数据库迁移服务 (DMS)"></a>AWS 数据库迁移服务 (DMS)</h1><h3 id="一、AWS-数据库迁移服务-DMS-基本概念"><a href="#一、AWS-数据库迁移服务-DMS-基本概念" class="headerlink" title="一、AWS 数据库迁移服务 (DMS) 基本概念"></a>一、AWS 数据库迁移服务 (DMS) 基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-15/aws_rds.png" alt="AWS 数据库迁移服务 (DMS) 基本概念"></p>
+<ul>
+<li>不同模式、不同数据库类型间的迁移（异构迁移）需要使用 <code>模式转换工具</code>。<blockquote>
+<p>两种模式转换解决方案：</p>
+<ol>
+<li>使用 <code>AWS Database Migration Service</code> 控制台并启动 <code>AWS DMS Schema Conversion (DMS SC)</code>工作流程，从而获得完全托管的体验。</li>
+<li>下载 <code>AWS Schema Conversion Tool (AWS SCT)</code> 软件到本地驱动器。</li>
+</ol>
+</blockquote>
+</li>
+<li>迁移目标包括 <code>Aurora</code>、<code>Redshift</code>、<code>DynamoDB</code> 和文档数据库 (<code>Amazon Document DB</code>)。<blockquote>
+<ul>
+<li><code>Aurora</code>：兼容 MySQL 和 PostgreSQL 的数据库。</li>
+<li><code>Redshift</code>：完全托管的 PB 级数据仓库服务。</li>
+<li><code>DynamoDB</code>：完全托管的无服务器 NoSQL 数据库，<em>数据结构像是 MongoDB</em>。</li>
+<li><code>Amazon Document DB</code>：文档数据库服务，支持 MongoDB 工作负载。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="二、DMS-使用场景"><a href="#二、DMS-使用场景" class="headerlink" title="二、DMS 使用场景"></a>二、DMS 使用场景</h3><p><img src="https://image.senjianlu.com/blog/2024-11-15/aws_sync_use_01.png" alt="DMS 使用场景 01"><br><img src="https://image.senjianlu.com/blog/2024-11-15/aws_sync_use_02.png" alt="DMS 使用场景 02"></p>
+<hr>
+<h1 id="AWS-应用迁移服务-MGN"><a href="#AWS-应用迁移服务-MGN" class="headerlink" title="AWS 应用迁移服务 (MGN)"></a>AWS 应用迁移服务 (MGN)</h1><h3 id="一、AWS-应用迁移服务-MGN-基本概念"><a href="#一、AWS-应用迁移服务-MGN-基本概念" class="headerlink" title="一、AWS 应用迁移服务 (MGN) 基本概念"></a>一、AWS 应用迁移服务 (MGN) 基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-15/aws_mgn.png" alt="AWS 应用迁移服务 (MGN) 基本概念"></p>
+<ul>
+<li>迁移流程：<ol>
+<li>安装数据收集工具<blockquote>
+<p>⭐ AWS 推进使用基于代理 (<code>Discovery Agent</code>) 的复制以支持持续数据保护。</p>
+</blockquote>
+</li>
+<li>使用 <code>AWS 应用迁移服务 (MGN)</code></li>
+<li><code>AWS 应用迁移服务 (MGN)</code> 会创建启动模板</li>
+<li>根据启动模板在 AWS 中启动 <code>EC2 实例</code></li>
+<li><em>可以整合 <code>CloudWatch Events</code> 和 <code>Lambda</code> 以在工作流程中自动执行某些操作</em></li>
+</ol>
+</li>
+</ul>
+<h3 id="二、服务存在依赖关系时的分组迁移"><a href="#二、服务存在依赖关系时的分组迁移" class="headerlink" title="二、服务存在依赖关系时的分组迁移"></a>二、服务存在依赖关系时的分组迁移</h3><p><img src="https://image.senjianlu.com/blog/2024-11-15/aws_sync_mgn_group.png" alt="服务存在依赖关系时的分组迁移"></p>
+<h3 id="三、MGN-使用场景和优势"><a href="#三、MGN-使用场景和优势" class="headerlink" title="三、MGN 使用场景和优势"></a>三、MGN 使用场景和优势</h3><p><img src="https://image.senjianlu.com/blog/2024-11-15/aws_sync_mgn_use.png" alt="使用场景和优势"></p>
+<hr>
+<h1 id="AWS-DataSync（数据同步服务）"><a href="#AWS-DataSync（数据同步服务）" class="headerlink" title="AWS DataSync（数据同步服务）"></a>AWS DataSync（数据同步服务）</h1><h3 id="一、AWS-DataSync（数据同步服务）基本概念"><a href="#一、AWS-DataSync（数据同步服务）基本概念" class="headerlink" title="一、AWS DataSync（数据同步服务）基本概念"></a>一、AWS DataSync（数据同步服务）基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-15/aws_sync_datasync.png" alt="AWS DataSync（数据同步服务）基本概念"></p>
+<ul>
+<li>支持对 <code>SnowCone</code> 设备和 <code>S3 on Outposts</code> 进行数据同步</li>
+</ul>
+<h3 id="二、AWS-DataSync-使用场景和优势"><a href="#二、AWS-DataSync-使用场景和优势" class="headerlink" title="二、AWS DataSync 使用场景和优势"></a>二、AWS DataSync 使用场景和优势</h3><p><img src="https://image.senjianlu.com/blog/2024-11-15/aws_sync_datasync_use.png" alt="AWS DataSync 使用场景和优势"></p>
+<hr>
+<h1 id="AWS-Snow-Family"><a href="#AWS-Snow-Family" class="headerlink" title="AWS Snow Family"></a>AWS Snow Family</h1><h3 id="一、AWS-Snow-Family-基本概念"><a href="#一、AWS-Snow-Family-基本概念" class="headerlink" title="一、AWS Snow Family 基本概念"></a>一、AWS Snow Family 基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-15/aws_sync_snow_family.png" alt="AWS Snow Family 基本概念"></p>
+<h3 id="二、AWS-Snow-Family-各设备存储容量"><a href="#二、AWS-Snow-Family-各设备存储容量" class="headerlink" title="二、AWS Snow Family 各设备存储容量"></a>二、AWS Snow Family 各设备存储容量</h3><p><img src="https://image.senjianlu.com/blog/2024-11-15/aws_sync_snow_family_capacity.png" alt="AWS Snow Family 各设备存储容量"></p>
+<ul>
+<li><code>AWS Snowcone</code>：2 个 CPU、4GB 内存；<strong>14TB</strong> 的可用存储容量。</li>
+<li><code>AWS Snowball</code>：<ul>
+<li><code>Snowball Edge Storage Optimized</code>：40 个 vCPU 和 80GiB 内存；<strong>80TB</strong> 硬盘驱动器 (HDD) 容量，1TB SATA 固态硬盘。<blockquote>
+<p>适合大规模数据迁移和重复传输工作流，以及具有较高容量需求的本地计算。</p>
+</blockquote>
+</li>
+<li><code>Snowball Edge Compute Optimized</code>：104 个 vCPU 和 416GiB 内存；<strong>80TB</strong> 可用 HDD 容量，<strong>28TB</strong> 可用 NVMe SSD 容量；<u>一个可选的 NVIDIA Tesla V100 GPU</u>。<blockquote>
+<p>可为机器学习、全动态视频分析、分析和本地计算堆栈等使用案例提供功能强大的计算资源。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><code>AWS Snowmobile</code>：是一个 45 英尺长的加固集装箱，由一台半挂卡车牵引，一次可以传输高达 <strong>100PB</strong> 的数据。</li>
+</ul>
+<h3 id="三、优化传输到-AWS-Snow-Family-设备的性能"><a href="#三、优化传输到-AWS-Snow-Family-设备的性能" class="headerlink" title="三、优化传输到 AWS Snow Family 设备的性能"></a>三、优化传输到 AWS Snow Family 设备的性能</h3><p><img src="https://image.senjianlu.com/blog/2024-11-15/aws_sync_snow_family_optimization.png" alt="优化传输到 AWS Snow Family 设备的性能"></p>
+<h3 id="四、AWS-Snowball-使用场景和优势"><a href="#四、AWS-Snowball-使用场景和优势" class="headerlink" title="四、AWS Snowball 使用场景和优势"></a>四、AWS Snowball 使用场景和优势</h3><blockquote>
+<p>注意这里只针对 <code>AWS Snowball</code>。</p>
+</blockquote>
+<p><img src="https://image.senjianlu.com/blog/2024-11-15/aws_sync_snowball.png" alt="AWS Snowball 使用场景和优势"></p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>AWS 知识点 - 迁移</p><p><a href="https://senjianlu.com/2024/11/14/knowledge_sync/">https://senjianlu.com/2024/11/14/knowledge_sync/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-11-14</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-11-14</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/SAP/">SAP</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/11/14/saa_test_daily_20241114/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">SAA 考试每日练习 - 2024/11/14</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/11/14/translate_news_nhk_20241114_k10014637841000/"><span class="level-item">日语翻译 - 新闻 - 京都で保管の蒸気機関車 解体の危機も 新たな展示場所へ出発</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#AWS-迁移工具"><span class="level-left"><span class="level-item">AWS 迁移工具</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、AWS-迁移工具（服务）概览"><span class="level-left"><span class="level-item">一、AWS 迁移工具（服务）概览</span></span></a></li><li><a class="level is-mobile" href="#二、AWS-应用程序发现服务-AWS-Application-Discovery-Service-ADS"><span class="level-left"><span class="level-item">二、AWS 应用程序发现服务 (AWS Application Discovery Service, ADS)</span></span></a></li></ul></li><li><a class="level is-mobile" href="#AWS-数据库迁移服务-DMS"><span class="level-left"><span class="level-item">AWS 数据库迁移服务 (DMS)</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、AWS-数据库迁移服务-DMS-基本概念"><span class="level-left"><span class="level-item">一、AWS 数据库迁移服务 (DMS) 基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、DMS-使用场景"><span class="level-left"><span class="level-item">二、DMS 使用场景</span></span></a></li></ul></li><li><a class="level is-mobile" href="#AWS-应用迁移服务-MGN"><span class="level-left"><span class="level-item">AWS 应用迁移服务 (MGN)</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、AWS-应用迁移服务-MGN-基本概念"><span class="level-left"><span class="level-item">一、AWS 应用迁移服务 (MGN) 基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、服务存在依赖关系时的分组迁移"><span class="level-left"><span class="level-item">二、服务存在依赖关系时的分组迁移</span></span></a></li><li><a class="level is-mobile" href="#三、MGN-使用场景和优势"><span class="level-left"><span class="level-item">三、MGN 使用场景和优势</span></span></a></li></ul></li><li><a class="level is-mobile" href="#AWS-DataSync（数据同步服务）"><span class="level-left"><span class="level-item">AWS DataSync（数据同步服务）</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、AWS-DataSync（数据同步服务）基本概念"><span class="level-left"><span class="level-item">一、AWS DataSync（数据同步服务）基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、AWS-DataSync-使用场景和优势"><span class="level-left"><span class="level-item">二、AWS DataSync 使用场景和优势</span></span></a></li></ul></li><li><a class="level is-mobile" href="#AWS-Snow-Family"><span class="level-left"><span class="level-item">AWS Snow Family</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、AWS-Snow-Family-基本概念"><span class="level-left"><span class="level-item">一、AWS Snow Family 基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、AWS-Snow-Family-各设备存储容量"><span class="level-left"><span class="level-item">二、AWS Snow Family 各设备存储容量</span></span></a></li><li><a class="level is-mobile" href="#三、优化传输到-AWS-Snow-Family-设备的性能"><span class="level-left"><span class="level-item">三、优化传输到 AWS Snow Family 设备的性能</span></span></a></li><li><a class="level is-mobile" href="#四、AWS-Snowball-使用场景和优势"><span class="level-left"><span class="level-item">四、AWS Snowball 使用场景和优势</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

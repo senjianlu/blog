@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/11/19 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam10 题 (No.21 ~ No.30)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/11/19"><meta property="og:url" content="https://senjianlu.com/2024/11/19/saa_test_daily_20241119/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam10 题 (No.21 ~ No.30)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-11-19T11:00:00.000Z"><meta property="article:modified_time" content="2024-11-19T12:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/11/19/saa_test_daily_20241119/"},"headline":"SAA 考试每日练习 - 2024/11/19","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-11-19T11:00:00.000Z","dateModified":"2024-11-19T12:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam10 题 (No.21 ~ No.30)，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/11/19/saa_test_daily_20241119/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-11-19T11:00:00.000Z" title="11/19/2024, 7:00:00 PM">2024-11-19</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/11/19</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/">Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam</a><br>10 题 (No.21 ~ No.30)，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<p><strong>🌟 单词：</strong></p>
+<ol>
+<li>on-premises<sub><u>就地部署，本地部署</u></sub></li>
+<li>directory<sub><u>n. 目录，名录；指南；电话号码簿</u></sub></li>
+<li>one-deal-a-day<sub><u>当日折扣</u></sub></li>
+<li>operational<sub><u>adj. 操作上的，运作中的</u></sub></li>
+<li>infinitely<sub><u>adv. 非常，极其；无限地，无穷地</u></sub></li>
+<li>scalable<sub><u>adj. 可扩展的</u></sub></li>
+<li>resilient<sub><u>adj. 可迅速恢复的，有适应力的，有弹性（或弹力）的，能复原的</u></sub></li>
+<li>unpredictable<sub><u>adj. 无法预言的，不可预测的，难以预料的，（人）善变的</u></sub></li>
+<li>frequently<sub><u>adv. 频繁地, 时常, 不断地</u></sub></li>
+<li>indefinitely<sub><u>adv. 无限期地</u></sub></li>
+<li>vertical<sub><u>adj. 垂直的，纵向的</u></sub></li>
+<li>in-depth<sub><u>深入细致地, 深入详尽的</u></sub></li>
+<li>identify<sub><u>v. 确认；认出；鉴定；察觉，发现；显示；说明身份</u></sub></li>
+<li>cause<sub><u>n. 原因，事业，病因，理由 | v. 导致，使，引起，产生</u></sub></li>
+<li>proof-of-concept<sub><u>概念验证</u></sub></li>
+<li>quotas<sub><u>n. 配额，定额，指标，限额</u></sub></li>
+<li>significantly<sub><u>adv. 极大地, 显著地, 大幅度地, 意味深长地; 值得注意的是（用于表示某事非常重要）</u></sub></li>
+<li>metrics<sub><u>指标</u></sub></li>
+<li>periodically<sub><u>adv. 定期, 周期性, 定期出版地</u></sub></li>
+<li>single sign-on (SSO)<sub><u>单点登录</u></sub><blockquote>
+<p>单点登录（SSO）是一种身份验证解决方案，可让用户通过一次性用户身份验证登录多个应用程序和网站。鉴于当今的用户经常直接从其浏览器访问应用程序，因此组织正在优先考虑改善安全性和用户体验的访问管理策略。SSO 兼具这两方面的优点，因为一旦验证身份，用户就可以访问所有受密码保护的资源，而无需重复登录。</p>
+</blockquote>
+</li>
+<li>automated<sub><u>adj. 自动化的</u></sub></li>
+<li>failover<sub><u>故障转移</u></sub></li>
+<li>resource-intensive<sub><u>资源密集型</u></sub></li>
+<li>low-capacity<sub><u>低容量的</u></sub></li>
+</ol>
+<hr>
+<h3 id="一、One-deal-a-day-Website"><a href="#一、One-deal-a-day-Website" class="headerlink" title="一、One-deal-a-day Website"></a>一、One-deal-a-day Website</h3><p>An ecommerce company wants to launch a one-deal-a-day website on AWS. Each day will feature exactly one product on sale for a period of 24 hours. The company wants to be able to handle millions of requests each hour with millisecond latency during peak hours.<br>Which solution will meet these requirements with the LEAST operational overhead?</p>
+<ol>
+<li>Use Amazon S3 to host the full website in different S3 buckets. Add Amazon CloudFront distributions. Set the S3 buckets as origins for the distributions. Store the order data in Amazon S3.</li>
+<li>Deploy the full website on Amazon EC2 instances that run in Auto Scaling groups across multiple Availability Zones. Add an Application Load Balancer (ALB) to distribute the website traffic. Add another ALB for the backend APIs. Store the data in Amazon RDS for MySQL.</li>
+<li>Migrate the full application to run in containers. Host the containers on Amazon Elastic Kubernetes Service (Amazon EKS). Use the Kubernetes Cluster Autoscaler to increase and decrease the number of pods to process bursts in traffic. Store the data in Amazon RDS for MySQL.</li>
+<li>✅ Use an Amazon S3 bucket to host the website’s static content. Deploy an Amazon CloudFront distribution. Set the S3 bucket as the origin. Use Amazon API Gateway and AWS Lambda functions for the backend APIs. Store the data in Amazon DynamoDB.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：LEAST operational overhead</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：题目背景是每天销售一款商品的网站（每日更新），同时能接受住百万级别的访问量并要求低延迟，并且用最简单的架构。<br>首选 <code>S3</code> + <code>CloudFront</code> 以应对这种大访问量的简单页面需求。<br>1️⃣ 错在不需要存储在多个桶中；2️⃣ 和 3️⃣ 过于复杂。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：D because all of the componentsare infinitely scalabledynamoDB, API Gateway, Lambda,and of course s3+cloudfront</p>
+</blockquote>
+<hr>
+<h3 id="二、S3-Intelligent-Tiering"><a href="#二、S3-Intelligent-Tiering" class="headerlink" title="二、S3 Intelligent-Tiering"></a>二、S3 Intelligent-Tiering</h3><p>A solutions architect is using Amazon S3 to design the storage architecture of a new digital media application. The media files must be resilient<sub><u>可迅速恢复的</u></sub> to the loss of an Availability Zone. Some files are accessed frequently<sub><u>频繁地</u></sub> while other files are rarely accessed in an unpredictable<sub><u>不可预测的</u></sub> pattern. The solutions architect must minimize the costs of storing and retrieving the media files.<br>Which storage option meets these requirements?</p>
+<ol>
+<li>S3 Standard</li>
+<li>✅ S3 Intelligent-Tiering</li>
+<li>S3 Standard-Infrequent Access (S3 Standard-IA)</li>
+<li>S3 One Zone-Infrequent Access (S3 One Zone-IA)</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：be resilient to the loss of an Availability Zone、Some files are accessed frequently while other files are rarely accessed in an unpredictable pattern</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：需要可恢复，同时有的文件需要频繁访问有的则不可预测。<br>因此 <code>S3 Intelligent-Tiering</code> 这种可以监测对象的访问模式并自动转移文件到不同访问类型的更加合适。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Amazon S3 Intelligent Tiering isa storage class that automatically moves data to the most cost-effective storage tier based on access patterns. It can store objects in two access tiers: the frequent access tier and the infrequent access tier.The frequent access tier is optimized for frequentlyaccessed objectsand is charged at the same rate asS3 Standard.The infrequent access tier is optimized for objects that are not accessed frequentlyand are charged at a lower rate than S3 Standard.</p>
+</blockquote>
+<hr>
+<h3 id="三、S3-Lifecycle-configuration"><a href="#三、S3-Lifecycle-configuration" class="headerlink" title="三、S3 Lifecycle configuration"></a>三、S3 Lifecycle configuration</h3><p>A company is storing backup files by using Amazon S3 Standard storage. The files are accessed frequently<sub><u>频繁地</u></sub> for 1 month. However, the files are not accessed after 1 month. The company must keep the files indefinitely<sub><u>无限期地</u></sub>.<br>Which storage solution will meet these requirements MOST cost-effectively?</p>
+<ol>
+<li>Configure S3 Intelligent-Tiering to automatically migrate objects</li>
+<li>✅ Create an S3 Lifecycle configuration to transition objects from S3 Standard to S3 Glacier Deep Archive after 1 month.</li>
+<li>Create an S3 Lifecycle configuration to transition objects from S3 Standard to S3 Standard-Infrequent Access (S3 Standard-IA) after 1 month.</li>
+<li>Create an S3 Lifecycle configuration to transition objects from S3 Standard to S3 One Zone-Infrequent Access (S3 One Zone-IA) after 1 month.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：accessed frequently for 1 month、not accessed after 1 month</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：文件第一个月频繁访问，而之后需要无限期存储，使用最便宜的方案。<br>使用 <code>S3 Lifecycle</code> 指定策略将文件从 <code>S3 标准</code> 迁移到 <code>S3 Glacier Deep Archive</code> 深度归档是最佳方案。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：The storage solution that will meet these requirements most cost-effectively is B: Create an S3 Lifecycle configuration to transition objects from S3 Standard to S3 Glacier Deep Archive after 1 month.</p>
+<p>Amazon S3 Glacier Deep Archive isa secure, durable,and extremely low-cost Amazon S3 storage class for long-term retention of data that is rarelyaccessed and for which retrieval times of several hoursare acceptable. It is the lowest-cost storage option in Amazon S3, making it a cost-effective choice for storing backup files that are not accessed after 1 month.</p>
+<p>You can use an S3 Lifecycle configuration to automatically transition objects from S3 Standard to S3 Glacier Deep Archive after 1 month.This will minimize the storage costs for the backup files that are not accessed frequently.</p>
+</blockquote>
+<hr>
+<h3 id="四、AWS-Cost-Explorer"><a href="#四、AWS-Cost-Explorer" class="headerlink" title="四、AWS Cost Explorer"></a>四、AWS Cost Explorer</h3><p>A company observes an increase in Amazon EC2 costs in its most recent bill. The billing team notices unwanted vertical<sub><u>垂直地</u></sub> scaling of instance types for a couple of EC2 instances. A solutions architect needs to create a graph comparing the last 2 months of EC2 costs and perform an in-depth<sub><u>细致的</u></sub> analysis to identify<sub><u>确认</u></sub> the root cause<sub><u>原因</u></sub> of the vertical scaling.<br>How should the solutions architect generate the information with the LEAST operational overhead?</p>
+<ol>
+<li>Use AWS Budgets to create a budget report and compare EC2 costs based on instance types.</li>
+<li>✅ Use Cost Explorer’s granular filtering feature to perform an in-depth analysis of EC2 costs based on instance types.</li>
+<li>Use graphs from the AWS Billing and Cost Management dashboard to compare EC2 costs based on instance types for the last 2 months.</li>
+<li>Use AWS Cost and Usage Reports to create a report and send it to an Amazon S3 bucket. Use Amazon QuickSight with Amazon S3 as a source to generate an interactive graph based on instance types.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：perform an in-depth analysis to identify the root cause of the vertical scaling</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>AWS Cost Explorer</code> 可让您直观看到、理解和管理随着时间变化的 AWS 成本和使用情况。<br>通过创建分析成本和使用情况数据的自定义报告，快速入门。高水平分析数据（例如，所有账户的总成本和使用情况），或者更深入地研究成本和使用情况数据，从而发现趋势，查明成本动因素并检测异常情况。  </p>
+<p><code>Cost Explorer</code> 通过以下三个功能提供每小时和资源级粒度：</p>
+<ul>
+<li>每日粒度的资源级数据</li>
+<li>每小时粒度下所有 AWS 服务的成本和使用情况数据（不包括资源级数据）</li>
+<li><u><strong>EC2-每小时粒度的实例（弹性计算云）资源级数据</strong></u><br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/cost-management/latest/userguide/ce-granular-data.html">精细数据</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：<a target="_blank" rel="noopener" href="https://www.examtopics.com/discussions/amazon/view/68306-exam-aws-certified-solutions-architect-associate-saa-c02/">https://www.examtopics.com/discussions/amazon/view/68306-exam-aws-certified-solutions-architect-associate-saa-c02/</a></p>
+<p>还有选 3️⃣ 的，理由是图表只在 14 天内可用？<br>The requested result is a graph, so…<br>A - can’t be as the result isa report<br>B - can’t be as it is limited to 14 days visibility and the graph has to cover 2 months<br>C - seems to provide graphsand the best option available,as…<br>D - could provide graphs, BUT involves operational overhead, which has been requested to be minimised.  </p>
+<p>然而官方很明确表示了会准备过去 12 个月的成本数据进行分析：</p>
+<blockquote>
+<p>您可以在账单与成本管理控制台中利用此程序为您的账户启用 AWS Cost Explorer 成本管理服务。您无法通过 API 启用 AWS Cost Explorer 成本管理服务。在启用 AWS Cost Explorer 成本管理服务以后，<u><strong>AWS 会准备当月和最近 12 个月的成本数据</strong></u>，然后计算未来 12 个月的预测。当月数据在大约 24 个小时内可供查看。其他数据可能需要数天时间。AWS Cost Explorer 成本管理服务至少会每隔 24 小时对您的成本数据进行一次更新。</p>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="五、Amazon-SQS"><a href="#五、Amazon-SQS" class="headerlink" title="五、Amazon SQS"></a>五、Amazon SQS</h3><p>A company is designing an application. The application uses an AWS Lambda function to receive information through Amazon API Gateway and to store the information in an Amazon Aurora PostgreSQL database.<br>During the proof-of-concept<sub><u>概念验证</u></sub> stage, the company has to increase the Lambda quotas<sub><u>定额，配额</u></sub> significantly<sub><u>极大地</u></sub> to handle the high volumes of data that the company needs to load into the database. A solutions architect must recommend a new design to improve scalability and minimize the configuration effort.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Refactor the Lambda function code to Apache Tomcat code that runs on Amazon EC2 instances. Connect the database by using native Java Database Connectivity (JDBC) drivers.</li>
+<li>Change the platform from Aurora to Amazon DynamoDProvision a DynamoDB Accelerator (DAX) cluster. Use the DAX client SDK to point the existing DynamoDB API calls at the DAX cluster.</li>
+<li>Set up two Lambda functions. Configure one function to receive the information. Configure the other function to load the information into the database. Integrate the Lambda functions by using Amazon Simple Notification Service (Amazon SNS).</li>
+<li>✅ Set up two Lambda functions. Configure one function to receive the information. Configure the other function to load the information into the database. Integrate the Lambda functions by using an Amazon Simple Queue Service (Amazon SQS) queue.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：minimize the configuration effort</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：使用 SNS 会引发同样的瓶颈，瓶颈不过是从单一 Lambda 函数转移到了接收 SNS 消息的 Lambda 函数。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A - refactoring can be a solution, BUT requiresa LOT of effort - not the answer<br>B - DynamoDB is NoSQL and Aurora isSQL, so it requiresa DB migration…again a LOT of effort, so no the answer<br>C and D are similar in structure, but…<br>C usesSNS, which would notify the 2nd Lambda function… provoking the same bottleneck… not the solution<br>D usesSQS, so the 2nd lambda function can go to the queue when responsive to keep with the DB load process.<br>Usually the app decoupling helps with the performance improvement by distributing load. In this case, the bottleneckis solved by uses queues… so D is the answer.</p>
+</blockquote>
+<hr>
+<h3 id="六、AWS-Config"><a href="#六、AWS-Config" class="headerlink" title="六、AWS Config"></a>六、AWS Config</h3><p>A company needs to review its AWS Cloud deployment to ensure that its Amazon S3 buckets do not have unauthorized configuration changes.<br>What should a solutions architect do to accomplish this goal?</p>
+<ol>
+<li>✅ Turn on AWS Config with the appropriate rules.</li>
+<li>Turn on AWS Trusted Advisor with the appropriate checks.</li>
+<li>Turn on Amazon Inspector with the appropriate assessment template.</li>
+<li>❌ Turn on Amazon S3 server access logging. Configure Amazon EventBridge (Amazon Cloud Watch Events).</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：ensure Amazon S3 buckets do not have unauthorized configuration changes</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>AWS Config</code> 提供了您 AWS 账户中 AWS 资源配置的详细视图。这些信息包括资源之间的关联方式以及资源以前的配置方式，让您了解资源的配置和关系如何随着的时间的推移而更改。<br>解题的思路可以直白地：Configuration changes &#x3D; AWS Config</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：AWS Trusted Advisor (Option B) isa service that provides best practice recommendations for your AWS resources, but it does not monitor or record changes to the configuration of yourS3 buckets.  </p>
+<blockquote>
+<p><code>AWS Trusted Advisor</code> 是一项 Web 服务，可以检查您的 AWS 环境并根据 AWS 最佳实践提供实时建议。<code>Trusted Advisor</code> 可以检查成本优化、性能、安全性、容错能力和服务限制五个类别，并将检查结果与 AWS 最佳实践进行比较。</p>
+</blockquote>
+<p>Amazon Inspector (Option C) isa service that helps you assess the security and compliance of your applications. While it can be used to assess the security of yourS3 buckets, it does not monitor or record changes to the configuration of yourS3 buckets.  </p>
+<blockquote>
+<p><code>Amazon Inspector</code> 是一项漏洞管理服务，可自动发现工作负载并持续扫描工作负载以查找软件漏洞和意外网络泄露。</p>
+</blockquote>
+<p>Amazon S3 server access logging (Option D) enables you to log requests made to your S3 bucket. While it can help you<br>identify changes to yourS3 bucket, it does not monitor or record changes to the configuration of yourS3 bucket.</p>
+</blockquote>
+<hr>
+<h3 id="七、CloudWatch-dashboard’s-share"><a href="#七、CloudWatch-dashboard’s-share" class="headerlink" title="七、CloudWatch dashboard’s share"></a>七、CloudWatch dashboard’s share</h3><p>A company is launching a new application and will display application metric<sub><u>指标</u></sub>s on an Amazon CloudWatch dashboard. The company’s product manager needs to access this dashboard periodically<sub><u>定期地</u></sub>. The product manager does not have an AWS account. A solutions architect must provide access to the product manager by following the principle of least privilege.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>✅ Share the dashboard from the CloudWatch console. Enter the product manager’s email address, and complete the sharing steps. Provide a shareable link for the dashboard to the product manager.</li>
+<li>Create an IAM user specifically for the product manager. Attach the CloudWatchReadOnlyAccess AWS managed policy to the user. Share the new login credentials with the product manager. Share the browser URL of the correct dashboard with the product manager.</li>
+<li>Create an IAM user for the company’s employees. Attach the ViewOnlyAccess AWS managed policy to the IAM user. Share the new login credentials with the product manager. Ask the product manager to navigate to the CloudWatch console and locate the dashboard by name in the Dashboards section.</li>
+<li>Deploy a bastion server in a public subnet. When the product manager requires access to the dashboard, start the server and share the RDP credentials. On the bastion server, ensure that the browser is configured to open the dashboard URL with cached AWS credentials that have appropriate permissions to view the dashboard.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：access application metric、CloudWatch、PoLP</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：Share a single dashboard and designate specific email addresses of the people who can view the dashboard.Each of these users creates their own password that they must enter to view the dashboard.</p>
+<p>CloudWatch dashboards 的分享可以不需要 AWS 账户，具体的三种分享方式：</p>
+<ul>
+<li>（邮箱加密码）Share a single dashboard and designate as many as five email addresses of people who can view the dashboard. Each of these users creates their own password that they must enter to view the dashboard.</li>
+<li>（公开）Share a single dashboard publicly, so that anyone who has the link can view the dashboard.</li>
+<li>（使用三方认证等方式）Share all the CloudWatch dashboards in your account and specify a third-party single sign-on (SSO) provider for dashboard access. All users who are members of this SSO provider’s list can access all the dashboards in the account. To enable this, you integrate the SSO provider with Amazon Cognito. The SSO provider must support Security Assertion Markup Language (SAML). For more information about Amazon Cognito, see <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html">What is Amazon Cognito?</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Answere A<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-dashboard-sharing.html">https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-dashboard-sharing.html</a><br>Share a single dashboard and designate specific email addresses of the people who can view the dashboard.Each of these users creates their own password that they must enter to view the dashboard.</p>
+</blockquote>
+<hr>
+<h3 id="八、On-premises-self-managed-Microsoft-Active-Directory"><a href="#八、On-premises-self-managed-Microsoft-Active-Directory" class="headerlink" title="八、On-premises self-managed Microsoft Active Directory"></a>八、On-premises self-managed Microsoft Active Directory</h3><p>A company is migrating applications to AWS. The applications are deployed in different accounts. The company manages the accounts centrally by using AWS Organizations. The company’s security team needs a single sign-on (SSO) solution across all the company’s accounts. The company must continue managing the users and groups in its on-premises self-managed Microsoft Active Directory.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Enable AWS Single Sign-On (AWS SSO) from the AWS SSO console. Create a one-way forest trust or a one-way domain trust to connect the company’s self-managed Microsoft Active Directory with AWS SSO by using AWS Directory Service for Microsoft Active Directory.</li>
+<li>✅ Enable AWS Single Sign-On (AWS SSO) from the AWS SSO console. Create a two-way forest trust to connect the company’s self-managed Microsoft Active Directory with AWS SSO by using AWS Directory Service for Microsoft Active Directory.</li>
+<li>Use AWS Directory Service. Create a two-way trust relationship with the company’s self-managed Microsoft Active Directory.</li>
+<li>Deploy an identity provider (IdP) on premises. Enable AWS Single Sign-On (AWS SSO) from the AWS SSO console.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：SSO、on-premises self-managed Microsoft Active Directory</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：题目背景是公司以及通过 <code>AWS Organizations</code> 进行了治理，希望增加一个 SSO 认证，并继续在自维护的 Microsoft AD 上管理用户和组等。<br>很显然需要开启 SSO 功能因此在 1️⃣ 和 2️⃣ 里选。<br>这里肯定要使用 <code>AWS Directory Service</code> 服务并至少建立单项信任管理（云信任本地托管），或者之间使用 <code>AD Connector</code> 将云端的作为代理。<br>都没有的话聚焦于 <code>one-way</code>（单向）还是 <code>two-way</code>（双向）认证，虽然我觉得单项也可以，但是 AWS 的文档里明确了需要双向认证：<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_setup_trust.html">Creating a trust relationship between your AWS Managed Microsoft AD and self-managed AD</a></p>
+<blockquote>
+<p>Amazon Chime、Amazon Connect、亚马逊、亚马逊、亚马逊 QuickSight、亚马 AWS IAM Identity Center逊 WorkSpaces、 WorkDocs WorkMail亚马逊等 AWS 企业应用程序需要<u><strong>双向信任</strong></u>。 AWS Management Console AWS 托管 Microsoft AD 必须能够查询你自行管理的用户和群组 Active Directory.</p>
+</blockquote>
+<p>只能选 2️⃣ 了。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Tricky question!!! forget one-way or two-way. In this scenario, AWS applications (Amazon Chime, Amazon Connect, Amazon QuickSight, AWS Single Sign-On, Amazon WorkDocs, Amazon WorkMail, Amazon WorkSpaces, AWS Client VPN, AWS Management Console, and AWS Transfer Family) need to be able to look up objects from the on-premises domain in order for them to function.This tells you that authentication needs to flow both ways.This scenario requiresa two-way trust between the on-premisesand AWS Managed Microsoft AD domains.<br>It isa requirement of the application<br>Scenario 2: <a target="_blank" rel="noopener" href="https://aws.amazon.com/es/blogs/security/everything-you-wanted-to-know-about-trusts-with-aws-managed-microsoft-ad/">https://aws.amazon.com/es/blogs/security/everything-you-wanted-to-know-about-trusts-with-aws-managed-microsoft-ad/</a></p>
+</blockquote>
+<hr>
+<h3 id="九、VoIP-Global-Accelerator"><a href="#九、VoIP-Global-Accelerator" class="headerlink" title="九、VoIP - Global Accelerator"></a>九、VoIP - Global Accelerator</h3><p>A company provides a Voice over Internet Protocol (VoIP)<sub><u>基于IP的语音传输（英语：Voice over Internet Protocol，缩写为VoIP）是一种语音通话技术，经由网际协议（IP）来达成语音通话与多媒体会议，也就是经由互联网来进行通信。</u></sub> service that uses UDP connections. The service consists of Amazon EC2 instances that run in an Auto Scaling group. The company has deployments across multiple AWS Regions.<br>The company needs to route users to the Region with the lowest latency. The company also needs automated<sub><u>自动化的</u></sub> failover<sub><u>故障转移</u></sub> between Regions.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>✅ Deploy a Network Load Balancer (NLB) and an associated target group. Associate the target group with the Auto Scaling group. Use the NLB as an AWS Global Accelerator endpoint in each Region.</li>
+<li>Deploy an Application Load Balancer (ALB) and an associated target group. Associate the target group with the Auto Scaling group. Use the ALB as an AWS Global Accelerator endpoint in each Region.</li>
+<li>❌ Deploy a Network Load Balancer (NLB) and an associated target group. Associate the target group with the Auto Scaling group. Create an Amazon Route 53 latency record that points to aliases for each NLB. Create an Amazon CloudFront distribution that uses the latency record as an origin.</li>
+<li>Deploy an Application Load Balancer (ALB) and an associated target group. Associate the target group with the Auto Scaling group. Create an Amazon Route 53 weighted record that points to aliases for each ALB. Deploy an Amazon CloudFront distribution that uses the weighted record as an origin.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：UDP connections、route users to the Region with the lowest latency</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：考点是 <code>AWS Global Accelerator（全球应用程序加速）</code>。<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/global-accelerator/faqs/">AWS Global Accelerator 常见问题</a>  </p>
+<blockquote>
+<p><code>AWS Global Accelerator</code> 是一种联网服务，可以帮助您提高为全球用户提供的应用程序的可用性和性能。AWS Global Accelerator 可以轻松设置、配置和管理。它可以提供静态 IP 地址，从而为您的应用程序提供固定的入口点，并消除了为不同 AWS 区域和可用区管理特定 IP 地址的复杂性。AWS Global Accelerator 始终根据性能将用户流量路由到最佳终端节点，即时针对应用程序运行状况、用户位置和您配置的策略的变化做出反应。您可以从自己的位置使用速度比较工具测试性能优势。与其他 AWS 服务一样，AWS Global Accelerator 也是一种按用量付费的自助服务，无需长期承诺或最低费用。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：agree with A,<br>Global Accelerator hasautomatic failover and is perfect for this scenario with VoIP<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/global-accelerator/faqs/">https://aws.amazon.com/global-accelerator/faqs/</a></p>
+</blockquote>
+<hr>
+<h3 id="十、Snapshot"><a href="#十、Snapshot" class="headerlink" title="十、Snapshot"></a>十、Snapshot</h3><p>A development team runs monthly resource-intensive<sub><u>资源密集型</u></sub> tests on its general purpose Amazon RDS for MySQL DB instance with Performance Insights enabled. The testing lasts for 48 hours once a month and is the only process that uses the database. The team wants to reduce the cost of running the tests without reducing the compute and memory attributes of the DB instance.<br>Which solution meets these requirements MOST cost-effectively?</p>
+<ol>
+<li>Stop the DB instance when tests are completed. Restart the DB instance when required.</li>
+<li>❌ Use an Auto Scaling policy with the DB instance to automatically scale when tests are completed.</li>
+<li>✅ Create a snapshot when tests are completed. Terminate the DB instance and restore the snapshot when required.</li>
+<li>Modify the DB instance to a low-capacity<sub><u>低容量的</u></sub> instance when tests are completed. Modify the DB instance again when required.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：reduce the cost of running the tests without reducing the compute and memory attributes of the DB instance</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：题目的需求只是每月在 AWS 进行一次数据库测试，用完即删，选择一个最便宜的方式。<br>由于实例等在停止后也依然收费，因此最便宜的方式是存储快照并在需要时重建。  </p>
+</blockquote>
+<blockquote>
+<p>Answer C, you still pay for storage when an RDS database is stopped</p>
+<p>Not A - By stopping the DB although you are not paying for DB hours you are still paying for Provisioned IOPs , the storage for Stopped DB is more than Snapshot of underlying EBS vol.and Automated Back ups.<br>Not D - Is possible but not MOST cost effective, no need to run the RDS when not needed  </p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/11/19</p><p><a href="https://senjianlu.com/2024/11/19/saa_test_daily_20241119/">https://senjianlu.com/2024/11/19/saa_test_daily_20241119/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-11-19</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-11-19</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/11/20/translate_news_nhk_20241120_k10014643741000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - バルト海 海底の通信ケーブル 切断や損傷が相次ぐ 当局が捜査</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/11/19/hands_on_ec2/"><span class="level-item">AWS 实操 - EC2</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、One-deal-a-day-Website"><span class="level-left"><span class="level-item">一、One-deal-a-day Website</span></span></a></li><li><a class="level is-mobile" href="#二、S3-Intelligent-Tiering"><span class="level-left"><span class="level-item">二、S3 Intelligent-Tiering</span></span></a></li><li><a class="level is-mobile" href="#三、S3-Lifecycle-configuration"><span class="level-left"><span class="level-item">三、S3 Lifecycle configuration</span></span></a></li><li><a class="level is-mobile" href="#四、AWS-Cost-Explorer"><span class="level-left"><span class="level-item">四、AWS Cost Explorer</span></span></a></li><li><a class="level is-mobile" href="#五、Amazon-SQS"><span class="level-left"><span class="level-item">五、Amazon SQS</span></span></a></li><li><a class="level is-mobile" href="#六、AWS-Config"><span class="level-left"><span class="level-item">六、AWS Config</span></span></a></li><li><a class="level is-mobile" href="#七、CloudWatch-dashboard’s-share"><span class="level-left"><span class="level-item">七、CloudWatch dashboard’s share</span></span></a></li><li><a class="level is-mobile" href="#八、On-premises-self-managed-Microsoft-Active-Directory"><span class="level-left"><span class="level-item">八、On-premises self-managed Microsoft Active Directory</span></span></a></li><li><a class="level is-mobile" href="#九、VoIP-Global-Accelerator"><span class="level-left"><span class="level-item">九、VoIP - Global Accelerator</span></span></a></li><li><a class="level is-mobile" href="#十、Snapshot"><span class="level-left"><span class="level-item">十、Snapshot</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

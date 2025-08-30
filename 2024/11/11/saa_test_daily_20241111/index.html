@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/11/11 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：AWS解决方案架构师认证-助理级(SAA-C03)仿真练习题3 题，免费题库，题目质量不高，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/11/11"><meta property="og:url" content="https://senjianlu.com/2024/11/11/saa_test_daily_20241111/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：AWS解决方案架构师认证-助理级(SAA-C03)仿真练习题3 题，免费题库，题目质量不高，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-11-11T11:00:00.000Z"><meta property="article:modified_time" content="2024-11-11T12:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/11/11/saa_test_daily_20241111/"},"headline":"SAA 考试每日练习 - 2024/11/11","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-11-11T11:00:00.000Z","dateModified":"2024-11-11T12:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：AWS解决方案架构师认证-助理级(SAA-C03)仿真练习题3 题，免费题库，题目质量不高，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/11/11/saa_test_daily_20241111/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-11-11T11:00:00.000Z" title="11/11/2024, 7:00:00 PM">2024-11-11</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/11/11</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.iloveaws.cn/course/aws%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88%e6%9e%b6%e6%9e%84%e5%b8%88%e8%ae%a4%e8%af%81-%e5%8a%a9%e7%90%86%e7%ba%a7saa-c02%e7%bb%83%e4%b9%a0%e9%a2%98">AWS解决方案架构师认证-助理级(SAA-C03)仿真练习题</a><br>3 题，免费题库，题目质量不高，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<p><strong>🌟 单词：</strong></p>
+<ol>
+<li>spread<sub><u>v. 传播，扩散，展开，散布 | n. 传播，蔓延，扩展，散布 | adj. 广大的，大幅的，（宝石）薄而无光泽的</u></sub></li>
+<li>replica<sub><u>n. 复制品, 仿制品</u></sub></li>
+<li>primary<sub><u>adj. 首要的，主要的；最初的；原本的；第一手的，直接的；初级的，小学的；初等的 | n. 初选者；原色</u></sub></li>
+<li>attach<sub><u>v. 系；绑；附上；把…固定；认为有重要性（或意义、价值、分量等）；喜欢，依恋</u></sub></li>
+<li>boundaries<sub><u>n. 分界线，边界</u></sub></li>
+</ol>
+<hr>
+<h3 id="一、Placement-groups"><a href="#一、Placement-groups" class="headerlink" title="一、Placement groups"></a>一、Placement groups</h3><p>A solutions architect is designing a high performance computing (HPC) workload on Amazon EC2. The EC2 instances need to communicate to each other frequently and require network performance with low latency and high throughput.<br>Which EC2 configuration meets these requirements?<br>1. ✅ Launch the EC2 instances in a cluster placement group in one Availability Zone.<br>2. Launch the EC2 instances in a spread placement group in one Availability Zone.<br>3. Launch the EC2 instances in an Auto Scaling group in two Regions and peer the VPCs.<br>4. Launch the EC2 instances in an Auto Scaling group spanning multiple Availability Zones.  </p>
+<blockquote>
+<p>✨ 关键词：HPC、low latency、high throughput、<strong>Placement groups</strong></p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：When you launch a new EC2 instance, the EC2 service attempts to place the instance in such a way that all of your instances are spread out across underlying hardware to minimize correlated failures. You can use placement groups to influence the placement of a group of interdependent instances to meet the needs of your workload. Depending on the type of workload.<br>Cluster “” packs instances close together inside an Availability Zone. This strategy enables workloads to achieve the low-latency network performance necessary for tightly-coupled node-to-node communication that is typical of HPC applications.<br>Reference:<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html</a>  </p>
+<p>Amazon EC2 实例的置放群组：</p>
+<ul>
+<li>为了满足工作负载的需求，您可以将一组相互依赖的 EC2 实例启动到一个置放群组中，以影响它们的置放。</li>
+<li>创建置放群组无需支付费用。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>置放群组</th>
+<th>英文</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>集群</td>
+<td>Cluster</td>
+<td>将一个可用区内靠近的实例打包在一起。通过使用该策略，工作负载可以实现所需的低延迟网络性能，以满足高性能计算（HPC）应用程序通常使用的紧密耦合的节点到节点通信的要求。</td>
+</tr>
+<tr>
+<td>分区</td>
+<td>Partition</td>
+<td>将实例分布在不同的逻辑分区上，以便一个分区中的实例组不会与不同分区中的实例组使用相同的基础硬件。该策略通常为大型分布式和重复的工作负载所使用，例如，Hadoop、Cassandra 和 Kafka。</td>
+</tr>
+<tr>
+<td>分布</td>
+<td>Spread</td>
+<td>将一小组实例严格放置在不同的基础硬件上，以减少相关的故障。</td>
+</tr>
+</tbody></table>
+</blockquote>
+<hr>
+<h3 id="二、Amazon-RDS-Read-Replicas"><a href="#二、Amazon-RDS-Read-Replicas" class="headerlink" title="二、Amazon RDS Read Replicas"></a>二、Amazon RDS Read Replicas</h3><p>An application running on AWS uses an Amazon Aurora Multi-AZ deployment for its database. When evaluating performance metrics, a solutions architect discovered that the database reads are causing high I&#x2F;O and adding latency to the write requests against the database.<br>What should the solutions architect do to separate the read requests from the write requests?<br>1. Enable read-through caching on the Amazon Aurora database.<br>2. Update the application to read from the Multi-AZ standby instance.<br>3. ✅ Create a read replica and modify the application to use the appropriate endpoint.<br>4. ❌ Create a second Amazon Aurora database and link it to the primary database as a read replica.  </p>
+<blockquote>
+<p>✨ 关键词：Multi-AZ、Database、读写分离、<strong>Amazon RDS Read Replicas</strong></p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：Amazon RDS Read Replicas provide enhanced performance and durability for RDS database (DB) instances. They make it easy to elastically scale out beyond the capacity constraints of a single DB instance for read-heavy database workloads. You can create one or more replicas of a given source DB Instance and serve high-volume application read traffic from multiple copies of your data, thereby increasing aggregate read throughput. Read replicas can also be promoted when needed to become standalone DB instances. Read replicas are available in Amazon RDS for MySQL, MariaDB, PostgreSQL, Oracle, and SQL Server as well as<br>Amazon Aurora.<br>For the MySQL, MariaDB, PostgreSQL, Oracle, and SQL Server database engines, Amazon RDS creates a second DB instance using a snapshot of the source DB instance. It then uses the engines’ native asynchronous replication to update the read replica whenever there is a change to the source DB instance. The read replica operates as a DB instance that allows only read-only connections; applications can connect to a read replica just as they would to any DB instance.<br>Amazon RDS replicates all databases in the source DB instance.<br>Amazon Aurora further extends the benefits of read replicas by employing an SSD-backed virtualized storage layer purpose-built for database workloads.<br>Amazon Aurora replicas share the same underlying storage as the source instance, lowering costs and avoiding the need to copy data to the replica nodes. For more information about replication with Amazon Aurora, see the online documentation.<br><img src="https://image.senjianlu.com/blog/2024-11-14/database_read_write.png"><br>Reference:<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html</a><br><a target="_blank" rel="noopener" href="https://aws.amazon.com/rds/features/read-replicas/">https://aws.amazon.com/rds/features/read-replicas/</a>  </p>
+</blockquote>
+<hr>
+<h3 id="三、IAM-Permissions-boundaries"><a href="#三、IAM-Permissions-boundaries" class="headerlink" title="三、IAM Permissions boundaries"></a>三、IAM Permissions boundaries</h3><p>A company allows its developers to attach existing IAM policies to existing IAM roles to enable faster experimentation and agility. However, the security operations team is concerned that the developers could attach the existing administrator policy, which would allow the developers to circumvent any other security policies.<br>How should a solutions architect address this issue?  </p>
+<ol>
+<li>Create an Amazon SNS topic to send an alert every time a developer creates a new policy.  </li>
+<li>Use service control policies to disable IAM activity across all account in the organizational unit.  </li>
+<li>Prevent the developers from attaching any policies and assign all IAM duties to the security operations team.  </li>
+<li>✅ Set an IAM permissions boundary on the developer IAM role that explicitly denies attaching the administrator policy.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：IAM、permissions boundary、<strong>IAM 实体的权限边界</strong></p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：Reference:<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html</a><br>AWS 对于 IAM 实体（用户或角色）支持权限边界。权限边界是一个高级功能，它使用托管策略设置基于身份的策略可以为 IAM 实体授予的最大权限。实体的权限边界仅允许实体执行其基于身份的策略和权限边界同时允许的操作。</p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/11/11</p><p><a href="https://senjianlu.com/2024/11/11/saa_test_daily_20241111/">https://senjianlu.com/2024/11/11/saa_test_daily_20241111/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-11-11</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-11-11</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/11/12/translate_news_nhk_20241111_k10014635481000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - 韓国 北朝鮮ICBM ロシアから技術支援受けた可能性を指摘</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/11/11/translate_news_nhk_20241111_k10014634511000/"><span class="level-item">日语翻译 - 新闻 - カピバラ親子が露天風呂に入る姿が人気 静岡 伊東の動物公園</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、Placement-groups"><span class="level-left"><span class="level-item">一、Placement groups</span></span></a></li><li><a class="level is-mobile" href="#二、Amazon-RDS-Read-Replicas"><span class="level-left"><span class="level-item">二、Amazon RDS Read Replicas</span></span></a></li><li><a class="level is-mobile" href="#三、IAM-Permissions-boundaries"><span class="level-left"><span class="level-item">三、IAM Permissions boundaries</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

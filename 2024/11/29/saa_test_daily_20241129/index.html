@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/11/29 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam65 题 (No.116 ~ No.180) 只记录了 16 道错题，仅供自己复习使用。与正式考试题量一样，总共耗时 92&amp;#x2F;(130+30) 分钟，正确率为 49&amp;#x2F;65。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/11/29"><meta property="og:url" content="https://senjianlu.com/2024/11/29/saa_test_daily_20241129/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam65 题 (No.116 ~ No.180) 只记录了 16 道错题，仅供自己复习使用。与正式考试题量一样，总共耗时 92&amp;#x2F;(130+30) 分钟，正确率为 49&amp;#x2F;65。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-11-29T11:00:00.000Z"><meta property="article:modified_time" content="2024-11-29T12:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/11/29/saa_test_daily_20241129/"},"headline":"SAA 考试每日练习 - 2024/11/29","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-11-29T11:00:00.000Z","dateModified":"2024-11-29T12:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam65 题 (No.116 ~ No.180) 只记录了 16 道错题，仅供自己复习使用。与正式考试题量一样，总共耗时 92&#x2F;(130+30) 分钟，正确率为 49&#x2F;65。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/11/29/saa_test_daily_20241129/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-11-29T11:00:00.000Z" title="11/29/2024, 7:00:00 PM">2024-11-29</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/11/29</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/">Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam</a><br>65 题 (No.116 ~ No.180) <strong>只记录了 16 道错题</strong>，仅供自己复习使用。<br><em>与正式考试题量一样，总共耗时 92&#x2F;(130+30) 分钟，正确率为 49&#x2F;65。</em><br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<p><strong>🌟 单词：</strong></p>
+<ol>
+<li>associate<sub><u>v. 联系，联想 | n. 同事；合作人；伙伴 | adj. （等级或头衔）副的；准的</u></sub></li>
+<li>stage<sub><u>n. 阶段；舞台；步，步骤；驿站 | v. 举行，上演，举办，组织</u></sub></li>
+<li>moving forward<sub><u>前进，推动</u></sub></li>
+<li>underlying<sub><u>adj. 根本的，潜在的，隐含的，表面下的</u></sub></li>
+<li>monolithic<sub><u>adj. 庞大的, 巨石的, 整体(式)的, 铁板一块的</u></sub></li>
+<li>moderate<sub><u>adj. 适度的；温和的；中等的 | v. 变缓和；变弱；节制；减轻；主持（讨论、辩论等） | n. 持温和政见者</u></sub></li>
+<li>steady<sub><u>adj. 稳定的，稳固的，沉稳的，可靠的；持续的，规则的 | v. （使）稳固，（使）稳定</u></sub></li>
+<li>metric<sub><u>adj. 米制的，公制的，按公制制作的，用公制测量的 | n. 衡量标准；度量；米制单位</u></sub></li>
+<li>composite<sub><u>n. 合成物；混合物；复合材料 | adj. 合成的；混成的；复合的</u></sub></li>
+<li>threshold<sub><u>n. 门槛，门口；阈，界；起点，临界点</u></sub></li>
+<li>employees<sub><u>n. 雇员，受雇者，雇工</u></sub></li>
+<li>compliance<sub><u>n. 遵从，顺从，服从</u></sub></li>
+<li>detect<sub><u>v. 测出；发现，查明</u></sub></li>
+<li>gain<sub><u>v. 获得，增加，赢得，取得 | n. 增加，利益，好处，利润</u></sub></li>
+<li>consolidate<sub><u>v. 巩固，加强；联合，统一</u></sub></li>
+<li>parallel<sub><u>adj. 平行的，并列的 | v. 与……同时发生；与……相似；与…媲美；比得上 | n. 平行线，极其相似的人（或情况、事件等）</u></sub></li>
+</ol>
+<hr>
+<h3 id="一、WAF-across-multiple-accounts"><a href="#一、WAF-across-multiple-accounts" class="headerlink" title="一、WAF across multiple accounts"></a>一、WAF across multiple accounts</h3><p>A global company is using Amazon API Gateway to design REST APIs for its loyalty club users in the us-east-1 Region and the ap-southeast-2 Region. A solutions architect must design a solution to protect these API Gateway managed REST APIs across multiple accounts from SQL injection and cross-site scripting attacks.<br>Which solution will meet these requirements with the LEAST amount of administrative effort?</p>
+<ol>
+<li>❌ Set up AWS WAF in both Regions. Associate Regional web ACLs with an API stage.</li>
+<li>✅ Set up AWS Firewall Manager in both Regions. Centrally configure AWS WAF rules.</li>
+<li>Set up AWS Shield in bath Regions. Associate Regional web ACLs with an API stage.</li>
+<li>Set up AWS Shield in one of the Regions. Associate Regional web ACLs with an API stage.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：across multiple accounts、SQL injection、cross-site scripting attacks</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：使用 <code>API Gateway</code> 部署了 REST API 提供给两个区域，需要保护 API 不被 SQL 注入和跨站访问攻击。<br>针对攻击 <code>WAF</code> 是肯定需要使用的，而 1️⃣ 和 2️⃣ 的差异在于：跨区域是通过手动联系还是通过 <code>AWS Firewall Manager</code>。  </p>
+<p>先看下 <code>AWS Firewall Manager</code>：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/waf/latest/developerguide/fms-chapter.html">AWS Firewall Manager</a></p>
+<blockquote>
+<p><strong>什么是 AWS Firewall Manager？</strong><br>AWS Firewall Manager 简化了多个账户和资源的管理和维护任务，包括 AWS WAF、AWS Shield Advanced、Amazon VPC 安全组和网络 ACL、AWS Network Firewall 和 Amazon Route 53 Resolver DNS Firewall，以提供各种保护。使用 Firewall Manager 一次设置好保护措施，该服务就会自动将其应用于您的账户和资源，即使添加新资源和账户时也是如此。  </p>
+<p>Firewall Manager 提供了以下优势：  </p>
+<ul>
+<li>有助于跨账户保护资源</li>
+<li>有助于保护某个特定类型的所有资源，如所有 Amazon CloudFront 分配</li>
+<li>有助于保护带特定标签的所有资源</li>
+<li>自动向已添加到您账户的资源添加防护</li>
+<li>允许您让 AWS Organizations 组织中的所有成员账户订阅 AWS Shield Advanced，并自动让新加入组织的范围内账户进行订阅</li>
+<li>允许您将安全组规则应用到 AWS Organizations 组织中的所有成员账户或特定账户子集，并自动将这些规则应用到新加入组织的范围内账户</li>
+<li>允许您使用自己的规则，或者从 AWS Marketplace 购买托管规则</li>
+</ul>
+<p>如果要保护整个组织而不是少数特定账户和资源，或者经常添加要保护的新资源，Firewall Manager 尤其有用。Firewall Manager 还可对整个组织的 DDoS 攻击进行集中监控。</p>
+</blockquote>
+<p>看上去 <code>AWS Firewall Manager</code> 就是这题的考点，“跨账号”、“保护某个特定类型的所有资源（跨区域）”。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：If you want to use AWS WAF acrossaccounts,accelerate WAF configuration, automate the protection of new resources, use Firewall Manager with AWS WAF</p>
+<p>Using AWS WAF has several benefits. Additional protection against web attacks using criteria that you specify. You can define criteria using characteristics of web requests such as the following:  </p>
+<ul>
+<li>Presence of SQL code that is likely to be malicious (known asSQL injection).</li>
+<li>Presence of a script that is likely to be malicious (known as cross-site scripting).</li>
+</ul>
+<p>AWS Firewall Manager simplifies your administration and maintenance tasksacross multiple accountsand resources for a variety of protections.<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html</a></p>
+</blockquote>
+<hr>
+<h3 id="二、DNS"><a href="#二、DNS" class="headerlink" title="二、DNS"></a>二、DNS</h3><p>A company has implemented a self-managed DNS solution on three Amazon EC2 instances behind a Network Load Balancer (NLB) in the us-west-2 Region. Most of the company’s users are located in the United States and Europe. The company wants to improve the performance and availability of the solution. The company launches and configures three EC2 instances in the eu-west-1 Region and adds the EC2 instances as targets for a new NLB.<br>Which solution can the company use to route traffic to all the EC2 instances?</p>
+<ol>
+<li>❌ Create an Amazon Route 53 geolocation routing policy to route requests to one of the two NLBs. Create an Amazon CloudFront distribution. Use the Route 53 record as the distribution’s origin.</li>
+<li>✅ Create a standard accelerator in AWS Global Accelerator. Create endpoint groups in us-west-2 and eu-west-1. Add the two NLBs as endpoints for the endpoint groups.</li>
+<li>Attach Elastic IP addresses to the six EC2 instances. Create an Amazon Route 53 geolocation routing policy to route requests to one of the six EC2 instances. Create an Amazon CloudFront distribution. Use the Route 53 record as the distribution’s origin.</li>
+<li>Replace the two NLBs with two Application Load Balancers (ALBs). Create an Amazon Route 53 latency routing policy to route requests to one of the two ALBs. Create an Amazon CloudFront distribution. Use the Route 53 record as the distribution’s origin.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：DNS、two regions</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>NLB</code> 后多台实例上运行着 DNS 应用，公司用户在美国和欧洲。现在为了改善性能和可用性，在 eu-west-1 区域新增了 3 台实例，并且要为它们配置新的 <code>NLB</code>。问怎么路由流量到两个区域。<br>首先明确 DNS 是既使用 TCP 也使用 UDP 协议的，不过在这其中，使用最多的 DNS 的 A 记录、CNAME 记录查询都是用的是 UDP 协议。<br><a target="_blank" rel="noopener" href="https://draveness.me/whys-the-design-dns-udp-tcp/">为什么 DNS 使用 UDP 协议</a></p>
+<blockquote>
+<p>实际上，DNS 不仅使用了 UDP 协议，也使用了 TCP 协议，不过在具体介绍今天的问题之前，我们还是要对 DNS 协议进行简单的介绍：DNS 查询的类型不止包含 A 记录、CNAME 记录等常见查询，还包含 AXFR 类型的特殊查询，这种特殊查询主要用于 DNS 区域传输，它的作用就是在多个命名服务器之间快速迁移记录，由于查询返回的响应比较大，所以会使用 TCP 协议来传输数据包。</p>
+</blockquote>
+<p>但是 CloudFront 只能对 HTTP 和 HTTPS 协议的请求进行处理：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#RequestCustomProtocols">协议</a>  </p>
+<blockquote>
+<p>CloudFront 基于以下将 HTTP 或 HTTPS 请求转发到源服务器：</p>
+<ul>
+<li>查看器发送到 CloudFront 的请求的协议（HTTP 或 HTTPS）。</li>
+<li>CloudFront 控制台中源协议策略的值，或者，如果您使用 CloudFront API，则为 OriginProtocolPolicy复杂型中的 DistributionConfig 元素。在 CloudFront 控制台中，选项包括仅 HTTP、仅 HTTPS 和匹配查看器。如果您指定仅 HTTP 或仅 HTTPS，则 CloudFront 仅使用指定的协议将请求转发到源服务器，而不考虑查看器请求中的协议。</li>
+</ul>
+<p>如果您指定匹配查看器，则 CloudFront 将使用查看器请求中的协议将请求转发到源服务器。请注意，CloudFront 仅缓存对象一次，即使查看器使用 HTTP 和 HTTPS 协议发出请求。</p>
+</blockquote>
+<p>因此 1️⃣ 存在错误。<br>而 <code>AWS Global Accelerator</code> 则明确支持 DNS 的协议并且拥有路由用户到最近区域终端节点的功能：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/global-accelerator/latest/dg/what-is-global-accelerator.html">什么是 AWS Global Accelerator？</a></p>
+<blockquote>
+<p>AWS Global Accelerator 是一项服务，您可以在其中创建加速器，以提高本地和 Global 用户的应用程序的性能。根据您选择的加速器的类型，您可以获得额外的好处。</p>
+<ul>
+<li>通过使用标准加速器，您可以提高全球受众使用的 Internet 应用程序的可用性。使用标准加速器，全球加速器将 AWS 全球网络的流量引导到离客户端最近的区域中的终端节点。</li>
+<li>通过使用自定义路由加速器，您可以将一个或多个用户映射到多个目标之间的特定目标。</li>
+</ul>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/global-accelerator/faqs/#product-faqs#global-accelerator-faq-additional-2-trigger">AWS Global Accelerator 支持哪些协议？</a></p>
+<blockquote>
+<p>AWS Global Accelerator 支持 TCP 和 UDP 协议。</p>
+</blockquote>
+<p>同时在官方的文档中，<code>AWS Global Accelerator</code> 也是推荐的 DNS 寻址解决方案：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/global-accelerator/latest/dg/dns-addressing-custom-domains.dns-addressing.html">Support for DNS addressing in AWS Global Accelerator</a>，因此选 2️⃣。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：B is the correct one for seld manage DNS<br>If need to use Route53, ALB (layar 7 ) needs to be used asend points for 2 reginal x 3 EC2s, if it the case answer would be the option 4</p>
+</blockquote>
+<hr>
+<h3 id="三、Encrypt-RDS-DB-instance"><a href="#三、Encrypt-RDS-DB-instance" class="headerlink" title="三、Encrypt RDS DB instance"></a>三、Encrypt RDS DB instance</h3><p>A company is running an online transaction processing (OLTP) workload on AWS. This workload uses an unencrypted Amazon RDS DB instance in a Multi-AZ deployment. Daily database snapshots are taken from this instance.<br>What should a solutions architect do to ensure the database and snapshots are always encrypted moving forward<sub><u>推动</u></sub>?</p>
+<ol>
+<li>✅ Encrypt a copy of the latest DB snapshot. Replace existing DB instance by restoring the encrypted snapshot.</li>
+<li>Create a new encrypted Amazon Elastic Block Store (Amazon EBS) volume and copy the snapshots to it. Enable encryption on the DB instance.</li>
+<li>❌ Copy the snapshots and enable encryption using AWS Key Management Service (AWS KMS) Restore encrypted snapshot to an existing DB instance.</li>
+<li>Copy the snapshots to an Amazon S3 bucket that is encrypted using server-side encryption with AWS Key Management Service (AWS KMS) managed keys (SSE-KMS).</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：database and snapshots are always encrypted moving forward</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：目前 <code>RDS</code> 数据库实例未加密。需要数据库和快照加密。<br>首选 <code>RDS</code> 数据库在创建的时候是可以选择加密选项的：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonRDS/latest/UserGuide/Overview.Encryption.html">加密 Amazon RDS 资源</a></p>
+<blockquote>
+<p>Amazon RDS 可以加密您的 Amazon RDS 数据库实例。静态加密的数据包括数据库实例的基础存储、其自动化备份、只读副本和快照。</p>
+<p><strong>加密数据库实例</strong><br>要加密新数据库实例，请在 Amazon RDS 控制台上，选择 Enable encryption（启用加密）。想要了解有关创建数据库实例的信息，请参阅创建 Amazon RDS 数据库实例。<br>创建加密的数据库实例后，您无法更改该数据库实例使用的 KMS 密钥。因此，请确保先确定您的 KMS 密钥要求，然后再创建加密的数据库实例。  </p>
+<p><strong>Amazon RDS 加密的数据库实例的限制</strong>  </p>
+<ul>
+<li>您只能在创建 Amazon RDS 数据库实例时而不是创建该数据库实例之后加密该数据库实例。<br>  <u><strong>不过，由于您可以加密未加密快照的副本，因此，您可以高效地为未加密的数据库实例添加加密。也就是说，您可以创建数据库实例快照，然后创建该快照的加密副本。然后，您可以从加密快照还原数据库实例，从而获得原始数据库实例的加密副本。有关更多信息，请参阅 复制 Amazon RDS 的数据库快照</strong></u>。</li>
+<li>您无法在加密的数据库实例上关闭加密。</li>
+<li>您无法创建未加密数据库实例的加密快照。</li>
+<li>您不能将未加密的备份或快照还原到加密的数据库实例。</li>
+</ul>
+<p>……</p>
+</blockquote>
+<p>但是就和文档描述的一样，不支持在数据库创建后再进行加密、解密或者密钥更改等操作。<br>只有创建数据库快照后，加密快照，再重建数据库来替换当前数据库这一条路可以走。<br>3️⃣ 错在不能将快照恢复到现有的数据库中。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：”You can enable encryption for an Amazon RDS DB instance when you create it, but not after it’s created. However, you can add encryption to an unencrypted DB instance by creating a snapshot of your DB instance,and then creating an encrypted copy of that snapshot. You can then restore a DB instance from the encrypted snapshot to get an encrypted copy of your original DB<br>instance.”<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/encrypt-an-existing-amazon-rds-for-postgresql-db-instance.html">https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/encrypt-an-existing-amazon-rds-for-postgresql-db-instance.html</a></p>
+</blockquote>
+<hr>
+<h3 id="四、Amazon-RDS-Custom-for-Oracle"><a href="#四、Amazon-RDS-Custom-for-Oracle" class="headerlink" title="四、Amazon RDS Custom for Oracle"></a>四、Amazon RDS Custom for Oracle</h3><p>A company runs an Oracle database on premises. As part of the company’s migration to AWS, the company wants to upgrade the database to the most recent available version. The company also wants to set up disaster recovery (DR) for the database.<br>The company needs to minimize the operational overhead for normal operations and DR setup. The company also needs to maintain<sub><u>维护</u></sub> access to the database’s underlying<sub><u>潜在的，根本的</u></sub> operating system.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Migrate the Oracle database to an Amazon EC2 instance. Set up database replication to a different AWS Region.</li>
+<li>❌ Migrate the Oracle database to Amazon RDS for Oracle. Activate Cross-Region automated backups to replicate the snapshots to another AWS Region.</li>
+<li>✅ Migrate the Oracle database to Amazon RDS Custom for Oracle. Create a read replica for the database in another AWS Region.</li>
+<li>Migrate the Oracle database to Amazon RDS for Oracle. Create a standby database in another Availability Zone.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：can access to the database’s underlying operating system</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：自建 Oracle 数据库要迁移到 AWS，要求能控制数据库底层的操作系统。<br>那能操作底层操作系统的话，托管的 <code>Amazon RDS for Oracle</code> 就不适用了，只能将现有的 Oracle 迁移到 <code>EC2</code> 实例中或使用 <code>Amazon RDS Custom for Oracle</code>。  </p>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/about-aws/whats-new/2021/10/amazon-rds-custom-oracle/">宣告 Amazon RDS Custom for Oracle</a></p>
+<blockquote>
+<p>Amazon Relational Database Service (Amazon RDS) Custom 是一个托管式数据库服务，用于需要访问底层操作系统和数据库环境的旧式、自定义和打包应用程序。Amazon RDS Custom 当前可用于 Oracle 数据库引擎。Amazon RDS Custom for Oracle 可在云中自动设置、操作和扩缩数据库，同时授予对数据库和底层操作系统的访问权限，以配置设置、安装补丁和启用本机功能以满足相关应用程序的要求。</p>
+</blockquote>
+<p>显然考点就是这个服务。<br>同时它在迁移方面似乎也有一定优势：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonRDS/latest/UserGuide/rds-custom.html#custom-intro.solution.benefits">RDS Custom 的主要益处</a></p>
+<blockquote>
+<ul>
+<li>在将本地数据库移动到完全托管式服务之前，将其暂存。<br>  如果您管理自己的本地数据库，则可以按原样将数据库暂存到 RDS Custom。熟悉云环境后，您可以将数据库迁移到完全托管式 Amazon RDS 数据库实例。</li>
+</ul>
+</blockquote>
+<p>并且 <code>Amazon RDS for Oracle</code> 的副本操作与 <code>Amazon RDS</code> 相似，这意味着它也是支持只读副本和升级的：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-rr.html">Working with Oracle replicas for RDS Custom for Oracle</a></p>
+<blockquote>
+<p>You can create Oracle replicas for RDS Custom for Oracle DB instances that run Oracle Enterprise Edition. Both container databases (CDBs) and non-CDBs are supported. Standard Edition 2 doesn’t support Oracle Data Guard.  </p>
+<p>Creating an RDS Custom for Oracle replica is similar to creating an RDS for Oracle replica, but with important differences. For general information about creating and managing Oracle replicas, see <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working with DB instance read replicas</a> and <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html">Working with read replicas for Amazon RDS for Oracle</a>.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Option C since RDS Custom hasaccess to the underlying OS and it provides less operational overhead. Also,a read replica in another Region can be used for DR activities.<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/blogs/database/implementing-a-disaster-recovery-strategy-with-amazon-rds/">https://aws.amazon.com/blogs/database/implementing-a-disaster-recovery-strategy-with-amazon-rds/</a></p>
+</blockquote>
+<hr>
+<h3 id="五、S3-encryption-and-Cross-Region-Replication"><a href="#五、S3-encryption-and-Cross-Region-Replication" class="headerlink" title="五、S3 encryption and Cross-Region Replication"></a>五、S3 encryption and Cross-Region Replication</h3><p>A company wants to move its application to a serverless solution. The serverless solution needs to analyze existing and new data by using SL. The company stores the data in an Amazon S3 bucket. The data requires encryption and must be replicated to a different AWS Region.<br>Which solution will meet these requirements with the LEAST operational overhead?</p>
+<ol>
+<li>✅ Create a new S3 bucket. Load the data into the new S3 bucket. Use S3 Cross-Region Replication (CRR) to replicate encrypted objects to an S3 bucket in another Region. Use server-side encryption with AWS KMS multi-Region keys (SSE-KMS). Use Amazon Athena to query the data.</li>
+<li>Create a new S3 bucket. Load the data into the new S3 bucket. Use S3 Cross-Region Replication (CRR) to replicate encrypted objects to an S3 bucket in another Region. Use server-side encryption with AWS KMS multi-Region keys (SSE-KMS). Use Amazon RDS to query the data.</li>
+<li>❌ Load the data into the existing S3 bucket. Use S3 Cross-Region Replication (CRR) to replicate encrypted objects to an S3 bucket in another Region. Use server-side encryption with Amazon S3 managed encryption keys (SSE-S3). Use Amazon Athena to query the data.</li>
+<li>Load the data into the existing S3 bucket. Use S3 Cross-Region Replication (CRR) to replicate encrypted objects to an S3 bucket in another Region. Use server-side encryption with Amazon S3 managed encryption keys (SSE-S3). Use Amazon RDS to query the data.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：新的架构需要通过 <code>SL (Security Lake)</code>（或 <code>ML</code> 机器学习）分析既存的和新的数据。数据存储在 <code>S3</code> 中。数据需要加密并备份到另一个区域。要求最少操作。<br>直接来看争议较大的 1️⃣ 和 3️⃣ 的区别吧：  </p>
+<ul>
+<li>1️⃣ 选择新建存储桶，并且加密使用 <code>AWS KMS multi-Region keys (SSE-KMS)</code></li>
+<li>3️⃣ 将数据加载到现有存储桶中，并且加密采用 <code>Amazon S3 managed encryption keys (SSE-S3)</code></li>
+</ul>
+<p>首先确认下 <code>KMS</code> 是否支持跨区域的密钥：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/kms/latest/developerguide/multi-region-keys-overview.html">AWS KMS 中的多区域密钥</a></p>
+<blockquote>
+<p>AWS KMS 支持多区域密钥，它们不同 AWS 区域 中可以互换使用的 AWS KMS keys，就好像您在多个区域中拥有相同的密钥一样。每组相关多区域密钥均具有相同的密钥材料和密钥 ID，因此您可以在一个 AWS 区域 中将数据加密并将其解密到不同 AWS 区域 中，而无需重新加密或跨区域调用 AWS KMS。</p>
+</blockquote>
+<p>显然是支持的，这使得再多个可用区用同一份密钥加密 <code>S3</code> 存储桶成为了可能。  </p>
+<p><u><strong>对 <code>Amazon S3 managed encryption keys</code> 是否支持跨区域密钥我并没有找到详细资料，如果之后再碰到会考虑做下实践</strong></u>。<br>但是将数据加载到现有存储桶再开启 <code>S3</code> 加密的方式总是错误的，这会导致当前已经在存储桶中文件处于不加密状态，在现实操作中不会采取 3️⃣ 这种方案。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：SSE-KMS vsSSE-S3 - The last seems to have less overhead (as the keysare automatically generated byS3 and applied on data at upload,and don’t require further actions. KMS provides more flexibility, but in turn involvesa different service, which finally is more “complex” than just managing one (S3).So A and B are excluded. If you are in doubt, you are having 2 buckets in A and B, while just keeping one in C and D.<br><a target="_blank" rel="noopener" href="https://s3browser.com/server-side-encryption-types.aspx">https://s3browser.com/server-side-encryption-types.aspx</a></p>
+<p>🙅 反对：Amazon S3 Bucket Keys reduce the cost of Amazon S3 server-side encryption using AWS Key ManagementService (SSE-KMS).<br>This new bucket-level key forSSE can reduce AWS KMS request costs by up to 99 percent by decreasing the request traffic from Amazon S3 to AWS KMS. With a few clicks in the AWS Management Console,and without any changes to your client applications, you can configure your bucket to use an S3 Bucket Key for AWS KMS-based encryption on new objects.<br>The Existing S3 bucket might have uncrypted data - encryption will apply new data received after the applying of encryption on the new bucket.</p>
+</blockquote>
+<hr>
+<h3 id="六、AWS-PrivateLink"><a href="#六、AWS-PrivateLink" class="headerlink" title="六、AWS PrivateLink"></a>六、AWS PrivateLink</h3><p>A company runs workloads on AWS. The company needs to connect to a service from an external provider. The service is hosted in the provider’s VPC. According to the company’s security team, the connectivity must be private and must be restricted to the target service. The connection must be initiated only from the company’s VPC.<br>Which solution will mast these requirements?</p>
+<ol>
+<li>❌ Create a VPC peering connection between the company’s VPC and the provider’s VPC. Update the route table to connect to the target service.</li>
+<li>Ask the provider to create a virtual private gateway in its VPC. Use AWS PrivateLink to connect to the target service.</li>
+<li>Create a NAT gateway in a public subnet of the company’s VPUpdate the route table to connect to the target service.</li>
+<li>✅ Ask the provider to create a VPC endpoint for the target service. Use AWS PrivateLink to connect to the target service.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：connectivity must be private、connection must be initiated only from the company’s VPC</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：公司的工作负载部署在 AWS 上。公司现在需要连接到外部提供者的服务，服务部署在提供者的 <code>VPC</code> 中。根据公司安全要求，连接必须是私有的且被直接连接到对应的服务。连接必须只从公司的 <code>VPC</code> 中创建。  </p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/vpc/latest/privatelink/what-is-privatelink.html">什么是 AWS PrivateLink？</a></p>
+<blockquote>
+<p>AWS PrivateLink 是一项高度可用的可扩展技术，可用于将 VPC 私密地连接到服务，如同这些服务就在您自己的 VPC 中一样。您无需使用互联网网关、NAT 设备、公有 IP 地址、AWS Direct Connect 连接或 AWS Site-to-Site VPN 连接来允许与私有子网中的服务进行通信。因此，您可以控制可从 VPC 访问的特定 API 端点、站点和服务。</p>
+</blockquote>
+<p><code>PrivateLink</code> 不需要通过虚拟私有网关，直接连接到对应的服务即可。  </p>
+<p>1️⃣ 错在建立对等连接后，两边 <code>VPC</code> 内的实例都可以互相访问了，这并不符合题目中描述的连接只能由一边建立的需求。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：<strong>AWS PrivateLink provides private connectivity between VPCs, AWS services,and your on-premises networks, without exposing your traffic to the public internet</strong>. AWS PrivateLink makes it easy to connect servicesacross different accountsand VPCs to significantly simplify your networkarchitecture.<br>Interface <strong>VPC endpoints</strong>, powered by AWS PrivateLink, connect you to services hosted by AWS Partnersand supported solutionsavailable in AWS Marketplace.<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/privatelink/">https://aws.amazon.com/privatelink/</a></p>
+<p>Option A VPC peering connection may not meet security requirement as it can allow communication between all resources in both VPCs.<br>Option B,asking the provider to create a virtual private gateway in its VPC and use AWS PrivateLinkto connect to the target service is not the optimal solution because it may require the provider to make changesand also you may face security issues.<br>Option C, creating a NAT gateway in a public subnet of the company’s VPC can expose the target service to the internet, which would not meet the security requirements.</p>
+</blockquote>
+<hr>
+<h3 id="七、Database-migrating-and-ongoing-replication-task"><a href="#七、Database-migrating-and-ongoing-replication-task" class="headerlink" title="七、Database migrating and ongoing replication task"></a>七、Database migrating and ongoing replication task</h3><p>A company is migrating its on-premises PostgreSQL database to Amazon Aurora PostgreSQL. The on-premises database must remain online and accessible during the migration. The Aurora database must remain synchronized with the on-premises database.<br>Which combination of actions must a solutions architect take to meet these requirements? (Choose two.)</p>
+<ol>
+<li>✅ Create an ongoing replication task.</li>
+<li>Create a database backup of the on-premises database.</li>
+<li>✅ Create an AWS Database Migration Service (AWS DMS) replication server.</li>
+<li>❌ Convert the database schema by using the AWS Schema Conversion Tool (AWS SCT).</li>
+<li>Create an Amazon EventBridge (Amazon CloudWatch Events) rule to monitor the database synchronization.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：the on-premises database must remain online and accessible during the migration</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ 4️⃣ ❌ -&gt; 1️⃣ 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：自建的 PostgreSQL 数据库要迁移到 AWS，迁移过程中自建数据库依然要在线且能被访问，而新的 <code>Amazon Aurora PostgreSQL</code> 要能被同步数据。<br>来看下 <code>AWS Schema Conversion Tool</code> 是什么：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/SchemaConversionTool/latest/userguide/CHAP_Welcome.html">那是什么 AWS Schema Conversion Tool？</a>  </p>
+<blockquote>
+<p>您可以使用 AWS Schema Conversion Tool (AWS SCT) 将现有数据库架构从一个数据库引擎转换为另一个数据库引擎。您可以转换关系OLTP架构或数据仓库架构。转换后的架构适用于亚马逊关系数据库服务（亚马逊RDS）My SQL、MariaDB、Oracle、SQL服务器、Postgre 数据库、亚马逊 Aurora SQL 数据库集群或亚马逊 Redshift 集群。转换后的架构也可以与 Amazon EC2 实例上的数据库一起使用，或者作为数据存储在 Amazon S3 存储桶中。</p>
+</blockquote>
+<p>由于迁移源和迁移目的数据库都是 PostgreSQL，因此 <code>AWS Schema Conversion Tool</code> 并不适用。<br>再来看下 1️⃣ 选项提供的 <code>ongoing replication task（持续复制创建任务）</code>：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/dms/latest/userguide/CHAP_Task.CDC.html">使用 AWS DMS 为持续复制创建任务</a></p>
+<blockquote>
+<p>您可以创建一个 AWS DMS 任务来捕获源数据存储的持续更改。您可以在迁移数据时执行此捕获。您还可以创建一个任务，以便在初始（完全加载）迁移到支持的目标数据存储完成后捕获持续更改。此过程称为持续复制或更改数据捕获 (CDC)。AWS DMS 在从源数据存储复制持续更改时使用此过程。此过程的工作方式是使用数据库引擎的原生 API 来收集对数据库日志的更改。</p>
+</blockquote>
+<p>它是 <code>AWS Database Migration Service (AWS DMS)</code> 所提供的任务，因此 1️⃣ 和 3️⃣ 一起选是刚好能完成需求的方案。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：AWS Database Migration Service (AWS DMS) helps you migrate databases to AWS quicklyand securely.The source database remains fully operational during the migration, minimizing downtime to applications that rely on the database.<br>… With AWS Database Migration Service, you can also continuously replicate data with low latency from any supported source to any supported target.<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/dms/">https://aws.amazon.com/dms/</a></p>
+</blockquote>
+<hr>
+<h3 id="八、Monolithic-application-migrate-and-break"><a href="#八、Monolithic-application-migrate-and-break" class="headerlink" title="八、Monolithic application migrate and break"></a>八、Monolithic application migrate and break</h3><p>A company wants to migrate its existing on-premises monolithic<sub><u>庞大的</u></sub> application to AWS. The company wants to keep as much of the front-end code and the backend code as possible. However, the company wants to break the application into smaller applications. A different team will manage each application. The company needs a highly scalable solution that minimizes operational overhead.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Host the application on AWS Lambda. Integrate the application with Amazon API Gateway.</li>
+<li>Host the application with AWS Amplify. Connect the application to an Amazon API Gateway API that is integrated with AWS Lambda.</li>
+<li>Host the application on Amazon EC2 instances. Set up an Application Load Balancer with EC2 instances in an Auto Scaling group as targets.</li>
+<li>Host the application on Amazon Elastic Container Service (Amazon ECS). Set up an Application Load Balancer with Amazon ECS as the target.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：microservices</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：公司要迁移一个大型应用到 AWS，需要尽可能保持前端和后端代码。但是同时又希望进行微服务化，不同的团队将会管理每个微服务。要求高可用的最少操作的解决方案。  </p>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/amplify/">AWS Amplify 全栈 TypeScript。适用于 AWS 的前端 DX</a>  </p>
+<blockquote>
+<p>AWS Amplify 可以满足构建 Web 和移动应用程序的一切需求。易于使用，轻松扩展。</p>
+</blockquote>
+<p>显然它没法覆盖题目中要求的后端代码运行需求。<br>大型应用拆成微服务并容器化，是非常合理的解决方案，也是大家都在采用的，4️⃣ 没有疑问。<br>3️⃣ 不存在措施，只是相比 4️⃣ 更多。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：I thinkthe answer here is “D” because usually when you see terms like “monolithic” the answer will likely refer to microservices.</p>
+</blockquote>
+<hr>
+<h3 id="九、Reserved-Instances"><a href="#九、Reserved-Instances" class="headerlink" title="九、Reserved Instances"></a>九、Reserved Instances</h3><p>A company runs a stateless web application in production on a group of Amazon EC2 On-Demand Instances behind an Application Load Balancer. The application experiences heavy usage during an 8-hour period each business day. Application usage is moderate<sub><u>温和的</u></sub> and steady<sub><u>稳定的</u></sub> overnight. Application usage is low during weekends.<br>The company wants to minimize its EC2 costs without affecting the availability of the application.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Use Spot Instances for the entire workload.</li>
+<li>Use Reserved Instances for the baseline level of usage. Use Spot instances for any additional capacity that the application needs.</li>
+<li>Use On-Demand Instances for the baseline level of usage. Use Spot Instances for any additional capacity that the application needs.</li>
+<li>Use Dedicated Instances for the baseline level of usage. Use On-Demand Instances for any additional capacity that the application needs.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：minimize its EC2 costs without affecting the availability of the application</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：程序运行在弹性、按需 <code>EC2</code> 实例组上，并且前置 <code>ALB</code>。工作日的 8 小时负载高，晚上则是温和稳定的；休息日低负载。需要在不影响可用性的前提下控制支出。<br>预留实例类型当然更省钱，但是问题是如何配置让他根据工作日和时间不同来缩扩容呢？<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/ec2-reserved-instances.html">Amazon EC2 的预留实例概览</a></p>
+<blockquote>
+<p><strong>期限承诺</strong><br>您可以承诺购买一年或三年的 Reserved Instance，三年承诺可以获得更大的折扣。</p>
+</blockquote>
+<p>唯一的方法似乎就是将实例组中固定要运行的实例（最小运行实例个数）转为预留实例。<br>由于 AWS 目前在推荐使用可以更改实例配置的 <code>Savings Plans</code>，因此扩展了解下：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/savingsplans/latest/userguide/what-is-savings-plans.html">什么是节省计划？</a></p>
+<blockquote>
+<p>Savings Plans 提供灵活的定价模式，可节省 AWS 使用量。您可以节省高达 72% 的 AWS 计算工作负载。无论EC2实例系列、大小、操作系统、租赁或 AWS 地区如何，Compute Savings Plans 都提供更低的亚马逊实例使用价格。<br><strong>这也适用于 AWS Fargate 和 AWS Lambda 用法</strong>。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：In the Question is mentioned that it has on Demand instances…so I thinkis more cheapest reserved and spot</p>
+</blockquote>
+<hr>
+<h3 id="十、CloudWatch-composite-alarms"><a href="#十、CloudWatch-composite-alarms" class="headerlink" title="十、CloudWatch composite alarms"></a>十、CloudWatch composite alarms</h3><p>A company is migrating an application from on-premises servers to Amazon EC2 instances. As part of the migration design requirements, a solutions architect must implement infrastructure metric<sub><u>指标</u></sub> alarms. The company does not need to take action if CPU utilization increases to more than 50% for a short burst of time. However, if the CPU utilization increases to more than 50% and read IOPS on the disk are high at the same time, the company needs to act as soon as possible. The solutions architect also must reduce false alarms.<br>What should the solutions architect do to meet these requirements?</p>
+<ol>
+<li>✅ Create Amazon CloudWatch composite<sub><u>复合</u></sub> alarms where possible.</li>
+<li>Create Amazon CloudWatch dashboards to visualize the metrics and react to issues quickly.</li>
+<li>Create Amazon CloudWatch Synthetics canaries to monitor the application and raise an alarm.</li>
+<li>❌ Create single Amazon CloudWatch metric alarms with multiple metric thresholds<sub><u>阈值</u></sub> where possible.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：metric alarms</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：需要对运行程序的 <code>EC2</code> 实例们进行监控，CPU 短时间超过 50% 无需报警，但是如果既超过 50% 同读 IOPS 也很高，则需要报警。同时还需要减少错误报警。<br>只知道要使用 <code>CloudWatch</code>……<br>1️⃣ 所描述的符合警报：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm_How_To.html">创建复合告警</a></p>
+<blockquote>
+<ol start="2">
+<li>在导航窗格中，选择 Alarms（告警），然后选择 All alarms（所有告警）。</li>
+<li>在告警列表中，选中要在规则表达式中引用的每个现有告警旁边的复选框，然后选择 Create composite alarm（创建复合告警）。</li>
+<li>在 Specify composite alarm conditions（指定复合告警条件）中，指定新复合告警的规则表达式。<br> 您可以使用以下子步骤修改规则表达式：<ul>
+<li>您可以将每个告警的所需状态从 ALARM 更改为 OK 或 INSUFFICENT_DATA。</li>
+<li>您可以将规则表达式中的逻辑运算符从 OR 更改为 AND 或 NOT，并且您可以添加括号来对函数进行分组。</li>
+<li>您可以在规则表达式中包含其他告警，也可以从规则表达式中删除告警。</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<p>看上去完美符合题目需求。<br>而 <code>Amazon CloudWatch Synthetics</code> 则是一项综合监控服务：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/blogs/china/new-use-cloudwatch-synthetics-to-monitor-sites-api-endpoints-web-workflows-and-more/">新增功能 – 使用 CloudWatch Synthetics 监控站点、API 终端节点、Web 工作流等</a></p>
+<blockquote>
+<p>可以监控站点、API 终端节点、Web 工作流等。您将获得一个由外而内的视图，更好地了解性能和可用性，从而比以往更快地发现和解决所有问题。您可以提高客户满意度，并对应用程序达到性能目标更有信心。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Composite alarms determine their states by monitoring the states of other alarms. You can <strong>use composite alarms to reduce alarm noise</strong>. Forexample, you can create a composite alarm where the underlying metric alarms go into ALARM when they meet specific conditions. You then can set up your composite alarm to go into ALARM and send you notifications when the underlying metric alarms go into ALARM by configuring the underlying metric alarms never to take actions. Currently, composite alarms can take the following actions:  <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html">https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html</a></p>
+</blockquote>
+<hr>
+<h3 id="十一、AWS-Control-Tower-and-SCPS"><a href="#十一、AWS-Control-Tower-and-SCPS" class="headerlink" title="十一、AWS Control Tower and SCPS"></a>十一、AWS Control Tower and SCPS</h3><p>A company wants to migrate its on-premises data center to AWS. According to the company’s compliance<sub><u>遵从</u></sub> requirements, the company can use only the ap-northeast-3 Region. Company administrators are not permitted to connect VPCs to the internet.<br>Which solutions will meet these requirements? (Choose two.)</p>
+<ol>
+<li>Use AWS Control Tower to implement data residency guardrails to deny internet access and deny access to all AWS Regions except ap-northeast-3.</li>
+<li>Use rules in AWS WAF to prevent internet access. Deny access to all AWS Regions except ap-northeast-3 in the AWS account settings.</li>
+<li>Use AWS Organizations to configure service control policies (SCPS) that prevent VPCs from gaining<sub><u>获得</u></sub> internet access. Deny access to all AWS Regions except ap-northeast-3.</li>
+<li>Create an outbound rule for the network ACL in each VPC to deny all traffic from 0.0.0.0&#x2F;0. Create an IAM policy for each user to prevent the use of any AWS Region other than ap-northeast-3.</li>
+<li>Use AWS Config to activate managed rules to detect<sub><u>侦测</u></sub> and alert for internet gateways and to detect and alert for new resources deployed outside of ap-northeast-3.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：can use only the ap-northeast-3 Region、not permitted to connect VPCs to the internet</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ 5️⃣ ❌ -&gt; 1️⃣ 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：只能使用 ap-northeast-3 且 <code>VPC</code> 不能连接到互联网。<br>2️⃣ 错在防火墙只能防御来自外部的访问，禁止账号连接到除了 ap-northeast-3 以外的区域也很奇怪。<br>4️⃣ 创建一个禁止所有来自 0.0.0.0&#x2F;0 的出站请求，确实是防止实例连接到互联网了，不过没有控制入站请求。而创建 <code>IAM</code> 策略来禁止用户对 ap-northeast-3 以外的区域资源的使用看上去是对的。<br>5️⃣ 使用 <code>AWS Config</code> 添加规则来侦测和警告互联网连接以及对 ap-northeast-3 以外的区域的部署，也没有起到禁止功能。  </p>
+<p>3️⃣ 使用 <code>SCPS</code> 来阻止 <code>VPC</code> 连接到互联网，并且禁止创建 ap-northeast-3 区域以外的资源。<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/organizations/latest/userguide/orgs_manage_policies_scps.html">服务控制策略 (SCPs)</a></p>
+<blockquote>
+<p>服务控制策略 (SCPs) 是一种组织策略，可用于管理组织中的权限。SCPs为组织中的IAM用户和IAM角色提供对最大可用权限的集中控制。SCPs帮助您确保您的帐户符合组织的访问控制准则。SCPs仅在启用了所有功能的组织中可用。SCPs如果您的组织仅启用了整合账单功能，则不可用。有关启用的说明SCPs，请参阅启用策略类型。</p>
+</blockquote>
+<p>显然它可以完成对资源创建的限制。<br>但是 <code>VPC</code> 联网它并不能拒绝，它只能拒绝用户修改 <code>VPC</code> 的联网状态：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/organizations/latest/userguide/orgs_manage_policies_scps_examples_vpc.html#example_vpc_2">阻止还没有 Internet 访问权的任何 VPC 获取它</a>  </p>
+<blockquote>
+<p>此 SCP 阻止任何受影响账户中的用户或角色更改 Amazon EC2 Virtual Private Cloud（VPC）的配置以允许他们直接访问 Internet。它不会阻止现有直接访问或通过您的本地网络环境路由的任何访问。</p>
+</blockquote>
+<p>而 <code>VPC</code> 的联网是由 <code>Control Tower</code> 控制的，令人意外。<br>首先重新认识下 <code>AWS Control Tower</code>：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/controltower/latest/userguide/integrated-services.html">集成服务</a></p>
+<blockquote>
+<p>AWS Control Tower 是一项建立在其他 AWS 服务之上的服务，可帮助您设置架构良好的环境。本章简要概述了这些服务，包括有关底层服务的配置信息以及它们在 AWS Control Tower 中的工作方式。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/controltower/latest/userguide/networking.html">在 AWS Control Tower 中联网</a></p>
+<blockquote>
+<p>AWS Control Tower 为通过 VPC 进行联网提供基本支持。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/controltower/latest/userguide/related-information.html#networking">其他信息和链接</a></p>
+<blockquote>
+<p><strong>联网</strong><br>为中的 AWS网络设置可重复且易于管理的模式。详细了解客户常用的设计、自动化和设备。  </p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://aws.amazon.com/quickstart/architecture/vpc/">AWS 快速入门 VPC 架构</a> — 本快速入门指南根据您的 AWS 云基础架构 AWS 的最佳实践提供了网络基础。它构建了一个包含公有和<u><strong>私有子网</strong></u>的 AWS Virtual Private Network 环境，您可以在其中启动 AWS 服务和其他资源。</li>
+</ul>
+</blockquote>
+<p>因此我们可以通过 <code>AWS Control Tower</code> 来初始化一个没有互联网连接的 <code>VPC</code>。<br>同时还能通过 <code>AWS Control Tower</code> 来控制组织的 OU 实现对资源区域的限制：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/controltower/latest/controlreference/ou-region-deny.html">Region deny control applied to the OU</a></p>
+<blockquote>
+<p>此控制禁止访问组织单位 (OU) 指定区域之外的全球和区域 AWS 服务中的未列名操作。您可以将此控制应用于 AWS 控制塔着陆区所管辖区域的任何子集。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A. By using Control Tower, the company can enforce data residency guardrailsand restrict internet access for VPCsand denies access to all Regionsexcept the required ap-northeast-3 Region.<br>C. With Organizations, the company can configure SCPs to prevent VPCs from gaining internet access. By denying access to all Regionsexcept ap-northeast-3, the companyensures that VPCs can only be deployed in the specified Region.  </p>
+<p>Option B is incorrect because using rules in AWS WAFalone does not address the requirement of denying access to all AWS Regionsexcept ap-northeast-3.<br>Option D is incorrect because configuring outbound rules in network ACLsand IAM policies for users can help restrict traffic and access, but it does not enforce the company’s requirement of denying access to all Regionsexcept ap-northeast-3.<br>Option E is incorrect because using AWS Config and managed rules can help detect and alert for specific resourcesand configurations, but it does not directlyenforce the restriction of internet access or denyaccess to specific Regions.  </p>
+</blockquote>
+<hr>
+<h3 id="十二、RDS-automatic-stop"><a href="#十二、RDS-automatic-stop" class="headerlink" title="十二、RDS automatic stop"></a>十二、RDS automatic stop</h3><p>A company uses a three-tier web application to provide training to new employees<sub><u>雇员</u></sub>. The application is accessed for only 12 hours every day. The company is using an Amazon RDS for MySQL DB instance to store information and wants to minimize costs.<br>What should a solutions architect do to meet these requirements?</p>
+<ol>
+<li>Configure an IAM policy for AWS Systems Manager Session Manager. Create an IAM role for the policy. Update the trust relationship of the role. Set up automatic start and stop for the DB instance.</li>
+<li>Create an Amazon ElastiCache for Redis cache cluster that gives users the ability to access the data from the cache when the DB instance is stopped. Invalidate the cache after the DB instance is started.</li>
+<li>Launch an Amazon EC2 instance. Create an IAM role that grants access to Amazon RDS. Attach the role to the EC2 instance. Configure a cron job to start and stop the EC2 instance on the desired schedule.</li>
+<li>Create AWS Lambda functions to start and stop the DB instance. Create Amazon EventBridge (Amazon CloudWatch Events) scheduled rules to invoke the Lambda functions. Configure the Lambda functions as event targets for the rules.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 4️⃣ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：公司有个三层网页应用，每天只使用 12 小时，后端使用 <code>RDS for MySQL</code> 数据库。希望最小化费用。<br>首先明确 <code>RDS</code> 是支持按使用量（时间）付费的：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/rds/pricing/">Amazon RDS 按需型实例</a>，那么题目的焦点就在于如何定时停止和启动 <code>RDS</code> 实例了。<br>在官方的博客中有现成的案例：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/blogs/database/schedule-amazon-rds-stop-and-start-using-aws-lambda/">Schedule Amazon RDS stop and start using AWS Lambda</a></p>
+<blockquote>
+<p>This post presents a solution using AWS Lambda and Amazon EventBridge that allows you to schedule a Lambda function to stop and start the idle databases with specific tags to save on compute costs. The second post presents a solution that accomplishes stop and start of the idle Amazon RDS databases using AWS Systems Manager.</p>
+</blockquote>
+<p>这和 4️⃣ 完美符合。<br>顺便提一下，数据库实例停止后，仍然需要为存储的数据付费：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonRDS/latest/UserGuide/USER_OnDemandDBInstances.html">Amazon RDS 的按需数据库实例</a></p>
+<blockquote>
+<p>当数据库实例停止时，您将为预配置存储付费，包括预置 IOPS。您还将为备份存储付费，包括在指定保留时间内用于手动快照和自动备份的存储。您无需为数据库实例小时数付费。</p>
+</blockquote>
+<p>我选 3️⃣ 是以为程序已经运行在 <code>EC2</code> 实例上了。<br>而 1️⃣ 错在 <code> AWS Systems Manager Session Manager</code> 是用来连接 <code>EC2</code> 的：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/systems-manager/latest/userguide/session-manager.html">AWS Systems Manager Session Manager</a></p>
+<blockquote>
+<p>Session Manager 是 AWS Systems Manager 的一项完全托管式功能。借助 Session Manager，您可以管理 Amazon Elastic Compute Cloud（Amazon EC2）实例、边缘设备、本地服务器和虚拟机（VM）。您可使用基于浏览器的一键式交互 Shell 或 AWS Command Line Interface (AWS CLI)。Session Manager 提供安全且可审计的节点管理，而无需打开入站端口、维护堡垒主机或管理 SSH 密钥。</p>
+</blockquote>
+<p>社区有人提到了这篇文章：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/blogs/database/schedule-amazon-rds-stop-and-start-using-aws-systems-manager/">Schedule Amazon RDS stop and start using AWS Systems Manager</a></p>
+<blockquote>
+<p>This post presents a solution using AWS Systems Manager State Manager that automates the process of keeping RDS instances in a start or stop state.</p>
+</blockquote>
+<p>但是文章中其实使用的是：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/systems-manager/latest/userguide/systems-manager-state.html"><code>AWS Systems Manager State Manager</code></a></p>
+<blockquote>
+<p>State Manager（AWS Systems Manager 的一种功能）是一项安全并且可扩展的配置管理服务，可以自动将您的托管式节点和其他 AWS 资源保持在定义的状态。要开始使用 State Manager，请打开 Systems Manager 控制台。在导航窗格中，选择 State Manager。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：<a target="_blank" rel="noopener" href="https://aws.amazon.com/blogs/database/schedule-amazon-rds-stop-and-start-using-aws-lambda/">https://aws.amazon.com/blogs/database/schedule-amazon-rds-stop-and-start-using-aws-lambda/</a><br>It is option D. Option A could have been applicable had it been AWS Systems ManagerState Manager &amp; not AWS Systems ManagerSession Manager</p>
+</blockquote>
+<hr>
+<h3 id="十三、S3-Lifecycle-policy-or-S3-Intelligent-Tiering"><a href="#十三、S3-Lifecycle-policy-or-S3-Intelligent-Tiering" class="headerlink" title="十三、S3 Lifecycle policy or S3 Intelligent-Tiering"></a>十三、S3 Lifecycle policy or S3 Intelligent-Tiering</h3><p>A company sells ringtones created from clips of popular songs. The files containing the ringtones are stored in Amazon S3 Standard and are at least 128 KB in size. The company has millions of files, but downloads are infrequent for ringtones older than 90 days. The company needs to save money on storage while keeping the most accessed files readily available for its users.<br>Which action should the company take to meet these requirements MOST cost-effectively?</p>
+<ol>
+<li>Configure S3 Standard-Infrequent Access (S3 Standard-IA) storage for the initial storage tier of the objects.</li>
+<li>Move the files to S3 Intelligent-Tiering and configure it to move objects to a less expensive storage tier after 90 days.</li>
+<li>Configure S3 inventory to manage objects and move them to S3 Standard-Infrequent Access (S3 Standard-IA) after 90 days.</li>
+<li>Implement an S3 Lifecycle policy that moves the objects from S3 Standard to S3 Standard-Infrequent Access (S3 Standard-IA) after 90 days.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：由百万个、最小 128 KB 的文件存储在 <code>S3</code> 中。对 90 天以上的文件访问不频繁，公司需要保证对常用文件的快速访问。最便宜的方案。<br><code>S3 Intelligent-Tiering</code> 和 <code>S3 Lifecycle policy</code> 每次选起来都很困难。<br>来再看下 <code>S3 Intelligent-Tiering</code>：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/userguide/intelligent-tiering-overview.html">S3 Intelligent-Tiering 工作原理</a></p>
+<blockquote>
+<p>对于每月较低的对象监视和自动化收费，S3 Intelligent-Tiering 监控访问模式，并在连续 30 天未访问对象时自动将对象移动到非频繁访问层 (Infrequent Access)。<br>在不访问 90 天后，对象将移动到存档即时访问层 (Archive)，而不会影响性能或运营开销。</p>
+</blockquote>
+<p>2&#x2F;3 选了 4️⃣，1&#x2F;3 选了 2️⃣。<br>2️⃣ 如果归档后肯定做不到立即访问，因此选 4️⃣ 肯定没错。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Answer D<br>Why Optoin D ?<br>The Question talksabout downloadsare infrequent older than 90 days which means files less than 90 daysare accessed frequently.Standard-Infrequent Access (S3 Standard-IA) needsa minimum 30 days if accessed before, it costs more.<br>So to access the files frequently you need a S3 Standard . After 90 days you can move it to Standard-Infrequent Access (S3 Standard-IA) as its going to be less frequentlyaccessed</p>
+</blockquote>
+<hr>
+<h3 id="十四、AWS-Lake-Formation-and-Glue"><a href="#十四、AWS-Lake-Formation-and-Glue" class="headerlink" title="十四、AWS Lake Formation and Glue"></a>十四、AWS Lake Formation and Glue</h3><p>A company produces batch data that comes from different databases. The company also produces live stream data from network sensors and application APIs. The company needs to consolidate<sub><u>统一</u></sub> all the data into one place for business analytics.<br>The company needs to process the incoming data and then stage the data in different Amazon S3 buckets. Teams will later run one-time queries and import the data into a business intelligence tool to show key performance indicators (KPIs).<br>Which combination of steps will meet these requirements with the LEAST operational overhead? (Choose two.)</p>
+<ol>
+<li>✅ Use Amazon Athena for one-time queries. Use Amazon QuickSight to create dashboards for KPIs.</li>
+<li>Use Amazon Kinesis Data Analytics for one-time queries. Use Amazon QuickSight to create dashboards for KPIs.</li>
+<li>Create custom AWS Lambda functions to move the individual records from the databases to an Amazon Redshift cluster.</li>
+<li>❌ Use an AWS Glue extract, transform, and load (ETL) job to convert the data into JSON format. Load the data into multiple Amazon OpenSearch Service (Amazon Elasticsearch Service) clusters.</li>
+<li>✅ Use blueprints<sub><u>蓝图</u></sub> in AWS Lake Formation to identify the data that can be ingested into a data lake. Use AWS Glue to crawl the source, extract the data, and load the data into Amazon S3 in Apache Parquet format.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ 4️⃣ ❌ -&gt; 1️⃣ 5️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：需要处理来自多个数据库的数据，同时还要处理来自网络哨兵和应用程序 API 的数据流，要统一所有数据到一个地方进行商业分析。需要将接收的数据分别存储到不同的 <code>S3</code> 存储桶中，之后进行一次性检索并导入商业分析工具生成 KPI。要求最少操作的解决方案。<br>使用 <code>Amazon Athena</code> 对 <code>S3</code> 存储桶进行检索和使用 <code>QuickSight</code> 进行商业化分析不存在争议。<br>4️⃣ 通过 <code>AWS Glue</code> 将数据提取转换并加载为 JSON 格式，然后导入到 ES 集群中。<br>5️⃣ 则使用 <code>AWS Lake Formation</code> 辨别能被加载到数据湖中的数据，并使用 <code>AWS Glue</code> 爬取来源、转换数据并以 Apache Parquet 格式加载到 <code>S3</code> 存储桶中（供后续检索）。  </p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/lake-formation/latest/dg/what-is-lake-formation.html">什么是 AWS Lake Formation？</a></p>
+<blockquote>
+<p>AWS Lake Formation 帮助您集中管理、保护和全球共享用于分析和机器学习的数据。您可以对 Amazon Simple Storage Service (Amazon S3) 上的数据湖数据及其在 AWS Glue Data Catalog中的元数据进行精细访问控制。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/lake-formation/latest/dg/workflows-about.html">Lake Formation 中的蓝图和工作流</a></p>
+<blockquote>
+<p>工作流程封装了复杂的多任务提取、转换和加载 () 活动。ETL工作流生成 AWS Glue 爬虫、作业和触发器，以协调数据的加载和更新。Lake Formation 将工作流作为单个实体来执行和跟踪。您可以将工作流配置为按需或按计划运行。  </p>
+<p>你在 Lake Formation 中创建的工作流程可以在 AWS Glue 控制台作为有向无环图 (DAG)。每个DAG节点都是一个作业、爬虫或触发器。要监控进度并进行故障排除，您可以跟踪工作流中每个节点的状态。</p>
+</blockquote>
+<p>官方推荐将 <code>Lake Formation</code> 与 <code>AWS Glue</code> 组合使用，显然这也是本题的考点。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：AWS Lake Formation and Glue provide automated data lake creation with minimal coding. Glue crawlers identify sources and ETL jobs load to S3.<br>Athena allows ad-hoc queries directly on S3 data with no infrastructure to manage.<br>QuickSight provides easy cloud BI for dashboards.<br>Options C and D require significant custom coding for ETL and queries.<br>Redshift and OpenSearch would require additional setup and management overhead.  </p>
+</blockquote>
+<hr>
+<h3 id="十五、Global-streaming"><a href="#十五、Global-streaming" class="headerlink" title="十五、Global streaming"></a>十五、Global streaming</h3><p>A solutions architect is optimizing a website for an upcoming musical event. Videos of the performances will be streamed in real time and then will be available on demand. The event is expected to attract a global online audience.<br>Which service will improve the performance of both the real-time and on-demand streaming?</p>
+<ol>
+<li>✅ Amazon CloudFront</li>
+<li>❌ AWS Global Accelerator</li>
+<li>Amazon Route 53</li>
+<li>Amazon S3 Transfer Acceleration</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：Video streaming</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：音乐活动在准备全球网页应用，视频将被实时按需串流。如何解决实时和按需串流。<br><code>CloudFront</code> 可以用来加速 HTTP 协议的视频流。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A is right<br>You can use CloudFront to deliver video on demand (VOD) or live streaming video using any HTTP origin<br>Global Accelerator isa good fit for non-HTTP use cases, such as gaming (UDP), IoT (MQTT), or Voice over IP,as well as for HTTP use cases that specifically require static IP addresses</p>
+<p>website &#x3D; http &#x3D; cloudfront, if it is UDP, then global accelerator</p>
+</blockquote>
+<hr>
+<h3 id="十六、Application-without-any-downtime"><a href="#十六、Application-without-any-downtime" class="headerlink" title="十六、Application without any downtime"></a>十六、Application without any downtime</h3><p>A company runs a production application on a fleet of Amazon EC2 instances. The application reads the data from an Amazon SQS queue and processes the messages in parallel<sub><u>并行</u></sub>. The message volume is unpredictable and often has intermittent traffic.<br>This application should continually process messages without any downtime.<br>Which solution meets these requirements MOST cost-effectively?</p>
+<ol>
+<li>Use Spot Instances exclusively to handle the maximum capacity required.</li>
+<li>Use Reserved Instances exclusively to handle the maximum capacity required.</li>
+<li>❌ Use Reserved Instances for the baseline capacity and use Spot Instances to handle additional capacity.</li>
+<li>✅ Use Reserved Instances for the baseline capacity and use On-Demand Instances to handle additional capacity.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：一组 <code>EC2</code> 实例持续消费 <code>SQS</code> 中的消息，消息无法预测且断断续续，但是需要确保应用程序不中断。最便宜的方案。<br>3️⃣ 确实合理，预留实例保证最低容量，抢占实例来处理额外消息。<br>但是 4️⃣ 更能覆盖题目中没有任何停工的需求。<br><u><strong>最具成本效益是建立在满足所有需求的基础上的</strong></u>。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：”without any downtime” - Reserved Instances for the baseline capacity<br>“MOST cost-effectively” - Spot Instances to handle additional capacity  </p>
+<blockquote>
+<p>🙅 反对：<br>cost-effectively means, Cheapest solution (cost) that achieve all the requirements (effectively). Its not cost-effectively if is just cheapest solution that fail to addressall the requirements, in this case. (Thisapplication should continually process messages without any downtime) no matter the volume, since it is unpredictable. B forexample,address the requirement but not the cheapest solution that achieve it. D is the cheaper choice that address the requirement (without any downtime).<br>and C is cheaper than D but do not garantee that you wont have downtime since it isSPOT instances.</p>
+</blockquote>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/11/29</p><p><a href="https://senjianlu.com/2024/11/29/saa_test_daily_20241129/">https://senjianlu.com/2024/11/29/saa_test_daily_20241129/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-11-29</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-11-29</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/11/30/translate_news_nhk_20241130_k10014654411000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - 皇居「乾通り」 秋の一般公開が始まる 12月8日まで</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/11/29/translate_news_nhk_20241129_k10014653131000/"><span class="level-item">日语翻译 - 新闻 - 広島 原爆資料館 若い世代に向けた新たな展示を整備へ</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、WAF-across-multiple-accounts"><span class="level-left"><span class="level-item">一、WAF across multiple accounts</span></span></a></li><li><a class="level is-mobile" href="#二、DNS"><span class="level-left"><span class="level-item">二、DNS</span></span></a></li><li><a class="level is-mobile" href="#三、Encrypt-RDS-DB-instance"><span class="level-left"><span class="level-item">三、Encrypt RDS DB instance</span></span></a></li><li><a class="level is-mobile" href="#四、Amazon-RDS-Custom-for-Oracle"><span class="level-left"><span class="level-item">四、Amazon RDS Custom for Oracle</span></span></a></li><li><a class="level is-mobile" href="#五、S3-encryption-and-Cross-Region-Replication"><span class="level-left"><span class="level-item">五、S3 encryption and Cross-Region Replication</span></span></a></li><li><a class="level is-mobile" href="#六、AWS-PrivateLink"><span class="level-left"><span class="level-item">六、AWS PrivateLink</span></span></a></li><li><a class="level is-mobile" href="#七、Database-migrating-and-ongoing-replication-task"><span class="level-left"><span class="level-item">七、Database migrating and ongoing replication task</span></span></a></li><li><a class="level is-mobile" href="#八、Monolithic-application-migrate-and-break"><span class="level-left"><span class="level-item">八、Monolithic application migrate and break</span></span></a></li><li><a class="level is-mobile" href="#九、Reserved-Instances"><span class="level-left"><span class="level-item">九、Reserved Instances</span></span></a></li><li><a class="level is-mobile" href="#十、CloudWatch-composite-alarms"><span class="level-left"><span class="level-item">十、CloudWatch composite alarms</span></span></a></li><li><a class="level is-mobile" href="#十一、AWS-Control-Tower-and-SCPS"><span class="level-left"><span class="level-item">十一、AWS Control Tower and SCPS</span></span></a></li><li><a class="level is-mobile" href="#十二、RDS-automatic-stop"><span class="level-left"><span class="level-item">十二、RDS automatic stop</span></span></a></li><li><a class="level is-mobile" href="#十三、S3-Lifecycle-policy-or-S3-Intelligent-Tiering"><span class="level-left"><span class="level-item">十三、S3 Lifecycle policy or S3 Intelligent-Tiering</span></span></a></li><li><a class="level is-mobile" href="#十四、AWS-Lake-Formation-and-Glue"><span class="level-left"><span class="level-item">十四、AWS Lake Formation and Glue</span></span></a></li><li><a class="level is-mobile" href="#十五、Global-streaming"><span class="level-left"><span class="level-item">十五、Global streaming</span></span></a></li><li><a class="level is-mobile" href="#十六、Application-without-any-downtime"><span class="level-left"><span class="level-item">十六、Application without any downtime</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>
