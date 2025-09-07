@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>AWS 知识点 - 无服务器应用程序 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="AWS Serverless 相关知识点。"><meta property="og:type" content="article"><meta property="og:title" content="AWS 知识点 - 无服务器应用程序"><meta property="og:url" content="https://senjianlu.com/2024/11/18/knowledge_serverless/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="AWS Serverless 相关知识点。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-11-26/aws.png"><meta property="article:published_time" content="2024-11-18T12:00:00.000Z"><meta property="article:modified_time" content="2024-11-18T15:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="SAP"><meta property="article:tag" content="Serverless"><meta property="article:tag" content="Lambda"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-11-26/aws.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/11/18/knowledge_serverless/"},"headline":"AWS 知识点 - 无服务器应用程序","image":["https://image.senjianlu.com/blog/2024-11-26/aws.png"],"datePublished":"2024-11-18T12:00:00.000Z","dateModified":"2024-11-18T15:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"AWS Serverless 相关知识点。"}</script><link rel="canonical" href="https://senjianlu.com/2024/11/18/knowledge_serverless/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-11-18T12:00:00.000Z" title="11/18/2024, 8:00:00 PM">2024-11-18</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E7%9F%A5%E8%AF%86%E7%82%B9/">知识点</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">AWS 知识点 - 无服务器应用程序</h1><div class="content"><blockquote>
+<p>AWS Serverless 相关知识点。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<h1 id="无服务器服务和事件驱动架构"><a href="#无服务器服务和事件驱动架构" class="headerlink" title="无服务器服务和事件驱动架构"></a>无服务器服务和事件驱动架构</h1><blockquote>
+<p><strong>事件驱动型架构 (EDA, Event-driven architecture)​</strong>：事件驱动架构是一种松耦合、分布式的驱动架构，收集到某应用产生的事件后实时对事件采取必要的处理后路由至下游系统，无需等待系统响应。</p>
+</blockquote>
+<h3 id="一、无服务器服务和事件驱动架构的例子"><a href="#一、无服务器服务和事件驱动架构的例子" class="headerlink" title="一、无服务器服务和事件驱动架构的例子"></a>一、无服务器服务和事件驱动架构的例子</h3><p><img src="https://image.senjianlu.com/blog/2024-11-19/aws_serverless_architecture.png" alt="无服务器服务和事件驱动架构的例子"></p>
+<h3 id="二、无服务器服务基本概念"><a href="#二、无服务器服务基本概念" class="headerlink" title="二、无服务器服务基本概念"></a>二、无服务器服务基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-19/aws_serverless.png" alt="无服务器服务基本概念"></p>
+<hr>
+<h1 id="AWS-Lambda"><a href="#AWS-Lambda" class="headerlink" title="AWS Lambda"></a>AWS Lambda</h1><h3 id="一、AWS-Lambda-基本概念"><a href="#一、AWS-Lambda-基本概念" class="headerlink" title="一、AWS Lambda 基本概念"></a>一、AWS Lambda 基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-19/aws_lambda.png" alt="AWS Lambda 基本概念">  </p>
+<ul>
+<li><code>Lambda</code> 最长的代码运行时间为 15 分钟</li>
+</ul>
+<h3 id="二、AWS-Lambda-使用场景"><a href="#二、AWS-Lambda-使用场景" class="headerlink" title="二、AWS Lambda 使用场景"></a>二、AWS Lambda 使用场景</h3><p><img src="https://image.senjianlu.com/blog/2024-11-19/aws_lambda_usage.png" alt="AWS Lambda 使用场景"></p>
+<h3 id="三、AWS-Lambda-函数调用"><a href="#三、AWS-Lambda-函数调用" class="headerlink" title="三、AWS Lambda 函数调用"></a>三、AWS Lambda 函数调用</h3><p><img src="https://image.senjianlu.com/blog/2024-11-19/aws_lambda_use.png" alt="AWS Lambda 函数调用"></p>
+<ul>
+<li>同步调用<ul>
+<li>从 CLI、SDK 或者 API Gateway 触发</li>
+</ul>
+</li>
+<li>异步调用<ul>
+<li><code>S3</code>、<code>SNS</code> 和 <code>CloudWAtch</code> 事件等来源</li>
+<li><code>Lambda</code> 函数最多重试 3 次</li>
+<li>处理必须是<strong>幂等</strong>的：不能因为重试导致结果不同</li>
+</ul>
+</li>
+<li>事件源映射<ul>
+<li>⭐ <code>Lambda</code> 将进行轮询</li>
+<li><code>SQS</code>、<code>Kinesis</code> 等数据流和 <code>DynamoDB</code> 流</li>
+<li>记录按顺序处理（除了 <code>SQS</code>）<blockquote>
+<p><code>SQS</code> 消息无序。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="四、AWS-Lambda-函数并发"><a href="#四、AWS-Lambda-函数并发" class="headerlink" title="四、AWS Lambda 函数并发"></a>四、AWS Lambda 函数并发</h3><p><img src="https://image.senjianlu.com/blog/2024-11-19/aws_lambda_concurrent.png" alt="AWS Lambda 函数并发"></p>
+<ul>
+<li>⭐ <strong>默认单 <code>区域</code> 所有函数总并发上限为 1000</strong></li>
+<li>⭐ 达到并发上限后，将无法再扩展，会碰到 <code>Rate Exceeded</code> 或 <code>429</code> <code>TooManyRequestsException</code> 错误</li>
+</ul>
+<hr>
+<h1 id="应用程序集成服务-Application-Integration-概述"><a href="#应用程序集成服务-Application-Integration-概述" class="headerlink" title="应用程序集成服务 (Application Integration) 概述"></a>应用程序集成服务 (Application Integration) 概述</h1><h3 id="一、应用程序集成服务-Application-Integration-种类"><a href="#一、应用程序集成服务-Application-Integration-种类" class="headerlink" title="一、应用程序集成服务 (Application Integration) 种类"></a>一、应用程序集成服务 (Application Integration) 种类</h3><p><img src="https://image.senjianlu.com/blog/2024-11-19/aws_application_integration_kinds.png" alt="应用程序集成服务 (Application Integration) 种类"></p>
+<h3 id="二、AWS-Step-Functions"><a href="#二、AWS-Step-Functions" class="headerlink" title="二、AWS Step Functions"></a>二、AWS Step Functions</h3><p><img src="https://image.senjianlu.com/blog/2024-11-19/aws_step_functions_example.png" alt="AWS Step Functions 样例"></p>
+<ul>
+<li>创建工作流（也称为状态机）来构建分布式应用程序、自动化流程、协调微服务以及创建数据和机器学习管道</li>
+<li>可视化、编辑和调试应用程序的工作流程</li>
+<li>检查工作流程中每个步骤的状态，以确保应用程序按预期顺序运行</li>
+</ul>
+<h3 id="三、AWS-SWF-Simple-Workflow-Service"><a href="#三、AWS-SWF-Simple-Workflow-Service" class="headerlink" title="三、AWS SWF (Simple Workflow Service)"></a>三、AWS SWF (Simple Workflow Service)</h3><ul>
+<li>可以理解为 <code>Step Functions</code> 的简单版本</li>
+<li>⭐ 适用于需要人工处理一部分工作的工作流</li>
+</ul>
+<h3 id="四、Amazon-MQ"><a href="#四、Amazon-MQ" class="headerlink" title="四、Amazon MQ"></a>四、Amazon MQ</h3><ul>
+<li>⭐ 适用于本身就适用 Apache Active MQ 或 RabbitMQ 的客户迁移到 AWS<blockquote>
+<p>考题中涉及到“行业协议”、“API”和“将队列迁移到 AWS”的术语，则需要注意 <code>Amazon MQ</code>。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="五、⭐-Kinesis-vs-SQS-vs-SNS"><a href="#五、⭐-Kinesis-vs-SQS-vs-SNS" class="headerlink" title="五、⭐ Kinesis vs SQS vs SNS"></a>五、⭐ Kinesis vs SQS vs SNS</h3><p><img src="https://image.senjianlu.com/blog/2024-11-19/aws_kinesis_vs_sqs_vs_sns.png" alt="Kinesis vs SQS vs SNS"></p>
+<blockquote>
+<p>扇出（Fanout）：消息先经过 SNS 队列分发给订阅者，再由订阅者放入各自 SQS 队列。  </p>
+</blockquote>
+<hr>
+<h1 id="AWS-SQS"><a href="#AWS-SQS" class="headerlink" title="AWS SQS"></a>AWS SQS</h1><h3 id="一、使用-SQS-队列解耦"><a href="#一、使用-SQS-队列解耦" class="headerlink" title="一、使用 SQS 队列解耦"></a>一、使用 SQS 队列解耦</h3><p><img src="https://image.senjianlu.com/blog/2024-11-19/aws_sqs_decoupling.png" alt="使用 SQS 队列解耦"></p>
+<h3 id="二、SQS-队列类型"><a href="#二、SQS-队列类型" class="headerlink" title="二、SQS 队列类型"></a>二、SQS 队列类型</h3><p><img src="https://image.senjianlu.com/blog/2024-11-19/aws_sqs_kinds.png" alt="SQS 队列类型"><br><img src="https://image.senjianlu.com/blog/2024-11-19/aws_sqs_kinds_difference.png" alt="SQS 队列类型的不同"><br><img src="https://image.senjianlu.com/blog/2024-11-19/aws_sqs_fifo.png" alt="SQS FIFO 队列特点">  </p>
+<ul>
+<li>标准队列：无法保证消息顺序</li>
+<li>FIFO 队列：消息先进先出<ul>
+<li><code>Message group ID</code>：属于同一消息组的消息会严格按照顺序先进先出。</li>
+<li><code>Message deduplication ID</code>：特定时间内用以进行消息去重的令牌，确保消息只得到一次处理。</li>
+</ul>
+</li>
+</ul>
+<h3 id="三、SQS-死信队列-DLQ-dead-letter-queues"><a href="#三、SQS-死信队列-DLQ-dead-letter-queues" class="headerlink" title="三、SQS 死信队列 (DLQ, dead-letter queues)"></a>三、SQS 死信队列 (DLQ, dead-letter queues)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-19/aws_sqs_dead_letter_queues.png" alt="SQS 死信队列样例"><br><img src="https://image.senjianlu.com/blog/2024-11-19/aws_sqs_dead_letter_queues_02.png" alt="SQS 死信队列">  </p>
+<h3 id="四、SQS-延迟队列-SQS-delay-queues"><a href="#四、SQS-延迟队列-SQS-delay-queues" class="headerlink" title="四、SQS 延迟队列 (SQS delay queues)"></a>四、SQS 延迟队列 (SQS delay queues)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-19/aws_sqs_delay_queue.png" alt="SQS 延迟队列">  </p>
+<ul>
+<li>在延迟秒数内，消息不可见</li>
+</ul>
+<h3 id="五、SQS-短轮询和长轮询-SQS-short-and-long-polling"><a href="#五、SQS-短轮询和长轮询-SQS-short-and-long-polling" class="headerlink" title="五、SQS 短轮询和长轮询 (SQS short and long polling)"></a>五、SQS 短轮询和长轮询 (SQS short and long polling)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-19/aws_sqs_short_and_long_polling.png" alt="SQS 短轮询和长轮询"><br><img src="https://image.senjianlu.com/blog/2024-11-19/aws_sqs_short_and_long_polling_02.png" alt="SQS 短轮询和长轮询的特点"></p>
+<hr>
+<h1 id="AWS-SNS"><a href="#AWS-SNS" class="headerlink" title="AWS SNS"></a>AWS SNS</h1><h3 id="一、AWS-SNS-基本概念"><a href="#一、AWS-SNS-基本概念" class="headerlink" title="一、AWS SNS 基本概念"></a>一、AWS SNS 基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-19/aws_sns_example.png" alt="SNS 样例"><br><img src="https://image.senjianlu.com/blog/2024-11-19/aws_sns_01.png" alt="SNS 基本概念 01"><br><img src="https://image.senjianlu.com/blog/2024-11-19/aws_sns_02.png" alt="SNS 基本概念 02"></p>
+<h3 id="二、AWS-SNS-AWS-SQS-Fan-Out（扇出）"><a href="#二、AWS-SNS-AWS-SQS-Fan-Out（扇出）" class="headerlink" title="二、AWS SNS + AWS SQS Fan-Out（扇出）"></a>二、AWS SNS + AWS SQS Fan-Out（扇出）</h3><p><img src="https://image.senjianlu.com/blog/2024-11-19/aws_sns_sqs_fanout.png" alt="AWS SNS + AWS SQS Fan-Out（扇出）"></p>
+<hr>
+<h1 id="亚马逊-API-网关"><a href="#亚马逊-API-网关" class="headerlink" title="亚马逊 API 网关"></a>亚马逊 API 网关</h1><h3 id="一、亚马逊-API-网关所处位置"><a href="#一、亚马逊-API-网关所处位置" class="headerlink" title="一、亚马逊 API 网关所处位置"></a>一、亚马逊 API 网关所处位置</h3><p><img src="https://image.senjianlu.com/blog/2024-11-19/aws_api_gateway_example.png" alt="亚马逊 API 网关所处位置">  </p>
+<h3 id="二、亚马逊-API-网关类型"><a href="#二、亚马逊-API-网关类型" class="headerlink" title="二、亚马逊 API 网关类型"></a>二、亚马逊 API 网关类型</h3><p><img src="https://image.senjianlu.com/blog/2024-11-19/aws_api_gateway_kinds.png" alt="亚马逊 API 网关类型"></p>
+<h3 id="三、REST-API-架构"><a href="#三、REST-API-架构" class="headerlink" title="三、REST API 架构"></a>三、REST API 架构</h3><p><img src="https://image.senjianlu.com/blog/2024-11-19/aws_api_gateway_restful_api.png" alt="REST API 架构">  </p>
+<blockquote>
+<p>HTTP API 没有上图中的<u><strong>方法请求</strong></u>，而是使用<u><strong>路由</strong></u>，通过路由将请求发送到 <code>AWS Lambda</code> 函数或其他可路由的 HTTP 终端节点。</p>
+</blockquote>
+<h3 id="四、API-网关集成-API-Gateway-API-integration"><a href="#四、API-网关集成-API-Gateway-API-integration" class="headerlink" title="四、API 网关集成 (API Gateway API integration)"></a>四、API 网关集成 (API Gateway API integration)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-19/aws_api_gateway_integration.png" alt="API 网关集成"></p>
+<ul>
+<li>⭐ <strong>AWS 服务操作只有非代理类型</strong></li>
+</ul>
+<h3 id="五、API-网关缓存"><a href="#五、API-网关缓存" class="headerlink" title="五、API 网关缓存"></a>五、API 网关缓存</h3><p><img src="https://image.senjianlu.com/blog/2024-11-19/aws_api_gateway_cached.png" alt="API 网关缓存">  </p>
+<h3 id="六、API-网关限流"><a href="#六、API-网关限流" class="headerlink" title="六、API 网关限流"></a>六、API 网关限流</h3><p><img src="https://image.senjianlu.com/blog/2024-11-19/aws_api_gateway_limit.png" alt="API 网关限流"></p>
+<ul>
+<li>限制为每秒 <code>10,000</code> 个请求或 <code>5000</code> 个并发</li>
+<li>超过限制后将返回 <code>429</code> <code>TooManyRequestsException</code> 错误</li>
+</ul>
+<h3 id="七、API-网关使用计划-Usage-plans-和-API-密钥-API-keys"><a href="#七、API-网关使用计划-Usage-plans-和-API-密钥-API-keys" class="headerlink" title="七、API 网关使用计划 (Usage plans) 和 API 密钥 (API keys)"></a>七、API 网关使用计划 (Usage plans) 和 API 密钥 (API keys)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-19/aws_api_usage_plans_api_keys.png" alt="API 网关使用计划和 API 密钥"></p>
+<ul>
+<li>区分普通用户和高级用户时可以采取 <code>使用计划</code> 对访问阈值进行分开限制，和配置到不同的阶段或终端节点</li>
+<li>使用 <code>API 密钥</code> 区分普通用户和高级用户</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>AWS 知识点 - 无服务器应用程序</p><p><a href="https://senjianlu.com/2024/11/18/knowledge_serverless/">https://senjianlu.com/2024/11/18/knowledge_serverless/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-11-18</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-11-18</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/SAP/">SAP</a><a class="link-muted mr-2" rel="tag" href="/tags/Serverless/">Serverless</a><a class="link-muted mr-2" rel="tag" href="/tags/Lambda/">Lambda</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/11/19/translate_news_nhk_20241119_k10014642471000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - 成田空港「ブラインド訓練」12月に初実施へ 災害時の対応確認</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/11/18/saa_test_daily_20241118/"><span class="level-item">SAA 考试每日练习 - 2024/11/18</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#无服务器服务和事件驱动架构"><span class="level-left"><span class="level-item">无服务器服务和事件驱动架构</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、无服务器服务和事件驱动架构的例子"><span class="level-left"><span class="level-item">一、无服务器服务和事件驱动架构的例子</span></span></a></li><li><a class="level is-mobile" href="#二、无服务器服务基本概念"><span class="level-left"><span class="level-item">二、无服务器服务基本概念</span></span></a></li></ul></li><li><a class="level is-mobile" href="#AWS-Lambda"><span class="level-left"><span class="level-item">AWS Lambda</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、AWS-Lambda-基本概念"><span class="level-left"><span class="level-item">一、AWS Lambda 基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、AWS-Lambda-使用场景"><span class="level-left"><span class="level-item">二、AWS Lambda 使用场景</span></span></a></li><li><a class="level is-mobile" href="#三、AWS-Lambda-函数调用"><span class="level-left"><span class="level-item">三、AWS Lambda 函数调用</span></span></a></li><li><a class="level is-mobile" href="#四、AWS-Lambda-函数并发"><span class="level-left"><span class="level-item">四、AWS Lambda 函数并发</span></span></a></li></ul></li><li><a class="level is-mobile" href="#应用程序集成服务-Application-Integration-概述"><span class="level-left"><span class="level-item">应用程序集成服务 (Application Integration) 概述</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、应用程序集成服务-Application-Integration-种类"><span class="level-left"><span class="level-item">一、应用程序集成服务 (Application Integration) 种类</span></span></a></li><li><a class="level is-mobile" href="#二、AWS-Step-Functions"><span class="level-left"><span class="level-item">二、AWS Step Functions</span></span></a></li><li><a class="level is-mobile" href="#三、AWS-SWF-Simple-Workflow-Service"><span class="level-left"><span class="level-item">三、AWS SWF (Simple Workflow Service)</span></span></a></li><li><a class="level is-mobile" href="#四、Amazon-MQ"><span class="level-left"><span class="level-item">四、Amazon MQ</span></span></a></li><li><a class="level is-mobile" href="#五、⭐-Kinesis-vs-SQS-vs-SNS"><span class="level-left"><span class="level-item">五、⭐ Kinesis vs SQS vs SNS</span></span></a></li></ul></li><li><a class="level is-mobile" href="#AWS-SQS"><span class="level-left"><span class="level-item">AWS SQS</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、使用-SQS-队列解耦"><span class="level-left"><span class="level-item">一、使用 SQS 队列解耦</span></span></a></li><li><a class="level is-mobile" href="#二、SQS-队列类型"><span class="level-left"><span class="level-item">二、SQS 队列类型</span></span></a></li><li><a class="level is-mobile" href="#三、SQS-死信队列-DLQ-dead-letter-queues"><span class="level-left"><span class="level-item">三、SQS 死信队列 (DLQ, dead-letter queues)</span></span></a></li><li><a class="level is-mobile" href="#四、SQS-延迟队列-SQS-delay-queues"><span class="level-left"><span class="level-item">四、SQS 延迟队列 (SQS delay queues)</span></span></a></li><li><a class="level is-mobile" href="#五、SQS-短轮询和长轮询-SQS-short-and-long-polling"><span class="level-left"><span class="level-item">五、SQS 短轮询和长轮询 (SQS short and long polling)</span></span></a></li></ul></li><li><a class="level is-mobile" href="#AWS-SNS"><span class="level-left"><span class="level-item">AWS SNS</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、AWS-SNS-基本概念"><span class="level-left"><span class="level-item">一、AWS SNS 基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、AWS-SNS-AWS-SQS-Fan-Out（扇出）"><span class="level-left"><span class="level-item">二、AWS SNS + AWS SQS Fan-Out（扇出）</span></span></a></li></ul></li><li><a class="level is-mobile" href="#亚马逊-API-网关"><span class="level-left"><span class="level-item">亚马逊 API 网关</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、亚马逊-API-网关所处位置"><span class="level-left"><span class="level-item">一、亚马逊 API 网关所处位置</span></span></a></li><li><a class="level is-mobile" href="#二、亚马逊-API-网关类型"><span class="level-left"><span class="level-item">二、亚马逊 API 网关类型</span></span></a></li><li><a class="level is-mobile" href="#三、REST-API-架构"><span class="level-left"><span class="level-item">三、REST API 架构</span></span></a></li><li><a class="level is-mobile" href="#四、API-网关集成-API-Gateway-API-integration"><span class="level-left"><span class="level-item">四、API 网关集成 (API Gateway API integration)</span></span></a></li><li><a class="level is-mobile" href="#五、API-网关缓存"><span class="level-left"><span class="level-item">五、API 网关缓存</span></span></a></li><li><a class="level is-mobile" href="#六、API-网关限流"><span class="level-left"><span class="level-item">六、API 网关限流</span></span></a></li><li><a class="level is-mobile" href="#七、API-网关使用计划-Usage-plans-和-API-密钥-API-keys"><span class="level-left"><span class="level-item">七、API 网关使用计划 (Usage plans) 和 API 密钥 (API keys)</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

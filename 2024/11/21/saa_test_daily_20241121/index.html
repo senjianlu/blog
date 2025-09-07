@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/11/21 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam5 题 (No.36 ~ No.40)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/11/21"><meta property="og:url" content="https://senjianlu.com/2024/11/21/saa_test_daily_20241121/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam5 题 (No.36 ~ No.40)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-11-21T11:00:00.000Z"><meta property="article:modified_time" content="2024-11-21T12:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/11/21/saa_test_daily_20241121/"},"headline":"SAA 考试每日练习 - 2024/11/21","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-11-21T11:00:00.000Z","dateModified":"2024-11-21T12:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam5 题 (No.36 ~ No.40)，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/11/21/saa_test_daily_20241121/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-11-21T11:00:00.000Z" title="11/21/2024, 7:00:00 PM">2024-11-21</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/11/21</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/">Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam</a><br>5 题 (No.36 ~ No.40)，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<p><strong>🌟 单词：</strong></p>
+<ol>
+<li>strategy<sub><u>n. 策略，战略，策划，战略部署</u></sub></li>
+<li>repeatable<sub><u>adj. 可重复, 有礼貌, 不冒犯人</u></sub></li>
+<li>burstable<sub><u>不稳定的，爆发的</u></sub></li>
+<li>archive<sub><u>n. 档案，档案馆，档案室 | v. 把…存档，把…归档，将（不常用信息）存档</u></sub></li>
+<li>delivery<sub><u>n. 递送；交付；分娩</u></sub></li>
+<li>ingest<sub><u>v. 食入, 摄入, 咽下</u></sub></li>
+<li>operationally<sub><u>adv. 操作上</u></sub></li>
+<li>efficient<sub><u>adj. 效率高的，高效的</u></sub></li>
+</ol>
+<hr>
+<h3 id="一、KMS-over-Regions"><a href="#一、KMS-over-Regions" class="headerlink" title="一、KMS over Regions"></a>一、KMS over Regions</h3><p>A company is building an application in the AWS Cloud. The application will store data in Amazon S3 buckets in two AWS Regions. The company must use an AWS Key Management Service (AWS KMS) customer managed key to encrypt all data that is stored in the S3 buckets. The data in both S3 buckets must be encrypted and decrypted with the same KMS key. The data and the key must be stored in each of the two Regions.<br>Which solution will meet these requirements with the LEAST operational overhead?</p>
+<ol>
+<li>Create an S3 bucket in each Region. Configure the S3 buckets to use server-side encryption with Amazon S3 managed encryption keys (SSE-S3). Configure replication between the S3 buckets.</li>
+<li>✅ Create a customer managed multi-Region KMS key. Create an S3 bucket in each Region. Configure replication between the S3 buckets. Configure the application to use the KMS key with client-side encryption.</li>
+<li>Create a customer managed KMS key and an S3 bucket in each Region. Configure the S3 buckets to use server-side encryption with Amazon S3 managed encryption keys (SSE-S3). Configure replication between the S3 buckets.</li>
+<li>❌ Create a customer managed KMS key and an S3 bucket in each Region. Configure the S3 buckets to use server-side encryption with AWS KMS keys (SSE-KMS). Configure replication between the S3 buckets.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：S3、two AWS Regions、KMS（不支持跨区域）</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：这题在 2️⃣ 和 4️⃣ 之间存在争议，不过官方文档中建议了在跨区域使用同一密钥的情况下，使用客户端加密方式。<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Multi-Region keys in AWS KMS</a></p>
+<blockquote>
+<p>You can use multi-Region keys with <u><strong>client-side</strong></u> encryption libraries, such as the AWS Encryption SDK, the AWS Database Encryption SDK, and Amazon S3 client-side encryption.</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/amazon-s3-encryption-client/latest/developerguide/client-server-side.html">Client-side and server-side encryption</a>  </p>
+<ul>
+<li><code>Server-side encryption</code>：你的数据 AWS 帮你加密后再写入磁盘</li>
+<li><code>Client-side encryption</code>：端到端加密，你来加密数据后再发往 AWS 进行保存等处理</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="二、Session-Manager"><a href="#二、Session-Manager" class="headerlink" title="二、Session Manager"></a>二、Session Manager</h3><p>A company recently launched a variety of new workloads on Amazon EC2 instances in its AWS account. The company needs to create a strategy<sub><u>策略</u></sub> to access and administer the instances remotely and securely. The company needs to implement a repeatable<sub><u>可重复的</u></sub> process that works with native AWS services and follows the AWS Well-Architected Framework.<br>Which solution will meet these requirements with the LEAST operational overhead?</p>
+<ol>
+<li>Use the EC2 serial console to directly access the terminal interface of each instance for administration.</li>
+<li>✅ Attach the appropriate IAM role to each existing instance and new instance. Use AWS Systems Manager Session Manager to establish a remote SSH session.</li>
+<li>❌ Create an administrative SSH key pair. Load the public key into each EC2 instance. Deploy a bastion host in a public subnet to provide a tunnel for administration of each instance.</li>
+<li>Establish an AWS Site-to-Site VPN connection. Instruct administrators to use their local on-premises machines to connect directly to the instances by using SSH keys across the VPN tunnel.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：repeatable process</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>Session Manager</code> 是 AWS Systems Manager 的一项完全托管式功能。借助 Session Manager，您可以管理 Amazon Elastic Compute Cloud（Amazon EC2）实例、边缘设备、本地服务器和虚拟机（VM）。<br>更多信息：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/systems-manager/latest/userguide/session-manager.html">AWS Systems Manager Session Manager</a><br>这里考的其实就是 <code>Session Manager</code> 这项服务。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Option A provides direct access to the terminal interface of each instance, but it may not be practical for administration purposesand can be cumbersome to manage,especially for multiple instances.  </p>
+<p>Option C adds operational overhead and introducesadditional infrastructure that needs to be managed, monitored,and secured. It also requiresSSH key management and maintenance.</p>
+<p>Option D is complex and may not be necessary for remote administration. It also requiresadministrators to connect from their local on-premises machines, which adds complexityand potential security risks.</p>
+<p>Therefore, option B is the recommended solution as it provides secure,auditable,and repeatable remote access using IAM rolesand AWS Systems ManagerSession Manager, with minimal operational overhead.</p>
+</blockquote>
+<hr>
+<h3 id="三、Static-Website"><a href="#三、Static-Website" class="headerlink" title="三、Static Website"></a>三、Static Website</h3><p>A company is hosting a static website on Amazon S3 and is using Amazon Route 53 for DNS. The website is experiencing increased demand from around the world. The company must decrease latency for users who access the website.<br>Which solution meets these requirements MOST cost-effectively?</p>
+<ol>
+<li>Replicate the S3 bucket that contains the website to all AWS Regions. Add Route 53 geolocation routing entries.</li>
+<li>Provision accelerators in AWS Global Accelerator. Associate the supplied IP addresses with the S3 bucket. Edit the Route 53 entries to point to the IP addresses of the accelerators.</li>
+<li>✅ Add an Amazon CloudFront distribution in front of the S3 bucket. Edit the Route 53 entries to point to the CloudFront distribution.</li>
+<li>Enable S3 Transfer Acceleration on the bucket. Edit the Route 53 entries to point to the new endpoint.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：decrease latency for users、around the world</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：存储在 <code>S3</code> 中因此是静态网站，使用 <code>CloudFront</code> CDN 可以解决延迟问题。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Option A (replicating the S3 bucket to all AWS Regions) can be costlyand complex, requiring replication of data across multiple Regionsand managing synchronization. It may not provide a significant latency improvement compared to the CloudFront solution.  </p>
+<p>Option B (provisioning accelerators in AWS Global Accelerator) can be more expensive as it addsan extra layer of infrastructure (accelerators) and requiresassociating IP addresses with the S3 bucket. CloudFront already includes global edge locationsand provides similar acceleration capabilities.  </p>
+<p>Option D (enabling S3 Transfer Acceleration) can help improve upload speed to the S3 bucket but may not have a significant impact on reducing latency for website visitors.</p>
+<p>Therefore, option C is the most cost-effective solution as it leverages CloudFront’s caching and global distribution capabilities to decrease latencyand improve website performance.</p>
+</blockquote>
+<hr>
+<h3 id="四、Slow-insert-on-RDS-for-MySQL"><a href="#四、Slow-insert-on-RDS-for-MySQL" class="headerlink" title="四、Slow insert on RDS for MySQL"></a>四、Slow insert on RDS for MySQL</h3><p>A company maintains a searchable repository of items on its website. The data is stored in an Amazon RDS for MySQL database table that contains more than 10 million rows. The database has 2 TB of General Purpose SSD storage. There are millions of updates against this data every day through the company’s website.<br>The company has noticed that some insert operations are taking 10 seconds or longer. The company has determined that the database storage performance is the problem.<br>Which solution addresses this performance issue?</p>
+<ol>
+<li>✅ Change the storage type to Provisioned IOPS SSD.</li>
+<li>Change the DB instance to a memory optimized instance class.</li>
+<li>Change the DB instance to a burstable<sub><u>（可）爆发的</u></sub> performance instance class.</li>
+<li>Enable Multi-AZ RDS read replicas with MySQL native asynchronous replication.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：database storage performance is the problem</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：IO 瓶颈提升硬盘性能。<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/ebs/latest/userguide/provisioned-iops.html">Amazon EBS 预调配 IOPS SSD 卷 (Provisioned IOPS SSD volumes)</a>  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A: Made for high levels of I&#x2F;O opps for consistent, predictable performance.<br>B: Can improve performance of insert opps, but it’sa storage performance rather than processing power problem<br>C: for moderate CPU usage<br>D: for scale read-only replicasand doesn’t improve performance of insert opps on the primary DB instance  </p>
+</blockquote>
+<hr>
+<h3 id="五、Kinesis-Data-Analysis-Glacier"><a href="#五、Kinesis-Data-Analysis-Glacier" class="headerlink" title="五、Kinesis Data &amp; Analysis &amp; Glacier"></a>五、Kinesis Data &amp; Analysis &amp; Glacier</h3><p>A company has thousands of edge devices that collectively generate 1 TB of status alerts each day. Each alert is approximately 2 KB in size. A solutions architect needs to implement a solution to ingest and store the alerts for future analysis.<br>The company wants a highly available solution. However, the company needs to minimize costs and does not want to manage additional infrastructure. Additionally, the company wants to keep 14 days of data available for immediate analysis and archive<sub><u>归档</u></sub> any data older than 14 days.<br>What is the MOST operationally<sub><u>操作上的</u></sub> efficient<sub><u>效率高的</u></sub> solution that meets these requirements?</p>
+<ol>
+<li>✅ Create an Amazon Kinesis Data Firehose delivery<sub><u>递交</u></sub> stream to ingest the<sub><u>咽下，处理</u></sub> alerts. Configure the Kinesis Data Firehose stream to deliver the alerts to an Amazon S3 bucket. Set up an S3 Lifecycle configuration to transition data to Amazon S3 Glacier after 14 days.</li>
+<li>Launch Amazon EC2 instances across two Availability Zones and place them behind an Elastic Load Balancer to ingest the alerts. Create a script on the EC2 instances that will store the alerts in an Amazon S3 bucket. Set up an S3 Lifecycle configuration to transition data to Amazon S3 Glacier after 14 days.</li>
+<li>Create an Amazon Kinesis Data Firehose delivery stream to ingest the alerts. Configure the Kinesis Data Firehose stream to deliver the alerts to an Amazon OpenSearch Service (Amazon Elasticsearch Service) cluster. Set up the Amazon OpenSearch Service (Amazon Elasticsearch Service) cluster to take manual snapshots every day and delete data from the cluster that is older than 14 days.</li>
+<li>Create an Amazon Simple Queue Service (Amazon SQS) standard queue to ingest the alerts, and set the message retention period to 14 days. Configure consumers to poll the SQS queue, check the age of the message, and analyze the message data as needed. If the message is 14 days old, the consumer should copy the message to an Amazon S3 bucket and delete the message from the SQS queue.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：keep 14 days of data available for immediate analysis、archive any data older than 14 days</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：1️⃣ 的数据通过 <code>Amazon Kinesis Data Firehose</code> 存入 <code>S3</code>，并通过生命周期策略在 14 天后更换存储策略为归档。<br>2️⃣ 启动了 <code>EC2</code> 和 <code>ELB</code> 来完成接受和存入数据这一步骤，过于繁琐。<br>3️⃣ 启动了 <code>Elasticsearch</code>，但是选择删除 14 天后的数据。<br>4️⃣ 启动 <code>SQS</code> 不符合分析需求。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Definitely A, it’s the most operationally efficient compared to D, which requiresa lot of code and infrastructure to maintain. A is mostly managed (firehose is fully managed and S3 lifecyclesare also managed)</p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/11/21</p><p><a href="https://senjianlu.com/2024/11/21/saa_test_daily_20241121/">https://senjianlu.com/2024/11/21/saa_test_daily_20241121/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-11-21</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-11-21</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/11/21/knowledge_elastic/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">AWS 知识点 - 弹性负载均衡器和弹性伸缩</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/11/21/hands_on_elastic/"><span class="level-item">AWS 实操 - 弹性负载均衡器和弹性伸缩</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、KMS-over-Regions"><span class="level-left"><span class="level-item">一、KMS over Regions</span></span></a></li><li><a class="level is-mobile" href="#二、Session-Manager"><span class="level-left"><span class="level-item">二、Session Manager</span></span></a></li><li><a class="level is-mobile" href="#三、Static-Website"><span class="level-left"><span class="level-item">三、Static Website</span></span></a></li><li><a class="level is-mobile" href="#四、Slow-insert-on-RDS-for-MySQL"><span class="level-left"><span class="level-item">四、Slow insert on RDS for MySQL</span></span></a></li><li><a class="level is-mobile" href="#五、Kinesis-Data-Analysis-Glacier"><span class="level-left"><span class="level-item">五、Kinesis Data &amp; Analysis &amp; Glacier</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

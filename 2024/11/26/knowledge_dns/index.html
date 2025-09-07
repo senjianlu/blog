@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>AWS 知识点 - DNS、缓存与性能优化（包括 AWS Route 53） - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="AWS DNS、缓存与性能优化（包括 AWS Route 53）相关知识点。"><meta property="og:type" content="article"><meta property="og:title" content="AWS 知识点 - DNS、缓存与性能优化（包括 AWS Route 53）"><meta property="og:url" content="https://senjianlu.com/2024/11/26/knowledge_dns/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="AWS DNS、缓存与性能优化（包括 AWS Route 53）相关知识点。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-11-26/aws.png"><meta property="article:published_time" content="2024-11-26T04:10:00.000Z"><meta property="article:modified_time" content="2024-11-26T04:30:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="SAP"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-11-26/aws.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/11/26/knowledge_dns/"},"headline":"AWS 知识点 - DNS、缓存与性能优化（包括 AWS Route 53）","image":["https://image.senjianlu.com/blog/2024-11-26/aws.png"],"datePublished":"2024-11-26T04:10:00.000Z","dateModified":"2024-11-26T04:30:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"AWS DNS、缓存与性能优化（包括 AWS Route 53）相关知识点。"}</script><link rel="canonical" href="https://senjianlu.com/2024/11/26/knowledge_dns/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-11-26T04:10:00.000Z" title="11/26/2024, 12:10:00 PM">2024-11-26</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E7%9F%A5%E8%AF%86%E7%82%B9/">知识点</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">AWS 知识点 - DNS、缓存与性能优化（包括 AWS Route 53）</h1><div class="content"><blockquote>
+<p>AWS DNS、缓存与性能优化（包括 AWS Route 53）相关知识点。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<h1 id="DNS-Domain-Name-System-解析流程"><a href="#DNS-Domain-Name-System-解析流程" class="headerlink" title="DNS (Domain Name System) 解析流程"></a>DNS (Domain Name System) 解析流程</h1><h3 id="一、DNS-Domain-Name-System-解析流程"><a href="#一、DNS-Domain-Name-System-解析流程" class="headerlink" title="一、DNS (Domain Name System) 解析流程"></a>一、DNS (Domain Name System) 解析流程</h3><p><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_dns_step.png" alt="DNS (Domain Name System) 解析流程"></p>
+<hr>
+<h1 id="亚马逊-Route-53"><a href="#亚马逊-Route-53" class="headerlink" title="亚马逊 Route 53"></a>亚马逊 Route 53</h1><h3 id="一、亚马逊-Route-53-基本原理"><a href="#一、亚马逊-Route-53-基本原理" class="headerlink" title="一、亚马逊 Route 53 基本原理"></a>一、亚马逊 Route 53 基本原理</h3><p><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_route_53.png" alt="亚马逊 Route 53 基本原理"></p>
+<ul>
+<li>托管区域 (Hosted zones) 存储对应域（及其子域）的所有 DNS 记录</li>
+</ul>
+<h3 id="二、亚马逊-Route-53-路由策略-Routing-Policy"><a href="#二、亚马逊-Route-53-路由策略-Routing-Policy" class="headerlink" title="二、亚马逊 Route 53 路由策略 (Routing Policy)"></a>二、亚马逊 Route 53 路由策略 (Routing Policy)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_route_53_routing_policy.png" alt="亚马逊 Route 53 路由策略 (Routing Policy)"></p>
+<h3 id="三、亚马逊-Route-53-功能"><a href="#三、亚马逊-Route-53-功能" class="headerlink" title="三、亚马逊 Route 53 功能"></a>三、亚马逊 Route 53 功能</h3><ul>
+<li>域名注册</li>
+<li>托管区域（DNS 解析）</li>
+<li>健康检查</li>
+<li><code>Traffic Flow</code><blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/Route53/latest/DeveloperGuide/traffic-flow.html">使用 Traffic Flow 来路由 DNS 流量</a>，简化在大型复杂配置中创建和维护记录的过程。</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h1 id="Route-53-托管区域"><a href="#Route-53-托管区域" class="headerlink" title="Route 53 托管区域"></a>Route 53 托管区域</h1><h3 id="一、Route-53-托管区域基本概念"><a href="#一、Route-53-托管区域基本概念" class="headerlink" title="一、Route 53 托管区域基本概念"></a>一、Route 53 托管区域基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_route_53_hosted_zone_public.png" alt="公有托管区域（面向互联网）"><br><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_route_53_hosted_zone_private.png" alt="私有托管区域（面向 VPC 内）">  </p>
+<ul>
+<li>⭐ <strong>创建 <code>私有托管区域</code> 需要指定关联的 <code>VPC</code>，同时开启 <code>VPC</code> 的启用 DNS 解析和启动 DNS 主机名</strong></li>
+<li><code>私有托管区域</code> 可以使用任何域名</li>
+</ul>
+<h3 id="二、迁移到-Route-53-或从-Route-53-迁移到其他提供商"><a href="#二、迁移到-Route-53-或从-Route-53-迁移到其他提供商" class="headerlink" title="二、迁移到 Route 53 或从 Route 53 迁移到其他提供商"></a>二、迁移到 Route 53 或从 Route 53 迁移到其他提供商</h3><p><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_route_53_migrate.png" alt="Route 53 迁移"></p>
+<ul>
+<li>可以将一个 AWS 账户下的 <code>VPC</code> 与另一个账户中创建的 <code>Route 53</code> 托管区域相关联<ol>
+<li>使用创建托管区域的账户，授权另一个账户的 <code>VPC</code> 与托管区域关联。</li>
+<li>使用创建 <code>VPC</code> 的账户，将 <code>VPC</code> 与托管区域关联。</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h1 id="Route-53-记录-Record-和生存时间-TTL"><a href="#Route-53-记录-Record-和生存时间-TTL" class="headerlink" title="Route 53 记录 (Record) 和生存时间 (TTL)"></a>Route 53 记录 (Record) 和生存时间 (TTL)</h1><h3 id="一、Route-53-记录-Record-基本概念"><a href="#一、Route-53-记录-Record-基本概念" class="headerlink" title="一、Route 53 记录 (Record) 基本概念"></a>一、Route 53 记录 (Record) 基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_route_53_record.png" alt="Route 53 记录 (Record) 基本概念"></p>
+<ul>
+<li>⭐ <strong>大部分权威 DNS 解析的服务商都不提供域名裸域又叫根域 (Root Record) 的 CNAME 解析</strong>  </li>
+<li>⭐ <strong>ALIAS 记录支持将流量路由到 AWS 服务，并支持在根域上创建别名记录</strong></li>
+</ul>
+<h3 id="二、Route-53-生存时间-TTL-基本概念"><a href="#二、Route-53-生存时间-TTL-基本概念" class="headerlink" title="二、Route 53 生存时间 (TTL) 基本概念"></a>二、Route 53 生存时间 (TTL) 基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_route_53_ttl.png" alt="Route 53 生存时间 (TTL) 基本概念"></p>
+<ul>
+<li>在 TTL 内 DNS 记录会缓存在客户本地</li>
+<li>缓存过期后客户端会再次请求 <code>Route 53</code> 获取 IP 地址</li>
+</ul>
+<hr>
+<h1 id="Route-53-路由策略"><a href="#Route-53-路由策略" class="headerlink" title="Route 53 路由策略"></a>Route 53 路由策略</h1><h3 id="一、简单路由策略-Simple-routing-policy"><a href="#一、简单路由策略-Simple-routing-policy" class="headerlink" title="一、简单路由策略 (Simple routing policy)"></a>一、简单路由策略 (Simple routing policy)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_route_53_sample_routing_policy.png" alt="简单路由策略 (Simple routing policy)">  </p>
+<ul>
+<li>⚠ <strong>简单路由策略 (Simple routing policy) 无法附加健康状况检查</strong></li>
+</ul>
+<h3 id="二、加权路由策略-Weighted-routing-policy"><a href="#二、加权路由策略-Weighted-routing-policy" class="headerlink" title="二、加权路由策略 (Weighted routing policy)"></a>二、加权路由策略 (Weighted routing policy)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_route_53_weighted_routing_policy.png" alt="加权路由策略 (Weighted routing policy)"></p>
+<ul>
+<li>加权路由策略 (Weighted routing policy) 适合软件新版本测试<blockquote>
+<p>将少部分流量路由到新版本。</p>
+</blockquote>
+</li>
+<li>可以关联健康状态检查</li>
+<li>可以跨 AWS <code>区域</code> 分配流量</li>
+</ul>
+<h3 id="三、故障转移路由策略-Failover-routing-policy"><a href="#三、故障转移路由策略-Failover-routing-policy" class="headerlink" title="三、故障转移路由策略 (Failover routing policy)"></a>三、故障转移路由策略 (Failover routing policy)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_route_53_failover_routing_policy.png" alt="故障转移路由策略 (Failover routing policy)"></p>
+<ul>
+<li>可以关联健康状态检查</li>
+</ul>
+<h3 id="四、基于延迟的路由策略-Latency-routing-policy"><a href="#四、基于延迟的路由策略-Latency-routing-policy" class="headerlink" title="四、基于延迟的路由策略 (Latency routing policy)"></a>四、基于延迟的路由策略 (Latency routing policy)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_route_53_latency_routing_policy.png" alt="基于延迟的路由策略 (Latency routing policy)"></p>
+<ul>
+<li>基于用户到 AWS <code>区域</code> 的延迟</li>
+<li>可以关联健康状态检查</li>
+</ul>
+<h3 id="五、地理位置路由策略-Geolocation-routing-policy"><a href="#五、地理位置路由策略-Geolocation-routing-policy" class="headerlink" title="五、地理位置路由策略 (Geolocation routing policy)"></a>五、地理位置路由策略 (Geolocation routing policy)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_route_53_geolocation_routing_policy.png" alt="地理位置路由策略 (Geolocation routing policy)"></p>
+<ul>
+<li>适用于内容本地化，或是网站或业务只服务于某些国家的需求</li>
+</ul>
+<h3 id="六、多值应答路由策略-Multivalue-answer-routing-policy"><a href="#六、多值应答路由策略-Multivalue-answer-routing-policy" class="headerlink" title="六、多值应答路由策略 (Multivalue answer routing policy)"></a>六、多值应答路由策略 (Multivalue answer routing policy)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_route_53_multivalue_answer_routing_policy.png" alt="多值应答路由策略 (Multivalue answer routing policy)"></p>
+<hr>
+<h1 id="亚马逊-CloudFront、源站和地理限制"><a href="#亚马逊-CloudFront、源站和地理限制" class="headerlink" title="亚马逊 CloudFront、源站和地理限制"></a>亚马逊 CloudFront、源站和地理限制</h1><h3 id="一、Amazon-CloudFront-基本概念"><a href="#一、Amazon-CloudFront-基本概念" class="headerlink" title="一、Amazon CloudFront 基本概念"></a>一、Amazon CloudFront 基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_cloudfront.png" alt="Amazon CloudFront 基本概念"></p>
+<ul>
+<li>提供 DDoS 攻击防护，集成了 <code>AWS Shiedl</code> 和 <code>WAF</code></li>
+</ul>
+<h3 id="二、Amazon-CloudFront-源站-Origins"><a href="#二、Amazon-CloudFront-源站-Origins" class="headerlink" title="二、Amazon CloudFront 源站 (Origins)"></a>二、Amazon CloudFront 源站 (Origins)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_cloudfront_origins.png" alt="Amazon CloudFront 源站 (Origins)"></p>
+<ul>
+<li>支持源站类型：<ul>
+<li><code>S3</code> 存储桶<ul>
+<li>静态文件的上传读取场景</li>
+<li>⭐ <strong>通过配置源访问身份 (OAI, Origin Access Identity) 只允许通过 <code>CloudFront</code> 访问存储桶内文件</strong>，防止用户对 <code>S3</code> 存储桶的直接访问</li>
+</ul>
+</li>
+<li><code>S3</code> 网站<ul>
+<li>需要开启 <code>S3</code> 存储桶的静态网站托管 (static website hosting) 配置</li>
+</ul>
+</li>
+<li>自定义源站</li>
+</ul>
+</li>
+<li>可以通过指定一个主源和一个备用源实现高可用</li>
+<li>⭐ <strong>边缘节点没有内容的情况下 <code>CloudFront</code> 才会访问源站获取内容并缓存</strong></li>
+</ul>
+<h3 id="三、Amazon-CloudFront-使用-S3-作为源站样例"><a href="#三、Amazon-CloudFront-使用-S3-作为源站样例" class="headerlink" title="三、Amazon CloudFront 使用 S3 作为源站样例"></a>三、Amazon CloudFront 使用 S3 作为源站样例</h3><p><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_cloudfront_origin_s3.png" alt="Amazon CloudFront 使用 S3 作为源站样例"></p>
+<ul>
+<li>使用 <code>S3</code> 作为源站才能使用 AWS 私有专线回源</li>
+</ul>
+<h3 id="四、Amazon-CloudFront-使用-EC2-或-ALB-作为源站样例"><a href="#四、Amazon-CloudFront-使用-EC2-或-ALB-作为源站样例" class="headerlink" title="四、Amazon CloudFront 使用 EC2 或 ALB 作为源站样例"></a>四、Amazon CloudFront 使用 EC2 或 ALB 作为源站样例</h3><p><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_cloudfront_origin_ec2_alb.png" alt="Amazon CloudFront 使用 EC2 或 ALB 作为源站样例"></p>
+<ul>
+<li>⭐ <code>EC2</code> 必须能从公网被访问（可以限制来源 IP 仅为 <code>CloudFront</code> 边缘节点的公网 IP）</li>
+<li>⚠ 使用 <code>EC2</code> 或 <code>ALB</code> 作为源站时是使用互联网回源的，而非 AWS 私有专线</li>
+</ul>
+<h3 id="五、CloudFront-和-S3-跨区域复制的区别"><a href="#五、CloudFront-和-S3-跨区域复制的区别" class="headerlink" title="五、CloudFront 和 S3 跨区域复制的区别"></a>五、CloudFront 和 S3 跨区域复制的区别</h3><p><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_cloudfront_vs_s3.png" alt="CloudFront 和 S3 跨区域复制的区别"></p>
+<h3 id="六、CloudFront-地理限制功能-GEO-Restriction"><a href="#六、CloudFront-地理限制功能-GEO-Restriction" class="headerlink" title="六、CloudFront 地理限制功能 (GEO Restriction)"></a>六、CloudFront 地理限制功能 (GEO Restriction)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_cloudfront_geo_restriction.png" alt="CloudFront 地理限制功能 (GEO Restriction)"></p>
+<ul>
+<li>根据第三方 GeoIP 数据库确定用户位置，并限制其访问</li>
+</ul>
+<hr>
+<h1 id="CloudFront-签名-URL-signed-URLs-和签名-Cookie-signed-cookies"><a href="#CloudFront-签名-URL-signed-URLs-和签名-Cookie-signed-cookies" class="headerlink" title="CloudFront 签名 URL (signed URLs) 和签名 Cookie (signed cookies)"></a>CloudFront 签名 URL (signed URLs) 和签名 Cookie (signed cookies)</h1><h3 id="一、CloudFront-签名-URL-signed-URLs-和签名-Cookie-signed-cookies-基本概念"><a href="#一、CloudFront-签名-URL-signed-URLs-和签名-Cookie-signed-cookies-基本概念" class="headerlink" title="一、CloudFront 签名 URL (signed URLs) 和签名 Cookie (signed cookies) 基本概念"></a>一、CloudFront 签名 URL (signed URLs) 和签名 Cookie (signed cookies) 基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_cloudfront_signed_url_signed_cookie.png" alt="CloudFront 签名 URL (signed URLs) 和签名 Cookie (signed cookies) 基本概念">  </p>
+<ul>
+<li>⭐ <strong>基本功能都是限制部分用户能否访问 <code>CloudFront</code> 内容</strong></li>
+<li>⭐ <strong>签名 URL (signed URLs) 适合限制对单个文件的访问</strong></li>
+<li>⭐ <strong>签名 Cookie (signed cookies) 适合限制对多个文件的频繁访问</strong></li>
+</ul>
+<h3 id="二、CloudFront-签名-URL-signed-URLs-工作流"><a href="#二、CloudFront-签名-URL-signed-URLs-工作流" class="headerlink" title="二、CloudFront 签名 URL (signed URLs) 工作流"></a>二、CloudFront 签名 URL (signed URLs) 工作流</h3><blockquote>
+<p>签名 Cookie (signed cookies) 的工作流基本一样。</p>
+</blockquote>
+<p><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_cloudfront_signed_url_step.png" alt="CloudFront 签名 URL (signed URLs) 工作流"></p>
+<h3 id="三、CloudFront-签名-URL-与-S3-预签名-URL-Presigned-URLs-的区别"><a href="#三、CloudFront-签名-URL-与-S3-预签名-URL-Presigned-URLs-的区别" class="headerlink" title="三、CloudFront 签名 URL 与 S3 预签名 URL (Presigned URLs) 的区别"></a>三、CloudFront 签名 URL 与 S3 预签名 URL (Presigned URLs) 的区别</h3><p><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_cloudfront_signed_url_vs_presigned_url.png" alt="CloudFront 签名 URL 与 S3 预签名 URL (Presigned URLs) 的区别">  </p>
+<hr>
+<h1 id="CloudFront-Lambda-Edge"><a href="#CloudFront-Lambda-Edge" class="headerlink" title="CloudFront Lambda@Edge"></a>CloudFront Lambda@Edge</h1><h3 id="一、CloudFront-Lambda-Edge-基本概念"><a href="#一、CloudFront-Lambda-Edge-基本概念" class="headerlink" title="一、CloudFront Lambda@Edge 基本概念"></a>一、CloudFront Lambda@Edge 基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_cloudfront_lambda@edge_01.png" alt="CloudFront Lambda@Edge 基本概念 01"><br><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_cloudfront_lambda@edge_02.png" alt="CloudFront Lambda@Edge 基本概念 02">  </p>
+<ul>
+<li>将 <code>Lambda</code> 函数部署在 <code>CloudFront</code> 分配的边缘节点上</li>
+<li>发生四种 <code>CloudFront</code> 事件时，可以执行 <code>Lambda</code> 函数：<ol>
+<li>查看器请求 (Viewer request)</li>
+<li>源请求 (Origin request)</li>
+<li>源响应 (Origin response)</li>
+<li>查看器响应 (Viewer response)</li>
+</ol>
+</li>
+<li>⭐ <strong><code>Lambda@Edge</code> 没有缓存</strong></li>
+</ul>
+<h3 id="二、CloudFront-Lambda-Edge-认证和授权案例"><a href="#二、CloudFront-Lambda-Edge-认证和授权案例" class="headerlink" title="二、CloudFront Lambda@Edge 认证和授权案例"></a>二、CloudFront Lambda@Edge 认证和授权案例</h3><p><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_cloudfront_lambda@edge_auth.png" alt="CloudFront Lambda@Edge 认证和授权案例"></p>
+<ul>
+<li>检查认证和授权工作运行在世界各地的边缘节点上</li>
+</ul>
+<h3 id="三、CloudFront-Lambda-Edge-其他使用案例"><a href="#三、CloudFront-Lambda-Edge-其他使用案例" class="headerlink" title="三、CloudFront Lambda@Edge 其他使用案例"></a>三、CloudFront Lambda@Edge 其他使用案例</h3><p><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_cloudfront_lambda@edge_other.png" alt="CloudFront Lambda@Edge 其他使用案例"></p>
+<hr>
+<h1 id="AWS-Global-Accelerator"><a href="#AWS-Global-Accelerator" class="headerlink" title="AWS Global Accelerator"></a>AWS Global Accelerator</h1><h3 id="一、AWS-Global-Accelerator-基本概念"><a href="#一、AWS-Global-Accelerator-基本概念" class="headerlink" title="一、AWS Global Accelerator 基本概念"></a>一、AWS Global Accelerator 基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_global_accelerator.png" alt="AWS Global Accelerator 基本概念"></p>
+<ul>
+<li>大致流程：<ol>
+<li>⭐ <strong><code>Route 53</code> 的 ALIAS 记录指向 <code>Global Accelerator</code></strong></li>
+<li>用户请求域名的 DNS 记录时，<code>Route 53</code> 就会返回两个静态的、任播 IP 地址</li>
+<li>用户访问这两个 IP 中的其中一个，先到最近的边缘节点</li>
+<li>之后再前往 <code>Global Accelerator</code></li>
+<li>最后通过 AWS 全球网络被路由到最佳的应用程序节点</li>
+</ol>
+</li>
+<li>⭐ <strong>只有用户到边缘节点的网络经过互联网，因此整体网络质量会高很多</strong></li>
+</ul>
+<hr>
+<h1 id="架构模式之-DNS、缓存与性能优化"><a href="#架构模式之-DNS、缓存与性能优化" class="headerlink" title="架构模式之 DNS、缓存与性能优化"></a>架构模式之 DNS、缓存与性能优化</h1><p><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_01.png" alt="架构模式之 DNS、缓存与性能优化 01"><br><img src="https://image.senjianlu.com/blog/2024-11-26/aws_dns_02.png" alt="架构模式之 DNS、缓存与性能优化 02">  </p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehavior.html">请求和响应行为 (Behaviour)</a>  </p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorS3Origin.html">Amazon S3 源的请求和响应行为</a></li>
+</ul>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>AWS 知识点 - DNS、缓存与性能优化（包括 AWS Route 53）</p><p><a href="https://senjianlu.com/2024/11/26/knowledge_dns/">https://senjianlu.com/2024/11/26/knowledge_dns/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-11-26</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-11-26</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/SAP/">SAP</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/11/26/hands_on_dns/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">AWS 实操 - DNS、缓存与性能优化（包括 AWS Route 53）</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/11/26/translate_news_nhk_20241125_k10014648551000/"><span class="level-item">日语翻译 - 新闻 - 名古屋市営バス 運賃支払うシステム障害 すべてのバスで復旧</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#DNS-Domain-Name-System-解析流程"><span class="level-left"><span class="level-item">DNS (Domain Name System) 解析流程</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、DNS-Domain-Name-System-解析流程"><span class="level-left"><span class="level-item">一、DNS (Domain Name System) 解析流程</span></span></a></li></ul></li><li><a class="level is-mobile" href="#亚马逊-Route-53"><span class="level-left"><span class="level-item">亚马逊 Route 53</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、亚马逊-Route-53-基本原理"><span class="level-left"><span class="level-item">一、亚马逊 Route 53 基本原理</span></span></a></li><li><a class="level is-mobile" href="#二、亚马逊-Route-53-路由策略-Routing-Policy"><span class="level-left"><span class="level-item">二、亚马逊 Route 53 路由策略 (Routing Policy)</span></span></a></li><li><a class="level is-mobile" href="#三、亚马逊-Route-53-功能"><span class="level-left"><span class="level-item">三、亚马逊 Route 53 功能</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Route-53-托管区域"><span class="level-left"><span class="level-item">Route 53 托管区域</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、Route-53-托管区域基本概念"><span class="level-left"><span class="level-item">一、Route 53 托管区域基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、迁移到-Route-53-或从-Route-53-迁移到其他提供商"><span class="level-left"><span class="level-item">二、迁移到 Route 53 或从 Route 53 迁移到其他提供商</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Route-53-记录-Record-和生存时间-TTL"><span class="level-left"><span class="level-item">Route 53 记录 (Record) 和生存时间 (TTL)</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、Route-53-记录-Record-基本概念"><span class="level-left"><span class="level-item">一、Route 53 记录 (Record) 基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、Route-53-生存时间-TTL-基本概念"><span class="level-left"><span class="level-item">二、Route 53 生存时间 (TTL) 基本概念</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Route-53-路由策略"><span class="level-left"><span class="level-item">Route 53 路由策略</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、简单路由策略-Simple-routing-policy"><span class="level-left"><span class="level-item">一、简单路由策略 (Simple routing policy)</span></span></a></li><li><a class="level is-mobile" href="#二、加权路由策略-Weighted-routing-policy"><span class="level-left"><span class="level-item">二、加权路由策略 (Weighted routing policy)</span></span></a></li><li><a class="level is-mobile" href="#三、故障转移路由策略-Failover-routing-policy"><span class="level-left"><span class="level-item">三、故障转移路由策略 (Failover routing policy)</span></span></a></li><li><a class="level is-mobile" href="#四、基于延迟的路由策略-Latency-routing-policy"><span class="level-left"><span class="level-item">四、基于延迟的路由策略 (Latency routing policy)</span></span></a></li><li><a class="level is-mobile" href="#五、地理位置路由策略-Geolocation-routing-policy"><span class="level-left"><span class="level-item">五、地理位置路由策略 (Geolocation routing policy)</span></span></a></li><li><a class="level is-mobile" href="#六、多值应答路由策略-Multivalue-answer-routing-policy"><span class="level-left"><span class="level-item">六、多值应答路由策略 (Multivalue answer routing policy)</span></span></a></li></ul></li><li><a class="level is-mobile" href="#亚马逊-CloudFront、源站和地理限制"><span class="level-left"><span class="level-item">亚马逊 CloudFront、源站和地理限制</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、Amazon-CloudFront-基本概念"><span class="level-left"><span class="level-item">一、Amazon CloudFront 基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、Amazon-CloudFront-源站-Origins"><span class="level-left"><span class="level-item">二、Amazon CloudFront 源站 (Origins)</span></span></a></li><li><a class="level is-mobile" href="#三、Amazon-CloudFront-使用-S3-作为源站样例"><span class="level-left"><span class="level-item">三、Amazon CloudFront 使用 S3 作为源站样例</span></span></a></li><li><a class="level is-mobile" href="#四、Amazon-CloudFront-使用-EC2-或-ALB-作为源站样例"><span class="level-left"><span class="level-item">四、Amazon CloudFront 使用 EC2 或 ALB 作为源站样例</span></span></a></li><li><a class="level is-mobile" href="#五、CloudFront-和-S3-跨区域复制的区别"><span class="level-left"><span class="level-item">五、CloudFront 和 S3 跨区域复制的区别</span></span></a></li><li><a class="level is-mobile" href="#六、CloudFront-地理限制功能-GEO-Restriction"><span class="level-left"><span class="level-item">六、CloudFront 地理限制功能 (GEO Restriction)</span></span></a></li></ul></li><li><a class="level is-mobile" href="#CloudFront-签名-URL-signed-URLs-和签名-Cookie-signed-cookies"><span class="level-left"><span class="level-item">CloudFront 签名 URL (signed URLs) 和签名 Cookie (signed cookies)</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、CloudFront-签名-URL-signed-URLs-和签名-Cookie-signed-cookies-基本概念"><span class="level-left"><span class="level-item">一、CloudFront 签名 URL (signed URLs) 和签名 Cookie (signed cookies) 基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、CloudFront-签名-URL-signed-URLs-工作流"><span class="level-left"><span class="level-item">二、CloudFront 签名 URL (signed URLs) 工作流</span></span></a></li><li><a class="level is-mobile" href="#三、CloudFront-签名-URL-与-S3-预签名-URL-Presigned-URLs-的区别"><span class="level-left"><span class="level-item">三、CloudFront 签名 URL 与 S3 预签名 URL (Presigned URLs) 的区别</span></span></a></li></ul></li><li><a class="level is-mobile" href="#CloudFront-Lambda-Edge"><span class="level-left"><span class="level-item">CloudFront Lambda@Edge</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、CloudFront-Lambda-Edge-基本概念"><span class="level-left"><span class="level-item">一、CloudFront Lambda@Edge 基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、CloudFront-Lambda-Edge-认证和授权案例"><span class="level-left"><span class="level-item">二、CloudFront Lambda@Edge 认证和授权案例</span></span></a></li><li><a class="level is-mobile" href="#三、CloudFront-Lambda-Edge-其他使用案例"><span class="level-left"><span class="level-item">三、CloudFront Lambda@Edge 其他使用案例</span></span></a></li></ul></li><li><a class="level is-mobile" href="#AWS-Global-Accelerator"><span class="level-left"><span class="level-item">AWS Global Accelerator</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、AWS-Global-Accelerator-基本概念"><span class="level-left"><span class="level-item">一、AWS Global Accelerator 基本概念</span></span></a></li></ul></li><li><a class="level is-mobile" href="#架构模式之-DNS、缓存与性能优化"><span class="level-left"><span class="level-item">架构模式之 DNS、缓存与性能优化</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

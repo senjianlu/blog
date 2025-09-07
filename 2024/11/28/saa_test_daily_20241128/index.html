@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/11/28 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam15 题 (No.101 ~ No.115)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/11/28"><meta property="og:url" content="https://senjianlu.com/2024/11/28/saa_test_daily_20241128/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam15 题 (No.101 ~ No.115)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-11-28T11:00:00.000Z"><meta property="article:modified_time" content="2024-11-28T12:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/11/28/saa_test_daily_20241128/"},"headline":"SAA 考试每日练习 - 2024/11/28","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-11-28T11:00:00.000Z","dateModified":"2024-11-28T12:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam15 题 (No.101 ~ No.115)，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/11/28/saa_test_daily_20241128/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-11-28T11:00:00.000Z" title="11/28/2024, 7:00:00 PM">2024-11-28</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/11/28</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/">Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam</a><br>15 题 (No.101 ~ No.115)，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<p><strong>🌟 单词：</strong></p>
+<ol>
+<li>retrieve<sub><u>v. 重新得到，收回，取回；检索；挽回，补救｜n. 恢复，取回；检索</u></sub></li>
+<li>indicate<sub><u>v. 显示，表明；暗示；是……的标志，象征</u></sub></li>
+</ol>
+<hr>
+<h3 id="一、Private-subnet-connect-internet"><a href="#一、Private-subnet-connect-internet" class="headerlink" title="一、Private subnet connect internet"></a>一、Private subnet connect internet</h3><p>A solutions architect is designing a VPC with public and private subnets. The VPC and subnets use IPv4 CIDR blocks. There is one public subnet and one private subnet in each of three Availability Zones (AZs) for high availability. An internet gateway is used to provide internet access for the public subnets. The private subnets require access to the internet to allow Amazon EC2 instances to download software updates.<br>What should the solutions architect do to enable Internet access for the private subnets?</p>
+<ol>
+<li>✅ Create three NAT gateways, one for each public subnet in each AZ. Create a private route table for each AZ that forwards non-VPC traffic to the NAT gateway in its AZ.</li>
+<li>Create three NAT instances, one for each private subnet in each AZ. Create a private route table for each AZ that forwards non-VPC traffic to the NAT instance in its AZ.</li>
+<li>Create a second internet gateway on one of the private subnets. Update the route table for the private subnets that forward non-VPC traffic to the private internet gateway.</li>
+<li>Create an egress-only internet gateway on one of the public subnets. Update the route table for the private subnets that forward non-VPC traffic to the egress-only Internet gateway.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：private subnets require access to the internet</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：同一 <code>VPC</code> 的三个 <code>可用区</code> 中，每个都有一个 <code>公有子网</code> 和一个 <code>私有子网</code>，现在想私有子网的 <code>EC2</code> 实例能够访问互联网进行软件更新。<br>使用 NAT 网关或者 NAT 实例都能解决。NAT 网关和 NAT 实例都需要部署在公有子网中，并在私有子网将流量路由到对应网关或实例。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：NAT Instances - OUTDATED BUT CAN STILL APPEAR IN THE EXAM!<br>However, given that A provides the newer option of NAT Gateway, then A is the correct answer.<br>B would be correct if NAT Gateway wasn’t an option.  </p>
+<blockquote>
+<p>（这里答主就犯了错误，2️⃣ 错在 NAT instances 需要建立在公有子网中）<br>🙋‍♂️ 回复：NAT instance or NAT Gateway always created in public subnet to provide internet access to private subnet. In option B. they are creating NAT Instance in private subnet which is not correct.</p>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="二、DataSync"><a href="#二、DataSync" class="headerlink" title="二、DataSync"></a>二、DataSync</h3><p>A company wants to migrate an on-premises data center to AWS. The data center hosts an SFTP server that stores its data on an NFS-based file system. The server holds 200 GB of data that needs to be transferred. The server must be hosted on an Amazon EC2 instance that uses an Amazon Elastic File System (Amazon EFS) file system.<br>Which combination of steps should a solutions architect take to automate this task? (Choose two.)</p>
+<ol>
+<li>Launch the EC2 instance into the same Availability Zone as the EFS file system.</li>
+<li>✅ Install an AWS DataSync agent in the on-premises data center.</li>
+<li>Create a secondary Amazon Elastic Block Store (Amazon EBS) volume on the EC2 instance for the data.</li>
+<li>Manually use an operating system copy command to push the data to the EC2 instance.</li>
+<li>✅ Use AWS DataSync to create a suitable location configuration for the on-premises SFTP server.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：automate</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ 5️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：200 GB 文件存储在基于 NFS 的文件系统上，并通过 SFTP 提供访问。数据需要传输到 AWS，要求最终服务部署在 EC2 实例上并使用 EFS。问如何实现自动化。<br><code>EFS</code> 是天生跨可用区高可用的，<del>1️⃣ 存在错误</del>（可以选单可用区部署，因此不存在逻辑错误，）。不过这个操作没有那么有必要，多做和少做仅可能对文件传输的速度和质量有些微影响。<br>数据的传输需要使用到 <code>DataSync</code>，2️⃣ 不存在问题。<br>3️⃣ 提到创建一个新的 <code>EBS</code> 卷挂载到 EC2 实例上，没有意义。<br>4️⃣ 手动执行命令将数据推送到 <code>EC2</code> 实例，而 5️⃣ 则在本地 SFTP 服务上配置 <code>DataSync</code>，显然 5️⃣ 可行且更优雅。  </p>
+<p>确认下 EFS 的知识点：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/efs/latest/ug/whatisefs.html">什么是 Amazon Elastic File System？</a></p>
+<blockquote>
+<p>这项服务在可扩展性、可用性和持久性方面都十分出众。Amazon EFS 提供以下文件系统类型以满足您的可用性和持久性需求：</p>
+<ul>
+<li>区域（推荐）— 区域文件系统（推荐）将数据冗余存储在同一区域内的多个地理位置分开的可用区。 AWS 区域跨多个可用区存储数据可为数据提供持续可用性，即使其中一个或多个可用区不可用 AWS 区域 也是如此。</li>
+<li>一个可用区 — 一个区域文件系统将数据存储在单个可用区内。将数据存储在单个可用区可为数据提供持续可用性。但是，在不太可能发生的全部或部分可用区丢失或损坏的情况下，存储在这些类型的文件系统中的数据可能会丢失。</li>
+</ul>
+</blockquote>
+<p>比较令人意外的是 <code>EFS</code> 其实也是可以选单可用区的，那么 1️⃣ 其实就不存在逻辑错误了。</p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/datasync/latest/userguide/what-is-datasync.html">什么是 AWS DataSync？</a></p>
+<blockquote>
+<p><strong>以下是 DataSync 的主要使用案例</strong>：<br>……</p>
+<ul>
+<li>迁移数据 - 通过网络将活动数据集快速移动到AWS存储服务中。DataSync包括自动加密和数据完整性验证，以帮助确保您的数据安全、完好无损地到达并随时可用。</li>
+<li>复制数据 - 将数据复制到任何 Amazon S3 存储类中，根据您的需求选择最具成本效益的存储类别。您还可以将数据发送到亚马逊 EFS、FSx for Windows File Server、适用于 Lustre 的 FsX 或备用文件系统的适用于 OpenZFS 的 FsX。</li>
+</ul>
+<p><strong>通过使用 DataSync，您可以获得以下好处</strong>：<br>……</p>
+<ul>
+<li>自动移动数据 - DataSync 使通过网络在存储系统和服务之间移动数据变得更加容易。DataSync自动管理数据传输过程和高性能和安全数据传输所需的基础架构。</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：nswer and HOW-TO<br>B. Install an AWS DataSync agent in the on-premises data center.<br>E. Use AWS DataSync to create a suitable location configuration for the on-premises SFTP server.  </p>
+<p>To automate the process of transferring the data from the on-premises SFTP server to an EC2 instance with an EFS file system, you can use AWS DataSync. AWS DataSync is a fully managed data transfer service that simplifies, automates, and accelerates transferring data between on-premises storage systems and Amazon S3, Amazon EFS, or Amazon FSx for Windows File Server.<br>To use AWS DataSync for this task, you should first install an AWS DataSync agent in the on-premises data center. This agent is a lightweight software application that you install on your on-premises data source. The agent communicates with the AWS DataSync service to transfer data between the data source and target locations.</p>
+</blockquote>
+<hr>
+<h3 id="三、AWS-Glue"><a href="#三、AWS-Glue" class="headerlink" title="三、AWS Glue"></a>三、AWS Glue</h3><p>A company has an AWS Glue extract, transform, and load (ETL) job that runs every day at the same time. The job processes XML data that is in an Amazon S3 bucket. New data is added to the S3 bucket every day. A solutions architect notices that AWS Glue is processing all the data during each run.<br>What should the solutions architect do to prevent AWS Glue from reprocessing old data?</p>
+<ol>
+<li>✅ Edit the job to use job bookmarks.</li>
+<li>❌ Edit the job to delete data after the data is processed.</li>
+<li>Edit the job by setting the NumberOfWorkers field to 1.</li>
+<li>Use a FindMatches machine learning (ML) transform.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：Glue is processing all the data during each run.</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：公司有个 <code>Glue</code> 应用在每天的同一时间进行转换和数据处理工作。处理 <code>S3</code> 存储桶内的 XML 文件并添加回 <code>S3</code>。架构师发现每次 Glue 都处理所有数据，需要做什么来让 Glue 不二次处理旧数据。<br>删除已经处理过的数据似乎是个不错的主意。<u><strong>但是针对 <code>Glue</code> 官方提供了作业书签 (job bookmarks) 来维护状态信息，防止重新处理旧数据</strong></u>。  </p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/glue/latest/dg/what-is-glue.html">什么是 AWS Glue？</a></p>
+<blockquote>
+<p>AWS Glue 是一项无服务器数据集成服务，可让使用分析功能的用户轻松发现、准备、移动和集成来自多个来源的数据。您可以将其用于分析、机器学习和应用程序开发。它还包括用于编写、运行任务和实施业务工作流程的额外生产力和数据操作工具。</p>
+<p>通过使用 AWS Glue，您可以发现并连接到 70 多个不同的数据来源，并在集中式数据目录中管理您的数据。您可以直观地创建、运行和监控“提取、转换、加载（ETL）”管道，以将数据加载到数据湖中。此外，您可以使用 Amazon Athena、Amazon EMR 和 Amazon Redshift Spectrum 立即搜索和查询已编目数据。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/glue/latest/dg/monitor-continuations.html">使用作业书签 (job bookmarks) 跟踪已处理的数据</a></p>
+<blockquote>
+<p>AWS Glue 通过保存作业运行的状态信息来跟踪上次运行 ETL 作业期间已处理的数据。此持久状态信息称为作业书签。作业书签可帮助 AWS Glue 维护状态信息，并可防止重新处理旧数据。有了作业书签，您可以在按照计划的时间间隔重新运行时处理新数据。作业书签包含作业的各种元素的状态，如源、转换和目标。例如，您的 ETL 任务可能会读取 Amazon S3 文件中的新分区。AWS Glue 跟踪任务已成功处理哪些分区，以防止任务的目标数据存储中出现重复处理和重复数据。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：his is the purpose of bookmarks: “AWS Glue tracks data that has already been processed during a previous run of an ETL job by persisting state information from the job run. This persisted state information is called a job bookmark. Job bookmarks help AWS Glue maintain state information and prevent the reprocessing of old data.”<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html">https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html</a></p>
+</blockquote>
+<hr>
+<h3 id="四、DDoS-attack"><a href="#四、DDoS-attack" class="headerlink" title="四、DDoS attack"></a>四、DDoS attack</h3><p>A solutions architect must design a highly available infrastructure for a website. The website is powered by Windows web servers that run on Amazon EC2 instances. The solutions architect must implement a solution that can mitigate a large-scale DDoS attack that originates from thousands of IP addresses. Downtime is not acceptable for the website.<br>Which actions should the solutions architect take to protect the website from such an attack? (Choose two.)</p>
+<ol>
+<li>✅ Use AWS Shield Advanced to stop the DDoS attack.</li>
+<li>Configure Amazon GuardDuty to automatically block the attackers.</li>
+<li>✅ Configure the website to use Amazon CloudFront for both static and dynamic content.</li>
+<li>Use an AWS Lambda function to automatically add attacker IP addresses to VPC network ACLs.</li>
+<li>Use EC2 Spot Instances in an Auto Scaling group with a target tracking scaling policy that is set to 80% CPU utilization.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：HA、Windows web servers、DDoS attack from thousands of IP addresses、Downtime is not acceptable</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ 3️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：网页允许在 Windows 服务器上，在来自数千个 IP 发起的 DDoS 攻击下需要不离线。<br>首先使用 <code>Shield Advanced</code> 进行 DDoS 防护是必选项。<br>同时使用 <code>CloudFront</code> 来保护源站 IP 不泄漏也是个不错的选择。社区还有人提到了使用 <code>CloudFront</code> 后流量会被分流到各个地区的边缘节点上，缓解了 DDoS 攻击的压力。  </p>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/guardduty/">Amazon GuardDuty 通过智能威胁检测，保护您的 AWS 账户、工作负载和数据</a></p>
+<blockquote>
+<p>Amazon GuardDuty 将 ML 与来自 AWS 和领先第三方的集成威胁情报相结合，帮助保护您的 AWS 账户、工作负载和数据免受威胁侵害。</p>
+</blockquote>
+<p><code>Amazon GuardDuty</code> 只是威胁检测工具，无法抵御攻击。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：I think it is AC, reason is they require a solution that is highly available. AWS Shield can handle the DDoS attacks. To make the solution HA you can use cloud front. AC seems to be the best answer imo.<br>AB seem like redundant answers. How do those answers make the solution HA?</p>
+<p>CloudFront is a content delivery network (CDN) that integrates with other Amazon Web Services products, such as Amazon S3 and Amazon EC2, to deliver content to users with low latency and high data transfer speeds. By using CloudFront, the solutions architect can distribute the website’s content across multiple edge locations, which can help absorb the impact of a DDoS attack and reduce the risk of downtime for the website.</p>
+</blockquote>
+<hr>
+<h3 id="五、Lambda-policy"><a href="#五、Lambda-policy" class="headerlink" title="五、Lambda policy"></a>五、Lambda policy</h3><p>A company is preparing to deploy a new serverless workload. A solutions architect must use the principle of least privilege to configure permissions that will be used to run an AWS Lambda function. An Amazon EventBridge (Amazon CloudWatch Events) rule will invoke the function.<br>Which solution meets these requirements?</p>
+<ol>
+<li>Add an execution role to the function with lambda:InvokeFunction as the action and * as the principal.</li>
+<li>Add an execution role to the function with lambda:InvokeFunction as the action and Service: lambda.amazonaws.com as the principal.</li>
+<li>Add a resource-based policy to the function with lambda:* as the action and Service: events.amazonaws.com as the principal.</li>
+<li>✅ Add a resource-based policy to the function with lambda:InvokeFunction as the action and Service: events.amazonaws.com as the principal.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：PoLP for AWS Lambda function、EventBridge</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：需要在 <code>Lambda</code> 方法上实施最小权限原则，让 <code>EventBridge</code> 能调用它。<br>1️⃣ 是创建角色权限，将动作设置为 lambda:InvokeFunction，主体设置为 <em>。结果是所有人都能调用。<br>2️⃣ 是创建角色权限，将动作设置为 lambda:InvokeFunction，主体设置为 Service: lambda.amazonaws.com。结果是让 lambda 服务自己能调用方法。<br>3️⃣ 是创建资源策略，将动作设置为 lambda:</em>，主体设置为 Service: events.amazonaws.com。让事件对 Lambda 做任何操作。<br>4️⃣ 是创建资源策略，将动作设置为 lambda:InvokeFunction，主体设置为 Service: events.amazonaws.com。让事件能调用方法。<br>显然答案是 4️⃣。</p>
+<p>官方给了个一幕一样的样例：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/eventbridge/latest/userguide/eb-use-resource-based.html#eb-lambda-permissions">AWS Lambda 权限</a></p>
+<blockquote>
+<p>要使用 EventBridge 规则调用您的 AWS Lambda 函数，请在 Lambda 函数的策略中添加以下权限。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;Effect&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Allow&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;Action&quot;</span><span class="punctuation">:</span> <span class="string">&quot;lambda:InvokeFunction&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;Resource&quot;</span><span class="punctuation">:</span> <span class="string">&quot;arn:aws:lambda:region:account-id:function:function-name&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;Principal&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;Service&quot;</span><span class="punctuation">:</span> <span class="string">&quot;events.amazonaws.com&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;Condition&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;ArnLike&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;AWS:SourceArn&quot;</span><span class="punctuation">:</span> <span class="string">&quot;arn:aws:events:region:account-id:rule/rule-name&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;Sid&quot;</span><span class="punctuation">:</span> <span class="string">&quot;InvokeLambdaFunction&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Best way to check it… The question is taken from the example shown here in the documentation:<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-use-resource-based.html#eb-lambda-permissions">https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-use-resource-based.html#eb-lambda-permissions</a></p>
+<p>Why other options are wrong<br>Option A is incorrect because it grants the lambda:InvokeFunction action to any principal (<em>), which would allow any entity to invoke the function and goes beyond the minimum permissions needed.<br>Option B is incorrect because it grants the lambda:InvokeFunction action to the Service: lambda.amazonaws.com principal, which would allow any Lambda function to invoke the function and goes beyond the minimum permissions needed.<br>Option C is incorrect because it grants the lambda:</em> action to the Service: events.amazonaws.com principal, which would allow Amazon EventBridge to perform any action on the function and goes beyond the minimum permissions needed.</p>
+</blockquote>
+<hr>
+<h3 id="六、KMS"><a href="#六、KMS" class="headerlink" title="六、KMS"></a>六、KMS</h3><p>A company is preparing to store confidential data in Amazon S3. For compliance reasons, the data must be encrypted at rest.<br>Encryption key usage must be logged for auditing purposes. Keys must be rotated every year.<br>Which solution meets these requirements and is the MOST operationally efficient?</p>
+<ol>
+<li>Server-side encryption with customer-provided keys (SSE-C)</li>
+<li>Server-side encryption with Amazon S3 managed keys (SSE-S3)</li>
+<li>Server-side encryption with AWS KMS keys (SSE-KMS) with manual rotation</li>
+<li>✅ Server-side encryption with AWS KMS keys (SSE-KMS) with automatic rotation</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：Encryption key usage must be logged</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：重要数据需要加密存储在 <code>S3</code> 上，且加密密钥的使用记录需要被保存，密钥还需要每年轮转。需要效率最高的解决方法。<br>需要引入 <code>KMS</code> 进行密钥轮转和使用记录，然后开启自动轮转。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：The MOST operationally efficient one is D.<br>Automating the key rotation is the most efficient.<br>Just to confirm, the A and B options don’t allow automate the rotation as explained here:<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/kms/faqs/#:~:text=You%20can%20choose%20to%20have%20AWS%20KMS%20automatically%20rotat">https://aws.amazon.com/kms/faqs/#:~:text=You%20can%20choose%20to%20have%20AWS%20KMS%20automatically%20rotat</a><br>e%20KMS,KMS%20custom%20key%20store%20feature</p>
+</blockquote>
+<hr>
+<h3 id="七、Data-storing-and-retrieving"><a href="#七、Data-storing-and-retrieving" class="headerlink" title="七、Data storing and retrieving"></a>七、Data storing and retrieving</h3><p>A bicycle sharing company is developing a multi-tier architecture to track the location of its bicycles during peak operating hours. The company wants to use these data points in its existing analytics platform. A solutions architect must determine the most viable multi-tier option to support this architecture. The data points must be accessible from the REST API.<br>Which action meets these requirements for storing and retrieving<sub><u>检索</u></sub> location data?</p>
+<ol>
+<li>Use Amazon Athena with Amazon S3.</li>
+<li>Use Amazon API Gateway with AWS Lambda.</li>
+<li>❌ Use Amazon QuickSight with Amazon Redshift.</li>
+<li>✅ Use Amazon API Gateway with Amazon Kinesis Data Analytics.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：existing analytics platform、data points must be accessible from the REST API</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：多层架构跟踪自行车的坐标数据，并使用现有的分析平台进行分析。数据需要能通过 REST API 进行操作。需要兼顾保存和检索的方案。<br><code>QuickSight</code> 是商业分析服务，<code>Redshift</code> 是数据湖，如果 <code>Redshift</code> 支持 REST API 操作的话，看起来就是四个选项中最优的解决方案。<br><code>Amazon Kinesis Data Analytics</code> 也是用于数据流分析的，但是和题目中要求的使用现有分析平台冲突了。<br><strong><u>但是社区的投票比例是 B 为 48%、D 为 45%、A 为 7%，我没法理解。</u></strong></p>
+<p>看起来 <code>API Gateway</code> 在出现 REST API 字眼后就是必须的了，因此可以排除 A 和 C。<br>而再根据要使用现有的分析平台所以可以排除 4️⃣。<br>最终只能选 2️⃣。</p>
+<p>争议其实就在数据的存储上，4️⃣ 的支持者倾向于表示 <code>Lambda</code> 不具有数据存储功能。<br>我觉得 4️⃣ 更合理，因为官方明确表示了 <code>Amazon Kinesis Data Analytics</code> 支持数据读取、处理和存储功能：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/kinesisanalytics/latest/dev/what-is.html">什么是适用于 SQL 应用程序的 Amazon Kinesis Data Analytics？</a></p>
+<blockquote>
+<p>通过使用 Amazon Kinesis Data Analytics，您可以快速编写 SQL 代码以使用近乎实时的方式持续读取、处理和存储数据。通过对流数据采用标准 SQL 查询，您可以构建转换数据并深入了解这些数据的应用程序。下面提供了一些使用 Kinesis Data Analytics 的示例方案：</p>
+</blockquote>
+<p>它是在必须使用 <code>API Gateway</code> 情况下的唯一解。  </p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/redshift/latest/mgmt/data-api.html">使用 Amazon Redshift 数据 API</a></p>
+<blockquote>
+<p>Amazon Redshift 数据 API 消除了管理数据库驱动程序、连接、网络配置、数据缓冲、凭证等的需求，从而简化了对 Amazon Redshift 数据仓库的访问。您可以通过 AWS SDK，使用数据 API 操作来运行 SQL 语句。</p>
+</blockquote>
+<p>题目归题目，真实场景下我依然会选择使用 <code>Amazon Redshift</code>。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：API Gateway is needed to get the data so option A and C are out.<br>“The company wants to use these data points in its existing analytics platform” so there is no need to add Kynesis. Option D is also out.<br>This leaves us with option B as the correct one.  </p>
+<p>🙅 反对：I dont understand why you will vote B?<br>how are you going to store data with just lambda?</p>
+<blockquote>
+<p>Which action meets these requirements for storing and retrieving location data  </p>
+</blockquote>
+<p>In this use case there will obviously be a ton of data and you want to get real-time location data of the  bicycles, and to analyze all these info kinesis is the one that makes most sense here.</p>
+</blockquote>
+<hr>
+<h3 id="八、RDS-update-and-notification"><a href="#八、RDS-update-and-notification" class="headerlink" title="八、RDS update and notification"></a>八、RDS update and notification</h3><p>A company has an automobile sales website that stores its listings in a database on Amazon RDS. When an automobile is sold, the listing needs to be removed from the website and the data must be sent to multiple target systems.<br>Which design should a solutions architect recommend?</p>
+<ol>
+<li>✅ Create an AWS Lambda function triggered when the database on Amazon RDS is updated to send the information to an Amazon Simple Queue Service (Amazon SQS) queue for the targets to consume.</li>
+<li>Create an AWS Lambda function triggered when the database on Amazon RDS is updated to send the information to an Amazon Simple Queue Service (Amazon SQS) FIFO queue for the targets to consume.</li>
+<li>Subscribe to an RDS event notification and send an Amazon Simple Queue Service (Amazon SQS) queue fanned out to multiple Amazon Simple Notification Service (Amazon SNS) topics. Use AWS Lambda functions to update the targets.</li>
+<li>❌ Subscribe to an RDS event notification and send an Amazon Simple Notification Service (Amazon SNS) topic fanned out to multiple Amazon Simple Queue Service (Amazon SQS) queues. Use AWS Lambda functions to update the targets.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：RDS、notification</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：汽车销售数据存在 <code>RDS</code> 中，汽车销售后需要在页面上移除对应条目并将信息发送给多个系统。<br>通知功能符合发布订阅模型，需要使用 <code>SNS</code>。<br>3️⃣ 和 4️⃣ 区别于 <code>SQS</code> 与 <code>SNS</code> 的位置，标准的 Fan Out 是先 <code>SNS</code> 再 <code>SQS</code>，因此选 4️⃣。  </p>
+<p>社区 2&#x2F;3 选 1️⃣ 而 1&#x2F;3 选 4️⃣，争论的重心在 <code>RDS</code> 是否支持数据条目更新的事件类型。<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonRDS/latest/UserGuide/USER_Events.ListingCategories.html">列出 Amazon RDS 事件通知类型</a><br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/73849329/aws-rds-notification-when-record-is-added-to-a-table">AWS RDS notification when record is added to a table</a><br>参照了现有的文档和讨论，官方确实不支持针对数据条目操作的通知事件，因此只能选 1️⃣。<br><em>不过可以使用 stackoverflow 中评论提到的，监控 RDS 日志的方式来监控数据条目的操作事件</em>。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Interesting point that Amazon RDS event notification doesn’t support any notification when data inside DB is updated.<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.overview.html">https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.overview.html</a></p>
+<p>So subscription to RDS events doesn’t give any value for Fanout &#x3D; SNS &#x3D;&gt; SQS<br>B is out because FIFO is not required here.<br>A is left as correct answer</p>
+</blockquote>
+<hr>
+<h3 id="九、S3-Legal-holds"><a href="#九、S3-Legal-holds" class="headerlink" title="九、S3 Legal holds"></a>九、S3 Legal holds</h3><p>A company needs to store data in Amazon S3 and must prevent the data from being changed. The company wants new objects that are uploaded to Amazon S3 to remain unchangeable for a nonspecific amount of time until the company decides to modify the objects. Only specific users in the company’s AWS account can have the ability to delete the objects.<br>What should a solutions architect do to meet these requirements?</p>
+<ol>
+<li>Create an S3 Glacier vault. Apply a write-once, read-many (WORM) vault lock policy to the objects.</li>
+<li>❌ Create an S3 bucket with S3 Object Lock enabled. Enable versioning. Set a retention period of 100 years. Use governance mode as the S3 bucket’s default retention mode for new objects.</li>
+<li>Create an S3 bucket. Use AWS CloudTrail to track any S3 API events that modify the objects. Upon notification, restore the modified objects from any backup versions that the company has.</li>
+<li>✅ Create an S3 bucket with S3 Object Lock enabled. Enable versioning. Add a legal hold to the objects. Add the s3:PutObjectLegalHold permission to the IAM policies of users who need to delete the objects.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：S3、prevent the data from being changed、have the ability to delete the objects</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：文件上传到 <code>S3</code> 后需要确保一段时间不能被修改。之后有权限的用户可以删除。<br>使用 <code>S3 Object Lock</code> 的 governance 模式（贪腐的政府官员 - 有权限就能修改文件）可以解决这个问题。  </p>
+<p>社区在 2️⃣ 和 4️⃣ 间存在争议，4️⃣ 选择人更多。<br>这里涉及到 <code>S3 Object Lock</code> 和 IAM 策略优先级的问题：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/userguide/batch-ops-legal-hold.html">S3 对象锁定依法保留</a></p>
+<blockquote>
+<p>您可以将 S3 分批操作与对象锁定一起使用，以便同时添加对很多 Amazon S3 对象的依法保留。为此，请在清单中指定目标对象的列表，并将该列表提交给批量操作。S3 批量操作对象锁定法定保留任务将持续运行，直至完成、取消或达到失败状态。  </p>
+<p>在处理清单中的任何对象之前，S3 批量操作会验证是否已在您的 S3 存储桶上启用对象锁定。要执行对象操作和存储桶级别验证，S3 批量操作需要 AWS Identity and Access Management（IAM）角色中的 s3:PutObjectLegalHold 和 s3:GetBucketObjectLockConfiguration。这些权限可让 S3 批量操作代表您调用 S3 对象锁定。</p>
+</blockquote>
+<p>上面的文章有点绕，来看下更直接的：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/userguide/object-lock.html">使用对象锁定以锁定对象</a></p>
+<blockquote>
+<p><strong>依法保留 (Legal holds)</strong><br>使用对象锁定，您还可以在对象版本上实施依法保留。与保留期限相似，依法保留可防止对象版本被覆盖或删除。但是，依法保留没有关联的固定时间长度，会一直有效，直至删除。拥有 s3:PutObjectLegalHold 权限的任何用户均可自由实施和删除依法保留。</p>
+</blockquote>
+<p>可以看到依法保留 (Legal holds) 完美符合题目要求：不定时的永久锁定存储、拥有权限的用户可以自由删除。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A - No as “specific users can delete”<br>B - No as “nonspecific amount of time”<br>C - No as “prevent the data from being change”<br>D - The answer: “The Object Lock legal hold operation enables you to place a legal hold on an object version. Like setting a retention period, a legal hold prevents an object version from being overwritten or deleted. However, a legal hold doesn’t have an associated retention period and remains in effect until removed.”<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops-legal-hold.html">https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops-legal-hold.html</a></p>
+</blockquote>
+<hr>
+<h3 id="十、Reduce-coupling"><a href="#十、Reduce-coupling" class="headerlink" title="十、Reduce coupling"></a>十、Reduce coupling</h3><p>A social media company allows users to upload images to its website. The website runs on Amazon EC2 instances. During upload requests, the website resizes the images to a standard size and stores the resized images in Amazon S3. Users are experiencing slow upload requests to the website.<br>The company needs to reduce coupling within the application and improve website performance. A solutions architect must design the most operationally efficient process for image uploads.<br>Which combination of actions should the solutions architect take to meet these requirements? (Choose two.)</p>
+<ol>
+<li>Configure the application to upload images to S3 Glacier.</li>
+<li>✅ Configure the web server to upload the original images to Amazon S3.</li>
+<li>Configure the application to upload images directly from each user’s browser to Amazon S3 through the use of a<br>presigned URL</li>
+<li>✅ Configure S3 Event Notifications to invoke an AWS Lambda function when an image is uploaded. Use the function to resize the image.</li>
+<li>Create an Amazon EventBridge (Amazon CloudWatch Events) rule that invokes an AWS Lambda function on a schedule to resize uploaded images.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：reduce coupling</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：用户将图片上传至社交媒体网站，针对这个上传请求，应用程序重新设置大小然后存到 <code>S3</code> 中。用户上传很慢，公司需要解耦。<br>首先考虑使用 <code>SQS</code> 异步处理图片上传和处理工作，但是没有这个选项。<br>有一个先存储原始图片，再通过事件通知调用 <code>Lambda</code> 函数处理图片的方法，看上去也可行。  </p>
+<p>社区中选 3️⃣ 的很多：通过预签名 URL 让用户之间把文件上传到 <code>S3</code> 存储桶中绕过后端。<br>但是预签名 URL 的使用场景是<u>临时</u>：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/userguide/using-presigned-url.html">使用预签名 URL 下载和上传对象</a>  </p>
+<blockquote>
+<p>您可以使用预签名 URL 授予对 Amazon S3 中对象的<strong>限时</strong>访问权限，而不更新存储桶策略。可以在浏览器中输入预签名 URL，或者程序使用预签名 URL 来下载对象。预签名 URL 使用的凭证是生成该 URL 的 AWS 用户的凭证。</p>
+</blockquote>
+<p>在公开的网页上提供自动生成的 <code>S3</code> 存储桶预签名 URL 供客户使用，在安全方面绝对不是一个好主意。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：To meet the requirements of reducing coupling within the application and improving website performance, the solutions architect should consider taking the following actions:<br>C. Configure the application to upload images directly from each user’s browser to Amazon S3 through the use of a pre-signed URL. This will allow the application to upload images directly to S3 without having to go through the web server, which can reduce the load on the web server and improve performance.<br>D. Configure S3 Event Notifications to invoke an AWS Lambda function when an image is uploaded. Use the function to resize the image. This will allow the application to resize images asynchronously, rather than having to do it synchronously during the the image. This will allow the application to resize images asynchronously, rather than having to do it synchronously during the upload request, which can improve performance.</p>
+</blockquote>
+<hr>
+<h3 id="十一、HA-for-MQ-application"><a href="#十一、HA-for-MQ-application" class="headerlink" title="十一、HA for MQ application"></a>十一、HA for MQ application</h3><p>A company recently migrated a message processing system to AWS. The system receives messages into an ActiveMQ queue running on an Amazon EC2 instance. Messages are processed by a consumer application running on Amazon EC2. The consumer application processes the messages and writes results to a MySQL database running on Amazon EC2. The company wants this application to be highly available with low operational complexity.<br>Which architecture offers the HIGHEST availability?</p>
+<ol>
+<li>Add a second ActiveMQ server to another Availability Zone. Add an additional consumer EC2 instance in another Availability Zone. Replicate the MySQL database to another Availability Zone.</li>
+<li>Use Amazon MQ with active&#x2F;standby brokers configured across two Availability Zones. Add an additional consumer EC2 instance in another Availability Zone. Replicate the MySQL database to another Availability Zone.</li>
+<li>Use Amazon MQ with active&#x2F;standby brokers configured across two Availability Zones. Add an additional consumer EC2 instance in another Availability Zone. Use Amazon RDS for MySQL with Multi-AZ enabled.</li>
+<li>✅ Use Amazon MQ with active&#x2F;standby brokers configured across two Availability Zones. Add an Auto Scaling group for the consumer EC2 instances across two Availability Zones. Use Amazon RDS for MySQL with Multi-AZ enabled.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：ActiveMQ、MySQL database running on Amazon EC2、HA</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：现有架构是自建的 MQ 和自建的数据库，消费者也运行在 <code>EC2</code> 上。公司希望新架构高可用且更少操作。<br>使用 AWS 提供的 <code>Amazon MQ</code> 和 <code>RDS</code> 可以解决问题，4️⃣ 还部署了弹性 <code>EC2</code> 组，更全面。  </p>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/amazon-mq/">Amazon MQ 面向开源消息代理的完全托管式服务</a></p>
+<blockquote>
+<p>消息代理允许软件系统（通常在各种平台上使用不同编程语言）进行通信和交换信息。Amazon MQ 是一种适用于 Apache ActiveMQ 和 RabbitMQ 的托管式消息代理服务，可简化 AWS 上消息代理的设置、操作和管理。只需几个步骤，Amazon MQ 便可为您的消息代理预置软件版本升级支持。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Answer is D as the “HIGHEST available” and less “operational complex”<br>The “Amazon RDS for MySQL with Multi-AZ enabled” option excludes A and B<br>The “Auto Scaling group” is more available and reduces operational complexity in case of incidents (as remediation it is automated) than just adding one more instance. This excludes C.<br>C and D to choose from based on<br>D over C since is configured</p>
+</blockquote>
+<hr>
+<h3 id="十二、Container-Auto-Sacling"><a href="#十二、Container-Auto-Sacling" class="headerlink" title="十二、Container Auto Sacling"></a>十二、Container Auto Sacling</h3><p>A company hosts a containerized web application on a fleet of on-premises servers that process incoming requests. The number of requests is growing quickly. The on-premises servers cannot handle the increased number of requests. The company wants to move the application to AWS with minimum code changes and minimum development effort.<br>Which solution will meet these requirements with the LEAST operational overhead?</p>
+<ol>
+<li>✅ Use AWS Fargate on Amazon Elastic Container Service (Amazon ECS) to run the containerized web application with Service Auto Scaling. Use an Application Load Balancer to distribute the incoming requests.</li>
+<li>Use two Amazon EC2 instances to host the containerized web application. Use an Application Load Balancer to distribute the incoming requests.</li>
+<li>Use AWS Lambda with a new code that uses one of the supported languages. Create multiple Lambda functions to support the load. Use Amazon API Gateway as an entry point to the Lambda functions.</li>
+<li>Use a high performance computing (HPC) solution such as AWS ParallelCluster to establish an HPC cluster that can process the incoming requests at the appropriate scale.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：containerized</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：容器化的 Web 应用访问量激增且需要迁移到 AWS。最少的代码改修和开发影响。还需要支持弹性扩容。<br>既然已经容器化了，那么迁移就和 <code>ECS</code> 或 <code>EKS</code> 有关了，需要弹性扩容的话 <code>AWS Fargate</code> 就能简单实现。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Less operational overhead means A: Fargate (no EC2), move the containers on ECS, autoscaling for growth and ALB to balance consumption.<br>B - requires configure EC2<br>C - requires add code (developpers)<br>D - seems like the most complex approach, like re-architecting the app to take advantage of an HPC platform.  </p>
+</blockquote>
+<hr>
+<h3 id="十三、AWS-Snow-Family-and-Glue"><a href="#十三、AWS-Snow-Family-and-Glue" class="headerlink" title="十三、AWS Snow Family and Glue"></a>十三、AWS Snow Family and Glue</h3><p>A company uses 50 TB of data for reporting. The company wants to move this data from on premises to AWS. A custom application in the company’s data center runs a weekly data transformation job. The company plans to pause the application until the data transfer is complete and needs to begin the transfer process as soon as possible.<br>The data center does not have any available network bandwidth for additional workloads. A solutions architect must transfer the data and must configure the transformation job to continue to run in the AWS Cloud.<br>Which solution will meet these requirements with the LEAST operational overhead?</p>
+<ol>
+<li>Use AWS DataSync to move the data. Create a custom transformation job by using AWS Glue.</li>
+<li>Order an AWS Snowcone device to move the data. Deploy the transformation application to the device.</li>
+<li>✅ Order an AWS Snowball Edge Storage Optimized device. Copy the data to the device. Create a custom transformation job by using AWS Glue.</li>
+<li>❌ Order an AWS Snowball Edge Storage Optimized device that includes Amazon EC2 compute. Copy the data to the device. Create a new EC2 instance on AWS to run the transformation application.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：50 TB of data、not have any available network bandwidth for additional workloads、transformation job to continue to run in the AWS Cloud</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：50 TB 的本地数据需要传输到 AWS。本地还有一个每周运行到任务需要使用到这些数据，公司计划暂停这个应用直到数据传输完成。之后这个处理程序也要部署到 AWS。需要最简单的解决方案。<br>网络不好不使用 <code>DataSync</code>。<code>Snowcone</code> 最大只支持 14 TB 不够容量。<code>50 TB</code> 的数据使用一台 <code>Snowball Edge</code> 设备就够了。<br>3️⃣ 和 4️⃣ 对数据的处理方式不同。<br>3️⃣ 选择使用 <code>AWS Glue</code> 数据集成（收集和移动）工具，<del>并不支持数据转换</del>支持数据转换。<br>4️⃣ 将应用程序部署到 <code>EC2</code> 上，合理但是操作更多。  </p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/glue/latest/dg/what-is-glue.html">什么是 AWS Glue？</a></p>
+<blockquote>
+<p>AWS Glue 是一项无服务器数据集成服务，可让使用分析功能的用户轻松发现、准备、移动和集成来自多个来源的数据。您可以将其用于分析、机器学习和应用程序开发。它还包括用于编写、运行任务和实施业务工作流程的额外生产力和数据操作工具。  </p>
+<p>With AWS Glue, you can discover and connect to more than 70 diverse data sources and manage your data in a centralized data catalog. You can visually create, run, and monitor extract, transform, and load (ETL) pipelines to load data into your data lakes. Also, you can immediately search and query cataloged data using Amazon Athena, Amazon EMR, and Amazon Redshift Spectrum.  </p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/what-is/etl/">什么是 ETL（提取、转换、加载）？</a></p>
+<blockquote>
+<p>提取 (Extract)、转换 (<strong>Transform</strong>)、加载 (Load) 过程将多个来源的数据组合到称为数据仓库的大型中央存储库中。ETL 使用一组业务规则来清理和组织原始数据，并为存储、数据分析和机器学习（ML）做好准备。您可以通过数据分析满足特定的商业智能需求（例如预测业务决策的结果、生成报告和控制面板、减少无效运营等）。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A. Use AWS DataSync to move the data. Create a custom transformation job by using AWS Glue. - No BW available for DataSync, so “asap” will be weeks&#x2F;months (?)<br>B. Order an AWS Snowcone device to move the data. Deploy the transformation application to the device. - Snowcone will just store 14TB (SSD configuration).<br><strong>C</strong>. Order an AWS Snowball Edge Storage Optimized device. Copy the data to the device. Create a custom transformation job by using AWS Glue. - SnowBall can store 80TB (ok), takes around 1 week to move the device (faster than A), and AWS Glue allows to do ETL jobs. This is the answer.<br>D. Order an AWS Snowball Edge Storage Optimized device that includes Amazon EC2 compute. Copy the data to the device. Create a new EC2 instance on AWS to run the transformation application. - Same as C, but the ETL job requires the deployment&#x2F;configuration&#x2F;maintenance of an EC2 instance, while Glue is serverless. This means D has more operational overhead than C.</p>
+</blockquote>
+<hr>
+<h3 id="十四、Scale"><a href="#十四、Scale" class="headerlink" title="十四、Scale"></a>十四、Scale</h3><p>A company has created an image analysis application in which users can upload photos and add photo frames to their images.<br>The users upload images and metadata to indicate<sub><u>显示</u></sub> which photo frames they want to add to their images. The application uses a single Amazon EC2 instance and Amazon DynamoDB to store the metadata.<br>The application is becoming more popular, and the number of users is increasing. The company expects the number of concurrent users to vary significantly depending on the time of day and day of week. The company must ensure that the application can scale to meet the needs of the growing user base.<br>Which solution meats these requirements?</p>
+<ol>
+<li>Use AWS Lambda to process the photos. Store the photos and metadata in DynamoDB.</li>
+<li>Use Amazon Kinesis Data Firehose to process the photos and to store the photos and metadata.</li>
+<li>✅ Use AWS Lambda to process the photos. Store the photos in Amazon S3. Retain DynamoDB to store the metadata.</li>
+<li>Increase the number of EC2 instances to three. Use Provisioned IOPS SSD (io2) Amazon Elastic Block Store (Amazon EBS) volumes to store the photos and metadata.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：scale</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：处理图片的应用程序由 <code>EC2</code> + <code>DynamoDB</code> 构成，用户数量开始增多，需要弹性的解决方案。<br>可以使用 <code>Lambda</code> 完成图片处理，然后由 <code>S3</code> 存储，元数据保存在 <code>DynamoDB</code> 中。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Solution C offloads the photo processing to Lambda. Storing the photos in S3 ensures scalability and durability, while keeping the metadata in DynamoDB allows for efficient querying of the associated information.<br>Option A does not provide an appropriate solution for storing the photos, as DynamoDB is not suitable for storing large binary data like images.<br>Option B is more focused on real-time streaming data processing and is not the ideal service for processing and storing photos and metadata in this use case.<br>Option D involves manual scaling and management of EC2 instances, which is less flexible and more labor-intensive compared to the serverless nature of Lambda. It may not efficiently handle the varying number of concurrent users and can introduce higher operational overhead.  </p>
+<p>In conclusion, option C provides the best solution for scaling the application to meet the needs of the growing user base by leveraging the scalability and durability of Lambda, S3, and DynamoDB.</p>
+</blockquote>
+<hr>
+<h3 id="十五、Gateway-endpoint"><a href="#十五、Gateway-endpoint" class="headerlink" title="十五、Gateway endpoint"></a>十五、Gateway endpoint</h3><p>A medical records company is hosting an application on Amazon EC2 instances. The application processes customer data files that are stored on Amazon S3. The EC2 instances are hosted in public subnets. The EC2 instances access Amazon S3 over the internet, but they do not require any other network access.<br>A new requirement mandates that the network traffic for file transfers take a private route and not be sent over the internet.<br>Which change to the network architecture should a solutions architect recommend to meet this requirement?</p>
+<ol>
+<li>Create a NAT gateway. Configure the route table for the public subnets to send traffic to Amazon S3 through the NAT gateway.</li>
+<li>Configure the security group for the EC2 instances to restrict outbound traffic so that only traffic to the S3 prefix list is permitted.</li>
+<li>✅ Move the EC2 instances to private subnets. Create a VPC endpoint for Amazon S3, and link the endpoint to the route table for the private subnets.</li>
+<li>Remove the internet gateway from the VPC. Set up an AWS Direct Connect connection, and route traffic to Amazon S3 over the Direct Connect connection.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：private route to S3</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：目前 <code>EC2</code> 不需要联网，但是 <code>EC2</code> 和 <code>S3</code> 通过公有网络进行连接，现在要求改走内网。<br>先把 <code>EC2</code> 移动到私有子网或者移除当前子网路由表中对公网的路由记录，然后再在 <code>VPC</code> 级别部署网关终端节点使实例能够访问 <code>S3</code>。 </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Option A (creating a NAT gateway) would not meet the requirement since it still involves sending traffic to S3 over the internet.<br>NAT gateway is used for outbound internet connectivity from private subnets, but it doesn’t provide a private route for accessing S3.  </p>
+<p>Option B (configuring security groups) focuses on controlling outbound traffic using security groups. While it can restrict outbound traffic, it doesn’t provide a private route for accessing S3.  </p>
+<p>Option D (setting up Direct Connect) involves establishing a dedicated private network connection between the on-premises environment and AWS. While it offers private connectivity, it is more suitable for hybrid scenarios and not necessary for achieving private access to S3 within the VPC.  </p>
+<p>In summary, option C provides a straightforward solution by moving the EC2 instances to private subnets, creating a VPC endpoint for S3, and linking the endpoint to the route table for private subnets. This ensures that file transfer traffic between the EC2 instances and S3 remains within the private network without going over the internet.</p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/11/28</p><p><a href="https://senjianlu.com/2024/11/28/saa_test_daily_20241128/">https://senjianlu.com/2024/11/28/saa_test_daily_20241128/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-11-28</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-11-28</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/11/29/translate_news_nhk_20241129_k10014653131000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - 広島 原爆資料館 若い世代に向けた新たな展示を整備へ</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/11/28/translate_news_nhk_20241128_k10014651871000/"><span class="level-item">日语翻译 - 新闻 - “経営の神様” 松下幸之助がAIに パナソニックHD</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、Private-subnet-connect-internet"><span class="level-left"><span class="level-item">一、Private subnet connect internet</span></span></a></li><li><a class="level is-mobile" href="#二、DataSync"><span class="level-left"><span class="level-item">二、DataSync</span></span></a></li><li><a class="level is-mobile" href="#三、AWS-Glue"><span class="level-left"><span class="level-item">三、AWS Glue</span></span></a></li><li><a class="level is-mobile" href="#四、DDoS-attack"><span class="level-left"><span class="level-item">四、DDoS attack</span></span></a></li><li><a class="level is-mobile" href="#五、Lambda-policy"><span class="level-left"><span class="level-item">五、Lambda policy</span></span></a></li><li><a class="level is-mobile" href="#六、KMS"><span class="level-left"><span class="level-item">六、KMS</span></span></a></li><li><a class="level is-mobile" href="#七、Data-storing-and-retrieving"><span class="level-left"><span class="level-item">七、Data storing and retrieving</span></span></a></li><li><a class="level is-mobile" href="#八、RDS-update-and-notification"><span class="level-left"><span class="level-item">八、RDS update and notification</span></span></a></li><li><a class="level is-mobile" href="#九、S3-Legal-holds"><span class="level-left"><span class="level-item">九、S3 Legal holds</span></span></a></li><li><a class="level is-mobile" href="#十、Reduce-coupling"><span class="level-left"><span class="level-item">十、Reduce coupling</span></span></a></li><li><a class="level is-mobile" href="#十一、HA-for-MQ-application"><span class="level-left"><span class="level-item">十一、HA for MQ application</span></span></a></li><li><a class="level is-mobile" href="#十二、Container-Auto-Sacling"><span class="level-left"><span class="level-item">十二、Container Auto Sacling</span></span></a></li><li><a class="level is-mobile" href="#十三、AWS-Snow-Family-and-Glue"><span class="level-left"><span class="level-item">十三、AWS Snow Family and Glue</span></span></a></li><li><a class="level is-mobile" href="#十四、Scale"><span class="level-left"><span class="level-item">十四、Scale</span></span></a></li><li><a class="level is-mobile" href="#十五、Gateway-endpoint"><span class="level-left"><span class="level-item">十五、Gateway endpoint</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

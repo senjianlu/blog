@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/12/18 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam109 题 (No.481 ~ No.500, 931 ~ 1019) 只记录了 10 道错误或需要注意的题目，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/12/18"><meta property="og:url" content="https://senjianlu.com/2024/12/18/saa_test_daily_20241218/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam109 题 (No.481 ~ No.500, 931 ~ 1019) 只记录了 10 道错误或需要注意的题目，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-12-18T12:00:00.000Z"><meta property="article:modified_time" content="2024-12-18T15:50:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/12/18/saa_test_daily_20241218/"},"headline":"SAA 考试每日练习 - 2024/12/18","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-12-18T12:00:00.000Z","dateModified":"2024-12-18T15:50:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam109 题 (No.481 ~ No.500, 931 ~ 1019) 只记录了 10 道错误或需要注意的题目，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/12/18/saa_test_daily_20241218/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-12-18T12:00:00.000Z" title="12/18/2024, 8:00:00 PM">2024-12-18</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/12/18</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/">Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam</a><br>109 题 (No.481 ~ No.500, 931 ~ 1019) <strong>只记录了 10 道错误或需要注意的题目</strong>，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<h3 id="一、Amazon-S3-Glacier-快速检索的耗时"><a href="#一、Amazon-S3-Glacier-快速检索的耗时" class="headerlink" title="一、Amazon S3 Glacier 快速检索的耗时"></a>一、Amazon S3 Glacier 快速检索的耗时</h3><p>一家公司正在寻找一种能在 AWS 中存储旧新闻片段视频档案的解决方案。该公司需要最大限度地降低成本，而且很少需要恢复这些文件。当需要这些文件时，必须在最多五分钟内提供。<br>最具成本效益的解决方案是什么？</p>
+<ol>
+<li>✅ 将视频存档存储在 Amazon S3 Glacier 中，并使用快速检索。</li>
+<li>将视频存档存储在 Amazon S3 Glacier 中，并使用标准检索。</li>
+<li>❌ 将视频存档存储在 Amazon S3 Standard-Infrequent Access (S3 Standard-IA)。</li>
+<li>将视频存档存储在 Amazon S3 One Zone-Infrequent Access（S3 One Zone-IA）中。</li>
+</ol>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>Amazon S3 Glacier</code> 中各检索模式耗时不同：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/userguide/restoring-objects-retrieval-options.html">了解归档检索选项</a></p>
+<blockquote>
+<ul>
+<li><strong>加速</strong> (Expedited)<ul>
+<li><code>S3 Glacier Flexible Retrieval</code> 或 <code>S3 Intelligent-Tiering 归档访问</code>：1 – 5 分钟</li>
+<li><code>S3 Glacier Deep Archive</code> 或 S3 <code>Intelligent-Tiering 深度归档访问</code>：不可用</li>
+</ul>
+</li>
+<li><strong>标准</strong> (Standard)<ul>
+<li><code>S3 Glacier Flexible Retrieval</code> 或 <code>S3 Intelligent-Tiering 归档访问</code>：1 分钟 – 5 小时</li>
+<li><code>S3 Glacier Deep Archive</code> 或 S3 <code>Intelligent-Tiering 深度归档访问</code>：9 - 12 小时内</li>
+</ul>
+</li>
+<li><strong>批量</strong> (Bulk)<ul>
+<li><code>S3 Glacier Flexible Retrieval</code> 或 <code>S3 Intelligent-Tiering 归档访问</code>：5 – 12 小时</li>
+<li><code>S3 Glacier Deep Archive</code> 或 S3 <code>Intelligent-Tiering 深度归档访问</code>：48 小时内</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="二、持续备份-DynamoDB-数据到-S3-存储桶"><a href="#二、持续备份-DynamoDB-数据到-S3-存储桶" class="headerlink" title="二、持续备份 DynamoDB 数据到 S3 存储桶"></a>二、持续备份 DynamoDB 数据到 S3 存储桶</h3><p>一家游戏公司使用 Amazon DynamoDB 来存储用户信息，如地理位置、玩家数据和排行榜。该公司需要用最少的编码将连续备份配置到 Amazon S3 存储桶。备份不得影响应用程序的可用性，也不得影响为表定义的读取容量单位 (RCU)。<br>哪种解决方案能满足这些要求？</p>
+<ol>
+<li>使用亚马逊 EMR 集群。创建 Apache Hive 作业，将数据备份到亚马逊 S3。</li>
+<li>✅ 将数据直接从 DynamoDB 导出到亚马逊 S3，并持续备份。打开表的时间点恢复。</li>
+<li>❌ 配置 Amazon DynamoDB 流。创建一个 AWS Lambda 函数来消费流并将数据导出到亚马逊 S3 存储桶。</li>
+<li>创建一个 AWS Lambda 函数，定期将数据从数据库表导出到亚马逊 S3。打开表的时间点恢复。</li>
+</ol>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/amazondynamodb/latest/developerguide/S3DataExport.HowItWorks.html">将 DynamoDB 数据导出到 Amazon S3：工作方式</a></p>
+<blockquote>
+<p>DynamoDB 导出到 S3 是一种完全托管式解决方案，用于将您的 DynamoDB 数据大规模导出到 Amazon S3 桶。使用“DynamoDB 导出到 S3”，可以在从时间点故障恢复（PITR）时段内的任何时间，将数据从 Amazon DynamoDB 表导出到 Amazon S3 桶。您需要在表上启用 PITR 才能使用导出功能。借助此功能，您可以使用其它 AWS 服务（如 Athena、AWS Glue、Amazon SageMaker、Amazon EMR 和 AWS Lake Formation）对数据执行分析和复杂的查询。</p>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="三、指定组织内可用的-EC2-实例类型"><a href="#三、指定组织内可用的-EC2-实例类型" class="headerlink" title="三、指定组织内可用的 EC2 实例类型"></a>三、指定组织内可用的 EC2 实例类型</h3><p>某公司有多个 AWS 账户用于开发工作。一些员工持续使用超大的 Amazon EC2 实例， 导致公司开发账户超出年度预算。公司希<br>望集中限制在这些账户中创建 AWS 资源。<br>哪种解决方案能以最少的开发工作量满足这些要求？</p>
+<ol>
+<li>开发使用经批准的 EC2 创建流程的 AWS 系统管理器模板。使用经批准的系统管理器模板配置 EC2 实例。</li>
+<li>✅ 使用 AWS 组织将账户组织到组织单位（OU）中。定义并附加服务控制策略（SCP），以控制 EC2 实例类型的使用。</li>
+<li>配置 Amazon EventBridge 规则，在创建 EC2 实例时调用 AWS Lambda 函数。停止不允许的 EC2 实例类型。</li>
+<li>❌ 为员工设置 AWS 服务目录产品，以创建允许的 EC2 实例类型。确保员工只能使用服务目录产品部署 EC2 实例。</li>
+</ol>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：来看下<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/servicecatalog/latest/adminguide/introduction.html">什么是 Service Catalog？</a>  </p>
+<blockquote>
+<p>借助 Service Catalog，组织可以创建和管理获准在 AWS 上使用的 IT 服务的目录。这些 IT 服务可谓包罗万象，从虚拟机映像、服务器、软件和数据库，再到完整的多层应用程序架构等。</p>
+<p>Service Catalog 允许组织集中管理通常部署的 IT 服务，并帮助组织实现一致的监管和满足合规性要求。最终用户可在遵循组织设定约束的情况下快速部署他们所需的已获得批准的 IT 服务。</p>
+</blockquote>
+<p>看起来似乎可以实现。<br>再来看下 <code>SCP</code>：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/organizations/latest/userguide/orgs_manage_policies_scps_examples_ec2.html#example-ec2-1">Amazon Elastic Compute Cloud（Amazon EC2）的示例 SCP</a></p>
+<blockquote>
+<p><strong>需要 Amazon EC2 实例以使用特定类型</strong><br>借助此 SCP，任何不使用 <code>t2.micro</code> 实例类型启动的实例都将被拒绝。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;Version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2012-10-17&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;Statement&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;Sid&quot;</span><span class="punctuation">:</span> <span class="string">&quot;RequireMicroInstanceType&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;Effect&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Deny&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;Action&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ec2:RunInstances&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;Resource&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;arn:aws:ec2:*:*:instance/*&quot;</span></span><br><span class="line">      <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;Condition&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;StringNotEquals&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">          <span class="attr">&quot;ec2:InstanceType&quot;</span><span class="punctuation">:</span> <span class="string">&quot;t2.micro&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></blockquote>
+<p>有典型案例，因此选 2️⃣ 肯定没错。  </p>
+</blockquote>
+<hr>
+<h3 id="四、允许特定-IP-访问-API-Gateway"><a href="#四、允许特定-IP-访问-API-Gateway" class="headerlink" title="四、允许特定 IP 访问 API Gateway"></a>四、允许特定 IP 访问 API Gateway</h3><p>某公司正在 AWS 云中开发一个应用程序。该应用程序的 HTTP API 包含以下关键信息在亚马逊 API 网关中发布。关键信息必须只能从属于公司内部网络的有限一组受信任 IP 地址访问。<br>哪种解决方案能满足这些要求？</p>
+<ol>
+<li>设置 API Gateway 私有集成，以限制对一组预定义 IP 地址的访问。</li>
+<li>✅ 为应用程序接口创建资源策略，拒绝访问任何未明确允许的 IP 地址。</li>
+<li>在专用子网中直接部署 API。创建网络 ACL。设置规则，允许来自特定 IP 地址的流量。</li>
+<li>❌ 修改附加到 API Gateway 的安全组，只允许来自受信任 IP 地址的入站流量。</li>
+</ol>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://repost.aws/zh-Hans/knowledge-center/api-gateway-resource-policy-access">如何只允许特定的 IP 地址访问我的 API Gateway REST API？</a></p>
+<blockquote>
+<p>在 Resource Policy (资源策略) 文本框中，粘贴以下示例资源策略：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;Version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2012-10-17&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;Statement&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;Effect&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Allow&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;Principal&quot;</span><span class="punctuation">:</span> <span class="string">&quot;*&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;Action&quot;</span><span class="punctuation">:</span> <span class="string">&quot;execute-api:Invoke&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;Resource&quot;</span><span class="punctuation">:</span> <span class="string">&quot;execute-api:/*/*/*&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;Effect&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Deny&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;Principal&quot;</span><span class="punctuation">:</span> <span class="string">&quot;*&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;Action&quot;</span><span class="punctuation">:</span> <span class="string">&quot;execute-api:Invoke&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;Resource&quot;</span><span class="punctuation">:</span> <span class="string">&quot;execute-api:/*/*/*&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;Condition&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;NotIpAddress&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">          <span class="attr">&quot;aws:SourceIp&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;sourceIpOrCIDRBlock&quot;</span><span class="punctuation">,</span> <span class="string">&quot;sourceIpOrCIDRBlock&quot;</span><span class="punctuation">]</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></blockquote>
+<p>使用资源策略来控制可以访问 <code>API Gateway</code> 的 IP 是 AWS 推荐的做法。  </p>
+</blockquote>
+<hr>
+<h3 id="五、对-EC2-进行日常修补并需要暂时从-ALB-中移除"><a href="#五、对-EC2-进行日常修补并需要暂时从-ALB-中移除" class="headerlink" title="五、对 EC2 进行日常修补并需要暂时从 ALB 中移除"></a>五、对 EC2 进行日常修补并需要暂时从 ALB 中移除</h3><p>某公司使用 AWS 系统管理器对亚马逊 EC2 实例进行日常管理和修补。EC2 实例位于应用程序负载平衡器 (ALB) 后面的 IP 地址类型目标组中。<br>新的安全协议要求公司在打补丁期间从服务中移除 EC2 实例。当公司尝试在下一个补丁期间遵循安全协议时，公司会在补丁窗口期间收到错误。<br>哪种解决方案组合可以解决这些错误？(选择两个）。</p>
+<ol>
+<li>❌ 将目标组的目标类型从 IP 地址类型改为实例类型。</li>
+<li>继续使用现有的系统管理器文档，无需更改，因为该文档已经过优化，可以处理 ALB 后面 IP 地址类型目标组中的<br>实例。</li>
+<li>✅ 实施 AWSEC2-PatchLoadBalanacerInstance 系统管理器自动化文件来管理修补程序。</li>
+<li>✅ 使用 “系统管理器维护窗口 “自动将实例从服务中移除，以修补实例。</li>
+<li>❌ 配置系统管理器状态管理器，将实例从服务中移除并管理修补计划。使用 ALB 健康检查重新路由流量。</li>
+</ol>
+<blockquote>
+<p>1️⃣ 5️⃣ ❌ -&gt; 3️⃣ 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/systems-manager-automation-runbooks/latest/userguide/automation-awsec2-patch-load-balancer-instance.html">AWSEC2-PatchLoadBalancerInstance</a>  </p>
+<blockquote>
+<p>升级并修补附加到任何负载均衡器（经典、ALB 或 NLB）的 Amazon EC2 实例（Windows 或 Linux）的次要版本。在修补该实例之前，会应用默认的连接耗尽时间。您可以为 ConnectionDrainTime 参数输入以分钟 (1-59) 为单位的自定义耗尽时间，从而覆盖等待时间。</p>
+<p>自动化工作流程如下所示：</p>
+<ol>
+<li>确定实例所附加的负载均衡器或目标组，并验证该实例是否运行正常。</li>
+<li>该实例已从负载均衡器或目标组移除。</li>
+<li>此自动化将等待为连接耗尽时间指定的时间段。</li>
+<li>调用 AWS-RunPatchBaseline 自动化以修补该实例。</li>
+<li>该实例已从负载均衡器或目标组重新附加。</li>
+</ol>
+<p><strong>先决条件</strong>  </p>
+<ul>
+<li>验证实例上是否安装了 SSM Agent。</li>
+</ul>
+</blockquote>
+<p>因此通过 <code>AWSEC2-PatchLoadBalanacerInstance</code> 操作对 <code>EC2</code> 进行操作的话，会自动将其移出 <code>ALB</code>。</p>
+</blockquote>
+<hr>
+<h3 id="六、组织的标签策略"><a href="#六、组织的标签策略" class="headerlink" title="六、组织的标签策略"></a>六、组织的标签策略</h3><p>某公司正在为一个使用 AWS 云的新移动应用程序设计架构。该公司使用 AWS 组织中的组织单位 (OU) 管理其账户。该公司希望通过使用敏感和不敏感值来标记亚马逊 EC2 实例的数据敏感性。IAM 身份不得删除标签或创建无标签的实例。<br>哪种步骤组合能满足这些要求？(选择两个）。</p>
+<ol>
+<li>✅ 在 “组织 “中，创建一个新标签策略，指定数据敏感性标签密钥和所需值。为 EC2 实例强制执行标签值。将标签策略附加到相应的 OU。</li>
+<li>❌ 在 “组织 “中，创建一个新的服务控制策略 (SCP)，指定数据敏感性标记密钥和所需的标记值。为 EC2 实例强制执行标签值。将 SCP 附加到相应的 OU。</li>
+<li>创建一个标签策略，在未指定标签密钥时拒绝运行实例。创建另一个标签策略，防止身份删除标签。将标签策略附加到相应的 OU。</li>
+<li>✅ 创建服务控制策略 (SCP)，在未指定标签密钥时拒绝创建实例。创建另一个 SCP，防止身份删除标记。将 SCP 附加到相应的 OU。</li>
+<li>创建一个 AWS 配置规则，检查 EC2 实例是否使用了数据敏感性标记和指定值。配置 AWS Lambda 函数，以便在发现不合规资源时删除资源。</li>
+</ol>
+<blockquote>
+<p>2️⃣ 4️⃣ ❌ -&gt; 1️⃣ 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：4️⃣ 使用 SCP 对 EC2 实例的创建进行限制没有问题。<br>而 AWS Organizations 其实还有标签策略：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">标签策略</a></p>
+<blockquote>
+<p>标签策略 是策略的一种类型，可帮助您在组织账户中跨资源标准化标签。在标签策略中，您可以指定在标记资源时适用于资源的标记规则。</p>
+<p>例如，标签策略可以指定当 CostCenter 标签附加到资源时，它必须使用标签策略定义的大小写处理和标签值。标签策略还可以指定在指定资源类型上强制执行 不合规的标记操作。换句话说，阻止在指定的资源类型上完成不合规的标记操作。不会评估未标记的资源或未在标签策略中定义的标签是否符合标签策略。</p>
+</blockquote>
+<p>使用标签策略来定义标签和将其使用到 EC2 上，之后使用 SCP 来拒绝创建不带标签的 EC2 实例并防止删除标签。 </p>
+</blockquote>
+<hr>
+<h3 id="七、Amazon-Athena-SQL-支持的数据格式"><a href="#七、Amazon-Athena-SQL-支持的数据格式" class="headerlink" title="七、Amazon Athena SQL 支持的数据格式"></a>七、Amazon Athena SQL 支持的数据格式</h3><p>一家天气预报公司持续从各种传感器收集温度读数。现有的数据摄取流程会收集读数，并将读数汇总到较大的 Apache Parquet 文件中。然后，该流程通过使用 KMS 管理密钥（CSE-KMS）的客户端加密对文件进行加密。最后，该流程将文件写入亚马逊 S3 存储桶，并为每个日历日设置单独的前缀。<br>公司希望偶尔对数据运行 SQL 查询，以获取特定日历日的移动平均值样本。哪种解决方案能最经济高效地满足这些要求？</p>
+<ol>
+<li>✅ 配置 Amazon Athena 以读取加密文件。直接在 Amazon S3 中的数据上运行 SQL 查询。</li>
+<li>使用 Amazon S3 Select 直接对 Amazon S3 中的数据运行 SQL 查询。</li>
+<li>❌ 配置 Amazon Redshift 以读取加密文件。使用 Redshift Spectrum 和 Redshift query Editor v2 直接对 Amazon S3 中的数据运行 SQL 查询 。</li>
+<li>配置 Amazon EMR Serverless 以读取加密文件。使用 Apache SparkSQL 直接对亚马逊 S3 中的数据运行 SQL 查询。</li>
+</ol>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/athena/latest/ug/when-should-i-use-ate.html#when-should-i-use-athena">应在何时使用 Athena？</a></p>
+<blockquote>
+<p>Athena 可帮助您分析在 Amazon S3 中存储的非结构化、半结构化和结构化数据。示例包括 <u>CSV、JSON 或列式数据格式，如 Apache Parquet 和 Apache ORC。</u>您可以使用 ANSI SQL 通过 Athena 运行临时查询，而无需将数据聚合或加载到 Athena 中。</p>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="八、-AWS-Glue-DynamoDB-Export-connector"><a href="#八、-AWS-Glue-DynamoDB-Export-connector" class="headerlink" title="八、 AWS Glue DynamoDB Export connector"></a>八、 AWS Glue DynamoDB Export connector</h3><p>某公司使用 Amazon DynamoDB 表来存储公司从设备接收到的数据。DynamoDB 表支持面向客户的网站，以显示客户设备上的最近活动。该公司为该表配置了写入和读取的预配置吞吐量。<br>公司希望每天计算客户设备数据的性能指标。解决方案必须对表的预设读写能力影响最小。<br>哪种解决方案能满足这些要求？</p>
+<ol>
+<li>❌ 将 Amazon Athena SQL 查询与 Amazon Athena DynamoDB 连接器配合使用，按周期计算性能指标。</li>
+<li>✅ 使用 AWS Glue 作业和 AWS Glue DynamoDB 导出连接器，按周期计算性能指标。</li>
+<li>使用 Amazon Redshift COPY 命令按周期计算性能指标。</li>
+<li>使用带有 Apache Hive 外部表的 Amazon EMR 作业，按周期计算性能指标。</li>
+</ol>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 2️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/blogs/china/accelerate-amazon-dynamodb-data-access-in-aws-glue-jobs-using-the-new-aws-glue-dynamodb-elt-connector-feed/">全新 AWS Glue DynamoDB 导出连接器</a></p>
+<blockquote>
+<p>以下是使用 AWS Glue ETL 作业从 DynamoDB 表中读取的典型使用案例：</p>
+<ul>
+<li>将数据从 DynamoDB 表移到其他数据存储</li>
+<li>将数据与其他服务和应用程序集成</li>
+<li>保留历史快照以供审计</li>
+<li>根据 DynamoDB 数据构建 S3 数据湖并分析来自各种服务的数据，例如 Amazon Athena、Amazon Redshift 和 Amazon SageMaker</li>
+</ul>
+<p>这种方法具有以下好处：</p>
+<ul>
+<li>不会占用源 DynamoDB 表的读取容量单位</li>
+<li>大型 DynamoDB 表的读取性能一致</li>
+</ul>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="九、AWS-Backup-的-RTO"><a href="#九、AWS-Backup-的-RTO" class="headerlink" title="九、AWS Backup 的 RTO"></a>九、AWS Backup 的 RTO</h3><p>某公司在应用程序负载平衡器 (ALB) 后面的自动扩展组中的 Amazon EC2 实例上运行一个网络应用程序。该应用程序在 Amazon Aurora MySQL DB 集群中存储数据。<br>公司需要创建灾难恢复（DR）解决方案。灾难恢复解决方案可接受的恢复时间最长为 30 分钟。灾难恢复解决方案不需要在主基础设施健康时支持客户使用。<br>哪种解决方案能满足这些要求？</p>
+<ol>
+<li>✅ 在带有 ALB 和自动扩展组的第二个 AWS 区域中部署灾难恢复基础架构。将自动扩展组的所需容量和最大容量设置为最小值。将 Aurora MySQL DB 集群转换为 Aurora 全局数据库。使用 ALB 端点配置 Amazon Route 53 以实现主动-被动故障切换。</li>
+<li>在具有 AL 的第二个 AWS 区域中部署灾难恢复基础架构更新自动扩展组，以包括来自第二个区域的 EC2 实例。使用 Amazon Route 53 配置主动-主动故障切换。将 Aurora MySQL DB 集群转换为 Aurora 全局数据库。</li>
+<li>使用 AWS 备份备份 Aurora MySQL DB 集群数据。在带有 ALB 的第二个 AWS 区域中部署灾难恢复基础设施。更新自动扩展组，将第二个区域的 EC2 实例包括在内。使用 Amazon Route 53 配置主动-主动故障切换。在第二个区域中创建 Aurora MySQL DB 群集 从备份中恢复数据。</li>
+<li>❌ 使用 AWS 备份备份基础设施配置。使用备份在第二个 AWS 区域创建所需的基础架构。将自动扩展组所需容量设为零。使用 Amazon Route 53 配置主动-被动故障转移。将极光 MySQL DB 集群转换为极光全局数据库。</li>
+</ol>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：使用 AWS Backup 和重建的耗时是小时级别：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html">云中的灾难恢复选项</a></p>
+<blockquote>
+<p><img src="https://image.senjianlu.com/blog/2024-12-18/disaster-recovery-strategies.png" alt="RTO"></p>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="十、Amazon-Aurora-的自定义端点"><a href="#十、Amazon-Aurora-的自定义端点" class="headerlink" title="十、Amazon Aurora 的自定义端点"></a>十、Amazon Aurora 的自定义端点</h3><p>某公司在 Amazon Aurora MySQL DB 集群上运行其生产工作负载，该集群包括六个 Aurora Replicas。该公司希望将其一个部门的近实时报告查询自动分布到三个 Aurora 副本中。这三个副本的计算和内存规格与数据库集群的其他部分不同。</p>
+<ol>
+<li>✅ 为工作负载创建并使用自定义端点</li>
+<li>创建三节点集群克隆并使用阅读器端点</li>
+<li>❌ 为选定的三个节点使用任意一个实例端点</li>
+<li>使用阅读器端点自动分配只读工作量</li>
+</ol>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonRDS/latest/AuroraUserGuide/Aurora.Endpoints.Custom.html">Amazon Aurora 的自定义端点</a></p>
+<blockquote>
+<p>Aurora 集群的自定义终端节点 表示一组选定数据库实例。在连接到端点时，Aurora 会执行连接平衡并选择组中的某个实例来处理连接。您可以定义此终端节点引用的实例，并确定此终端节点的用途。</p>
+<p>在您创建自定义终端节点之前，Aurora 数据库集群没有自定义终端节点。您可以为每个预调配的 Aurora 集群或 Aurora Serverless v2 集群创建最多 5 个自定义端点。您无法对 Aurora Serverless v1 集群使用自定义终端节点。</p>
+</blockquote>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/12/18</p><p><a href="https://senjianlu.com/2024/12/18/saa_test_daily_20241218/">https://senjianlu.com/2024/12/18/saa_test_daily_20241218/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-12-18</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-12-18</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/12/19/translate_news_nhk_20241219_k10014671791000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - 埼玉 深谷 特産の「深谷ねぎ」 出荷最盛期</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/12/18/translate_news_nhk_20241217_k10014670971000/"><span class="level-item">日语翻译 - 新闻 - 日本証券業協会 野村証券に3000万円の過怠金命じる方針</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、Amazon-S3-Glacier-快速检索的耗时"><span class="level-left"><span class="level-item">一、Amazon S3 Glacier 快速检索的耗时</span></span></a></li><li><a class="level is-mobile" href="#二、持续备份-DynamoDB-数据到-S3-存储桶"><span class="level-left"><span class="level-item">二、持续备份 DynamoDB 数据到 S3 存储桶</span></span></a></li><li><a class="level is-mobile" href="#三、指定组织内可用的-EC2-实例类型"><span class="level-left"><span class="level-item">三、指定组织内可用的 EC2 实例类型</span></span></a></li><li><a class="level is-mobile" href="#四、允许特定-IP-访问-API-Gateway"><span class="level-left"><span class="level-item">四、允许特定 IP 访问 API Gateway</span></span></a></li><li><a class="level is-mobile" href="#五、对-EC2-进行日常修补并需要暂时从-ALB-中移除"><span class="level-left"><span class="level-item">五、对 EC2 进行日常修补并需要暂时从 ALB 中移除</span></span></a></li><li><a class="level is-mobile" href="#六、组织的标签策略"><span class="level-left"><span class="level-item">六、组织的标签策略</span></span></a></li><li><a class="level is-mobile" href="#七、Amazon-Athena-SQL-支持的数据格式"><span class="level-left"><span class="level-item">七、Amazon Athena SQL 支持的数据格式</span></span></a></li><li><a class="level is-mobile" href="#八、-AWS-Glue-DynamoDB-Export-connector"><span class="level-left"><span class="level-item">八、 AWS Glue DynamoDB Export connector</span></span></a></li><li><a class="level is-mobile" href="#九、AWS-Backup-的-RTO"><span class="level-left"><span class="level-item">九、AWS Backup 的 RTO</span></span></a></li><li><a class="level is-mobile" href="#十、Amazon-Aurora-的自定义端点"><span class="level-left"><span class="level-item">十、Amazon Aurora 的自定义端点</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

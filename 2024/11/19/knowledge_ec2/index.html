@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>AWS 知识点 - EC2 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="AWS EC2 相关知识点。"><meta property="og:type" content="article"><meta property="og:title" content="AWS 知识点 - EC2"><meta property="og:url" content="https://senjianlu.com/2024/11/19/knowledge_ec2/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="AWS EC2 相关知识点。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-11-26/aws.png"><meta property="article:published_time" content="2024-11-19T04:00:00.000Z"><meta property="article:modified_time" content="2024-11-19T04:15:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="SAP"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-11-26/aws.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/11/19/knowledge_ec2/"},"headline":"AWS 知识点 - EC2","image":["https://image.senjianlu.com/blog/2024-11-26/aws.png"],"datePublished":"2024-11-19T04:00:00.000Z","dateModified":"2024-11-19T04:15:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"AWS EC2 相关知识点。"}</script><link rel="canonical" href="https://senjianlu.com/2024/11/19/knowledge_ec2/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-11-19T04:00:00.000Z" title="11/19/2024, 12:00:00 PM">2024-11-19</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E7%9F%A5%E8%AF%86%E7%82%B9/">知识点</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">AWS 知识点 - EC2</h1><div class="content"><blockquote>
+<p>AWS EC2 相关知识点。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<h1 id="Amazon-EC2-Elastic-Computer-Cloud"><a href="#Amazon-EC2-Elastic-Computer-Cloud" class="headerlink" title="Amazon EC2 (Elastic Computer Cloud)"></a>Amazon EC2 (Elastic Computer Cloud)</h1><h3 id="一、Amazon-EC2-基本概念"><a href="#一、Amazon-EC2-基本概念" class="headerlink" title="一、Amazon EC2 基本概念"></a>一、Amazon EC2 基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-19/aws_ec2.png" alt="Amazon EC2 基本概念"></p>
+<h3 id="二、Amazon-EC2-启动流程"><a href="#二、Amazon-EC2-启动流程" class="headerlink" title="二、Amazon EC2 启动流程"></a>二、Amazon EC2 启动流程</h3><p><img src="https://image.senjianlu.com/blog/2024-11-19/aws_ec2_create.png" alt="Amazon EC2 启动流程"></p>
+<blockquote>
+<p><code>AWS EBS (Elastic Block Store)</code>：挂载到 EC2 实例的持久性数据块级存储服务。</p>
+</blockquote>
+<h3 id="三、EC2-的优点"><a href="#三、EC2-的优点" class="headerlink" title="三、EC2 的优点"></a>三、EC2 的优点</h3><p><img src="https://image.senjianlu.com/blog/2024-11-19/aws_ec2_advantages.png" alt="EC2 的优点"></p>
+<hr>
+<h1 id="启动-EC2-实例"><a href="#启动-EC2-实例" class="headerlink" title="启动 EC2 实例"></a>启动 EC2 实例</h1><h3 id="一、EC2-实例的创建和使用"><a href="#一、EC2-实例的创建和使用" class="headerlink" title="一、EC2 实例的创建和使用"></a>一、EC2 实例的创建和使用</h3><p><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_create_and_work.png" alt="EC2 实例的创建和使用"></p>
+<hr>
+<h1 id="EC2-用户数据和元数据"><a href="#EC2-用户数据和元数据" class="headerlink" title="EC2 用户数据和元数据"></a>EC2 用户数据和元数据</h1><h3 id="一、EC2-用户数据-User-Data"><a href="#一、EC2-用户数据-User-Data" class="headerlink" title="一、EC2 用户数据 (User Data)"></a>一、EC2 用户数据 (User Data)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_user_data.png" alt="EC2 用户数据 (User Data)">  </p>
+<ul>
+<li>⭐ <code>EC2 用户数据</code> 会在实例<strong>第一次</strong>启动的时候运行<blockquote>
+<p>可以用来做一些初始化的配置或软件安装。</p>
+</blockquote>
+</li>
+<li>用户数据内容限制在 16 KB 以内</li>
+</ul>
+<h3 id="二、EC2-元数据-Metadata"><a href="#二、EC2-元数据-Metadata" class="headerlink" title="二、EC2 元数据 (Metadata)"></a>二、EC2 元数据 (Metadata)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_metadata_01.png" alt="EC2 元数据 (Metadata)"><br><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_metadata_02.png" alt="EC2 获取私有 IP 和公有 IP 的例子">  </p>
+<ul>
+<li>访问实例元数据的地址：<a target="_blank" rel="noopener" href="http://169.254.169.254/latest/meta-data">http://169.254.169.254/latest/meta-data</a></li>
+</ul>
+<hr>
+<h1 id="在-EC2-上访问其他-AWS-服务的两种方式-通过访问密钥和-IAM-角色"><a href="#在-EC2-上访问其他-AWS-服务的两种方式-通过访问密钥和-IAM-角色" class="headerlink" title="在 EC2 上访问其他 AWS 服务的两种方式 - 通过访问密钥和 IAM 角色"></a>在 EC2 上访问其他 AWS 服务的两种方式 - 通过访问密钥和 IAM 角色</h1><h3 id="一、访问密钥-Access-Keys"><a href="#一、访问密钥-Access-Keys" class="headerlink" title="一、访问密钥 (Access Keys)"></a>一、访问密钥 (Access Keys)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_access_access_key.png" alt="访问密钥 (Access Keys)">  </p>
+<ul>
+<li>相当于将 <code>IAM</code> 用户的访问密钥存储在 <code>EC2</code> 实例上供使用</li>
+<li>⚠ 并非最佳实践</li>
+</ul>
+<h3 id="二、EC2-实例-Profiles（为-EC2-附加-IAM-角色）"><a href="#二、EC2-实例-Profiles（为-EC2-附加-IAM-角色）" class="headerlink" title="二、EC2 实例 Profiles（为 EC2 附加 IAM 角色）"></a>二、EC2 实例 Profiles（为 EC2 附加 IAM 角色）</h3><p><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_access_profiles.png" alt="EC2 实例 Profiles（为 EC2 附加 IAM 角色）">  </p>
+<ul>
+<li>⭐ <code>EC2</code> 承担 <code>IAM</code> 角色并获取其权限</li>
+<li>使 AWS 推荐的最佳实践</li>
+</ul>
+<hr>
+<h1 id="实例的状态检查-Status-checks-和自动恢复-automatic-recovery"><a href="#实例的状态检查-Status-checks-和自动恢复-automatic-recovery" class="headerlink" title="实例的状态检查 (Status checks) 和自动恢复 (automatic recovery)"></a>实例的状态检查 (Status checks) 和自动恢复 (automatic recovery)</h1><h3 id="一、状态检查-Status-checks-基本概念"><a href="#一、状态检查-Status-checks-基本概念" class="headerlink" title="一、状态检查 (Status checks) 基本概念"></a>一、状态检查 (Status checks) 基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_status_check.png" alt="状态检查 (Status checks) 基本概念"></p>
+<ul>
+<li>⭐ 状态检查分为三种类型<ul>
+<li>系统状态检查 (System status checks)</li>
+<li>实例状态检查 (Instance status checks)</li>
+<li>附加的 <code>EBS</code> 状态检查 (Attached EBS status checks)</li>
+</ul>
+</li>
+</ul>
+<h3 id="二、系统状态检查"><a href="#二、系统状态检查" class="headerlink" title="二、系统状态检查"></a>二、系统状态检查</h3><p><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_system_status_checks.png" alt="系统状态检查">  </p>
+<ul>
+<li>⭐ 会检测出<strong>需要 AWS 参与修复的深层实例问题</strong></li>
+<li>出现问题时：<ol>
+<li>等待 AWS 修复问题</li>
+<li>手动<strong>停止</strong>、启动实例（并非重启）以使其自动迁移到没有问题的底层硬件上</li>
+</ol>
+</li>
+</ul>
+<h3 id="三、实例状态检查"><a href="#三、实例状态检查" class="headerlink" title="三、实例状态检查"></a>三、实例状态检查</h3><p><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_instance_status_checks.png" alt="实例状态检查"></p>
+<ul>
+<li>⭐ 会检测出<strong>需要用户参与修复的软件、网络配置等问题</strong></li>
+<li>出现问题时，需要用户自己解决问题：<ol>
+<li>重启实例</li>
+<li>更改实例相关配置</li>
+</ol>
+</li>
+</ul>
+<h3 id="四、附加的-EBS-状态检查"><a href="#四、附加的-EBS-状态检查" class="headerlink" title="四、附加的 EBS 状态检查"></a>四、附加的 EBS 状态检查</h3><ul>
+<li>附加的 <code>EBS</code> 状态检查可监控附加到实例的 <code>Amazon EBS</code> 卷是否可以访问并能够完成 I&#x2F;O 操作。  </li>
+<li>出现问题时：<ol>
+<li>等待 AWS 解决问题</li>
+<li>自行采取措施，例如更换受影响的卷或停止并重启实例。</li>
+</ol>
+</li>
+<li>可以使用 <code>StatusCheckFailed_AttachedEBS</code> 指标进行监控，它表示受损的二进制值。<blockquote>
+<p>例如：当检测到长时间影响时，可以故障转移到辅助实例或可用区。或者，可以使用 EBS CloudWatch 指标监控每个附加的卷的 I&#x2F;O 性能，以检测和替换受损的卷。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="五、自动恢复-automatic-recovery-基本概念"><a href="#五、自动恢复-automatic-recovery-基本概念" class="headerlink" title="五、自动恢复 (automatic recovery) 基本概念"></a>五、自动恢复 (automatic recovery) 基本概念</h3><ul>
+<li>⭐ <strong>只支持在系统状态检查失败时自动恢复</strong>，并不支持实例状态检查</li>
+</ul>
+<hr>
+<h1 id="EC2-置放群组-Placement-groups"><a href="#EC2-置放群组-Placement-groups" class="headerlink" title="EC2 置放群组 (Placement groups)"></a>EC2 置放群组 (Placement groups)</h1><h3 id="一、EC2-置放群组基本概念"><a href="#一、EC2-置放群组基本概念" class="headerlink" title="一、EC2 置放群组基本概念"></a>一、EC2 置放群组基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_placement_groups.png" alt="EC2 置放群组基本概念"><br><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_placement_groups_3.png" alt="创建置放群组的三种策略">  </p>
+<ul>
+<li>将 <code>EC2</code> 靠近以获取更低的延迟和更高的吞吐量</li>
+<li>将 <code>EC2</code> 分散在不同的机柜以获得高可用</li>
+<li>创建置放群组的三种策略：<ul>
+<li>集群 (Cluster)</li>
+<li>分区 (Partition)</li>
+<li>分布 (Spread)</li>
+</ul>
+</li>
+</ul>
+<h3 id="二、集群-Cluster-置放群组"><a href="#二、集群-Cluster-置放群组" class="headerlink" title="二、集群 (Cluster) 置放群组"></a>二、集群 (Cluster) 置放群组</h3><p><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_placement_groups_cluster.png" alt="集群 (Cluster) 置放群组"><br><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_placement_groups_cluster_important.png" alt="集群 (Cluster) 置放群组重点"></p>
+<ul>
+<li>⚠ 一个集群置放群组不能跨多个 <code>可用区</code></li>
+<li>在集群置放群组中启动实例时，对实例的类型是有要求的<blockquote>
+<p>常使用的免费套餐中的 t2 类型就是不支持的。</p>
+</blockquote>
+</li>
+<li>⭐ <strong>在后续往集群放置群组中添加实例、或是重启停止的实例时，可能会碰到容量不足的问题而导致启动失败，如果发生这类问题，需要</strong><u><strong>停止该放置群组中的所有实例，然后尝试再次启动</strong></u>来更改整体使用的底层硬件设备。</li>
+</ul>
+<h3 id="三、分区-Partition-置放群组"><a href="#三、分区-Partition-置放群组" class="headerlink" title="三、分区 (Partition) 置放群组"></a>三、分区 (Partition) 置放群组</h3><p><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_placement_groups_partition.png" alt="分区 (Partition) 置放群组"></p>
+<ul>
+<li>一个分区不与另一分区共享机柜，以尽量隔绝底层设备故障带来的影响</li>
+</ul>
+<h3 id="四、分布-Spread-置放群组"><a href="#四、分布-Spread-置放群组" class="headerlink" title="四、分布 (Spread) 置放群组"></a>四、分布 (Spread) 置放群组</h3><p><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_placement_groups_spread.png" alt="分布 (Spread) 置放群组"></p>
+<hr>
+<h1 id="公有-IP、私有-IP-和弹性-IP-地址-Elastic-IP-addresses"><a href="#公有-IP、私有-IP-和弹性-IP-地址-Elastic-IP-addresses" class="headerlink" title="公有 IP、私有 IP 和弹性 IP 地址 (Elastic IP addresses)"></a>公有 IP、私有 IP 和弹性 IP 地址 (Elastic IP addresses)</h1><h3 id="一、公有-IP、私有-IP-和弹性-IP-地址基本概念"><a href="#一、公有-IP、私有-IP-和弹性-IP-地址基本概念" class="headerlink" title="一、公有 IP、私有 IP 和弹性 IP 地址基本概念"></a>一、公有 IP、私有 IP 和弹性 IP 地址基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_ip.png" alt="公有 IP、私有 IP 和弹性 IP 地址基本概念"></p>
+<ul>
+<li>⭐ 公有 IP 地址是<strong>动态的</strong> IP（停止、启动实例后会改变）</li>
+<li>⭐ 弹性 IP 地址是<strong>静态的</strong> IP</li>
+<li>⭐ 网络接口（带着弹性 IP）支持在<u><strong>同一可用区</strong></u>的不同实例间关联</li>
+<li>⭐ 弹性 IP 支持<u><strong>跨不同可用区</strong></u>映射</li>
+</ul>
+<h3 id="二、同一可用区的灾难响应"><a href="#二、同一可用区的灾难响应" class="headerlink" title="二、同一可用区的灾难响应"></a>二、同一可用区的灾难响应</h3><p><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_ip_same_az.png" alt="同一可用区的灾难响应">  </p>
+<ul>
+<li>将网络接口（带着弹性 IP）关联到新的实例</li>
+</ul>
+<h3 id="三、不同可用区的灾难响应"><a href="#三、不同可用区的灾难响应" class="headerlink" title="三、不同可用区的灾难响应"></a>三、不同可用区的灾难响应</h3><p><img src="https://image.senjianlu.com/blog/2024-11-20/aws_ec2_ip_different_az.png" alt="不同可用区的灾难响应">  </p>
+<ul>
+<li>将弹性 IP 映射到其他可用区的网络接口上</li>
+</ul>
+<hr>
+<h1 id="EC2-实例上为何看不到公有-IP-地址？-NAT-Network-Address-Translation"><a href="#EC2-实例上为何看不到公有-IP-地址？-NAT-Network-Address-Translation" class="headerlink" title="EC2 实例上为何看不到公有 IP 地址？(NAT, Network Address Translation)"></a>EC2 实例上为何看不到公有 IP 地址？(NAT, Network Address Translation)</h1><h3 id="一、公网-IP-是映射到-EC2-实例的主私有-IP-上的"><a href="#一、公网-IP-是映射到-EC2-实例的主私有-IP-上的" class="headerlink" title="一、公网 IP 是映射到 EC2 实例的主私有 IP 上的"></a>一、公网 IP 是映射到 EC2 实例的主私有 IP 上的</h3><p><img src="https://image.senjianlu.com/blog/2024-11-20/193915.png" alt="公网 IP 是映射到 EC2 实例的主私有 IP 上的"></p>
+<ul>
+<li>NAT 映射发生在 <code>EC2</code> 外部的互联网网关</li>
+<li>请求发出经由互联网网关时，源地址会从私有 IP 地址替换为公有 IP 地址</li>
+<li>请求回到 <code>EC2</code> 的时候，经由互联网网关时，目的地址会从公有 IP 地址替换为私有 IP 地址</li>
+</ul>
+<hr>
+<h1 id="私有子网和堡垒机-Bastion-host"><a href="#私有子网和堡垒机-Bastion-host" class="headerlink" title="私有子网和堡垒机 (Bastion host)"></a>私有子网和堡垒机 (Bastion host)</h1><h3 id="一、私有子网和堡垒机基本概念"><a href="#一、私有子网和堡垒机基本概念" class="headerlink" title="一、私有子网和堡垒机基本概念"></a>一、私有子网和堡垒机基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-20/195206.png" alt="私有子网和堡垒机基本概念"></p>
+<ul>
+<li>公有子网中启动的所有 <code>EC2</code> 实例都会有一个公有 IP 地址</li>
+<li>⭐ 公有子网的路由表中会多一条 <code>0.0.0.0/0</code> 指向互联网网关的路由</li>
+<li>由于公有子网和私有子网的路由表中都有 VPC 本地路由，因此两个子网中的实例之间可以相互访问</li>
+<li>通过公有子网的 <code>EC2</code> 实例访问私有子网中的 <code>EC2</code> 实例时，公有子网的设备就被称作堡垒机（跳板机）</li>
+</ul>
+<hr>
+<h1 id="NAT-网关和-NAT-实例"><a href="#NAT-网关和-NAT-实例" class="headerlink" title="NAT 网关和 NAT 实例"></a>NAT 网关和 NAT 实例</h1><h3 id="一、NAT-网关和-NAT-实例基本概念"><a href="#一、NAT-网关和-NAT-实例基本概念" class="headerlink" title="一、NAT 网关和 NAT 实例基本概念"></a>一、NAT 网关和 NAT 实例基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-20/201723.png" alt="NAT 网关和 NAT 实例基本概念"></p>
+<ul>
+<li>⭐ <code>NAT 网关</code> 和 <code>NAT 实例</code> 的作用是使<u><strong>私有子网的实例</strong></u><strong>能够访问互联网</strong>，<strong>而非满足（从）互联网访问私有子网实例的需求</strong>（单向出站）</li>
+<li>如果想要实例和互联网能够双向访问的话，应该将实例部署在公有子网中</li>
+<li><code>NAT 网关</code> 在单个可用区内就自动提供了高可用性</li>
+</ul>
+<h3 id="二、NAT-网关"><a href="#二、NAT-网关" class="headerlink" title="二、NAT 网关"></a>二、NAT 网关</h3><p><img src="https://image.senjianlu.com/blog/2024-11-20/200618.png" alt="NAT 网关">  </p>
+<ul>
+<li><code>NAT 网关</code> 是 AWS 提供的服务</li>
+<li><code>NAT 网关</code> 被部署在<strong>公有子网</strong>中</li>
+<li>私有子网路由表中配置<strong>指向 <code>NAT 网关</code> 的 ID</strong> 的路由</li>
+</ul>
+<h3 id="三、NAT-实例"><a href="#三、NAT-实例" class="headerlink" title="三、NAT 实例"></a>三、NAT 实例</h3><p><img src="https://image.senjianlu.com/blog/2024-11-20/201433.png" alt="NAT 实例"></p>
+<ul>
+<li>⚠️ <code>NAT 实例</code> 不是 AWS 提供的服务，实际上就是做过特殊设置的 <code>EC2</code> 实例</li>
+<li>需要使用特殊的 <code>AMI</code></li>
+<li>必须配置<u><strong>禁用</strong></u><strong>源和目标检查</strong> (Disable source&#x2F;destination checking for the network interface)，使 NAT 实例允许进行网络地址转换 (NAT)</li>
+<li>私有子网路由表中配置<strong>指向 <code>NAT 实例</code> 的 ID</strong> 的路由</li>
+</ul>
+<hr>
+<h1 id="EC2-实例系列和启动类型"><a href="#EC2-实例系列和启动类型" class="headerlink" title="EC2 实例系列和启动类型"></a>EC2 实例系列和启动类型</h1><h3 id="一、EC2-实例系列"><a href="#一、EC2-实例系列" class="headerlink" title="一、EC2 实例系列"></a>一、EC2 实例系列</h3><p><img src="https://image.senjianlu.com/blog/2024-11-20/202032.png" alt="EC2 实例系列"></p>
+<h3 id="二、EC2-实例启动类型（购买选项）"><a href="#二、EC2-实例启动类型（购买选项）" class="headerlink" title="二、EC2 实例启动类型（购买选项）"></a>二、EC2 实例启动类型（购买选项）</h3><p><img src="https://image.senjianlu.com/blog/2024-11-20/202922.png" alt="EC2 实例启动类型（购买选项）"></p>
+<h3 id="三、EC2-可用的指标"><a href="#三、EC2-可用的指标" class="headerlink" title="三、EC2 可用的指标"></a>三、EC2 可用的指标</h3><p><img src="https://image.senjianlu.com/blog/2024-11-20/202643.png" alt="EC2 可用的指标"></p>
+<hr>
+<h1 id="AWS-Savings-Plans"><a href="#AWS-Savings-Plans" class="headerlink" title="AWS Savings Plans"></a>AWS Savings Plans</h1><h3 id="一、AWS-Savings-Plans-基本概念"><a href="#一、AWS-Savings-Plans-基本概念" class="headerlink" title="一、AWS Savings Plans 基本概念"></a>一、AWS Savings Plans 基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-20/203301.png" alt="AWS Savings Plans 基本概念"></p>
+<hr>
+<h1 id="EC2-不同的购买选项对应的业务场景"><a href="#EC2-不同的购买选项对应的业务场景" class="headerlink" title="EC2 不同的购买选项对应的业务场景"></a>EC2 不同的购买选项对应的业务场景</h1><p><img src="https://image.senjianlu.com/blog/2024-11-20/203843.png" alt="EC2 不同的购买选项对应的业务场景 01"><br><img src="https://image.senjianlu.com/blog/2024-11-20/203930.png" alt="EC2 不同的购买选项对应的业务场景 02">  </p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>AWS 知识点 - EC2</p><p><a href="https://senjianlu.com/2024/11/19/knowledge_ec2/">https://senjianlu.com/2024/11/19/knowledge_ec2/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-11-19</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-11-19</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/SAP/">SAP</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/11/19/hands_on_ec2/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">AWS 实操 - EC2</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/11/19/translate_news_nhk_20241119_k10014642471000/"><span class="level-item">日语翻译 - 新闻 - 成田空港「ブラインド訓練」12月に初実施へ 災害時の対応確認</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#Amazon-EC2-Elastic-Computer-Cloud"><span class="level-left"><span class="level-item">Amazon EC2 (Elastic Computer Cloud)</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、Amazon-EC2-基本概念"><span class="level-left"><span class="level-item">一、Amazon EC2 基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、Amazon-EC2-启动流程"><span class="level-left"><span class="level-item">二、Amazon EC2 启动流程</span></span></a></li><li><a class="level is-mobile" href="#三、EC2-的优点"><span class="level-left"><span class="level-item">三、EC2 的优点</span></span></a></li></ul></li><li><a class="level is-mobile" href="#启动-EC2-实例"><span class="level-left"><span class="level-item">启动 EC2 实例</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、EC2-实例的创建和使用"><span class="level-left"><span class="level-item">一、EC2 实例的创建和使用</span></span></a></li></ul></li><li><a class="level is-mobile" href="#EC2-用户数据和元数据"><span class="level-left"><span class="level-item">EC2 用户数据和元数据</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、EC2-用户数据-User-Data"><span class="level-left"><span class="level-item">一、EC2 用户数据 (User Data)</span></span></a></li><li><a class="level is-mobile" href="#二、EC2-元数据-Metadata"><span class="level-left"><span class="level-item">二、EC2 元数据 (Metadata)</span></span></a></li></ul></li><li><a class="level is-mobile" href="#在-EC2-上访问其他-AWS-服务的两种方式-通过访问密钥和-IAM-角色"><span class="level-left"><span class="level-item">在 EC2 上访问其他 AWS 服务的两种方式 - 通过访问密钥和 IAM 角色</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、访问密钥-Access-Keys"><span class="level-left"><span class="level-item">一、访问密钥 (Access Keys)</span></span></a></li><li><a class="level is-mobile" href="#二、EC2-实例-Profiles（为-EC2-附加-IAM-角色）"><span class="level-left"><span class="level-item">二、EC2 实例 Profiles（为 EC2 附加 IAM 角色）</span></span></a></li></ul></li><li><a class="level is-mobile" href="#实例的状态检查-Status-checks-和自动恢复-automatic-recovery"><span class="level-left"><span class="level-item">实例的状态检查 (Status checks) 和自动恢复 (automatic recovery)</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、状态检查-Status-checks-基本概念"><span class="level-left"><span class="level-item">一、状态检查 (Status checks) 基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、系统状态检查"><span class="level-left"><span class="level-item">二、系统状态检查</span></span></a></li><li><a class="level is-mobile" href="#三、实例状态检查"><span class="level-left"><span class="level-item">三、实例状态检查</span></span></a></li><li><a class="level is-mobile" href="#四、附加的-EBS-状态检查"><span class="level-left"><span class="level-item">四、附加的 EBS 状态检查</span></span></a></li><li><a class="level is-mobile" href="#五、自动恢复-automatic-recovery-基本概念"><span class="level-left"><span class="level-item">五、自动恢复 (automatic recovery) 基本概念</span></span></a></li></ul></li><li><a class="level is-mobile" href="#EC2-置放群组-Placement-groups"><span class="level-left"><span class="level-item">EC2 置放群组 (Placement groups)</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、EC2-置放群组基本概念"><span class="level-left"><span class="level-item">一、EC2 置放群组基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、集群-Cluster-置放群组"><span class="level-left"><span class="level-item">二、集群 (Cluster) 置放群组</span></span></a></li><li><a class="level is-mobile" href="#三、分区-Partition-置放群组"><span class="level-left"><span class="level-item">三、分区 (Partition) 置放群组</span></span></a></li><li><a class="level is-mobile" href="#四、分布-Spread-置放群组"><span class="level-left"><span class="level-item">四、分布 (Spread) 置放群组</span></span></a></li></ul></li><li><a class="level is-mobile" href="#公有-IP、私有-IP-和弹性-IP-地址-Elastic-IP-addresses"><span class="level-left"><span class="level-item">公有 IP、私有 IP 和弹性 IP 地址 (Elastic IP addresses)</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、公有-IP、私有-IP-和弹性-IP-地址基本概念"><span class="level-left"><span class="level-item">一、公有 IP、私有 IP 和弹性 IP 地址基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、同一可用区的灾难响应"><span class="level-left"><span class="level-item">二、同一可用区的灾难响应</span></span></a></li><li><a class="level is-mobile" href="#三、不同可用区的灾难响应"><span class="level-left"><span class="level-item">三、不同可用区的灾难响应</span></span></a></li></ul></li><li><a class="level is-mobile" href="#EC2-实例上为何看不到公有-IP-地址？-NAT-Network-Address-Translation"><span class="level-left"><span class="level-item">EC2 实例上为何看不到公有 IP 地址？(NAT, Network Address Translation)</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、公网-IP-是映射到-EC2-实例的主私有-IP-上的"><span class="level-left"><span class="level-item">一、公网 IP 是映射到 EC2 实例的主私有 IP 上的</span></span></a></li></ul></li><li><a class="level is-mobile" href="#私有子网和堡垒机-Bastion-host"><span class="level-left"><span class="level-item">私有子网和堡垒机 (Bastion host)</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、私有子网和堡垒机基本概念"><span class="level-left"><span class="level-item">一、私有子网和堡垒机基本概念</span></span></a></li></ul></li><li><a class="level is-mobile" href="#NAT-网关和-NAT-实例"><span class="level-left"><span class="level-item">NAT 网关和 NAT 实例</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、NAT-网关和-NAT-实例基本概念"><span class="level-left"><span class="level-item">一、NAT 网关和 NAT 实例基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、NAT-网关"><span class="level-left"><span class="level-item">二、NAT 网关</span></span></a></li><li><a class="level is-mobile" href="#三、NAT-实例"><span class="level-left"><span class="level-item">三、NAT 实例</span></span></a></li></ul></li><li><a class="level is-mobile" href="#EC2-实例系列和启动类型"><span class="level-left"><span class="level-item">EC2 实例系列和启动类型</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、EC2-实例系列"><span class="level-left"><span class="level-item">一、EC2 实例系列</span></span></a></li><li><a class="level is-mobile" href="#二、EC2-实例启动类型（购买选项）"><span class="level-left"><span class="level-item">二、EC2 实例启动类型（购买选项）</span></span></a></li><li><a class="level is-mobile" href="#三、EC2-可用的指标"><span class="level-left"><span class="level-item">三、EC2 可用的指标</span></span></a></li></ul></li><li><a class="level is-mobile" href="#AWS-Savings-Plans"><span class="level-left"><span class="level-item">AWS Savings Plans</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、AWS-Savings-Plans-基本概念"><span class="level-left"><span class="level-item">一、AWS Savings Plans 基本概念</span></span></a></li></ul></li><li><a class="level is-mobile" href="#EC2-不同的购买选项对应的业务场景"><span class="level-left"><span class="level-item">EC2 不同的购买选项对应的业务场景</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

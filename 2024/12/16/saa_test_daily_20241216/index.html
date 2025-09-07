@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/12/16 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam160 题 (No.161 ~ No.320) 只记录了 12 道错误或需要注意的题目，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/12/16"><meta property="og:url" content="https://senjianlu.com/2024/12/16/saa_test_daily_20241216/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam160 题 (No.161 ~ No.320) 只记录了 12 道错误或需要注意的题目，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-12-16T12:00:00.000Z"><meta property="article:modified_time" content="2024-12-16T15:50:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/12/16/saa_test_daily_20241216/"},"headline":"SAA 考试每日练习 - 2024/12/16","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-12-16T12:00:00.000Z","dateModified":"2024-12-16T15:50:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam160 题 (No.161 ~ No.320) 只记录了 12 道错误或需要注意的题目，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/12/16/saa_test_daily_20241216/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-12-16T12:00:00.000Z" title="12/16/2024, 8:00:00 PM">2024-12-16</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/12/16</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/">Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam</a><br>160 题 (No.161 ~ No.320) <strong>只记录了 12 道错误或需要注意的题目</strong>，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<h3 id="一、CloudFront-字段级加密"><a href="#一、CloudFront-字段级加密" class="headerlink" title="一、CloudFront 字段级加密"></a>一、CloudFront 字段级加密</h3><p>解决方案架构师正在为一个应用程序创建一个新的 Amazon CloudFront 分发。提交的部分信息<br>是敏感的。应用程序使用 HTTPS，但需要另一层安全保护。敏感信息应在整个应用堆栈中受到保护，信息的访问应仅限于某些应用。<br>解决方案架构师应采取哪些行动？</p>
+<ol>
+<li>配置 CloudFront 签名 URL。</li>
+<li>配置 CloudFront 签名 cookie。</li>
+<li>✅ 配置 CloudFront 字段级加密 (field-level encryption) 配置文件。</li>
+<li>配置 CloudFront 并将 “查看器协议策略 “的 “源协议策略 “设置设为 “仅限 HTTPS”。</li>
+</ol>
+<blockquote>
+<p>3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html">使用字段级加密帮助保护敏感数据</a></p>
+<blockquote>
+<p>借助 Amazon CloudFront，您可以使用 HTTPS 对与源服务器的端到端连接实施保护。字段级加密增加了一个额外的安全保护层，可让您在整个系统处理过程中保护特定的数据，以便只有某些应用程序才能查看它。</p>
+<p>借助字段级加密，您可以让您的用户安全地向您的 Web 服务器上传敏感信息。用户提供的敏感信息在靠近用户的边缘进行加密，并在整个应用程序堆栈中保持加密状态。此加密确保只有需要数据的应用程序（并且具有用于解密的凭证）能够做到这一点。</p>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="二、数据库的读写能力扩展"><a href="#二、数据库的读写能力扩展" class="headerlink" title="二、数据库的读写能力扩展"></a>二、数据库的读写能力扩展</h3><p>一家公司正在建设一个新的动态订购网站。该公司希望最大限度地减少服务器维护和修补工作。网站必须具有高可用性，并且必须尽快扩展读写能力，以满足用户需求的变化。<br>哪种解决方案能满足这些要求？</p>
+<ol>
+<li>✅ 在亚马逊 S3 中托管静态内容。使用 Amazon API Gateway 和 AWS Lambda 托管动态内容。使用具有按需容量的 Amazon DynamoDB 作为数据库。配置 Amazon CloudFront 以交付网站内容。</li>
+<li>❌ 在亚马逊 S3 中托管静态内容。使用 Amazon API Gateway 和 AWS Lambda 托管动态内容。使用具有 Aurora Auto Scaling 功能的 Amazon Aurora 数据库。配置 Amazon CloudFront 以交付网站内容。</li>
+<li>将所有网站内容托管到亚马逊 EC2 实例上。创建一个自动扩展组来扩展 EC2 实例。使用应用程序负载平衡器来分配流量。使用 Amazon DynamoDB 为数据库提供写入容量。</li>
+<li>将所有网站内容托管到亚马逊 EC2 实例上。创建一个自动扩展组来扩展 EC2 实例。使用应用程序负载平衡器来分配流量。使用 Amazon Aurora 和 Aurora Auto Scaling 扩展数据库。</li>
+</ol>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>Amazon Aurora Auto Scaling</code> 只能扩展读副本，而无法扩展写副本来提高写的能力：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonRDS/latest/AuroraUserGuide/Aurora.Integrating.AutoScaling.html">Amazon Aurora Auto Scaling 与 Aurora 副本结合使用</a></p>
+<blockquote>
+<p>为了满足您的连接和工作负载要求，Aurora Auto Scaling 动态调整为 Aurora 数据库集群预调配的 Aurora 副本数（读取器数据库实例）。Aurora Auto Scaling 适用于 Aurora MySQL 和 Aurora PostgreSQL。通过使用 Aurora Auto Scaling，Aurora 数据库集群可以处理连接或工作负载突然增加的情况。在连接或工作负载减少时，Aurora Auto Scaling 删除不需要的 Aurora 副本，以便您无需为未使用的配置数据库实例付费。</p>
+<blockquote>
+<p>Aurora Auto Scaling 不适用于写入器数据库实例上的工作负载。Aurora Auto Scaling 只能协助处理读取器实例上的工作负载。</p>
+</blockquote>
+</blockquote>
+<p>而关于 <code>Amazon DynamoDB</code> 的两种模式：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html">DynamoDB 按需容量模式</a></p>
+<blockquote>
+<ul>
+<li><strong>按需模式</strong> (On-demand mode) - <strong>动态扩容</strong><br>  Amazon DynamoDB 按需模式是一个无服务器计费选项，可以每秒处理数百万个请求而不需要进行容量规划。<br>  DynamoDB 按需模式针对读取和写入请求提供按请求支付定价，您只需为使用的资源付费。对于按需模式表，您无需指定预期应用程序执行的读写吞吐量。</li>
+<li><strong>预置模式</strong> (Provisioned mode) - <strong>控制成本</strong><br>  在预置模式下，您为应用程序指定所需的每秒读取和写入次数。即使您未充分利用预置容量，也需要为吞吐能力付费。<br>  系统将根据您已预置的每小时读取和写入容量向您收费。您可以使用自动扩缩根据流量变化自动调整表的预置容量。这可帮助您控制您对 DynamoDB 的使用，使之保持或低于定义的请求速率，以便获得成本可预测性。</li>
+</ul>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="三、Lambda-和-Beanstalk-支持的编程语言"><a href="#三、Lambda-和-Beanstalk-支持的编程语言" class="headerlink" title="三、Lambda 和 Beanstalk 支持的编程语言"></a>三、Lambda 和 Beanstalk 支持的编程语言</h3><p>某公司有一个在内部 Windows 服务器上运行的 Microsoft .NET 应用程序。该应用程序使用 Oracle 数据库标准版服务器存储数据。该公司正计划迁移到 AWS，并希望在迁移应用程序时尽量减少开发变更。AWS 应用程序环境应具有高可用性。<br>公司应采取哪些行动组合来满足这些要求？(选择两项）。</p>
+<ol>
+<li>❌ 使用运行 .NET Core 的 AWS Lambda 函数将应用程序重构为无服务器应用程序。</li>
+<li>✅ 在 AWS Elastic Beanstalk 中重新托管应用程序，并在多区域部署中使用 .NET 平台。</li>
+<li>使用 Amazon Linux Amazon Machine Image (AMI) 将应用程序重新平台化，以便在 Amazon EC2 上运行。</li>
+<li>使用 AWS 数据库迁移服务 (AWS DMS) 在多 AZ 部署中将 Oracle 数据库迁移到 Amazon DynamoDB。</li>
+<li>✅ 使用 AWS 数据库迁移服务 (AWS DMS) 在多区域部署中将 Oracle 数据库迁移到 Amazon RDS 上的 Oracle 数据库。</li>
+</ol>
+<blockquote>
+<p>1️⃣ 5️⃣ ❌ -&gt; 2️⃣ 5️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>Lambda</code> 支持的编程语言：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/lambda/faqs/#product-faqs#section-1-t6-faq-lambda-trigger">AWS Lambda 支持哪些语言？</a></p>
+<blockquote>
+<p>AWS Lambda 原生支持 Java、Go、PowerShell、Node.js、C＃、Python 和 Ruby 代码，并提供 Runtime API，允许您使用任何其他编程语言来编写函数。有关使用 Node.js、Python、Java、Ruby、C#、Go 和 PowerShell 的信息，请参阅我们的文档。</p>
+</blockquote>
+<p>同时它还在 24 年 2 月支持了 .NET 8：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/blogs/compute/introducing-the-net-8-runtime-for-aws-lambda/">Introducing the .NET 8 runtime for AWS Lambda</a></p>
+<blockquote>
+<p>AWS Lambda 现在支持作为托管运行时和容器基础映像的 .NET 8。</p>
+</blockquote>
+<p>再来看看 <code>Elastic Beanstalk</code>：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/elasticbeanstalk/faqs/#product-faqs#elastic-beanstalk-faqs-general-3-trigger">AWS Elastic Beanstalk 支持哪些语言和开发堆栈？</a></p>
+<blockquote>
+<p>AWS Elastic Beanstalk 支持以下语言和开发堆栈：</p>
+<ul>
+<li>适用于 Jave 应用程序的 Apache Tomcat</li>
+<li>适用于 PHP 应用程序的 Apache HTTP Server</li>
+<li>适用于 Python 应用程序的 Apache HTTP Server</li>
+<li>Node.js 应用程序的 Nginx 或 Apache HTTP 服务器</li>
+<li>适用于 Ruby 应用程序的 Passenger 或 Puma</li>
+<li>适用于 .NET 应用程序的 Microsoft IIS 7.5、8.0 和 8.5</li>
+<li>Java SE</li>
+<li>Docker</li>
+<li>Go</li>
+</ul>
+<p>请参阅“支持的平台”，查看支持的语言和开发堆栈的最新完整列表。</p>
+</blockquote>
+<p>选 2️⃣ 更加稳妥。</p>
+</blockquote>
+<hr>
+<h3 id="四、Amazon-Transcribe-和-Amazon-Translate-面对多语种"><a href="#四、Amazon-Transcribe-和-Amazon-Translate-面对多语种" class="headerlink" title="四、Amazon Transcribe 和 Amazon Translate 面对多语种"></a>四、Amazon Transcribe 和 Amazon Translate 面对多语种</h3><p>一家电话营销公司正在 AWS 上设计其客户呼叫中心功能。该公司需要一个能提供多语种识别并生成转录文件的解决方案。该公司希望查询转录文件以分析业务模式。出于审计目的，副本文件必须存储 7 年。<br>哪种解决方案能满足这些要求？</p>
+<ol>
+<li>使用 Amazon Rekognition 进行多说话者识别。将文本文件存储在亚马逊 S3 中。使用机器学习模型进行转录文件分析。</li>
+<li>✅ 使用 Amazon Transcribe 进行多语种识别。使用 Amazon Athena 进行文本文件分析。</li>
+<li>❌ 使用 Amazon Translate 进行多语种识别。将转录文件存储在 Amazon Redshift 中。使用 SQL 查询进行转录文件分析。</li>
+<li>使用 Amazon Rekognition 进行多说话者识别。将文本文件存储在亚马逊 S3 中。使用 Amazon Textract 进行文本文件分析</li>
+</ol>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：需要完成题目的需求，要两个功能语音转录和翻译。<br><code>Amazon Translate</code> 是单纯的语言翻译 AI 服务：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/translate/latest/dg/what-is.html">什么是 Amazon Translate？</a></p>
+<blockquote>
+<p><strong>应用场景</strong>  </p>
+<ul>
+<li>通过集成 Amazon Translate 在您的应用程序中实现多语言用户体验：<ul>
+<li>翻译公司撰写的内容，如会议纪录、技术报告、知识库文章、帖子等。</li>
+<li>翻译人际通讯内容，如电子邮件、游戏内聊天、客户服务聊天，以便客户和员工能够通过其首选语言进行联系。</li>
+</ul>
+</li>
+<li>处理和管理贵公司的传入数据：<ul>
+<li>以多种语言分析文本，如社交媒体和新闻推送。</li>
+<li>以多种语言搜索信息，如 eDiscovery 案例信息。</li>
+</ul>
+</li>
+<li>通过将 Amazon Translate 与其他 AWS 服务集成，以实现语言无关的处理：<ul>
+<li>使用 Amazon Comprehend，从社交媒体流等非结构化文本中提取指定的实体、情绪和关键短语。</li>
+<li>使用 Amazon Transcribe，以多种语言提供字幕和实时字幕。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>因此它当然能胜任多语种的识别功能，但是没法完成语音转录功能。  </p>
+<p>但是相比之下，<code>Amazon Transcribe</code> 可以同时识别多语种并转录文本：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/about-aws/whats-new/2022/06/amazon-transcribe-supports-automatic-language-identification-multi-lingual-audio/">Amazon Transcribe 现已支持对多语音频执行自动语言识别</a></p>
+<blockquote>
+<p>Amazon Transcribe 是一项自动语音识别（ASR）服务，使您能够轻松地为应用程序添加语音转文本功能。今天，我们很高兴地宣布推出以批处理模式对多语音频执行自动语言识别的功能。如果您的录音不止包含一种语言，您便可以启用多语言识别，该功能可识别音频文件中的所有语言，并使用每种识别到的语言来创建脚本。</p>
+</blockquote>
+<p>因此 2️⃣ 更好。</p>
+</blockquote>
+<hr>
+<h3 id="五、短信回复-市场营销"><a href="#五、短信回复-市场营销" class="headerlink" title="五、短信回复 &amp; 市场营销"></a>五、短信回复 &amp; 市场营销</h3><p>某公司正在开发一项针对移动应用程序用户的营销传播服务。公司需要用短信服务（SMS）向用户发送确认信息。用户必须能够回复短信。公司必须将回复信息存储一年，以供分析。<br>解决方案架构师应如何满足这些要求？</p>
+<ol>
+<li>创建 Amazon Connect 联系流以发送短信。使用 AWS Lambda 处理响应。</li>
+<li>✅ 构建 Amazon Pinpoint 旅程。配置 Amazon Pinpoint，将事件发送到 Amazon Kinesis 数据流，以便进行分析和存档。</li>
+<li>使用亚马逊简单队列服务（Amazon SQS）分发短信。使用 AWS Lambda 处理响应。</li>
+<li>创建一个 Amazon Simple Notification Service (Amazon SNS) FIFO 主题。将 Amazon Kinesis 数据流订阅到 SNS 主题，以便进行分析和存档。</li>
+</ol>
+<blockquote>
+<p>2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>Amazon Connect</code> 是客服中心：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/connect/latest/adminguide/what-is-amazon-connect.html">什么是 Amazon Connect？</a></p>
+<blockquote>
+<p>Amazon Connect 是一款基于人工智能的应用程序，可为您的联络中心客户和用户提供无缝体验。它由跨沟通渠道的一整套功能组成。</p>
+<p>使用直观的 Web 应用程序（ Amazon Connect 管理网站），您只需几个步骤即可设置联络中心，添加位于任何地方的客服，然后开始与客户互动。您可以在几分钟（而不是数月）内进行创新并做出改变。无需编码。</p>
+</blockquote>
+<p>而 <code>Amazon Pinpoint</code> 是市场营销工具，可以支持通知、电子邮件、短信和语音消息：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/pinpoint/latest/developerguide/welcome.html">什么是 Amazon Pinpoint？</a></p>
+<blockquote>
+<p>Amazon Pinpoint 是一项 AWS 服务，您可以使用它通过多个消息渠道与客户互动。您可以使用 Amazon Pinpoint 发送推送通知、电子邮件、SMS短信或语音消息。</p>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="六、接口端点支持安全组而网关端点不支持安全组"><a href="#六、接口端点支持安全组而网关端点不支持安全组" class="headerlink" title="六、接口端点支持安全组而网关端点不支持安全组"></a>六、接口端点支持安全组而网关端点不支持安全组</h3><p>一家公司需要将数据从 Amazon EC2 实例转移到 Amazon S3 存储桶。公司必须确保不通过公共互联网路由进行 API 调用和数据传输。只有 EC2 实例有权将数据上传到 S3 存储桶。<br>哪种解决方案能满足这些要求？</p>
+<ol>
+<li>✅ 在 EC2 实例所在的子网中为 Amazon S3 创建一个接口 VPC 端点。为 S3 存储桶附加资源策略，只允许 EC2 实例的 IAM 角色访问。</li>
+<li>❌ 在 EC2 实例所在的可用区为 Amazon S3 创建一个网关 VPC 端点。为端点附加适当的安全组。为 S3 存储桶附加资源策略，只允许 EC2 实例的 IAM 角色访问。</li>
+<li>在 EC2 实例内部运行 nslookup 工具，获取 S3 存储桶服务 API 端点的私有 IP 地址。在 VPC 路由表中创建一个路由，以便 EC2 实例访问 S3 存储桶。为 S3 存储桶附加一个资源策略，只允许 EC2 实例的 IAM 角色访问。</li>
+<li>使用 AWS 提供的公开可用的 ip-ranges.json 文件，获取 S3 存储桶服务 API 端点的私有 IP 地址。在 VPC 路由表中创建一个路由，以便 EC2 实例访问 S3 存储桶。为 S3 存储桶附加一个资源策略，只允许 EC2 实例的 IAM 角色访问。</li>
+</ol>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>EC2</code> 的数据要走私网传输到 <code>S3</code> 存储桶中。<br>社区在 1️⃣ 和 2️⃣ 争议较大。<br>争议的重点在于 2️⃣ 的 “Attach appropriate security groups to the endpoint” 这句，将适当的安全组附加到终端节点上。<br>如果它可以实现，那么 2️⃣ 显然是最优选择，但如果它无法实现，那就只能选 1️⃣。<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/vpc/latest/privatelink/create-interface-endpoint.html">使用接口 VPC 端点访问 AWS 服务</a>  </p>
+<blockquote>
+<p><strong>前提条件</strong><br>为端点网络接口 (endpoint network interface) 创建一个安全组，允许来自 VPC 资源的预期流量。例如，为确保 AWS CLI 可以向 AWS 服务 发送 HTTPS 请求，安全组必须允许入站 HTTPS 流量。</p>
+</blockquote>
+<p>首先我们明确 <code>interface VPC endpoint</code> 是可以配置安全组的。实测了下也确实：<br><img src="https://image.senjianlu.com/blog/2024-12-03/exam_aws_test_02.png" alt="接口终端节点">  </p>
+<p>那么网关端点呢？很遗憾的是 AWS 的文档里并没有明说，实践看下吧：<br><img src="https://image.senjianlu.com/blog/2024-12-03/exam_aws_test_01.png" alt="网关终端节点"><br>创建过程中和创建完成后都没有安全组相关配置，<strong>因此得出结论 <code>Gateway endpoint</code> 不支持安全组配置</strong>，选 1️⃣。     </p>
+</blockquote>
+<hr>
+<h3 id="七、Aurora-的跨区域副本"><a href="#七、Aurora-的跨区域副本" class="headerlink" title="七、Aurora 的跨区域副本"></a>七、Aurora 的跨区域副本</h3><p>某公司在应用程序负载平衡器后面的 Amazon EC2 实例上运行一个全球网络应用程序。该应用程序在 Amazon Aurora 中存储数据。该公司需要创建一个灾难恢复解决方案，并能承受长达 30 分钟的停机时间和潜在的数据丢失。当主基础设施健康时，该解决方案无需处理负载。<br>解决方案架构师应如何满足这些要求？</p>
+<ol>
+<li>✅ 在所需基础架构元素到位的情况下部署应用程序。使用 Amazon Route 53 配置主动-被动故障切换。在第二个 AWS区域创建 Aurora 复制。</li>
+<li>在第二个 AWS 区域托管应用程序的缩减部署。使用 Amazon Route 53 配置主动-主动故障切换。在第二个区域创建 Aurora 复制。</li>
+<li>在第二个 AWS 区域复制主基础设施。使用 Amazon Route 53 配置主动-主动故障切换。创建一个从最新快照还原的 Aurora 数据库。</li>
+<li>❌ 使用 AWS 备份备份数据。使用备份在第二个 AWS 区域创建所需的基础架构。使用 Amazon Route 53 配置主动-被动故障切换。在第二个区域创建 Aurora 第二个主实例。</li>
+</ol>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：1️⃣ 和 4️⃣ 当然都能解决问题。<br>着重看下 <code>Aurora</code> 数据库能否创建跨区域副本：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/prescriptive-guidance/latest/aurora-replication-options/cross-region-aurora-replicas.html">Cross-Region Aurora Replicas</a></p>
+<blockquote>
+<p>使用 Amazon Aurora MySQL-Compatible 版群集，您可以使用跨区域 Aurora Replicas，通过数据库引擎本机复制机制在另一个 AWS 区域创建主 DB 群集的副本。Aurora MySQL-兼容版使用二进制日志（binlog）复制。这种复制基于变更数据捕获（CDC）流程。CDC 识别并跟踪数据库中的数据变化。对主数据库的更改会记录在更改日志文件中，该文件会传输到在第二区域运行 Aurora 复制的机器上。第二台机器上的一个进程读取这些更改日志并生成 SQL 语句，然后将其应用到第二台数据库中。  </p>
+<p>下图显示了跨区域 Aurora 复制的高级架构。<br><img src="https://image.senjianlu.com/blog/2024-12-18/cross-region-aurora-replica.png" alt="Aurora 复制架构"></p>
+<p>Aurora MySQL-兼容集群最多可通过这种方式创建五个读取副本，每个副本位于不同的区域。Aurora PostgreSQL-Compatible 不支持跨区域 Aurora 复制。不过，对于 Aurora PostgreSQL DB 集群，您可以使用 Aurora 全局数据库。</p>
+</blockquote>
+<p>因此得出结论：</p>
+<ul>
+<li><code>Amazon Aurora MySQL-Compatible cluster</code>（注意一定要是 MySQL 兼容且是集群）可以创建跨区域的<strong>只读副本</strong>。</li>
+<li><code>Aurora PostgreSQL-Compatible</code> 不支持跨区域副本，但是可以通过全球数据库实现一样的效果。</li>
+</ul>
+<p>而针对全球数据库的拓展：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html">使用 Amazon Aurora Global Database</a></p>
+<blockquote>
+<p>Amazon Aurora Global Database 跨越多个 AWS 区域，可实现低延迟的全局读取，并可从可能影响整个 AWS 区域 的罕见停机事件中快速恢复。一个 Aurora 全局数据库在一个区域中有一个主数据库集群，在不同区域中最多有五个辅助（只读）数据库集群。<br><img src="https://image.senjianlu.com/blog/2024-12-06/aurora-global-databases-conceptual-illo.png" alt="Amazon Aurora Global Database 架构">   </p>
+<ul>
+<li>Aurora Global Database 在某些 AWS 区域 可用，且仅适用于特定 Aurora MySQL 和 Aurora PostgreSQL 版本</li>
+</ul>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="八、监控到-EC2-的-SSH-或-RDP-连接"><a href="#八、监控到-EC2-的-SSH-或-RDP-连接" class="headerlink" title="八、监控到 EC2 的 SSH 或 RDP 连接"></a>八、监控到 EC2 的 SSH 或 RDP 连接</h3><p>某公司在 Amazon EC2 实例上为客户运行演示环境。每个环境都隔离在自己的 VPC 中。当对某个环境建立 RDP 或 SSH 访问时，公司的运营团队需要得到通知。</p>
+<ol>
+<li>配置 Amazon CloudWatch Application Insights，以便在检测到 RDP 或 SSH 访问时创建 AWS Systems Manager OpsItems。</li>
+<li>❌ 使用 IAM 实例配置文件配置 EC2 实例，该配置文件具有 IAM 角色，并附加了 AmazonSSMManagedInstanceCore 策略。</li>
+<li>✅ 将 VPC 流量日志发布到 Amazon CloudWatch Logs。创建所需的度量过滤器。创建 Amazon CloudWatch 指标警报，并在警报处于 ALARM 状态时执行通知操作。</li>
+<li>配置 Amazon EventBridge 规则，以监听 EC2 Instance 状态更改通知类型的事件。将 Amazon Simple Notification Service (Amazon SNS) 主题配置为目标。将操作团队订阅到主题。</li>
+</ol>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：SSH 连接与 RDP 连接需要手动进行监控：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/blogs/security/how-to-monitor-and-visualize-failed-ssh-access-attempts-to-amazon-ec2-linux-instances/">How to Monitor and Visualize Failed SSH Access Attempts to Amazon EC2 Linux Instances</a>  </p>
+<blockquote>
+<p><img src="https://image.senjianlu.com/blog/2024-12-03/AssafDiagram-AugustFINAL.png" alt="流程"><br>下面是该流程的工作原理，如上图所示并进行了编号：  </p>
+<ol>
+<li>每个 EC2 实例上都运行一个 CloudWatch 日志代理。代理被配置为从 EC2 实例向由实例 ID 标识的日志流发送 SSH 日志。</li>
+<li>日志流汇总到一个日志组中。这样，一个日志组就包含了要分析的来自一个或多个实例的所有日志。</li>
+<li>您可将度量筛选器应用到日志组，以搜索特定关键字。当度量过滤器找到特定关键字时，过滤器会在一个基于时间的滑动窗口中计算关键字的出现次数。如果关键字的出现次数超过 CloudWatch 警报阈值，则会触发警报。</li>
+<li>IAM 策略定义了一个角色，该角色允许 EC2 服务器在日志组中创建日志，并将日志事件（新日志条目）从 EC2 发送到日志组。然后由应用程序服务器承担该角色。</li>
+<li>当超过指定阈值时，CloudWatch 警报会通知用户。<br> 例如，您可以设置一个警报，当 5 分钟内发生超过 2 次 SSH 连接失败时触发该警报。</li>
+<li>CloudWatch 面板用于可视化监控过程中的数据和警报。</li>
+</ol>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="九、RDS-for-MySQL-只读副本创建前的工作"><a href="#九、RDS-for-MySQL-只读副本创建前的工作" class="headerlink" title="九、RDS for MySQL 只读副本创建前的工作"></a>九、RDS for MySQL 只读副本创建前的工作</h3><p>某公司在亚马逊 RDS for MySQL 中部署了一个数据库。由于交易量增加，数据库支持团队正在报告数据库实例读取速度慢，建议添加读取副本。<br>在实施这一变更之前，解决方案架构师应采取哪些行动组合？(选择两项）。</p>
+<ol>
+<li>❌ 在 RDS 主节点上启用 binlog 复制。</li>
+<li>为源 DB 实例选择故障转移优先级。</li>
+<li>✅ 允许在源 DB 实例上完成长期运行的事务。</li>
+<li>创建一个全局表，并指定该表可用的 AWS 区域。</li>
+<li>✅ 通过将备份保留期设置为 0 以外的值，在源实例上启用自动备份。</li>
+</ol>
+<blockquote>
+<p>1️⃣ 3️⃣ ❌ -&gt; 3️⃣ 5️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：没有找到与 5️⃣ 相关的文档，强行记忆吧：“RDS 数据库跨区域副本建立前，需要启用原实例的自动备份”。</p>
+</blockquote>
+<hr>
+<h3 id="十、Route-53-简单路由策略和故障转移路由策略"><a href="#十、Route-53-简单路由策略和故障转移路由策略" class="headerlink" title="十、Route 53 简单路由策略和故障转移路由策略"></a>十、Route 53 简单路由策略和故障转移路由策略</h3><p>某公司有一个网络应用程序，由 10 个 Amazon EC2 实例托管，流量由 Amazon Route 53 引导。该公司在尝试浏览应用程序时偶尔会出现超时错误。网络团队发现，一些 DNS 查询会返回不健康实例的 IP 地址，从而导致超时错误。<br>解决方案架构师应如何克服这些超时错误？</p>
+<ol>
+<li>为每个 EC2 实例创建 Route 53 简单路由策略记录。为每个记录关联一个健康检查。</li>
+<li>❌ 为每个 EC2 实例创建 Route 53 故障转移路由策略记录。为每个记录关联健康检查。</li>
+<li>创建一个以 EC2 实例为起源的 Amazon CloudFront 分发。将健康检查与 EC2 实例关联。</li>
+<li>✅ 在 EC2 实例前创建带健康检查的应用程序负载平衡器 (ALB)。从 Route 53 路由到 ALB。</li>
+</ol>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：4️⃣ 显然是更完美的答案。<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/Route53/latest/DeveloperGuide/routing-policy-failover.html">故障转移路由</a></p>
+<blockquote>
+<p>故障转移路由允许您将流量路由到某个资源 (如果该资源正常) 或路由到其他资源 (如果第一个资源不正常)。主和辅助记录可以将流量路由到从配置为网站的 Amazon S3 存储桶到复杂记录树的任何目的地</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/Route53/latest/DeveloperGuide/routing-policy-simple.html">路由简单</a></p>
+<blockquote>
+<p>简单路由允许您配置标准DNS记录，无需特殊的 Route 53 路由，例如加权路由或延迟。使用简单路由，您通常将流量路由到单个资源，例如，路由到您网站的 Web 服务器。</p>
+</blockquote>
+<p><strong>需要注意的是：⚠ 简单路由策略 (Simple routing policy) 无法附加健康状况检查</strong>。</p>
+</blockquote>
+<hr>
+<h3 id="十一、Aurora-全局数据库的-Pilot-Light-Deployment"><a href="#十一、Aurora-全局数据库的-Pilot-Light-Deployment" class="headerlink" title="十一、Aurora 全局数据库的 Pilot Light Deployment"></a>十一、Aurora 全局数据库的 Pilot Light Deployment</h3><p>一家快速发展的电子商务公司正在单一 AWS 区域中运行其工作负载。解决方案架构师必须创建一个灾难恢复 (DR) 战略包括不同的 AWS 区域。该公司希望其数据库能够在灾难恢复区域以尽可能小的延迟进行更新。灾难恢复区域中的其余基础设施需要以较低的容量运行，并且必须能够在必要时进行扩展。<br>哪种解决方案能以最短的恢复时间目标（RTO）满足这些要求？</p>
+<ol>
+<li>使用 Amazon Aurora 全局数据库，进行轻量级试点部署。</li>
+<li>✅ 使用 Amazon Aurora 全局数据库和暖备用部署。</li>
+<li>使用 Amazon RDS Multi-AZ DB 实例进行轻量级部署。</li>
+<li>使用带有热备用部署的 Amazon RDS Multi-AZ DB 实例。</li>
+</ol>
+<blockquote>
+<p>2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：先看看各容灾方案的 RTO：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html">云中的灾难恢复选项</a></p>
+<blockquote>
+<p>从低成本、低复杂性的制作备份到使用多个活动区域的较复杂策略，可在 AWS 中使用的灾难恢复策略大致分为四种方法。定期测试灾难恢复策略至关重要，这样您就有信心在必要时启用该策略。<br><img src="https://image.senjianlu.com/blog/2024-12-18/disaster-recovery-strategies.png" alt="RTO"></p>
+</blockquote>
+<p>其中关于 Pilot Light：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html#pilot-light">Pilot light</a></p>
+<blockquote>
+<p>利用 Pilot Light 方法，您可以将数据从一个区域复制到另一个区域，并预置核心工作负载基础设施的副本。支持数据复制和备份所需的资源（如数据库和对象存储）始终处于开启状态。其他元素（例如应用程序服务器）加载了应用程序代码和配置，处于关闭状态，仅在测试期间或调用灾难恢复故障转移时使用。不同于备份与还原方法，您的核心基础设施始终可用，而且您始终可以选择通过打开和横向扩展应用程序服务器来快速预置完整的生产环境。<br><img src="https://image.senjianlu.com/blog/2024-12-18/pilot-light-architecture.png" alt="Pilot Light"></p>
+</blockquote>
+<p>可以理解它是一种只配置架构不启动实例的容灾方式。  </p>
+</blockquote>
+<hr>
+<h3 id="十二、EC2-实例上的漏洞扫描"><a href="#十二、EC2-实例上的漏洞扫描" class="headerlink" title="十二、EC2 实例上的漏洞扫描"></a>十二、EC2 实例上的漏洞扫描</h3><p>一家公司的内部数据中心发生了一起影响多个应用程序的漏洞事件。攻击者利用了服务器上运行的自定义应用程序中的漏洞。该公司目前正在将其应用程序迁移到亚马逊 EC2 实例上运行。该公司希望实施一种解决方案，主动扫描 EC2 实例上的漏洞，并发送报告详细说明发现的情况。<br>哪种解决方案能满足这些要求？</p>
+<ol>
+<li>部署 AWS Shield 扫描 EC2 实例以查找漏洞。创建一个 AWS Lambda 函数，将任何发现记录到 AWS CloudTrail。</li>
+<li>部署 Amazon Macie 和 AWS Lambda 功能，扫描 EC2 实例以查找漏洞。将任何发现记录到 AWS CloudTrail。</li>
+<li>❌ 打开 Amazon GuardDuty。将 GuardDuty 代理部署到 EC2 实例。配置 AWS Lambda 函数，以自动生成和分发详细说明调查结果的报告。</li>
+<li>✅ 打开 Amazon Inspector。将 Amazon Inspector 代理部署到 EC2 实例。配置 AWS Lambda 函数，以自动生成和分发详细说明调查结果的报告。</li>
+</ol>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/guardduty/features/"><code>Amazon GuardDuty</code></a> 是以 AWS 账号为对象的安全检测服务。  </p>
+<blockquote>
+<p>GuardDuty 为您提供准确的账户盗用威胁检测，如果您没有以近乎实时的方式持续监控相关因素，可能难以快速发现这种情况。GuardDuty 可检测出账户盗用的迹象，例如在一天之中的非典型时间从异常地理位置访问 AWS 资源。对于编程 AWS 账户，GuardDuty 能够检查异常 API 调用，例如试图通过禁用 CloudTrail 日志记录或从恶意 IP 地址创建数据库快照掩盖账户活动。</p>
+</blockquote>
+<p><code>Amazon Inspector</code> 是漏洞检测服务：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/inspector/latest/user/what-is-inspector.html">Amazon Inspector 是什么？</a></p>
+<blockquote>
+<p>Amazon Inspector 是一项漏洞管理服务，可自动发现工作负载并持续扫描工作负载以查找软件漏洞和意外网络泄露。</p>
+</blockquote>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/12/16</p><p><a href="https://senjianlu.com/2024/12/16/saa_test_daily_20241216/">https://senjianlu.com/2024/12/16/saa_test_daily_20241216/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-12-16</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-12-16</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/12/17/translate_news_nhk_20241217_k10014669601000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - 高校生が模擬株式会社を設立 出資金で開発の商品販売会 秋田</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/12/16/knowledge_identity/"><span class="level-item">AWS 知识点 - 身份与联合身份验证（针对 SAP-C02 认证）</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、CloudFront-字段级加密"><span class="level-left"><span class="level-item">一、CloudFront 字段级加密</span></span></a></li><li><a class="level is-mobile" href="#二、数据库的读写能力扩展"><span class="level-left"><span class="level-item">二、数据库的读写能力扩展</span></span></a></li><li><a class="level is-mobile" href="#三、Lambda-和-Beanstalk-支持的编程语言"><span class="level-left"><span class="level-item">三、Lambda 和 Beanstalk 支持的编程语言</span></span></a></li><li><a class="level is-mobile" href="#四、Amazon-Transcribe-和-Amazon-Translate-面对多语种"><span class="level-left"><span class="level-item">四、Amazon Transcribe 和 Amazon Translate 面对多语种</span></span></a></li><li><a class="level is-mobile" href="#五、短信回复-市场营销"><span class="level-left"><span class="level-item">五、短信回复 &amp; 市场营销</span></span></a></li><li><a class="level is-mobile" href="#六、接口端点支持安全组而网关端点不支持安全组"><span class="level-left"><span class="level-item">六、接口端点支持安全组而网关端点不支持安全组</span></span></a></li><li><a class="level is-mobile" href="#七、Aurora-的跨区域副本"><span class="level-left"><span class="level-item">七、Aurora 的跨区域副本</span></span></a></li><li><a class="level is-mobile" href="#八、监控到-EC2-的-SSH-或-RDP-连接"><span class="level-left"><span class="level-item">八、监控到 EC2 的 SSH 或 RDP 连接</span></span></a></li><li><a class="level is-mobile" href="#九、RDS-for-MySQL-只读副本创建前的工作"><span class="level-left"><span class="level-item">九、RDS for MySQL 只读副本创建前的工作</span></span></a></li><li><a class="level is-mobile" href="#十、Route-53-简单路由策略和故障转移路由策略"><span class="level-left"><span class="level-item">十、Route 53 简单路由策略和故障转移路由策略</span></span></a></li><li><a class="level is-mobile" href="#十一、Aurora-全局数据库的-Pilot-Light-Deployment"><span class="level-left"><span class="level-item">十一、Aurora 全局数据库的 Pilot Light Deployment</span></span></a></li><li><a class="level is-mobile" href="#十二、EC2-实例上的漏洞扫描"><span class="level-left"><span class="level-item">十二、EC2 实例上的漏洞扫描</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

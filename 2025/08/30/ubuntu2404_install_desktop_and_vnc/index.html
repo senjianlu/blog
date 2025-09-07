@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>Ubuntu 24.04 下安装桌面环境并进行远程连接 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="前言想在 Ubuntu 24.04 服务器上安装下 Steam，但是似乎需要图形化界面。而由于一般云服务器厂商都是提供的 server 版本，因此需要安装下桌面环境。"><meta property="og:type" content="article"><meta property="og:title" content="Ubuntu 24.04 下安装桌面环境并进行远程连接"><meta property="og:url" content="https://senjianlu.com/2025/08/30/ubuntu2404_install_desktop_and_vnc/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="前言想在 Ubuntu 24.04 服务器上安装下 Steam，但是似乎需要图形化界面。而由于一般云服务器厂商都是提供的 server 版本，因此需要安装下桌面环境。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2025-08-30/230759.png"><meta property="article:published_time" content="2025-08-30T08:00:00.000Z"><meta property="article:modified_time" content="2025-08-30T09:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="Linux"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2025-08-30/230759.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2025/08/30/ubuntu2404_install_desktop_and_vnc/"},"headline":"Ubuntu 24.04 下安装桌面环境并进行远程连接","image":["https://image.senjianlu.com/blog/2025-08-30/230759.png"],"datePublished":"2025-08-30T08:00:00.000Z","dateModified":"2025-08-30T09:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"前言想在 Ubuntu 24.04 服务器上安装下 Steam，但是似乎需要图形化界面。而由于一般云服务器厂商都是提供的 server 版本，因此需要安装下桌面环境。"}</script><link rel="canonical" href="https://senjianlu.com/2025/08/30/ubuntu2404_install_desktop_and_vnc/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-08-30T08:00:00.000Z" title="8/30/2025, 4:00:00 PM">2025-08-30</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/">基础操作</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">Ubuntu 24.04 下安装桌面环境并进行远程连接</h1><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>想在 Ubuntu 24.04 服务器上安装下 Steam，但是似乎需要图形化界面。<br>而由于一般云服务器厂商都是提供的 server 版本，因此需要安装下桌面环境。  </p>
+<span id="more"></span>
+
+<hr>
+<h2 id="方案概述"><a href="#方案概述" class="headerlink" title="方案概述"></a>方案概述</h2><ol>
+<li>安装 X Window System</li>
+<li>安装 GNOME 的显示管理器 gdm3</li>
+<li>安装 Ubuntu 桌面</li>
+<li>安装 GNOME 依赖包</li>
+<li>安装 Xrdp 服务</li>
+<li>进行远程连接</li>
+</ol>
+<hr>
+<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><h3 id="一、安装-X-Window-System"><a href="#一、安装-X-Window-System" class="headerlink" title="一、安装 X Window System"></a>一、安装 X Window System</h3><blockquote>
+<p>关于 X Window System：</p>
+<blockquote>
+<p>X 窗口系统（X Window System，也常称为 X11 或 X，天窗口系统）是一种以位图方式显示的软件窗口系统。最初是 1984 年麻省理工学院的研究，之后变成 UNIX、类 UNIX、以及 OpenVMS 等操作系统所一致适用的标准化软件工具包及显示架构的运作协议。</p>
+</blockquote>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> su</span><br><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line">apt-get install -y x-window-system-core</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、安装-GNOME-的显示管理器-gdm3"><a href="#二、安装-GNOME-的显示管理器-gdm3" class="headerlink" title="二、安装 GNOME 的显示管理器 gdm3"></a>二、安装 GNOME 的显示管理器 gdm3</h3><blockquote>
+<p>关于 gdm3：</p>
+<blockquote>
+<p>gdm3 是 GNOME 显示管理器 (GNOME Display Manager) 的缩写，它是 GNOME 桌面环境的默认显示管理器，负责提供图形化的登录界面，并在用户成功验证后启动GNOME 会话。</p>
+</blockquote>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y gdm3</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>出现下面错误的时候不要紧张：</p>
+<blockquote>
+<p>gdm.service is not active, cannot reload.</p>
+</blockquote>
+<p>之后重启就能解决这个问题。</p>
+</blockquote>
+<h3 id="三、安装-Ubuntu-桌面"><a href="#三、安装-Ubuntu-桌面" class="headerlink" title="三、安装 Ubuntu 桌面"></a>三、安装 Ubuntu 桌面</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y ubuntu-desktop</span><br></pre></td></tr></table></figure>
+
+<h3 id="四、安装-GNOME-依赖包"><a href="#四、安装-GNOME-依赖包" class="headerlink" title="四、安装 GNOME 依赖包"></a>四、安装 GNOME 依赖包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal</span><br></pre></td></tr></table></figure>
+
+<h3 id="五、安装-Xrdp-服务"><a href="#五、安装-Xrdp-服务" class="headerlink" title="五、安装 Xrdp 服务"></a>五、安装 Xrdp 服务</h3><p>安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install xrdp</span><br></pre></td></tr></table></figure>
+<p>启动：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl start xrdp</span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> xrdp</span><br></pre></td></tr></table></figure>
+<p>之后重启：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
+
+<h3 id="六、进行远程连接"><a href="#六、进行远程连接" class="headerlink" title="六、进行远程连接"></a>六、进行远程连接</h3><p>我是 Mac 系统，因此使用的是 <a target="_blank" rel="noopener" href="https://apps.apple.com/cn/app/microsoft-remote-desktop/id1295203466?mt=12">Microsoft Remote Desktop</a> 进行远程连接。<br><img src="https://image.senjianlu.com/blog/2025-08-31/002619.png" alt="填写 IP 地址"><br><img src="https://image.senjianlu.com/blog/2025-08-31/002715.png" alt="输入账号密码"><br>之后还需要按照提示配置下桌面：<br><img src="https://image.senjianlu.com/blog/2025-08-31/002808.png" alt="配置桌面"><br>看一眼监控，在什么都没运行的情况下，CPU 和内存就已经占用超过一半了：<br><img src="https://image.senjianlu.com/blog/2025-08-31/003051.png" alt="2H2G 服务器资源占用"><br>后续再升级配置吧，总之算是成功了。  </p>
+<blockquote>
+<p>如果在后续的登陆中，出现下面的错误的话：</p>
+<blockquote>
+<p>Sorry, password authentication didn’t work. Please try again.</p>
+</blockquote>
+<p>则需要修改下 <code>/etc/pam.d/gdm-autologin</code> 和 <code>/etc/pam.d/gdm-password</code> 文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/pam.d/gdm-autologin</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注释掉下面这行</span></span><br><span class="line"><span class="comment"># auth requied pam_succeed_if.so user != root quiet success</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/pam.d/gdm-password</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注释掉下面这行</span></span><br><span class="line"><span class="comment"># auth requied pam_succeed_if.so user != root quiet success</span></span><br></pre></td></tr></table></figure></blockquote>
+<hr>
+<p>参考资料：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/nhdlb/p/18094663">Linux：腾讯云轻量应用服务器搭建Ubuntu图形界面并配置远程连接</a></li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>Ubuntu 24.04 下安装桌面环境并进行远程连接</p><p><a href="https://senjianlu.com/2025/08/30/ubuntu2404_install_desktop_and_vnc/">https://senjianlu.com/2025/08/30/ubuntu2404_install_desktop_and_vnc/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2025-08-30</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2025-08-30</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/Linux/">Linux</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2025/08/31/acme_cloudflare_certificate_ssl/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">为 acme.sh 配置 Cloudflare 的 DNS 验证来申请泛域名 SSL 证书</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2025/08/26/crawl4ai_01/"><span class="level-item">Crawl4AI 爬虫工具（一）使用 Docker Compose 部署和最小实践</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#前言"><span class="level-left"><span class="level-item">前言</span></span></a></li><li><a class="level is-mobile" href="#方案概述"><span class="level-left"><span class="level-item">方案概述</span></span></a></li><li><a class="level is-mobile" href="#操作步骤"><span class="level-left"><span class="level-item">操作步骤</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、安装-X-Window-System"><span class="level-left"><span class="level-item">一、安装 X Window System</span></span></a></li><li><a class="level is-mobile" href="#二、安装-GNOME-的显示管理器-gdm3"><span class="level-left"><span class="level-item">二、安装 GNOME 的显示管理器 gdm3</span></span></a></li><li><a class="level is-mobile" href="#三、安装-Ubuntu-桌面"><span class="level-left"><span class="level-item">三、安装 Ubuntu 桌面</span></span></a></li><li><a class="level is-mobile" href="#四、安装-GNOME-依赖包"><span class="level-left"><span class="level-item">四、安装 GNOME 依赖包</span></span></a></li><li><a class="level is-mobile" href="#五、安装-Xrdp-服务"><span class="level-left"><span class="level-item">五、安装 Xrdp 服务</span></span></a></li><li><a class="level is-mobile" href="#六、进行远程连接"><span class="level-left"><span class="level-item">六、进行远程连接</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

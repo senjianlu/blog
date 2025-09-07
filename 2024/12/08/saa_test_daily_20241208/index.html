@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/12/08 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam30 题 (No.471 ~ No.500) 只记录了 8 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/12/08"><meta property="og:url" content="https://senjianlu.com/2024/12/08/saa_test_daily_20241208/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam30 题 (No.471 ~ No.500) 只记录了 8 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-12-08T04:00:00.000Z"><meta property="article:modified_time" content="2024-12-08T12:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/12/08/saa_test_daily_20241208/"},"headline":"SAA 考试每日练习 - 2024/12/08","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-12-08T04:00:00.000Z","dateModified":"2024-12-08T12:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam30 题 (No.471 ~ No.500) 只记录了 8 道首次碰到的、错误的或有疑问的题目，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/12/08/saa_test_daily_20241208/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-12-08T04:00:00.000Z" title="12/8/2024, 12:00:00 PM">2024-12-08</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/12/08</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/">Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam</a><br>30 题 (No.471 ~ No.500) <strong>只记录了 8 道首次碰到的、错误的或有疑问的题目</strong>，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<h3 id="一、AWS-Lambda-function-with-NET-6"><a href="#一、AWS-Lambda-function-with-NET-6" class="headerlink" title="一、AWS Lambda function with .NET 6"></a>一、AWS Lambda function with .NET 6</h3><p>A company containerized a Windows job that runs on .NET 6 Framework under a Windows container. The company wants to run<br>this job in the AWS Cloud. The job runs every 10 minutes. The job’s runtime varies between 1 minute and 3 minutes.<br>Which solution will meet these requirements MOST cost-effectively?</p>
+<ol>
+<li>✅ Create an AWS Lambda function based on the container image of the job. Configure Amazon EventBridge to invoke the function every 10 minutes.</li>
+<li>❌ Use AWS Batch to create a job that uses AWS Fargate resources. Configure the job scheduling to run every 10 minutes.</li>
+<li>Use Amazon Elastic Container Service (Amazon ECS) on AWS Fargate to run the job. Create a scheduled task based on the container image of the job to run every 10 minutes.</li>
+<li>Use Amazon Elastic Container Service (Amazon ECS) on AWS Fargate to run the job. Create a standalone task based on the container image of the job. Use Windows task scheduler to run the job every 10 minutes.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：containerized</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/blogs/compute/introducing-the-net-6-runtime-for-aws-lambda/">Introducing the .NET 6 runtime for AWS Lambda</a></p>
+<blockquote>
+<p>You can now use the .NET 6 runtime to build AWS Lambda functions. The new managed runtime supports both x86 and Arm&#x2F;Graviton2 processors.</p>
+</blockquote>
+<p><code>Lambda</code> 在 2022 年已经支持了 .NET 6，因此 1️⃣ 没问题。  </p>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/batch/faqs/">AWS Batch 常见问题</a></p>
+<blockquote>
+<p>AWS Batch 是一系列批处理管理功能，能够让开发人员、科学家和工程师轻松高效地在 AWS 上运行成千上万个批处理计算作业。AWS Batch 可根据提交的批处理作业的卷和特定资源需求动态预置最佳的计算资源（如 CPU 或内存优化计算资源）数量和类型。借助 AWS Batch，您无需安装和管理批处理计算软件或服务器集群，从而使您能够集中精力分析结果和解决问题。AWS Batch 使用 Amazon ECS、Amazon EKS 和 AWS Fargate 计划、安排和执行您的批处理计算工作负载，并可选择使用竞价型实例。</p>
+</blockquote>
+<p>2️⃣ 也不存在问题，3️⃣ 也不存在问题。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：selected answer : A<br>AWS Lambda now supports .NET 6 as both a managed runtime and a container base image</p>
+</blockquote>
+<hr>
+<h3 id="二、Centralized-corporate-directory-service"><a href="#二、Centralized-corporate-directory-service" class="headerlink" title="二、Centralized corporate directory service"></a>二、Centralized corporate directory service</h3><p>A company wants to move from many standalone AWS accounts to a consolidated, multi-account architecture. The company plans to create many new AWS accounts for different business units. The company needs to authenticate access to these AWS accounts by using a centralized corporate directory service.<br>Which combination of actions should a solutions architect recommend to meet these requirements? (Choose two.)</p>
+<ol>
+<li>✅ Create a new organization in AWS Organizations with all features turned on. Create the new AWS accounts in the organization.</li>
+<li>Set up an Amazon Cognito identity pool. Configure AWS IAM Identity Center (AWS Single Sign-On) to accept Amazon Cognito authentication.</li>
+<li>❌ Configure a service control policy (SCP) to manage the AWS accounts. Add AWS IAM Identity Center (AWS Single Sign-On) to AWS Directory Service.</li>
+<li>Create a new organization in AWS Organizations. Configure the organization’s authentication mechanism to use AWS Directory Service directly.</li>
+<li>✅ Set up AWS IAM Identity Center (AWS Single Sign-On) in the organization. Configure IAM Identity Center, and integrate it with the company’s corporate directory service.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ 3️⃣ ❌ -&gt; 1️⃣ 5️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：题干中已经提到了 <code>centralized corporate directory service（集中式的公司目录服务）</code>，因此选 5️⃣。<br>通过 5️⃣ 的 <code>AWS Single Sign-On</code> 并使用公司目录服务，就不用再创建一堆 AWS 账户了。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A. By creating a new organization in AWS Organizations, you can establish a consolidated multi-account architecture.This allows you to create and manage multiple AWS accounts for different business units under a single organization.<br>E.Setting up AWS IAM Identity Center (AWS Single Sign-On) within the organization enables you to integrate it with the company’s corporate directory service. This integration allows for centralized authentication, where users can sign in using their corporate credentialsand access the AWS accounts within the organization.  </p>
+<p>Together, these actions create a centralized, multi-account architecture that leverages AWS Organizations for account management and AWS IAM Identity Center (AWS Single Sign-On) for authentication and access control.</p>
+</blockquote>
+<hr>
+<h3 id="三、Expedited-retrievals"><a href="#三、Expedited-retrievals" class="headerlink" title="三、Expedited retrievals"></a>三、Expedited retrievals</h3><p>A company is looking for a solution that can store video archives in AWS from old news footage. The company needs to minimize costs and will rarely need to restore these files. When the files are needed, they must be available in a maximum of five minutes.<br>What is the MOST cost-effective solution?</p>
+<ol>
+<li>✅ Store the video archives in Amazon S3 Glacier and use Expedited retrievals.</li>
+<li>Store the video archives in Amazon S3 Glacier and use Standard retrievals.</li>
+<li>❌ Store the video archives in Amazon S3 Standard-Infrequent Access (S3 Standard-IA).</li>
+<li>Store the video archives in Amazon S3 One Zone-Infrequent Access (S3 One Zone-IA).</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：5 min</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/userguide/restoring-objects-retrieval-options.html">了解归档检索选项</a></p>
+<blockquote>
+<ul>
+<li><strong>加速</strong> - 快速访问存储在 S3 Glacier Flexible Retrieval 存储类或 S3 Intelligent-Tiering 归档访问层中的数据。可以在偶尔需要紧急请求归档子集时使用此选项。对于除最大归档对象（250MB+）之外的所有其他归档对象，使用加速检索访问的数据通常在 1 到 5 分钟内可用。</li>
+<li><strong>标准</strong> - 在数小时内访问您的任意归档对象。“标准”是未指定检索选项的检索请求的原定设置选项。对于存储在 S3 Glacier Flexible Retrieval 存储类或 S3 Intelligent-Tiering 归档访问层中的对象，标准检索通常在 3-5 小时内完成。对于存储在 S3 Glacier Deep Archive 存储类或 S3 Intelligent-Tiering 深度归档访问层中的对象，这些检索通常会在 12 小时内完成。对于存储在 S3 Intelligent-Tiering 中的对象，标准检索是免费的。</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：By choosing Expedited retrievals in Amazon S3 Glacier, you can reduce the retrieval time to minutes, making it suitable for scenarios where quickaccess is required.Expedited retrievals come with a higher cost per retrieval compared to standard retrievals but provide faster access to your archived data.</p>
+</blockquote>
+<hr>
+<h3 id="四、SNS-dead-letter-queue"><a href="#四、SNS-dead-letter-queue" class="headerlink" title="四、SNS dead letter queue"></a>四、SNS dead letter queue</h3><p>An ecommerce company runs an application in the AWS Cloud that is integrated with an on-premises warehouse solution. The company uses Amazon Simple Notification Service (Amazon SNS) to send order messages to an on-premises HTTPS endpoint so the warehouse application can process the orders. The local data center team has detected that some of the order messages were not received.<br>A solutions architect needs to retain messages that are not delivered and analyze the messages for up to 14 days.<br>Which solution will meet these requirements with the LEAST development effort?</p>
+<ol>
+<li>Configure an Amazon SNS dead letter queue that has an Amazon Kinesis Data Stream target with a retention period of 14 days.</li>
+<li>Add an Amazon Simple Queue Service (Amazon SQS) queue with a retention period of 14 days between the application and Amazon SNS.</li>
+<li>Configure an Amazon SNS dead letter queue that has an Amazon Simple Queue Service (Amazon SQS) target with a retention period of 14 days.</li>
+<li>Configure an Amazon SNS dead letter queue that has an Amazon DynamoDB target with a TTL attribute set for a retention period of 14 days.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：解决方案架构师需要保留未传递的消息，并分析消息长多 14 天。<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html">Amazon SNS dead-letter queues</a></p>
+<blockquote>
+<p>A dead-letter queue is an Amazon SQS queue that an Amazon SNS subscription can target for messages that can’t be delivered to subscribers successfully. Messages that can’t be delivered due to client errors or server errors are held in the dead-letter queue for further analysis or reprocessing. For more information, see Configuring an Amazon SNS dead-letter queue for a subscription and Amazon SNS message delivery retries.</p>
+<blockquote>
+<p>死信队列是一个 Amazon SQS 队列，Amazon SNS 订阅可将其作为无法成功交付给订阅者的消息的目标。由于客户端错误或服务器错误而无法交付的消息会保留在死信队列中，以便进一步分析或重新处理。有关详细信息，请参阅为订阅配置 Amazon SNS 死信队列和 Amazon SNS 消息传递重试。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A dead-letter queue isan Amazon SQS queue that an Amazon SNS subscription can target for messages that can’t be delivered to subscribers successfully.<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html">https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html</a></p>
+</blockquote>
+<hr>
+<h3 id="五、SQS"><a href="#五、SQS" class="headerlink" title="五、SQS"></a>五、SQS</h3><p>A solutions architect is designing an asynchronous application to process credit card data validation requests for a bank. The application must be secure and be able to process each request at least once.<br>Which solution will meet these requirements MOST cost-effectively?</p>
+<ol>
+<li>✅ Use AWS Lambda event source mapping. Set Amazon Simple Queue Service (Amazon SQS) standard queues as the event source. Use AWS Key Management Service (SSE-KMS) for encryption. Add the kms:Decrypt permission for the Lambda execution role.</li>
+<li>Use AWS Lambda event source mapping. Use Amazon Simple Queue Service (Amazon SQS) FIFO queues as the event source. Use SQS managed encryption keys (SSE-SQS) for encryption. Add the encryption key invocation permission for the Lambda function.</li>
+<li>❌ Use the AWS Lambda event source mapping. Set Amazon Simple Queue Service (Amazon SQS) FIFO queues as the event source. Use AWS KMS keys (SSE-KMS). Add the kms:Decrypt permission for the Lambda execution role.</li>
+<li>Use the AWS Lambda event source mapping. Set Amazon Simple Queue Service (Amazon SQS) standard queues as the event source. Use AWS KMS keys (SSE-KMS) for encryption. Add the encryption key invocation permission for the Lambda function.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>SQS</code> 普通队列不会丢信，只会有可能一份信发多次。  </p>
+<blockquote>
+<p><img src="https://image.senjianlu.com/blog/2024-11-19/aws_sqs_kinds_difference.png" alt="SQS 和 SQS FIFO 的区别"> </p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：SQS FIFO is slightly more expensive than standard queue<br><a target="_blank" rel="noopener" href="https://calculator.aws/#/addService/SQS">https://calculator.aws/#/addService/SQS</a><br>I would still go with the standard because of the keyword “at least once” because FIFO process “exactly once”.That leaves us with A and D, I believe that lambda function only needs to decrypt so I would choose A</p>
+</blockquote>
+<hr>
+<h3 id="六、AI"><a href="#六、AI" class="headerlink" title="六、AI"></a>六、AI</h3><p>A company wants to use artificial intelligence (AI) to determine the quality of its customer service calls. The company currently manages calls in four different languages, including English. The company will offer new languages in the future. The company does not have the resources to regularly maintain machine learning (ML) models.<br>The company needs to create written sentiment analysis reports from the customer service call recordings. The customer service call recording text must be translated into English.<br>Which combination of steps will meet these requirements? (Choose three.)</p>
+<ol>
+<li>Use Amazon Comprehend to translate the audio recordings into English.</li>
+<li>Use Amazon Lex to create the written sentiment analysis reports.</li>
+<li>Use Amazon Polly to convert the audio recordings into text.</li>
+<li>✅ Use Amazon Transcribe to convert the audio recordings in any language into text.</li>
+<li>✅ Use Amazon Translate to translate text in any language to English.</li>
+<li>✅ Use Amazon Comprehend to create the sentiment analysis reports.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ 5️⃣ 6️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：看下 <code>Lex</code> 和 <code>Polly</code> 这两个 AI 服务是干什么的。<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/lex/">什么是 Amazon Lex？</a></p>
+<blockquote>
+<p>Amazon Lex 是一款 AI 聊天构建器，采用与 Alexa 相同的技术，使用户能够使用自然语言语音或聊天与任何应用程序进行交互。使用 Amazon Lex 为任何应用程序构建和部署对话式 AI 界面。将 AI 聊天集成到现有的业务流程和用例中，可以为用户提供更多灵活性和支持，使他们能够以自然的方式完成工作。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/polly/latest/dg/what-is.html">什么是 Amazon Polly？</a></p>
+<blockquote>
+<p>Amazon Polly 云服务可以将文本转化为逼真的语音。可以使用 Amazon Polly 开发能提高参与度和可用性的应用程序。Amazon Polly 支持多种语言，并包含各种逼真的语音。借助 Amazon Polly，您可以构建支持语音的应用程序，这些应用程序可在多个位置运行，并为客户使用理想的语音。此外，您只需为合成文本付费。您也可以免费缓存和重放 Amazon Polly 生成的语音。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A: Comprehend cannot translate<br>B: Lex is like a chatbot so not useful<br>C: Polly converts text to audio (polly the parrot!) so this is wrong<br>D: Can convert audio to text<br>E: Can translate<br>F: Can do sentiment analysis reports  </p>
+</blockquote>
+<hr>
+<h3 id="七、Direct-Connect-and-Hosted-connection"><a href="#七、Direct-Connect-and-Hosted-connection" class="headerlink" title="七、Direct Connect and Hosted connection"></a>七、Direct Connect and Hosted connection</h3><p>A company needs to minimize the cost of its 1 Gbps AWS Direct Connect connection. The company’s average connection utilization is less than 10%. A solutions architect must recommend a solution that will reduce the cost without compromising security.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Set up a new 1 Gbps Direct Connect connection. Share the connection with another AWS account.</li>
+<li>Set up a new 200 Mbps Direct Connect connection in the AWS Management Console.</li>
+<li>Contact an AWS Direct Connect Partner to order a 1 Gbps connection. Share the connection with another AWS account.</li>
+<li>✅ Contact an AWS Direct Connect Partner to order a 200 Mbps hosted connection for an existing AWS account.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：托管连接在 50 Mbps ~ 200 Mbps，专用连接在 1 Gbps 以上：<br><img src="https://image.senjianlu.com/blog/2024-12-09/h_and_d.png" alt="托管连接和专用连接的区别"></p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Hosted Connection 50 Mbps, 100 Mbps, 200 Mbps,<br>Dedicated Connection 1 Gbps, 10 Gbps,and 100 Gbps</p>
+</blockquote>
+<hr>
+<h3 id="八、File-permissions"><a href="#八、File-permissions" class="headerlink" title="八、File permissions"></a>八、File permissions</h3><p>A company has multiple Windows file servers on premises. The company wants to migrate and consolidate its files into an Amazon FSx for Windows File Server file system. File permissions must be preserved to ensure that access rights do not change.<br>Which solutions will meet these requirements? (Choose two.)</p>
+<ol>
+<li>✅ Deploy AWS DataSyncagents on premises. Schedule DataSync tasks to transfer the data to the FSx for Windows File Server file system.</li>
+<li>❌ Copy the shares on each file server into Amazon S3 buckets by using the AWS CLI. Schedule AWS DataSync tasks to transfer the data to the FSx for Windows File Server file system.</li>
+<li>Remove the drives from each file server. Ship the drives to AWS for import into Amazon S3. Schedule AWS DataSync tasks to transfer the data to the FSx for Windows File Server file system.</li>
+<li>✅ Order an AWS Snowcone device. Connect the device to the on-premises network. Launch AWS DataSyncagents on the device. Schedule DataSync tasks to transfer the data to the FSx for Windows File Server file system.</li>
+<li>Order an AWS Snowball Edge Storage Optimized device. Connect the device to the on-premises network. Copy data to the device by using the AWS CLI. Ship the device back to AWS for import into Amazon S3. Schedule AWS DataSync tasks to transfer the data to the FSx for Windows File Server file system.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ 2️⃣ ❌ -&gt; 1️⃣ 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：1️⃣ 是肯定正确的，而 4️⃣ 是完全独立的另一个可行方案，之前都是互补着选的 🤦‍  </p>
+<p>还是确认下 <code>DataSync</code> 对文件权限的保留吧：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/datasync/latest/userguide/metadata-copied.html">Understanding how DataSync handles file and object metadata
+</a><br>没怎么看懂，<strong>但是部分情况下是可以通过保留文件的元数据来保留权限的</strong>。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A - This option involves deploying DataSync agents on your on-premises file serversand using DataSync to transfer the data directly to the FSx for Windows File Server. DataSync ensures that file permissionsare preserved during the migration process.<br>D - This option involves using an AWS Snowcone device,a portable data transfer device. You would connect the Snowcone device to your on-premises network, launch DataSync agents on the device, and schedule DataSync tasks to transfer the data to FSx for Windows File Server. DataSync handles the migration process while preserving file permissions.</p>
+<p>B, C and E would copy the files to S3 first where permissions would be lost</p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/12/08</p><p><a href="https://senjianlu.com/2024/12/08/saa_test_daily_20241208/">https://senjianlu.com/2024/12/08/saa_test_daily_20241208/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-12-08</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-12-08</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/12/08/knowledge_iam_policy/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">AWS 知识点 - IAM 策略（重点解析）</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/12/08/translate_news_nhk_20241208_k10014660811000/"><span class="level-item">日语翻译 - 新闻 - 1日に摂取する野菜の量 過去最少に 平均250gあまり 厚労省調査</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、AWS-Lambda-function-with-NET-6"><span class="level-left"><span class="level-item">一、AWS Lambda function with .NET 6</span></span></a></li><li><a class="level is-mobile" href="#二、Centralized-corporate-directory-service"><span class="level-left"><span class="level-item">二、Centralized corporate directory service</span></span></a></li><li><a class="level is-mobile" href="#三、Expedited-retrievals"><span class="level-left"><span class="level-item">三、Expedited retrievals</span></span></a></li><li><a class="level is-mobile" href="#四、SNS-dead-letter-queue"><span class="level-left"><span class="level-item">四、SNS dead letter queue</span></span></a></li><li><a class="level is-mobile" href="#五、SQS"><span class="level-left"><span class="level-item">五、SQS</span></span></a></li><li><a class="level is-mobile" href="#六、AI"><span class="level-left"><span class="level-item">六、AI</span></span></a></li><li><a class="level is-mobile" href="#七、Direct-Connect-and-Hosted-connection"><span class="level-left"><span class="level-item">七、Direct Connect and Hosted connection</span></span></a></li><li><a class="level is-mobile" href="#八、File-permissions"><span class="level-left"><span class="level-item">八、File permissions</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

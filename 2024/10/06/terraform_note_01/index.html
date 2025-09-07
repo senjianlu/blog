@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>Terraform 学习笔记（一）基础设施即代码 (IaC, Infrastructure as Code) 的概念及相关工具 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="仅做个人学习笔记复习使用，如果侵权请联系。  前言在开始学习使用 Terraform 之前，首先需要了解什么是基础设施即代码（IaC, Infrastructure as Code）。"><meta property="og:type" content="article"><meta property="og:title" content="Terraform 学习笔记（一）基础设施即代码 (IaC, Infrastructure as Code) 的概念及相关工具"><meta property="og:url" content="https://senjianlu.com/2024/10/06/terraform_note_01/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="仅做个人学习笔记复习使用，如果侵权请联系。  前言在开始学习使用 Terraform 之前，首先需要了解什么是基础设施即代码（IaC, Infrastructure as Code）。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-10-01/235838.png"><meta property="article:published_time" content="2024-10-06T10:00:00.000Z"><meta property="article:modified_time" content="2024-10-06T10:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="Terraform"><meta property="article:tag" content="IaC"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-10-01/235838.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/10/06/terraform_note_01/"},"headline":"Terraform 学习笔记（一）基础设施即代码 (IaC, Infrastructure as Code) 的概念及相关工具","image":["https://image.senjianlu.com/blog/2024-10-01/235838.png"],"datePublished":"2024-10-06T10:00:00.000Z","dateModified":"2024-10-06T10:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"仅做个人学习笔记复习使用，如果侵权请联系。  前言在开始学习使用 Terraform 之前，首先需要了解什么是基础设施即代码（IaC, Infrastructure as Code）。"}</script><link rel="canonical" href="https://senjianlu.com/2024/10/06/terraform_note_01/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-10-06T10:00:00.000Z" title="10/6/2024, 6:00:00 PM">2024-10-06</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/DevOps/">DevOps</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">Terraform 学习笔记（一）基础设施即代码 (IaC, Infrastructure as Code) 的概念及相关工具</h1><div class="content"><blockquote>
+<p><u>仅做个人学习笔记复习使用，如果侵权请联系。</u></p>
+</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在开始学习使用 <code>Terraform</code> 之前，首先需要了解什么是基础设施即代码（IaC, Infrastructure as Code）。  </p>
+<span id="more"></span>
+
+<hr>
+<h2 id="自动化之前的-DevOps-任务"><a href="#自动化之前的-DevOps-任务" class="headerlink" title="自动化之前的 DevOps 任务"></a>自动化之前的 DevOps 任务</h2><p>自动化尚未普及的时代，当编写完一个应用程序，想要部署它到服务器上，意味着要经历一系列繁琐的步骤。<br>常常需要：准备服务器配置网络、创建路由表、安装必要的软件、配置这些软件。  </p>
+<blockquote>
+<p>比如为 Java 应用程序安装特定版本的 Java 环境、为应用程序配置数据库，以及执行一系列其他操作来确保服务器准备就绪，以便应用程序能够顺利的运行。</p>
+</blockquote>
+<p>所有这些繁琐的任务通常由系统管理员手动完成，这不仅耗时耗力，需要更多的人力成本，而且容易出错。<br>然而部署准备仅仅是开始之后的配置和维护同样的重要。<br>可能还需要做：更新版本、部署应用程序的新版本、执行数据库备份升级、在服务器崩溃后恢复应用程序或更改网络配置等等各种各样的工作，这些工作同样需要手动完成。</p>
+<hr>
+<h2 id="自动化之后的-DevOps-任务"><a href="#自动化之后的-DevOps-任务" class="headerlink" title="自动化之后的 DevOps 任务"></a>自动化之后的 DevOps 任务</h2><p>好消息是不再需要手动的执行这些操作。<br>通过基础设施及代码，可以实现整个流程的自动化，即 IaC: Infrastructure as Code。</p>
+<hr>
+<h2 id="什么是基础设施即代码"><a href="#什么是基础设施即代码" class="headerlink" title="什么是基础设施即代码"></a>什么是基础设施即代码</h2><h3 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h3><p><strong>基础设施记代码是一种方法，它通过编写和执行代码来自动化基础设施的配置和管理</strong>。<br>这意味着系统管理员和运维团队的专业知识和经验被编码到各种程序或应用程序中，从而可以自动地执行上述所有的任务。  </p>
+<h3 id="二、涉及到的工具"><a href="#二、涉及到的工具" class="headerlink" title="二、涉及到的工具"></a>二、涉及到的工具</h3><p>基础设施及代码不仅仅是一个概念，它还有一系列的工具，比如 <code>Ansible</code>、<code>Puppet</code>、<code>Terraform</code> 和 <code>CloudFormation</code> 等等，这些工具可以用于不同的场景和任务。<br><img src="https://image.senjianlu.com/blog/2024-10-06/194341.png" alt="IaC 常用工具"></p>
+<blockquote>
+<p>可能会好奇为什么有这么多不同的工具，难道我们就不能只用一个基础设施记代码工具来完成所有的任务吗？<br>实际上目前没有一个 IaC 工具能够从头到尾的完成上面所有的任务，每个工具都有其擅长的领域和特定的用途，因此通常需要组合使用两个或更多的工具来实现整个流程的自动化。</p>
+</blockquote>
+<h3 id="三、三个主要的任务类别（步骤）"><a href="#三、三个主要的任务类别（步骤）" class="headerlink" title="三、三个主要的任务类别（步骤）"></a>三、三个主要的任务类别（步骤）</h3><p>为了更好地理解这些工具的使用，我们可以将配置和管理任务大致分为三个类别（步骤）：</p>
+<ol>
+<li><strong>提供或创建基础设施</strong>。<blockquote>
+<p>比如：创建全新的服务器进行网络配置，创建负载均衡器以及在基础设施层面配置所有其他的内容。</p>
+</blockquote>
+</li>
+<li><strong>对已提供的基础设施进行配置</strong>。<blockquote>
+<p>这一步涉及在服务器上安装应用程序和软件，并进行必要的配置。<br>比如：准备将要部署的应用程序的基础设施（服务器环境），这可能包括安装 Java、数据库以及应用程序所需的其他的服务和进程。</p>
+</blockquote>
+</li>
+<li><strong>应用程序的部署</strong>。<blockquote>
+<p>这是前面的所有任务的最终目的。</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>随着 Docker 容器技术的普及，上面的第二步和第三步也就是配置和部署应用程序的步骤，在一定程度上已经合并在一起了。<br>因为使用 Docker 可以将应用程序及其所有的配置和所需的环境一起打包成一个容器镜像，配置已经打包在容器镜像里了。因此在第一步提供基础设施并安装 Docker 运行环境之后，只需要运行刀客容器即可，无需在服务器上进行过多的配置或安装额外的服务。</p>
+</blockquote>
+<h3 id="四、两个不同的阶段"><a href="#四、两个不同的阶段" class="headerlink" title="四、两个不同的阶段"></a>四、两个不同的阶段</h3><p>此外我们还需要区分<strong>初始设置</strong>和<strong>维护</strong>这两种阶段的不同：</p>
+<ol>
+<li><strong>初始设置阶段</strong>是：第一次提供和配置基础设施的过程。<ul>
+<li>提供或创建基础设置</li>
+<li>配置基础设置</li>
+<li>软件的初始安装</li>
+<li>软件的初始配置</li>
+</ul>
+</li>
+<li><strong>维护阶段</strong>则涉及：对基础设施的调整更改和优化，以及添加和删除服务器更改网络设置等等<ul>
+<li>调整基础设置</li>
+<li>添加或删除服务器</li>
+<li>更新软件</li>
+<li>重新配置软件</li>
+</ul>
+</li>
+</ol>
+<h3 id="五、IaC-工具的差异"><a href="#五、IaC-工具的差异" class="headerlink" title="五、IaC 工具的差异"></a>五、IaC 工具的差异</h3><h4 id="1、适合的任务类别的差异"><a href="#1、适合的任务类别的差异" class="headerlink" title="1、适合的任务类别的差异"></a>1、适合的任务类别的差异</h4><p>这是我们需要了解的、它们最重要的差别！  </p>
+<p>在我们清楚<strong>任务类别</strong>和<strong>阶段</strong>的区别后，我们很容易就能意识到需要：</p>
+<ul>
+<li><strong>在不同阶段自动执行不同类别的任务</strong>。</li>
+<li><strong>组合使用两个或更多的工具来实现整个流程的自动化</strong>。</li>
+</ul>
+<p>例如 <code>Terraform</code> 是一个专注于提供和管理基础设施的工具，但它也可以用于对基础设施上的应用程序进行初始化安装和配置。<br>然而对于这些应用程序的进一步维护，<code>Terraform</code> 则可能不是最佳的选择。<br>相比之下，<code>Ansible</code>、<code>Puppet</code>、和 <code>CHEF</code> 等工具更适用于配置和部署应用程序和之后对他们的管理任务，以及对于已经提供的基础设施的一些配置工作，但它们都不能用于服务器的初始配置。<br><img src="https://image.senjianlu.com/blog/2024-10-06/202253.png" alt="不同工具适用于不同任务"></p>
+<blockquote>
+<p>一个常见的场景是：使用 <code>Terraform</code> 来提供和配置基础设施，然后使用 <code>Ansible</code> 来安装和部署应用程序。</p>
+</blockquote>
+<h4 id="2、工作原理差异-程序性和声明性"><a href="#2、工作原理差异-程序性和声明性" class="headerlink" title="2、工作原理差异 - 程序性和声明性"></a>2、工作原理差异 - 程序性和声明性</h4><ol>
+<li><strong>程序性</strong>：需要逐步执行所需的操作来达到目标的状态。<blockquote>
+<p>比如：先创建服务器，然后添加服务器等等。</p>
+</blockquote>
+</li>
+<li><strong>声明性</strong>：只需要声明期望的最终状态，而工具将负责实现该状态。<blockquote>
+<p>比如：“我想要两台服务器”。</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="3、工作原理差异-可变基础设施与不可变基础设施"><a href="#3、工作原理差异-可变基础设施与不可变基础设施" class="headerlink" title="3、工作原理差异 - 可变基础设施与不可变基础设施"></a>3、工作原理差异 - 可变基础设施与不可变基础设施</h4><ol>
+<li><strong>可变基础设施</strong>：顾名思义，创建的基础设置配置可以调整。<blockquote>
+<p>比如：在创建三台服务器后，编辑其中一台或多台服务器的网络配置。</p>
+</blockquote>
+</li>
+<li><strong>可变基础设施</strong>：核心理念是任何基础设施的实例一旦创建之后，就成为只读的状态，不可对其进行任何的更改。<blockquote>
+<p>如果需要对基础设施进行更新或升级，唯一的方式是创建一批新的实例来替换旧的实例子。</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="4、其他的差别"><a href="#4、其他的差别" class="headerlink" title="4、其他的差别"></a>4、其他的差别</h4><p>还有诸如代理和无代理、主节点和无主节点等等其他的差异。<br>由于我们的目的暂时仅是学习 <code>Terraform</code> 这一种工具，因此不再做深入研究，如有需要请自行了解。  </p>
+<hr>
+<p>参考资料：</p>
+<ul>
+<li>📺 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=gtRdS-JKaFg">什么是基础设施即代码?</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.iloveaws.cn/course/terraform">Terraform – 从初级到高级</a><blockquote>
+<p>非常非常好的中文课程，恶魔老师有浅入深讲得非常好，强烈推荐！</p>
+</blockquote>
+</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>Terraform 学习笔记（一）基础设施即代码 (IaC, Infrastructure as Code) 的概念及相关工具</p><p><a href="https://senjianlu.com/2024/10/06/terraform_note_01/">https://senjianlu.com/2024/10/06/terraform_note_01/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-10-06</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-10-06</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/Terraform/">Terraform</a><a class="link-muted mr-2" rel="tag" href="/tags/IaC/">IaC</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/10/06/terraform_note_02/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Terraform 学习笔记（二）Terraform 是什么以及如何使用</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/10/06/translate_news_nhk_20241005_k10014601961000/"><span class="level-item">日语翻译 - 新闻 - 認知症で行方不明の高齢者 QRコードで早期発見へ訓練 北海道</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#前言"><span class="level-left"><span class="level-item">前言</span></span></a></li><li><a class="level is-mobile" href="#自动化之前的-DevOps-任务"><span class="level-left"><span class="level-item">自动化之前的 DevOps 任务</span></span></a></li><li><a class="level is-mobile" href="#自动化之后的-DevOps-任务"><span class="level-left"><span class="level-item">自动化之后的 DevOps 任务</span></span></a></li><li><a class="level is-mobile" href="#什么是基础设施即代码"><span class="level-left"><span class="level-item">什么是基础设施即代码</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、概念"><span class="level-left"><span class="level-item">一、概念</span></span></a></li><li><a class="level is-mobile" href="#二、涉及到的工具"><span class="level-left"><span class="level-item">二、涉及到的工具</span></span></a></li><li><a class="level is-mobile" href="#三、三个主要的任务类别（步骤）"><span class="level-left"><span class="level-item">三、三个主要的任务类别（步骤）</span></span></a></li><li><a class="level is-mobile" href="#四、两个不同的阶段"><span class="level-left"><span class="level-item">四、两个不同的阶段</span></span></a></li><li><a class="level is-mobile" href="#五、IaC-工具的差异"><span class="level-left"><span class="level-item">五、IaC 工具的差异</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#1、适合的任务类别的差异"><span class="level-left"><span class="level-item">1、适合的任务类别的差异</span></span></a></li><li><a class="level is-mobile" href="#2、工作原理差异-程序性和声明性"><span class="level-left"><span class="level-item">2、工作原理差异 - 程序性和声明性</span></span></a></li><li><a class="level is-mobile" href="#3、工作原理差异-可变基础设施与不可变基础设施"><span class="level-left"><span class="level-item">3、工作原理差异 - 可变基础设施与不可变基础设施</span></span></a></li><li><a class="level is-mobile" href="#4、其他的差别"><span class="level-left"><span class="level-item">4、其他的差别</span></span></a></li></ul></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

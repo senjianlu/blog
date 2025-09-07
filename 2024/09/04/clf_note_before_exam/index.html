@@ -1,0 +1,834 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>CLF - 备考（学习）笔记 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="AWS Certified Cloud Practitioner CLF-C02 考前（学习）笔记。由于考试较为简单，因此不再提炼知识点而是统一记录。"><meta property="og:type" content="article"><meta property="og:title" content="CLF - 备考（学习）笔记"><meta property="og:url" content="https://senjianlu.com/2024/09/04/clf_note_before_exam/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="AWS Certified Cloud Practitioner CLF-C02 考前（学习）笔记。由于考试较为简单，因此不再提炼知识点而是统一记录。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-04/CCP.png"><meta property="article:published_time" content="2024-09-04T08:30:00.000Z"><meta property="article:modified_time" content="2024-09-04T08:30:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="CLF"><meta property="article:tag" content="云服务"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-04/CCP.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/09/04/clf_note_before_exam/"},"headline":"CLF - 备考（学习）笔记","image":["https://image.senjianlu.com/blog/2024-09-04/CCP.png"],"datePublished":"2024-09-04T08:30:00.000Z","dateModified":"2024-09-04T08:30:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"AWS Certified Cloud Practitioner CLF-C02 考前（学习）笔记。由于考试较为简单，因此不再提炼知识点而是统一记录。"}</script><link rel="canonical" href="https://senjianlu.com/2024/09/04/clf_note_before_exam/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-09-04T08:30:00.000Z" title="9/4/2024, 4:30:00 PM">2024-09-04</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">CLF - 备考（学习）笔记</h1><div class="content"><blockquote>
+<p>AWS Certified Cloud Practitioner CLF-C02 考前（学习）笔记。<br>由于考试较为简单，因此不再提炼知识点而是统一记录。</p>
+</blockquote>
+<span id="more"></span>
+
+<p>学习资料：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://explore.skillbuilder.aws/learn/course/13600/">AWS Skill Builder</a></li>
+</ol>
+<hr>
+<h2 id="模块-1-AMAZON-WEB-SERVICE-简介"><a href="#模块-1-AMAZON-WEB-SERVICE-简介" class="headerlink" title="模块 1: AMAZON WEB SERVICE 简介"></a>模块 1: AMAZON WEB SERVICE 简介</h2><h3 id="一、基本概念"><a href="#一、基本概念" class="headerlink" title="一、基本概念"></a>一、基本概念</h3><ul>
+<li><strong>三种部署模式</strong>：云、私有和混合云部署。</li>
+<li>在 AWS 的考试中，<strong>云计算</strong>特指<u><strong>采用随用随付定价模式，通过互联网按需交付 IT 资源和应用程序</strong></u>。</li>
+</ul>
+<hr>
+<h2 id="模块-2-云中的计算"><a href="#模块-2-云中的计算" class="headerlink" title="模块 2: 云中的计算"></a>模块 2: 云中的计算</h2><h3 id="一、基本概念-1"><a href="#一、基本概念-1" class="headerlink" title="一、基本概念"></a>一、基本概念</h3><ul>
+<li><strong>垂直缩放</strong>：随时增大、减小服务器的资源。</li>
+<li><strong>可扩展性</strong>：仅从您需要的资源开始，并且设计架构以便自动扩展和缩减，从而响应不断变化的需求。<blockquote>
+<p>提供此功能的 AWS 服务是 <code>Amazon EC2 Auto Scaling</code>。</p>
+</blockquote>
+</li>
+<li>紧密耦合架构：单个组件发生故障&#x2F;变化，会导致其他组件、甚至整个架构发生故障。</li>
+<li><strong>松散耦合架构</strong>：单个故障不会导致级联故障。</li>
+<li><strong>无服务器计算</strong>：一词是指您的代码在服务器上运行，但您无需预置或管理这些服务器。  <blockquote>
+<p>AWS 的无服务器计算服务是 <code>AWS Lambda</code>。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="二、Amazon-EC2-实例类型"><a href="#二、Amazon-EC2-实例类型" class="headerlink" title="二、Amazon EC2 实例类型"></a>二、Amazon EC2 实例类型</h3><ul>
+<li><strong>通用型</strong>：在计算、内存和联网资源上平衡。</li>
+<li><strong>计算优化型</strong>：适合计算密集型任务，提供了高性能处理器 (CPU)。适合充当游戏服务器、进行高性能计算 (HPC) 或科学建模。</li>
+<li><strong>内存优化型</strong>：适合内存密集型任务。适合部署<u><strong>高性能数据库</strong></u>。</li>
+<li><strong>加速计算型</strong>：使用了硬件加速器（往往是 GPU 等）。适合进行浮点数计算、图形处理或数据模式匹配。</li>
+<li><strong>存储优化型</strong>：适合数据存储（与其对应的高性能处理）任务。</li>
+</ul>
+<h3 id="三、Amazon-EC2-定价"><a href="#三、Amazon-EC2-定价" class="headerlink" title="三、Amazon EC2 定价"></a>三、Amazon EC2 定价</h3><ul>
+<li><p><strong>按需付费</strong>：只需要按使用时间付费。</p>
+</li>
+<li><p><strong>EC2 实例 Savings Plans</strong>：承诺使用 1 或 3 年的 EC2 实例，并做出每小时支付承诺。最高可节省 <code>72%</code> 的成本。</p>
+<blockquote>
+<p>关键词：<strong>实例系列</strong>、<strong>区域</strong>。</p>
+</blockquote>
+</li>
+<li><p><strong>预留实例</strong>：承诺使用 1 或 3 年的 EC2 实例。最高可节省 <code>75%</code> 的成本。<br>三种付款方式：</p>
+<ul>
+<li>预付全部费用</li>
+<li>预付部分费用</li>
+<li>不预付</li>
+</ul>
+<blockquote>
+<p>关键词：<strong>实例系列和<u>大小</u></strong>、<u><strong>平台描述（系统）​</strong></u>、<strong>租赁</strong>、<strong>区域</strong>。（比 <code>EC2 实例 Savings Plans</code> 更为详细。）</p>
+</blockquote>
+</li>
+<li><p><strong>Spot 实例</strong>：不稳定的实例，Amazon 会随时停止该实例并只提前 2 分钟进行警告。最高可节省 <code>90%</code> 的成本。</p>
+</li>
+<li><p><strong>专用主机</strong>：Amazon EC2 实例容量完全供您专用的物理服务器。往往处于合规性要求。</p>
+</li>
+</ul>
+<h3 id="四、扩展-Amazon-EC2"><a href="#四、扩展-Amazon-EC2" class="headerlink" title="四、扩展 Amazon EC2"></a>四、扩展 Amazon EC2</h3><ul>
+<li><strong>Amazon EC2 Auto Scaling</strong>：<code>可扩展性</code> <strong>自动添加或删除 Amazon EC2 实例</strong>，以响应不断变化的应用程序需求。</li>
+</ul>
+<h3 id="五、利用-Elastic-Load-Balancing-ELB-引导流量"><a href="#五、利用-Elastic-Load-Balancing-ELB-引导流量" class="headerlink" title="五、利用 Elastic Load Balancing (ELB) 引导流量"></a>五、利用 Elastic Load Balancing (ELB) 引导流量</h3><ul>
+<li><strong>Elastic Load Balancing (ELB)​</strong>：可在多个资源（例如 Amazon EC2 实例）之间自动分配应用程序的传入流量（负载均衡）。<blockquote>
+<p>是<code>区域性服务（结构）</code>。<br>虽然 <code>Elastic Load Balancing</code> 和 <code>Amazon EC2 Auto Scaling</code> 是独立的服务，但它们可以协同工作，提供高性能和高可用性。具体表现为：流量变大，实例上线开始被分流，流量减少截断对实例的分流，实例开始下线。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="六、消息收发和队列"><a href="#六、消息收发和队列" class="headerlink" title="六、消息收发和队列"></a>六、消息收发和队列</h3><ul>
+<li><p><strong>Amazon Simple Queue Service (Amazon SQS)​</strong>：在软件&#x2F;组件之间，发送、存储和接收<strong>任何容量</strong>的消息。自动扩展。</p>
+<ul>
+<li>Amazon SQS 队列：消息被接受前所处的位置。</li>
+</ul>
+</li>
+<li><p><strong>Amazon Simple Notification Service (Amazon SNS)​</strong>：是发布&#x2F;订阅模式的服务，发布者使用 <code>Amazon SNS 主题</code> 将消息发布给订阅者，订阅者可以是 Web 服务器、电子邮件地址（终端用户）、AWS Lambda 函数或其他一些选项。</p>
+<ul>
+<li>Amazon SNS 主题：分发消息的通道。</li>
+</ul>
+</li>
+</ul>
+<h3 id="七、其他计算服务"><a href="#七、其他计算服务" class="headerlink" title="七、其他计算服务"></a>七、其他计算服务</h3><ul>
+<li><strong>AWS Lambda</strong>：<code>无服务器计算</code> 服务触发设定的事件源时运行指定代码。​<strong>代码的最长运行时长为 15 分钟</strong>。只需为使用的计算时间付费。  </li>
+<li><strong>Amazon Elastic Container Service (Amazon ECS)​</strong>：<code>Docker 容器编排工具</code> 高度可扩展的高性能容器管理系统，让您可以在 AWS 上运行和扩展容器化应用程序。  <blockquote>
+<p>注意 <code>ECS</code> 仅仅是编排工具，还需要搭配容器运行的平台 <code>EC2</code> 或 <code>Fargate</code>。</p>
+</blockquote>
+</li>
+<li><strong>Amazon Elastic Kubernetes Service (Amazon EKS)​</strong>：<code>Docker 容器编排工具</code> 一项完全托管式服务，可用于在 AWS 上运行 <code>Kubernetes</code>。<blockquote>
+<p>注意 <code>EKS</code> 仅仅是编排工具，还需要搭配容器运行的平台 <code>EC2</code> 或 <code>Fargate</code>。</p>
+</blockquote>
+</li>
+<li><strong>AWS Fargate</strong>：适用于容器的无服务器计算环境（引擎）。<blockquote>
+<p>它可与容器编排工具 <code>Amazon ECS</code> 和 <code>Amazon EKS</code> 一起使用。</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="模块-3-全球基础设施和可靠性"><a href="#模块-3-全球基础设施和可靠性" class="headerlink" title="模块 3: 全球基础设施和可靠性"></a>模块 3: 全球基础设施和可靠性</h2><h3 id="一、基本概念-2"><a href="#一、基本概念-2" class="headerlink" title="一、基本概念"></a>一、基本概念</h3><ul>
+<li><strong>区域</strong>：AWS 的基础设施分布在全球多个区域中，<u><strong>每个区域都是一个独立的地理区域，由多个可用区组成</strong></u>。<blockquote>
+<p><code>区域性服务</code> 是区域层级的<strong>高度可用</strong>服务。</p>
+</blockquote>
+</li>
+<li><strong>可用区</strong>：一个区域内有 1 个或多个可用区，而一个可用区内有 1 个或多个分离的数据中心。<blockquote>
+<p>可用区彼此相距数十英里，这个距离足够近，可以在可用区之间实现低延迟（请求内容与接收内容之间的时间）。<br>但是，如果区域内的某个部分发生灾难，这个距离又足够远，可以降低多个可用区受到影响的几率。  </p>
+</blockquote>
+</li>
+<li><strong>区域数据主权</strong>：对数据的处理需要遵守所在区域的法律法规，数据和应用程序都在某个区域中驻留并运行。</li>
+<li><strong>内容分发网络 (CDN)​</strong>：是一种服务，可将内容缓存到位于全球各地的边缘位置，以便更快地向最终用户提供内容。<blockquote>
+<p>AWS 上的内容分发网络服务是 <code>Amazon CloudFront</code>。</p>
+</blockquote>
+</li>
+<li><strong>AWS 最佳实践</strong>：至少在两个可用区中部署基础设置，以确保高可用性。</li>
+</ul>
+<h3 id="二、AWS-全球基础设施"><a href="#二、AWS-全球基础设施" class="headerlink" title="二、AWS 全球基础设施"></a>二、AWS 全球基础设施</h3><ul>
+<li><strong>合规性（遵守数据监管和法律要求）​</strong>：是区域选择的重要因素。</li>
+<li><strong>与客户的距离</strong>：选择靠近客户的区域可以帮助您更快地向客户分发内容。例如，您的公司总部位于华盛顿特区，但您的许多客户都居住在新加坡。您可以考虑在离公司总部较近的<strong>弗吉尼亚北部区域</strong>运行<strong>基础设施</strong>，在<strong>新加坡区域</strong>运行<strong>应用程序</strong>。</li>
+<li><strong>区域内的可用服务</strong>：有可能最近的 AWS 区域不支持您想要为客户提供的所有功能。</li>
+<li><strong>定价</strong>：服务的成本可能会因区域而有所不同。</li>
+</ul>
+<h3 id="三、边缘站点"><a href="#三、边缘站点" class="headerlink" title="三、边缘站点"></a>三、边缘站点</h3><ul>
+<li><strong>Amazon CloudFront</strong>：<code>内容分发网络 (CDN)</code> 将缓存的内容副本存储在更靠近客户的位置（边缘站点），以便加快分发速度。  </li>
+<li><strong>边缘站点</strong>：与 <code>区域</code> 是分开的。</li>
+<li><strong>AWS Outposts</strong>：AWS 服务和基础设施扩展到本地的数据中心、办公室或合作伙伴设施中。</li>
+</ul>
+<h3 id="四、如何预置（操作）-AWS-资源"><a href="#四、如何预置（操作）-AWS-资源" class="headerlink" title="四、如何预置（操作） AWS 资源"></a>四、如何预置（操作） AWS 资源</h3><p>与 AWS 服务交互的方式：</p>
+<ul>
+<li><strong>AWS 管理控制台</strong>：基于 Web 的界面，用于访问和管理 AWS 服务。</li>
+<li><strong>AWS Command Line Interface (AWS CLI)​</strong>：通过命令行控制多项 AWS 服务。<blockquote>
+<p>借助使用 AWS CLI，可以通过脚本自动执行服务和应用程序执行的操作。</p>
+</blockquote>
+</li>
+<li><strong>软件开发工具包 (SDK)​</strong>：SDK 通过为各编程语言或平台设计的 API，使用户能更轻松地使用 AWS 服务。</li>
+</ul>
+<p>进阶工具：</p>
+<ul>
+<li><p><strong>AWS Elastic Beanstalk</strong>：通过提供的<strong>应用程序代码</strong>和<strong>预期配置设置</strong>，创建和管理基于 <code>EC2</code> 的环境。<br>  <code>Elastic Beanstalk</code> 会负责部署执行以下任务所需的资源：</p>
+<ul>
+<li>调整容量</li>
+<li>负载均衡</li>
+<li>弹性伸缩</li>
+<li>应用程序运行状况监控</li>
+</ul>
+</li>
+<li><p><strong>AWS CloudFormation</strong>：基础设置即代码工具，用于定义各种 AWS 资源。通过 JSON 或 YAML 模板定义 AWS 资源，然后使用该 <code>AWS CloudFormation 模板</code> 创建和管理这些资源。  </p>
+<blockquote>
+<p>可以在多个 AWS 账户和区域中重复使用 <code>AWS CloudFormation 模板</code>。</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="模块-4-联网"><a href="#模块-4-联网" class="headerlink" title="模块 4: 联网"></a>模块 4: 联网</h2><h3 id="一、基本概念-3"><a href="#一、基本概念-3" class="headerlink" title="一、基本概念"></a>一、基本概念</h3><ul>
+<li><strong>Amazon Virtual Private Cloud (Amazon VPC)​</strong>：虚拟私有云，是区域内的逻辑隔离部分。<blockquote>
+<p><code>Amazon VPC</code> 可以进一步分为 <code>子网</code>。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="二、与-AWS-的连接"><a href="#二、与-AWS-的连接" class="headerlink" title="二、与 AWS 的连接"></a>二、与 AWS 的连接</h3><ul>
+<li><strong>互联网网关</strong>：互联网网关是 VPC 和互联网之间的连接。<blockquote>
+<p>要允许来自互联网的公共流量访问您的 <code>VPC</code>，可以在 <code>VPC</code> 中附加互联网网关。</p>
+</blockquote>
+</li>
+<li><strong>虚拟私有网关</strong>：是允许<strong>受保护的互联网流量</strong>进入 <code>VPC</code> 的组件。<blockquote>
+<p>借助虚拟私有网关，您可以在您的 <code>VPC</code> 和私有网络（例如本地数据中心或企业内部网络）之间建立虚拟专用网络 (VPN) 连接。<br>虚拟私有网关仅允许来自经批准的网络的流量流入 VPC。</p>
+</blockquote>
+</li>
+<li><strong>AWS Direct Connect</strong>：是一项 AWS 服务，让您能够在数据中心和 <code>VPC</code> 之间建立专用私有连接。<blockquote>
+<p>企业数据中心（通过访问客户或合作伙伴路由器）将网络流量（经过 AWS 的隧道）路由到 <code>AWS Direct Connect</code> 站点，然后这些流量通过虚拟私有网关路由到 VPC。<br>企业数据中心和 <code>VPC</code> 之间的所有网络流量都要流经这个专用私有连接。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="三、子网和网络访问控制列表"><a href="#三、子网和网络访问控制列表" class="headerlink" title="三、子网和网络访问控制列表"></a>三、子网和网络访问控制列表</h3><ul>
+<li><strong>网络 ACL</strong>：用于在 <code>子网</code> 级别控制入站和出站流量的虚拟防火墙。<blockquote>
+<p>账户默认的 <code>网络 ACL</code> <strong>允许所有入站和出站流量</strong>。</p>
+</blockquote>
+</li>
+<li><strong>无状态数据包筛选</strong>：<code>网络 ACL</code> 执行<strong>无状态</strong>数据包筛选，它们<strong>不会保留任何记忆</strong>，无论数据包是通过入站还是出站方式跨越子网边界，它们均会对其进行检查。<blockquote>
+<p><code>request</code> 和对应的 <code>response</code> 会被处理 <strong>2</strong> 次。</p>
+</blockquote>
+</li>
+<li><strong>安全组</strong>：可控制 Amazon <code>EC2</code> 实例的入站和出站流量的虚拟防火墙。  <blockquote>
+<p>默认情况下，安全组会拒绝所有<strong>入站</strong>流量。</p>
+</blockquote>
+</li>
+<li><strong>有状态数据包筛选</strong>：安全组执行<strong>有状态</strong>数据包筛选，它们会<strong>记住</strong>之前对传入数据包的处理方式。<blockquote>
+<p><code>request</code> 和对应的 <code>response</code> 只会被处理 <strong>1</strong> 次。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="四、全球联网"><a href="#四、全球联网" class="headerlink" title="四、全球联网"></a>四、全球联网</h3><ul>
+<li><strong>Amazon Route 53</strong>：是一项 DNS Web 服务，它不仅可以将用户请求连接到在 AWS 中运行的基础设施（如 EC2 实例和负载均衡器），还可以将用户路由到 AWS 以外的基础设施。<blockquote>
+<p><code>Amazon Route 53</code> 还提供域名注册和转移服务。</p>
+</blockquote>
+</li>
+<li><strong>域名系统 (DNS)​</strong>：DNS 解析是将域名转换为 IP 地址的过程。</li>
+</ul>
+<hr>
+<h2 id="模块-5-存储和数据库"><a href="#模块-5-存储和数据库" class="headerlink" title="模块 5: 存储和数据库"></a>模块 5: 存储和数据库</h2><h3 id="一、基本概念-4"><a href="#一、基本概念-4" class="headerlink" title="一、基本概念"></a>一、基本概念</h3><ul>
+<li><strong>关系数据库</strong>：在关系数据库中，数据的存储方式是将其与数据的其他部分相关联。关系数据库使用结构化查询语言 (SQL) 来存储和查询数据。<blockquote>
+<p>提供关系数据库托管的服务是 <code>Amazon Relational Database Service</code>。</p>
+</blockquote>
+</li>
+<li><strong>非关系数据库</strong>：NoSQL 数据库，数据结构简单、灵活。非关系数据库的一种结构方法是键值对，可以随时在表中添加或删除项目的属性。<blockquote>
+<p>提供非关系数据库托管的服务是 <code>Amazon DynamoDB</code>。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="二、实例存储和-Amazon-Elastic-Block-Store-Amazon-EBS"><a href="#二、实例存储和-Amazon-Elastic-Block-Store-Amazon-EBS" class="headerlink" title="二、实例存储和 Amazon Elastic Block Store (Amazon EBS)"></a>二、实例存储和 Amazon Elastic Block Store (Amazon EBS)</h3><ul>
+<li><strong>实例存储</strong>：是为 <code>EC2</code> 提供的<strong>临时性</strong>块级存储，与该实例相同的生命周期。<blockquote>
+<p>实例存储以<strong>物理方式</strong>连接到主机，当实例终止时，实例存储中的所有数据也将丢失。</p>
+</blockquote>
+</li>
+<li><strong>Amazon Elastic Block Store (Amazon EBS)​</strong>：<code>可用区</code> 级别的、<strong>持久性</strong>块级存储卷的服务（外部虚拟硬盘）。<blockquote>
+<p>要创建 EBS 卷，需要定义卷大小、类型等配置，之后将它附加到 <code>EC2</code> 实例上。<br><code>EC2</code> 实例需要和 <code>EBS</code> 位于同一可用区。<br><em>有别于后续会提到的 <code>EFS</code> 弹性文件系统，它不会自动扩展，磁盘的空间用完了就是用完了。</em></p>
+</blockquote>
+</li>
+<li><strong>Amazon EBS 快照</strong>：对 <code>EBS</code> 卷的数据进行<strong>增量备份</strong>。<blockquote>
+<p>仅第一次备份复制所有数据，后续仅保存和上一次备份相比有更改的数据块。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="三、Amazon-Simple-Storage-Service-Amazon-S3"><a href="#三、Amazon-Simple-Storage-Service-Amazon-S3" class="headerlink" title="三、Amazon Simple Storage Service (Amazon S3)"></a>三、Amazon Simple Storage Service (Amazon S3)</h3><ul>
+<li><p><strong>对象存储</strong>：每个对象都由<strong>数据</strong>、<strong>元数据</strong>和<strong>键</strong>组成。</p>
+<ul>
+<li>数据：可能是图片、视频、文本文档或任何其他类型的文件。</li>
+<li>元数据：包含有关数据是什么、如何使用数据和对象大小等的信息。</li>
+<li>对象键：对象的唯一标识符。</li>
+</ul>
+</li>
+<li><p><strong>Amazon Simple Storage Service (Amazon S3)​</strong>：是对象级存储的服务，<code>Amazon S3</code> 将数据作为对象存储在（多个）存储桶中。</p>
+<ul>
+<li>对象的最大文件大小为 5TB。</li>
+<li>支持版本控制。</li>
+<li>支持权限控制。</li>
+</ul>
+</li>
+<li><p><strong>Amazon S3 存储层（类）​</strong>：使用前需要确定<strong>检索数据的频率</strong>、<strong>需要的数据可用性</strong>。  </p>
+<ul>
+<li>⭐ Amazon S3 Standard（S3 标准存储）<blockquote>
+<p>适合托管静态网站。</p>
+</blockquote>
+<ul>
+<li>专为<strong>频繁访问</strong>的数据而设计</li>
+<li>将数据存储在至少三个可用区中</li>
+</ul>
+</li>
+<li>⭐ S3 Standard-Infrequent Access (S3 Standard-IA)（S3 标准 - 不频繁访问存储）<blockquote>
+<p>适合存储备份、灾难恢复文件。</p>
+</blockquote>
+<ul>
+<li>适合存储<strong>不频繁访问</strong>的数据</li>
+<li>存储价格较低</li>
+<li>检索价格较高</li>
+<li>将数据存储在至少三个可用区中</li>
+</ul>
+</li>
+<li>⭐ S3 Glacier Flexible Retrieval<blockquote>
+<p>非常适合用于数据归档，如保存审计数据等。</p>
+</blockquote>
+<ul>
+<li>低成本存储，专为数据归档而设计</li>
+<li>能够在几分钟到几小时内完成对象检索</li>
+<li>支持使用 <code>S3 Glacier</code> 文件库锁定，进行类似“一写多读 (WORM)”的策略来防止将来被编辑</li>
+</ul>
+</li>
+<li>S3 One Zone-Infrequent Access (S3 One Zone-IA)<blockquote>
+<p>足够便宜，适合存储你可以（接受丢失）轻松重现的数据。</p>
+</blockquote>
+<ul>
+<li>存储价格<strong>更低</strong>，低于 <code>Amazon S3 Standard-IA</code></li>
+<li>将数据存储在单个可用区中</li>
+</ul>
+</li>
+<li>S3 Glacier Instant Retrieval<ul>
+<li>适用于需要立即访问的归档数据</li>
+<li>可在数毫秒内检索对象</li>
+</ul>
+</li>
+<li>S3 Intelligent-Tiering<blockquote>
+<p><code>Amazon S3 </code> 会监控对象的访问模式：30 天没有访问的对象转移至 <code>S3 Standard-IA</code>，而如果你又重新访问了不频繁访问层的数据，这些对象又会被移动到 <code>S3 Standard</code>。</p>
+</blockquote>
+<ul>
+<li>非常适合存储访问模式未知或不断变化的数据</li>
+<li>每个对象每月会产生少量的监控和自动化费用</li>
+</ul>
+</li>
+<li>S3 Glacier Deep Archive<blockquote>
+<p>适合保存每年只访问一两次的数据，数据检索时间为 12 小时到 48 小时。</p>
+</blockquote>
+<ul>
+<li>成本最低的对象存储类，非常适合用于归档</li>
+<li>能够在 12 小时内检索对象</li>
+<li>将数据存储在至少三个可用区中</li>
+</ul>
+</li>
+<li>S3 Outposts<blockquote>
+<p>非常适合具有本地数据驻留要求的工作负载。</p>
+</blockquote>
+<ul>
+<li>在 <code>Amazon S3 Outposts</code> 上创建 S3 存储桶</li>
+<li>可让您更轻松地在 <code>AWS Outposts</code> 上检索、存储和访问数据</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Amazon S3 生命周期管理</strong>：在存储层（类）之间自动移动数据。</p>
+</li>
+</ul>
+<h3 id="四、Amazon-Elastic-File-System-Amazon-EFS"><a href="#四、Amazon-Elastic-File-System-Amazon-EFS" class="headerlink" title="四、Amazon Elastic File System (Amazon EFS)"></a>四、Amazon Elastic File System (Amazon EFS)</h3><ul>
+<li><strong>文件存储</strong>：多个客户端（例如用户、应用程序和服务器等）可以访问存储在<strong>共享文件夹</strong>中的数据。存储服务器使用<strong>块存储</strong>和本地文件系统来组织文件；客户端通过文件路径访问数据。</li>
+<li><strong>Amazon Elastic File System (Amazon EFS)​</strong>：可扩展的文件系统。<ul>
+<li><code>区域</code> 级别的资源。</li>
+<li>它将数据存储在<strong>多个可用区</strong>中。</li>
+<li><strong>自动扩展和缩减</strong>。</li>
+<li>支持多个实例同时读写。</li>
+<li>真正的 Linux 文件系统。</li>
+<li>本地服务器可以使用 <code>AWS Direct Connect</code> 访问 <code>Amazon EFS</code>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="五、Amazon-Relational-Database-Service-Amazon-RDS"><a href="#五、Amazon-Relational-Database-Service-Amazon-RDS" class="headerlink" title="五、Amazon Relational Database Service (Amazon RDS)"></a>五、Amazon Relational Database Service (Amazon RDS)</h3><ul>
+<li><p><strong>Amazon Relational Database Service</strong>：支持自动修复、备份、冗余、故障转移和灾难修复的数据库托管服务。<br>  支持的数据库引擎：</p>
+<ul>
+<li>Amazon Aurora</li>
+<li>PostgreSQL</li>
+<li>MySQL</li>
+<li>MariaDB</li>
+<li>Oracle Database</li>
+<li>Microsoft SQL Server</li>
+</ul>
+</li>
+<li><p><strong>Amazon Aurora</strong>：企业级关系数据库，兼容 MySQL 和 PostgreSQL 数据库引擎。多数据副本、支持添加更多的只读副本；支持备份到 <code>S3</code>；支持时间点恢复。</p>
+</li>
+</ul>
+<h3 id="六、Amazon-DynamoDB"><a href="#六、Amazon-DynamoDB" class="headerlink" title="六、Amazon DynamoDB"></a>六、Amazon DynamoDB</h3><ul>
+<li><strong>Amazon DynamoDB</strong>：键值（结构简单的数据）数据库、无服务器服务。<em>数据结构像是 MongoDB</em>。<ul>
+<li>拥有巨大的吞吐能力。</li>
+<li>在任意规模实现不超过 10 毫秒的延迟。  </li>
+<li>同时会随着数据库大小进行缩减或扩展，适合用于在扩展时需要高性能的使用案例。</li>
+<li>精细的 API 访问权限控制。</li>
+</ul>
+</li>
+</ul>
+<h3 id="七、Amazon-Redshift"><a href="#七、Amazon-Redshift" class="headerlink" title="七、Amazon Redshift"></a>七、Amazon Redshift</h3><ul>
+<li><strong>Amazon Redshift</strong>：数据仓库服务，可用于大数据分析。<blockquote>
+<p>适合从多个源收集数据，并了解数据中的关系和趋势。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="八、AWS-Database-Migration-Service"><a href="#八、AWS-Database-Migration-Service" class="headerlink" title="八、AWS Database Migration Service"></a>八、AWS Database Migration Service</h3><ul>
+<li><strong>AWS Database Migration Service (AWS DMS)​</strong>：在源数据库和目标数据库之间迁移<strong>关系数据库</strong>、<strong>非关系数据库</strong>和其他类型的数据存储。<blockquote>
+<p>在迁移期间，源数据库保持运行。<br>支持持续复制（备份）到另一个数据库。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="九、其他数据库服务和加速器"><a href="#九、其他数据库服务和加速器" class="headerlink" title="九、其他数据库服务和加速器"></a>九、其他数据库服务和加速器</h3><p>其他数据库服务：</p>
+<ul>
+<li><strong>Amazon DocumentDB</strong>：文档数据库服务，支持 MongoDB 工作负载。<blockquote>
+<p>MongoDB 是一个文档数据库程序。</p>
+</blockquote>
+</li>
+<li><strong>Amazon Neptune</strong>：图数据库服务。<blockquote>
+<p>使用 <code>Amazon Neptune</code> 构建和运行使用高度互联数据集的应用程序，例如推荐引擎、欺诈侦测和知识图谱。</p>
+</blockquote>
+</li>
+<li><strong>Amazon Quantum Ledger Database (Amazon QLDB)​</strong>：<strong>不可变记录系统</strong>，分类账数据库服务。<blockquote>
+<p>用 <code>Amazon QLDB</code> 查看对应用程序数据进行的所有更改的完整历史记录。</p>
+</blockquote>
+</li>
+<li><strong>Amazon Managed Blockchain</strong>：让您可以通过开源框架创建和管理区块链网络。<blockquote>
+<p>区块链是一种分布式分类账系统，可让多方在没有中央授权的情况下运行交易和共享数据。</p>
+</blockquote>
+</li>
+</ul>
+<p>加速器（缓存解决方案）：</p>
+<ul>
+<li><strong>Amazon ElastiCache</strong>：在数据库上添加缓存层，支持两种类型的数据存储：Redis 和 Memcached。<blockquote>
+<p>缩短常见请求的读取时间。</p>
+</blockquote>
+</li>
+<li><strong>Amazon DynamoDB Accelerator (DAX)​</strong>：适用于 <code>DynamoDB</code> 的内存中的缓存。<blockquote>
+<p>它有助于将响应时间从个位数毫秒级缩短到微秒级。</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="模块-6-安全性"><a href="#模块-6-安全性" class="headerlink" title="模块 6: 安全性"></a>模块 6: 安全性</h2><h3 id="一、基本概念-5"><a href="#一、基本概念-5" class="headerlink" title="一、基本概念"></a>一、基本概念</h3><ul>
+<li><p><strong>AWS 责任共担模式</strong>：<br>  <img src="https://image.senjianlu.com/blog/2024-09-06/AWS.png" alt="AWS 责任共担模式">  </p>
+</li>
+<li><p><strong>AWS 最佳实践</strong>：</p>
+<ol>
+<li><strong>不使用</strong> <code>根用户</code> 来执行日常任务，而是使用根用户来创建您的首个 <code>IAM 用户</code>，并为其分配权限来创建其他用户。  </li>
+<li><strong>为需要访问 AWS 的每个人创建单独的 <code>IAM 用户</code>​</strong>。即使的多位员工需要相同级别的访问权限，也应该为每位员工创建单独的 <code>IAM 用户</code>。</li>
+<li><code>IAM 角色</code> 非常适合用于需要<strong>临时授予（而不是长期授予）​</strong>对服务或资源的访问权限的情况。</li>
+</ol>
+</li>
+<li><p><strong>关于 AWS Organizations 的作用范围</strong>：在 <code>AWS Organizations</code> 中，可以将服务控制策略 (SCP) 应用于组织根账户、单个成员账户或 <code>OU</code>。<br>SCP 可影响账户中的所有 <code>IAM 用户</code>、<code>组</code> 和 <code>角色</code>，包括 <code>AWS 账户根用户</code>。  </p>
+</li>
+<li><p><strong>拒绝服务攻击 (DoS)​</strong>：蓄意让用户无法使用某个网站或应用程序。</p>
+</li>
+<li><p><strong>分布式拒绝服务攻击 (DDoS)​</strong>：攻击者使用<strong>多个</strong>源发起攻击，旨在使网站或应用程序不可用。<br>  常见的攻击方式：</p>
+<ul>
+<li><strong>UDP 泛洪</strong>：攻击者向公共服务<strong>用被攻击服务器的信息</strong>请求大量 UDP 数据包。<blockquote>
+<p>可以使用 <code>安全组</code> 阻止 UDP 泛洪攻击和反射攻击等带来的非法流量。</p>
+</blockquote>
+</li>
+<li><strong>HTTP 级别攻击</strong>：攻击者用僵尸机器向服务器发送大量 HTTP 请求。</li>
+<li><strong>SLOWLORIS 攻击</strong>：攻击者与服务器建立大量半开连接，使服务器无法接受新连接。<blockquote>
+<p>可以使用 <code>Elastic Load Balancing</code> 来帮助防御 SLOWLORIS 攻击，因为 <code>ELB</code> 需要收到整个消息后才会转发请求。<br>提供 <code>DDoS</code> 防御的服务是 <code>AWS Shield</code>。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="二、AWS-责任共担模式"><a href="#二、AWS-责任共担模式" class="headerlink" title="二、AWS 责任共担模式"></a>二、AWS 责任共担模式</h3><ul>
+<li><strong>客户确保云中的安全性</strong>：确保创建并放入 AWS 云中的所有内容的安全性（包括权限和授权方式等）。<blockquote>
+<p>您采取的安全措施取决于以下因素：您使用的服务、系统的复杂程度以及公司的特定运营和安全需求等。<br>措施包括选择、配置和修补将在 Amazon EC2 实例上运行的操作系统、配置安全组和管理用户账户。</p>
+</blockquote>
+</li>
+<li><strong>AWS 确保云本身的安全性</strong></li>
+</ul>
+<h3 id="三、用户权限和访问"><a href="#三、用户权限和访问" class="headerlink" title="三、用户权限和访问"></a>三、用户权限和访问</h3><ul>
+<li><strong>AWS 账户根用户</strong>：<strong>可以使用和控制账户中的所有资源</strong>。要登录 <code>根用户</code>，需要使用<strong>创建 AWS 账户</strong>时所用的<strong>电子邮件地址</strong>和<strong>密码</strong>登录。</li>
+<li><strong>AWS Identity and Access Management (IAM)​</strong>：用来管理对 AWS 服务和资源的访问。</li>
+<li><strong>IAM 用户</strong>：<strong>默认没有任何权限，甚至无法登录</strong>。是一个由<strong>名称</strong>和<strong>凭证</strong>组成的身份，代表与 AWS 服务和资源交互的人员或应用程序。</li>
+<li><strong>IAM 策略</strong>：一个用于<strong>允许</strong>或<strong>拒绝</strong>对 AWS 服务和资源的权限的 JSON 文档。</li>
+<li><strong>IAM 组</strong>：是 <code>IAM 用户</code> 的集合。当您为某个组分配 <code>IAM 策略</code> 时，<strong>该组内的所有用户都会获得该策略指定的权限</strong>。</li>
+<li><strong>IAM 角色</strong>：<code>IAM 角色</code> 是一种身份，可以通过担任这种身份来获得<strong>临时权限</strong>。<blockquote>
+<p>当某人担任某个 IAM 角色时，他们会放弃在先前角色下拥有的所有权限，并获得新角色的权限。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="四、AWS-Organizations"><a href="#四、AWS-Organizations" class="headerlink" title="四、AWS Organizations"></a>四、AWS Organizations</h3><ul>
+<li><strong>AWS Organizations</strong>：可以使用它在一个中心位置整合和管理多个 AWS 账户。  <blockquote>
+<p>默认一个企业中允许的最大账户数为 4。</p>
+</blockquote>
+<ul>
+<li>集中管理所有 AWS 账户。</li>
+<li>按层次结构对账户进行分组。</li>
+<li>通过服务控制策略 (SCP) 集中控制组织中账户的权限。</li>
+<li>整合账单。<blockquote>
+<p>有机会享受批量折扣。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><strong>组织单元 (OU)​</strong>：在 <code>AWS Organizations</code> 中，可以将账户分组到组织单位中，更轻松地管理具有类似业务或安全性要求的账户。</li>
+</ul>
+<h3 id="五、合规性"><a href="#五、合规性" class="headerlink" title="五、合规性"></a>五、合规性</h3><ul>
+<li><strong>AWS Artifact</strong>：是一项服务，使您能够按需访问 AWS 安全性与合规性报告和选择在线协议。<ul>
+<li><strong>AWS Artifact Agreements</strong>：用来与 AWS 签署有关在 AWS 服务中使用特定类型信息的协议。</li>
+<li><strong>AWS Artifact Reports</strong>：提供来自第三方审计机构的关于 AWS 的合规性报告。<blockquote>
+<p>经过这些审计机构的测试和验证，AWS 符合各种全球性、区域性和特定于行业的安全标准和法规。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><strong>Customer Compliance Center</strong>：包含各种有关 AWS 合规性的更多信息、资源。<blockquote>
+<p>可以阅读客户合规性案例，了解受管制行业中的公司如何解决各种合规性、监管和审计难题。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="六、拒绝服务攻击"><a href="#六、拒绝服务攻击" class="headerlink" title="六、拒绝服务攻击"></a>六、拒绝服务攻击</h3><ul>
+<li><strong>AWS Shield</strong>：用于保护应用程序免受 <code>DDoS</code> 攻击的服务。提供两种级别的保护：Standard 和 Advanced。<ul>
+<li><strong>AWS Shield Standard</strong>：是一项免费服务，可以自动保护所有 AWS 客户。它可以保护您的 AWS 资源免受频繁发生的最常见 <code>DDoS</code> 攻击。</li>
+<li><strong>AWS Shield Advanced</strong>：是一项付费服务，不仅可以提供详细的攻击诊断，还能检测和缓解复杂的 DDoS 攻击。  <blockquote>
+<p>它可以与其他服务（例如 <code>Amazon CloudFront</code>、<code>Amazon Route 53</code> 和 <code>Elastic Load Balancing</code>）集成。<br>还可以通过编写自定义规则将 <code>AWS Shield</code> 与 <code>AWS WAF</code> 集成，从而缓解复杂的 <code>DDoS</code> 攻击。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="七、其他安全服务"><a href="#七、其他安全服务" class="headerlink" title="七、其他安全服务"></a>七、其他安全服务</h3><ul>
+<li><p><strong>AWS Key Management Service (AWS KMS)​</strong>：支持<strong>创建</strong>、<strong>管理</strong>和<strong>使用</strong>加密密钥执行加密操作（静态加密或传输中加密）。</p>
+<blockquote>
+<p>加密密钥是一个随机数字字符串，用于锁定（加密）和解锁（解密）数据。<br>除了数据您还可以控制各种 <strong>AWS 服务</strong>和<strong>应用程序</strong>中密钥的使用。<br>使用 <code>AWS KMS</code>，您可以为密钥选择所需的特定访问控制级，例如指定哪些 <code>IAM 用户</code> 和 <code>角色</code> 能管理密钥。</p>
+</blockquote>
+</li>
+<li><p><strong>Amazon Inspector</strong>：可以运行自动化安全性评估，从而帮助提高应用程序的安全性与合规性。</p>
+</li>
+<li><p><strong>AWS WAF</strong>：是一种 Web 应用程序防火墙，可让您监控进入 Web 应用程序的网络请求。</p>
+<blockquote>
+<p>与 AWS 联网章节的 <code>网络访问控制列表 (ACL)</code> 类似，不过 <code>AWS WAF</code> 是针对 Web 请求的。</p>
+</blockquote>
+</li>
+<li><p><strong>Amazon GuardDuty</strong>：是一项服务，为您的 AWS 基础设施和资源提供<strong>智能威胁检测</strong>。它通过持续监控 AWS 环境中的网络活动和账户行为来识别威胁。</p>
+</li>
+</ul>
+<hr>
+<h2 id="模块-7-监控和分析"><a href="#模块-7-监控和分析" class="headerlink" title="模块 7: 监控和分析"></a>模块 7: 监控和分析</h2><h3 id="一、基本概念-6"><a href="#一、基本概念-6" class="headerlink" title="一、基本概念"></a>一、基本概念</h3><h3 id="二、Amazon-CloudWatch"><a href="#二、Amazon-CloudWatch" class="headerlink" title="二、Amazon CloudWatch"></a>二、Amazon CloudWatch</h3><ul>
+<li><p><strong>Amazon CloudWatch</strong>：是一项 <strong>Web 服务</strong>，使您能够<strong>监控</strong>和<strong>管理</strong>各项指标（包括自定义指标），以及根据来自这些指标的数据<strong>配置警报操作</strong>。</p>
+<blockquote>
+<p><code>CloudWatch</code> 使用<strong>指标</strong>来表示资源的数据点。AWS 服务将指标发送到 <code>CloudWatch</code>。然后，<code>CloudWatch</code> 使用这些指标自动创建<strong>图表</strong>，来显示一段时间内的性能变化情况。</p>
+</blockquote>
+</li>
+<li><p><strong>CloudWatch 警报</strong>：使用 <code>CloudWatch</code>，可以通过创建警报以便在指标的值<strong>高于或低于预定义阈值时</strong>自动执行相应操作。</p>
+</li>
+<li><p><strong>CloudWatch 控制面板</strong>：通过 <code>CloudWatch</code> 控制面板功能，可以从一个位置查看资源的所有指标。</p>
+</li>
+</ul>
+<h3 id="三、AWS-CloudTrail"><a href="#三、AWS-CloudTrail" class="headerlink" title="三、AWS CloudTrail"></a>三、AWS CloudTrail</h3><ul>
+<li><p><strong>AWS CloudTrail</strong>：<strong>记录您账户的每个请求（API 调用）​</strong>，记录的信息包括 API 调用者的身份、API 调用时间和 API 调用者的源 IP 地址等。</p>
+<blockquote>
+<p>事件通常会在 API 调用后的 15 分钟内在 <code>CloudTrail</code> 中更新。</p>
+</blockquote>
+</li>
+<li><p><strong>CloudTrail Insights</strong>：借助这个可选功能，<code>CloudTrail</code> 可以自动检测您的 AWS 账户中的<strong>异常</strong> API 活动。</p>
+</li>
+</ul>
+<h3 id="四、AWS-Trusted-Advisor"><a href="#四、AWS-Trusted-Advisor" class="headerlink" title="四、AWS Trusted Advisor"></a>四、AWS Trusted Advisor</h3><ul>
+<li><p><strong>AWS Trusted Advisor</strong>：是一项 Web 服务，可以检查您的 AWS 环境并<strong>根据 AWS 最佳实践提供实时建议</strong>。<br>  <code>Trusted Advisor</code> 可以检查<u>⭐ <strong>成本优化</strong>、<strong>性能</strong>、<strong>安全性</strong>、<strong>容错能力</strong>和<strong>服务限制</strong>五个类别</u>，并将检查结果与 AWS 最佳实践进行比较。<br>  对于每个类别的检查，<code>Trusted Advisor</code> 都会提供一系列建议的操作和其他资源，帮助您了解有关 AWS 最佳实践的更多信息。</p>
+</li>
+<li><p><strong>AWS Trusted Advisor 控制面板</strong>：查看已完成的<strong>成本优化</strong>、<strong>性能</strong>、<strong>安全性</strong>、<strong>容错能力</strong>和<strong>服务限制检查</strong>。<br>  对于每个类别：</p>
+<ul>
+<li>🟩 绿色复选框表示未检测到任何问题的项目数量。</li>
+<li>🟡 黄色三角形表示建议的调查数量。</li>
+<li>🔴 红色圆圈表示建议的操作数量。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="模块-8-定价和支持"><a href="#模块-8-定价和支持" class="headerlink" title="模块 8: 定价和支持"></a>模块 8: 定价和支持</h2><h3 id="一、基本概念-7"><a href="#一、基本概念-7" class="headerlink" title="一、基本概念"></a>一、基本概念</h3><h3 id="二、AWS-免费套餐"><a href="#二、AWS-免费套餐" class="headerlink" title="二、AWS 免费套餐"></a>二、AWS 免费套餐</h3><ul>
+<li><strong>AWS 免费套餐</strong><ul>
+<li><strong>永久免费</strong><blockquote>
+<p>例如：<code>AWS Lambda</code> 每月提供 100 万个免费请求和长达 320 万秒的计算时间，<code>Amazon DynamoDB</code> 每月提供 25GB 的免费存储空间。</p>
+</blockquote>
+</li>
+<li><strong>12 个月免费</strong><blockquote>
+<p>例如：最高 5 GB 的 <code>Amazon S3 Standard</code> 存储，每月 <code>Amazon EC2</code> 计算时间的小时数阈值以及 <code>Amazon CloudFront</code> 数据传出量。</p>
+</blockquote>
+</li>
+<li><strong>试用</strong><blockquote>
+<p>例如：<code>Amazon Inspector</code> 提供 90 天免费试用，<code>Amazon Lightsail</code> 提供 30 天内 750 小时的免费使用。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="三、AWS-定价概念"><a href="#三、AWS-定价概念" class="headerlink" title="三、AWS 定价概念"></a>三、AWS 定价概念</h3><h3 id="四、账单控制面板"><a href="#四、账单控制面板" class="headerlink" title="四、账单控制面板"></a>四、账单控制面板</h3><h3 id="五、整合账单"><a href="#五、整合账单" class="headerlink" title="五、整合账单"></a>五、整合账单</h3><ul>
+<li><strong>整合账单</strong>：<code>AWS Organizations</code> 提供 <code>整合账单</code> 选项。<ul>
+<li>查看每个账户产生的费用明细。</li>
+<li>在企业的所有账户中<strong>共享批量折扣</strong>定价、Savings Plans 和预留实例。</li>
+</ul>
+</li>
+</ul>
+<h3 id="六、AWS-Budgets"><a href="#六、AWS-Budgets" class="headerlink" title="六、AWS Budgets"></a>六、AWS Budgets</h3><ul>
+<li><strong>AWS Budgets</strong>：可以<strong>创建预算</strong>来规划服务使用量、服务成本和实例预留量，并且可以设置自定义提醒。<blockquote>
+<p><code>AWS Budgets</code> 中的信息每天更新三次。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="七、AWS-Cost-Explorer"><a href="#七、AWS-Cost-Explorer" class="headerlink" title="七、AWS Cost Explorer"></a>七、AWS Cost Explorer</h3><ul>
+<li><strong>AWS Cost Explorer</strong>：直观查看、了解和管理一段时间内的 AWS 成本和使用情况，可以应用自定义筛选条件和组来分析数据。<blockquote>
+<p>默认报告中显示了产生成本的前五项 AWS 服务的相关成本和使用情况。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="八、AWS-Support-计划"><a href="#八、AWS-Support-计划" class="headerlink" title="八、AWS Support 计划"></a>八、AWS Support 计划</h3><ul>
+<li><p><strong>AWS Support 计划</strong></p>
+<ul>
+<li><strong>Basic Support</strong>：面向所有 AWS 客户免费提供。<blockquote>
+<p>包括访问白皮书、文档和支持社区。</p>
+</blockquote>
+</li>
+<li><strong>Developer Support</strong>：成本最低，可以通过电子邮件联系客户支持。<blockquote>
+<p>问题 24 小时内响应，系统受损 12 小时内响应。<br>适用于正在探索 AWS 服务阶段的公司。</p>
+</blockquote>
+</li>
+<li><strong>Business Support</strong>：成本适中，可以直接致电云工程师，同时解锁 <code>AWS Trusted Advisor</code> 来提供全套最佳实践检查。<blockquote>
+<p>生产系统受损 4 小时内响应，生产系统故障 1 小时内响应。  </p>
+</blockquote>
+</li>
+<li><strong>AWS Enterprise On-Ramp Support（准企业支持计划）​</strong>：成本更高，可以联系多位 <code>技术客户经理 (TAM)</code> 进行指导和协调其他帮助。<blockquote>
+<p>对业务关键问题的响应时间不超过 30 分钟。</p>
+</blockquote>
+</li>
+<li><strong>Enterprise Support（企业支持计划）​</strong>：成本最高，指派的一名 <code>技术客户经理 (TAM)</code> 专门进行指导和协调其他帮助。<blockquote>
+<p>对业务关键问题的响应时间不超过 15 分钟。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><strong>技术客户经理 (TAM)​</strong>：属于 Concierge 支持团队，被包含在 <code>Enterprise On-Ramp</code>（有速率限制）和 <code>Enterprise Support</code> 计划中。<br>  提供以下服务：</p>
+<ul>
+<li>技术设施事件管理。</li>
+<li>Well-Architected 审核。<blockquote>
+<p>技术客户经理和客户一起使用 Well-Architected Framework 审核结构。<br>Well-Architected Framework 的六大支柱：卓越运营、安全性、可靠性、性能效率、成本优化和可持续性。</p>
+</blockquote>
+</li>
+<li>运营审核。</li>
+</ul>
+</li>
+<li><p><strong>基础设施事件管理服务</strong>：<code>Business Support</code> 及以上的、需要额外付费的服务，帮助规划全新发布会、全球广告计划等大型服务。</p>
+</li>
+</ul>
+<h3 id="九、AWS-Marketplace"><a href="#九、AWS-Marketplace" class="headerlink" title="九、AWS Marketplace"></a>九、AWS Marketplace</h3><ul>
+<li><p><strong>AWS Marketplace</strong>：一个包含独立软件供应商提供的数千款软件产品的<strong>数字目录</strong>，使用它可以查找、测试和购买在 AWS 上运行的软件。  </p>
+<blockquote>
+<p>提供多种类别的产品，例如基础设施软件、DevOps、数据产品、专业服务、业务应用程序、机器学习、工业和物联网 (IoT)。</p>
+</blockquote>
+<p>  优势：</p>
+<ul>
+<li>几乎所有都支持不需要配置环境的<strong>一键式部署</strong>。</li>
+<li>大部分提供按需付费模式。</li>
+<li>部分提供免费试用等。</li>
+<li>以企业为中心的功能：自定义条款和定价、私有 <code>marketplace</code>、集成到采购系统、成本管理工具等等。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="模块-9-迁移和创新"><a href="#模块-9-迁移和创新" class="headerlink" title="模块 9: 迁移和创新"></a>模块 9: 迁移和创新</h2><h3 id="一、基本概念-8"><a href="#一、基本概念-8" class="headerlink" title="一、基本概念"></a>一、基本概念</h3><h3 id="二、AWS-Cloud-Adoption-Framework-AWS-CAF"><a href="#二、AWS-Cloud-Adoption-Framework-AWS-CAF" class="headerlink" title="二、AWS Cloud Adoption Framework (AWS CAF)"></a>二、AWS Cloud Adoption Framework (AWS CAF)</h3><ul>
+<li><p><strong>AWS Cloud Adoption Framework (AWS CAF)​</strong>：AWS 云采用框架。</p>
+</li>
+<li><p><strong>AWS Cloud Adoption Framework 的六大核心视角</strong>：<code>AWS Cloud Adoption Framework</code> 将迁移分为 6 个关注领域（视角）。  </p>
+<blockquote>
+<p>一般来说，<strong>业务、人员</strong>和<strong>监管</strong>视角侧重于<strong>业务</strong>能力，而<strong>平台、安全</strong>和<strong>运维</strong>视角侧重于<strong>技术</strong>能力。  </p>
+</blockquote>
+<p>  六大视角为：</p>
+<ol>
+<li><strong>业务视角</strong>：可以确保 <strong>IT 与业务需求保持一致</strong>，并确保 IT 投资与关键业务成果挂钩。<blockquote>
+<p>其中的常见角色包括：业务经理、财务经理、预算责任人、预算利益攸关方。</p>
+</blockquote>
+</li>
+<li><strong>人员视角</strong>：支持制定全组织范围的<strong>变更管理策略</strong>，从而成功地采用云。<blockquote>
+<p>其中的常见角色包括：人力资源专员、人事专员、人事经理。</p>
+</blockquote>
+</li>
+<li><strong>监管视角</strong>：侧重于使 <strong>IT 策略与业务策略保持一致</strong>的<u><strong>技能和流程</strong></u>。这可以确保最大限度地提高商业价值并将风险降至最低。<blockquote>
+<p>其中的常见角色包括：首席信息官 (CIO)、项目经理、企业架构师、业务分析师、产品组合经理。</p>
+</blockquote>
+</li>
+<li><strong>平台视角</strong>：包括在<strong>云中实施新解决方案</strong>以及<strong>将本地工作负载迁移到云</strong>的<u><strong>原则和模式</strong></u>。<blockquote>
+<p>其中的常见角色包括：首席技术官 (CTO)、IT 经理、解决方案架构师。<br><u>可以帮助您根据业务目标和视角来设计、实施和优化 AWS 基础设施。</u></p>
+</blockquote>
+</li>
+<li><strong>安全视角</strong>：确保企业<strong>满足可见性、可审计性、控制和敏捷性方面的安全目标</strong>。<blockquote>
+<p>其中的常见角色包括：首席信息安全官 (CISO)、IT 安全经理、IT 安全分析师。</p>
+</blockquote>
+</li>
+<li><strong>运维视角</strong>：帮助您<strong>根据与业务利益攸关方事先商定的投入程度</strong>，启用、运行、使用、运营和恢复 IT 工作负载。<blockquote>
+<p>其中的常见角色包括：IT 运营经理、IT 支持经理。</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="三、迁移策略"><a href="#三、迁移策略" class="headerlink" title="三、迁移策略"></a>三、迁移策略</h3><ul>
+<li><strong>将应用程序迁移到云的六大迁移策略</strong><ol>
+<li><strong>重新托管（直接迁移）​</strong>：直接迁移应用程序而无需进行更改。<blockquote>
+<p>在大规模旧式迁移场景中，公司希望快速实施迁移并扩展以满足其商业案例的要求，因此大部分应用程序都会进行重新托管。</p>
+</blockquote>
+</li>
+<li><strong>更换平台（修补后迁移）​</strong>：在直接迁移的基础上做一些云优化。<blockquote>
+<p>完成优化时无需更改应用程序的核心架构，也不涉及新的开发工作。</p>
+</blockquote>
+</li>
+<li><strong>停用</strong>：指删除不再需要的应用程序的过程。</li>
+<li><strong>保留</strong>：将对业务至关重要的应用程序<strong>保留</strong>在<u><strong>源环境</strong></u>中。<blockquote>
+<p>这可能包括需要在迁移前进行重大重构的应用程序，或可以推迟到以后完成的工作。</p>
+</blockquote>
+</li>
+<li><strong>重新购买</strong>：涉及从传统许可证转向<strong>软件即服务</strong>模式。</li>
+<li><strong>重构&#x2F;重新设计架构</strong>：涉及使用云原生功能重新考虑应用程序的架构设计和开发方式。<blockquote>
+<p>重构的驱动因素是<u><strong>强烈的业务需求</strong></u>，即需要<strong>增加功能</strong>、<strong>扩大规模</strong>或<strong>提高性能</strong>，但在应用程序的现有环境中难以实现这些目标。</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="四、AWS-Snow-系列"><a href="#四、AWS-Snow-系列" class="headerlink" title="四、AWS Snow 系列"></a>四、AWS Snow 系列</h3><ul>
+<li><p><strong>AWS Snow 系列</strong>：是一系列物理设备，可以帮助您以<strong>物理方式</strong>将高达<strong>数 EB</strong> 的数据传入和传出 AWS。</p>
+<blockquote>
+<p><code>AWS Snow 系列</code> 包括 <code>AWS Snowcone</code>、<code>AWS Snowball</code> 和 <code>AWS Snowmobile</code>。</p>
+</blockquote>
+</li>
+<li><p><strong>AWS Snowcone</strong>：小型耐用且安全的边缘计算和数据传输设备。</p>
+<blockquote>
+<p>2 个 CPU、4GB 内存。<br>高达 <strong>14TB</strong> 的可用存储容量。</p>
+</blockquote>
+</li>
+<li><p><strong>AWS Snowball</strong>：分为两种类型 <code>Snowball Edge Storage Optimized</code> 和 <code>Snowball Edge Compute Optimized</code>。</p>
+<ul>
+<li><p><strong>Snowball Edge Storage Optimized</strong>：适合大规模数据迁移和重复传输工作流，以及具有较高容量需求的本地计算。  </p>
+<blockquote>
+<p>40 个 vCPU 和 80GiB 内存。<br><strong>80TB</strong> 硬盘驱动器 (HDD) 容量，用于块卷和与 Amazon S3 兼容的对象存储。<br>1TB SATA 固态硬盘 (SSD)，用于块卷。<br>可支持 Amazon EC2 sbe1 实例（相当于 C5）。  </p>
+</blockquote>
+</li>
+<li><p><strong>Snowball Edge Compute Optimized</strong>：可为<strong>机器学习</strong>、全<strong>动态视频分析</strong>、分析和本地计算堆栈等使用案例提供功能强大的计算资源。</p>
+<blockquote>
+<p>104 个 vCPU 和 416GiB 内存。<br>一个<strong>可选的 NVIDIA Tesla V100 GPU</strong>。<br><strong>80TB</strong> 可用 HDD 容量，用于与 Amazon S3 兼容的对象存储或与 Amazon EBS 兼容的块卷。<br><strong>28TB</strong> 可用 NVMe SSD 容量，用于与 Amazon EBS 兼容的块卷。<br>设备运行 Amazon EC2 sbe-c 和 sbe-g 实例，这些实例相当于 C5、M5a、G3 和 P3 实例。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><strong>AWS Snowmobile</strong>：是一项 <strong>EB 级</strong>数据传输服务，用于将海量数据移动到 AWS。</p>
+<blockquote>
+<p><code>AWS Snowmobile</code> 是一个 45 英尺长的加固集装箱，由一台半挂卡车牵引，一次可以传输高达 <strong>100PB</strong> 的数据。<br>有硬件设施与安全团队确保数据安全，同时也支持数据加密。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="五、借助-AWS-推动创新"><a href="#五、借助-AWS-推动创新" class="headerlink" title="五、借助 AWS 推动创新"></a>五、借助 AWS 推动创新</h3><ul>
+<li>⭐ <strong>Amazon SageMaker</strong>：快速构建、训练和部署<strong>机器学习</strong>模型。</li>
+<li><strong>Amazon CodeWhisperer</strong>：在编写代码的同时获取代码建议，并识别代码中的<strong>安全问题</strong>。</li>
+<li><strong>Amazon Lex</strong>：构建语音和文本聊天机器人。</li>
+<li><strong>Amazon Transcribe</strong>：将语音转换为文本。</li>
+<li><strong>AWS DeepRacer</strong>：让开发人员通过<strong>强化学习</strong>不断进行试验。</li>
+</ul>
+<hr>
+<h2 id="模块-10-云之旅"><a href="#模块-10-云之旅" class="headerlink" title="模块 10: 云之旅"></a>模块 10: 云之旅</h2><h3 id="一、基本概念-9"><a href="#一、基本概念-9" class="headerlink" title="一、基本概念"></a>一、基本概念</h3><h3 id="二、AWS-Well-Architected-Framework"><a href="#二、AWS-Well-Architected-Framework" class="headerlink" title="二、AWS Well-Architected Framework"></a>二、AWS Well-Architected Framework</h3><ul>
+<li><p><strong>AWS Well-Architected Framework</strong>：帮助了解如何在 AWS 云中设计和运行<strong>可靠</strong>、<strong>安全</strong>、<strong>高效</strong>且<strong>具有成本效益</strong>的系统。</p>
+<blockquote>
+<p>通过对照最佳实践和设计原则一致地衡量您的架构，并确定需要改进的方面。</p>
+</blockquote>
+</li>
+<li><p><strong>AWS Well-Architected Framework 的六大支柱</strong>：</p>
+<ol>
+<li><strong>卓越运营</strong>：运行和监控系统以<strong>实现商业价值</strong>以及不断改进支持流程和程序的能力。<blockquote>
+<p>云中的卓越运营设计原则包括执行运营即代码，在文档中添加注释、预测故障以及频繁进行微小的可撤销更改。</p>
+</blockquote>
+</li>
+<li><strong>安全性</strong>：指<strong>保护信息、系统和资产</strong>，同时通过风险评估和缓解策略实现商业价值的能力。</li>
+<li><strong>可靠性</strong>：指<u><strong>从基础设施或服务中断中恢复</strong></u>、<u><strong>动态获取计算资源以满足（业务和客户）需求</strong></u>和<u><strong>减少中断</strong></u>的能力。<blockquote>
+<p>可靠性包括测试恢复流程、横向扩展以提高聚合系统的可用性以及自动从故障中恢复。</p>
+</blockquote>
+</li>
+<li><strong>性能效率</strong>：<strong>高效使用 IT 和计算资源</strong>来满足系统要求，并在需求变化和技术改进时<strong>保持</strong>此效率的能力。<blockquote>
+<p>评估架构的性能效率包括更频繁地进行试验、使用无服务器架构，以及设计能在数分钟内实现全球化部署的系统。</p>
+</blockquote>
+</li>
+<li><strong>成本优化</strong>：优化全部成本，以最低成本运行系统来实现商业价值的能力。<blockquote>
+<p>成本优化包括采用消费模式、支出分析和归因以及使用托管服务降低拥有成本。</p>
+</blockquote>
+</li>
+<li><strong>可持续性</strong>：降低云工作负载对环境的影响，减少能源消耗和提高工作效率。</li>
+</ol>
+</li>
+</ul>
+<h3 id="三、云的优势"><a href="#三、云的优势" class="headerlink" title="三、云的优势"></a>三、云的优势</h3><ul>
+<li><strong>云计算的六大优势</strong>：<ol>
+<li><strong>将前期费用转变为可变支出</strong>：只需为<strong>实际使用的计算资源付费</strong>，在尚不了解如何使用的情况下<u><strong>无需对数据中心和服务器投入大量资金</strong></u>。</li>
+<li><strong>实现大规模经济效益</strong>：AWS 通过其规模实现比单独运行数据中心<u><strong>更低的</strong>可变<strong>成本</strong></u>。</li>
+<li><strong>无需猜测容量</strong>：您可以只使用所需容量，并可以根据需要进行缩减或扩展，无需为未使用的资源付费，也不会受到容量限制。</li>
+<li><strong>提高速度和敏捷性</strong>：更轻松地开发和部署应用程序，同时让开发团队有更多的时间进行试验和创新。</li>
+<li><strong>不再花费资金来运行和维护数据中心</strong>：减少资金和时间来管理基础设施和服务器。</li>
+<li><strong>数分钟内实现全球化部署</strong>：快速为世界各地的客户部署应用程序，同时实现低延迟。</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2 id="模块-11-AWS-CERTIFIED-CLOUD-PRACTITIONER-基础知识"><a href="#模块-11-AWS-CERTIFIED-CLOUD-PRACTITIONER-基础知识" class="headerlink" title="模块 11: AWS CERTIFIED CLOUD PRACTITIONER 基础知识"></a>模块 11: AWS CERTIFIED CLOUD PRACTITIONER 基础知识</h2><h3 id="一、考试详细信息"><a href="#一、考试详细信息" class="headerlink" title="一、考试详细信息"></a>一、考试详细信息</h3><ul>
+<li><p><strong>考试包含四个领域</strong>：</p>
+<ol>
+<li>云概念 (26%)</li>
+<li>安全性与合规性 (25%)</li>
+<li>技术 (33%)</li>
+<li>账单和定价 (16%)</li>
+</ol>
+</li>
+<li><p><strong>考试详细信息</strong>：</p>
+<ul>
+<li>包括 <strong>65</strong> 道题，需要在 <strong>90 分钟</strong>内完成。</li>
+<li>总分为 <strong>1000 分</strong>，最低及格分数为 <strong>700 分</strong>。</li>
+<li>除了单选题，还包含多选题（在<strong>五个</strong>或更多选项中有<strong>两个或更多</strong>正确答案）。</li>
+</ul>
+</li>
+</ul>
+<h3 id="二、考试策略"><a href="#二、考试策略" class="headerlink" title="二、考试策略"></a>二、考试策略</h3><hr>
+<h2 id="最终评估"><a href="#最终评估" class="headerlink" title="最终评估"></a>最终评估</h2><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>CLF - 备考（学习）笔记</p><p><a href="https://senjianlu.com/2024/09/04/clf_note_before_exam/">https://senjianlu.com/2024/09/04/clf_note_before_exam/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-09-04</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-09-04</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/CLF/">CLF</a><a class="link-muted mr-2" rel="tag" href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1/">云服务</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/09/05/translate_news_nhk_20240905_k10014563971000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - 沖縄 歌や踊りささげる伝統の「シニーグ」地元中学生も初参加</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/09/04/translate_news_nhk_20240904_k10014570981000/"><span class="level-item">日语翻译 - 新闻 - 約3割が外国産“業務用野菜” リスク踏まえ国産調達の動き</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#模块-1-AMAZON-WEB-SERVICE-简介"><span class="level-left"><span class="level-item">模块 1: AMAZON WEB SERVICE 简介</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、基本概念"><span class="level-left"><span class="level-item">一、基本概念</span></span></a></li></ul></li><li><a class="level is-mobile" href="#模块-2-云中的计算"><span class="level-left"><span class="level-item">模块 2: 云中的计算</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、基本概念-1"><span class="level-left"><span class="level-item">一、基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、Amazon-EC2-实例类型"><span class="level-left"><span class="level-item">二、Amazon EC2 实例类型</span></span></a></li><li><a class="level is-mobile" href="#三、Amazon-EC2-定价"><span class="level-left"><span class="level-item">三、Amazon EC2 定价</span></span></a></li><li><a class="level is-mobile" href="#四、扩展-Amazon-EC2"><span class="level-left"><span class="level-item">四、扩展 Amazon EC2</span></span></a></li><li><a class="level is-mobile" href="#五、利用-Elastic-Load-Balancing-ELB-引导流量"><span class="level-left"><span class="level-item">五、利用 Elastic Load Balancing (ELB) 引导流量</span></span></a></li><li><a class="level is-mobile" href="#六、消息收发和队列"><span class="level-left"><span class="level-item">六、消息收发和队列</span></span></a></li><li><a class="level is-mobile" href="#七、其他计算服务"><span class="level-left"><span class="level-item">七、其他计算服务</span></span></a></li></ul></li><li><a class="level is-mobile" href="#模块-3-全球基础设施和可靠性"><span class="level-left"><span class="level-item">模块 3: 全球基础设施和可靠性</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、基本概念-2"><span class="level-left"><span class="level-item">一、基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、AWS-全球基础设施"><span class="level-left"><span class="level-item">二、AWS 全球基础设施</span></span></a></li><li><a class="level is-mobile" href="#三、边缘站点"><span class="level-left"><span class="level-item">三、边缘站点</span></span></a></li><li><a class="level is-mobile" href="#四、如何预置（操作）-AWS-资源"><span class="level-left"><span class="level-item">四、如何预置（操作） AWS 资源</span></span></a></li></ul></li><li><a class="level is-mobile" href="#模块-4-联网"><span class="level-left"><span class="level-item">模块 4: 联网</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、基本概念-3"><span class="level-left"><span class="level-item">一、基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、与-AWS-的连接"><span class="level-left"><span class="level-item">二、与 AWS 的连接</span></span></a></li><li><a class="level is-mobile" href="#三、子网和网络访问控制列表"><span class="level-left"><span class="level-item">三、子网和网络访问控制列表</span></span></a></li><li><a class="level is-mobile" href="#四、全球联网"><span class="level-left"><span class="level-item">四、全球联网</span></span></a></li></ul></li><li><a class="level is-mobile" href="#模块-5-存储和数据库"><span class="level-left"><span class="level-item">模块 5: 存储和数据库</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、基本概念-4"><span class="level-left"><span class="level-item">一、基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、实例存储和-Amazon-Elastic-Block-Store-Amazon-EBS"><span class="level-left"><span class="level-item">二、实例存储和 Amazon Elastic Block Store (Amazon EBS)</span></span></a></li><li><a class="level is-mobile" href="#三、Amazon-Simple-Storage-Service-Amazon-S3"><span class="level-left"><span class="level-item">三、Amazon Simple Storage Service (Amazon S3)</span></span></a></li><li><a class="level is-mobile" href="#四、Amazon-Elastic-File-System-Amazon-EFS"><span class="level-left"><span class="level-item">四、Amazon Elastic File System (Amazon EFS)</span></span></a></li><li><a class="level is-mobile" href="#五、Amazon-Relational-Database-Service-Amazon-RDS"><span class="level-left"><span class="level-item">五、Amazon Relational Database Service (Amazon RDS)</span></span></a></li><li><a class="level is-mobile" href="#六、Amazon-DynamoDB"><span class="level-left"><span class="level-item">六、Amazon DynamoDB</span></span></a></li><li><a class="level is-mobile" href="#七、Amazon-Redshift"><span class="level-left"><span class="level-item">七、Amazon Redshift</span></span></a></li><li><a class="level is-mobile" href="#八、AWS-Database-Migration-Service"><span class="level-left"><span class="level-item">八、AWS Database Migration Service</span></span></a></li><li><a class="level is-mobile" href="#九、其他数据库服务和加速器"><span class="level-left"><span class="level-item">九、其他数据库服务和加速器</span></span></a></li></ul></li><li><a class="level is-mobile" href="#模块-6-安全性"><span class="level-left"><span class="level-item">模块 6: 安全性</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、基本概念-5"><span class="level-left"><span class="level-item">一、基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、AWS-责任共担模式"><span class="level-left"><span class="level-item">二、AWS 责任共担模式</span></span></a></li><li><a class="level is-mobile" href="#三、用户权限和访问"><span class="level-left"><span class="level-item">三、用户权限和访问</span></span></a></li><li><a class="level is-mobile" href="#四、AWS-Organizations"><span class="level-left"><span class="level-item">四、AWS Organizations</span></span></a></li><li><a class="level is-mobile" href="#五、合规性"><span class="level-left"><span class="level-item">五、合规性</span></span></a></li><li><a class="level is-mobile" href="#六、拒绝服务攻击"><span class="level-left"><span class="level-item">六、拒绝服务攻击</span></span></a></li><li><a class="level is-mobile" href="#七、其他安全服务"><span class="level-left"><span class="level-item">七、其他安全服务</span></span></a></li></ul></li><li><a class="level is-mobile" href="#模块-7-监控和分析"><span class="level-left"><span class="level-item">模块 7: 监控和分析</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、基本概念-6"><span class="level-left"><span class="level-item">一、基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、Amazon-CloudWatch"><span class="level-left"><span class="level-item">二、Amazon CloudWatch</span></span></a></li><li><a class="level is-mobile" href="#三、AWS-CloudTrail"><span class="level-left"><span class="level-item">三、AWS CloudTrail</span></span></a></li><li><a class="level is-mobile" href="#四、AWS-Trusted-Advisor"><span class="level-left"><span class="level-item">四、AWS Trusted Advisor</span></span></a></li></ul></li><li><a class="level is-mobile" href="#模块-8-定价和支持"><span class="level-left"><span class="level-item">模块 8: 定价和支持</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、基本概念-7"><span class="level-left"><span class="level-item">一、基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、AWS-免费套餐"><span class="level-left"><span class="level-item">二、AWS 免费套餐</span></span></a></li><li><a class="level is-mobile" href="#三、AWS-定价概念"><span class="level-left"><span class="level-item">三、AWS 定价概念</span></span></a></li><li><a class="level is-mobile" href="#四、账单控制面板"><span class="level-left"><span class="level-item">四、账单控制面板</span></span></a></li><li><a class="level is-mobile" href="#五、整合账单"><span class="level-left"><span class="level-item">五、整合账单</span></span></a></li><li><a class="level is-mobile" href="#六、AWS-Budgets"><span class="level-left"><span class="level-item">六、AWS Budgets</span></span></a></li><li><a class="level is-mobile" href="#七、AWS-Cost-Explorer"><span class="level-left"><span class="level-item">七、AWS Cost Explorer</span></span></a></li><li><a class="level is-mobile" href="#八、AWS-Support-计划"><span class="level-left"><span class="level-item">八、AWS Support 计划</span></span></a></li><li><a class="level is-mobile" href="#九、AWS-Marketplace"><span class="level-left"><span class="level-item">九、AWS Marketplace</span></span></a></li></ul></li><li><a class="level is-mobile" href="#模块-9-迁移和创新"><span class="level-left"><span class="level-item">模块 9: 迁移和创新</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、基本概念-8"><span class="level-left"><span class="level-item">一、基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、AWS-Cloud-Adoption-Framework-AWS-CAF"><span class="level-left"><span class="level-item">二、AWS Cloud Adoption Framework (AWS CAF)</span></span></a></li><li><a class="level is-mobile" href="#三、迁移策略"><span class="level-left"><span class="level-item">三、迁移策略</span></span></a></li><li><a class="level is-mobile" href="#四、AWS-Snow-系列"><span class="level-left"><span class="level-item">四、AWS Snow 系列</span></span></a></li><li><a class="level is-mobile" href="#五、借助-AWS-推动创新"><span class="level-left"><span class="level-item">五、借助 AWS 推动创新</span></span></a></li></ul></li><li><a class="level is-mobile" href="#模块-10-云之旅"><span class="level-left"><span class="level-item">模块 10: 云之旅</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、基本概念-9"><span class="level-left"><span class="level-item">一、基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、AWS-Well-Architected-Framework"><span class="level-left"><span class="level-item">二、AWS Well-Architected Framework</span></span></a></li><li><a class="level is-mobile" href="#三、云的优势"><span class="level-left"><span class="level-item">三、云的优势</span></span></a></li></ul></li><li><a class="level is-mobile" href="#模块-11-AWS-CERTIFIED-CLOUD-PRACTITIONER-基础知识"><span class="level-left"><span class="level-item">模块 11: AWS CERTIFIED CLOUD PRACTITIONER 基础知识</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、考试详细信息"><span class="level-left"><span class="level-item">一、考试详细信息</span></span></a></li><li><a class="level is-mobile" href="#二、考试策略"><span class="level-left"><span class="level-item">二、考试策略</span></span></a></li></ul></li><li><a class="level is-mobile" href="#最终评估"><span class="level-left"><span class="level-item">最终评估</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

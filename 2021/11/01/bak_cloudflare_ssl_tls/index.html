@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>【归档文章】Cloudflare 四种 SSL/TLS 加密模式的功能解析及实践 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="关于 Cloudflare 四种 SSL&amp;#x2F;TLS 加密模式的功能解析及实践。  注：这篇文章是从旧的博客系统中迁移过来的、我觉得还存在价值的文章。但是由于时间关系，可能已经不再是最佳实践，请仅作参考。"><meta property="og:type" content="article"><meta property="og:title" content="【归档文章】Cloudflare 四种 SSL/TLS 加密模式的功能解析及实践"><meta property="og:url" content="https://senjianlu.com/2021/11/01/bak_cloudflare_ssl_tls/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="关于 Cloudflare 四种 SSL&amp;#x2F;TLS 加密模式的功能解析及实践。  注：这篇文章是从旧的博客系统中迁移过来的、我觉得还存在价值的文章。但是由于时间关系，可能已经不再是最佳实践，请仅作参考。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-03/cloudflare.jpg"><meta property="article:published_time" content="2021-11-01T04:00:00.000Z"><meta property="article:modified_time" content="2021-11-01T04:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="Cloudflare"><meta property="article:tag" content="归档文章"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-03/cloudflare.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2021/11/01/bak_cloudflare_ssl_tls/"},"headline":"【归档文章】Cloudflare 四种 SSL/TLS 加密模式的功能解析及实践","image":["https://image.senjianlu.com/blog/2024-09-03/cloudflare.jpg"],"datePublished":"2021-11-01T04:00:00.000Z","dateModified":"2021-11-01T04:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"关于 Cloudflare 四种 SSL&#x2F;TLS 加密模式的功能解析及实践。  注：这篇文章是从旧的博客系统中迁移过来的、我觉得还存在价值的文章。但是由于时间关系，可能已经不再是最佳实践，请仅作参考。"}</script><link rel="canonical" href="https://senjianlu.com/2021/11/01/bak_cloudflare_ssl_tls/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-11-01T04:00:00.000Z" title="11/1/2021, 12:00:00 PM">2021-11-01</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/">基础操作</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">【归档文章】Cloudflare 四种 SSL/TLS 加密模式的功能解析及实践</h1><div class="content"><blockquote>
+<p>关于 Cloudflare 四种 SSL&#x2F;TLS 加密模式的功能解析及实践。</p>
+</blockquote>
+<p><u><em>注：这篇文章是从旧的博客系统中迁移过来的、我觉得还存在价值的文章。但是由于时间关系，可能已经不再是最佳实践，请仅作参考。</em></u></p>
+<span id="more"></span>
+
+<p>在没套 Cloudflare 之前有在 Nginx 中配置 HTTP 访问 301 重定向到 HTTPS 的习惯，但是在套了 CF 之后常常出现 301 重定向次数过多的情况，不明白原理地瞎调试走了很多弯路，重新实践一遍并整理为笔记方便自己回顾。  </p>
+<p>这里就以各模式作为区分，总共 4 种模式就分为 4 个小章节。<br><strong>注意：这四种模式仅在开启了 Cloudflare 的 CDN 后才有效，仅把 Cloudflare 作 DNS 使用时以下加密模式均不会生效！</strong><br><img src="https://image.senjianlu.com/blog/2024-09-03/63d206978f3eb.png" alt="各模式">  </p>
+<hr>
+<h4 id="1、模式：关闭（不安全）"><a href="#1、模式：关闭（不安全）" class="headerlink" title="1、模式：关闭（不安全）"></a>1、模式：关闭（不安全）</h4><p>这个模式会将所有用户对你站点的 HTTPS 请求重定向到 HTTP，官方描述：  </p>
+<blockquote>
+<p>Setting your encryption mode to Off (not recommended) redirects any HTTPS request to plaintext HTTP.</p>
+</blockquote>
+<p>优点：<strong>没有</strong><br>缺点：</p>
+<ul>
+<li>容易遭受到<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/62025258">中间人攻击</a></li>
+<li>Chrome 等浏览器会显示该网站不安全</li>
+<li>影响搜索引擎收录</li>
+</ul>
+<blockquote>
+<p><strong>实践：</strong><br>① HTTP 访问（未在 Nginx 配置中开启 HTTP 访问重定向到 HTTPS）：<br><img src="https://image.senjianlu.com/blog/2024-11-21/233515.png" alt="1-1"><br>② HTTPS 访问（未在 Nginx 配置中开启 HTTP 访问重定向到 HTTPS）：<br><em>注：这里我已经手动改为 <a target="_blank" rel="noopener" href="https://ssl.ceshiku.cn/">https://ssl.ceshiku.cn</a> 但是被重定向回了 HTTP。</em><br><img src="https://image.senjianlu.com/blog/2024-09-03/63d20b2cdc09d.png" alt="1-2"><br>③ HTTP 访问（已经在 Nginx 配置了 HTTP 访问重定向到 HTTPS）：<br><em>注：循环重定向了，比较好理解：HTTP 访问到 Nginx 被重定向到了 HTTPS，HTTPS 到 Cloudflare 又被重定向到了 HTTP，循环往复……</em><br><img src="https://image.senjianlu.com/blog/2024-09-03/63d2074cd41a9.png" alt="1-3"><br>④ HTTPS 访问（已经在 Nginx 配置了 HTTP 访问重定向到 HTTPS）：<br><em>注：同 HTTP 访问一样循环重定向。</em><br><img src="https://image.senjianlu.com/blog/2024-11-21/233704.png" alt="1-4"></p>
+</blockquote>
+<h4 id="2、模式：灵活"><a href="#2、模式：灵活" class="headerlink" title="2、模式：灵活"></a>2、模式：灵活</h4><p>这个灵活并不是指 Cloudflare 会自动辨别对源站使用 HTTP 或 HTTPS 访问，而是指：用户到 Cloudflare 的访问是强制 HTTPS 加密的，证书由 Cloudflare 提供；而 Cloudflare 到源服务器的访问是强制 HTTP 的，因此源站不需要配置证书。<br>我觉得翻译为<strong>半程加密</strong>会更合理一些，官方描述：  </p>
+<blockquote>
+<p>Setting your encryption mode to Flexible makes your site partially secure. Cloudflare enforces HTTPS between your visitor and Cloudflare, but all connections between Cloudflare and your origin are made through HTTP. As a result, an SSL certificate is not required on your origin.</p>
+</blockquote>
+<p>优点：  </p>
+<ul>
+<li>简单，源站不需要配置 HTTPS 证书</li>
+</ul>
+<p>缺点：  </p>
+<ul>
+<li>在 Cloudflare 到源站中仍存在中间人攻击的风险</li>
+</ul>
+<blockquote>
+<p><strong>实践：</strong><br>① HTTP 访问（未在 Nginx 配置中开启 HTTP 访问重定向到 HTTPS）：<br><em>注：成功变成了 HTTPS 访问，证书是 Cloudflare 提供的。</em><br><img src="https://image.senjianlu.com/blog/2024-09-03/63d20fde4430f.png" alt="2-1"><br>② HTTPS 访问（未在 Nginx 配置中开启 HTTP 访问重定向到 HTTPS）：<br><em>注：源站配置了证书但未使用。</em><br><img src="https://image.senjianlu.com/blog/2024-09-03/63d20ded4ebba.png" alt="2-2"><br>③ HTTP 访问（已经在 Nginx 配置了 HTTP 访问重定向到 HTTPS）：<br><em>注：循环重定向：Cloudflare 到源站的 HTTP 请求被 Nginx 重定向到了 HTTPS，接着 HTTPS 请求经过 Cloudflare 又变回了对源站的 HTTP 请求……</em><br><img src="https://image.senjianlu.com/blog/2024-09-03/63d209061997e.png" alt="2-3"><br>④ HTTPS 访问（已经在 Nginx 配置了 HTTP 访问重定向到 HTTPS）：<br><em>注：同 HTTP 访问一样循环重定向。</em><br><img src="https://image.senjianlu.com/blog/2024-09-03/63d20e90ec938.png" alt="2-4">  </p>
+</blockquote>
+<h4 id="3、模式：完全"><a href="#3、模式：完全" class="headerlink" title="3、模式：完全"></a>3、模式：完全</h4><p>全程加密<strong>但不完全</strong>：如果用户发出的是 HTTP 请求，那么用户到 Cloudflare 和 Cloudflare 到源站均会使用 HTTP 协议；如果用户发出的是 HTTPS 请求，那么用户到 Cloudflare 会使用 Cloudflare 提供的证书进行加密，而 Cloudflare 到源站会使用源站的证书进行加密。<br>官方描述：</p>
+<blockquote>
+<p>When you set your encryption mode to Full, Cloudflare enforces HTTPS between your visitor and Cloudflare and makes connections to the origin using the scheme requested by the visitor. If your visitor uses http, then Cloudflare connects to the origin using plaintext HTTP and vice versa.</p>
+</blockquote>
+<p>优点：  </p>
+<ul>
+<li>使用此模式可以兼容 Nginx 配置 HTTP 重定向到 HTTPS</li>
+<li>源站可以使用自签证书</li>
+</ul>
+<p>缺点：  </p>
+<ul>
+<li>在 Cloudflare 到源站中仍存在中间人攻击的风险（包括通过证书劫持和伪造等方式，不同于严格模式，Cloudflare 不会对源站的证书进行审核）</li>
+</ul>
+<blockquote>
+<p><strong>实践：</strong><br>① HTTP 访问（未在 Nginx 配置中开启 HTTP 访问重定向到 HTTPS）：<br><img src="https://image.senjianlu.com/blog/2024-09-03/63d20e9f1e942.png" alt="3-1"><br>② HTTPS 访问（未在 Nginx 配置中开启 HTTP 访问重定向到 HTTPS）：<br><em>注：源站配置了证书，但在浏览器端显示的是用户和 Cloudflare 之间加密所用的证书。</em><br><img src="https://image.senjianlu.com/blog/2024-09-03/63d207dd9a39a.png" alt="3-2"><br>③ HTTP 访问（已经在 Nginx 配置了 HTTP 访问重定向到 HTTPS）：<br><em>注：跳转到了 HTTPS。</em><br><img src="https://image.senjianlu.com/blog/2024-09-03/63d2075fae678.png" alt="3-3"><br>④ HTTPS 访问（已经在 Nginx 配置了 HTTP 访问重定向到 HTTPS）：<br><img src="https://image.senjianlu.com/blog/2024-09-03/63d20f299cb84.png" alt="3-4">  </p>
+</blockquote>
+<h4 id="4、模式：完全（严格）"><a href="#4、模式：完全（严格）" class="headerlink" title="4、模式：完全（严格）"></a>4、模式：完全（严格）</h4><p><strong>和完全模式实现的功能一样</strong>，但是新增了对证书的认证：源站如果配置了自签证书、非可信证书或过期证书，那么 Cloudflare 会回复客户端访问失败并返回<a target="_blank" rel="noopener" href="https://support.cloudflare.com/hc/articles/115003011431#526error"> 526 响应代码</a>。<br>官方描述：</p>
+<blockquote>
+<p>When you set your encryption mode to Full (strict), Cloudflare does everything in Full mode but also enforces more stringent requirements for origin certificates.</p>
+</blockquote>
+<p>优点：  </p>
+<ul>
+<li>使用此模式可以兼容 Nginx 配置 HTTP 重定向到 HTTPS</li>
+<li>安全，只要用户使用 HTTPS 访问可以完全杜绝中间人攻击</li>
+</ul>
+<p>缺点：  </p>
+<ul>
+<li>四种模式中工作量最大，需要维护服务器端的证书</li>
+</ul>
+<blockquote>
+<p><strong>实践结果和第 3 种模式完全一样，不放上来了。​</strong></p>
+</blockquote>
+<h4 id="5、总结"><a href="#5、总结" class="headerlink" title="5、总结"></a>5、总结</h4><p>① 如果你还在困惑该选哪种模式，我帮你整理了常用需求对应的模式，请参照：<br><img src="https://image.senjianlu.com/blog/2024-09-03/63d20a7b74293.png" alt="总结">  </p>
+<p>② 还有需要注意的会出现 301 重定向次数过多的 2 种情况：  </p>
+<ol>
+<li><strong>关闭</strong>模式下在 Nginx 开启了强制重定向（HTTPS -(Cloudflare)-&gt; HTTP -(Nginx)-&gt; HTTPS -(Cloudflare)-&gt; HTTP……）  </li>
+<li><strong>灵活</strong>模式下在 Nginx 开启了强制重定向（HTTP -(Cloudflare)-&gt; HTTP -(Nginx)-&gt; HTTPS -(Cloudflare)-&gt; HTTP……）</li>
+</ol>
+<p>③ 最后放上<strong>完全</strong>和<strong>完全（严格）模式</strong>下可以参考的 Nginx 配置：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">...</span><br><span class="line">    <span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span>       <span class="number">80</span>;</span><br><span class="line">        <span class="attribute">listen</span>       [::]:<span class="number">80</span>;</span><br><span class="line">        <span class="attribute">server_name</span>  _;</span><br><span class="line">        <span class="attribute">root</span>         /usr/share/nginx/html;</span><br><span class="line"></span><br><span class="line">        <span class="attribute">include</span> /etc/nginx/default.d/<span class="regexp">*.conf</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 证书申请用</span></span><br><span class="line">        <span class="section">location</span> <span class="regexp">~ /.well-known</span> &#123;</span><br><span class="line">            <span class="attribute">root</span> /usr/share/nginx;</span><br><span class="line">            <span class="attribute">allow</span> all;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 强制重定向到 HTTPS</span></span><br><span class="line">        <span class="section">location</span> / &#123;</span><br><span class="line">            <span class="attribute">return</span> <span class="number">301</span>   https://<span class="variable">$host</span><span class="variable">$request_uri</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span>          <span class="number">443</span> ssl;</span><br><span class="line">        <span class="attribute">server_name</span>     _;</span><br><span class="line">        <span class="attribute">root</span>            /usr/share/nginx/html;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># SSL 配置</span></span><br><span class="line">        <span class="attribute">ssl_certificate</span>             /etc/letsencrypt/live/ssl.ceshiku.cn/fullchain.pem;</span><br><span class="line">        <span class="attribute">ssl_certificate_key</span>         /etc/letsencrypt/live/ssl.ceshiku.cn/privkey.pem;</span><br><span class="line">        <span class="attribute">ssl_protocols</span>               TLSv1 TLSv1.<span class="number">1</span> TLSv1.<span class="number">2</span>;</span><br><span class="line">        <span class="attribute">ssl_ciphers</span>                 ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 以下填你的反代等配置</span></span><br><span class="line">        ...</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">...</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>结束。</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>【归档文章】Cloudflare 四种 SSL/TLS 加密模式的功能解析及实践</p><p><a href="https://senjianlu.com/2021/11/01/bak_cloudflare_ssl_tls/">https://senjianlu.com/2021/11/01/bak_cloudflare_ssl_tls/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2021-11-01</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2021-11-01</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/Cloudflare/">Cloudflare</a><a class="link-muted mr-2" rel="tag" href="/tags/%E5%BD%92%E6%A1%A3%E6%96%87%E7%AB%A0/">归档文章</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2021/11/02/bak_postgresql_note_06/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">【归档文章】PostgreSQL 学习笔记（六）对 JSONB 类型字段的增删改查操作</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2021/10/31/bak_plesk_install_nextcloud/"><span class="level-item">【归档文章】Plesk（虚拟主机空间）下安装 Nextcloud 网盘系统</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#1、模式：关闭（不安全）"><span class="level-left"><span class="level-item">1、模式：关闭（不安全）</span></span></a></li><li><a class="level is-mobile" href="#2、模式：灵活"><span class="level-left"><span class="level-item">2、模式：灵活</span></span></a></li><li><a class="level is-mobile" href="#3、模式：完全"><span class="level-left"><span class="level-item">3、模式：完全</span></span></a></li><li><a class="level is-mobile" href="#4、模式：完全（严格）"><span class="level-left"><span class="level-item">4、模式：完全（严格）</span></span></a></li><li><a class="level is-mobile" href="#5、总结"><span class="level-left"><span class="level-item">5、总结</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

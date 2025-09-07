@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/11/23 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam5 题 (No.46 ~ No.50)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/11/23"><meta property="og:url" content="https://senjianlu.com/2024/11/23/saa_test_daily_20241123/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam5 题 (No.46 ~ No.50)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-11-23T11:00:00.000Z"><meta property="article:modified_time" content="2024-11-23T12:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/11/23/saa_test_daily_20241123/"},"headline":"SAA 考试每日练习 - 2024/11/23","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-11-23T11:00:00.000Z","dateModified":"2024-11-23T12:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam5 题 (No.46 ~ No.50)，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/11/23/saa_test_daily_20241123/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-11-23T11:00:00.000Z" title="11/23/2024, 7:00:00 PM">2024-11-23</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/11/23</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/">Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam</a><br>5 题 (No.46 ~ No.50)，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<p><strong>🌟 单词：</strong></p>
+<ol>
+<li>remediation<sub><u>n. 补救, 纠正, （尤指对环境破坏的）整改</u></sub></li>
+<li>guarantee<sub><u>v. 确保；保证；担保 | n. 保证；担保（书）；保修单</u></sub></li>
+<li>capacity<sub><u>n. 容量，容积；能力；生产力；地位；职位，职责 | adj. （达到最大容量）满的</u></sub></li>
+<li>catalog<sub><u>n. 目录册，产品样本，学校便览，一览表 | v. （为…）编目录，（把…）按目录分类</u></sub></li>
+<li>durable<sub><u>adj. 耐用的，耐久的，长期的，长久的 | n. 耐久品</u></sub></li>
+<li>infrequently<sub><u>adv. 不经常地</u></sub></li>
+</ol>
+<hr>
+<h3 id="一、Personally-Identifiable-Information"><a href="#一、Personally-Identifiable-Information" class="headerlink" title="一、Personally Identifiable Information"></a>一、Personally Identifiable Information</h3><p>A company has an application that provides marketing services to stores. The services are based on previous purchases by store customers. The stores upload transaction data to the company through SFTP, and the data is processed and analyzed to generate new marketing offers. Some of the files can exceed 200 GB in size.<br>Recently, the company discovered that some of the stores have uploaded files that contain personally identifiable information (PII) that should not have been included. The company wants administrators to be alerted if PII is shared again. The company also wants to automate remediation.<br>What should a solutions architect do to meet these requirements with the LEAST development effort?</p>
+<ol>
+<li>Use an Amazon S3 bucket as a secure transfer point. Use Amazon Inspector to scan the objects in the bucket. If objects contain PII, trigger an S3 Lifecycle policy to remove the objects that contain PII.</li>
+<li>✅ Use an Amazon S3 bucket as a secure transfer point. Use Amazon Macie to scan the objects in the bucket. If objects contain PII, use Amazon Simple Notification Service (Amazon SNS) to trigger a notification to the administrators to remove the objects that contain PII.</li>
+<li>❌ Implement custom scanning algorithms in an AWS Lambda function. Trigger the function when objects are loaded into the bucket. If objects contain PII, use Amazon Simple Notification Service (Amazon SNS) to trigger a notification to the administrators to remove the objects that contain PII.</li>
+<li>Implement custom scanning algorithms in an AWS Lambda function. Trigger the function when objects are loaded into the bucket. If objects contain PII, use Amazon Simple Email Service (Amazon SES) to trigger a notification to the administrators and trigger an S3 Lifecycle policy to remove the meats that contain PII.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：transaction data through SFTP、files can exceed 200 GB in size、the LEAST development effort</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：客户通过 SFTP 上传文件（可达 200 GB），公司依此创建订单。最近公司发现有文件存在个人信息，希望自动化处理。要求最少开发的架构。<br>1️⃣ 存在错误 <code>Amazon Inspector</code> 是用来检测实例和 <code>Lambda</code> 函数等的安全漏洞的。<br>2️⃣ 中使用的 <code>Amazon Macie</code> 是一种数据安全服务，它使用机器学习和模式匹配来发现敏感数据，提供对数据安全风险的可见性，并使您能够自动防御这些风险。这似乎是唯一的选择。<br>3️⃣ 和 4️⃣ 虽然可以实现，但是题目中指定了最少开发量，因此不选。</p>
+<p>社区在 2️⃣ 和 4️⃣ 中有争议，不过 <a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/macie/">Amazon Macie 大规模发现和保护您的敏感数据</a> 提到了：</p>
+<blockquote>
+<p>以经济高效的方式查看存储在 Amazon S3 中的敏感数据。</p>
+</blockquote>
+<p>毫无以为这个就是考点。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Amazon Macie isa data securityand data privacy service that uses machine learning (ML) and pattern matching to discover and protect your sensitive data</p>
+<p>Macie automatically detectsa large and growing list of sensitive data types, including personally identifiable information (PII) such as names,addresses,and credit card numbers. It also gives you constant visibility of the data securityand data privacy of your data stored in Amazon S3</p>
+</blockquote>
+<hr>
+<h3 id="二、Reserved-Instances-and-guaranteed-capacity"><a href="#二、Reserved-Instances-and-guaranteed-capacity" class="headerlink" title="二、Reserved Instances and guaranteed capacity"></a>二、Reserved Instances and guaranteed capacity</h3><p>A company needs guaranteed<sub><u>确保</u></sub> Amazon EC2 capacity<sub><u>容量</u></sub> in three specific Availability Zones in a specific AWS Region for an upcoming event that will last 1 week.<br>What should the company do to guarantee the EC2 capacity?</p>
+<ol>
+<li>Purchase Reserved Instances that specify the Region needed.</li>
+<li>Create an On-Demand Capacity Reservation that specifies the Region needed.</li>
+<li>Purchase Reserved Instances that specify the Region and three Availability Zones needed.</li>
+<li>✅ Create an On-Demand Capacity Reservation that specifies the Region and three Availability Zones needed.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：last 1 week</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：公司需要确保跨三个可用区的、在同一区域的 <code>EC2</code> 实例的容量足够应对未来一周的活动。<br>考点是两种实例类型：</p>
+<ul>
+<li><code>按需付费 (On-Demand Instances)</code>：只需要按使用时间付费。</li>
+<li><code>预留实例 (Reserved Instances)</code>：承诺使用 1 或 3 年的 EC2 实例。最高可节省 75% 的成本。</li>
+</ul>
+<p>持续一周的话就选择按需实例了。<br>之后为了确保容量，还需要采用 <code>On-Demand Capacity Reservations（按需容量预留）</code> 服务，它需要指定可用区，因此选 4️⃣。  </p>
+<blockquote>
+<p>通过使用容量预留，您可以为<u><strong>特定可用区</strong></u>中的 Amazon EC2 实例预留计算容量。对于不同的使用案例，有两种类型的容量预留。  </p>
+<p>以下是按需容量预留的一些常见使用案例：  </p>
+<ul>
+<li>扩展事件 - 您可以在业务关键型事件之前创建按需容量预留，以确保在需要时进行扩展。</li>
+<li>监管要求和灾难恢复 - 使用按需容量预留来满足高可用性的监管要求，并在不同的可用区或区域中预留容量以进行灾难恢复。</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Reserved instancesare for long term so on-demand will be the right choice - Answer D</p>
+</blockquote>
+<hr>
+<h3 id="三、Durable-storage-and-HA"><a href="#三、Durable-storage-and-HA" class="headerlink" title="三、Durable storage and HA"></a>三、Durable storage and HA</h3><p>A company’s website uses an Amazon EC2 instance store for its catalog<sub><u>目录</u></sub> of items. The company wants to make sure that the catalog is highly available and that the catalog is stored in a durable<sub><u>耐用的</u></sub> location.<br>What should a solutions architect do to meet these requirements?</p>
+<ol>
+<li>Move the catalog to Amazon ElastiCache for Redis.</li>
+<li>Deploy a larger EC2 instance with a larger instance store.</li>
+<li>Move the catalog from the instance store to Amazon S3 Glacier Deep Archive.</li>
+<li>✅ Move the catalog to an Amazon ElasticFile System (Amazon EFS) file system.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：highly available、store catalog in a durable location</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：需要使产品目录高度可用，且保存在长久可用的区域中。<br>3️⃣ 不能选应该深度归档后无法使其高度可用，<code>EFS</code> 可以解决这个需求，因此选 4️⃣。</p>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/efs/">Amazon Elastic File System 无服务器，完全弹性文件存储</a></p>
+<blockquote>
+<p>Amazon Elastic File System (Amazon EFS) 是一种简单的、无服务器的、可设置且可忽略的弹性文件系统。没有最低消费和设置费用。您只需为实际使用的存储、对不频繁访问存储类中存储的数据的读写访问，以及任何已预置的吞吐量付费。</p>
+<p>通过为获得 99.999999999%（11 个 9）的持久性和高达 99.99%（4 个 9）的可用性而设计的完全托管式文件系统，安全可靠地访问文件。</p>
+</blockquote>
+<p>看社区讨论似乎 durable 关键词与高持久性有关。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：keyword is “durable” location<br>A and B is ephemeral storage<br>C takes forever so is not HA,<br>that leaves D</p>
+<blockquote>
+<p>🙋‍♂️ 回复：Yes, if you open EFS home page (<a target="_blank" rel="noopener" href="https://aws.amazon.com/efs/">https://aws.amazon.com/efs/</a>), Amazon state, “Securely and reliably access your files with a fully managed file system designed for 99.999999999 percent (11 9s) durability and up to 99.99 percent (4 9s) of availability.”</p>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="四、File-stroage-and-access-infrequently"><a href="#四、File-stroage-and-access-infrequently" class="headerlink" title="四、File stroage and access infrequently"></a>四、File stroage and access infrequently</h3><p>A company stores call transcript files on a monthly basis. Users access the files randomly within 1 year of the call, but users access the files infrequently<sub><u>不经常地</u></sub> after 1 year. The company wants to optimize its solution by giving users the ability to query and retrieve files that are less than 1-year-old as quickly as possible. A delay in retrieving older files is acceptable.<br>Which solution will meet these requirements MOST cost-effectively?</p>
+<ol>
+<li>Store individual files with tags in Amazon S3 Glacier Instant Retrieval. Query the tags to retrieve the files from S3 Glacier Instant Retrieval.</li>
+<li>✅ Store individual files in Amazon S3 Intelligent-Tiering. Use S3 Lifecycle policies to move the files to S3 Glacier Flexible Retrieval after 1 year. Query and retrieve the files that are in Amazon S3 by using Amazon Athena. Query and retrieve the files that are in S3 Glacier by using S3 Glacier Select.</li>
+<li>Store individual files with tags in Amazon S3 Standard storage. Store search metadata for each archive in Amazon S3 Standard storage. Use S3 Lifecycle policies to move the files to S3 Glacier Instant Retrieval after 1 year. Query and retrieve the files by searching for metadata from Amazon S3.</li>
+<li>❌ Store individual files in Amazon S3 Standard storage. Use S3 Lifecycle policies to move the files to S3 Glacier Deep Archive after 1 year. Store search metadata in Amazon RDS. Query the files from Amazon RDS. Retrieve the files from S3 Glacier Deep Archive.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：cost-effectively、query and retrieve 1-year-old files quickly、delay in retrieving older files</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 2️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：需要对存储少于 1 年的数据进行快速检索和获取，对存储超过 1 年的文件允许延迟提取。<br>通过 <code>S3</code> 生命周期策略结合使用 <code>S3 Standard</code> + <code>Standard Glacier Deep Archive</code> 可以解决存储问题，2️⃣ 和 4️⃣ 相比之下使用 <code>Amazon RDS</code> 存放元数据来提供对深度归档文件的检索，比 <code>Amazon Athena</code> + <code>S3 Glacier Select</code> 更贵，因此选 2️⃣。</p>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/athena/">Amazon Athena 灵活轻松地分析包含它的 PB 级数据</a></p>
+<blockquote>
+<p>Amazon Athena 是一项基于开源框架的无服务器交互式分析服务，支持开源表和文件格式。Athena 提供了一种简化、灵活的方法来分析包含它的 PB 级数据。从 Amazon Simple Storage Service（S3）数据湖和超过 30 个数据来源（包括本地数据来源，或使用 SQL 或 Python 的其他云系统）分析数据或构建应用程序。Athena 基于开源 Trino 和 Presto 引擎以及 Apache Spark 框架构建，无需进行预配或配置。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/about-aws/whats-new/2017/11/amazon-glacier-select-makes-big-data-analytics-of-archive-data-possible/">S3 Glacier Select</a></p>
+<blockquote>
+<p>Amazon Glacier Select 是对 Amazon Glacier 中的归档数据进行查询的全新方式。Glacier Select 允许直接对存储在 Amazon Glacier 中的数据运行查询，从而只从您的存档中检索所需数据来用于分析。这使您能够降低总体拥有成本，同时将您的数据湖大规模扩展到经济高效的存档存储。</p>
+</blockquote>
+<p>社区对 3️⃣ 和 4️⃣ 存在争议，不过在 AWS 有完善的解决方案情况下，总是需要优先选择对应服务的。<br>这里活跃和非活跃存储的转换使用 <code>Amazon S3 Intelligent-Tiering</code> + <code>S3</code> 存储策略，各自的检索使用 <code>Amazon Athena</code> 和 <code>S3 Glacier Select</code>。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：I thinkthe answer is B:<br>Usersaccess the files randomly<br>S3 Intelligent-Tiering is the ideal storage class for data with unknown, changing, or unpredictable access patterns, independent of object size or retention period. You can use S3 Intelligent-Tiering as the default storage class for virtuallyany workload, especially data lakes, data analytics, new applications,and user-generated content.  </p>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/fr/s3/storage-classes/intelligent-tiering/">https://aws.amazon.com/fr/s3/storage-classes/intelligent-tiering/</a></p>
+</blockquote>
+<hr>
+<h3 id="五、AWS-Systems-Manager"><a href="#五、AWS-Systems-Manager" class="headerlink" title="五、AWS Systems Manager"></a>五、AWS Systems Manager</h3><p>A company has a production workload that runs on 1,000 Amazon EC2 Linux instances. The workload is powered by third-party software. The company needs to patch the third-party software on all EC2 instances as quickly as possible to remediate a critical security vulnerability.<br>What should a solutions architect do to meet these requirements?</p>
+<ol>
+<li>Create an AWS Lambda function to apply the patch to all EC2 instances.</li>
+<li>Configure AWS Systems Manager Patch Manager to apply the patch to all EC2 instances.</li>
+<li>Schedule an AWS Systems Manager maintenance window to apply the patch to all EC2 instances.</li>
+<li>✅ Use AWS Systems Manager Run Command to run a custom command that applies the patch to all EC2 instances.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：1,000 Amazon EC2 Linux instances、third-party software、quickly</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：需要在 1000 <code>EC2</code> 实例上尽快都安装一款第三软件。  </p>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/systems-manager/">AWS Systems Manager 在 AWS 以及多云和混合环境中管理您的资源</a></p>
+<blockquote>
+<p>AWS Systems Manager 是一种管理云和混合 IT 环境的新方法。AWS Systems Manager 提供了一个统一的用户界面，可以简化资源和应用程序管理，缩短检测和解决操作问题的时间，并使您能够轻松安全地大规模操作和管理基础设施。此服务包含了丰富的功能。它定义了围绕使用 Amazon EC2 Systems Manager (SSM) 等产品中的功能进行分组、可视化和问题响应的新体验，支持大量跨资源的操作。  </p>
+<ul>
+<li><strong>Run Command</strong>：是一个用于对实例启用 SSH 的卓越替代品。它让您可以在不登录到服务器的情况下为您的实例提供安全可靠的大规模远程管理，从而取代了对 SSH 防御主机或远程 powershell 的需求。它具有精细的 IAM 权限，可让您限制可以运行某些命令的角色或用户。</li>
+<li><strong>自动化操作</strong>：可让您将常见 IT 任务定义为一个指定了一系列任务的 JSON 文档。您还可以使用社区发布的文档。这些文档可通过控制台、CLI、软件开发工具包和计划的维护窗口来执行，或通过 CloudWatch 事件基于您的基础设施中的更改来触发。您可以跟踪并记录文档中的每个步骤的执行情况，并针对额外的审批进行提示。它还允许您逐步推出更改并在出现错误时自动停止。您可以直接在资源组上开始执行自动化操作，该操作能够将自身应用于它在组中了解的资源。</li>
+<li><strong>Patch Manager</strong>：使用 Patch Manager 可以通过安全性相关更新及其他类型的更新自动执行修补托管式节点的过程。您可以使用 Patch Manager 来应用操作系统和应用程序的补丁。（在 Windows Server 上，应用程序支持仅限于更新 Microsoft 发布的应用程序。）</li>
+<li><strong>维护时段</strong>：可让您在特定时段内安排实例维护和其他中断性任务。</li>
+<li><strong>State Manager</strong>：让您控制各种服务器配置详情，例如防病毒定义、防火墙设置等。您可以在控制台中定义策略，也可以运行现有脚本、PowerShell 模块或者甚至直接从 S3 或 GitHub 运行 Ansible 操作手册。您可以随时查询 State Manager 以查看实例配置的状态。</li>
+</ul>
+</blockquote>
+<p>虽然社区在 2️⃣ 和 4️⃣ 之间存在争议，但 <code>Patch Manager</code> 的主要设计意图在于在托管式节点上安装与安全性相关的操作系统更新，并且默认情况下，Patch Manager 只安装一小部分旨在提高安全性的补丁。<br>而 <code>Run Command</code> 显然更自由、更符合题目场景。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：The primary focus of Patch Manager,a capability of AWS Systems Manager, is on installing operating systems security-related updates on managed nodes. By default, Patch Manager doesn’t install all available patches, but rather a smaller set of patches focused on security. (Ref <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-how-it-works-selection.html">https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-how-it-works-selection.html</a>)<br>Run Command allows you to automate common administrative tasksand perform one-time configuration changesat scale. (Ref <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/systems-manager/latest/userguide/execute-remote-commands.html">https://docs.aws.amazon.com/systems-manager/latest/userguide/execute-remote-commands.html</a>)<br>Seems like patch manager is meant for OS level patchesand not 3rd partyapplications. And this falls under run command wheelhouse to carry out one-time configuration changes (update of 3rd part application) at scale.</p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/11/23</p><p><a href="https://senjianlu.com/2024/11/23/saa_test_daily_20241123/">https://senjianlu.com/2024/11/23/saa_test_daily_20241123/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-11-23</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-11-23</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/11/23/translate_news_nhk_20241122_k10014647081000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - 働く高齢者の労災防止対策 企業の努力義務へ 厚労省が方針</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/11/23/hands_on_iam/"><span class="level-item">AWS 实操 - IAM (Identity and Access Management)</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、Personally-Identifiable-Information"><span class="level-left"><span class="level-item">一、Personally Identifiable Information</span></span></a></li><li><a class="level is-mobile" href="#二、Reserved-Instances-and-guaranteed-capacity"><span class="level-left"><span class="level-item">二、Reserved Instances and guaranteed capacity</span></span></a></li><li><a class="level is-mobile" href="#三、Durable-storage-and-HA"><span class="level-left"><span class="level-item">三、Durable storage and HA</span></span></a></li><li><a class="level is-mobile" href="#四、File-stroage-and-access-infrequently"><span class="level-left"><span class="level-item">四、File stroage and access infrequently</span></span></a></li><li><a class="level is-mobile" href="#五、AWS-Systems-Manager"><span class="level-left"><span class="level-item">五、AWS Systems Manager</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

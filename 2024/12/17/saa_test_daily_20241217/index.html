@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/12/17 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam160 题 (No.321 ~ No.480) 只记录了 13 道错误或需要注意的题目，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/12/17"><meta property="og:url" content="https://senjianlu.com/2024/12/17/saa_test_daily_20241217/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam160 题 (No.321 ~ No.480) 只记录了 13 道错误或需要注意的题目，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-12-17T12:00:00.000Z"><meta property="article:modified_time" content="2024-12-17T15:50:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/12/17/saa_test_daily_20241217/"},"headline":"SAA 考试每日练习 - 2024/12/17","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-12-17T12:00:00.000Z","dateModified":"2024-12-17T15:50:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam160 题 (No.321 ~ No.480) 只记录了 13 道错误或需要注意的题目，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/12/17/saa_test_daily_20241217/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-12-17T12:00:00.000Z" title="12/17/2024, 8:00:00 PM">2024-12-17</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/12/17</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/">Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam</a><br>160 题 (No.321 ~ No.480) <strong>只记录了 13 道错误或需要注意的题目</strong>，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<h3 id="一、Amazon-Cognito-身份池的自定义属性映射"><a href="#一、Amazon-Cognito-身份池的自定义属性映射" class="headerlink" title="一、Amazon Cognito 身份池的自定义属性映射"></a>一、Amazon Cognito 身份池的自定义属性映射</h3><p>某公司通过 Amazon S3 存储桶托管一个网络应用程序。该应用程序使用 Amazon Cognito 作为身份提供程序来验证用户身份，并返回一个 JSON Web 令牌 (JWT)，该令牌可提供对存储在另一个 S3 存储桶中的受保护资源的访问权限。<br>在部署应用程序时，用户会报告错误，并且无法访问受保护的内容。解决方案架构师必须通过提供适当的权限来解决这个问题，这样用户才能访问受保护的内容。<br>哪种解决方案能满足这些要求？</p>
+<ol>
+<li>✅ 更新 Amazon Cognito 身份池，以承担访问受保护内容的适当 IAM 角色。</li>
+<li>更新 S3 ACL，允许应用程序访问受保护的内容。</li>
+<li>将应用程序重新部署到 Amazon S3，以防止 S3 存储桶中最终一致的读取影响用户访问受保护内容的能力。</li>
+<li>❌ 更新 Amazon Cognito 池，以便在身份池中使用自定义属性映射，并授予用户访问受保护内容的适当权限。</li>
+</ol>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：1️⃣ 和 4️⃣ 都能完成题目需求，且 4️⃣ 对权限控制的粒度更细：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/cognito/latest/developerguide/attributes-for-access-control.html">将属性用于访问控制</a></p>
+<blockquote>
+<p>访问控制的属性是 Amazon Cognito 身份池实现的基于属性的访问控制 ()。ABAC您可以使用IAM策略根据用户属性控制通过 Amazon Cognito 身份池访问 AWS 资源。可以从社交和企业身份提供商那里获得这些属性。您可以将提供商的访问权限和 ID 令牌或SAML断言中的属性映射到可在IAM权限策略中引用的标签。</p>
+<p>您可以选择默认映射或在 Amazon Cognito 身份池中创建自己的自定义映射。默认映射允许您根据一组固定的用户属性编写IAM策略。自定义映射允许您选择IAM权限策略中引用的一组自定义用户属性。Amazon Cognito 控制台中的属性名称映射到主体的标签密钥，即IAM权限策略中引用的标签。</p>
+<p>例如，假设您拥有一个具有免费和付费会员资格的媒体流式传输服务。您可以将媒体文件存储在 Amazon S3 中，并使用免费或高级标签对其贴标签。您可以将属性用于访问控制，以允许访问基于用户会员级别（这是用户配置文件的一部分）的免费和付费内容。您可以将成员资格属性映射到标签密钥，以便委托人传递给IAM权限策略。通过这种方式，您可以创建单个权限策略，并根据会员级别的值和内容文件上的标签有条件地允许对高级内容的访问。</p>
+</blockquote>
+<p>通过不同的自定义属性来区分不同等级的会员，以使他们能够访问不同权限要求的资源。</p>
+</blockquote>
+<hr>
+<h3 id="二、Amazon-Aurora-Global-Database-headless-clusters（全局数据库无头集群）"><a href="#二、Amazon-Aurora-Global-Database-headless-clusters（全局数据库无头集群）" class="headerlink" title="二、Amazon Aurora Global Database headless clusters（全局数据库无头集群）"></a>二、Amazon Aurora Global Database headless clusters（全局数据库无头集群）</h3><p>解决方案架构师必须为大容量软件即服务（SaaS）平台创建灾难恢复（DR）计划。该平台的所有数据都存储在 Amazon Aurora MySQL DB 集群中。<br>灾难恢复计划必须将数据复制到辅助 AWS 区域。<br>哪种解决方案能以最具成本效益的方式满足这些要求？</p>
+<ol>
+<li>使用 MySQL 二进制日志复制到辅助区域中的 Aurora 群集。为辅助区域中的 Aurora 群集提供一个 DB 实例。</li>
+<li>✅ 为 DB 集群设置 Aurora 全局数据库。设置完成后，从二级区域中删除 DB 实例。</li>
+<li>使用 AWS 数据库迁移服务 (AWS DMS) 将数据持续复制到辅助区域中的 Aurora 群集。从辅助区域删除 DB 实例。</li>
+<li>为 DB 集群设置 Aurora 全局数据库。在辅助区域中至少指定一个 DB 实例。</li>
+</ol>
+<blockquote>
+<p>2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-attach.console.headless.html">在辅助区域中创建无管控 Aurora 数据库集群</a></p>
+<blockquote>
+<p>尽管 Aurora Global Database 要求在与主区域之外的不同 AWS 区域 中至少有一个辅助 Aurora 数据库集群，但您可以对辅助集群使用无管控配置。无管控辅助 Aurora 数据库集群是没有数据库实例的集群。此类型的配置可以降低 Aurora 全局数据库的开支。在 Aurora 数据库集群中，计算和存储是分离的。如果没有数据库实例，您就无需为计算付费，而只需为存储付费。如果设置正确，无管控辅助存储卷将与主 Aurora 数据库集群保持同步。</p>
+<p>在主 Aurora 数据库集群开始复制到辅助数据库集群之后，您可以从辅助 Aurora 数据库集群中删除该 Aurora 只读数据库实例。此辅助集群现在被视为“无管控”集群，因为其不再有数据库实例。<u><strong>即使辅助集群中没有任何数据库实例，Aurora 也会将存储卷与主 Aurora 数据库集群保持同步</strong></u>。</p>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="三、SNS-和-SQS-的传输中与静态加密"><a href="#三、SNS-和-SQS-的传输中与静态加密" class="headerlink" title="三、SNS 和 SQS 的传输中与静态加密"></a>三、SNS 和 SQS 的传输中与静态加密</h3><p>一家医院正在设计一个收集病人症状的新应用程序。医院决定在架构中使用亚马逊简单队列服务（Amazon SQS）和亚马逊简单通知服务（Amazon SNS）。<br>解决方案架构师正在审查基础设施设计。数据在静态和传输过程中都必须加密。只有医院的授权人员才能访问数据。<br>解决方案架构师应采取哪些步骤组合来满足这些要求？(选择两个）。</p>
+<ol>
+<li>在 SQS 组件上开启服务器端加密。更新默认密钥策略，将密钥使用限制为一组授权委托人。</li>
+<li>✅ 使用 AWS 密钥管理服务 (AWS KMS) 客户管理的密钥，开启 SNS 组件的服务器端加密。应用密钥策略，将密钥的使用限制在一组授权委托人范围内。</li>
+<li>打开 SNS 组件的加密功能。更新默认密钥策略，将密钥使用限制为一组授权委托人。在主题策略中设置一个条件，只允许通过 TLS 进行加密连接。</li>
+<li>✅ 使用 AWS 密钥管理服务 (AWS KMS) 客户管理的密钥，开启 SQS 组件的服务器端加密。应用密钥策略，将密钥的使用限制在一组授权委托人范围内。在队列策略中设置一个条件，只允许通过 TLS 进行加密连接。</li>
+<li>使用 AWS 密钥管理服务 (AWS KMS) 客户管理的密钥，开启 SQS 组件的服务器端加密。应用 IAM 策略，将密钥的使用限制在一组授权委托人范围内。在队列策略中设置一个条件，只允许通过 TLS 进行加密连接。</li>
+</ol>
+<blockquote>
+<p>2️⃣ 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>SNS</code> 强制要求使用安全协议操作相关 API，这已经实现了传输中加密：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/sns/latest/dg/sns-infrastructure-security.html">Amazon 的基础设施安全 SNS</a></p>
+<blockquote>
+<p>使用 AWS API操作SNS通过网络访问 Amazon。客户端必须支持传输层安全 (TLS) 1.2 或更高版本。</p>
+</blockquote>
+<p><code>SNS</code> 支持使用 <code>KMS</code> 中的密钥对消息进行静态加密：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/sns/latest/dg/sns-server-side-encryption.html">使用服务器端加密保护 Amazon SNS 数据</a></p>
+<blockquote>
+<p>服务器端加密 (SSE) 允许您使用在 AWS Key Management Service (AWS KMS) 中管理的密钥保护 Amazon 主题中的消息内容，从而将敏感数据存储在加密SNS主题中。<br>SSE Amazon SNS 收到消息后立即对其进行加密。<u>消息以加密形式存储，仅在发送时才解密</u>。</p>
+</blockquote>
+<p><code>SQS</code> 也强制了需要使用安全协议：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-infrastructure-security.html">Amazon SQS 中的基础设施安全性</a></p>
+<blockquote>
+<p>您可以使用 AWS 已发布的 API 操作通过网络访问 Amazon SQS。客户端必须支持传输层安全性（TLS）1.2 或更高版本。</p>
+</blockquote>
+<p><code>SQS</code> 当然也支持使用 <code>KMS</code> 中的密钥对消息进行静态加密：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html">Amazon 中的静态加密 SQS</a></p>
+<blockquote>
+<p>服务器端加密 (SSE) 允许您在加密队列中传输敏感数据。SSE使用SQS管理的加密密钥 (SSE-SQS) 或在 (-) 中管理的密钥保护队列中的 AWS Key Management Service 邮件内容。SSE KMS有关SSE使用进行管理的信息 AWS Management Console，请参阅以下内容：</p>
+<ul>
+<li>配置 SSE-SQS 用于队列（控制台）</li>
+<li>配置 SSE-KMS 用于队列（控制台）</li>
+</ul>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="四、API-Gateway-API-的-API-鉴权"><a href="#四、API-Gateway-API-的-API-鉴权" class="headerlink" title="四、API Gateway API 的 API 鉴权"></a>四、API Gateway API 的 API 鉴权</h3><p>一家公司的网络应用程序由亚马逊 API Gateway API 和 AWS Lambda 函数以及亚马逊 DynamoDB 数据库。Lambda 函数处理业务逻辑，DynamoDB 表托管数据。应用程序使用 Amazon Cognito 用户池来识别应用程序的单个用户。解决方案架构师需要更新应用程序，以便只有订阅的用户才能访问高级内容。<br>哪种解决方案能以最少的运行开销满足这一要求？</p>
+<ol>
+<li>在 API Gateway API 上启用 API 缓存和节流。</li>
+<li>❌ 在 API Gateway API 上设置 AWS WAF。创建一条规则，过滤已订阅的用户。</li>
+<li>对 DynamoDB 表中的高级内容应用细粒度 IAM 权限。</li>
+<li>✅ 实施 API 使用计划和 API 密钥，限制未订阅用户的访问权限。</li>
+</ol>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/apigateway/latest/developerguide/api-gateway-api-usage-plans.html#apigateway-usage-plans-best-practices">API 密钥和使用计划的最佳实践</a></p>
+<blockquote>
+<p>以下是使用 API 密钥和使用计划时要遵循的建议的最佳实践。</p>
+<blockquote>
+<ul>
+<li>请勿使用 API 密钥进行身份验证或授权以控制对 API 的访问权限。如果您在一个使用计划中有多个 API，则具有该使用计划中的一个 API 的有效 API 密钥的用户可以访问该使用计划中的所有 API。相反，要控制对 API 的访问权限，请使用 IAM 角色、Lambda 授权方或 Amazon Cognito 用户群体。</li>
+<li>使用 API Gateway 生成的 API 密钥。API 密钥不应包含机密信息；客户端通常使用可记录的标头传输这些信息。</li>
+</ul>
+</blockquote>
+<ul>
+<li>如果您使用开发人员门户发布 API，请注意，给定使用计划中的所有 API 均可由客户订阅，即使您尚未向您的客户显示它们。</li>
+<li>在某些情况下，客户端可能会超过您设置的配额。不要依靠使用计划来控制成本。考虑使用 AWS Budgets 监控成本和 AWS WAF 来管理 API 请求。</li>
+<li>将 API 密钥添加到使用计划后，更新操作可能需要几分钟才能完成。</li>
+</ul>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="五、跨-VPC-组网并连接到本地数据中心"><a href="#五、跨-VPC-组网并连接到本地数据中心" class="headerlink" title="五、跨 VPC 组网并连接到本地数据中心"></a>五、跨 VPC 组网并连接到本地数据中心</h3><p>某公司在 us-east-1 区域内的三个独立 VPC 中运行多个业务应用程序。这些应用程序必须能够在 VPC 之间进行通信。这些应用程序还必须能够每天持续向在单个内部数据中心运行的延迟敏感型应用程序发送数百千兆字节的数据。<br>解决方案架构师需要设计一个网络连接解决方案，最大限度地提高成本效益。哪种解决方案能满足这些要求？</p>
+<ol>
+<li>配置三个从数据中心到 AWS 的 AWS 站点到站点 VPN 连接。通过为每个 VPC 配置一个 VPN 连接来建立连接。</li>
+<li>在每个 VPC 中启动第三方虚拟网络设备。在数据中心和每个虚拟设备之间建立 IPsec VPN 通道。</li>
+<li>❌ 从数据中心到 us-east-1 中的 Direct Connect 网关设置三个 AWS Direct Connect 连接。通过配置每个 VPC 以使用其中一个 Direct Connect 连接来建立连接。</li>
+<li>✅ 建立一个从数据中心到 AWS 的 AWS Direct Connect 连接。创建一个中转网关，并将每个 VPC 附加到中转网关。在 Direct Connect 连接和中转网关之间建立连接。</li>
+</ol>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/prescriptive-guidance/latest/integrate-third-party-services/architecture-3.html">架构 3：AWS Transit Gateway</a></p>
+<blockquote>
+<p><img src="https://image.senjianlu.com/blog/2024-12-18/203345.png" alt="Transit Gateway 架构"></p>
+</blockquote>
+<p>需要注意的是 <code>Transit Gateway</code> 并不是包含在任意 <code>VPC</code> 内部的。</p>
+</blockquote>
+<hr>
+<h3 id="六、弹性扩展-RDS-DB-实例"><a href="#六、弹性扩展-RDS-DB-实例" class="headerlink" title="六、弹性扩展 RDS DB 实例"></a>六、弹性扩展 RDS DB 实例</h3><p>一家公司正在将其内部工作负载迁移到 AWS 云。该公司已经使用了几个 Amazon EC2 实例和 Amazon RDS DB 实例。该公司需要一个能在工作时间外自动启动和停止 EC2 实例和 DB 实例的解决方案。该解决方案必须最大限度地降低成本和基础设施维护成本。<br>哪种解决方案能满足这些要求？</p>
+<ol>
+<li>❌ 使用弹性调整 EC2 实例的大小。在工作时间外将 DB 实例扩展为零。</li>
+<li>在 AWS Marketplace 探索合作伙伴解决方案，这些解决方案将按计划自动启动和停止 EC2 实例和 DB 实例。</li>
+<li>启动另一个 EC2 实例。配置 crontab 计划，运行 shell 脚本，按计划启动和停止现有 EC2 实例和 DB 实例。</li>
+<li>✅ 创建一个 AWS Lambda 函数，用于启动和停止 EC2 实例和 DB 实例。配置 Amazon EventBridge 以按计划调用 Lambda 函数。</li>
+</ol>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：弹性扩展无法将 DB 实例的个数缩小为 0。<br><em>虽然我没有找到实际的文档，但是可以理解吧，毕竟停止后如何建立新的数据库连接呢。</em></p>
+</blockquote>
+<hr>
+<h3 id="七、对不需要本地存储的-EC2-实例进行备份"><a href="#七、对不需要本地存储的-EC2-实例进行备份" class="headerlink" title="七、对不需要本地存储的 EC2 实例进行备份"></a>七、对不需要本地存储的 EC2 实例进行备份</h3><p>某公司需要为其三层无状态网络应用程序制定备份策略。网络应用程序在自动扩展组中的 Amazon EC2 实例上运行，该组具有动态扩展策略，可对扩展事件做出响应。数据库层在 PostgreSQL 的 Amazon RDS 上运行。网络应用程序不需要 EC2 实例上的临时本地存储。公司的恢复点目标 (RPO) 为 2 小时。<br>备份策略必须最大限度地提高该环境的可扩展性并优化资源利用率。哪种解决方案能满足这些要求？</p>
+<ol>
+<li>每 2 小时对 EC2 实例和数据库的 Amazon Elastic Block Store (Amazon EBS) 卷进行快照，以满足 RPO 要求。</li>
+<li>配置快照生命周期策略，以获取 Amazon Elastic Block Store (Amazon EBS) 快照。在 Amazon RDS 中启用自动备份，以满足 RPO。</li>
+<li>✅ 保留 Web 层和应用层的最新 Amazon Machine Images (AMI)。在 Amazon RDS 中启用自动备份，并使用时间点恢复来满足 RPO。</li>
+<li>❌ 每 2 小时对 EC2 实例的 Amazon Elastic Block Store (Amazon EBS) 卷进行快照。在 Amazon RDS 中启用自动备份，并使用时间点恢复来满足 RPO。</li>
+</ol>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/Storage.html">适用于 Amazon EC2 实例的存储选项</a></p>
+<blockquote>
+<p><strong>数据块存储</strong></p>
+<ul>
+<li>Amazon EBS – Amazon EBS 提供持久的块级存储卷，您可以将其附加到实例或从实例中分离。您可以将多个 EBS 卷附加到一个实例。EBS 卷始终不受其关联实例的生命周期影响。您可以对 EBS 卷进行加密。要保留您数据的备份副本，您可以从 EBS 卷创建快照。快照会存储在 Amazon S3 中。您可以从快照创建 EBS 卷。</li>
+<li>适用于 EC2 实例的实例存储临时块存储 – 实例存储可以为实例提供临时性块级存储。实例存储卷的数量、大小和类型由实例类型和实例大小决定。实例存储卷上的数据仅在关联实例的生命周期内保留；如果您停止、休眠或终止实例，则实例存储卷上的所有数据都会丢失。</li>
+</ul>
+</blockquote>
+<p>在题目描述的情况下，就只是对临时块存储进行备份（通过 AMI 的制作）。</p>
+</blockquote>
+<hr>
+<h3 id="八、Amazon-Kinesis-Data-Streams-默认的消息保留期限和管道大小"><a href="#八、Amazon-Kinesis-Data-Streams-默认的消息保留期限和管道大小" class="headerlink" title="八、Amazon Kinesis Data Streams 默认的消息保留期限和管道大小"></a>八、Amazon Kinesis Data Streams 默认的消息保留期限和管道大小</h3><p>一家公司需要采集和处理其应用程序生成的大量流式数据。该应用程序在 Amazon EC2 实例，并将数据发送到 Amazon Kinesis Data Streams，该数据流采用默认设置配置。每隔一天，应用程序消耗数 据并将数据写入 Amazon S3 存储桶，以便进行商业智能 (BI) 处理。该公司发现，Amazon S3 并未接收到应用程序发送到 Kinesis Data Streams 的所有数据。<br>解决方案架构师应该如何解决这个问题？</p>
+<ol>
+<li>✅ 通过修改数据保留期更新 Kinesis 数据流默认设置。</li>
+<li>更新应用程序，使用 Kinesis 生产者库 (KPL) 将数据发送到 Kinesis 数据流。</li>
+<li>❌ 更新 Kinesis 碎片的数量，以处理发送到 Kinesis 数据流的数据吞吐量。</li>
+<li>在 S3 存储桶内打开 S3 版本控制，以保存 S3 存储桶中摄取的每个对象的每个版本。</li>
+</ol>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>Amazon Kinesis Data Streams</code> 的分片随模式不同而不同：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/streams/latest/dev/service-sizes-and-limits.html">限额和限制</a></p>
+<blockquote>
+<ul>
+<li><strong>按需模式</strong> - 并无上限。分片数量取决于摄取的数据量和所需的吞吐量级别。Kinesis Data Streams 会根据数据量和流量的变化自动扩展分片数量。</li>
+<li><strong>预置模式</strong> - 并无上限。以下 AWS 区域每个 AWS 账户的默认分片限额为 500 个分片：美国东部（弗吉尼亚州北部）、美国西部（俄勒冈州）和欧洲地区（爱尔兰）。其余区域每个 AWS 账户的默认分片限额为 200 个分片。</li>
+</ul>
+</blockquote>
+<p>而保留期则同一默认为 24 小时：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/streams/latest/dev/kinesis-extended-retention.html">更改数据留存期</a></p>
+<blockquote>
+<p>从添加记录到记录不再可访问的时间段称为保留期。Kinesis 数据流存储记录的时间默认为 24 小时，最长可达 8760 小时（365 天）。</p>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="九、RDS-Multi-AZ-实例和集群部署的-RTO"><a href="#九、RDS-Multi-AZ-实例和集群部署的-RTO" class="headerlink" title="九、RDS Multi-AZ 实例和集群部署的 RTO"></a>九、RDS Multi-AZ 实例和集群部署的 RTO</h3><p>某公司希望使用 Amazon RDS for PostgreSQL DB 集群来简化生产数据库工作负载耗时的数据库管理任务。该公司希望确保其数据库的高可用性，并在大多数情况下在 40 秒内提供自动故障切换支持。该公司希望卸载主实例的读取，并尽可能降低成本。<br>哪种解决方案能满足这些要求？</p>
+<ol>
+<li>❌ 使用 Amazon RDS Multi-AZ DB 实例部署。创建一个读取副本，并将读取工作负载指向读取副本。</li>
+<li>使用 Amazon RDS Multi-AZ DB duster 部署 创建两个读副本，并将读工作负载指向读副本。</li>
+<li>使用 Amazon RDS Multi-AZ DB 实例部署。将读取工作负载指向多 AZ 对中的辅助实例。</li>
+<li>✅ 使用 Amazon RDS Multi-AZ DB 集群部署 将读取工作负载指向阅读器端点。</li>
+</ol>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：RDS Multi-AZ 实例的恢复时间在 60 ~ 120 秒：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.Failover.html">Failing over a Multi-AZ DB instance for Amazon RDS</a>  </p>
+<blockquote>
+<p>The time that it takes for the failover to complete depends on the database activity and other conditions at the time the primary DB instance became unavailable. Failover times are typically 60–120 seconds. However, large transactions or a lengthy recovery process can increase failover time. When the failover is complete, it can take additional time for the RDS console to reflect the new Availability Zone.</p>
+</blockquote>
+<p>而 RDS Multi-AZ 集群的恢复时间在 35 秒左右：<a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/blogs/database/choose-the-right-amazon-rds-deployment-option-single-az-instance-multi-az-instance-or-multi-az-database-cluster/#Multi-AZ%20DB%20cluster">Multi-AZ DB cluster</a></p>
+<blockquote>
+<p>The Multi-AZ DB cluster combines automatic failover with two readable standby instances and provides up to 2x faster commit latencies and automated failovers, typically under 35 seconds. </p>
+</blockquote>
+<p>如果要达到题目要求的 40 秒以内的话，只能选集群。<br>同时集群启动的时候会自带只读副本，因此选 4️⃣。</p>
+</blockquote>
+<hr>
+<h3 id="十、RDS-for-MySQL-使用快照和-mysqldump-还原"><a href="#十、RDS-for-MySQL-使用快照和-mysqldump-还原" class="headerlink" title="十、RDS for MySQL 使用快照和 mysqldump 还原"></a>十、RDS for MySQL 使用快照和 mysqldump 还原</h3><p>一家公司在应用测试期间使用了亚马逊 RDS for MySQL DB 实例。在测试周期结束时终止数据库实例之前，解决方案架构师创建了两个备份。解决方案架构师使用 mysqldump 实用程序创建数据库转储，从而创建了第一个备份。解决方案架构师通过启用 RDS 终止时的最终数据库快照选项创建了第二个备份。<br>该公司目前正在计划一个新的测试周期，并希望从最近的备份中创建一个新的数据库实例。公司选择了与 MySQL 兼容的 Aurora 版本来托管数据库实例。<br>哪些解决方案将创建新 DB 实例？(选择两个）。</p>
+<ol>
+<li>✅ 将 RDS 快照直接导入 Aurora。</li>
+<li>❌ 将 RDS 快照上传到 Amazon S3。然后将 RDS 快照导入 Aurora。</li>
+<li>✅ 将数据库转储上传到 Amazon S3。然后将数据库转储导入 Aurora。</li>
+<li>使用 AWS 数据库迁移服务（AWS DMS）将 RDS 快照导入 Aurora。</li>
+<li>❌ 将数据库转储上传到 Amazon S3。然后使用 AWS 数据库迁移服务（AWS DMS）将数据库转储导入 Aurora。</li>
+</ol>
+<blockquote>
+<p>2️⃣ 5️⃣ ❌ -&gt; 1️⃣ 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：快照一直保留在 AWS 中因此不需要再次上传。<br>而使用 mysqldump 还原到 Aurora MySQL 引擎，直接导入即可：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.mysqldump.html">使用 mysqldump 从 MySQL 逻辑迁移到 Amazon Aurora MySQL</a></p>
+<blockquote>
+<p>因为 Amazon Aurora MySQL 是与 MySQL 兼容的数据库，所以您可以使用 <code>mysqldump</code> 实用程序从 MySQL 或 MariaDB 数据库中将数据复制到现有 Aurora MySQL 数据库集群。</p>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="十一、Amazon-Route-53-与-Amazon-CloudFront-的容灾选择"><a href="#十一、Amazon-Route-53-与-Amazon-CloudFront-的容灾选择" class="headerlink" title="十一、Amazon Route 53 与 Amazon CloudFront 的容灾选择"></a>十一、Amazon Route 53 与 Amazon CloudFront 的容灾选择</h3><p>某公司有一个无状态 Web 应用程序，该程序运行在亚马逊 API Gateway 调用的 AWS Lambda 函数上。该公司希望在多个 AWS 区域部署应用程序，以提供区域故障转移功能。<br>解决方案架构师应如何将流量路由到多个区域？</p>
+<ol>
+<li>✅ 为每个区域创建 Amazon Route 53 健康检查。使用主动-主动故障切换配置。</li>
+<li>❌ 创建一个 Amazon CloudFront 分发，并为每个区域设置一个起源。使用 CloudFront 健康检查来路由流量。</li>
+<li>创建中转网关。将中转网关附加到每个区域的 API 网关端点。配置中转网关以路由请求。</li>
+<li>在主区域创建应用程序负载平衡器。将目标组设置为指向每个区域的 API Gateway 端点主机名。</li>
+</ol>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>CloudFront</code> 提供一定程度的容灾：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html#:~:text=the%20secondary%20origin.-,Note,Choose%20Create%20origin%20group.">通过 CloudFront 源失效转移来优化高可用性</a></p>
+<blockquote>
+<p>在为缓存行为配置源故障转移后，CloudFront 将针对查看器请求执行以下操作：</p>
+<ul>
+<li>当主源返回不是为故障转移配置的状态代码（如 HTTP 2xx 或 3xx 状态代码）时，CloudFront 将向查看器提供请求的对象。</li>
+<li>发生以下任何情况时：<ul>
+<li>主源返回您为故障转移配置的 HTTP 状态代码</li>
+<li>CloudFront 无法连接到主源</li>
+<li>来自主源的响应需要太长时间（超时）</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>然而它并不具备选项中描述的健康检查功能：<a target="_blank" rel="noopener" href="https://repost.aws/zh-Hans/questions/QUdzZYGWozThC_tA0Li1yeiA/%E5%9C%A8-cloud-front%E5%88%86%E9%85%8D%E5%89%8D%E4%BD%BF%E7%94%A8-route-53-%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5%E5%92%8C%E6%95%85%E9%9A%9C%E8%BD%AC%E7%A7%BB">在CloudFront分配前使用Route53健康检查和故障转移</a></p>
+<blockquote>
+<p>“评估目标状态”与支持健康检查的别名记录一起使用，但CloudFront不支持此服务，因为它不返回健康检查。<br>我认为你可以使用CloudFront的自定义错误响应，这样，如果ALB出现错误，它可以将流量重定向到托管在S3桶中的自定义静态页面。</p>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="十二、EBS-卷的多重挂载"><a href="#十二、EBS-卷的多重挂载" class="headerlink" title="十二、EBS 卷的多重挂载"></a>十二、EBS 卷的多重挂载</h3><p>某公司正在开发一个应用程序，以支持客户需求。该公司希望在在同一可用区内有多个基于亚马逊 EC2 Nitro 的实例。该公司还希望让应用程序能够同时写入多个基于 EC2 Nitro 的实例中的多个块存储卷，以实现更高的应用程序可用性。<br>哪种解决方案能满足这些要求？</p>
+<ol>
+<li>使用通用 SSD (gp3) EBS 卷与 Amazon Elastic Block Store (Amazon EBS) 多重连接</li>
+<li>将吞吐量优化的硬盘 (st1) EBS 卷与 Amazon Elastic Block Store (Amazon EBS) 多连接一起使用</li>
+<li>✅ 使用 Amazon Elastic Block Store (Amazon EBS) Multi-Attach 配置 IOPS SSD (io2) EBS 卷</li>
+<li>使用通用 SSD (gp2) EBS 卷与 Amazon Elastic Block Store (Amazon EBS) 多重连接</li>
+</ol>
+<blockquote>
+<p>3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：只有 io1 或 io2 卷支持多重挂载：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/ebs/latest/userguide/ebs-volumes-multi.html">使用多重挂载将 EBS 卷挂载到多个 EC2 实例</a></p>
+<blockquote>
+<p>通过 Amazon EBS 多重挂载，您可以将单个预置 IOPS SSD（io1 或 io2）卷挂载到位于同一可用区中的多个实例。您可以将多个启用多重挂载的卷附加到一个实例或一组实例。卷附加到的每个实例都对共享卷拥有完全读取和写入权限。通过多重挂载，您可以更轻松地在管理并发写入操作的应用程序中实现更高的应用程序可用性。</p>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="十三、将最小权限授予给-IAM-组"><a href="#十三、将最小权限授予给-IAM-组" class="headerlink" title="十三、将最小权限授予给 IAM 组"></a>十三、将最小权限授予给 IAM 组</h3><p>某公司预计在不久的将来会迅速发展。解决方案架构师需要配置现有用户并授予新用户在 AWS 上的权限。解决方案架构师决定创建 IAM 组。解决方案架构师将根据部门把新用户添加到 IAM 组。<br>向新用户授予权限的最安全方法是哪种附加操作？  </p>
+<ol>
+<li>应用服务控制策略 (SCP) 管理访问权限</li>
+<li>❌ 创建权限最小的 IAM 角色。将角色附加到 IAM 组</li>
+<li>✅ 创建一个授予最少权限的 IAM 策略。将策略附加到 IAM 组</li>
+<li>创建 IAM 角色。将角色与定义最大权限的权限边界关联起来</li>
+</ol>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：<code>IAM 组</code> 不能对 <code>IAM 角色</code> 进行扮演：<a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/IAM/latest/UserGuide/id_roles.html#id_roles_terms-and-concepts">角色术语和概念</a></p>
+<blockquote>
+<p>角色可由以下用户代入：</p>
+<ul>
+<li><u>相同 AWS 账户 或另一个 AWS 账户 中的 IAM 用户</u></li>
+<li><u>同一账户中的 IAM 角色</u></li>
+<li>服务主体，用于 AWS 服务和功能，例如：<ul>
+<li>允许您在计算服务上运行代码的服务，如 Amazon EC2 或 AWS Lambda</li>
+<li>代表您对资源执行操作的功能，如 Amazon S3 对象复制</li>
+<li>为在 AWS 外部运行的应用程序提供临时安全凭证的服务，如 IAM Roles Anywhere 或 Amazon ECS Anywhere</li>
+</ul>
+</li>
+<li>由与 SAML 2.0 或 OpenID Connect 兼容的外部身份提供者（IdP）服务进行身份验证的外部用户</li>
+</ul>
+</blockquote>
+<p>这里需要注意允许角色链的概念。</p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/12/17</p><p><a href="https://senjianlu.com/2024/12/17/saa_test_daily_20241217/">https://senjianlu.com/2024/12/17/saa_test_daily_20241217/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-12-17</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-12-17</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/12/18/translate_news_nhk_20241217_k10014670971000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - 日本証券業協会 野村証券に3000万円の過怠金命じる方針</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/12/17/translate_news_nhk_20241217_k10014669601000/"><span class="level-item">日语翻译 - 新闻 - 高校生が模擬株式会社を設立 出資金で開発の商品販売会 秋田</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、Amazon-Cognito-身份池的自定义属性映射"><span class="level-left"><span class="level-item">一、Amazon Cognito 身份池的自定义属性映射</span></span></a></li><li><a class="level is-mobile" href="#二、Amazon-Aurora-Global-Database-headless-clusters（全局数据库无头集群）"><span class="level-left"><span class="level-item">二、Amazon Aurora Global Database headless clusters（全局数据库无头集群）</span></span></a></li><li><a class="level is-mobile" href="#三、SNS-和-SQS-的传输中与静态加密"><span class="level-left"><span class="level-item">三、SNS 和 SQS 的传输中与静态加密</span></span></a></li><li><a class="level is-mobile" href="#四、API-Gateway-API-的-API-鉴权"><span class="level-left"><span class="level-item">四、API Gateway API 的 API 鉴权</span></span></a></li><li><a class="level is-mobile" href="#五、跨-VPC-组网并连接到本地数据中心"><span class="level-left"><span class="level-item">五、跨 VPC 组网并连接到本地数据中心</span></span></a></li><li><a class="level is-mobile" href="#六、弹性扩展-RDS-DB-实例"><span class="level-left"><span class="level-item">六、弹性扩展 RDS DB 实例</span></span></a></li><li><a class="level is-mobile" href="#七、对不需要本地存储的-EC2-实例进行备份"><span class="level-left"><span class="level-item">七、对不需要本地存储的 EC2 实例进行备份</span></span></a></li><li><a class="level is-mobile" href="#八、Amazon-Kinesis-Data-Streams-默认的消息保留期限和管道大小"><span class="level-left"><span class="level-item">八、Amazon Kinesis Data Streams 默认的消息保留期限和管道大小</span></span></a></li><li><a class="level is-mobile" href="#九、RDS-Multi-AZ-实例和集群部署的-RTO"><span class="level-left"><span class="level-item">九、RDS Multi-AZ 实例和集群部署的 RTO</span></span></a></li><li><a class="level is-mobile" href="#十、RDS-for-MySQL-使用快照和-mysqldump-还原"><span class="level-left"><span class="level-item">十、RDS for MySQL 使用快照和 mysqldump 还原</span></span></a></li><li><a class="level is-mobile" href="#十一、Amazon-Route-53-与-Amazon-CloudFront-的容灾选择"><span class="level-left"><span class="level-item">十一、Amazon Route 53 与 Amazon CloudFront 的容灾选择</span></span></a></li><li><a class="level is-mobile" href="#十二、EBS-卷的多重挂载"><span class="level-left"><span class="level-item">十二、EBS 卷的多重挂载</span></span></a></li><li><a class="level is-mobile" href="#十三、将最小权限授予给-IAM-组"><span class="level-left"><span class="level-item">十三、将最小权限授予给 IAM 组</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

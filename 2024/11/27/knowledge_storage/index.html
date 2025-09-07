@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>AWS 知识点 - 块和文件存储 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="AWS 块和文件存储相关知识点。"><meta property="og:type" content="article"><meta property="og:title" content="AWS 知识点 - 块和文件存储"><meta property="og:url" content="https://senjianlu.com/2024/11/27/knowledge_storage/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="AWS 块和文件存储相关知识点。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-11-26/aws.png"><meta property="article:published_time" content="2024-11-27T04:00:00.000Z"><meta property="article:modified_time" content="2024-11-27T05:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="SAP"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-11-26/aws.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/11/27/knowledge_storage/"},"headline":"AWS 知识点 - 块和文件存储","image":["https://image.senjianlu.com/blog/2024-11-26/aws.png"],"datePublished":"2024-11-27T04:00:00.000Z","dateModified":"2024-11-27T05:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"AWS 块和文件存储相关知识点。"}</script><link rel="canonical" href="https://senjianlu.com/2024/11/27/knowledge_storage/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-11-27T04:00:00.000Z" title="11/27/2024, 12:00:00 PM">2024-11-27</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E7%9F%A5%E8%AF%86%E7%82%B9/">知识点</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">AWS 知识点 - 块和文件存储</h1><div class="content"><blockquote>
+<p>AWS 块和文件存储相关知识点。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<h1 id="Amazon-Machine-Images-AMI"><a href="#Amazon-Machine-Images-AMI" class="headerlink" title="Amazon Machine Images (AMI)"></a>Amazon Machine Images (AMI)</h1><h3 id="一、Amazon-Machine-Images-AMI-基本概念"><a href="#一、Amazon-Machine-Images-AMI-基本概念" class="headerlink" title="一、Amazon Machine Images (AMI) 基本概念"></a>一、Amazon Machine Images (AMI) 基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-27/aws_storage_ami.png" alt="Amazon Machine Images (AMI) 基本概念"></p>
+<hr>
+<h1 id="亚马逊-EBS-部署与卷类型"><a href="#亚马逊-EBS-部署与卷类型" class="headerlink" title="亚马逊 EBS 部署与卷类型"></a>亚马逊 EBS 部署与卷类型</h1><h3 id="一、Amazon-EBS-Elastic-Block-Store"><a href="#一、Amazon-EBS-Elastic-Block-Store" class="headerlink" title="一、Amazon EBS (Elastic Block Store)"></a>一、Amazon EBS (Elastic Block Store)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-27/aws_storage_ebs.png" alt="亚马逊 EBS (Elastic Block Store)"><br><img src="https://image.senjianlu.com/blog/2024-11-27/aws_storage_ebs_important.png" alt="亚马逊 EBS (Elastic Block Store) 重要知识点">  </p>
+<ul>
+<li>⚠ 多个实例在之前是无法挂载同一个 <code>EBS</code> 卷的，<strong>但是现在可以通过多重挂载 (Multi-Attach) 在一些使用限制的情况下挂载同一个 <code>EBS</code> 卷</strong></li>
+<li>⭐ <strong><code>EC2</code> 实例必须和 <code>EBS</code> 卷位于同一可用区</strong>  </li>
+<li>默认情况下根卷会在实例终止时删除，而非引导卷则不会删除</li>
+<li><code>EBS</code> 卷在硬件层面是通过网络挂载到 <code>EC2</code> 所在的物理服务器上的<blockquote>
+<p>这和直接物理连接到物理服务器的 <code>实例存储卷 (Instance Store Volume)</code> 不一样。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="二、EBS-多重挂载-Multi-Attach"><a href="#二、EBS-多重挂载-Multi-Attach" class="headerlink" title="二、EBS 多重挂载 (Multi-Attach)"></a>二、EBS 多重挂载 (Multi-Attach)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-27/aws_storage_ebs_multi_attach.png" alt="EBS 多重挂载 (Multi-Attach)"></p>
+<ul>
+<li>仅适用于 Nitro 系统的 <code>EC2</code> 实例</li>
+<li>卷的类型必须是预配置 IOPS SSD 的 IO1 和 IO2 卷</li>
+</ul>
+<h3 id="三、Amazon-EBS-固态硬盘-SSD-卷"><a href="#三、Amazon-EBS-固态硬盘-SSD-卷" class="headerlink" title="三、Amazon EBS 固态硬盘 (SSD) 卷"></a>三、Amazon EBS 固态硬盘 (SSD) 卷</h3><p><img src="https://image.senjianlu.com/blog/2024-11-27/aws_storage_ebs_ssd.png" alt="Amazon EBS 固态硬盘 (SSD) 卷"></p>
+<ul>
+<li>⭐ <strong>只有 SSD 卷能够充当引导卷 (Boot Volume)</strong></li>
+</ul>
+<h3 id="四、Amazon-EBS-硬盘驱动器-HDD-卷"><a href="#四、Amazon-EBS-硬盘驱动器-HDD-卷" class="headerlink" title="四、Amazon EBS 硬盘驱动器 (HDD) 卷"></a>四、Amazon EBS 硬盘驱动器 (HDD) 卷</h3><p><img src="https://image.senjianlu.com/blog/2024-11-27/aws_storage_ebs_hdd.png" alt="Amazon EBS 硬盘驱动器 (HDD) 卷"></p>
+<hr>
+<h1 id="亚马逊-EBS-复制、共享与加密"><a href="#亚马逊-EBS-复制、共享与加密" class="headerlink" title="亚马逊 EBS 复制、共享与加密"></a>亚马逊 EBS 复制、共享与加密</h1><h3 id="一、跨可用区复制-EBS-上的数据"><a href="#一、跨可用区复制-EBS-上的数据" class="headerlink" title="一、跨可用区复制 EBS 上的数据"></a>一、跨可用区复制 EBS 上的数据</h3><p><img src="https://image.senjianlu.com/blog/2024-11-27/aws_storage_ebs_cross_az_copy.png" alt="跨可用区复制 EBS 上的数据"></p>
+<ul>
+<li>通过在 <code>区域</code> 级别的 <code>S3</code> 存储桶中创建 <code>EBS</code> 快照，并在另一个可用区重建快照来完成跨可用区的 <code>EBS</code> 数据复制</li>
+</ul>
+<h3 id="二、跨可用区通过快照创建-EC2-实例"><a href="#二、跨可用区通过快照创建-EC2-实例" class="headerlink" title="二、跨可用区通过快照创建 EC2 实例"></a>二、跨可用区通过快照创建 EC2 实例</h3><p><img src="https://image.senjianlu.com/blog/2024-11-27/aws_storage_ebs_cross_az_create_ec2.png" alt="跨可用区通过快照创建 EC2 实例">  </p>
+<ul>
+<li>⭐ <strong>通过快照创建 <code>AMI</code></strong> 并在新的可用区使用这个 <code>AMI</code> 创建 <code>EC2</code> 实例</li>
+</ul>
+<h3 id="三、复制、共享-AMI-和快照"><a href="#三、复制、共享-AMI-和快照" class="headerlink" title="三、复制、共享 AMI 和快照"></a>三、复制、共享 AMI 和快照</h3><p><img src="https://image.senjianlu.com/blog/2024-11-27/aws_storage_ebs_ami_01.png" alt="复制、共享 AMI 和快照 01"><br><img src="https://image.senjianlu.com/blog/2024-11-27/aws_storage_ebs_ami_02.png" alt="复制、共享 AMI 和快照 02"></p>
+<hr>
+<h1 id="亚马逊-EBS-快照与-DLM-Data-Lifecycle-Manager"><a href="#亚马逊-EBS-快照与-DLM-Data-Lifecycle-Manager" class="headerlink" title="亚马逊 EBS 快照与 DLM (Data Lifecycle Manager)"></a>亚马逊 EBS 快照与 DLM (Data Lifecycle Manager)</h1><h3 id="一、Amazon-EBS、快照和-AMI-基础知识"><a href="#一、Amazon-EBS、快照和-AMI-基础知识" class="headerlink" title="一、Amazon EBS、快照和 AMI 基础知识"></a>一、Amazon EBS、快照和 AMI 基础知识</h3><p><img src="https://image.senjianlu.com/blog/2024-11-27/aws_storage_ebs_ami_basic.png" alt="Amazon EBS、快照和 AMI 基础知识">  </p>
+<h3 id="二、Amazon-Data-Lifecycle-Manager-DLM"><a href="#二、Amazon-Data-Lifecycle-Manager-DLM" class="headerlink" title="二、Amazon Data Lifecycle Manager (DLM)"></a>二、Amazon Data Lifecycle Manager (DLM)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-27/aws_storage_ebs_ami_dlm.png" alt="Amazon Data Lifecycle Manager (DLM)"></p>
+<hr>
+<h1 id="EC2-实例存储卷-Instance-Store-Volume"><a href="#EC2-实例存储卷-Instance-Store-Volume" class="headerlink" title="EC2 实例存储卷 (Instance Store Volume)"></a>EC2 实例存储卷 (Instance Store Volume)</h1><h3 id="一、EC2-实例存储卷-Instance-Store-Volume-基本概念"><a href="#一、EC2-实例存储卷-Instance-Store-Volume-基本概念" class="headerlink" title="一、EC2 实例存储卷 (Instance Store Volume) 基本概念"></a>一、EC2 实例存储卷 (Instance Store Volume) 基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-27/aws_storage_ebs_isv.png" alt="EC2 实例存储卷 (Instance Store Volume) 基本概念"><br><img src="https://image.senjianlu.com/blog/2024-11-27/aws_storage_ebs_isv_important.png" alt="EC2 实例存储卷 (Instance Store Volume) 重要知识点">  </p>
+<ul>
+<li>⭐ <strong><code>实例存储卷 (Instance Store Volume)</code> 直接物理连接到 <code>EC2</code> 所在物理服务器的</strong></li>
+<li>⭐ <strong><code>实例存储卷 (Instance Store Volume)</code> 是临时的，<code>EC2</code> 关闭后数据就丢失了</strong></li>
+<li>⭐ <strong><code>实例存储卷</code> 提供了更高的性能</strong></li>
+</ul>
+<hr>
+<h1 id="Amazon-Elastic-File-System-EFS"><a href="#Amazon-Elastic-File-System-EFS" class="headerlink" title="Amazon Elastic File System (EFS)"></a>Amazon Elastic File System (EFS)</h1><h3 id="一、Amazon-Elastic-File-System-EFS-基本概念"><a href="#一、Amazon-Elastic-File-System-EFS-基本概念" class="headerlink" title="一、Amazon Elastic File System (EFS) 基本概念"></a>一、Amazon Elastic File System (EFS) 基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-27/aws_storage_efs.png" alt="Amazon Elastic File System (EFS) 基本概念 01"><br><img src="https://image.senjianlu.com/blog/2024-11-27/aws_storage_efs_02.png" alt="Amazon Elastic File System (EFS) 基本概念 02"></p>
+<ul>
+<li>⭐ <strong>建立了跨区域的 <code>VPC</code> 对等连接，其他区域的 <code>EC2</code> 实例也能通过 IP 地址挂载当前区域内的 <code>EFS</code></strong></li>
+<li>⭐ <strong><code>EFS</code> 当前仅支持 Linux 系统的实例进行挂载</strong><blockquote>
+<p>如果是 Windows 操作系统则可以使用 <a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/fsx/"><code>Amazon FSx</code></a>。</p>
+<blockquote>
+<p>Amazon FSx 允许你在四个广泛使用的文件系统之间进行选择：NetApp ONTAP、OpenZFS、Windows File Server 和 Lustre。</p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h1 id="AWS-存储网关-Storage-Gateway"><a href="#AWS-存储网关-Storage-Gateway" class="headerlink" title="AWS 存储网关 (Storage Gateway)"></a>AWS 存储网关 (Storage Gateway)</h1><h3 id="一、AWS-存储网关-Storage-Gateway-基本概念"><a href="#一、AWS-存储网关-Storage-Gateway-基本概念" class="headerlink" title="一、AWS 存储网关 (Storage Gateway) 基本概念"></a>一、AWS 存储网关 (Storage Gateway) 基本概念</h3><p><img src="https://image.senjianlu.com/blog/2024-11-27/aws_storage_gateway.png" alt="AWS 存储网关 (Storage Gateway) 基本概念">  </p>
+<h3 id="二、AWS-存储网关-文件网关-File-Gateway"><a href="#二、AWS-存储网关-文件网关-File-Gateway" class="headerlink" title="二、AWS 存储网关 - 文件网关 (File Gateway)"></a>二、AWS 存储网关 - 文件网关 (File Gateway)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-27/aws_storage_gateway_file_gateway_01.png" alt="AWS 存储网关 - 文件网关 (File Gateway) 架构"><br><img src="https://image.senjianlu.com/blog/2024-11-27/aws_storage_gateway_file_gateway_02.png" alt="AWS 存储网关 - 文件网关 (File Gateway)">  </p>
+<ul>
+<li>⭐ <strong>文件网关提供了虚拟的本地文件服务器</strong>（文件实际存放在 <code>S3</code> 中）</li>
+<li>⭐ <strong>本地缓存提供对</strong><u><strong>最近使用的文件</strong></u><strong>的低延迟访问</strong></li>
+</ul>
+<h3 id="三、AWS-存储网关-卷网关-Volume-Gateway"><a href="#三、AWS-存储网关-卷网关-Volume-Gateway" class="headerlink" title="三、AWS 存储网关 - 卷网关 (Volume Gateway)"></a>三、AWS 存储网关 - 卷网关 (Volume Gateway)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-27/aws_storage_gateway_volume_gateway_01.png" alt="AWS 存储网关 - 卷网关 (Volume Gateway) 架构"><br><img src="https://image.senjianlu.com/blog/2024-11-27/aws_storage_gateway_volume_gateway_02.png" alt="AWS 存储网关 - 卷网关 (Volume Gateway)">  </p>
+<ul>
+<li>卷网关使用 <code>iSCSI</code>（基于块的存储协议）协议</li>
+<li><code>缓存卷模式 (Cache mode)</code>：最新或频繁使用的数据缓存在本地，所有的数据都存储在 <code>S3</code> 存储桶中</li>
+<li><code>存储卷模式 (Stored mode)</code>：所有数据都是存在本地的，但是会异步备份到 <code>S3</code> 存储桶中并创建时间点快照</li>
+</ul>
+<h3 id="四、AWS-存储网关-磁带网关-Tape-Gateway"><a href="#四、AWS-存储网关-磁带网关-Tape-Gateway" class="headerlink" title="四、AWS 存储网关 - 磁带网关 (Tape Gateway)"></a>四、AWS 存储网关 - 磁带网关 (Tape Gateway)</h3><p><img src="https://image.senjianlu.com/blog/2024-11-27/aws_storage_gateway_tape_gateway_01.png" alt="AWS 存储网关 - 磁带网关 (Tape Gateway) 架构"><br><img src="https://image.senjianlu.com/blog/2024-11-27/aws_storage_gateway_tape_gateway_02.png" alt="AWS 存储网关 - 磁带网关 (Tape Gateway)">  </p>
+<hr>
+<h1 id="架构模式之块和文件存储"><a href="#架构模式之块和文件存储" class="headerlink" title="架构模式之块和文件存储"></a>架构模式之块和文件存储</h1><p><img src="https://image.senjianlu.com/blog/2024-11-27/aws_storage_01.png" alt="架构模式之块和文件存储 01"><br><img src="https://image.senjianlu.com/blog/2024-11-27/aws_storage_02.png" alt="架构模式之块和文件存储 02"><br><img src="https://image.senjianlu.com/blog/2024-11-27/aws_storage_03.png" alt="架构模式之块和文件存储 03">  </p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>AWS 知识点 - 块和文件存储</p><p><a href="https://senjianlu.com/2024/11/27/knowledge_storage/">https://senjianlu.com/2024/11/27/knowledge_storage/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-11-27</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-11-27</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/SAP/">SAP</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/11/27/hands_on_storage/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">AWS 实操 - 块和文件存储</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/11/27/translate_news_nhk_20241127_k10014650591000/"><span class="level-item">日语翻译 - 新闻 - セブン＆アイHD 中間持ち株会社の株式入札 住商などが参加検討</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#Amazon-Machine-Images-AMI"><span class="level-left"><span class="level-item">Amazon Machine Images (AMI)</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、Amazon-Machine-Images-AMI-基本概念"><span class="level-left"><span class="level-item">一、Amazon Machine Images (AMI) 基本概念</span></span></a></li></ul></li><li><a class="level is-mobile" href="#亚马逊-EBS-部署与卷类型"><span class="level-left"><span class="level-item">亚马逊 EBS 部署与卷类型</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、Amazon-EBS-Elastic-Block-Store"><span class="level-left"><span class="level-item">一、Amazon EBS (Elastic Block Store)</span></span></a></li><li><a class="level is-mobile" href="#二、EBS-多重挂载-Multi-Attach"><span class="level-left"><span class="level-item">二、EBS 多重挂载 (Multi-Attach)</span></span></a></li><li><a class="level is-mobile" href="#三、Amazon-EBS-固态硬盘-SSD-卷"><span class="level-left"><span class="level-item">三、Amazon EBS 固态硬盘 (SSD) 卷</span></span></a></li><li><a class="level is-mobile" href="#四、Amazon-EBS-硬盘驱动器-HDD-卷"><span class="level-left"><span class="level-item">四、Amazon EBS 硬盘驱动器 (HDD) 卷</span></span></a></li></ul></li><li><a class="level is-mobile" href="#亚马逊-EBS-复制、共享与加密"><span class="level-left"><span class="level-item">亚马逊 EBS 复制、共享与加密</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、跨可用区复制-EBS-上的数据"><span class="level-left"><span class="level-item">一、跨可用区复制 EBS 上的数据</span></span></a></li><li><a class="level is-mobile" href="#二、跨可用区通过快照创建-EC2-实例"><span class="level-left"><span class="level-item">二、跨可用区通过快照创建 EC2 实例</span></span></a></li><li><a class="level is-mobile" href="#三、复制、共享-AMI-和快照"><span class="level-left"><span class="level-item">三、复制、共享 AMI 和快照</span></span></a></li></ul></li><li><a class="level is-mobile" href="#亚马逊-EBS-快照与-DLM-Data-Lifecycle-Manager"><span class="level-left"><span class="level-item">亚马逊 EBS 快照与 DLM (Data Lifecycle Manager)</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、Amazon-EBS、快照和-AMI-基础知识"><span class="level-left"><span class="level-item">一、Amazon EBS、快照和 AMI 基础知识</span></span></a></li><li><a class="level is-mobile" href="#二、Amazon-Data-Lifecycle-Manager-DLM"><span class="level-left"><span class="level-item">二、Amazon Data Lifecycle Manager (DLM)</span></span></a></li></ul></li><li><a class="level is-mobile" href="#EC2-实例存储卷-Instance-Store-Volume"><span class="level-left"><span class="level-item">EC2 实例存储卷 (Instance Store Volume)</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、EC2-实例存储卷-Instance-Store-Volume-基本概念"><span class="level-left"><span class="level-item">一、EC2 实例存储卷 (Instance Store Volume) 基本概念</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Amazon-Elastic-File-System-EFS"><span class="level-left"><span class="level-item">Amazon Elastic File System (EFS)</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、Amazon-Elastic-File-System-EFS-基本概念"><span class="level-left"><span class="level-item">一、Amazon Elastic File System (EFS) 基本概念</span></span></a></li></ul></li><li><a class="level is-mobile" href="#AWS-存储网关-Storage-Gateway"><span class="level-left"><span class="level-item">AWS 存储网关 (Storage Gateway)</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、AWS-存储网关-Storage-Gateway-基本概念"><span class="level-left"><span class="level-item">一、AWS 存储网关 (Storage Gateway) 基本概念</span></span></a></li><li><a class="level is-mobile" href="#二、AWS-存储网关-文件网关-File-Gateway"><span class="level-left"><span class="level-item">二、AWS 存储网关 - 文件网关 (File Gateway)</span></span></a></li><li><a class="level is-mobile" href="#三、AWS-存储网关-卷网关-Volume-Gateway"><span class="level-left"><span class="level-item">三、AWS 存储网关 - 卷网关 (Volume Gateway)</span></span></a></li><li><a class="level is-mobile" href="#四、AWS-存储网关-磁带网关-Tape-Gateway"><span class="level-left"><span class="level-item">四、AWS 存储网关 - 磁带网关 (Tape Gateway)</span></span></a></li></ul></li><li><a class="level is-mobile" href="#架构模式之块和文件存储"><span class="level-left"><span class="level-item">架构模式之块和文件存储</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

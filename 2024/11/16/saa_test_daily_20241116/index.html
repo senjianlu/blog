@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/11/16 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：AWS解决方案架构师认证-助理级(SAA-C03)仿真练习题7 题，免费题库，题目质量不高，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/11/16"><meta property="og:url" content="https://senjianlu.com/2024/11/16/saa_test_daily_20241116/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：AWS解决方案架构师认证-助理级(SAA-C03)仿真练习题7 题，免费题库，题目质量不高，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-11-16T11:00:00.000Z"><meta property="article:modified_time" content="2024-11-16T12:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/11/16/saa_test_daily_20241116/"},"headline":"SAA 考试每日练习 - 2024/11/16","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-11-16T11:00:00.000Z","dateModified":"2024-11-16T12:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：AWS解决方案架构师认证-助理级(SAA-C03)仿真练习题7 题，免费题库，题目质量不高，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/11/16/saa_test_daily_20241116/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-11-16T11:00:00.000Z" title="11/16/2024, 7:00:00 PM">2024-11-16</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/11/16</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.iloveaws.cn/course/aws%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88%e6%9e%b6%e6%9e%84%e5%b8%88%e8%ae%a4%e8%af%81-%e5%8a%a9%e7%90%86%e7%ba%a7saa-c02%e7%bb%83%e4%b9%a0%e9%a2%98">AWS解决方案架构师认证-助理级(SAA-C03)仿真练习题</a><br>7 题，免费题库，题目质量不高，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<p><strong>🌟 单词：</strong></p>
+<ol>
+<li>retained<sub><u>v. 保留；保持；保存</u></sub></li>
+<li>indefinitely<sub><u>adv. 无限期地</u></sub></li>
+<li>concurrently<sub><u>adv. （正式）同时发生或完成地</u></sub></li>
+<li>branch<sub><u>n. 树枝；（公司或组织的）分店，分部；（政府或公安机关的）部门，机构；（学科或家族的）分支 | v. 发出新枝；岔开，分岔；出现分歧</u></sub></li>
+<li>effort<sub><u>n. 力气；精力；努力；费力，痛苦；有组织的活动</u></sub></li>
+<li>overhead<sub><u>adv. 在头顶上，在空中，在高处 | adj. 在头上的，高架的 | n. 经常性开支，营运费用</u></sub></li>
+<li>fetch<sub><u>v. （去）拿来，（去）请来，售得（…的价钱） | n. 拿，取；取物的距离；风浪区；诡计，计谋</u></sub></li>
+<li>legacy<sub><u>n. 遗产, 遗赠财物, 遗留问题, 后遗症 | adj. （计算机系统或产品）已停产的</u></sub></li>
+</ol>
+<hr>
+<h3 id="一、Amazon-S3"><a href="#一、Amazon-S3" class="headerlink" title="一、Amazon S3"></a>一、Amazon S3</h3><p>A company runs an application on a group of Amazon Linux EC2 instances. The application writes log files using standard API calls. For compliance reasons, all log files must be retained indefinitely and will be analyzed by a reporting tool that must access all files concurrently.<br>Which storage service should a solutions architect use to provide the MOST cost-effective solution?  </p>
+<ol>
+<li>Amazon EBS  </li>
+<li>Amazon EFS  </li>
+<li>Amazon EC2 instance store  </li>
+<li>✅ Amazon S3</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：API calls、retained indefinitely、analyzed by a reporting tool、MOST cost-effective</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：应用程序运行在一组 <code>EC2</code> 实例上，通过 API 写日志，为了审计原因需要无限期保留日志，并将用来分析，要求迅速能被使用。还要是最便宜的方案。<br>按量付费的 <code>EFS</code> 和 <code>S3</code> 似乎都可以，不过由于可以使用 <code>S3 Select</code> 等工具进行存储桶检索，因此更合适。  </p>
+<p>对比下 <code>EFS</code> 和 <code>S3</code> 的价格：</p>
+<table>
+<thead>
+<tr>
+<th>存储类型</th>
+<th><code>EFS</code></th>
+<th><code>S3</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Standard</td>
+<td>$0.30</td>
+<td>$0.023</td>
+</tr>
+<tr>
+<td>IA</td>
+<td>$0.016</td>
+<td>$0.0125</td>
+</tr>
+<tr>
+<td>Archive</td>
+<td>$0.008</td>
+<td>$0.00099 ~ $0.004</td>
+</tr>
+<tr>
+<td>且从详细价格对照表上来看，<code>S3</code> 总是更加便宜。</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</blockquote>
+<hr>
+<h3 id="二、AWS-Snowball"><a href="#二、AWS-Snowball" class="headerlink" title="二、AWS Snowball"></a>二、AWS Snowball</h3><p>A solutions architect is tasked with transferring 750 TB of data from a network-attached file system located at a branch office Amazon S3 Glacier. The solution must avoid saturating the branch office’s low-bandwidth internet connection.<br>What is the MOST cost-effective solution?  </p>
+<ol>
+<li>Create a site-to-site VPN tunnel to an Amazon S3 bucket and transfer the files directly. Create a bucket VPC endpoint.  </li>
+<li>Order 10 AWS Snowball appliances and select an S3 Glacier vault as the destination. Create a bucket policy to enforce VPC endpoint.  </li>
+<li>Mount the network-attached file system to Amazon S3 and copy the files directly. Create a lifecycle policy to S3 objects to Amazon S3 Glacier.  </li>
+<li>✅ Order 10 AWS Snowball appliances and select an Amazon S3 bucket as the destination. Create a lifecycle policy to transition the S3 objects to Amazon S3 Glacier.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：750 TB of data、low-bandwidth internet connection</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：公司需要在低网络带宽的前提下，将 750 TB 的文件存放到 <code>S3</code> 归档存储中。并使用最便宜的方式。<br>肯定需要使用 <code>AWS Snowball</code> 家族产品，而 2️⃣ 中的 <code>VPC endpoint</code> 不知所云，排除掉后选 4️⃣。  </p>
+</blockquote>
+<hr>
+<h3 id="三、Amazon-Kinesis-Data-Firehose"><a href="#三、Amazon-Kinesis-Data-Firehose" class="headerlink" title="三、Amazon Kinesis Data Firehose"></a>三、Amazon Kinesis Data Firehose</h3><p>A company captures clickstream data from multiple websites and analyzes it using batch processing. The data is loaded nightly into Amazon Redshift and is consumed by business analysts. The company wants to move towards near-real-time data processing for timely insights. The solution should process the streaming data with minimal effort and operational overhead.<br>Which combination of AWS services are MOST cost-effective for this solution? (Choose two.)<br>1. Amazon EC2<br>2. ✅ AWS Lambda<br>3. ❌ Amazon Kinesis Data Streams<br>4. ✅ Amazon Kinesis Data Firehose<br>5. Amazon Kinesis Data Analytics  </p>
+<blockquote>
+<p>✨ 关键词：data from multiple websites、operational overhead</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ 3️⃣ ❌ -&gt; 2️⃣ 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：从多个网站收集数据并通过批处理分析，数据每晚会被加载到 <code>Redshift</code> 数据湖中，公司希望近乎实时地处理这些数据。需要使用最少操作的方式。<br>由于 <code>Amazon Data Firehose</code> 官方文档中就介绍了它和 <code>Lambda</code> 整合处理数据流的功能，更简单，因此在这里更加合适。  </p>
+<blockquote>
+<p>Amazon Kinesis Data Streams 是一种可大规模扩展、高度持久的数据摄取和处理服务，针对流式传输数据进行了优化。您可以配置数以万计的数据创建器，连续不断地将数据传输到 Kinesis 数据流。数据将在几毫秒内传输到您的 Amazon Kinesis 应用程序，这些应用程序将按生成顺序接收数据记录。<br>Amazon Kinesis Data Streams 与多项 AWS 服务集成，其中包括以近乎实时的方式转换流数据并将其传输到 Amazon S3 等数据湖的 Amazon Kinesis Data Firehose、用于托管流处理的适用于 Apache Flink 的亚马逊托管服务、用于事件或记录处理的 AWS Lambda、用于私有连接的 AWS PrivateLink、用于指标和日志处理的 Amazon Cloudwatch 以及用于服务器端加密的 AWS KMS。</p>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="四、Scaling-Based-on-Amazon-SQS"><a href="#四、Scaling-Based-on-Amazon-SQS" class="headerlink" title="四、Scaling Based on Amazon SQS"></a>四、Scaling Based on Amazon SQS</h3><p>A solutions architect is designing the cloud architecture for a new application being deployed on AWS. The process should run in parallel while adding and removing application nodes as needed based on the number of jobs to be processed. The processor application is stateless. The solutions architect must ensure that the application is loosely coupled and the job items are durably stored.<br>Which design should the solutions architect use?  </p>
+<ol>
+<li>Create an Amazon SNS topic to send the jobs that need to be processed. Create an Amazon Machine Image (AMI) that consists of the processor application. Create a launch configuration that uses the AMI. Create an Auto Scaling group using the launch configuration. Set the scaling policy for the Auto Scaling group to add and remove nodes based on CPU usage.  </li>
+<li>❌ Create an Amazon SQS queue to hold the jobs that need to be processed. Create an Amazon Machine Image (AMI) that consists of the processor application. Create a launch configuration that uses the AMI. Create an Auto Scaling group using the launch configuration. Set the scaling policy for the Auto Scaling group to add and remove nodes based on network usage.  </li>
+<li>✅ Create an Amazon SQS queue to hold the jobs that need to be processed. Create an Amazon Machine Image (AMI) that consists of the processor application. Create a launch template that uses the AMI. Create an Auto Scaling group using the launch template. Set the scaling policy for the Auto Scaling group to add and remove nodes based on the number of items in the SQS queue.  </li>
+<li>Create an Amazon SNS topic to send the jobs that need to be processed. Create an Amazon Machine Image (AMI) that consists of the processor application. Create a launch template that uses the AMI. Create an Auto Scaling group using the launch template. Set the scaling policy for the Auto Scaling group to add and remove nodes based on the number of messages published to the SNS topic.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：based on the number of jobs to be processed、stateless</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：There are some scenarios where you might think about scaling in response to activity in an Amazon SQS queue. For example, suppose that you have a web app that lets users upload images and use them online. In this scenario, each image requires resizing and encoding before it can be published. The app runs on EC2 instances in an Auto Scaling group, and it’s configured to handle your typical upload rates. Unhealthy instances are terminated and replaced to maintain current instance levels at all times. The app places the raw bitmap data of the images in an SQS queue for processing. It processes the images and then publishes the processed images where they can be viewed by users. The architecture for this scenario works well if the number of image uploads doesn’t vary over time. But if the number of uploads changes over time, you might consider using dynamic scaling to scale the capacity of your Auto Scaling group.<br>Reference:<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/sqs/#:~:text=Amazon%20SQS%20leverages%20the%20AWS,queues%20provide%20nearly%20unlimited%20throughput">https://aws.amazon.com/sqs/#:~:text=Amazon%20SQS%20leverages%20the%20AWS,queues%20provide%20nearly%20unlimited%20throughput</a><br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-using-sqs-queue.html">https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-using-sqs-queue.html</a></p>
+</blockquote>
+<hr>
+<h3 id="五、Network-Load-Balancer"><a href="#五、Network-Load-Balancer" class="headerlink" title="五、Network Load Balancer"></a>五、Network Load Balancer</h3><p>A gaming company has multiple Amazon EC2 instances in a single Availability Zone for its multiplayer game that communicates with users on Layer 4. The chief technology officer (CTO) wants to make the architecture highly available and cost-effective.<br>Which should a solutions architect do to meet these requirements? (Choose two.)?</p>
+<ol>
+<li>Increase the number of EC2 instances.  </li>
+<li>Decrease the number of EC2 instances.  </li>
+<li>✅ Configure a Network Load Balancer in front of the EC2 instances.  </li>
+<li>Configure an Application Load Balancer in front of the EC2 instances.  </li>
+<li>✅ Configure an Auto Scaling group to add or remove instances in multiple Availability Zones automatically.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：single Availability Zone、highly available、game server</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ 5️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：A Network Load Balancer functions at the fourth layer of the Open Systems Interconnection (OSI) model. It can handle millions of requests per second. After the load balancer receives a connection request, it selects a target from the target group for the default rule. It attempts to open a TCP connection to the selected target on the port specified in the listener configuration.<br>When you enable an Availability Zone for the load balancer, Elastic Load Balancing creates a load balancer node in the Availability Zone. By default, each load balancer node distributes traffic across the registered targets in its Availability Zone only. If you enable cross-zone load balancing, each load balancer node distributes traffic across the registered targets in all enabled Availability Zones. For more information, see Availability Zones.<br>If you enable multiple Availability Zones for your load balancer and ensure that each target group has at least one target in each enabled Availability Zone, this increases the fault tolerance of your applications. For example, if one or more target groups does not have a healthy target in an Availability Zone, we remove the IP address for the corresponding subnet from DNS, but the load balancer nodes in the other Availability Zones are still available to route traffic. If a client doesn’t honor the time-to-live (TTL) and sends requests to the IP address after it is removed from DNS, the requests fail.<br>For TCP traffic, the load balancer selects a target using a flow hash algorithm based on the protocol, source IP address, source port, destination IP address, destination port, and TCP sequence number. The TCP connections from a client have different source ports and sequence numbers, and can be routed to different targets. Each individual TCP connection is routed to a single target for the life of the connection.<br>For UDP traffic, the load balancer selects a target using a flow hash algorithm based on the protocol, source IP address, source port, destination IP address, and destination port. A UDP flow has the same source and destination, so it is consistently routed to a single target throughout its lifetime. Different UDP flows have different source IP addresses and ports, so they can be routed to different targets.<br>An Auto Scaling group contains a collection of Amazon EC2 instances that are treated as a logical grouping for the purposes of automatic scaling and management. An Auto Scaling group also enables you to use Amazon EC2 Auto Scaling features such as health check replacements and scaling policies. Both maintaining the number of instances in an Auto Scaling group and automatic scaling are the core functionality of the Amazon EC2 Auto Scaling service.<br>The size of an Auto Scaling group depends on the number of instances that you set as the desired capacity. You can adjust its size to meet demand, either manually or by using automatic scaling.<br>An Auto Scaling group starts by launching enough instances to meet its desired capacity. It maintains this number of instances by performing periodic health checks on the instances in the group. The Auto Scaling group continues to maintain a fixed number of instances even if an instance becomes unhealthy. If an instance becomes unhealthy, the group terminates the unhealthy instance and launches another instance to replace it.<br>Reference:<br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html">https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html</a><br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html">https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html</a></p>
+</blockquote>
+<hr>
+<h3 id="六、Amazon-RDS-Read-Replicas"><a href="#六、Amazon-RDS-Read-Replicas" class="headerlink" title="六、Amazon RDS Read Replicas"></a>六、Amazon RDS Read Replicas</h3><p>A company’s website is using an Amazon RDS MySQL Multi-AZ DB instance for its transactional data storage. There are other internal systems that query this DB instance to fetch data for internal batch processing. The RDS DB instance slows down significantly the internal systems fetch data. This impacts the website’s read and write performance, and the users experience slow response times.<br>Which solution will improve the website’s performance?  </p>
+<ol>
+<li>Use an RDS PostgreSQL DB instance instead of a MySQL database.  </li>
+<li>Use Amazon ElastiCache to cache the query responses for the website.  </li>
+<li>Add an additional Availability Zone to the current RDS MySQL Multi.AZ DB instance.  </li>
+<li>✅ Add a read replica to the RDS DB instance and configure the internal systems to query the read replica.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：Amazon RDS MySQL、只读副本</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：You can reduce the load on your source DB instance by routing read queries from your applications to the read replica. Read replicas allow you to elastically scale out beyond the capacity constraints of a single DB instance for read-heavy database workloads. Because read replicas can be promoted to master status, they are useful as part of a sharding implementation.<br>To further maximize read performance, Amazon RDS for MySQL allows you to add table indexes directly to Read Replicas, without those indexes being present on the master.<br>Reference:<br><a target="_blank" rel="noopener" href="https://aws.amazon.com/rds/features/read-replicas">https://aws.amazon.com/rds/features/read-replicas</a></p>
+</blockquote>
+<hr>
+<h3 id="七、Amazon-Kinesis-Data-Firehose"><a href="#七、Amazon-Kinesis-Data-Firehose" class="headerlink" title="七、Amazon Kinesis Data Firehose"></a>七、Amazon Kinesis Data Firehose</h3><p>A company has a legacy application that process data in two parts. The second part of the process takes longer than the first, so the company has decided to rewrite the application as two microservices running on Amazon ECS that can scale independently.<br>How should a solutions architect integrate the microservices?<br>1. Implement code in microservice 1 to send data to an Amazon S3 bucket. Use S3 event notifications to invoke microservice 2.<br>2. Implement code in microservice 1 to publish data to an Amazon SNS topic. Implement code in microservice 2 to subscribe to this topic.<br>3. ✅ Implement code in microservice 1 to send data to Amazon Kinesis Data Firehose. Implement code in microservice 2 to read from Kinesis Data Firehose.<br>4. ❌ Implement code in microservice 1 to send data to an Amazon SQS queue. Implement code in microservice 2 to process messages from the queue.  </p>
+<blockquote>
+<p>✨ 关键词：解耦、队列</p>
+</blockquote>
+<blockquote>
+<p>4️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：无。<br>程序 2 的处理速度比 1 的慢，但是对于 Data（数据）而非 Message 或 Task 似乎 Amazon Kinesis Data 系更加合适。</p>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/11/16</p><p><a href="https://senjianlu.com/2024/11/16/saa_test_daily_20241116/">https://senjianlu.com/2024/11/16/saa_test_daily_20241116/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-11-16</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-11-16</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/11/17/saa_test_daily_20241117/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">SAA 考试每日练习 - 2024/11/17</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/11/16/translate_news_nhk_20241116_k10014640301000/"><span class="level-item">日语翻译 - 新闻 - JR函館線で貨物列車が脱線 けが人なし 復旧急ぎ原因調査へ</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、Amazon-S3"><span class="level-left"><span class="level-item">一、Amazon S3</span></span></a></li><li><a class="level is-mobile" href="#二、AWS-Snowball"><span class="level-left"><span class="level-item">二、AWS Snowball</span></span></a></li><li><a class="level is-mobile" href="#三、Amazon-Kinesis-Data-Firehose"><span class="level-left"><span class="level-item">三、Amazon Kinesis Data Firehose</span></span></a></li><li><a class="level is-mobile" href="#四、Scaling-Based-on-Amazon-SQS"><span class="level-left"><span class="level-item">四、Scaling Based on Amazon SQS</span></span></a></li><li><a class="level is-mobile" href="#五、Network-Load-Balancer"><span class="level-left"><span class="level-item">五、Network Load Balancer</span></span></a></li><li><a class="level is-mobile" href="#六、Amazon-RDS-Read-Replicas"><span class="level-left"><span class="level-item">六、Amazon RDS Read Replicas</span></span></a></li><li><a class="level is-mobile" href="#七、Amazon-Kinesis-Data-Firehose"><span class="level-left"><span class="level-item">七、Amazon Kinesis Data Firehose</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

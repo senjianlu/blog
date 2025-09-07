@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>WordPress 使用 Polylang 插件实现文章多语言支持（国际化）并分析表数据 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="前言导航站的多语言支持是基础功能之一。由于 OneNav 基于 WordPress 的一个主题，所以通过 Polylang 这个 WordPress 插件来实现即可。需要注意：你的一篇内容要支持几种语言，就要创建几篇文章。    Polylang 是 WordPress 建站平台上的一款免费的建立多语言网站版本的插件，它允许您创建双语或多语言 WordPress 网站。您可以在正常编写帖子，页面并"><meta property="og:type" content="article"><meta property="og:title" content="WordPress 使用 Polylang 插件实现文章多语言支持（国际化）并分析表数据"><meta property="og:url" content="https://senjianlu.com/2024/10/17/wordpress_polylang_internationalization/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="前言导航站的多语言支持是基础功能之一。由于 OneNav 基于 WordPress 的一个主题，所以通过 Polylang 这个 WordPress 插件来实现即可。需要注意：你的一篇内容要支持几种语言，就要创建几篇文章。    Polylang 是 WordPress 建站平台上的一款免费的建立多语言网站版本的插件，它允许您创建双语或多语言 WordPress 网站。您可以在正常编写帖子，页面并"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-10-17/polylang.png"><meta property="article:published_time" content="2024-10-17T08:30:00.000Z"><meta property="article:modified_time" content="2024-10-18T04:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="数据库"><meta property="article:tag" content="MySQL"><meta property="article:tag" content="WordPress"><meta property="article:tag" content="Polylang"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-10-17/polylang.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/10/17/wordpress_polylang_internationalization/"},"headline":"WordPress 使用 Polylang 插件实现文章多语言支持（国际化）并分析表数据","image":["https://image.senjianlu.com/blog/2024-10-17/polylang.png"],"datePublished":"2024-10-17T08:30:00.000Z","dateModified":"2024-10-18T04:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"前言导航站的多语言支持是基础功能之一。由于 OneNav 基于 WordPress 的一个主题，所以通过 Polylang 这个 WordPress 插件来实现即可。需要注意：你的一篇内容要支持几种语言，就要创建几篇文章。    Polylang 是 WordPress 建站平台上的一款免费的建立多语言网站版本的插件，它允许您创建双语或多语言 WordPress 网站。您可以在正常编写帖子，页面并"}</script><link rel="canonical" href="https://senjianlu.com/2024/10/17/wordpress_polylang_internationalization/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-10-17T08:30:00.000Z" title="10/17/2024, 4:30:00 PM">2024-10-17</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/">开发笔记</a><span> / </span><a class="link-muted" href="/categories/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">WordPress 使用 Polylang 插件实现文章多语言支持（国际化）并分析表数据</h1><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>导航站的多语言支持是基础功能之一。<br>由于 OneNav 基于 WordPress 的一个主题，所以通过 Polylang 这个 WordPress 插件来实现即可。<br>需要注意：<strong>你的一篇内容要支持几种语言，就要创建几篇文章</strong>。  </p>
+<blockquote>
+<p>Polylang 是 WordPress 建站平台上的一款免费的建立多语言网站版本的插件，它允许您创建双语或多语言 WordPress 网站。您可以在正常编写帖子，页面并创建类别和帖子标签后，为它们再创建一份别国语言的内容。  </p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<h2 id="方案概述"><a href="#方案概述" class="headerlink" title="方案概述"></a>方案概述</h2><ol>
+<li>安装 Polylang 插件</li>
+<li>设置站点默认语言</li>
+<li>设置其他语言的 URL 形式</li>
+<li>在页面上添加切换语言的按钮</li>
+<li>为一篇内容写多篇不同语言文章</li>
+<li>分析文章的表数据</li>
+</ol>
+<hr>
+<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><h3 id="一、安装-Polylang-插件"><a href="#一、安装-Polylang-插件" class="headerlink" title="一、安装 Polylang 插件"></a>一、安装 Polylang 插件</h3><p>选择插件 -&gt; 安装新插件 -&gt; 搜索 Polylang -&gt; 安装并启用：<br><img src="https://image.senjianlu.com/blog/2024-10-17/213043.png" alt="安装 Polylang 插件"><br>之后选择启用，会进入设置界面：<br><img src="https://image.senjianlu.com/blog/2024-10-17/213328.png" alt="中文、日文和英文"><br><img src="https://image.senjianlu.com/blog/2024-10-17/213451.png" alt="默认语言是中文"><br><img src="https://image.senjianlu.com/blog/2024-10-17/213520.png" alt="安装成功"></p>
+<h3 id="二、设置站点默认语言"><a href="#二、设置站点默认语言" class="headerlink" title="二、设置站点默认语言"></a>二、设置站点默认语言</h3><p>在语言列表中，将哪个语言标 ⭐ 就是代表其为默认语言：<br><img src="https://image.senjianlu.com/blog/2024-10-17/213845.png" alt="默认语言"></p>
+<h3 id="三、设置其他语言的-URL-形式"><a href="#三、设置其他语言的-URL-形式" class="headerlink" title="三、设置其他语言的 URL 形式"></a>三、设置其他语言的 URL 形式</h3><p>选择：</p>
+<ul>
+<li>✅ 根据固定链接中的目录名称设置语言</li>
+<li>✅ 为默认语言隐藏网址中的语言信息，比如默认为中文时，不要在网址中添加 &#x2F;zh&#x2F; 部分</li>
+<li>✅ 移除固定链接中的 &#x2F;language&#x2F; 部分</li>
+</ul>
+<p><img src="https://image.senjianlu.com/blog/2024-10-17/214033.png" alt="URL 设置的最佳实践"><br>之后，各个语言的文章链接就会类似于：</p>
+<ul>
+<li>中文：<code>https://my.blog.com/2024/10/17/my_first_post/</code></li>
+<li>日文：<code>https://my.blog.com/ja/2024/10/17/my_first_post/</code></li>
+<li>英文：<code>https://my.blog.com/en/2024/10/17/my_first_post/</code></li>
+</ul>
+<p>这对于你的主要用户群体来说是非常友好的。</p>
+<h3 id="四、在页面上添加切换语言的按钮"><a href="#四、在页面上添加切换语言的按钮" class="headerlink" title="四、在页面上添加切换语言的按钮"></a>四、在页面上添加切换语言的按钮</h3><p>官方的 WordPress 主题中是没有 <code>小工具</code> 这一概念的，而 Polylang 的语言切换工具需要通过小工具来添加的。<br>我这里省事，安装个带小工具的第三方主题：<br><img src="https://image.senjianlu.com/blog/2024-10-17/220458.png" alt="Dashscroll"><br>在自定义页面添加 <code>语言切换器</code> 小工具：<br><img src="https://image.senjianlu.com/blog/2024-10-17/220943.png" alt="语言切换器"><br>点击完成，之后发布，再回到页面上就可以看到切换语言的按钮了：<br><img src="https://image.senjianlu.com/blog/2024-10-17/221028.png" alt="切换语言"><br>这里由于我目前只有一篇中文文章，所以只有中文按钮。  </p>
+<h3 id="五、为一篇内容写多篇不同语言文章"><a href="#五、为一篇内容写多篇不同语言文章" class="headerlink" title="五、为一篇内容写多篇不同语言文章"></a>五、为一篇内容写多篇不同语言文章</h3><p>这里先创建一篇中文文章：  </p>
+<blockquote>
+<p>直接写文章的话，会自动保存为你的默认语言。我这里是中文。  </p>
+</blockquote>
+<p><img src="https://image.senjianlu.com/blog/2024-10-18/post_a_chinese.png" alt="写一篇默认语言文章"><br><img src="https://image.senjianlu.com/blog/2024-10-18/post_a_chinese_success.png" alt="默认发布的文章是中文"><br>然后点击英文下面的加号，创建一篇对应的英文文章：<br><img src="https://image.senjianlu.com/blog/2024-10-18/post_a_english.png" alt="写一篇英文文章"><br><img src="https://image.senjianlu.com/blog/2024-10-18/post_a_english_success.png" alt="英语文章发布成功"><br>同样点击加号，再创建一篇日语文章：<br><img src="https://image.senjianlu.com/blog/2024-10-18/post_a_japanese.png" alt="写一篇日语文章"><br><img src="https://image.senjianlu.com/blog/2024-10-18/post_a_japanese_success.png" alt="日语文章发布成功">  </p>
+<p>之后回到页面上，就能通过切换语言看到对应的文章了：<br><img src="https://image.senjianlu.com/blog/2024-10-18/homepage.png" alt="不同语言的首页"></p>
+<h3 id="六、分析文章的表数据"><a href="#六、分析文章的表数据" class="headerlink" title="六、分析文章的表数据"></a>六、分析文章的表数据</h3><blockquote>
+<p>为了二开做准备，单纯使用插件的话可以不了解。  </p>
+</blockquote>
+<h4 id="1、中文文章"><a href="#1、中文文章" class="headerlink" title="1、中文文章"></a>1、中文文章</h4><p><img src="https://image.senjianlu.com/blog/2024-10-18/chinese_post.png" alt="发布中文文章">  </p>
+<ul>
+<li><p><code>wp_posts</code> 表：</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>post_author</th>
+<th>post_date</th>
+<th>post_date_gmt</th>
+<th>post_content</th>
+<th>post_title</th>
+<th>post_excerpt</th>
+<th>post_status</th>
+<th>comment_status</th>
+<th>ping_status</th>
+<th>post_password</th>
+<th>post_name</th>
+<th>to_ping</th>
+<th>pinged</th>
+<th>post_modified</th>
+<th>post_modified_gmt</th>
+<th>post_content_filtered</th>
+<th>post_parent</th>
+<th>guid</th>
+<th>menu_order</th>
+<th>post_type</th>
+<th>post_mime_type</th>
+<th>comment_count</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>31</td>
+<td>1</td>
+<td>2024-10-18 11:04:21</td>
+<td>2024-10-18 03:04:21</td>
+<td>中文文章的内容。</td>
+<td>这是中文文章的标题</td>
+<td></td>
+<td>publish</td>
+<td>open</td>
+<td>closed</td>
+<td></td>
+<td>%e8%bf%99%e6%98%af%e4%b8%ad%e6%96%87%e6%96%87%e7%ab%a0%e7%9a%84%e6%a0%87%e9%a2%98</td>
+<td></td>
+<td></td>
+<td>2024-10-18 11:04:21</td>
+<td>2024-10-18 03:04:21</td>
+<td></td>
+<td>0</td>
+<td><a target="_blank" rel="noopener" href="https://test.steam.cash/?p=31">https://test.steam.cash/?p=31</a></td>
+<td>0</td>
+<td>post</td>
+<td></td>
+<td>0</td>
+</tr>
+<tr>
+<td>32</td>
+<td>1</td>
+<td>2024-10-18 11:04:21</td>
+<td>2024-10-18 03:04:21</td>
+<td>中文文章的内容。</td>
+<td>这是中文文章的标题</td>
+<td></td>
+<td>inherit</td>
+<td>closed</td>
+<td>closed</td>
+<td></td>
+<td>31-revision-v1</td>
+<td></td>
+<td></td>
+<td>2024-10-18 11:04:21</td>
+<td>2024-10-18 03:04:21</td>
+<td></td>
+<td>31</td>
+<td><a target="_blank" rel="noopener" href="https://test.steam.cash/?p=32">https://test.steam.cash/?p=32</a></td>
+<td>0</td>
+<td>revision</td>
+<td></td>
+<td>0</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><code>wp_postmeta</code> 表：</p>
+<blockquote>
+<p><code>post_id</code> 为 <code>32</code> 的没有数据。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>meta_id</th>
+<th>post_id</th>
+<th>meta_key</th>
+<th>meta_value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>262</td>
+<td>31</td>
+<td>views</td>
+<td>0</td>
+</tr>
+<tr>
+<td>263</td>
+<td>31</td>
+<td>_down_count</td>
+<td>0</td>
+</tr>
+<tr>
+<td>264</td>
+<td>31</td>
+<td>_like_count</td>
+<td>0</td>
+</tr>
+<tr>
+<td>265</td>
+<td>31</td>
+<td>_star_count</td>
+<td>0</td>
+</tr>
+<tr>
+<td>266</td>
+<td>31</td>
+<td>_user_purview_level</td>
+<td>all</td>
+</tr>
+<tr>
+<td>267</td>
+<td>31</td>
+<td>_edit_last</td>
+<td>1</td>
+</tr>
+<tr>
+<td>268</td>
+<td>31</td>
+<td>_edit_lock</td>
+<td>1729220662:1</td>
+</tr>
+<tr>
+<td>269</td>
+<td>31</td>
+<td>_seo_title</td>
+<td></td>
+</tr>
+<tr>
+<td>270</td>
+<td>31</td>
+<td>_seo_metakey</td>
+<td></td>
+</tr>
+<tr>
+<td>271</td>
+<td>31</td>
+<td>_seo_desc</td>
+<td></td>
+</tr>
+<tr>
+<td>272</td>
+<td>31</td>
+<td>sidebar_layout</td>
+<td>default</td>
+</tr>
+<tr>
+<td>273</td>
+<td>31</td>
+<td>buy_option</td>
+<td>a:7:{s:8:””buy_type””;s:4:””view””;s:5:””limit””;s:3:””all””;s:8:””pay_type””;s:5:””money””;s:10:””price_type””;s:6:””single””;s:9:””pay_title””;s:0:””””;s:9:””pay_price””;s:1:””0””;s:5:””price””;s:1:””0””;}</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<p>这里在 <code>wp_posts</code> 建立了两张表，其中 <code>post_id</code> 为 <code>32</code> 的数据是子数据。<br>而 <code>post_id</code> 等于 <code>31</code> 的则是父数据，且在 <code>wp_postmeta</code> 中拥有完整的元数据（特征信息）。  </p>
+<blockquote>
+<p>比较让我惊奇的是，居然没有在 <code>wp_postmeta</code> 表中建立一行来标记文章的语言属性。  </p>
+</blockquote>
+<h4 id="2、英文文章"><a href="#2、英文文章" class="headerlink" title="2、英文文章"></a>2、英文文章</h4><p><img src="https://image.senjianlu.com/blog/2024-10-18/english_post.png" alt="发布英文文章"></p>
+<ul>
+<li><p><code>wp_posts</code> 表：</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>post_author</th>
+<th>post_date</th>
+<th>post_date_gmt</th>
+<th>post_content</th>
+<th>post_title</th>
+<th>post_excerpt</th>
+<th>post_status</th>
+<th>comment_status</th>
+<th>ping_status</th>
+<th>post_password</th>
+<th>post_name</th>
+<th>to_ping</th>
+<th>pinged</th>
+<th>post_modified</th>
+<th>post_modified_gmt</th>
+<th>post_content_filtered</th>
+<th>post_parent</th>
+<th>guid</th>
+<th>menu_order</th>
+<th>post_type</th>
+<th>post_mime_type</th>
+<th>comment_count</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>33</td>
+<td>1</td>
+<td>2024-10-18 11:19:57</td>
+<td>2024-10-18 03:19:57</td>
+<td>English content.</td>
+<td>English title</td>
+<td></td>
+<td>publish</td>
+<td>open</td>
+<td>closed</td>
+<td></td>
+<td>english-title</td>
+<td></td>
+<td></td>
+<td>2024-10-18 11:19:57</td>
+<td>2024-10-18 03:19:57</td>
+<td></td>
+<td>0</td>
+<td><a target="_blank" rel="noopener" href="https://test.steam.cash/?p=33">https://test.steam.cash/?p=33</a></td>
+<td>0</td>
+<td>post</td>
+<td></td>
+<td>0</td>
+</tr>
+<tr>
+<td>34</td>
+<td>1</td>
+<td>2024-10-18 11:19:57</td>
+<td>2024-10-18 03:19:57</td>
+<td>English content.</td>
+<td>English title</td>
+<td></td>
+<td>inherit</td>
+<td>closed</td>
+<td>closed</td>
+<td></td>
+<td>33-revision-v1</td>
+<td></td>
+<td></td>
+<td>2024-10-18 11:19:57</td>
+<td>2024-10-18 03:19:57</td>
+<td></td>
+<td>33</td>
+<td><a target="_blank" rel="noopener" href="https://test.steam.cash/?p=34">https://test.steam.cash/?p=34</a></td>
+<td>0</td>
+<td>revision</td>
+<td></td>
+<td>0</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><code>wp_postmeta</code> 表：</p>
+<blockquote>
+<p><code>post_id</code> 为 <code>34</code> 的没有数据。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>meta_id</th>
+<th>post_id</th>
+<th>meta_key</th>
+<th>meta_value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>274</td>
+<td>33</td>
+<td>views</td>
+<td>0</td>
+</tr>
+<tr>
+<td>275</td>
+<td>33</td>
+<td>_down_count</td>
+<td>0</td>
+</tr>
+<tr>
+<td>276</td>
+<td>33</td>
+<td>_like_count</td>
+<td>0</td>
+</tr>
+<tr>
+<td>277</td>
+<td>33</td>
+<td>_star_count</td>
+<td>0</td>
+</tr>
+<tr>
+<td>278</td>
+<td>33</td>
+<td>_user_purview_level</td>
+<td>all</td>
+</tr>
+<tr>
+<td>279</td>
+<td>33</td>
+<td>sidebar_layout</td>
+<td>default</td>
+</tr>
+<tr>
+<td>280</td>
+<td>33</td>
+<td>buy_option</td>
+<td>a:7:{s:8:””buy_type””;s:4:””view””;s:5:””limit””;s:3:””all””;s:8:””pay_type””;s:5:””money””;s:10:””price_type””;s:6:””single””;s:9:””pay_title””;s:0:””””;s:9:””pay_price””;s:1:””0””;s:5:””price””;s:1:””0””;}</td>
+</tr>
+<tr>
+<td>281</td>
+<td>33</td>
+<td>_edit_last</td>
+<td>1</td>
+</tr>
+<tr>
+<td>282</td>
+<td>33</td>
+<td>_edit_lock</td>
+<td>1729221598:1</td>
+</tr>
+<tr>
+<td>283</td>
+<td>33</td>
+<td>_seo_title</td>
+<td></td>
+</tr>
+<tr>
+<td>284</td>
+<td>33</td>
+<td>_seo_metakey</td>
+<td></td>
+</tr>
+<tr>
+<td>285</td>
+<td>33</td>
+<td>_seo_desc</td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<p>与中文文章的表数据看起来没什么差别。</p>
+<h4 id="3、日语文章"><a href="#3、日语文章" class="headerlink" title="3、日语文章"></a>3、日语文章</h4><p><img src="https://image.senjianlu.com/blog/2024-10-18/japanese_post.png" alt="发布日语文章"></p>
+<ul>
+<li><p><code>wp_posts</code> 表：</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>post_author</th>
+<th>post_date</th>
+<th>post_date_gmt</th>
+<th>post_content</th>
+<th>post_title</th>
+<th>post_excerpt</th>
+<th>post_status</th>
+<th>comment_status</th>
+<th>ping_status</th>
+<th>post_password</th>
+<th>post_name</th>
+<th>to_ping</th>
+<th>pinged</th>
+<th>post_modified</th>
+<th>post_modified_gmt</th>
+<th>post_content_filtered</th>
+<th>post_parent</th>
+<th>guid</th>
+<th>menu_order</th>
+<th>post_type</th>
+<th>post_mime_type</th>
+<th>comment_count</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>36</td>
+<td>1</td>
+<td>2024-10-18 11:34:08</td>
+<td>2024-10-18 03:34:08</td>
+<td>日本語内容。</td>
+<td>日本語文章</td>
+<td></td>
+<td>publish</td>
+<td>open</td>
+<td>closed</td>
+<td></td>
+<td>%e6%97%a5%e6%9c%ac%e8%aa%9e%e6%96%87%e7%ab%a0</td>
+<td></td>
+<td></td>
+<td>2024-10-18 11:34:08</td>
+<td>2024-10-18 03:34:08</td>
+<td></td>
+<td>0</td>
+<td><a target="_blank" rel="noopener" href="https://test.steam.cash/?p=36">https://test.steam.cash/?p=36</a></td>
+<td>0</td>
+<td>post</td>
+<td></td>
+<td>0</td>
+</tr>
+<tr>
+<td>37</td>
+<td>1</td>
+<td>2024-10-18 11:34:08</td>
+<td>2024-10-18 03:34:08</td>
+<td>日本語内容。</td>
+<td>日本語文章</td>
+<td></td>
+<td>inherit</td>
+<td>closed</td>
+<td>closed</td>
+<td></td>
+<td>36-revision-v1</td>
+<td></td>
+<td></td>
+<td>2024-10-18 11:34:08</td>
+<td>2024-10-18 03:34:08</td>
+<td></td>
+<td>36</td>
+<td><a target="_blank" rel="noopener" href="https://test.steam.cash/?p=37">https://test.steam.cash/?p=37</a></td>
+<td>0</td>
+<td>revision</td>
+<td></td>
+<td>0</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><code>wp_postmeta</code> 表：</p>
+<blockquote>
+<p><code>post_id</code> 为 <code>37</code> 的没有数据。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>meta_id</th>
+<th>post_id</th>
+<th>meta_key</th>
+<th>meta_value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>291</td>
+<td>36</td>
+<td>views</td>
+<td>0</td>
+</tr>
+<tr>
+<td>292</td>
+<td>36</td>
+<td>_down_count</td>
+<td>0</td>
+</tr>
+<tr>
+<td>293</td>
+<td>36</td>
+<td>_like_count</td>
+<td>0</td>
+</tr>
+<tr>
+<td>294</td>
+<td>36</td>
+<td>_star_count</td>
+<td>0</td>
+</tr>
+<tr>
+<td>295</td>
+<td>36</td>
+<td>_user_purview_level</td>
+<td>all</td>
+</tr>
+<tr>
+<td>296</td>
+<td>36</td>
+<td>sidebar_layout</td>
+<td>default</td>
+</tr>
+<tr>
+<td>297</td>
+<td>36</td>
+<td>buy_option</td>
+<td>a:7:{s:8:””buy_type””;s:4:””view””;s:5:””limit””;s:3:””all””;s:8:””pay_type””;s:5:””money””;s:10:””price_type””;s:6:””single””;s:9:””pay_title””;s:0:””””;s:9:””pay_price””;s:1:””0””;s:5:””price””;s:1:””0””;}</td>
+</tr>
+<tr>
+<td>298</td>
+<td>36</td>
+<td>_edit_last</td>
+<td>1</td>
+</tr>
+<tr>
+<td>299</td>
+<td>36</td>
+<td>_edit_lock</td>
+<td>1729222449:1</td>
+</tr>
+<tr>
+<td>300</td>
+<td>36</td>
+<td>_seo_title</td>
+<td></td>
+</tr>
+<tr>
+<td>301</td>
+<td>36</td>
+<td>_seo_metakey</td>
+<td></td>
+</tr>
+<tr>
+<td>302</td>
+<td>36</td>
+<td>_seo_desc</td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<p>与中文文章的表数据看起来依然没什么差别。</p>
+<h4 id="4、连接结构"><a href="#4、连接结构" class="headerlink" title="4、连接结构"></a>4、连接结构</h4><p><strong>既然 <code>wp_posts</code> 表中不记录语言和其他文章的连接信息</strong>。<br>那么问题就来了，下面这样将多个语言的文章连接的数据是记录在哪里的呢？<br><img src="https://image.senjianlu.com/blog/2024-10-18/connect_post.png" alt="文章多语言">  </p>
+<p>翻了下目录和标签相关的 <code>wp_terms</code> 表，在 <code>wp_term_taxonomy</code> 表中找到了这么一条数据：  </p>
+<table>
+<thead>
+<tr>
+<th>term_taxonomy_id</th>
+<th>term_id</th>
+<th>taxonomy</th>
+<th>description</th>
+<th>parent</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>22</td>
+<td>22</td>
+<td>post_translations</td>
+<td>a:3:{s:2:””en””;i:33;s:2:””zh””;i:31;s:2:””ja””;i:36;}</td>
+<td>0</td>
+<td>3</td>
+</tr>
+</tbody></table>
+<p>那么很显然，<strong>一篇内容的各语言版本文章</strong>是通过目录或标签的形式连接在一起的。<br>再看下其他表的信息：</p>
+<ul>
+<li><p><code>wp_terms</code> 表：</p>
+<table>
+<thead>
+<tr>
+<th>term_id</th>
+<th>name</th>
+<th>slug</th>
+<th>term_group</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>22</td>
+<td>pll_6711d3dd4efb0</td>
+<td>pll_6711d3dd4efb0</td>
+<td>0</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><code>wp_term_relationships</code> 表：</p>
+<table>
+<thead>
+<tr>
+<th>object_id</th>
+<th>term_taxonomy_id</th>
+<th>term_order</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>31</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>31</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>31</td>
+<td>22</td>
+<td>0</td>
+</tr>
+<tr>
+<td>33</td>
+<td>9</td>
+<td>0</td>
+</tr>
+<tr>
+<td>33</td>
+<td>19</td>
+<td>0</td>
+</tr>
+<tr>
+<td>33</td>
+<td>22</td>
+<td>0</td>
+</tr>
+<tr>
+<td>36</td>
+<td>5</td>
+<td>0</td>
+</tr>
+<tr>
+<td>36</td>
+<td>7</td>
+<td>0</td>
+</tr>
+<tr>
+<td>36</td>
+<td>22</td>
+<td>0</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<p><code>wp_terms</code> 表中的 <code>name</code> 和 <code>slug</code> 字段应该是自动生成的，一般情况下用户也看不见就不用去管了。<br><code>wp_term_relationships</code> 表中的数据和 <code>wp_posts</code> 表中的文章 <code>ID</code> 可以匹配上：  </p>
+<ul>
+<li>中文文章 <code>post_id</code>：<code>31</code></li>
+<li>英文文章 <code>post_id</code>：<code>33</code></li>
+<li>日语文章 <code>post_id</code>：<code>36</code></li>
+</ul>
+<p>其中 <code>1</code>、<code>2</code>、<code>9</code>、<code>19</code>、<code>5</code> 和 <code>7</code> 的分类或标签，分别对应各语言和各语言的“未分类”组。  </p>
+<hr>
+<p>参考资料：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.naibabiji.com/tutorial/polylang.html">WordPress多语言插件Polylang使用教程_外贸多语言建站</a></li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>WordPress 使用 Polylang 插件实现文章多语言支持（国际化）并分析表数据</p><p><a href="https://senjianlu.com/2024/10/17/wordpress_polylang_internationalization/">https://senjianlu.com/2024/10/17/wordpress_polylang_internationalization/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-10-17</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-10-18</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><a class="link-muted mr-2" rel="tag" href="/tags/MySQL/">MySQL</a><a class="link-muted mr-2" rel="tag" href="/tags/WordPress/">WordPress</a><a class="link-muted mr-2" rel="tag" href="/tags/Polylang/">Polylang</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/10/18/translate_news_nhk_20241018_k10014612441000/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">日语翻译 - 新闻 - アマゾン 中国 日本人学校の男児死亡事件1か月 中国側が説明の意向示す</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/10/17/translate_news_nhk_20241017_k10014611641000/"><span class="level-item">日语翻译 - 新闻 - アマゾン 原発開発に関わる企業に投資 AI拡大で電力確保の動き</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#前言"><span class="level-left"><span class="level-item">前言</span></span></a></li><li><a class="level is-mobile" href="#方案概述"><span class="level-left"><span class="level-item">方案概述</span></span></a></li><li><a class="level is-mobile" href="#操作步骤"><span class="level-left"><span class="level-item">操作步骤</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一、安装-Polylang-插件"><span class="level-left"><span class="level-item">一、安装 Polylang 插件</span></span></a></li><li><a class="level is-mobile" href="#二、设置站点默认语言"><span class="level-left"><span class="level-item">二、设置站点默认语言</span></span></a></li><li><a class="level is-mobile" href="#三、设置其他语言的-URL-形式"><span class="level-left"><span class="level-item">三、设置其他语言的 URL 形式</span></span></a></li><li><a class="level is-mobile" href="#四、在页面上添加切换语言的按钮"><span class="level-left"><span class="level-item">四、在页面上添加切换语言的按钮</span></span></a></li><li><a class="level is-mobile" href="#五、为一篇内容写多篇不同语言文章"><span class="level-left"><span class="level-item">五、为一篇内容写多篇不同语言文章</span></span></a></li><li><a class="level is-mobile" href="#六、分析文章的表数据"><span class="level-left"><span class="level-item">六、分析文章的表数据</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#1、中文文章"><span class="level-left"><span class="level-item">1、中文文章</span></span></a></li><li><a class="level is-mobile" href="#2、英文文章"><span class="level-left"><span class="level-item">2、英文文章</span></span></a></li><li><a class="level is-mobile" href="#3、日语文章"><span class="level-left"><span class="level-item">3、日语文章</span></span></a></li><li><a class="level is-mobile" href="#4、连接结构"><span class="level-left"><span class="level-item">4、连接结构</span></span></a></li></ul></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>

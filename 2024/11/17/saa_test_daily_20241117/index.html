@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>SAA 考试每日练习 - 2024/11/17 - 森见鹿的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="森见鹿的博客"><meta name="msapplication-TileImage" content="https://image.senjianlu.com/blog/icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="森见鹿的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam10 题 (No.1 ~ No.10)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:type" content="article"><meta property="og:title" content="SAA 考试每日练习 - 2024/11/17"><meta property="og:url" content="https://senjianlu.com/2024/11/17/saa_test_daily_20241117/"><meta property="og:site_name" content="森见鹿的博客"><meta property="og:description" content="来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam10 题 (No.1 ~ No.10)，仅供自己复习使用。如果侵权请联系删除。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><meta property="article:published_time" content="2024-11-17T11:00:00.000Z"><meta property="article:modified_time" content="2024-11-17T12:00:00.000Z"><meta property="article:author" content="Rabbir"><meta property="article:tag" content="AWS"><meta property="article:tag" content="SAA"><meta property="article:tag" content="每日练习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://image.senjianlu.com/blog/2024-09-01/075639.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://senjianlu.com/2024/11/17/saa_test_daily_20241117/"},"headline":"SAA 考试每日练习 - 2024/11/17","image":["https://image.senjianlu.com/blog/2024-09-01/075639.png"],"datePublished":"2024-11-17T11:00:00.000Z","dateModified":"2024-11-17T12:00:00.000Z","author":{"@type":"Person","name":"Rabbir"},"publisher":{"@type":"Organization","name":"森见鹿的博客","logo":{"@type":"ImageObject","url":{"text":"森见鹿的博客"}}},"description":"来源：Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam10 题 (No.1 ~ No.10)，仅供自己复习使用。如果侵权请联系删除。"}</script><link rel="canonical" href="https://senjianlu.com/2024/11/17/saa_test_daily_20241117/"><link rel="icon" href="https://image.senjianlu.com/blog/icon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link data-pjax rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><script src="https://www.googletagmanager.com/gtag/js?id=G-D3LX598ZY6" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D3LX598ZY6');</script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><script data-ad-client="ca-pub-7999470995937770" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="森见鹿的博客" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">森见鹿的博客</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/senjianlu"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-11-17T11:00:00.000Z" title="11/17/2024, 7:00:00 PM">2024-11-17</time>发表</span><span class="level-item"><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/">运维笔记</a><span> / </span><a class="link-muted" href="/categories/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0/%E5%A4%87%E8%80%83/">备考</a></span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">SAA 考试每日练习 - 2024/11/17</h1><div class="content"><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/">Amazon AWS Certified Solutions Architect - Associate SAA-C03 Exam</a><br>10 题 (No.1 ~ No.10)，仅供自己复习使用。<br>如果侵权请联系删除。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<p><strong>🌟 单词：</strong></p>
+<ol>
+<li>ingests<sub><u>v. 食入, 摄入, 咽下</u></sub></li>
+<li>vary<sub><u>v. （使）改变，使多样化；变化；不同，有差异</u></sub></li>
+<li>drastically<sub><u>adv. 彻底地；激烈地</u></sub></li>
+<li>serves<sub><u>v. 服务；提供；接待；任期为；为…工作，服役 | n. 发球</u></sub></li>
+<li>coordinate<sub><u>v. （使）协调，（使）相配合；使（身体各部位）动作协调 | n. 坐标；（衣服、家具等）搭配，协调 | adj. 同等的，并列的；坐标的</u></sub></li>
+<li>modernize<sub><u>v. 使（制度、方法等）现代化，使（设备、概念等）现代化</u></sub></li>
+<li>resiliency<sub><u>n. 跳回(回弹，弹力，弹性变形，冲击值)</u></sub></li>
+<li>scalability<sub><u>n. 〔测〕可量测性；可扩展性</u></sub></li>
+<li>frequently<sub><u>adv. 频繁地, 时常, 不断地</u></sub></li>
+<li>rarely<sub><u>adv. 很少，罕有，不常</u></sub></li>
+<li>low-latency<sub><u>adj. 低延迟的</u></sub></li>
+<li>principal<sub><u>n. 校长；院长；负责人；主要演员；本金；委托人；主犯 | adj. 首要的；主要的；最重要的；资本的；本金的</u></sub></li>
+</ol>
+<p><sub><u></u></sub></p>
+<hr>
+<h3 id="一、S3-Transfer-Acceleration"><a href="#一、S3-Transfer-Acceleration" class="headerlink" title="一、S3 Transfer Acceleration"></a>一、S3 Transfer Acceleration</h3><p>A company collects data for temperature, humidity, and atmospheric pressure in cities across multiple continents<sub><u>洲，大陆</u></sub>. The average volume of data that the company collects from each site daily is 500 GB. Each site has a high-speed Internet connection.<br>The company wants to aggregate the data from all these global sites as quickly as possible in a single Amazon S3 bucket. The solution must minimize operational complexity.<br>Which solution meets these requirements?</p>
+<ol>
+<li>✅ Turn on S3 Transfer Acceleration on the destination S3 bucket. Use multipart uploads to directly upload site data to the destination S3 bucket.</li>
+<li>❌ Upload the data from each site to an S3 bucket in the closest Region. Use S3 Cross-Region Replication to copy objects to the destination S3 bucket. Then remove the data from the origin S3 bucket.</li>
+<li>Schedule AWS Snowball Edge Storage Optimized device jobs daily to transfer data from each site to the closest Region.Use S3 Cross-Region Replication to copy objects to the destination S3 bucket.</li>
+<li>Upload the data from each site to an Amazon EC2 instance in the closest Region. Store the data in an Amazon Elastic Block Store (Amazon EBS) volume. At regular intervals, take an EBS snapshot and copy it to the Region that contains the destination S3 bucket. Restore the EBS volume in that Region.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：500 GB、high-speed Internet connection、save into a single Amazon S3 bucket</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ❌ -&gt; 1️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：题目背景是公司从多个洲的城市收集数据，从每个网站（洲或城市）收集数据的大小是 500 GB，之间有高速互联网连接。需要将这些数据尽快传到单个 <code>S3</code> 存储桶。要求最简单的架构。<br>这是 <code>S3 Transfer Acceleratio</code> 的使用场景。  </p>
+<p> <a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/s3/transfer-acceleration/">S3 Transfer Acceleration S3 远距离上传和下载更快</a><br><u><strong>Amazon S3 Transfer Acceleration (S3TA) 可将与 Amazon S3 之间的内容传输速度加快 50-500%，以便大型对象远距离传输</strong></u>。拥有具有广泛用户的 Web 或移动应用程序或托管在远离其 S3 存储桶之处的应用程序的客户可以在 Internet 上体验长时间且可变的上传和下载速度。 S3 Transfer Acceleration (S3TA) 减少了可能影响传输的 Internet 路由、拥塞和速度的变化，并在逻辑上缩短了远程应用程序到 S3 的距离。S3TA 通过 Amazon CloudFront 遍布全球的边缘站点和 AWS 支柱网络来路由流量，并通过使用网络协议优化，从而提高了传输性能。您可以在 S3 控制台上点击几下打开 S3TA，并使用速度比较工具从您的位置测试其优势。<br>使用 S3TA，您只需为加速的传输付费。</p>
+<p>不选 2️⃣ <code>S3 Cross-Region Replication</code> 的原因是它更偏向于制造副本的容灾场景。并且如果你使用复制的话，还需要删除源桶中的数据，较为繁琐。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：General line: Collect huge amount of the filesacross multiple continents<br>Conditions: High speed Internet connectivity<br>Task:aggregate the data from all in a single S3 bucket<br>Requirements:as quickas possible, minimize operational complexity  </p>
+<p>Correct answer A:S3 Transfer Acceleration because:</p>
+<ul>
+<li>ideally works with objects for long-distance transfer (usesEdge Locations)</li>
+<li>can speed up content transfers to and from S3 as much as 50-500%</li>
+<li>use cases: mobile &amp; web application uploadsand downloads, distributed office transfers, data exchange with trusted partners. Generally for sharing of large data sets between companies, customers can set up special access to theirS3 buckets with accelerated uploads to speed data exchangesand the pace of innovation.</li>
+</ul>
+<p>B - about disaster recovery<br>C - about transferring data between your local environment and the AWS Cloud<br>D - about disaster recovery</p>
+</blockquote>
+<hr>
+<h3 id="二、Amazon-Athena"><a href="#二、Amazon-Athena" class="headerlink" title="二、Amazon Athena"></a>二、Amazon Athena</h3><p>A company needs the ability to analyze the log files of its proprietary application. The logs are stored in JSON format in an Amazon S3 bucket. Queries will be simple and will run on-demand. A solutions architect needs to perform the analysis with minimal changes to the existing architecture.<br>What should the solutions architect do to meet these requirements with the LEAST amount of operational overhead?</p>
+<ol>
+<li>❌ Use Amazon Redshift to load all the content into one place and run the SQL queries as needed.</li>
+<li>Use Amazon CloudWatch Logs to store the logs. Run SQL queries as needed from the Amazon CloudWatch console.</li>
+<li>✅ Use Amazon Athena directly with Amazon S3 to run the queries as needed.</li>
+<li>Use AWS Glue to catalog the logs. Use a transient Apache Spark cluster on Amazon EMR to run the SQL queries as needed.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：logs are stored in JSON format in an Amazon S3 bucket、Amazon Redshift</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ❌ -&gt; 3️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：日志以 JSON 格式保存在了 <code>S3</code> 存储桶中，需要按需进行检索。要求对当前架构有最小修改。最简单的架构。<br>这是 <code>Amazon Athena</code> 的使用场景。  </p>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/athena/">Amazon Athena 灵活轻松地分析包含它的 PB 级数据</a>  </p>
+<blockquote>
+<p>Amazon Athena 是一项基于开源框架的无服务器交互式分析服务，支持开源表和文件格式。Athena 提供了一种简化、灵活的方法来分析包含它的 PB 级数据。<u><strong>从 Amazon Simple Storage Service（S3）数据湖</strong></u>和超过 30 个数据来源（包括本地数据来源，或使用 SQL 或 Python 的其他云系统）分析数据或构建应用程序。Athena 基于开源 Trino 和 Presto 引擎以及 Apache Spark 框架构建，无需进行预配或配置。</p>
+</blockquote>
+<p>3️⃣ 当然也能解决问题，将数据导入 <code>Redshift</code> 之后在进行检索，但是对比 1️⃣ 更复杂因此不选。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Keyword:  </p>
+<ul>
+<li>Queries will be simple and will run on-demand.</li>
+<li>Minimal changes to the existing architecture.</li>
+</ul>
+<p>A: Incorrect - We have to do 2 step. load all content to Redshift and run SQL query (This is simple query so we can you Athena, for complex query we will apply Redshit)<br>B: Incorrect - Our query will be run on-demand so we don’t need to use CloudWatch Logs to store the logs.<br>C: Correct - This is simple query we can apply Athena directly on S3<br>D: Incorrect - This take 2 step: use AWS Glue to catalog the logsand use Sparkto run SQL query</p>
+</blockquote>
+<hr>
+<h3 id="三、AWS-Organizations"><a href="#三、AWS-Organizations" class="headerlink" title="三、AWS Organizations"></a>三、AWS Organizations</h3><p>A company uses AWS Organizations to manage multiple AWS accounts for different departments. The management account has an Amazon S3 bucket that contains project reports. The company wants to limit access to this S3 bucket to only users of accounts within the organization in AWS Organizations.<br>Which solution meets these requirements with the LEAST amount of operational overhead?</p>
+<ol>
+<li>✅ Add the aws PrincipalOrgID global condition key with a reference to the organization ID to the S3 bucket policy.  </li>
+<li>Create an organizational unit (OU) for each department. Add the aws:PrincipalOrgPaths global condition key to the S3 bucket policy.  </li>
+<li>Use AWS CloudTrail to monitor the CreateAccount, InviteAccountToOrganization, LeaveOrganization, and RemoveAccountFromOrganization events. Update the S3 bucket policy accordingly.  </li>
+<li>Tag each user that needs access to the S3 bucket. Add the aws:PrincipalTag global condition key to the S3 bucket policy.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：IAM、AWS Organizations、S3 bucket policy</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：需要将 <code>S3</code> 存储桶中的产品报告分享给 <code>AWS Organizations</code> 中的用户。最少操作。<br>这是 <code>PrincipalOrgID</code> 的使用场景。  </p>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/blogs/china/control-access-to-aws-resources-by-using-the-aws-organization-of-iam-principals/">AWS:PrincipalOrgID 条件键</a>  </p>
+<blockquote>
+<p><strong>AWS:PrincipalOrgID 条件键</strong><br>您可以使用此条件键将过滤条件应用于基于资源的策略的主体元素。您可以将任何字符串运算符（例如 StringLike）与此条件一起使用，并将 Amazon Organizations ID 指定为其值。</p>
+<table>
+<thead>
+<tr>
+<th>条件键</th>
+<th>说明</th>
+<th>运算符</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>aws:PrincipalOrgID</td>
+<td>验证访问资源的主体是否属于您组织中的账户。</td>
+<td>所有字符串运算符</td>
+<td>任何Amazon Organizations ID</td>
+</tr>
+</tbody></table>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：aws:PrincipalOrgID Validates if the principal accessing the resource belongs to an account in your organization.</p>
+<p>The following condition keysare especially useful with AWS Organizations:<br><code>aws:PrincipalOrgID</code> – Simplifies specifying the Principal element in a resource-based policy.This global key providesan alternative to listing all the account IDs for all AWS accounts in an organization. Instead of listing all of the accounts that are members of an organization, you can specify the organization ID in the Condition element.  </p>
+<p><code>aws:PrincipalOrgPaths</code> – Use this condition key to match members of a specific organization root,an OU, or its children.The aws:PrincipalOrgPaths condition key returns true when the principal (root user, IAM user, or role) making the request is in the specified organization path. A path isa text representation of the structure of an AWS Organizationsentity.</p>
+</blockquote>
+<hr>
+<h3 id="四、VPC-Gateway-Endpoint"><a href="#四、VPC-Gateway-Endpoint" class="headerlink" title="四、VPC Gateway Endpoint"></a>四、VPC Gateway Endpoint</h3><p>An application runs on an Amazon EC2 instance in a VPC. The application processes logs that are stored in an Amazon S3 bucket. The EC2 instance needs to access the S3 bucket without connectivity to the internet.<br>Which solution will provide private network connectivity to Amazon S3?</p>
+<ol>
+<li>✅ Create a gateway VPC endpoint to the S3 bucket.</li>
+<li>Stream the logs to Amazon CloudWatch Logs. Export the logs to the S3 bucket.</li>
+<li>Create an instance profile on Amazon EC2 to allow S3 access.</li>
+<li>Create an Amazon API Gateway API with a private link to access the S3 endpoint.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：S3 bucket、gateway VPC endpoint</p>
+</blockquote>
+<blockquote>
+<p>1️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：运行在 <code>VPC</code> 中的 <code>EC2</code> 实例想要不经由互联网访问 <code>S3</code> 存储桶。<br>这是 <code>网关终端节点</code>（只支持 <code>S3</code> 和 <code>DynamoDB</code>​）的最佳使用场景。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：Keywords:  </p>
+<ul>
+<li>EC2 in VPC</li>
+<li>EC2 instance needs to access the S3 bucket without connectivity to the internet</li>
+</ul>
+<p>A: Correct - Gateway VPC endpoint can connect to S3 bucket privately without additional cost<br>B: Incorrect - You can set up interface VPC endpoint for CloudWatch Logs for private networkfrom EC2 to CloudWatch. But from CloudWatch to S3 bucket: Log data can take up to 12 hours to become available forexport and the requirement only need EC2 to S3<br>C: Incorrect - Create an instance profile just grant access but not help EC2 connect to S3 privately<br>D: Incorrect - API Gateway like the proxy which receive networkfrom out site and it forward request to AWS Lambda, Amazon EC2,Elastic Load Balancing products such as Application Load Balancers or Classic Load Balancers, Amazon DynamoDB, Amazon Kinesis, or any publiclyavailable HTTPS-based endpoint. But notS3</p>
+</blockquote>
+<hr>
+<h3 id="五、EFS"><a href="#五、EFS" class="headerlink" title="五、EFS"></a>五、EFS</h3><p>A company is hosting a web application on AWS using a single Amazon EC2 instance that stores user-uploaded documents in an Amazon EBS volume. For better scalability and availability, the company duplicated the architecture and created a second EC2 instance and EBS volume in another Availability Zone, placing both behind an Application Load Balancer. After completing this change, users reported that, each time they refreshed the website, they could see one subset of their documents or the other, but never all of the documents at the same time.<br>What should a solutions architect propose to ensure users see all of their documents at once?</p>
+<ol>
+<li>Copy the data so both EBS volumes contain all the documents</li>
+<li>Configure the Application Load Balancer to direct a user to the server with the documents</li>
+<li>✅ Copy the data from both EBS volumes to Amazon EFS. Modify the application to save new documents to Amazon EFS</li>
+<li>Configure the Application Load Balancer to send the request to both servers. Return each document from the correct server</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：EFS、分布式数据不一致</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：公司从又在另一个可用区部署了一个使用 <code>EBS</code> 的 <code>EC2</code> 实例，并将其放置在 <code>ALB</code> 后，这导致了用户会随机在既存的一台和新的机器中跳转，存在上传了文件之后被跳转到另一台机器的情况。<br>使用 <code>EFS</code> 解决，之后两台 <code>EC2</code> 实例都使用着一个 <code>EFS</code>。  </p>
+<p>这里需要注意的是：<u><strong><code>EFS</code> 是 <code>区域</code> 级别的资源，它将数据存储在多个可用区中</strong></u>。</p>
+</blockquote>
+<hr>
+<h3 id="六、AWS-Snowball"><a href="#六、AWS-Snowball" class="headerlink" title="六、AWS Snowball"></a>六、AWS Snowball</h3><p>A company uses NFS to store large video files in on-premises network attached storage. Each video file ranges in size from 1MB to 500 GB. The total storage is 70 TB and is no longer growing. The company decides to migrate the video files to Amazon S3. The company must migrate the video files as soon as possible while using the least possible network bandwidth.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Create an S3 bucket. Create an IAM role that has permissions to write to the S3 bucket. Use the AWS CLI to copy all files locally to the S3 bucket.</li>
+<li>✅ Create an AWS Snowball Edge job. Receive a Snowball Edge device on premises. Use the Snowball Edge client to transfer data to the device. Return the device so that AWS can import the data into Amazon S3.</li>
+<li>Deploy an S3 File Gateway on premises. Create a public service endpoint to connect to the S3 File Gateway. Create an S3 bucket. Create a new NFS file share on the S3 File Gateway. Point the new file share to the S3 bucket. Transfer the data from the existing NFS file share to the S3 File Gateway.</li>
+<li>Set up an AWS Direct Connect connection between the on-premises network and AWS. Deploy an S3 File Gateway on premises. Create a public virtual interface (VIF) to connect to the S3 File Gateway. Create an S3 bucket. Create a new NFS file share on the S3 File Gateway. Point the new file share to the S3 bucket. Transfer the data from the existing NFS file share to the S3 File Gateway.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：70 TB、using the least possible network bandwidth、AWS Snowball</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：公司又总量 70 TB 且不再增长的适配文件需要存储，并决定将其迁移到 <code>S3</code>，使用最少的网络带宽。<br>这是 <code>AWS Snowball</code> 的最佳使用场景，申请 <code>Snowball</code> 设备，等收到设备后在本地将数据转移至 <code>Snowball</code> 设备，然后寄给 AWS。  </p>
+<ul>
+<li><code>AWS Snowcone</code>：14TB 的可用存储容量。</li>
+<li><code>Snowball Edge Storage Optimized</code>：80TB 硬盘驱动器 (HDD) 容量，用于块卷和与 Amazon S3 兼容的对象存储。</li>
+<li><code>Snowball Edge Compute Optimized</code>：80TB 可用 HDD 容量，用于与 Amazon S3 兼容的对象存储或与 Amazon EBS 兼容的块卷。28TB 可用 NVMe SSD 容量，用于与 Amazon EBS 兼容的块卷。同时性能更强、也支持添加 GPU 设备。 </li>
+<li><code>AWS Snowmobile</code>：是一个 45 英尺长的加固集装箱，由一台半挂卡车牵引，一次可以传输高达 100PB 的数据。</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="七、Fan-Out"><a href="#七、Fan-Out" class="headerlink" title="七、Fan Out"></a>七、Fan Out</h3><p>A company has an application that ingests incoming messages. Dozens of other applications and microservices then quickly consume these messages. The number of messages varies<sub><u>变化</u></sub> drastically<sub><u>激烈地</u></sub> and sometimes increases suddenly to 100,000 each second. The company wants to decouple the solution and increase scalability.<br>Which solution meets these requirements?</p>
+<ol>
+<li>Persist the messages to Amazon Kinesis Data Analytics. Configure the consumer applications to read and process the messages.</li>
+<li>Deploy the ingestion application on Amazon EC2 instances in an Auto Scaling group to scale the number of EC2 instances based on CPU metrics.</li>
+<li>❌ Write the messages to Amazon Kinesis Data Streams with a single shard. Use an AWS Lambda function to preprocess messages and store them in Amazon DynamoDB. Configure the consumer applications to read from DynamoDB to process the messages.</li>
+<li>✅ Publish the messages to an Amazon Simple Notification Service (Amazon SNS) topic with multiple Amazon Simple Queue Service (Amazon SQS) subscriptions. Configure the consumer applications to process the messages from the queues.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：Data Stream、messages number varies drastically、consume these messages</p>
+</blockquote>
+<blockquote>
+<p>3️⃣ ❌ -&gt; 4️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：需要消费数量变化的数据消息。<br>典型的 Fan Out 架构场景，最终的消费者应用程序肯定是连接 <code>SQS</code> 的。</p>
+<p>这里社区讨论中提到了吞吐量，最新的 <code>SQS</code> 已经不限制吞吐量了：  </p>
+<blockquote>
+<p><strong>无限吞吐量</strong>：标准队列支持使每个 API 操作的每秒事务数 (TPS) 几乎不受限制。</p>
+</blockquote>
+<p>不过 FIFO 队列任然有限制：</p>
+<blockquote>
+<p><strong>高吞吐量</strong>：默认情况下，FIFO 队列每秒最多支持 300 条消息（每秒 300 次发送、接收或删除操作）。如果每次操作批处理 10 条消息（最多），FIFO 队列每秒最多可支持 3,000 条消息。如果您需要更高的吞吐量，可以在 Amazon SQS 控制台上为 FIFO 启用高吞吐量模式，该模式将支持每秒多达 24,000 条消息（使用批处理），或者在不进行批处理的情况下每秒最多支持 2,400 条消息。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：By default,an SQS queue can handle a maximum of 3,000 messages per second. However, you can request higher throughput by contacting AWS Support. AWS can increase the message throughput for your queue beyond the default limits in increments of 300 messages per second, up to a maximum of 10,000 messages per second.</p>
+<p>It’s important to note that the maximum number of messages per second that a queue can handle is not the same as the maximum number of requests per second that the SQS API can handle.The SQS API is designed to handle a high volume of requests per second, so it can be used to send messages to your queue at a rate that exceeds the maximum message throughput of the queue.</p>
+</blockquote>
+<hr>
+<h3 id="八、EC2-Auto-Scaling"><a href="#八、EC2-Auto-Scaling" class="headerlink" title="八、EC2 Auto Scaling"></a>八、EC2 Auto Scaling</h3><p>A company is migrating a distributed application to AWS. The application serves<sub><u>提供</u></sub> variable workloads. The legacy platform consists of a primary server that coordinates<sub><u>协调</u></sub> jobs across multiple compute nodes. The company wants to modernize the application with a solution that maximizes resiliency<sub><u>弹性</u></sub> and scalability<sub><u>可扩展性</u></sub>.<br>How should a solutions architect design the architecture to meet these requirements?</p>
+<ol>
+<li>Configure an Amazon Simple Queue Service (Amazon SQS) queue as a destination for the jobs. Implement the compute nodes with Amazon EC2 instances that are managed in an Auto Scaling group. Configure EC2 Auto Scaling to use scheduled scaling.</li>
+<li>✅ Configure an Amazon Simple Queue Service (Amazon SQS) queue as a destination for the jobs. Implement the compute nodes with Amazon EC2 instances that are managed in an Auto Scaling group. Configure EC2 Auto Scaling based on the size of the queue.</li>
+<li>Implement the primary server and the compute nodes with Amazon EC2 instances that are managed in an Auto Scaling group. Configure AWS CloudTrail as a destination for the jobs. Configure EC2 Auto Scaling based on the load on the primary server.</li>
+<li>Implement the primary server and the compute nodes with Amazon EC2 instances that are managed in an Auto Scaling group. Configure Amazon EventBridge (Amazon CloudWatch Events) as a destination for the jobs. Configure EC2 Auto Scaling based on the load on the compute nodes.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：variable workloads、SQS、EC2 Auto Scaling</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ✅ </p>
+</blockquote>
+<blockquote>
+<p>💡 解析：公司既有的框架中，有一台主要的服务器来分配工作负载，希望在迁移到 AWS 后最大化弹性和扩展性。<br>使用 <code>SQS</code> + <code>EC2</code> 弹性扩展组可以解决问题。<br>而 1️⃣ 和 2️⃣ 对比的话，显然计划扩展不如根据 <code>SQS</code> 队列长度扩展来的好。  </p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：A - incorrect:Schedule scaling policy doesn’t make sense.<br>C, D - incorrect: Primary server should not be in same Auto Scaling group with compute nodes.  </p>
+</blockquote>
+<hr>
+<h3 id="九、S3-and-it’s-lifecycle-policy"><a href="#九、S3-and-it’s-lifecycle-policy" class="headerlink" title="九、S3 and it’s lifecycle policy"></a>九、S3 and it’s lifecycle policy</h3><p>A company is running an SMB file server in its data center. The file server stores large files that are accessed frequently<sub><u>频繁地</u></sub> for the first few days after the files are created. After 7 days the files are rarely<sub><u>少见地，罕有地</u></sub> accessed. The total data size is increasing and is close to the company’s total storage capacity. A solutions architect must increase the company’s available storage space without losing low-latency<sub><u>低延迟的</u></sub> access to the most recently accessed files. The solutions architect must also provide file lifecycle management to avoid future storage issues.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Use AWS DataSync to copy data that is older than 7 days from the SMB file server to AWS.</li>
+<li>✅ Create an Amazon S3 File Gateway to extend the company’s storage space. Create an S3 Lifecycle policy to transition the data to S3 Glacier Deep Archive after 7 days.</li>
+<li>Create an Amazon FSx for Windows File Server file system to extend the company’s storage space.</li>
+<li>Install a utility on each user’s computer to access Amazon S3. Create an S3 Lifecycle policy to transition the data to S3 Glacier Flexible Retrieval after 7 days.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：data size is increasing and is close to the company’s total storage capacity、without losing low-latency access、SMB</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：文件最初的几天访问频繁，7 天之后访问次数很少。文件总规模仍在扩大且快要触及公司存储上限。需要扩容并确保对最常访问文件的低延迟。还需要使用生命周期策略来覆盖未来的存储问题。<br>可能要使用到 <code>S3</code> 与其生命周期策略，在 2️⃣ 和 4️⃣ 中选择的话，2️⃣ 的操作更简单，且使用了 AWS 提供的解决方案。  </p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/filegateway/latest/files3/what-is-file-s3.html">什么是 Amazon S3 文件网关</a></p>
+<blockquote>
+<p>AWS Storage Gateway 可以连接本地 IT 环境与 AWS 存储基础设施。<br>通过使用此组合，可以使用行业标准文件协议（如网络文件系统 (NFS)）和服务器消息块 (SMB) 在 Amazon S3 中存储和检索对象。<br>A S3 File Gateway simplifies file storage in Amazon S3, integrates to existing applications through industry-standard file system protocols, and provides a cost-effective alternative to on-premises storage. <u><strong>It also provides low-latency access to data through transparent local caching. A S3 File Gateway manages data transfer to and from AWS</strong></u>, buffers applications from network congestion, optimizes and streams data in parallel, and manages bandwidth consumption.</p>
+</blockquote>
+<p><code>Amazon S3 File Gateway</code> 使用了文件缓存来确保低延迟（使用 AWS 的网络传输似乎也能保证低延迟？）。</p>
+</blockquote>
+<blockquote>
+<p>👨‍👨‍👦‍👦 社区讨论：B answwer is correct. low latency is only needed for newer files. Additionally, File GW provides low latencyaccess by caching frequentlyaccessed files locally so answer is B</p>
+</blockquote>
+<hr>
+<h3 id="十、Amazon-SQS-FIFO-queue"><a href="#十、Amazon-SQS-FIFO-queue" class="headerlink" title="十、Amazon SQS FIFO queue"></a>十、Amazon SQS FIFO queue</h3><p>A company is building an ecommerce web application on AWS. The application sends information about new orders to an Amazon API Gateway REST API to process. The company wants to ensure that orders are processed in the order that they are received.<br>Which solution will meet these requirements?</p>
+<ol>
+<li>Use an API Gateway integration to publish a message to an Amazon Simple Notification Service (Amazon SNS) topic when the application receives an order. Subscribe an AWS Lambda function to the topic to perform processing.</li>
+<li>✅ Use an API Gateway integration to send a message to an Amazon Simple Queue Service (Amazon SQS) FIFO queue when the application receives an order. Configure the SQS FIFO queue to invoke an AWS Lambda function for processing.</li>
+<li>Use an API Gateway authorizer to block any requests while the application processes an order.</li>
+<li>Use an API Gateway integration to send a message to an Amazon Simple Queue Service (Amazon SQS) standard queue when the application receives an order. Configure the SQS standard queue to invoke an AWS Lambda function for processing.</li>
+</ol>
+<blockquote>
+<p>✨ 关键词：ensure that orders are processed in the order that they are received、Amazon SQS FIFO queue</p>
+</blockquote>
+<blockquote>
+<p>2️⃣ ✅</p>
+</blockquote>
+<blockquote>
+<p>💡 解析：需要按照顺序处理消息。<br>FIFO <code>SQS</code> 的最佳使用场景。  </p>
+<p><a target="_blank" rel="noopener" href="https://www.amazonaws.cn/sqs/features/">Amazon SQS 功能</a></p>
+<blockquote>
+<p><strong>FIFO 队列</strong>  </p>
+<ul>
+<li><strong>“正好一次”处理</strong>：消息只交付一次，在使用者处理并删除它之前一直可用。队列中不会引入重复项。  </li>
+<li><strong>先进先出交付</strong>：严格保持消息的发送和接收顺序（即先进先出）。</li>
+</ul>
+</blockquote>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>SAA 考试每日练习 - 2024/11/17</p><p><a href="https://senjianlu.com/2024/11/17/saa_test_daily_20241117/">https://senjianlu.com/2024/11/17/saa_test_daily_20241117/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Rabbir</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-11-17</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-11-17</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/AWS/">AWS</a><a class="link-muted mr-2" rel="tag" href="/tags/SAA/">SAA</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%AF%8F%E6%97%A5%E7%BB%83%E4%B9%A0/">每日练习</a></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/11/17/knowledge_machine_learning/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">AWS 知识点 - 机器学习 (ML, Machine Learning)</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/11/16/saa_test_daily_20241116/"><span class="level-item">SAA 考试每日练习 - 2024/11/16</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content twikoo" id="twikoo"></div><script src="https://cdnjs.loli.net/ajax/libs/twikoo/1.6.30/twikoo.all.min.js"></script><script>twikoo.init({
+            envId: 'https://qnoej4ws5b2lotcsig3lrcxvom0jlivf.lambda-url.us-west-2.on.aws/',
+            
+            lang: "zh-CN",
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#一、S3-Transfer-Acceleration"><span class="level-left"><span class="level-item">一、S3 Transfer Acceleration</span></span></a></li><li><a class="level is-mobile" href="#二、Amazon-Athena"><span class="level-left"><span class="level-item">二、Amazon Athena</span></span></a></li><li><a class="level is-mobile" href="#三、AWS-Organizations"><span class="level-left"><span class="level-item">三、AWS Organizations</span></span></a></li><li><a class="level is-mobile" href="#四、VPC-Gateway-Endpoint"><span class="level-left"><span class="level-item">四、VPC Gateway Endpoint</span></span></a></li><li><a class="level is-mobile" href="#五、EFS"><span class="level-left"><span class="level-item">五、EFS</span></span></a></li><li><a class="level is-mobile" href="#六、AWS-Snowball"><span class="level-left"><span class="level-item">六、AWS Snowball</span></span></a></li><li><a class="level is-mobile" href="#七、Fan-Out"><span class="level-left"><span class="level-item">七、Fan Out</span></span></a></li><li><a class="level is-mobile" href="#八、EC2-Auto-Scaling"><span class="level-left"><span class="level-item">八、EC2 Auto Scaling</span></span></a></li><li><a class="level is-mobile" href="#九、S3-and-it’s-lifecycle-policy"><span class="level-left"><span class="level-item">九、S3 and it’s lifecycle policy</span></span></a></li><li><a class="level is-mobile" href="#十、Amazon-SQS-FIFO-queue"><span class="level-left"><span class="level-item">十、Amazon SQS FIFO queue</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7999470995937770" data-ad-slot="4944880547" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">森见鹿的博客</a><p class="is-size-7"><span>&copy; 2025 Rabbir</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container" id="algolia-input"></div><div id="algolia-poweredby" style="display:flex;margin:0 .5em 0 1em;align-items:center;line-height:0"></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div><div class="searchbox-footer"></div></div></div><script src="https://cdnjs.loli.net/ajax/libs/algoliasearch/4.0.3/algoliasearch-lite.umd.js" crossorigin="anonymous" defer></script><script src="https://cdnjs.loli.net/ajax/libs/instantsearch.js/4.3.1/instantsearch.production.min.js" crossorigin="anonymous" defer></script><script src="/js/algolia.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadAlgolia({"applicationId":"7AJZPXBDT5","apiKey":"9912c3c2f115ee79e98f584754add4a8","indexName":"hexo-theme-icarus"}, {"hint":"想要查找什么...","no_result":"未找到搜索结果","untitled":"(无标题)","empty_preview":"(无内容预览)"});
+        });</script></body></html>
